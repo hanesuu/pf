@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="47px" viewBox="0 0 61 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_pay_send</title>
+    <desc>Created with Sketch.</desc>
+    <g id="✡️Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="img/ico_pay_send">
+            <g id="ico_pay_send">
+                <rect id="bound" x="0" y="0" width="61" height="47"></rect>
+                <g id="Group-6" transform="translate(12.750400, 6.750200)">
+                    <path d="M37,18.5006941 C37,27.6109873 29.388508,35 19.9978547,35 C10.611492,35 3,27.6109873 3,18.5006941 C3,9.38901275 10.611492,2 19.9978547,2 C29.388508,2 37,9.38901275 37,18.5006941 Z" id="Stroke-17" fill="#FFD786"></path>
+                    <path d="M34,16.5006941 C34,25.6109873 26.388508,33 16.9978547,33 C7.61149203,33 0,25.6109873 0,16.5006941 C0,7.38901275 7.61149203,0 16.9978547,0 C26.388508,0 34,7.38901275 34,16.5006941 Z" id="Stroke-17" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <polyline id="Stroke-19" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="11 11 14.4790951 23 17.9581903 11.2012395 20.8871945 23 24 11.4068538"></polyline>
+                    <line x1="25" y1="16" x2="10" y2="16" id="Stroke-21" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+                <polyline id="Stroke-1" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 5.22716267 9.8555074 5.22716267 9.8555074 1 5.17667012 5.22716267 5.17308961 5.22716267 5.17308961 5.23068457 1 9.00176095 5.17308961 12.7693154 5.17308961 12.7745983 5.17667012 12.7745983 9.8555074 17 9.8555074 12.7745983 12.8344954 12.7745983"></polyline>
+                <polyline id="Stroke-3" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="41 41.7728373 51.1444926 41.7728373 51.1444926 46 55.8233299 41.7728373 55.8269104 41.7728373 55.8269104 41.7693154 60 37.998239 55.8269104 34.2306846 55.8269104 34.2254017 55.8233299 34.2254017 51.1444926 30 51.1444926 34.2254017 48.1655046 34.2254017"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

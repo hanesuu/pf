@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/*** 팝업 ***/
+.pop-layer {
+	position:fixed; top:0; left:0; width:100%; height:100%;
+	z-index:-1; opacity:0; transition:all 0.2s
+}
+.pop-layer.on {z-index:9990; opacity:1}
+.pop-layer .bg-dim {
+	position:absolute; top:0; left:0; width:100%; height:100%;
+	background:rgba(0,0,0,.5)
+}
+.wrap-pop {
+	position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+	width:100%; max-width:640px;
+	background-color:#fff; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.2)
+}
+.wrap-pop .head-pop {
+	position:relative; padding:20px; text-align:center;
+	border-bottom:1px solid #dcdee4
+}
+.wrap-pop .head-pop .logo {
+	width:93px; height:24px; margin:0 5px; vertical-align:text-bottom
+}
+.wrap-pop .head-pop .tit {font-size:1.8rem; font-weight:300}
+.wrap-pop .btn-close {
+	position:absolute; right:25px; top:18px; width:30px; height:30px;
+	font-size:0; background:transparent; border:0; cursor:pointer
+}
+.wrap-pop .btn-close:before,
+.wrap-pop .btn-close:after {
+    content: ''; position:absolute; top:5px; left:15px; height:20px;
+    border-left:1px solid #969aaf
+}
+.wrap-pop .btn-close:before {transform:rotate(-45deg)}
+.wrap-pop .btn-close:after {transform:rotate(45deg)}
+.wrap-pop .con-pop {position:relative; max-height:80vh; padding:20px; overflow-y:auto}
+.wrap-pop .foot-pop {padding:20px 0; text-align:center}
+.wrap-pop .foot-pop .btn {margin:0 5px; padding:12px 40px; font-size:1.6rem; box-shadow:0 4px 20px rgba(54,56,88,.2)}
+/* mobile */
+@media all and (max-width:768px){
+	.wrap-pop .foot-pop {padding:2vh 0; border-top:1px solid #dcdee4}
+}
+
+
+/* 서비스 문의 */
+.pop-layer .con-pop .agree {margin-top:15px; text-align:center}
+
+/* 대리점 회원가입 */
+.pop-agentjoin .wrap-tab li {width:50%}

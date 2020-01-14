@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Pay&Api 홈페이지</title>
+<meta name="keyword" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+<link rel="shortcut icon" type="image/x-icon" href="files/img/favicon.ico">
+<link rel="icon" href="files/img/favicon_32.png" sizes="32x32">
+<link rel="icon" href="files/img/favicon_64.png" sizes="64x64">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="files/js/common.js"></script>
+<link rel="stylesheet" href="files/css/line-awesome.min.css">
+<link rel="stylesheet" href="files/css/basic.css">
+</head>
+
+<body>
+<!--공통 - 헤더-->
+<header class="header">
+  <h1><a href="index.html" class="logo">Pay&Api</a></h1>
+  <nav class="gnb">
+    <ul>
+      <li>
+        <a href="index.html">레알대박</a>
+      </li>
+      <li>
+        <a href="api.html">이용 가능 API</a>
+      </li>
+      <li class="active">
+        <a href="sell.html">돈 버는 법</a>
+      </li>
+      <li>
+        <a href="calc.html">돈 받는 법</a>
+      </li>
+      <li>
+        <a href="help.html">고객센터</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="wrap-user">
+    <a href="#" target="_blank" title="새 탭으로 이동">로그인</a>
+    <a href="#" target="_blank" title="새 탭으로 이동">회원가입</a>
+  </div>
+  <div class="m-gnb">
+    <a href="#" class="btn-m-gnb">
+      <i class="la la-bars"></i>
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html"><i class="las la-home"></i> 레알대박</a>
+        </li>
+        <li>
+          <a href="api.html"><i class="las la-sitemap"></i> 이용 가능 API</a>
+        </li>
+        <li>
+          <a href="sell.html"><i class="las la-coins"></i> 돈 버는 법</a>
+        </li>
+        <li>
+          <a href="calc.html"><i class="las la-coins"></i> 돈 받는 법</a>
+        </li>
+        <li>
+          <a href="help.html"><i class="las la-headset"></i> 고객센터</a>
+        </li>
+      </ul>
+      <div class="wrap-m-user">
+        <a href="#" target="_blank" title="새 탭으로 이동">로그인</a>
+        <a href="#" target="_blank" title="새 탭으로 이동">회원가입</a>
+      </div>
+      <a class="btn-m-close"><i class="la la-close"></i></a>
+    </nav>
+    <div class="bg-dim"></div>
+  </div>  
+</header>
+
+<!--컨텐츠-->
+<div class="container-body pg-sell pg-agent">
+  <section class="sect-sub-top">
+    <div class="bg-grad sect-bl">
+      <div class="bg-img"></div>
+      <a href="sell.html" class="a-link view-pc">
+        <span class="tit">리셀러<br>수익모델</span>
+        <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#fff" stroke-width="2"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
+    <div class="inner">
+      <div class="wrap-txt txt-wt">
+        <h2 class="tit">개발자 회원을 다수 보유한 대리점 수익모델</h2>
+        <h3 class="tit-sub">매달 1,000만원 이상의 수익내기, 어렵지 않아요~</h3>
+        <a href="sell.html" class="a-link view-mb">
+          <span class="tit">리셀러<br>수익모델</span>
+          <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#fff" stroke-width="2"></path>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="wrap-img wrap-calc">
+        <div class="bx-basic left">
+          <span class="img-store"></span>
+          <dl class="txt-def">
+            <dt><div class="label-txt label-rd">리셀러 활용 시</div>결제수수료 마진</dt>
+            <dd>유디페이 결제연동을 통해 판매점 결제가 발생할 경우 지급<br>(결제금액의 0.1%)</dd>
+          </dl>
+          <div class="foot-calc">
+            <dl class="txt-calc">
+              <dt>결제 API를 연동한 판매점의 <br>한달 결제 매출</dt>
+              <dd>100억원</dd>
+            </dl>
+            <i class="las la-times"></i>
+            <dl class="txt-calc">
+              <dt>마진율 <br>설정값</dt>
+              <dd>0.1%</dd>
+            </dl>
+            <i class="las la-equals"></i>
+            <div class="total">1,000만원</div>
+          </div>
+        </div>
+        <div class="ico-plus"></div>
+        <div class="bx-basic right">
+          <span class="img-store"></span>
+          <dl class="txt-def">
+            <dt><div class="label-txt label-rd">리셀러 활용 시</div>유료 API 마진</dt>
+            <dd>유디페이 유료 API 연동을 통해 판매점 이용 Traffic이 발생할 경우 지급<br>(이용요금의 5%)</dd>
+          </dl>
+          <div class="foot-calc">
+            <dl class="txt-calc">
+              <dt>유료 API를 연동한 판매점의 <br>한달 이용요금 총액</dt>
+              <dd>5,000만원</dd>
+            </dl>
+            <i class="las la-times"></i>
+            <dl class="txt-calc">
+              <dt>기본 <br>마진율</dt>
+              <dd>5%</dd>
+            </dl>
+            <i class="las la-equals"></i>
+            <div class="total">250만원</div>
+          </div>
+        </div>
+      </div>
+      <div class="bx-basic bx-list">
+        <h4 class="tit">직접 판매점 등록 시</h4>
+        <ul class="list-type disc">
+          <li>리셀러 기본마진(결제금액의 0.4%, 유료 API 마진의 20%)까지 대리점이 분배 받음</li>
+          <li>판매점 특성에 따라 기본 마진에 +/- 함으로써 판매점 요금을 탄력적으로 결정 가능</li>
+        </ul>
+      </div>
+      <div class="wrap-btn">
+        <a href="#" target="_blank" class="btn btn-lg btn-primary"><i class="las la-file-alt"></i> 제안서 보기</a>
+        <a href="#" target="_blank" class="btn btn-lg btn-point"><i class="las la-file-alt"></i> 매뉴얼 보기</a>
+      </div>
+    </div>
+  </section>
+  <!--리셀러 과정-->
+  <section class="sect-wt sect-step">
+    <div class="inner">
+      <div class="wrap-txt">
+        <h2 class="tit"><span class="logo">Pay&Api</span>대리점으로 대박내는 법</h2>
+        <p class="tit-txt-s">개발자 회원들에게 페이앤 리셀러를 적극 홍보하세요. <br>짱짱한 연금성 수익이 기다립니다~</p>
+      </div>
+      <div class="wrap-step">
+        <ul class="row">
+          <li class="col-xs-12 col-sm-6">
+            <img src="files/img/ico_sect1_07@2x.png">
+            <div class="label-txt">STEP 1</div>
+            <dl>
+              <dt class="tit">대리점 <br>무료 회원가입</dt>
+              <dd class="txt"><a onclick="fnShowPop('popAgentJoin')" class="txt-link">회원가입</a> 후 대리점 전용 관리자 페이지에 접속이 가능합니다.<br>가입 후 귀사 전용 리셀러 가입링크가 생성되며, 이 링크로 가입한 회원은 <br>귀사의 리셀러로 자동 등록됩니다.</dd>
+            </dl>
+          </li>
+          <li class="col-xs-12 col-sm-6">
+            <img src="files/img/ico_sect1_04@2x.png">
+            <div class="label-txt">STEP 2</div>
+            <dl>
+              <dt class="tit">이용 가능 API 및 <br>공급원가 확인하기</dt>
+              <dd class="txt">로그인 후 API별 내 원가 조회가 가능합니다.</dd>
+            </dl>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="col-xs-12 col-sm-6">
+            <img src="files/img/ico_sect1_06@2x.png">
+            <div class="label-txt">STEP 3</div>
+            <dl>
+              <dt class="tit">리셀러 등록</dt>
+              <dd class="txt">귀사 전용 가입링크를 배너로 게시하거나 공유하여 <br>개발자 회원들의 셀프 가입을 유도할 수 있으며, <br>리셀러 계정을 직접 등록할 수도 있습니다.</dd>
+            </dl>
+          </li>
+          <li class="col-xs-12 col-sm-6">
+            <img src="files/img/ico_sect1_03@2x.png">
+            <div class="label-txt">STEP 4</div>
+            <dl>
+              <dt class="tit">판매점 API <br>연동하기</dt>
+              <dd class="txt">대리점 하부의 리셀러들이 판매점 API를 연동하거나, <br>대리점이 직접 판매점 등록 후 API 연동을 대행할 수 있습니다. <br>판매점 연동토큰과 매뉴얼을 참고해 API를 연동하세요.</dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!--간편 설정 끝-->
+  <section class="sect-wt sect-finish">
+    <div class="bg-grad sect-yl">
+      <div class="inner">
+        <span class="bg-back-l"></span>
+        <span class="bg-fire-l"></span>
+        <span class="bg-back-r"></span>
+        <span class="bg-fire-r"></span>
+      </div>
+    </div>
+    <div class="inner">
+      <div class="wrap-txt txt-wt">
+        <h2 class="tit">간편 설정 끝.</h2>
+        <h3 class="tit-sub">이제 기다리기만 하면 아래와 같은 과정으로 수익이 들어옵니다.</h3>
+      </div>      
+      <div class="bx-basic">
+        <div class="process">
+          <div class="oval store">
+            <div class="img">
+              <img src="files/img/img_line_store@2x.png">
+            </div>
+            <p>판매점</p>
+          </div>
+          <div class="arrow">
+            <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#FFAF0E" stroke-width="2"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="oval udpay">
+            <div class="img">
+              <img src="files/img/logo_udpay@2x.png">
+            </div>
+            <p>유디페이</p>
+          </div>
+          <div class="arrow">
+            <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#FFAF0E" stroke-width="2"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="oval last">
+            <div class="img">
+              <img src="files/img/main_v_coins@2x.png">
+            </div>
+            <p>대리점</p>
+          </div>
+        </div>
+        <div class="process-txt">
+          <dl>
+            <dt class="tit">1. 판매점에서 유디페이로 결제수수료, 이용요금 지불</dt>
+            <dd class="txt">연동 후 Traffic에 따라 판매점은 API 결제수수료 및 유료 API의 이용요금을 유디페이로 지불합니다.<br>선불충전 API는 당월분 사용액이 당월에 결제되며, <br>후불결제 API는 당월분 사용액이 다음달 20일까지 납부됩니다.</dd>
+          </dl>
+          <dl>
+            <dt class="tit">2. 판매점에 대해 설정한 대리점 마진금액이 다음달 말일까지 일괄 지급</dt>
+            <dd class="txt">결제수수료 및 선불충전 API 마진은 다음달에, 후불결제 API 마진은 다다음달에 지급됩니다.<br>수익정산을 처음 받으실 때 <a href="calc.html" class="txt-link">간단한 서류 몇가지</a>를 제출하셔야 합니다~</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!--공통 - 푸터-->
+<footer class="footer">
+  <div class="inner">
+    <div class="wrap-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="93" height="24" viewBox="0 0 174 45">
+        <g fill="none" fill-rule="evenodd">
+            <path fill="#fff" d="M13.893 10.161c3.534 0 6.442 1.275 8.727 3.824 2.32 2.53 3.48 5.727 3.48 9.583 0 3.77-1.151 6.914-3.453 9.428-2.285 2.497-5.167 3.746-8.648 3.746-3.005 0-5.694-1.18-8.067-3.54V45H0V10.86h5.932v2.737c2.338-2.29 4.991-3.436 7.961-3.436zm47.797 0l7.526 14.011 7.02-14.01h6.414L65.264 43.547h-6.411l7.307-13.546-11.06-19.84h6.59zm32.268 0c1.91 0 3.521.59 4.788 1.755 1.287 1.182 1.94 2.695 1.94 4.493a5.832 5.832 0 0 1-1.065 3.402c-.568.826-1.482 1.747-2.791 2.81l3.37 4.098c.306-.343.6-.681.878-1.01.408-.48.816-.99 1.217-1.512l.279-.364.286-.375.33.338 3 3.1.236.242-.194.28-.189.27c-.314.452-.73.982-1.236 1.573-.385.45-.822.95-1.301 1.483l4.705 5.842.539.67h-6.748l-.123-.153-2.047-2.527c-2.241 2.101-4.611 3.166-7.052 3.166-2.401 0-4.474-.786-6.164-2.344-1.67-1.583-2.516-3.564-2.516-5.885 0-2.77 1.323-5.092 3.932-6.903l1.235-.847c-1.383-1.688-2.084-3.394-2.084-5.077 0-1.91.637-3.494 1.895-4.71 1.27-1.205 2.912-1.815 4.88-1.815zm-54.98 0c2.822 0 5.353 1.185 7.594 3.555v-2.87H52.2V35.58h-5.628v-2.59c-2.308 2.2-4.788 3.301-7.444 3.301-3.354 0-6.126-1.236-8.317-3.707-2.174-2.522-3.261-5.672-3.261-9.446 0-3.707 1.087-6.797 3.26-9.269 2.176-2.47 4.898-3.707 8.169-3.707zM92.55 25.717c-1.262.898-2.135 1.627-2.597 2.163-.424.5-.63 1.004-.63 1.535 0 .83.334 1.582 1.008 2.287.704.681 1.447 1.013 2.272 1.013 1.098 0 2.418-.715 3.928-2.128zM12.918 15.405c-2.179 0-3.945.741-5.298 2.222-1.354 1.481-2.03 3.426-2.03 5.838 0 2.359.676 4.305 2.03 5.838 1.334 1.497 3.093 2.247 5.272 2.247 2.057 0 3.752-.758 5.088-2.274 1.371-1.515 2.057-3.408 2.057-5.682 0-2.412-.669-4.374-2.004-5.89-1.354-1.532-3.058-2.3-5.115-2.3zm27.106-.09c-1.926 0-3.535.746-4.831 2.235-1.278 1.507-1.917 3.369-1.917 5.587 0 2.37.623 4.3 1.868 5.79 1.278 1.506 2.888 2.259 4.83 2.259 2.075 0 3.752-.728 5.03-2.184 1.279-1.506 1.917-3.418 1.917-5.739 0-2.318-.638-4.23-1.917-5.738-1.278-1.473-2.938-2.21-4.98-2.21zm53.886-.403c-.481 0-.853.134-1.179.43-.292.254-.422.543-.422.937 0 .542.232 1.102.688 1.663l.644.781c.383-.297.697-.551.955-.775.37-.318.541-.514.631-.637.216-.268.317-.58.317-.983 0-.436-.13-.757-.405-1.014-.29-.27-.693-.402-1.229-.402z"/>
+            <path fill="#fff" d="M151.644 10.161c3.533 0 6.441 1.28 8.726 3.84 2.32 2.544 3.48 5.754 3.48 9.628 0 3.789-1.15 6.947-3.452 9.473-2.287 2.508-5.17 3.763-8.648 3.763-3.006 0-5.695-1.185-8.067-3.555V45h-5.933V10.862h5.933v2.75c2.337-2.3 4.99-3.45 7.961-3.45zm-30.015 0c2.821 0 5.352 1.185 7.593 3.555v-2.87h5.628V35.58h-5.628v-2.59c-2.308 2.2-4.788 3.301-7.444 3.301-3.354 0-6.126-1.235-8.317-3.707-2.174-2.522-3.261-5.67-3.261-9.445 0-3.708 1.087-6.798 3.26-9.269 2.176-2.47 4.898-3.708 8.169-3.708zm51.53.378v24.3h-5.568v-24.3h5.568zm-22.49 4.89c-2.18 0-3.946.744-5.3 2.233-1.352 1.487-2.029 3.442-2.029 5.864 0 2.37.677 4.326 2.03 5.865 1.335 1.506 3.093 2.258 5.273 2.258 2.056 0 3.751-.761 5.087-2.284 1.371-1.522 2.058-3.425 2.058-5.709 0-2.423-.669-4.394-2.004-5.917-1.355-1.539-3.059-2.31-5.116-2.31zm-27.995-.113c-1.926 0-3.535.746-4.831 2.234-1.278 1.507-1.917 3.369-1.917 5.588 0 2.369.623 4.3 1.868 5.788 1.278 1.507 2.888 2.26 4.83 2.26 2.075 0 3.752-.727 5.03-2.184 1.279-1.506 1.917-3.418 1.917-5.739 0-2.318-.638-4.23-1.917-5.738-1.278-1.473-2.938-2.209-4.98-2.209zM170.362 0c1.007 0 1.864.358 2.574 1.073.709.698 1.064 1.555 1.064 2.57 0 1.014-.355 1.88-1.064 2.594-.693.716-1.543 1.073-2.55 1.073a3.484 3.484 0 0 1-2.571-1.073c-.71-.715-1.065-1.588-1.065-2.62 0-.98.354-1.829 1.065-2.544C168.523.358 169.373 0 170.362 0z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="foot-info">
+      <ul class="link-terms">
+        <li>
+          <a href="#" target="_blank" title="새 탭으로 이동">개인정보 처리방침</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="새 탭으로 이동">서비스 이용약관</a>
+        </li>
+      </ul>
+      <div class="info-comp">
+        <div>
+          <span><b>(주)유디아이디</b></span>
+          <address>서울특별시 구로구 디지털로26길 61, 1202호 (구로동, 에이스하이엔드타워2차)</address>
+        </div>
+        <div>
+          <span>대표 <b>김재인</b></span>
+          <span>사업자등록번호 <b>113-86-56537</b></span>
+          <span>통신판매업신고번호 <b>제 2012-서울구로-0239호</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="cs-info">
+      <dl>
+        <dt>고객센터</dt>
+        <dd>0000-0000</dd>
+      </dl>
+      <p><b>평일 9:00~18:00</b> 점심 12:00~13:00</p>
+    </div>
+  </div>
+  <a href="#" class="top">
+    <i class="la la-angle-up"></i>
+  </a>
+  <a onclick="fnShowPop('popHelp')" class="btn-help">
+    <i class="las la-user-edit"></i>
+    <span>문의하기</span>
+  </a>
+</footer>
+
+<!--POPUP:대리점 회원가입-->
+<div id="popAgentJoin" class="pop-layer pop-agentjoin">
+  <div class="bg-dim"></div>
+  <div class="wrap-pop">
+    <div class="head-pop">
+      <h2 class="tit"><span class="logo">Pay&Api</span> 대리점 무료 회원가입</h2>
+      <button onclick="fnHidePop('popAgentJoin')" class="btn-close">닫기</button>
+    </div>
+    <div class="con-pop">
+    <!--탭-->
+      <div class="wrap-tab">
+        <ul>
+          <li class="active" rel="tab1_1">개인</li>
+          <li rel="tab1_2">사업자</li>
+        </ul>
+      </div>
+      <!--개인-->
+      <div class="tab_container">
+        <div id="tab1_1" class="tab_content">
+          <div class="row wrap-form">
+            <dl class="col-xs-12">
+              <dt><label for="user">이름</label></dt>
+              <dd>
+                <input class="inp-txt" id="user" placeholder="이름을 입력하세요." type="text">
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!--사업자-->
+      <div class="tab_container">
+        <div id="tab1_2" class="tab_content">
+          <div class="row wrap-form">
+            <dl class="col-xs-12">
+              <dt><label for="comp">상호명(법인명)</label></dt>
+              <dd>
+                <input class="inp-txt" id="comp" placeholder="상호명(법인명)을 입력하세요." type="text">
+              </dd>
+            </dl>
+            <dl class="col-xs-12 col-sm-6">
+              <dt><label for="compnum">사업자등록번호</label></dt>
+              <dd>
+                <input class="inp-txt" id="compnum" placeholder="사업자등록번호를 입력하세요." type="tel">
+              </dd>
+            </dl>
+            <dl class="col-xs-12 col-sm-6">
+              <dt><label for="ceo">대표자명</label></dt>
+              <dd>
+                <input class="inp-txt" id="ceo" placeholder="대표자명을 입력하세요." type="text">
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!--공통-->
+      <div class="row wrap-form">
+        <dl class="col-xs-12 col-sm-6">
+          <dt><label for="tel">휴대폰번호</label></dt>
+          <dd class="alot">
+            <input class="inp-txt" id="tel" placeholder="휴대폰번호를 입력하세요." type="tel">
+            <button class="btn btn-line-b">인증받기</button>
+          </dd>
+          <dd class="txt-error">휴대폰 번호를 확인해 주세요.</dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt><label for="cert">휴대폰 인증번호</label></dt>
+          <dd class="alot">
+            <div class="wrap-inp-time">
+              <input type="tel" placeholder="숫자만 입력하세요." class="inp-txt">
+              <span class="txt-time">3:00</span>
+            </div>
+            <button class="btn btn-line-b">인증완료</button>
+          </dd>
+        </dl>
+        <dl class="col-xs-12">
+          <dt><label for="id">아이디</label></dt>
+          <dd class="alot">
+            <input class="inp-txt" id="id" placeholder="아이디를 입력하세요." type="text">
+            <button class="btn btn-line-b">중복확인</button>
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt><label for="pw">비밀번호</label></dt>
+          <dd>
+            <input class="inp-txt" id="pw" placeholder="비밀번호를 입력하세요." type="password">
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt><label for="pwok">비밀번호 확인</label></dt>
+          <dd>
+            <input class="inp-txt" id="pwok" placeholder="비밀번호를 한번 더 입력하세요." type="password">
+          </dd>
+        </dl>
+        <dl class="col-xs-12">
+          <dt><label for="email">이메일</label></dt>
+          <dd>
+            <input class="inp-txt" id="email" placeholder="이메일을 입력하세요." type="text">
+          </dd>
+        </dl>
+        <dl class="col-xs-12">
+          <dt><label for="url">홈페이지</label></dt>
+          <dd>
+            <input class="inp-txt" id="url" placeholder="홈페이지를 입력하세요." type="text">
+          </dd>
+        </dl>
+      </div>
+      <div class="agree">
+        <label class="inp-check" for="agree">
+          <span class="txt"><a href="#" target="_blank" class="txt-link">서비스 이용약관</a> 및 <a href="#" target="_blank" class="txt-link">개인정보 처리방침</a>에 동의합니다.</span>
+          <input id="agree" name="agree" type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    <div class="foot-pop">
+      <a onclick="fnHidePop('popAgentJoin')" class="btn">취소</a>
+      <a class="btn btn-primary">등록</a>
+    </div>
+  </div>
+</div>
+
+<!--POPUP:문의하기-->
+<div id="popHelp" class="pop-layer pop-help">
+  <div class="bg-dim"></div>
+  <div class="wrap-pop">
+    <div class="head-pop">
+      <h2 class="tit"><span class="logo">Pay&Api</span> 서비스 문의</h2>
+      <button onclick="fnHidePop('popHelp')" class="btn-close">닫기</button>
+    </div>
+    <div class="con-pop">
+      <div class="row wrap-form">
+        <dl class="col-xs-12 col-sm-6">
+          <dt>문의유형</dt>
+          <dd>
+            <div class="inp-txt select">
+              <label for="type">문의유형 선택</label>
+              <select id="type">
+                <option value="">가입 문의</option>
+                <option value="">API 연동 문의</option>
+                <option value="">이용 문의</option>
+                <option value="">개발 요청</option>
+                <option value="">영업 문의</option>
+                <option value="">제휴 문의</option>
+                <option value="">기타</option>
+              </select>
+            </div>
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt>API명</dt>
+          <dd>
+            <div class="inp-txt select">
+              <label for="api">API명 선택</label>
+              <select id="api">
+                <option value="">카드결제</option>
+                <option value="">실시간 계좌이체</option>
+                <option value="">가상계좌</option>
+                <option value="">휴대폰 소액결제</option>
+                <option value="">삼성페이</option>
+                <option value="">네이버페이</option>
+                <option value="">카카오페이</option>
+                <option value="">페이코</option>
+                <option value="">알리페이</option>
+                <option value="">텐페이</option>
+                <option value="">페이팔</option>
+                <option value="">정기결제 (빌링결제)</option>
+                <option value="">링크결제</option>
+                <option value="">현금영수증</option>
+                <option value="">카메라결제</option>
+                <option value="">NFC결제</option>
+                <option value="">문자발송</option>
+                <option value="">알림톡</option>
+                <option value="">본인인증</option>
+              </select>
+            </div>
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt class="must"><label for="comp">회사명</label></dt>
+          <dd>
+            <input class="inp-txt" id="comp" placeholder="회사명을 입력하세요." type="text">
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt class="must"><label for="email">이메일</label></dt>
+          <dd>
+            <input class="inp-txt" id="email" placeholder="이메일을 입력하세요." type="text">
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt class="must"><label for="tel">전화번호</label></dt>
+          <dd>
+            <input class="inp-txt" id="tel" placeholder="전화번호를 입력하세요." type="tel">
+          </dd>
+        </dl>
+        <dl class="col-xs-12 col-sm-6">
+          <dt class="must"><label for="pw">비밀번호</label></dt>
+          <dd>
+            <input class="inp-txt" id="pw" placeholder="비밀번호를 입력하세요." type="password">
+          </dd>
+        </dl>
+        <dl class="col-xs-12">
+          <dt class="must"><label for="cont">문의 내용</label></dt>
+          <dd>
+            <input class="inp-txt" id="cont" placeholder="제목을 입력하세요." type="text">
+          </dd>
+          <dd>
+            <textarea class="inp-txt" placeholder="문의 내용을 입력하세요."></textarea>
+          </dd>
+        </dl>
+      </div>
+      <div class="agree">
+        <label class="inp-check" for="agree">
+          <span class="txt"><a href="#" target="_blank" class="txt-link">서비스 이용약관</a> 및 <a href="#" target="_blank" class="txt-link">개인정보 처리방침</a>에 동의합니다.</span>
+          <input id="agree" name="agree" type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    <div class="foot-pop">
+      <a onclick="fnHidePop('popHelp')" class="btn">취소</a>
+      <a class="btn btn-primary">등록</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

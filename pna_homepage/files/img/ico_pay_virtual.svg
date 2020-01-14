@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="45px" viewBox="0 0 56 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_pay_virtual</title>
+    <desc>Created with Sketch.</desc>
+    <g id="✡️Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="img/ico_pay_virtual" transform="translate(0.000000, -1.000000)">
+            <g id="ico_pay_virtual">
+                <rect id="bound" x="0" y="0" width="56" height="47"></rect>
+                <g id="Group" transform="translate(1.000000, 9.000000)" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M37.5833333,22 L41,34.4444444 C41,36 39.9802042,36 38.7222222,36 L2.27777778,36 C1.01979585,36 0,36 0,34.4444444 L3.41666667,22 L37.5833333,22 Z" id="Rectangle"></path>
+                    <line x1="15" y1="22" x2="13" y2="36" id="Line"></line>
+                    <line x1="28" y1="22" x2="26" y2="36" id="Line" transform="translate(27.000000, 29.000000) scale(-1, 1) translate(-27.000000, -29.000000) "></line>
+                    <path d="M38,22 L38,2.44444444 C38,1.09441506 36.9553311,0 35.6666667,0 L5.33333333,0 C4.04466892,0 3,1.09441506 3,2.44444444 L3,22" id="Rectangle"></path>
+                    <line x1="9.58333333" y1="11.5" x2="22.4166667" y2="11.5" id="Line-2"></line>
+                    <line x1="9.5625" y1="15.5" x2="26.4375" y2="15.5" id="Line-2"></line>
+                </g>
+                <g id="Group-6" transform="translate(28.000000, 2.000000)">
+                    <path d="M25,12.5005258 C25,19.4022631 19.4033147,25 12.4984226,25 C5.59668532,25 0,19.4022631 0,12.5005258 C0,5.59773693 5.59668532,0 12.4984226,0 C19.4033147,0 25,5.59773693 25,12.5005258 Z" id="Stroke-17" fill="#FFFFFF"></path>
+                    <path d="M28,14.5005258 C28,21.4022631 22.4033147,27 15.4984226,27 C8.59668532,27 3,21.4022631 3,14.5005258 C3,7.59773693 8.59668532,2 15.4984226,2 C22.4033147,2 28,7.59773693 28,14.5005258 Z" id="Stroke-17" fill="#FFD786"></path>
+                    <path d="M25,12.5005258 C25,19.4022631 19.4033147,25 12.4984226,25 C5.59668532,25 0,19.4022631 0,12.5005258 C0,5.59773693 5.59668532,0 12.4984226,0 C19.4033147,0 25,5.59773693 25,12.5005258 Z" id="Stroke-17" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <polyline id="Stroke-19" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="8 9 10.4086043 17 12.8172086 9.13415968 14.8449808 17 17 9.27123587"></polyline>
+                    <line x1="18" y1="12" x2="7" y2="12" id="Stroke-21" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
