@@ -27,7 +27,7 @@ section.sect-sub-top {padding:60px 0 0}
 .wrap-txt {margin-bottom:60px; color:#36384d}
 .wrap-txt .tit {font-size:3.6rem; font-weight:700; line-height:1.8}
 .wrap-txt .tit-sub {font-size:2.4rem; font-weight:300; line-height:1.4}
-.wrap-txt .tit-txt {margin-top:14px; font-size:2rem; font-weight:300}
+.wrap-txt .tit-txt {margin-top:14px; font-size:2rem; font-weight:300; line-height:1.4}
 .wrap-txt .tit-txt-s {margin-top:14px; font-size:1.6rem}
 .txt {font-size:1.4rem}
 .label-txt {
@@ -129,8 +129,8 @@ section.sect-sub-top {padding:60px 0 0}
     /* text */
     .wrap-txt {margin-bottom:40px}
     .wrap-txt .tit {font-size:3rem; line-height:1.4}
-    .wrap-txt .tit-sub {font-size:2.1rem}
-    .wrap-txt .tit-txt {font-size:1.9rem}
+    .wrap-txt .tit-sub {font-size:2rem}
+    .wrap-txt .tit-txt {font-size:1.8rem}
 
 }
 
@@ -194,17 +194,17 @@ section.sect-main {padding-bottom:0}
 section.sect-about {padding-bottom:70px}
 .sect-about .inner {max-width:920px}
 .sect-about .wrap-txt .tit-txt-s {margin-top:30px}
-.sect-about .wrap-txt .logo {width:155px; height:41px}
+.sect-about .wrap-txt .logo {width:15.5rem; height:4.5rem}
 .list-pna li {margin-bottom:50px}
 .list-pna img {max-width:62px}
 .list-pna .txt {margin-top:14px; font-weight:400}
 /* pc */
 @media all and (max-width:1080px){
-    .sect-about .wrap-txt .logo {width:125px; height:33px}
     .list-pna .txt {margin-top:8px; font-size:1.7rem}
 }
 /* mobile */
 @media all and (max-width:768px){
+    .sect-about .wrap-txt .logo {width:14rem; height:3.8rem}
     .list-pna li {margin-bottom:35px}
     .list-pna img {max-width:52px}
 }
@@ -438,7 +438,7 @@ section.sect-picxell {padding:65px 0 100px}
 .sect-step .wrap-step .label-txt {margin:20px auto 12px}
 .sect-step .wrap-step .tit {margin-bottom:10px; font-size:1.8rem; font-weight:700; line-height:1.4}
 section.sect-finish {padding:80px 0}
-.sect-finish .bg-grad {max-height:340px}
+.sect-finish .bg-grad,.sect-finish .bg-grad .inner {height:340px}
 .sect-finish .bg-grad span {
     position:absolute; display:block; opacity:0; transform:scale(.9);
     transition:opacity .4s ease-in, transform .4s ease-in
@@ -518,13 +518,13 @@ section.sect-finish {padding:80px 0}
     .sect-step .wrap-step .tit {margin-bottom:6px}
     .sect-step .wrap-step .tit br {display:none}
     section.sect-finish {padding:60px 0}
-    .sect-finish .bg-grad {max-height:280px}
+    .sect-finish .bg-grad,.sect-finish .bg-grad .inner {height:280px}
     .sect-finish .process > div {margin:0 1.2vw}
     .sect-finish .process .arrow svg {width:4vw}
-    .sect-finish .process .oval {width:16vw; height:16vw}
+    .sect-finish .process .oval {width:18.8vw; height:18.8vw}
+    .sect-finish .process .oval .img img {width:50%}
     .sect-finish .bx-basic {padding-top:30px}
     .sect-finish .process-txt {margin-top:30px}
-
 }
 
 /* 돈 버는 법 - 대리점 */
@@ -563,7 +563,7 @@ section.sect-finish {padding:80px 0}
 .pg-calc .sect-calc .bx-gry dd:not(:last-child) {margin-bottom:.5rem}
 .pg-calc .sect-calc .bx-gry .txt b {font-weight:400}
 @media all and (max-width:768px) {
-    .pg-calc .sect-calc .bx-gry dl {display:block}
+    .pg-calc .sect-calc .bx-gry dl {display:block; padding:6vw 0}
     .pg-calc .sect-calc .bx-gry .tit {display:block; width:auto; margin-bottom:1rem}
     .pg-calc .sect-calc .bx-gry .tit br {display:none}
 }
@@ -581,7 +581,7 @@ section.sect-finish {padding:80px 0}
 .pg-help .wrap-faq {margin-bottom:120px; padding:40px}
 .pg-help .wrap-tab li {width:16.6667%; min-width:70px}
 .pg-help .wrap-tab li:not(:first-child) {width:calc(16.6667% + 1px)}
-.pg-help .wrap-collapse li {margin-top:-1px; border:1px solid #dcdee4; text-align:left; transition:all .2s ease}
+.pg-help .wrap-collapse li {margin-top:-1px; border:1px solid #dcdee4; text-align:left}
 .pg-help .wrap-collapse .tit-collapse {padding:15px 20px; font-size:1.4rem; color:#6f74f4; cursor:pointer; transition:color .2s ease}
 .pg-help .wrap-collapse .tit-collapse > i {float:right; color:#969aaf; line-height:2rem; transition:transform .2s ease}
 .pg-help .wrap-collapse .active .tit-collapse > i {transform:rotate(90deg)}
@@ -606,6 +606,7 @@ section.sect-finish {padding:80px 0}
     .pg-help .wrap-collapse .tit-collapse {padding:3vw}
     .pg-help .wrap-collapse .con-collapse .con {padding:0 3vw 15px}
     .tbl-filter {padding:10px 3vw}
+    .tbl-filter .select {min-width:28vw}
 }
 
 
