@@ -143,7 +143,7 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 /* common */
 .container-body {position:relative; padding-top:60px}
 .inner {
-    position:relative; width:100%; max-width:1080px; /*height:100%;*/
+    position:relative; width:100%; max-width:1080px;
     margin-left:auto; margin-right:auto
 }
 .inner:after {content:''; display:block; clear:both}
@@ -228,8 +228,8 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 
 /* footer */
 .footer {background:#36384d; color:#969aaf}
-.footer .inner {display:table; padding:30px 0}
-.footer b {font-weight:400}
+.footer .inner {display:table; padding:30px 0 50px}
+.footer b {margin-right:4px; font-weight:400}
 .footer .wrap-logo {display:table-cell; vertical-align:top; max-width:93px; opacity:.5}
 .footer .foot-info {display:table-cell; vertical-align:top; padding-left:40px}
 .footer .link-terms {margin-bottom:20px}
@@ -237,7 +237,7 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 .footer .link-terms li a {color:#fff; font-size:1.3rem}
 .footer .info-comp {font-size:1.3rem; font-weight:100; color:#969aaf}
 .footer .info-comp div {margin-bottom:5px}
-.footer .info-comp div span {margin-right:10px}
+.footer .info-comp div span {display:inline-block; margin-right:6px}
 .footer .info-comp address {display:inline-block}
 .footer .cs-info {display:table-cell; vertical-align:top; text-align:right}
 .footer .cs-info dt {display:inline-block; font-size:1.3rem; color:#fff}
@@ -278,7 +278,7 @@ body .view-mb {display:none}
     body .view-mb {display:block}
 
     /* footer */
-    .footer .inner {display:block; padding-bottom:60px}
+    .footer .inner {display:block}
     .footer .wrap-logo {display:none}
     .footer .foot-info {display:block; margin-bottom:20px; padding-left:0}
     .footer .link-terms {margin-bottom:10px}

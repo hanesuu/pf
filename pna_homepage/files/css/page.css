@@ -31,8 +31,9 @@ section.sect-sub-top {padding:60px 0 0}
 .wrap-txt .tit-txt-s {margin-top:14px; font-size:1.6rem}
 .txt {font-size:1.4rem}
 .label-txt {
-    display:table; padding:2px 12px; font-size:1.3rem; font-weight:700; color:#6f74f4;
-    border:1px solid #6f74f4; border-radius:20px; background:#fff;
+    display:table; padding:4px 10px; 
+    font-size:1.3rem; font-weight:700; color:#6f74f4; line-height:1;
+    border:1px solid #6f74f4; border-radius:20px; background:#fff
 }
 .label-rd {border-color:#ed424d; color:#ed424d}
 .label-yl {border-color:#ffaf0e; color:#ffaf0e}
@@ -251,7 +252,7 @@ section.sect-about {padding-bottom:70px}
     position:absolute; top:50%; transform:translateY(-50%); height:180px
 }
 .wrap-calc .bx-basic .txt-calc {display:inline-block; vertical-align:middle}
-.wrap-calc .bx-basic .txt-calc dt {font-size:1.3rem}
+.wrap-calc .bx-basic .txt-calc dt {font-size:1.3rem; line-height:1.4}
 .wrap-calc .bx-basic .txt-calc dd {font-size:1.8rem; font-weight:700}
 .wrap-calc .bx-basic i {
     display:inline-block; padding:0 10px; vertical-align:middle;
@@ -511,8 +512,10 @@ section.sect-finish {padding:80px 0}
 @media all and (max-width:768px) {
     .pg-sell .sect-sub-top .wrap-txt {position:relative}
     .pg-sell .wrap-calc .bx-basic {width:100%; max-width:100%; margin:10px auto}
-    .pg-sell .wrap-calc .bx-basic .img-store {float:none; display:inline-block}
-    .pg-sell .wrap-calc .txt-def {display:inline-block; width:calc(100% - 90px); margin:0 0 10px}
+    .pg-sell .wrap-calc .bx-basic .img-store {float:none; display:inline-block; vertical-align:middle}
+    .pg-sell .wrap-calc .txt-def {display:inline-block; width:calc(100% - 130px); margin:0 0 10px; vertical-align:middle}
+    .pg-sell .wrap-calc .txt-def dt {margin-bottom:4px}
+    .pg-sell .wrap-calc .txt-def dd br {display:none}
     .sect-step .wrap-step li:not(:last-child) {margin-bottom:30px}
     .sect-step .wrap-step .label-txt {margin:10px auto 6px}
     .sect-step .wrap-step .tit {margin-bottom:6px}
