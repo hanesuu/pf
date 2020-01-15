@@ -5,12 +5,6 @@
         url(../fonts/roboto/Roboto-Regular.otf) format('opentype'); 
 }
 @font-face {   
-        font-family: 'Roboto';   font-style: normal;   font-weight: 500;
-   src: url(../fonts/roboto/Roboto-medium.woff2) format('woff2'),
-        url(../fonts/roboto/Roboto-medium.woff) format('woff'),
-        url(../fonts/roboto/Roboto-medium.otf) format('opentype'); 
-}
-@font-face {   
         font-family: 'Roboto';   font-style: normal;   font-weight: 700;
    src: url(../fonts/roboto/Roboto-Bold.woff2) format('woff2'),
         url(../fonts/roboto/Roboto-Bold.woff) format('woff'),
