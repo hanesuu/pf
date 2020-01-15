@@ -43,7 +43,7 @@
 		position:fixed; top:0; left:0; right:0; bottom:0;
 		transform:inherit; border-radius:0
 	}
-	.wrap-pop .con-pop {height:calc(100% - 132px)}
+	.wrap-pop .con-pop {height:calc(100% - 132px); max-height:100%}
 	.wrap-pop .foot-pop {position:fixed; bottom:0; width:100%; padding:10px 0; border-top:1px solid #dcdee4}
 }
 

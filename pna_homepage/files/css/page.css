@@ -48,6 +48,10 @@ section.sect-sub-top {padding:60px 0 0}
     font-size:1.6rem; font-weight:400; text-align:left
 }
 .sect-sub-top .bx-list .list-type {display:inline-block; vertical-align:top; font-size:1.4rem}
+@media all and (max-width:768px){
+    .sect-sub-top .bx-basic .tit {display:block; margin:0 0 10px; text-align:center}
+    .sect-sub-top .bx-basic .tit br {display:none}
+}
 
 /* image */
 .wrap-img {position:relative}
@@ -330,9 +334,9 @@ section.sect-about {padding-bottom:70px}
         position:relative; left:auto; top:auto; right:auto; width:auto;
         margin-top:20px; text-align:center
     }
-    .wrap-img .ani-oval.bg1 {margin-top:-140px}
-    .wrap-img .ani-oval.bg2 {margin-top:-200px}
-    .wrap-img .ani-oval.bg3 {margin-top:-170px}
+    .sect-main-btm .wrap-img .ani-oval.bg1 {margin-top:-140px}
+    .sect-main-btm .wrap-img .ani-oval.bg2 {margin-top:-200px}
+    .sect-main-btm .wrap-img .ani-oval.bg3 {margin-top:-170px}
 }
 
 
@@ -391,8 +395,6 @@ section.sect-picxell {padding:65px 0 100px}
 }
 /* mobile */
 @media all and (max-width:768px){
-    .pg-api .sect-sub-top .bx-basic .tit {display:block; margin:0 0 10px; text-align:center}
-    .pg-api .sect-sub-top .bx-basic .tit br {display:none}
     .pg-api .sect-api {padding-top:60px}
     .pg-api .api-ud .bx-basic {min-height:90px}
     .pg-api .api-ud .bx-basic .img {height:55px}
