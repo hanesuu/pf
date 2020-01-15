@@ -278,10 +278,6 @@
                 end-placeholder="종료일 선택"
                 default-value="2019-11-15">
               </el-date-picker>
-              <el-radio-group v-model="typesort">
-                <el-radio-button label="월별"></el-radio-button>
-                <el-radio-button label="일별"></el-radio-button>
-              </el-radio-group>
             </div>
             <div class="d-right">
               <button class="btn btn-line-b">
@@ -481,7 +477,7 @@
         value: '',
 
         /* 실적현황 기간선택 */
-        daysort: '1주',
+        daysort: '1개월',
 
         /* 실적현황 타입선택 */
         typesort: '월별',

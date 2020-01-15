@@ -3,13 +3,11 @@ $(document).ready(function(){
 	$(".header").find(".btn-nav").click(function(){
 	  $(this).parents(".top").next("nav").toggleClass("hide");
 	  $(this).parents("#app").find(".wrap-content").toggleClass("wide");
-	});
-	$(window).resize(function (){		
-		if ($("body").width() < 768 ){
-			$(".header").children("nav").addClass("hide");
-			$("#app").find(".wrap-content").addClass("wide");
-		}
-	});
+	});	
+	if ($("body").width() < 768 ){
+		$(".header").children("nav").addClass("hide");
+		$("#app").find(".wrap-content").addClass("wide");
+	}
 
 	/* gnb collpse */
 	$(".depth2").hide();

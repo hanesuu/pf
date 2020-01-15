@@ -2,7 +2,7 @@
 /* 로그인 -login */
 .wrap-login {
 	@include flexbox; @include align-items(center); @include justify-content(center);
-    width:100%; height:100vh; margin:0 auto; text-align:center; background:$light-f;
+    width:100%; height:100%; margin:0 auto; text-align:center; background:$light-f;
     @include media-mb {padding-left:10px; padding-right:10px}
     .inner {width:370px}
     .head-tit {width:174px; height:46px; margin:0 auto 40px; @include hide-txt; background:url('../img/logo_fill.svg') no-repeat 0 0 / 100%}
@@ -106,7 +106,7 @@
 /* 정산가능여부 */
 .txt-state {
 	font-size:1.3rem; line-height:1;
-	&:before {content:''; display:inline-block; width:4px; height:4px; margin:5px; border-radius:50%; vertical-align:top}
+	&:before {content:''; display:inline-block; width:4px; height:4px; margin:.4rem; border-radius:50%; vertical-align:top}
 	&.success {
 		color:$positive-gn;
 		&:before {background:$positive-gn; box-shadow:0 0 4px $positive-gn}
@@ -205,21 +205,33 @@
 			&:after {width:74px; height:47px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 		}
 		dl {@include flex(1); width:100%}/* ie10 */
-		dt {margin-bottom:10px; font-size:1.3rem}
+		dt {
+			margin-bottom:10px; font-size:1.3rem;
+			@include media-mb {font-size:1.2rem}
+		}
 		dd {text-align:right}
 		.main-stat {
 			padding:4px 8px 0; color:$white;
-			dd {font-size:3.4rem}
+			dd {
+				font-size:3.4rem;
+				@include media-mb {font-size:2.2rem}
+			}
 		}
 		.sub-stat {
 			margin-left:6px; padding:6px 10px 4px; background:rgba($white,.8); border-radius:5px;
 			&.danger-rd * {color:$danger-rd}
-			dd {color:$dark-3}
+			dd {
+				color:$dark-3;
+				@include media-mb {font-size:1.8rem}
+			}
 			.sub-count {display:inline-block; font-size:1.8rem}
 		}
 		&.horizon {
 			@include flex-direction(column);
-			&:after {bottom:96px}
+			&:after {
+				bottom:96px;
+				@include media-mb {bottom:auto; top:2rem}
+			}
 			dl {@include flex(inherit)}/* ie10 */
 			.sub-stat {
 				height:90px; margin:6px 0 0;
@@ -235,7 +247,7 @@
 /* 게시판 */
 .board-list {
 	position:relative; max-height:80vh; overflow-y:auto;
-	@include media-mb {overflow-x:auto; -webkit-overflow-scrolling:touch}
+	@include media-mb {max-height:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
 	&.noscroll {max-height:100%}
 	table {width:100%; border:1px solid $light-d}
 	th, td {border-bottom:1px solid $light-d; text-align:left; line-height:100%; white-space:nowrap}
@@ -308,15 +320,17 @@ body .td-blank {
 .f-right {
 	@include absolute(null,-50px,0,null);
 	@include media-md {position:relative; top:auto; margin-bottom:10px; text-align:right}
+	
 	.txt-s {margin:0 5px; line-height:24px; font-size:1.2rem; color:$dark-9}
+	.btn-down {@include media-mb {display:none}}
 }
 .tbl-filter {
 	position:relative; @include flexbox; @include align-items(flex-end); height:54px; padding:10px 20px; font-size:0; background:$white; border:1px solid $light-d;
-
 	&.transparent {
 		height:auto; min-height:28px; margin:0 0 14px; padding:0; background:transparent; border:0;
 		.f-right {top:auto}
 	}
+	@include media-mb {padding:10px}
 
 	/* 페이징 */
 	.pager {
@@ -339,7 +353,7 @@ body .td-blank {
 /* 입력폼 */
 .wrap-form {
 	padding:20px 25px;
-	@include media-mb {padding:0}
+	@include media-mb {padding:15px}
 	dl {padding-bottom:10px}
 	dt {
 		margin-bottom:4px; font-size:1.3rem;
@@ -352,6 +366,9 @@ body .td-blank {
 		.btn:not(:first-child) {margin-left:5px}
 	}
 	.bottom-btn {margin-top:30px}
+}
+.el-tabs__content .wrap-form {
+	@include media-mb {padding:0}
 }
 
 /* 라벨스타일 */
@@ -424,7 +441,7 @@ body .td-blank {
 	@include media-md {@include flex-direction(column)}
 	.info {
 		@include flex(1 1 180px); text-align:center;
-		@include media-md {width:100%}
+		@include media-md {@include flex(1)}
 		.btn {margin:20px auto 0; padding:0 24px}
 	} 
 	.info-name {
@@ -446,7 +463,7 @@ body .td-blank {
 		@include flex(1 1 50%); margin-left:20px;
 		@include media-md {width:100%; margin:20px 0 0}
 		dl {
-			display:table; width:100%; border-bottom:1px solid $light-d;
+			display:table; table-layout:fixed; width:100%; border-bottom:1px solid $light-d;
 			&:last-child {border-bottom:0}
 		}
 		dt,dd {
@@ -457,7 +474,11 @@ body .td-blank {
 		dd {
 			font-size:1.4rem; color:$dark-3; line-height:24px;
 			&:after {content:''; display:block; clear:both}
-			.d-right {float:right}
+			@include media-mb {line-height:inherit}
+			.d-right {
+				float:right;
+				@include media-mb {display:none}
+			}
 			.txt-s {display:inline-block; margin-left:5px}
 			.txt-wrap {display:inline-block; width:85%; max-width:330px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 			.btn-gy {height:24px; line-height:24px}
@@ -513,8 +534,8 @@ body .td-blank {
 .wrap-intro {
 	h2 {margin:0; padding:20px; font-size:1.8rem; color:$dark-3}
 	.tit {
-		position:relative;
-		&:after {content:''; position:absolute; right:40px; top:0; bottom:0; width:310px; height:100%; background:url('../img/bg_shape1@2x.png') no-repeat 0 0 / 100%}
+		position:relative; background:url('../img/bg_shape1@2x.png') no-repeat 0 0 / 310px; background-position:right 10px top;
+		@include media-pc {background-position:right top}
 	}
 }
 
@@ -525,7 +546,11 @@ body .td-blank {
 		.logo {display:inline-block; width:93px; height:24px; margin-left:6px; vertical-align:text-bottom}
 		ul li {
 			@include flexbox; @include align-items(center); padding:10px 20px; border-top:1px solid $light-d;
-			dl, p {@include flex(1)}
+			@include media-mb {padding:12px}
+			dl, p {
+				@include flex(1);
+				@include media-mb {margin-right:10px}
+			}
 			dt, p {font-size:1.4rem}
 			p {color:$point}
 			&:hover {background:$light-f}
@@ -563,7 +588,7 @@ body .td-blank {
 		}
 		.lookup-api {
 			margin-left:auto; padding-right:70px; @include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
-			@include media-mb {margin:10px 0 0}
+			@include media-mb {width:100%; margin:10px 0 0}
 			&:after {width:57px; height:43px; background:url('../img/img_bg_lookup.svg') no-repeat 0 0 / 100%}
 		}
 	}
@@ -619,22 +644,24 @@ body .td-blank {
 		.tbl-filter {
 			padding:15px 20px;
 			& > *:not(:last-child) {margin-right:10px}
+			.flex-wrap {flex:1 1 60%}
 			.txt {font-size:1.4rem}
 			.wrap-btns {margin-left:auto}
 
 			@include media-pc {
-				@include flex-direction(column);@include align-items(center);
-				& > * {margin:0 0 10px !important}
+				@include flex-wrap(wrap); @include align-items(center);
+				.flex-wrap {display:none}
 			}
 		}
 		.list-chart li {
 			@include flexbox; @include align-items(center); padding:15px 20px; background:$light-f; border-top:1px solid $light-d;
-			dl {@include flex(0 0 34%)}
+			@include media-mb {padding:15px}
+			dl {@include flex(0 0 46%)}
 			dt {margin-bottom:8px; font-size:1.4rem}
 			&.total dd {color:$point}
 			&.pay dd {color:$rd-dk}
 			&.calc dd {color:$positive-gn}
-			.wrap-chart {@include flex(1 0 66%); margin-left:auto}
+			.wrap-chart {@include flex(1 0 54%); margin-left:auto}
 		}
 		/* 실적 현황 목록편집 */
 		.edit {
@@ -650,6 +677,7 @@ body .td-blank {
 
 /* 리셀러 상세-실적통계 */
 .vue-rsdetail {
+	.wrap-widget div .horizon .sub-stat {height:auto}
 	.board-list {
 		.bg-yl {
 			background:rgba($warn-yl,.1);
@@ -710,12 +738,33 @@ body .td-blank {
 		}
 		.wrap-info {
 			display:table; width:100%; margin-top:50px;
+			@include media-mb {display:block}
 			.con {
 				display:table-cell; width:45%; padding:40px 10px 25px; background:rgba($positive-gn,.1);
-				img {width:135px; height:82px}
+				img {
+					width:135px; height:82px;
+					@include media-mb {width:auto; height:18vw}
+				}
 				.txt {margin-top:20px; font-size:1.3rem}
+				@include media-mb {
+					display:block; width:auto; padding:20px;
+					.txt {margin-top:10px}
+				}
 			}
-			.or {display:table-cell; vertical-align:middle; color:$dark-9}
+			.or {
+				display:table-cell; vertical-align:middle; color:$dark-9;
+				@include media-mb {display:block; margin:5px}
+			}
+		}
+	}
+}
+
+/* 결제통계 */
+.vue-paystats {
+	@include media-mb {
+		.wrap-widget .widget-rd {
+			@include flex-direction(column);
+			.sub-stat {margin:3px 0}
 		}
 	}
 }
@@ -740,15 +789,31 @@ body .td-blank {
 		.col-md-4 {margin:0 0 20px; padding:0 10px}
 	}
 	.wrap-api-card {
-		padding:20px 10px 10px; text-align:center; @include bxshadow; border-radius:10px; border:1px solid transparent; @include transition(border,box-shadow); background:$white;
+		position:relative; padding:20px 10px 10px; text-align:center; @include bxshadow; border-radius:10px; border:1px solid transparent; @include transition(border,box-shadow); background:$white;
 		&:hover {border-color:$point; box-shadow:0 4px 20px 0 $point; cursor:pointer}
-		.img {@include flexbox; @include align-items(center); @include justify-content(center); height:48px}
-		.tit {margin:10px 0 18px; @include fw-md; font-size:1.6rem; color:$dark-3}
+		@include media-mb {padding:15px}
+		.img {
+			@include flexbox; @include align-items(center); @include justify-content(center); height:48px;
+			@include media-mb {height:8vw}
+			img {width:auto; max-height:100%}
+		}
+		.tit {
+			margin:10px 0 18px; @include fw-md; font-size:1.6rem; color:$dark-3;
+			@include media-mb {margin:6px 0}
+		}
+		& > dt {
+			@include media-mb {width:calc(100% - 100px)}
+		}
 		.wrap-price {
 			@include flexbox; @include align-items(center); @include justify-content(center); min-height:32px; margin-bottom:18px;
-			.tit-price {font-size:1.4rem}
+			@include media-mb {@include flex-direction(column); width:calc(100% - 100px); margin-bottom:0}
+			.tit-price {
+				font-size:1.4rem;
+				@include media-mb {margin-bottom:4px; font-size:1.2rem}
+			}
 			.price {
 				@include flexbox; @include align-items(center); margin-left:6px; padding:2px 8px; background:rgba($point,.1); border-radius:5px;
+				@include media-mb {margin:2px 0}
 				dt {font-size:1.3rem; color:$dark-3}
 				dd {
 					margin-left:6px; font-size:2.4rem; @include fw-bd; color:$point;
@@ -760,7 +825,7 @@ body .td-blank {
 			@include flexbox; @include justify-content(center);
 			.btn {@include flex(1); padding-left:0; padding-right:0}
 			@include media-pc {
-				@include flex-direction(column);
+				@include absolute(null,50%,15px,null); @include flex-direction(column); width:100px; transform:translateY(-50%);
 				.btn:not(:first-of-type) {margin:5px 0 0}
 			}
 		}
@@ -775,6 +840,7 @@ body .td-blank {
 				b {@include fw-bd}
 			}
 			.txt {font-size:1.4rem; color:$dark-9}
+			@include media-mb {padding:0; text-align:center}
 		}
 	}
 	/* 픽셀 */
@@ -792,6 +858,7 @@ body .td-blank {
 				@include media-pc {margin:0 auto 10px; text-align:center}
 				.tit {
 					font-size:2.4rem; @include fw-bd;
+					@include media-mb {margin:0 0 15px}
 					div {color:$point}
 					.point {position:relative; display:inline-block; margin-bottom:12px; padding:4px 16px; background:$point; color:$white; vertical-align:bottom; border-radius:30px}
 					.point:after {content:''; position:absolute; left:calc(50% - 10px); bottom:-8px; width:0; height:0; border-top:10px solid transparent; border-right:20px solid $point; border-bottom:10px solid transparent}
@@ -802,12 +869,13 @@ body .td-blank {
 		}
 		.wrap-price {
 			margin-top:30px;
-			@include media-mb {@include flex-direction(column)}
+			@include media-mb {@include flex-direction(column); width:100%}
 			.price.txt {
 				@include align-items(flex-start); @include flex-direction(column); padding:8px 12px; font-size:1.3rem;
-				@include media-mb {margin:5px 0 0}
+				@include media-mb {margin:5px 0 0; text-align:left}
+				p {position:relative; padding-left:16px}
+				i {position:absolute; left:0; top:.5rem; margin-right:5px; color:$point}
 			}
-			i {margin-right:5px; color:$point}
 		}
 	}
 

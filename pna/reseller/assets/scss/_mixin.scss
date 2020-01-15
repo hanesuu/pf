@@ -90,6 +90,15 @@ $rd-dk: #ff6576;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+     -moz-flex-wrap: $wrap;
+      -ms-flex-wrap: $wrap;
+          flex-wrap: $wrap;
+}
 // The 'flex' shorthand
 // - applies to: flex items
 // <positive-number>, initial, auto, or none
