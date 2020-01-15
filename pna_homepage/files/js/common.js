@@ -83,7 +83,7 @@ function fnShowPop(sGetName){
 
     $("html, body").css({"overflow":"hidden", "height":"100%"});
     /* 팝업 최상단 부모 터치 막기 */
-    $(".pop-layer").bind("touchmove", function(e) {
+    $(".pop-layer.on").bind("touchmove", function(e) {
         e.preventDefault();
     });
     /* 팝업 컨텐츠 부분 터치 이벤트가 확산 방지 */
