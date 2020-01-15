@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="45px" viewBox="0 0 52 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_pay_cash</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="이용안내-이용가능API-결제API-부가" transform="translate(-1190.000000, -446.000000)">
+            <g id="content" transform="translate(280.000000, 343.000000)">
+                <g id="card" transform="translate(760.000000, 80.000000)">
+                    <g id="ico_pay_cash" transform="translate(148.000000, 22.000000)">
+                        <rect id="bound" x="0" y="0" width="56" height="47"></rect>
+                        <g id="Group-21" transform="translate(3.000000, 2.000000)" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M50,3.5 C50,5.43308786 48.4389381,7 46.5150442,7 L3.4840708,7 C1.55929204,7 0,5.43308786 0,3.5 C0,1.56691214 1.55929204,0 3.4840708,0 L46.5150442,0 C48.4389381,0 50,1.56691214 50,3.5 Z" id="Stroke-1"></path>
+                            <polyline id="Stroke-5" fill="#FFD786" points="8 41 8 0 42 0 42 41"></polyline>
+                            <polyline id="Stroke-7" points="8 41 11.3960863 43 14.7941295 41 18.1931511 43 21.5931511 41 24.988259 43 28.3872806 41 31.7872806 43 35.188259 41 38.5941295 43 42 41"></polyline>
+                            <line x1="16" y1="10.5" x2="34" y2="10.5" id="Stroke-11"></line>
+                            <line x1="16" y1="18.5" x2="34" y2="18.5" id="Stroke-15"></line>
+                            <line x1="16" y1="27.5" x2="34" y2="27.5" id="Stroke-19"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

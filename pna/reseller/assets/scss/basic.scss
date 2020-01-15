@@ -1,0 +1,325 @@
+@import "../css/normalize.css";
+@import "../css/NotoSansKR-Hestia.css";
+@import "../css/roboto.css";
+@import "../css/line-awesome.min.css";
+@import "../css/index.css"; /* element */
+@import "./mixin.scss"; /* mixin & var */
+@import "./grid.scss"; /* grid layout */
+@import "./page.scss";
+@import "./popup.scss";
+@import "./element-variables.scss";
+
+@font-face {font-family:'Roboto'; @include fw-rg; unicode-range:U+30-39}
+
+
+/* common */
+html {
+    position:relative; font-size:10px;
+    @include media-mb {font-size:9px}
+}
+body {
+    @include margin-padding(all,0,all,0); overflow:auto; vertical-align:middle; background:$white; color:$dark-6; letter-spacing:-0.5px;
+    font-family:'Roboto','NotoSansCJKkr','Noto Sans Korean',sans-serif; @include fw-dl;
+}
+* {
+    @include prefix((
+            box-sizing: border-box
+    ), webkit moz);
+}
+a,a:hover,a:active,a:visited {text-decoration:none; cursor:pointer; color:inherit}
+ul,li {@include margin-padding(all,0,all,0); list-style:none}
+// ::selection {background:$point; color:$white}
+
+/* placeholder */
+input::-webkit-input-placeholder {color:$light-d}
+input::-moz-placeholder {color:$light-d}
+input:-ms-input-placeholder {color:$light-d}
+input::placeholder {color:$light-d; opacity:1}
+textarea::-webkit-input-placeholder {color:$light-d}
+textarea::-moz-placeholder {color:$light-d}
+textarea:-ms-input-placeholder {color:$light-d}
+textarea::placeholder {color:$light-d; opacity:1}
+
+/* input 공용 스타일 */
+input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search],
+textarea.inp-txt, .inp-txt {
+	height:34px; @include margin-padding(all,0,all,5px 10px); @include fw-dl; font-size:1.3rem; color:$dark-3; line-height:1; 
+	border:1px solid $light-d; border-radius:3px; background:$white; vertical-align:top; outline:0; @include transition(border-color,box-shadow);
+	@include prefix((
+		appearance:none
+	), webkit);
+	&:focus {border-color:$point; box-shadow:0 0 0 3px rgba($point,.2)}
+	&.inp-xs {height:24px; padding:2px 10px}
+}
+input[disabled=disabled] {background-color:$light-f; color:$dark-9}
+/* 금액 input */
+input[type=number], .num-txt {text-align:right; @include fw-bd}
+.inp-price {
+	@include flexbox; position:relative;
+	.num-txt {width:100%; padding-right:25px}
+	&:after {content:'원'; @include absolute(null,0,10px,null); line-height:34px; color:$dark-6}
+}
+
+/* textarea */
+textarea.inp-txt {
+	height:auto; min-height:80px; line-height:1.4;
+	&.lg {min-height:260px}
+}
+
+/* checkbox */
+.inp-check {
+	display:inline-block; position:relative; font-size:1.3rem; line-height:34px; cursor:pointer;
+	@include prefix((
+		user-select:none
+	), webkit moz ms);
+	.txt {display:inline-block; position:relative; @include margin-padding(all,0,left,24px);}
+	input {position:absolute; width:0; height:0; opacity:0; cursor:pointer}
+	.checkmark {
+		@include absolute(0,6px,null,null); width:20px; height:20px; background:$white; border:1px solid $light-d; border-radius:2px;
+		&:after {
+			content:""; display:none; @include absolute(7px,2px,null,null); width:5px; height:10px; border:solid $white; border-width:0 2px 2px 0;
+			@include prefix((
+				transform:rotate(45deg)
+			), webkit moz ms);
+		}
+	}
+	input:checked ~ .checkmark {
+		background:$point; border:none;
+		&:after {display:block}
+	}
+	/* 텍스트 없이 체크박스만 존재 */
+	&.box {
+		width:20px; height:20px; line-height:inherit;
+		.checkmark {top:0}
+	}
+}
+
+/* display */
+.d-block {display:block}
+.d-inblock {display:inline-block}
+.d-none {display:none}
+
+/* text */
+.txt-bold {@include fw-bd;}
+.txt-s {font-size:1.1rem}
+.txt-lg {font-size:2rem}
+.btn-txt {
+	a {font-size:1.2rem; color:$dark-6; text-decoration:underline}
+	a:hover {color:$dark-3; text-decoration:underline}
+}
+.ta-left {text-align:left}
+.ta-right {text-align:right}
+.ta-center {text-align:center}
+.txt-ing {color:$warn-yl}
+.txt-dark {color:$dark-6}
+.txt-point {color:$point}
+.txt-gn {color:$positive-gn}
+.txt-rd {color:$danger-rd}
+.txt-count {
+	@include fw-bd; font-size:2.6rem;
+	small {@include fw-dl; font-size:12px}
+}
+
+/* button */
+.btn {
+	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,background-image,border-color,box-shadow);
+	@include fw-md; font-size:1.4rem; color:$dark-6; background-color:$white; border:1px solid transparent; border-radius:3px;
+	&:hover {background-color:$dark-6; color:$white}
+
+	i {opacity:.7; font-size:120%; vertical-align:text-bottom}
+
+	&-primary {
+		background-color:$dark-3; color:$white;
+		&:hover {background-color:$point}
+	}
+	&-point {
+		background-color:$point; border-color:transparent; color:$white; @include transition(opacity);
+		&:hover {background-color:$point; opacity:.85}
+	}
+	&-line-b {
+		border-color:$light-b; color:$dark-6; @include bg-gradient($white,$light-f,'vertical');
+		&:hover {border-color:$dark-2; color:$dark-2}
+	}
+	&-line-point {
+		border-color:$point; color:$point;
+		&:hover {background-color:$point; border-color:transparent; color:$white}
+	}
+	&-rd {
+		background:$danger-rd; color:$white; @include transition(opacity);
+		&:hover {background:$danger-rd; opacity:.85}
+	}
+	&-yl {
+		background:$warn-yl; color:$white; @include transition(opacity);
+		&:hover {background:$warn-yl; opacity:.85}
+	}
+	&-sk {
+		background:$sub-sk; color:$white; @include transition(opacity);
+		&:hover {background:$sub-sk; opacity:.85}
+	}
+	&-gy {
+		@include bg-gradient($light-b,$dark-9,'vertical'); border-color:$dark-9; color:$white; @include transition(opacity);
+		&:hover {opacity:.85}
+	}
+	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem; line-height:26px}
+	&-xs-info {
+		height:24px; line-height:24px;
+		&:before {content:''; display:inline-block; width:12px; height:22px; margin-right:2px; background:url('../img/ico_info.svg') no-repeat 50% 50% /12px 12px; vertical-align:top}
+	}
+}
+button[disabled=disabled], .btn-disable {
+	opacity:.8; color:$light-d; @include fw-rg; cursor:default; background-color:$white; border-color:transparent;
+	&:hover {background-color:$white; color:$light-d; border-color:transparent}
+}
+/* float button */
+.wrap-btn-float {
+	@include flexbox; @include flex-direction(column); position:fixed; right:20px; bottom:20px; max-width:140px; z-index:1000;
+	.btn {
+		margin-top:10px; padding:12px 18px; font-size:1.4rem; color:$white; @include fw-rg; @include bxshadow; border-radius:50px; border:0; @include transition(box-shadow);
+		&.btn-regist {
+			@include bg-gradient($point,$point-lt,'vertical');
+			&:hover {box-shadow:0 4px 20px 0 $point}
+		}
+		&.btn-support {
+			@include bg-gradient($warn-yl-dk,$warn-yl,'vertical');
+			&:hover {box-shadow:0 4px 20px 0 $warn-yl}
+		}
+		i {margin-right:4px; font-size:2.8rem; opacity:1; vertical-align:middle}
+	}
+}
+
+.logo {width:120px; height:31px; padding:0; @include hide-txt; background:url('../img/logo_fill.svg') no-repeat 0 0 / 100%}
+
+/* header */
+.header {
+	position:relative; z-index:99;
+	.top {
+		position:fixed; top:0; left:0; right:0; @include flexbox; height:60px; background:$white; @include bxshadow;
+		.area-logo {
+			@include flexbox; @include align-items(center); width:250px;
+			@include media-mb {width:auto; padding-left:10px}
+		}
+		.logo {
+			margin:0 0 0 24px;
+			@include media-mb {display:none}
+		}
+		.btn-nav {width:44px; height:38px; margin:0 10px 0 auto; @include hide-txt; background:url('../img/btn_nav.svg') no-repeat 50% 50% / 24px 18px; cursor:pointer}
+		.location {
+			@include flexbox; @include flex(1); @include align-items(center); padding:0 30px;
+			@include media-mb {padding:0 10px}
+
+			a {
+				font-size:1.8rem; color:$point; line-height:1;
+				@include media-mb {white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+			}
+			a:before {content:'\f105'; display:inline-block; margin:0 5px; font:900 20px/1 'Line Awesome Free'; vertical-align:text-bottom}
+			a:first-child:before {display:none}
+			a:hover {text-decoration:underline}
+			a:focus {outline:none}
+		}
+		.utils {
+			@include flexbox; @include align-items(center); margin-left:auto;
+			& > *:not(:first-child) {margin-left:12px}
+		}
+		.top-stats {
+			position:relative; 
+			&:hover .list-stats {opacity:1; visibility:visible}
+			.i-stats {
+				position:relative; @include flexbox; @include align-items(center); width:36px; height:36px; cursor:pointer;
+				i {display:block; width:34px; height:34px; background:url('../img/ico_graph.svg') no-repeat 50% 50% / 18px 16px}
+				.ani-oval {display:block; @include absolute(0,0,0,0); width:34px; height:34px; border-radius:40px; border:2px solid $sub-sk; @include animation('stats-oval 3s infinite'); opacity:0}
+				@include keyframes(stats-oval) {
+					0% {transform:scale(0.1, .1); opacity:0}
+					60% {transform:scale(0.1, .1); opacity:0}
+					65% {opacity:1}
+					100% {transform:scale(1.2, 1.2); opacity:0}
+				}
+			}
+			.list-stats {
+				position:absolute; top:36px; right:-30px; width:250px; padding:6px 0; background:$white; @include bxshadow; border-radius:5px; opacity:0; visibility:hidden; @include transition(opacity, visibility);
+				&:after {content:''; position:absolute; top:-7px; right:43px; width:0; height:0; border-bottom:7px solid $white; border-left:5px solid transparent; border-right:5px solid transparent}
+				dl {
+					@include flexbox; @include align-items(center); padding:8px;
+					&:not(:last-child) {border-bottom:1px solid $light-f}
+				}
+				dt {@include flexbox; @include align-items(center); font-size:1.2rem}
+				dt i {margin-right:4px; font-size:18px}
+				dd {@include flex(1); margin-left:auto; text-align:right; @include fw-bd; font-size:1.6rem}
+				.reseller {
+					i, dd {color:$sub-sk}
+				}
+				.store {
+					i, dd {color:$positive-gn}
+				}
+				.sum {
+					i, dd {color:$warn-yl}
+				}
+			}
+		}
+		.top-user {
+			@include flexbox; @include align-items(center);
+			.type {
+				margin-right:4px; padding:4px; border-radius:20px; line-height:1;
+				i {font-size:1.3rem}
+				span {@include fw-md; font-size:1.1rem}
+				&.agent {background:rgba($positive-gn,.1); color:$positive-gn}
+				&.reseller {background:rgba($sub-sk,.1); color:$sub-sk}
+			}
+			p {@include fw-md; color:$dark-3; font-size:1.4rem}
+
+			@include media-md {
+				width:40px; height:40px; background:url('../img/img_profile.svg') no-repeat 0 0 / 100%;
+				.type, p {display:none}
+			}
+		}
+		.btn-logout {
+			display:block; width:40px; height:40px; margin:auto 30px auto 0; @include hide-txt; background:url('../img/ico_logout.svg') no-repeat 50% 50% / 20px 26px;
+			@include media-mb {margin-right:10px}
+		}
+	}
+
+	/* gnb */
+	.nav {
+		position:fixed; top:60px; left:0; bottom:0; width:250px; background:$dark-3; @include transition(left,opacity); opacity:1; z-index:100;
+		&.hide {left:-250px; opacity:0}
+		a {position:relative; display:block; line-height:1; color:$white; outline:none}
+		.depth1 {
+			& > a {@include flexbox(); @include align-items(center); padding:15px; font-size:1.6rem; opacity:.7; @include transition(opacity)}
+			i {margin-right:8px; font-size:22px}
+			&:hover > a, &.active > a {
+				@include fw-bd; opacity:1;
+				&:before {content:''; @include absolute(0,0,null,null); width:3px; height:100%; background:$point}
+			}
+			&.add-arr {
+				& > a:after {content:'\f107'; display:block; font-family:'Line Awesome Free'; font-weight:900; margin-left:auto; @include transition(transform)}
+				&.active > a:after {transform:rotateZ(180deg)}
+			}
+		}
+		.depth2 {
+			background:$dark-2;
+			li {
+				margin:0 30px;
+				&:first-child {padding-top:15px}
+				&:last-child {padding-bottom:15px}
+				a {padding:10px 12px; font-size:1.4rem; opacity:.7}
+				a:before {content:''; @include absolute(0,15px,null,null); width:4px; height:4px; background:$white; border-radius:50%}
+				a:hover, &.active a {
+					opacity:1;
+					&:before {background:$point}
+				}
+			}
+		}
+	}
+}
+
+/* layout */
+.wrap-content {
+	height:calc(100vh - 60px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; overflow-y:auto; @include transition(margin-left); overflow-x:hidden;
+	&.wide {margin-left:0}
+	.contents {max-width:1130px; @include transition(margin-right)}
+	
+	@include media-mb {
+		padding:15px;
+		.contents {margin-right:-250px}
+		&.wide .contents {margin:0 0 50px}
+	}
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="45px" viewBox="0 0 69 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_pay_billing</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="이용안내-이용가능API-결제API-부가" transform="translate(-441.000000, -444.000000)">
+            <g id="content" transform="translate(280.000000, 343.000000)">
+                <g id="card" transform="translate(20.000000, 80.000000)">
+                    <g id="ico_pay_billing" transform="translate(140.000000, 20.000000)">
+                        <rect id="bound" x="0" y="0" width="71" height="47"></rect>
+                        <g id="icon" transform="translate(2.000000, 2.000000)" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M52,24.8 L52,41.8724615 C52,43 52,43 50.7054667,43 L1.29453325,43 C0,43 0,43 0,41.8724615 L0,15" id="Stroke-1"></path>
+                            <path d="M42.1976921,15 C14.0658974,15 0,15 0,15 L0,4 C0,3.81570292 0,3 1.25417561,3 L53,3" id="Stroke-1" fill="#FFD786"></path>
+                            <path d="M67,14 C67,20.6277895 61.6277895,26 55,26 C48.3722105,26 43,20.6277895 43,14 C43,7.37221053 48.3722105,2 55,2 C61.6277895,2 67,7.37221053 67,14 Z" id="Stroke-27" fill="#F9C6C9"></path>
+                            <polyline id="Stroke-29" points="55 20 55 13.8820809 59 11"></polyline>
+                            <line x1="52" y1="29" x2="0" y2="29" id="Stroke-5"></line>
+                            <line x1="13" y1="43" x2="13" y2="16" id="Stroke-7"></line>
+                            <line x1="26" y1="43" x2="26" y2="16" id="Stroke-9"></line>
+                            <line x1="39" y1="43" x2="39" y2="16" id="Stroke-11"></line>
+                            <line x1="42.5" y1="6" x2="42.5" y2="-9.09522457e-13" id="Stroke-21"></line>
+                            <line x1="20.5" y1="6" x2="20.5" y2="0" id="Stroke-15"></line>
+                            <line x1="9.5" y1="6" x2="9.5" y2="0" id="Stroke-17"></line>
+                            <line x1="31.5" y1="6" x2="31.5" y2="0" id="Stroke-23"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

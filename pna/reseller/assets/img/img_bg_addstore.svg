@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="75px" height="42px" viewBox="0 0 75 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>img_bg_addstore</title>
+    <desc>Created with Sketch.</desc>
+    <g id="✡️Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="img/img_bg_addstore">
+            <g id="img_bg_addstore" transform="translate(1.000000, 1.000000)">
+                <g id="Group-13" transform="translate(0.000000, 1.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <line x1="13" y1="21" x2="17" y2="0" id="Stroke-1"></line>
+                    <path d="M31.5766469,25.993455 L32.0088278,25.993455 C34.7975207,25.993455 37.1355985,24.0310069 37.96514,21.3266575 C38.7957055,24.0310069 41.1327592,25.993455 43.920428,25.993455 L44.132422,25.993455 C51.7682995,25.993455 50.9766507,18.2602022 50.9766507,18.2602022 L40.9678751,0 L10.0331491,0 L0.023349281,18.2602022 C0.023349281,18.2602022 -0.768299504,25.993455 6.86757804,25.993455 L7.07957196,25.993455 C9.86724077,25.993455 12.2053186,24.0310069 13.0358842,21.3266575 C13.8654256,24.0310069 16.2035034,25.993455 18.9921964,25.993455 L19.4243772,25.993455 C22.1813223,25.993455 25.1469037,24.1808466 26,21.5212402 C26,21.8297407 27.5149663,26.2005214 31.5766469,25.993455 Z" id="Stroke-3"></path>
+                    <line x1="38" y1="21" x2="34" y2="0" id="Stroke-5"></line>
+                    <line x1="26" y1="0" x2="26" y2="22" id="Stroke-7"></line>
+                    <path d="M45,26 L45,44.9 C45,46.0592 44.1704676,47 43.1462963,47 L8.85370375,47 C7.82953243,47 7,46.0592 7,44.9 L7,26" id="Stroke-9"></path>
+                    <polygon id="Stroke-11" points="20 47 32 47 32 31 20 31"></polygon>
+                </g>
+                <g id="Group-8" transform="translate(51.000000, 0.000000)">
+                    <path d="M22,11 C22,17.0753094 17.0742459,22 10.9989366,22 C4.92469064,22 0,17.0753094 0,11 C0,4.92575406 4.92469064,0 10.9989366,0 C17.0742459,0 22,4.92575406 22,11 Z" id="Stroke-3" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M12.6514578,5.5 L12.651,9.349 L16.5,9.34958349 L16.5,12.6493752 L12.651,12.649 L12.6514578,16.5 L9.35166604,16.5 L9.351,12.649 L5.5,12.6493752 L5.5,9.34958349 L9.351,9.349 L9.35166604,5.5 L12.6514578,5.5 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="52px" viewBox="0 0 38 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_certi_phone</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="아이디찾기-인증확인" transform="translate(-584.000000, -350.000000)">
+            <g id="Group" transform="translate(400.000000, 103.000000)">
+                <g id="ul" transform="translate(80.000000, 219.000000)">
+                    <g id="li-active">
+                        <g id="ico_certi_phone" transform="translate(98.000000, 28.000000)">
+                            <rect id="bound" x="0" y="0" width="44" height="52"></rect>
+                            <g id="Group-23" transform="translate(7.000000, 1.000000)" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M0,6.27068876 L28,6.27068876 L28,13 L28,3.21358659 C28,1.43852541 26.5675685,0 24.8009655,0 L3.1990345,0 C1.43337021,0 0,1.43852541 0,3.21358659 L0,46.7864134 C0,48.5614746 1.43337021,50 3.1990345,50 L24.8009655,50 C26.5675685,50 28,48.5614746 28,46.7864134 L28,35" id="Stroke-1"></path>
+                                <line x1="1" y1="42" x2="28" y2="42" id="Stroke-3"></line>
+                                <line x1="12.5" y1="46" x2="15.5" y2="46" id="Stroke-24"></line>
+                            </g>
+                            <g id="Group-7" transform="translate(27.000000, 14.000000)">
+                                <path d="M16,20.4922609 C16,21.3219309 15.2839461,22 14.399122,22 L1.59990244,22 C0.716053899,22 0,21.3219309 0,20.4922609 L0,10.5077391 C0,9.67715033 0.716053899,9 1.59990244,9 L14.399122,9 C15.2839461,9 16,9.67715033 16,10.5077391 L16,20.4922609 Z" id="Stroke-1" stroke="#36384D" stroke-width="2" fill="#FFD786" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M3,8 L3,4.46501077 C3,2.0006805 5.027425,0 7.52788515,0 L8.47211485,0 C10.972575,0 13,2.0006805 13,4.46501077 L13,7.81399569" id="Stroke-3" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M10,15.5 C10,16.8808924 9.10434348,18 8,18 C6.89665502,18 6,16.8808924 6,15.5 C6,14.1191076 6.89665502,13 8,13 C9.10434348,13 10,14.1191076 10,15.5" id="Fill-5" fill="#36384D"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

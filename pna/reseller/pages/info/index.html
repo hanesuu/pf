@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <!-- <link rel="icon" type="image/x-icon" href="files/img/favicon.ico"> -->
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/common.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <!--template:header-->
+    <header class="header">
+      <div class="top">
+        <div class="area-logo">
+          <h1 class="logo">pay&amp;api 리셀러</h1>
+          <span class="btn-nav">메뉴</span>
+        </div>
+        <!--breadcrumb-->
+        <div class="location">
+          <a href="#">이용안내</a>
+          <a href="#">이용 가능 API</a>
+        </div><!--//breadcrumb-->
+        <div class="utils">
+          <div class="top-stats">
+            <div class="i-stats">
+              <i></i>
+              <span class="ani-oval"></span>
+            </div>
+            <div class="list-stats">
+              <dl class="reseller">
+                <dt>
+                  <i class="la la-user-tie"></i>
+                  <span>하부 리셀러</span>
+                </dt>
+                <dd class="txt-count">186</dd>
+              </dl>
+              <dl class="store">
+                <dt>
+                  <i class="la la-shopping-basket"></i>
+                  <span>하부 판매점</span>
+                </dt>
+                <dd class="txt-count">247</dd>
+              </dl>
+              <dl class="sum">
+                <dt>
+                  <i class="la la-coins"></i>
+                  <span>정산예정</span>
+                </dt>
+                <dd class="txt-count">244,510<small>원</small></dd>
+              </dl>
+            </div>
+          </div>
+          <a class="top-user">
+            <div class="type agent"><!--리셀러의 경우 class="type reseller"-->
+              <i class="la la-user"></i>
+              <span>대리점</span>
+            </div>
+            <p>애니스토어(anystore)</p>
+          </a>
+          <a href="../login.html" class="btn-logout" title="로그아웃">로그아웃</a>
+        </div>
+      </div>      
+      <nav class="nav">
+        <ul>
+          <li class="depth1">
+            <a href="../main/main.html">
+              <i class="la la-tachometer-alt"></i>
+              <span slot="title">홈</span>
+            </a>
+          </li>
+          <li class="depth1">
+            <a href="../reseller/list.html">
+              <i class="la la-user-tie"></i>
+              <span slot="title">리셀러 관리</span>
+            </a>
+          </li>
+          <li class="depth1">
+            <a href="#">
+              <i class="la la-coins"></i>
+              <span slot="title">결제관리</span>
+            </a>
+            <ul class="depth2">
+              <li>
+                <a href="../pay/list.html">결제관리 종합현황</a>
+              </li>
+              <li>
+                <a href="../pay/stats.html">결제통계</a>
+              </li>
+            </ul>
+          </li>
+          <li class="depth1">
+            <a href="#">
+              <i class="la la-network-wired"></i>
+              <span slot="title">유료 API 관리</span>
+            </a>
+            <ul class="depth2">
+              <li>
+                <a href="../api/list.html">유료 API 관리 종합현황</a>
+              </li>
+              <li>
+                <a href="../api/stats.html">연동통계</a>
+              </li>
+            </ul>
+          </li>
+          <li class="depth1 active">
+            <a href="#">
+              <i class="la la-info"></i>
+              <span slot="title">이용안내</span>
+            </a>
+            <ul class="depth2">
+              <li class="active">
+                <a href="index.html">이용 가능 API</a>
+              </li>
+              <li>
+                <a href="adjust.html">수익정산 안내</a>
+              </li>
+              <li>
+                <a href="">결제코드 안내</a>
+              </li>
+              <li>
+                <a href="postpay.html">후불계약 안내</a>
+              </li>
+            </ul>
+          </li>
+          <li class="depth1">
+            <a href="../support/support.html">
+              <i class="la la-headset"></i>
+              <span slot="title">고객센터</span>
+            </a>
+          </li>
+          <li class="depth1">
+            <a href="../setting/setting.html">
+              <i class="la la-user-cog"></i>
+              <span slot="title">설정</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--//template:header-->
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents vue-info">
+        <section class="bx-basic wrap-intro">
+          <div class="tit">
+            <h2>결제수수료와 부가서비스 이용요금을 파격적인 원가에 드립니다!</h2>
+            <p class="sub-tit">결제와 부가서비스 연동이 필요한 프로젝트에 적정 마진을 더해 바로 공급해보세요. 매달 짱짱한 연금성 수익이 기다립니다~</p>
+          </div>
+          <div class="bx-gry">
+            <ul class="list-type">
+              <li>아래 포트폴리오에서 연동이 가능한 API 현황과, 파트너 제공원가를 확인하세요.</li>
+              <li>[리셀러 적용], [판매점 적용] 과정에서 리셀러 등록, 판매점 등록, 마진설정 등이 가능합니다.</li>
+              <li>실제 연동은 API별 [매뉴얼 보기]를 참고해 진행하세요.</li>
+            </ul>
+            <a href="#" class="txt-close"><i class="las la-times"></i>다시 보지 않기</a>
+          </div>
+        </section>
+        <!--탭-->
+        <el-tabs type="card" v-model="tabLg" class="tab-lg">
+          <!--1.전체-->
+          <el-tab-pane name="all">
+            <span slot="label">전체</span>
+            <section class="list-api-card">
+              <div class="row">
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">신용카드</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point" @click="manageListModal = true">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">실시간 계좌이체</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point" @click="manageListModal = true">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">가상계좌</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point" @click="manageListModal = true">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">휴대폰결제(실물)</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">휴대폰결제(디지털)</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_sspay.png" alt="">
+                      </div>
+                      <div class="tit">삼성페이</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_npay.png" alt="">
+                      </div>
+                      <div class="tit">네이버페이</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_kakao.png" alt="">
+                      </div>
+                      <div class="tit">카카오페이/카카오머니</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_payco.png" alt="">
+                      </div>
+                      <div class="tit">페이코</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_alipay.png" alt="">
+                      </div>
+                      <div class="tit">알리페이</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_tenpay.png" alt="">
+                      </div>
+                      <div class="tit">텐페이</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/api_paypal.png" alt="">
+                      </div>
+                      <div class="tit">페이팔</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_billing.svg" alt="정기결제(빌링결제)">
+                      </div>
+                      <div class="tit">정기결제(빌링결제)</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_link.svg" alt="링크결제">
+                      </div>
+                      <div class="tit">정기결제(빌링결제)</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_cash.svg" alt="현금영수증">
+                      </div>
+                      <div class="tit">현금영수증</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">무료</p>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="wrap-apptwo">
+                <div class="row">
+                  <div class="head-apptwo col-xs-12 col-md-4">
+                    <img src="../../assets/img/img_app2app.svg" alt="리더기가 필요 없는 무료 결제앱">
+                    <h3 class="tit">리더기가 필요 없는 <b>무료 결제앱</b></h3>
+                    <p class="txt">앱2앱 연동 방식</p>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <dl class="wrap-api-card">
+                      <dt>
+                        <div class="img">
+                          <img src="../../assets/img/ico_pay_camera.svg" alt="카메라 결제">
+                        </div>
+                        <div class="tit">카메라 결제</div>
+                      </dt>
+                      <dd class="wrap-price">
+                        <p class="tit-price">제공원가</p>
+                        <dl class="price">
+                          <dt>카드</dt>
+                          <dd>2.5<small>%</small></dd>
+                        </dl>
+                        <dl class="price">
+                          <dt>휴대폰결제</dt>
+                          <dd>3.6<small>%</small></dd>
+                        </dl>
+                      </dd>
+                      <dd class="wrap-btns">
+                        <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                        <button class="btn btn-sk">리셀러 적용</button>
+                        <button class="btn btn-point">판매점 적용</button>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <dl class="wrap-api-card">
+                      <dt>
+                        <div class="img">
+                          <img src="../../assets/img/ico_pay_nfc.svg" alt="현NFC 결제">
+                        </div>
+                        <div class="tit">NFC 결제</div>
+                      </dt>
+                      <dd class="wrap-price">
+                        <p class="tit-price">무료</p>
+                      </dd>
+                      <dd class="wrap-btns">
+                        <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                        <button class="btn btn-sk">리셀러 적용</button>
+                        <button class="btn btn-point">판매점 적용</button>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </el-tab-pane>
+          <!--2.결제API-->
+          <el-tab-pane name="payAll">
+            <span slot="label">결제 API</span>
+            <el-tabs v-model="tabMd1" class="tab-md">
+              <!--1-1.결제 API-->
+              <el-tab-pane label="결제 API" name="payApi1">
+                <section class="list-api-card">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                          </div>
+                          <div class="tit">신용카드</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                          </div>
+                          <div class="tit">실시간 계좌이체</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                          </div>
+                          <div class="tit">가상계좌</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                          </div>
+                          <div class="tit">휴대폰결제(실물)</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                          </div>
+                          <div class="tit">휴대폰결제(디지털)</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_sspay.png" alt="">
+                          </div>
+                          <div class="tit">삼성페이</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_npay.png" alt="">
+                          </div>
+                          <div class="tit">네이버페이</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_kakao.png" alt="">
+                          </div>
+                          <div class="tit">카카오페이/카카오머니</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_payco.png" alt="">
+                          </div>
+                          <div class="tit">페이코</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </section>
+              </el-tab-pane>
+              <!--1-2.결제 부가 API-->
+              <el-tab-pane label="결제 부가 API" name="payApi2">
+                <section class="list-api-card">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_billing.svg" alt="정기결제(빌링결제)">
+                          </div>
+                          <div class="tit">정기결제(빌링결제)</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_link.svg" alt="링크결제">
+                          </div>
+                          <div class="tit">정기결제(빌링결제)</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/ico_pay_cash.svg" alt="현금영수증">
+                          </div>
+                          <div class="tit">현금영수증</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">무료</p>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>                     
+                  <div class="wrap-apptwo">
+                    <div class="row">
+                      <div class="head-apptwo col-xs-12 col-md-4">
+                        <img src="../../assets/img/img_app2app.svg" alt="리더기가 필요 없는 무료 결제앱">
+                        <h3 class="tit">리더기가 필요 없는 <b>무료 결제앱</b></h3>
+                        <p class="txt">앱2앱 연동 방식</p>
+                      </div>
+                      <div class="col-xs-12 col-md-4">
+                        <dl class="wrap-api-card">
+                          <dt>
+                            <div class="img">
+                              <img src="../../assets/img/ico_pay_camera.svg" alt="카메라 결제">
+                            </div>
+                            <div class="tit">카메라 결제</div>
+                          </dt>
+                          <dd class="wrap-price">
+                            <p class="tit-price">제공원가</p>
+                            <dl class="price">
+                              <dt>카드</dt>
+                              <dd>2.5<small>%</small></dd>
+                            </dl>
+                            <dl class="price">
+                              <dt>휴대폰결제</dt>
+                              <dd>3.6<small>%</small></dd>
+                            </dl>
+                          </dd>
+                          <dd class="wrap-btns">
+                            <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                            <button class="btn btn-sk">리셀러 적용</button>
+                            <button class="btn btn-point">판매점 적용</button>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="col-xs-12 col-md-4">
+                        <dl class="wrap-api-card">
+                          <dt>
+                            <div class="img">
+                              <img src="../../assets/img/ico_pay_nfc.svg" alt="현NFC 결제">
+                            </div>
+                            <div class="tit">NFC 결제</div>
+                          </dt>
+                          <dd class="wrap-price">
+                            <p class="tit-price">무료</p>
+                          </dd>
+                          <dd class="wrap-btns">
+                            <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                            <button class="btn btn-sk">리셀러 적용</button>
+                            <button class="btn btn-point">판매점 적용</button>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </el-tab-pane>
+              <!--1-3.해외결제 API-->
+              <el-tab-pane label="해외결제 API" name="payApi3">
+                <section class="list-api-card">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_alipay.png" alt="">
+                          </div>
+                          <div class="tit">알리페이</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_tenpay.png" alt="">
+                          </div>
+                          <div class="tit">텐페이</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <dl class="wrap-api-card">
+                        <dt>
+                          <div class="img">
+                            <img src="../../assets/img/api_paypal.png" alt="">
+                          </div>
+                          <div class="tit">페이팔</div>
+                        </dt>
+                        <dd class="wrap-price">
+                          <p class="tit-price">제공원가</p>
+                          <dl class="price">
+                            <dt>카드</dt>
+                            <dd>2.5<small>%</small></dd>
+                          </dl>
+                        </dd>
+                        <dd class="wrap-btns">
+                          <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                          <button class="btn btn-sk">리셀러 적용</button>
+                          <button class="btn btn-point">판매점 적용</button>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </section>
+              </el-tab-pane>
+            </el-tabs>
+          </el-tab-pane>
+          <!--3.유료 API-->
+          <el-tab-pane name="apiAll">
+            <span slot="label">유료 API</span>            
+            <section class="list-api-card">
+              <div class="row">
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">SMS 발송</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">LMS 발송</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">MMS 발송</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">알림톡</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <dl class="wrap-api-card">
+                    <dt>
+                      <div class="img">
+                        <img src="../../assets/img/ico_pay_nfc.svg" alt="">
+                      </div>
+                      <div class="tit">본인인증</div>
+                    </dt>
+                    <dd class="wrap-price">
+                      <p class="tit-price">제공원가</p>
+                      <dl class="price">
+                        <dt>카드</dt>
+                        <dd>2.5<small>%</small></dd>
+                      </dl>
+                    </dd>
+                    <dd class="wrap-btns">
+                      <button class="btn btn-line-point"><i class="las la-external-link-alt"></i>매뉴얼 보기</button>
+                      <button class="btn btn-sk">리셀러 적용</button>
+                      <button class="btn btn-point">판매점 적용</button>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+          </el-tab-pane>
+          <!--4.제휴 솔루션-->
+          <el-tab-pane name="pixcell" class="picxell">
+            <span slot="label">제휴 솔루션</span>
+            <div class="wrap-api-card">
+              <div class="wrap-picxell">
+                <img src="../../assets/img/img_picxell.png" alt="쇼핑몰 솔루션 픽셀 이미지">
+                <dl class="wrap-txt">
+                  <dt class="tit">
+                    <div>극강의 쇼핑몰 솔루션 <span class="point">무료</span> 제공</div>쇼핑몰 구축이 필요하시다면?
+                  </dt>
+                  <dd>유디페이를 통해 임대형과 독립형 쇼핑몰의 장점이 모두 구현된 <br>차세대 쇼핑몰 솔루션 <span class="logo-picxell">픽셀</span>까지 무료로 이용 가능합니다.</dd>
+                </dl>
+              </div>
+              <div class="wrap-price">
+                <p class="tit-price">제공원가</p>
+                <div class="price txt">
+                  <p><i class="las la-check"></i>호스팅형 이용의 경우 결제 API 이용 조건 대비 0.4%의 수수료가 가산됩니다.</p>
+                  <p><i class="las la-check"></i>독립형 구축의 경우에는 결제 API 기본 원가 조건과 동일합니다.</p>
+                </div>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+      </div><!--//페이지내용-->
+
+      <!--modal-->
+      <el-dialog :visible.sync="manageListModal" :close-on-click-modal="false" title="판매점 리스트" @close="cancel" class="pop-layer pop-managelist">
+        <section class="wrap-bx-search filter">
+          <div class="wrap-search">
+            <input type="text" placeholder="검색어 입력" class="inp-txt">
+            <button class="btn-search">
+              <i class="la la-search"></i>
+            </button>
+          </div>
+        </section>
+        <section class="list-store">
+          <ul>
+            <li>
+              <a href="#">애니스토어 (anystore)</a>
+            </li>
+            <li>
+              <a href="#">주문제작나라 (adoy331)</a>
+            </li>
+            <li>
+              <a href="#">거스프링 (pollos0381)</a>
+            </li>
+            <li>
+              <a href="#">메탐월드몰 (bluecrystal)</a>
+            </li>
+            <li>
+              <a href="#">애니스토어 (anystore)</a>
+            </li>
+            <li>
+              <a href="#">주문제작나라 (adoy331)</a>
+            </li>
+            <li>
+              <a href="#">거스프링 (pollos0381)</a>
+            </li>
+            <li>
+              <a href="#">메탐월드몰 (bluecrystal)</a>
+            </li>
+          </ul>
+        </section>
+        <div class="bottom-btn">
+          <button class="btn btn-more"><i class="las la-angle-double-down"></i>더보기</button>
+        </div>
+        <!--내용 없는 경우-->
+        <!--
+        <section class="con-blank">
+          <div class="inner">
+            <i class="el-icon-chat-dot-round"></i>
+            <p class="txt">등록된 판매점이 없습니다.</p>
+            <button onClick="location.href='../store/add.html'" class="btn btn-point">&plus;판매점 등록</button>
+          </div>
+        </section>-->
+      </el-dialog>
+    </div>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="../../assets/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="../../assets/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 탭 */
+        tabLg: 'all',
+        tabMd1: 'payApi1',
+
+        /**
+         * modal
+         */
+        manageListModal: false,
+      }
+    },
+    methods: {
+      /**
+       * 모달 닫기(취소)
+       */
+      cancel() {
+          this.modal = false
+      },
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_certi_mail</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="아이디찾기-인증확인" transform="translate(-818.000000, -354.000000)">
+            <g id="Group" transform="translate(400.000000, 103.000000)">
+                <g id="ul" transform="translate(80.000000, 219.000000)">
+                    <g id="li" transform="translate(240.000000, 0.000000)">
+                        <g id="ico_certi_mail" transform="translate(98.000000, 28.000000)">
+                            <rect id="bound" x="0" y="0" width="44" height="52"></rect>
+                            <g id="Group-12" transform="translate(1.000000, 5.000000)">
+                                <polygon id="Stroke-2" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0 42 42 42 42 13 0 13"></polygon>
+                                <line x1="-4.54747351e-13" y1="13" x2="42" y2="42" id="Stroke-4" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                                <line x1="42" y1="13" x2="21" y2="27" id="Stroke-5" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                                <polygon id="Stroke-8" stroke="#36384D" stroke-width="2" fill="#FFD786" stroke-linecap="round" stroke-linejoin="round" points="6 17.094084 6 3.54924423e-14 36 3.54924423e-14 36 17.094084 21 27.5"></polygon>
+                                <path d="M12.8627451,12 L13.4803922,11.5282051 L12.8235294,10.3589744 L14,9.81538462 L13.7647059,9.05641026 L12.5098039,9.35384615 L12.3921569,8 L11.6176471,8 L11.4901961,9.35384615 L10.2352941,9.05641026 L10,9.81538462 L11.1666667,10.3589744 L10.5196078,11.5282051 L11.1372549,12 L12,10.974359 L12.8627451,12 Z M18.8627451,12 L19.4803922,11.5282051 L18.8235294,10.3589744 L20,9.81538462 L19.7647059,9.05641026 L18.5098039,9.35384615 L18.3921569,8 L17.6176471,8 L17.4901961,9.35384615 L16.2352941,9.05641026 L16,9.81538462 L17.1666667,10.3589744 L16.5196078,11.5282051 L17.1372549,12 L18,10.974359 L18.8627451,12 Z M24.8627451,12 L25.4803922,11.5282051 L24.8235294,10.3589744 L26,9.81538462 L25.7647059,9.05641026 L24.5098039,9.35384615 L24.3921569,8 L23.6176471,8 L23.4901961,9.35384615 L22.2352941,9.05641026 L22,9.81538462 L23.1666667,10.3589744 L22.5196078,11.5282051 L23.1372549,12 L24,10.974359 L24.8627451,12 Z M30.8627451,12 L31.4803922,11.5282051 L30.8235294,10.3589744 L32,9.81538462 L31.7647059,9.05641026 L30.5098039,9.35384615 L30.3921569,8 L29.6176471,8 L29.4901961,9.35384615 L28.2352941,9.05641026 L28,9.81538462 L29.1666667,10.3589744 L28.5196078,11.5282051 L29.1372549,12 L30,10.974359 L30.8627451,12 Z" id="****" fill="#36384D" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
