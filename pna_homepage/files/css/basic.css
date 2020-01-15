@@ -33,7 +33,7 @@ button {margin:0; padding:0; border:0}
 ::-moz-placeholder {color:#dcdee4; font-weight:300}
 :-ms-input-placeholder {color:#dcdee4; font-weight:300}
 :-moz-placeholder {color:#dcdee4; font-weight:300}
-input {-webkit-appearance:none}
+input, textarea {-webkit-appearance:none}
 input[type="text"],
 input[type="tel"],
 .inp-txt {
