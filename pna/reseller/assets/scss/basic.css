@@ -2511,11 +2511,27 @@ body .td-blank p {
 .detail-info .wrap-memo textarea {
   display: block;
   width: 100%;
-  min-height: 100px;
+  height: 100px;
   font-size: 1.3rem;
   border: 0;
   background: transparent;
   resize: none;
+}
+@media only screen and (max-width: 768px) {
+  .detail-info .wrap-memo textarea {
+    height: 20px;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-property: height;
+    transition-property: height;
+  }
+  .detail-info .wrap-memo textarea:focus {
+    height: 20vh;
+  }
 }
 .detail-info .wrap-memo .btn {
   float: right;
@@ -2630,21 +2646,8 @@ body .td-blank p {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
-@media only screen and (max-width: 768px) {
-  .wrap-bx-search.margin .controller {
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
 .wrap-bx-search.margin .controller > * {
   margin-left: 10px;
-}
-@media only screen and (max-width: 768px) {
-  .wrap-bx-search.margin .controller > * {
-    margin: 10px 0 0;
-  }
 }
 .wrap-bx-search.margin .form-btn {
   display: -webkit-box;
@@ -2679,6 +2682,37 @@ body .td-blank p {
 }
 .wrap-bx-search.margin .form-btn .btn {
   border-radius: 0;
+}
+@media only screen and (max-width: 768px) {
+  .wrap-bx-search.margin .controller {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .wrap-bx-search.margin .controller > .btn {
+    -webkit-box-flex: 1 1 calc(50% - 6px);
+    -moz-box-flex: 1 1 calc(50% - 6px);
+    -webkit-flex: 1 1 calc(50% - 6px);
+    -ms-flex: 1 1 calc(50% - 6px);
+    flex: 1 1 calc(50% - 6px);
+    margin: 10px 3px 0;
+  }
+  .wrap-bx-search.margin .form-btn {
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    margin: 10px 3px 0;
+  }
+  .wrap-bx-search.margin .form-btn input {
+    width: 30vw;
+    margin-left: auto;
+  }
+  .wrap-bx-search.margin .form-btn .btn {
+    margin-left: auto;
+  }
 }
 
 /* 웰컴 컨텐츠 */
@@ -5348,21 +5382,17 @@ button[disabled=disabled]:hover, .btn-disable:hover {
 .header .top .location a {
   font-size: 1.8rem;
   color: #6F74F4;
-  line-height: 1;
 }
 @media only screen and (max-width: 768px) {
   .header .top .location a {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    font-size: 1.6rem;
   }
 }
 .header .top .location a:before {
   content: "";
-  display: inline-block;
   margin: 0 5px;
-  font: 900 20px/1 "Line Awesome Free";
-  vertical-align: text-bottom;
+  font-family: "Line Awesome Free";
+  font-weight: 900;
 }
 .header .top .location a:first-child:before {
   display: none;

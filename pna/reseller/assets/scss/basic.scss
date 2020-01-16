@@ -209,10 +209,10 @@ button[disabled=disabled], .btn-disable {
 			@include media-mb {padding:0 10px}
 
 			a {
-				font-size:1.8rem; color:$point; line-height:1;
-				@include media-mb {white-space:nowrap; text-overflow:ellipsis; overflow:hidden}
+				font-size:1.8rem; color:$point;
+				@include media-mb {font-size:1.6rem}
 			}
-			a:before {content:'\f105'; display:inline-block; margin:0 5px; font:900 20px/1 'Line Awesome Free'; vertical-align:text-bottom}
+			a:before {content:'\f105'; margin:0 5px; font-family:'Line Awesome Free'; font-weight:900}
 			a:first-child:before {display:none}
 			a:hover {text-decoration:underline}
 			a:focus {outline:none}

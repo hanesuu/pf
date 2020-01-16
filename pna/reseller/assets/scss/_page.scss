@@ -500,7 +500,13 @@ body .td-blank {
 		@include flex(1 1 20%); margin-left:20px; padding:10px; border:1px solid $warn-yl; background:rgba($warn-yl,.15);
 		@include media-md {width:100%; margin:20px 0 0}
 		.tit {margin:0 0 10px; padding:0 0 5px; color:$warn-yl; @include fw-dl; font-size:1.3rem; border-bottom:1px solid $warn-yl}
-		textarea {display:block; width:100%; min-height:100px; font-size:1.3rem; border:0; background:transparent; resize:none}
+		textarea {
+			display:block; width:100%; height:100px; font-size:1.3rem; border:0; background:transparent; resize:none;
+			@include media-mb {
+				height:20px; @include transition(height);
+				&:focus {height:20vh}
+			}
+		}
 		.btn {float:right;}
 	}
 }
@@ -530,17 +536,24 @@ body .td-blank {
 		}
 		.controller {
 			@include flexbox;
-			@include media-mb {@include flex-direction(column)}
-			& > * {
-				margin-left:10px;
-				@include media-mb {margin:10px 0 0}
-			}
+			& > * {margin-left:10px}
 		}
 		.form-btn {
 			@include flexbox; @include align-items(center); padding-left:10px; background:$white; border:1px solid $point; border-radius:3px;
 			label, span {margin-right:8px; font-size:1.3rem; color:$dark-6}
 			input {width:40px; height:26px; margin-right:4px}
 			.btn {border-radius:0}
+		}
+		@include media-mb {
+			.controller {
+				@include flex-wrap(wrap);
+				& > .btn {@include flex(1 1 calc(50% - 6px)); margin:10px 3px 0}
+			}
+			.form-btn {
+				@include flex(1 1 100%); margin:10px 3px 0;
+				input {width:30vw; margin-left:auto}
+				.btn {margin-left:auto}
+			}
 		}
 	}
 }
