@@ -1,9 +1,4 @@
 $(document).ready(function(){
-	alert("test");
-	//gnb
-	$(".nav > ul > li").addClass("active");
-	$(".top").find("li.menu1").text("홈");
-
 	/* 게시판 오름차 내림차 */
 	$(".board-list").find(".sort").toggle(function(){
 		$(this).siblings().removeClass("dsc","asc");

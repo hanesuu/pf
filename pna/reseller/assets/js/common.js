@@ -17,4 +17,9 @@ $(document).ready(function(){
 	$(".depth1.add-arr").children("a").click(function(){
 		$(this).parent(".add-arr").toggleClass("active").children(".depth2").slideToggle(200);
 	});
+
+	//gnb
+	$(".nav > ul > li:nth-child(1)").addClass("active");
+	$(".top").find("li.menu1").text("홈");
+
 });
