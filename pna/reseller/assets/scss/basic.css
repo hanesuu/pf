@@ -1,9 +1,9 @@
 @charset "UTF-8";
-@import "../css/normalize.css";
-@import "../css/NotoSansKR-Hestia.css";
-@import "../css/roboto.css";
-@import "../css/line-awesome.min.css";
-@import "../css/index.css";
+@import "/ud/common/css/normalize.css";
+@import "/ud/common/css/NotoSansKR-Hestia.css";
+@import "/ud/common/css/roboto.css";
+@import "/ud/common/css/line-awesome.min.css";
+@import "/ud/common/css/element/index.css";
 /* element */
 /* Color */
 /* color for gradient */
