@@ -931,7 +931,7 @@ table th[class*=col-] {
   justify-content: center;
   -ms-flex-pack: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   text-align: center;
   background: #F9F9FC;
@@ -1019,11 +1019,18 @@ table th[class*=col-] {
 }
 @media only screen and (max-width: 768px) {
   .join .bx-basic {
-    margin: 10px auto;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 .join .con {
   padding: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .join .con {
+    padding-bottom: 68px;
+  }
 }
 .join h1.tit {
   display: -webkit-box;
@@ -1119,8 +1126,13 @@ table th[class*=col-] {
 /* 아이디 비밀번호 찾기 */
 @media only screen and (max-width: 768px) {
   .vue-find {
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    -ms-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
     height: 100%;
-    min-height: 100vh;
+    padding: 0;
   }
 }
 .vue-find .txt-top {
@@ -1219,13 +1231,6 @@ table th[class*=col-] {
   border-radius: 3px;
   font-size: 1.8rem;
   color: #36384D;
-}
-@media only screen and (max-width: 768px) {
-  .vue-find .bottom-btn {
-    position: relative;
-    margin-top: 20px;
-    box-shadow: none;
-  }
 }
 
 /** 공통 **/
@@ -1399,6 +1404,25 @@ table th[class*=col-] {
 }
 .wrap-bx-search .wrap-btn-arr i {
   font-size: 14px;
+}
+@media only screen and (max-width: 768px) {
+  .wrap-bx-search .col-xs-12.group-radio {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: space-between;
+  }
 }
 .wrap-bx-search .el-radio {
   margin-right: 2vw;
@@ -2498,12 +2522,8 @@ body .td-blank p {
 .wrap-bx-search .el-collapse-item {
   width: 100%;
 }
-.wrap-bx-search .el-date-editor {
-  max-width: 300px;
-  margin-right: 20px;
-}
 @media only screen and (max-width: 768px) {
-  .wrap-bx-search .el-date-editor {
+  .wrap-bx-search .el-date-editor, .wrap-bx-search.filter .el-date-editor {
     margin: 0 0 10px;
   }
 }
@@ -2528,6 +2548,10 @@ body .td-blank p {
     flex-direction: column;
     padding: 10px;
   }
+}
+.wrap-bx-search.filter .el-date-editor {
+  max-width: 300px;
+  margin-right: 20px;
 }
 .wrap-bx-search.margin {
   -webkit-justify-content: inherit;

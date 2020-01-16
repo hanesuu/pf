@@ -33,7 +33,7 @@ $(document).ready(function(){
     $(".mj2-1.detail").find(".top").children(".location").children(".menu2").text("개별 리셀러 관리");
 
 	//결제 관리
-    $(".mj3-1").find(".nav > ul > li:nth-child(3)").addClass("active").children("li:nth-child(1)").addClass("active").children(".depth2").show();
+    $(".mj3-1").find(".nav > ul > li:nth-child(3)").addClass("active").children(".depth2").show().children("li:nth-child(1)").addClass("active");
     $(".mj3-1").find(".top").children(".location").children(".menu1").text("결제 관리");
     $(".mj3-1").find(".top").children(".location").children(".menu2").text("결제 관리 종합현황");
     $(".mj3-1.detail").find(".nav > ul > li:nth-child(3)").addClass("active").children(".depth2").show().children("li:nth-child(1)").addClass("active");

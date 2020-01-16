@@ -2,7 +2,7 @@
 /* 로그인 -login */
 .wrap-login {
 	@include flexbox; @include align-items(center); @include justify-content(center);
-    width:100%; height:100%; margin:0 auto; text-align:center; background:$light-f;
+    width:100%; height:100vh; margin:0 auto; text-align:center; background:$light-f;
     @include media-mb {padding-left:10px; padding-right:10px}
     .inner {width:370px}
     .head-tit {width:174px; height:46px; margin:0 auto 40px; @include hide-txt; background:url('/ud/pna/common/img/logo_fill.svg') no-repeat 0 0 / 100%}
@@ -23,9 +23,12 @@
 .join {
 	.bx-basic {
 		width:100%; max-width:640px; margin:6vh auto;
-		@include media-mb {margin:10px auto}
+		@include media-mb {margin:0 auto; border-radius:0; box-shadow:none}
 	}
-	.con {padding:20px}
+	.con {
+		padding:20px;
+		@include media-mb {padding-bottom:68px}
+	}
 	h1.tit {
 		@include flexbox; @include align-items(center); @include justify-content(center); margin:0; padding:20px 10px; font-size:1.8rem; @include fw-dl; color:$dark-3; border-bottom:1px solid $light-d;
 		.logo {width:93px; height:24px; margin-right:10px}
@@ -51,7 +54,7 @@
 }
 /* 아이디 비밀번호 찾기 */
 .vue-find {
-	@include media-mb {height:100%; min-height:100vh}
+	@include media-mb {@include align-items(baseline); height:100%; padding:0}
 	.txt-top {
 		margin:40px auto 30px; font-size:1.3rem;
 		@include media-mb {margin:25px auto 15px}
@@ -75,9 +78,6 @@
 		@include media-mb {margin-top:20px}
 	}
 	.bx-result {max-width:480px; margin:0 auto; padding:14px 0; background:rgba($point,.1); border-radius:3px; font-size:1.8rem; color:$dark-3}
-	.bottom-btn {
-		@include media-mb {position:relative; margin-top:20px; box-shadow:none}
-	}
 }
 
 /** 공통 **/
@@ -149,6 +149,9 @@
 			&:last-child {border-radius:0 3px 3px 0; border-left-width:0}
 		}
 		i {font-size:14px}
+	}
+	.col-xs-12.group-radio {
+		@include media-mb {@include flexbox; @include justify-content(space-between)}
 	}
 	.el-radio {
 		margin-right:2vw;
@@ -497,8 +500,7 @@ body .td-blank {
 .wrap-bx-search {
 	@include flexbox; @include align-items(center); margin-bottom:20px;
 	.el-collapse-item {width:100%} 
-	.el-date-editor {
-		max-width:300px; margin-right:20px;
+	.el-date-editor, &.filter .el-date-editor {
 		@include media-mb {margin:0 0 10px}
 	}
 	/* 날짜검색만 */
@@ -506,6 +508,7 @@ body .td-blank {
 		@include justify-content(center); padding:10px 20px; background:rgba($point,.1); text-align:center;
 		&.bx-basic {background:$white}
 		@include media-mb {@include flex-direction(column); padding:10px}
+		.el-date-editor {max-width:300px; margin-right:20px}
 	}
 	/* 마진간편설정 */
 	&.margin {
