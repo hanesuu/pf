@@ -6,149 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>pay&api : 리셀러</title>
-  <!-- <link rel="icon" type="image/x-icon" href="files/img/favicon.ico"> -->
-  <!-- js -->
+  <link rel="shortcut icon" type="image/x-icon" href="../../../common/img/favicon.ico">
+  <link rel="icon" href="../../../common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="../../../common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="../../assets/js/countup.min.js"></script>
-  <script src="../../assets/js/common.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+  });
+  </script>
   <!-- import CSS -->
   <link rel="stylesheet" href="../../assets/scss/basic.css">
 </head>
 <body>
   <div id="app">
-    <!--template:header-->
-    <header class="header">
-      <div class="top">
-        <div class="area-logo">
-          <h1 class="logo">pay&amp;api 리셀러</h1>
-          <span class="btn-nav">메뉴</span>
-        </div>
-        <!--breadcrumb-->
-        <div class="location">
-          <a href="#">리셀러 관리</a>
-          <a href="#">리셀러 등록</a>
-        </div><!--//breadcrumb-->
-        <div class="utils">
-          <div class="top-stats">
-            <div class="i-stats">
-              <i></i>
-              <span class="ani-oval"></span>
-            </div>
-            <div class="list-stats">
-              <dl class="reseller">
-                <dt>
-                  <i class="la la-user-tie"></i>
-                  <span>하부 리셀러</span>
-                </dt>
-                <dd class="txt-count">186</dd>
-              </dl>
-              <dl class="store">
-                <dt>
-                  <i class="la la-shopping-basket"></i>
-                  <span>하부 판매점</span>
-                </dt>
-                <dd class="txt-count">247</dd>
-              </dl>
-              <dl class="sum">
-                <dt>
-                  <i class="la la-coins"></i>
-                  <span>정산예정</span>
-                </dt>
-                <dd class="txt-count">244,510<small>원</small></dd>
-              </dl>
-            </div>
-          </div>
-          <a class="top-user">
-            <div class="type agent"><!--리셀러의 경우 class="type reseller"-->
-              <i class="la la-user"></i>
-              <span>대리점</span>
-            </div>
-            <p>애니스토어(anystore)</p>
-          </a>
-          <a href="../login.html" class="btn-logout" title="로그아웃">로그아웃</a>
-        </div>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li class="depth1">
-            <a href="../main/main.html">
-              <i class="la la-tachometer-alt"></i>
-              <span slot="title">홈</span>
-            </a>
-          </li>
-          <li class="depth1 active">
-            <a href="list.html">
-              <i class="la la-user-tie"></i>
-              <span slot="title">리셀러 관리</span>
-            </a>
-          </li>
-          <li class="depth1">
-            <a href="#">
-              <i class="la la-coins"></i>
-              <span slot="title">결제관리</span>
-            </a>
-            <ul class="depth2">
-              <li>
-                <a href="../pay/list.html">결제관리 종합현황</a>
-              </li>
-              <li>
-                <a href="../pay/stats.html">결제통계</a>
-              </li>
-            </ul>
-          </li>
-          <li class="depth1">
-            <a href="#">
-              <i class="la la-network-wired"></i>
-              <span slot="title">유료 API 관리</span>
-            </a>
-            <ul class="depth2">
-              <li>
-                <a href="../api/list.html">유료 API 관리 종합현황</a>
-              </li>
-              <li>
-                <a href="../api/stats.html">연동통계</a>
-              </li>
-            </ul>
-          </li>
-          <li class="depth1">
-            <a href="#">
-              <i class="la la-info"></i>
-              <span slot="title">이용안내</span>
-            </a>
-            <ul class="depth2">
-              <li>
-                <a href="../info/index.html">이용 가능 API</a>
-              </li>
-              <li>
-                <a href="../info/sale.html">영업/수익 안내</a>
-              </li>
-              <li>
-                <a href="../info/adjust.html">수익정산 안내</a>
-              </li>
-              <li>
-                <a href="">결제코드 안내</a>
-              </li>
-              <li>
-                <a href="">후불계약 안내</a>
-              </li>
-            </ul>
-          </li>
-          <li class="depth1">
-            <a href="../support/support.html">
-              <i class="la la-headset"></i>
-              <span slot="title">고객센터</span>
-            </a>
-          </li>
-          <li class="depth1">
-            <a href="../setting/setting.html">
-              <i class="la la-user-cog"></i>
-              <span slot="title">설정</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!--//template:header-->
+    <div id="header"></div>
     <!--template-->
     <div class="wrap-content">
       <!--페이지내용-->
