@@ -1,8 +1,8 @@
-@import "../css/normalize.css";
-@import "../css/NotoSansKR-Hestia.css";
-@import "../css/roboto.css";
-@import "../css/line-awesome.min.css";
-@import "../css/index.css"; /* element */
+@import "/ud/common/css/normalize.css";
+@import "/ud/common/css/NotoSansKR-Hestia.css";
+@import "/ud/common/css/roboto.css";
+@import "/ud/common/css/line-awesome.min.css";
+@import "/ud/common/css/element/index.css"; /* element */
 @import "./mixin.scss"; /* mixin & var */
 @import "./grid.scss"; /* grid layout */
 @import "./page.scss";
