@@ -188,6 +188,7 @@
 /* 통계 위젯 */
 .wrap-widget {
 	margin:0 -7px 20px;
+	@include media-mb {margin-bottom:10px}
 	div[class*="col-"] {
 		padding:0 7px;
 		@include media-mb {margin-bottom:10px}
@@ -226,6 +227,7 @@
 		}
 		.sub-stat {
 			margin-left:6px; padding:6px 10px 4px; background:rgba($white,.8); border-radius:5px;
+			@include media-mb {margin:0 3px}
 			&.danger-rd * {color:$danger-rd}
 			dd {
 				color:$dark-3;
@@ -505,7 +507,8 @@ body .td-blank {
 
 /* 탭내 검색 및 설정영역 */
 .wrap-bx-search {
-	@include flexbox; @include align-items(center); margin-bottom:20px;
+	@include flexbox; @include align-items(center);
+	@include media-mb {margin-bottom:10px}
 	.el-collapse-item {width:100%} 
 	/* 날짜검색만 */
 	&.filter {
@@ -605,7 +608,7 @@ body .td-blank {
 	}
 	.wrap-chart-today {
 		width:100%; padding:15px 20px;
-		.bx-basic .tbl-filter {
+		.tbl-filter {
 			margin-bottom:15px;
 			@include media-mb {@include align-items(center); @include justify-content(space-between); margin-bottom:0}
 			.d-left {@include flexbox}
