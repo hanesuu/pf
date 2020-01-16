@@ -78,6 +78,9 @@
 		@include media-mb {margin-top:20px}
 	}
 	.bx-result {max-width:480px; margin:0 auto; padding:14px 0; background:rgba($point,.1); border-radius:3px; font-size:1.8rem; color:$dark-3}
+	&.vue-findresult #pane-id .txt-top {
+		@include media-mb{margin-top:22vh}//아이디 결과
+	}
 }
 
 /** 공통 **/

@@ -1232,6 +1232,11 @@ table th[class*=col-] {
   font-size: 1.8rem;
   color: #36384D;
 }
+@media only screen and (max-width: 768px) {
+  .vue-find.vue-findresult #pane-id .txt-top {
+    margin-top: 22vh;
+  }
+}
 
 /** 공통 **/
 /* layout */
