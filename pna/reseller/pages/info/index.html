@@ -14,6 +14,10 @@
   <script type="text/javascript">
   $(document).ready( function() {
     $("#header").load("../inc/header.html");
+    /* gnb */
+    $(".nav > ul > li:nth-child(5)").addClass("active").children("li:nth-child(1)").addClass("active");;
+    $(".top .location").children(".menu1").text("이용안내");
+    $(".top .location").children(".menu2").text("이용 가능 API");
   });
   </script>
   <!-- import CSS -->
