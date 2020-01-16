@@ -1354,6 +1354,11 @@ table th[class*=col-] {
   position: relative;
   padding: 10px 20px;
 }
+@media only screen and (max-width: 768px) {
+  .wrap-bx-search.el-collapse .el-collapse-item__content {
+    padding: 10px;
+  }
+}
 .wrap-bx-search.el-collapse .el-collapse-item__content .row {
   margin: 0 -5px 10px;
 }
@@ -1984,6 +1989,9 @@ body .td-blank p {
   .tbl-filter {
     padding: 10px;
   }
+  .tbl-filter .el-select .el-input {
+    width: 30vw;
+  }
 }
 .tbl-filter .pager {
   display: -webkit-box;
@@ -2527,11 +2535,6 @@ body .td-blank p {
 .wrap-bx-search .el-collapse-item {
   width: 100%;
 }
-@media only screen and (max-width: 768px) {
-  .wrap-bx-search .el-date-editor, .wrap-bx-search.filter .el-date-editor {
-    margin: 0 0 10px;
-  }
-}
 .wrap-bx-search.filter {
   -webkit-justify-content: center;
   -moz-justify-content: center;
@@ -2557,6 +2560,30 @@ body .td-blank p {
 .wrap-bx-search.filter .el-date-editor {
   max-width: 300px;
   margin-right: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .wrap-bx-search .el-date-editor, .wrap-bx-search.filter .el-date-editor {
+    margin: 0 0 10px;
+  }
+  .wrap-bx-search .group-radio {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
 }
 .wrap-bx-search.margin {
   -webkit-justify-content: inherit;
@@ -2874,18 +2901,25 @@ body .td-blank p {
   width: 100%;
   padding: 15px 20px;
 }
-.vue-main .wrap-chart-today .tbl-filter {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter {
   margin-bottom: 15px;
 }
 @media only screen and (max-width: 768px) {
-  .vue-main .wrap-chart-today .tbl-filter {
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  .vue-main .wrap-chart-today .bx-basic .tbl-filter {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: space-between;
+    margin-bottom: 0;
   }
 }
-.vue-main .wrap-chart-today .tbl-filter .d-left {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .d-left {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
@@ -2897,17 +2931,17 @@ body .td-blank p {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
-.vue-main .wrap-chart-today .tbl-filter dt {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter dt {
   min-height: 20px;
   margin-bottom: 8px;
   font-size: 1.4rem;
 }
-.vue-main .wrap-chart-today .tbl-filter .today {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .today {
   margin-right: 30px;
   color: #6F74F4;
 }
 @media only screen and (max-width: 768px) {
-  .vue-main .wrap-chart-today .tbl-filter .today {
+  .vue-main .wrap-chart-today .bx-basic .tbl-filter .today {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -webkit-flex: 1;
@@ -2915,10 +2949,10 @@ body .td-blank p {
     flex: 1;
   }
 }
-.vue-main .wrap-chart-today .tbl-filter .yesterday {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday {
   color: #36384D;
 }
-.vue-main .wrap-chart-today .tbl-filter .yesterday dt .el-input__inner {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday dt .el-input__inner {
   position: relative;
   width: 85px;
   height: 20px;
@@ -2926,10 +2960,10 @@ body .td-blank p {
   border: 0;
   font-size: 1.4rem;
 }
-.vue-main .wrap-chart-today .tbl-filter .yesterday dt .el-input__prefix, .vue-main .wrap-chart-today .tbl-filter .yesterday dt .el-input__suffix {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday dt .el-input__prefix, .vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday dt .el-input__suffix {
   visibility: hidden;
 }
-.vue-main .wrap-chart-today .tbl-filter .yesterday dt .el-input:after {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday dt .el-input:after {
   content: "";
   position: absolute;
   right: 3px;
@@ -2939,13 +2973,16 @@ body .td-blank p {
   opacity: 1;
   background: url("../img/arrow_select.svg") no-repeat 0 0/100%;
 }
-.vue-main .wrap-chart-today .tbl-filter .yesterday dt .el-input input::placeholder {
+.vue-main .wrap-chart-today .bx-basic .tbl-filter .yesterday dt .el-input input::placeholder {
   color: #6E6E7A;
 }
 @media only screen and (max-width: 768px) {
-  .vue-main .wrap-chart-today .tbl-filter .d-right {
+  .vue-main .wrap-chart-today .bx-basic .tbl-filter .d-right {
     width: 100%;
-    margin: 10px 0 0;
+    margin: 0 0 0 30px;
+  }
+  .vue-main .wrap-chart-today .bx-basic .tbl-filter .d-right .el-select .el-input {
+    width: 100%;
   }
 }
 .vue-main .wrap-widget {
@@ -3334,16 +3371,57 @@ body .td-blank p {
   }
 }
 
+/* 리셀러관리,결제관리 */
+@media only screen and (max-width: 768px) {
+  .vue-rslist .wrap-widget .widget-rd {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .vue-rslist .wrap-widget .widget-rd .main-stat {
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+}
+
 /* 결제통계 */
 @media only screen and (max-width: 768px) {
   .vue-paystats .wrap-widget .widget-rd {
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .vue-paystats .wrap-widget .widget-rd .main-stat {
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
   }
   .vue-paystats .wrap-widget .widget-rd .sub-stat {
-    margin: 3px 0;
+    margin: 3px;
+  }
+  .vue-paystats .wrap-widget .widget-rd .sub-stat:first-of-type {
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+  .vue-paystats .wrap-widget .widget-rd .sub-stat:not(:first-of-type) {
+    -webkit-box-flex: 1 1 calc(50% - 6px);
+    -moz-box-flex: 1 1 calc(50% - 6px);
+    -webkit-flex: 1 1 calc(50% - 6px);
+    -ms-flex: 1 1 calc(50% - 6px);
+    flex: 1 1 calc(50% - 6px);
+  }
+  .vue-paystats .tbl-filter.transparent {
+    display: none;
   }
 }
 
@@ -3896,6 +3974,17 @@ body .td-blank p {
   color: #fff;
 }
 
+/* 고객센터 */
+@media only screen and (max-width: 768px) {
+  .vue-support .el-tabs.tab-md.wide .el-tabs__nav {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .vue-support .el-tabs.tab-md.wide .el-tabs__nav .el-tabs__item {
+    min-width: 70px;
+  }
+}
+
 /* commom */
 .con-blank {
   display: -webkit-box;
@@ -4014,11 +4103,6 @@ body .el-select {
 }
 body .el-select .el-input .el-select__caret {
   color: #969AAF;
-}
-@media only screen and (max-width: 768px) {
-  body .el-select .el-input {
-    width: 30vw;
-  }
 }
 body .el-select .el-input__icon {
   line-height: 30px;

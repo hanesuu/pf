@@ -129,6 +129,7 @@
 	&.el-collapse .el-collapse-item.is-active .el-collapse-item__wrap {background:$white}
 	&.el-collapse .el-collapse-item__content {
 		position:relative; padding:10px 20px;
+		@include media-mb {padding:10px}
 		.row {
 			margin:0 -5px 10px;
 			&:last-of-type {margin-bottom:0}
@@ -336,7 +337,10 @@ body .td-blank {
 		height:auto; min-height:28px; margin:0 0 14px; padding:0; background:transparent; border:0;
 		.f-right {top:auto}
 	}
-	@include media-mb {padding:10px}
+	@include media-mb {
+		padding:10px;
+		.el-select .el-input {width:30vw}
+	}
 
 	/* 페이징 */
 	.pager {
@@ -503,15 +507,16 @@ body .td-blank {
 .wrap-bx-search {
 	@include flexbox; @include align-items(center); margin-bottom:20px;
 	.el-collapse-item {width:100%} 
-	.el-date-editor, &.filter .el-date-editor {
-		@include media-mb {margin:0 0 10px}
-	}
 	/* 날짜검색만 */
 	&.filter {
 		@include justify-content(center); padding:10px 20px; background:rgba($point,.1); text-align:center;
 		&.bx-basic {background:$white}
 		@include media-mb {@include flex-direction(column); padding:10px}
 		.el-date-editor {max-width:300px; margin-right:20px}
+	}
+	@include media-mb {
+		.el-date-editor, &.filter .el-date-editor {margin:0 0 10px}
+		.group-radio {@include flexbox; @include justify-content(space-between); width:100%; padding:0 10px}
 	}
 	/* 마진간편설정 */
 	&.margin {
@@ -600,9 +605,9 @@ body .td-blank {
 	}
 	.wrap-chart-today {
 		width:100%; padding:15px 20px;
-		.tbl-filter {
+		.bx-basic .tbl-filter {
 			margin-bottom:15px;
-			@include media-mb {@include flex-direction(column)}
+			@include media-mb {@include align-items(center); @include justify-content(space-between); margin-bottom:0}
 			.d-left {@include flexbox}
 			dt {min-height:20px; margin-bottom:8px; font-size:1.4rem}
 			.today {
@@ -617,7 +622,10 @@ body .td-blank {
 				input::placeholder {color:$dark-6}
 			}
 			.d-right {
-				@include media-mb {width:100%; margin:10px 0 0;}
+				@include media-mb {
+					width:100%; margin:0 0 0 30px;
+					.el-select .el-input {width:100%}
+				}
 			}
 		}
 	}
@@ -765,13 +773,29 @@ body .td-blank {
 	}
 }
 
+/* 리셀러관리,결제관리 */
+.vue-rslist {
+	@include media-mb {
+		.wrap-widget .widget-rd {
+			@include flex-wrap(wrap);
+			.main-stat {@include flex(1 1 100%)}
+		}
+	}
+}
+
 /* 결제통계 */
 .vue-paystats {
 	@include media-mb {
 		.wrap-widget .widget-rd {
-			@include flex-direction(column);
-			.sub-stat {margin:3px 0}
+			@include flex-wrap(wrap);
+			.main-stat {@include flex(1 1 100%)}
+			.sub-stat {
+				margin:3px;
+				&:first-of-type {@include flex(1 1 100%)}
+				&:not(:first-of-type) {@include flex(1 1 calc(50% - 6px))}
+			}
 		}
+		.tbl-filter.transparent {display:none}
 	}
 }
 
@@ -915,6 +939,16 @@ body .td-blank {
 					&:hover {background:$point; color:$white}
 				}
 			}
+		}
+	}
+}
+
+/* 고객센터 */
+.vue-support {
+	@include media-mb {
+		.el-tabs.tab-md.wide .el-tabs__nav {
+			overflow-x:auto; white-space:nowrap;
+			.el-tabs__item {min-width:70px}
 		}
 	}
 }

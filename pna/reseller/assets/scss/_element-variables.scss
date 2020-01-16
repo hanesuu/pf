@@ -9,7 +9,6 @@ body .el-select {
     vertical-align:top;
     .el-input {
         .el-select__caret {color:$dark-9}
-        @include media-mb {width:30vw}
         &__icon {line-height:30px}
     }
 }
