@@ -1,5 +1,3 @@
-alert("test");
-
 $(document).ready(function(){
 	/* gnb layout */
 	$(".header").find(".btn-nav").click(function(){
