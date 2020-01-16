@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	alert("test");
 	//gnb
 	$(".nav > ul > li").addClass("active");
 	$(".top").find("li.menu1").text("홈");
