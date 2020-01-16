@@ -2593,6 +2593,7 @@ body .td-blank p {
 }
 @media only screen and (max-width: 768px) {
   .wrap-bx-search .el-date-editor, .wrap-bx-search.filter .el-date-editor {
+    max-width: 100%;
     margin: 0 0 10px;
   }
   .wrap-bx-search .group-radio {

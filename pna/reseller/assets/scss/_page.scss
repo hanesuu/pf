@@ -524,7 +524,7 @@ body .td-blank {
 		.el-date-editor {max-width:300px; margin-right:20px}
 	}
 	@include media-mb {
-		.el-date-editor, &.filter .el-date-editor {margin:0 0 10px}
+		.el-date-editor, &.filter .el-date-editor {max-width:100%; margin:0 0 10px}
 		.group-radio {@include flexbox; @include justify-content(space-between); width:100%; padding:0 10px}
 	}
 	/* 마진간편설정 */
