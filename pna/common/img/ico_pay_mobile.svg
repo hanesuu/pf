@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="47px" viewBox="0 0 49 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>ico_pay_mobile</title>
+    <desc>Created with Sketch.</desc>
+    <g id="✡️Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="img/ico_pay_mobile" transform="translate(-1.000000, 0.000000)">
+            <g id="ico_pay_mobile">
+                <rect id="bound" x="0" y="0" width="50" height="47"></rect>
+                <g id="Group-23" transform="translate(2.000000, 1.000000)">
+                    <rect id="Rectangle" fill="#FFD786" x="3" y="9" width="29" height="33" rx="1"></rect>
+                    <path d="M0.32277314,5.04640413 L29,5.04640413 L29,3.07683822 C29,1.37731156 27.5164102,0 25.6867143,0 L3.31328573,0 C1.484562,0 0,1.37731156 0,3.07683822 L0,41.9231618 C0,43.6226884 1.484562,45 3.31328573,45 L25.6867143,45 C27.5164102,45 29,43.6226884 29,41.9231618 L29,30.8595411 L29,5.04640413" id="Stroke-1" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <line x1="0.0928" y1="38.0273" x2="28.2368" y2="38.0273" id="Stroke-3" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="13" y1="41" x2="16" y2="41" id="Stroke-24" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="Stroke-11" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="7 16 11.0136378 28 15.0272756 16.2015267 18.4065969 28 22 16.4076336"></polyline>
+                    <line x1="23" y1="22" x2="6" y2="22" id="Stroke-13" stroke="#36384D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <g id="Group-2" transform="translate(33.000000, 11.000000)" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M0,7 C1.25287356,8.45980375 2,10.2320537 2,12.1532105 C2,13.9409537 1.35005225,15.6004476 0.250783699,17" id="Stroke-13"></path>
+                        <path d="M9.29748788,23 C12.2426179,19.8439833 14,15.9149177 14,11.6505647 C14,7.24868097 12.1214191,3.2054559 9,0" id="Stroke-15"></path>
+                        <path d="M5,3 C6.87348837,5.40598796 8,8.40045152 8,11.6580843 C8,14.7740808 6.96651163,17.648839 5.2372093,20" id="Stroke-17"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

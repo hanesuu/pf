@@ -951,7 +951,7 @@ table th[class*=col-] {
   margin: 0 auto 40px;
   font-size: 0;
   text-indent: -9999px;
-  background: url("../img/logo_fill.svg") no-repeat 0 0/100%;
+  background: url("/ud/pna/common/img/logo_fill.svg") no-repeat 0 0/100%;
 }
 .wrap-login .form input {
   display: block;
@@ -1751,7 +1751,6 @@ table th[class*=col-] {
   /* 판매점/리셀러 정보 */
 }
 .board-list tbody tr:hover, .board-list tbody tr.checked {
-  /*background-color:rgba($point,.1); @include transition(background);*/
   cursor: pointer;
 }
 .board-list tbody tr.total {
@@ -3689,7 +3688,7 @@ body .td-blank p {
   display: inline-block;
   width: 113px;
   height: 34px;
-  background: url("../img/logo_picxell@2x.png") no-repeat 0 0/100%;
+  background: url("/ud/pna/common/img/logo_picxell@2x.png") no-repeat 0 0/100%;
   vertical-align: middle;
 }
 .vue-info .el-tab-pane.picxell .wrap-price {
@@ -5122,7 +5121,7 @@ button[disabled=disabled]:hover, .btn-disable:hover {
   padding: 0;
   font-size: 0;
   text-indent: -9999px;
-  background: url("../img/logo_fill.svg") no-repeat 0 0/100%;
+  background: url("/ud/pna/common/img/logo_fill.svg") no-repeat 0 0/100%;
 }
 
 /* header */
