@@ -11,13 +11,10 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="../../assets/js/page.js"></script>
+  <script src="/ud/pna/common/js/countUp.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
     $("#header").load("../inc/header.html");
-    /* gnb */
-    $(".nav > ul > li:nth-child(4)").addClass("active");
-    $(".top .location").children(".menu1").text("유료 API 관리");
-    $(".top .location").children(".menu2").text("유료 API 종합현황");
   });
   </script>
   <!-- import CSS -->
@@ -25,7 +22,7 @@
 </head>
 <body>
   <div id="app">
-    <div id="header"></div>
+    <div id="header" class="mj4-1"></div>
     <!--template-->
     <div class="wrap-content">
       <!--페이지내용-->
