@@ -16,50 +16,6 @@
 $(document).ready( function() {
   $("#header").load("./inc/header.html");
   $("#footer").load("./inc/footer.html");
-
-  //m-gnb
-$(".btn-m-gnb").click(function(){
-  alert('test');
-  $(this).next("nav").animate({right:"0"},350);
-  $(this).siblings(".bg-dim").addClass("on");
-});
-$(".btn-m-close, .bg-dim").click(function(){
-  $(".m-gnb nav").animate({right:"-200px"},350);
-  $(".bg-dim").removeClass("on");
-});
-
-//selectbox
-$(function() {
-  var selectTarget = $('.select select');
-  // focus 가 되었을 때와 focus 를 잃었을 때
-  selectTarget.on({
-    'focus': function() {
-      $(this).parent().addClass('focus');
-    },
-    'blur': function() {
-      $(this).parent().removeClass('focus');
-    }
-  });
-
-  selectTarget.change(function(){
-    var select_name = $(this).children('option:selected').text();
-    $(this).siblings('label').text(select_name);
-  });
-});
-
-//scroll-top
-$(window).scroll(function(){
-  if($(this).scrollTop() > 200){
-    $(".top").fadeIn();
-  } else {
-    $(".top").fadeOut();
-  }
-});
-$(".top").click(function(){
-  alert('test');
-  $('html, body').animate({scrollTop:0},400);
-  return false;
-});
 });
 </script>
 <link rel="stylesheet" href="/ud/common/css/line-awesome.min.css">
@@ -443,4 +399,5 @@ $(".top").click(function(){
 </div>
 <div id="footer"></div>
 </body>
+<script src="./files/js/common.js"></script>
 </html>
