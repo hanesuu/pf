@@ -19,9 +19,10 @@ $(document).ready( function() {
 });
 </script>
 <link rel="stylesheet" href="/ud/common/css/line-awesome.min.css">
+<link rel="stylesheet" href="/ud/common/css/aos.css">
 <link rel="stylesheet" href="files/css/basic.css">
 </head>
-<body>
+<body data-aos-duration="400" data-aos-easing="ease-in-out">
 <div id="header" class="h-sell"></div>
 <div class="container-body pg-sell pg-agent">
   <section class="sect-sub-top">
@@ -99,7 +100,7 @@ $(document).ready( function() {
           <li>판매점 특성에 따라 기본 마진에 +/- 함으로써 판매점 요금을 탄력적으로 결정 가능</li>
         </ul>
       </div>
-      <div class="wrap-btn">
+      <div class="wrap-btn" data-aos="fade-up">
         <a onclick="alert('준비중!');return false;" target="_blank" class="btn btn-lg btn-primary"><i class="las la-file-alt"></i> 제안서 보기</a>
         <a onclick="alert('준비중!');return false;" target="_blank" class="btn btn-lg btn-point"><i class="las la-file-alt"></i> 매뉴얼 보기</a>
       </div>
@@ -156,10 +157,10 @@ $(document).ready( function() {
   <section class="sect-wt sect-finish">
     <div class="bg-grad sect-yl">
       <div class="inner">
-        <span class="bg-back-l"></span>
-        <span class="bg-fire-l"></span>
-        <span class="bg-back-r"></span>
-        <span class="bg-fire-r"></span>
+        <span class="bg-back-l" data-aos="zoom-in-up"></span>
+        <span class="bg-fire-l" data-aos="zoom-in-up" data-aos-delay="50"></span>
+        <span class="bg-back-r" data-aos="zoom-in-up" data-aos-delay="20"></span>
+        <span class="bg-fire-r" data-aos="zoom-in-up" data-aos-delay="60"></span>
       </div>
     </div>
     <div class="inner">
@@ -169,40 +170,40 @@ $(document).ready( function() {
       </div>      
       <div class="bx-basic">
         <div class="process">
-          <div class="oval store">
+          <div class="oval store" data-aos="fade">
             <div class="img">
               <img src="files/img/img_line_store@2x.png">
             </div>
             <p>판매점</p>
           </div>
-          <div class="arrow">
+          <div class="arrow" data-aos="fade" data-aos-delay="10">
             <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#FFAF0E" stroke-width="2"></path>
               </g>
             </svg>
           </div>
-          <div class="oval udpay">
+          <div class="oval udpay" data-aos="fade" data-aos-delay="20">
             <div class="img">
               <img src="/ud/pna/common/img/logo_udpay@2x.png">
             </div>
             <p>유디페이</p>
           </div>
-          <div class="arrow">
+          <div class="arrow" data-aos="fade" data-aos-delay="30">
             <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M43,1 L61,19 L43,37 M61,19 L1,19" stroke="#FFAF0E" stroke-width="2"></path>
               </g>
             </svg>
           </div>
-          <div class="oval last">
+          <div class="oval last" data-aos="fade" data-aos-delay="40">
             <div class="img">
               <img src="files/img/main_v_coins@2x.png">
             </div>
             <p>대리점</p>
           </div>
         </div>
-        <div class="process-txt">
+        <div class="process-txt" data-aos="fade">
           <dl>
             <dt class="tit">1. 판매점에서 유디페이로 결제수수료, 이용요금 지불</dt>
             <dd class="txt">연동 후 Traffic에 따라 판매점은 API 결제수수료 및 유료 API의 이용요금을 유디페이로 지불합니다.<br>선불충전 API는 당월분 사용액이 당월에 결제되며, <br>후불결제 API는 당월분 사용액이 다음달 20일까지 납부됩니다.</dd>
