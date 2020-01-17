@@ -1,7 +1,7 @@
 @charset "utf-8";
-@import url('SpoqaHanSans-kr.css');
-@import url('normalize.css');
-@import url('grid.css');
+@import url('/ud/common/css/SpoqaHanSans-kr.css');
+@import url('/ud/common/css/normalize.css');
+@import url('/ud/common/css/grid.css');
 @import url('page.css');
 @import url('popup.css');
 @font-face {
@@ -149,12 +149,12 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 .inner:after {content:''; display:block; clear:both}
 .logo {
     display:inline-block; width:120px; height:31px;
-    background:url('../img/logo_fill.svg') no-repeat 0 0 / 100%;
+    background:url('/ud/pna/common/img/logo_fill.svg') no-repeat 0 0 / 100%;
     font-size:0; text-indent:-9999px; vertical-align:middle
 }
 .logo-picxell {
     display:inline-block; width:118px; height:36px;
-    background:url('../img/logo_picxell@2x.png') no-repeat 0 0 / 100%;
+    background:url('/ud/pna/common/img/logo_picxell@2x.png') no-repeat 0 0 / 100%;
     font-size:0; text-indent:-9999px; vertical-align:middle
 }
 
