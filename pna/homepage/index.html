@@ -18,7 +18,12 @@ $(document).ready( function() {
   $("#footer").load("./inc/footer.html");
 });
 </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 <link rel="stylesheet" href="/ud/common/css/line-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 <link rel="stylesheet" href="files/css/basic.css">
 </head>
 <body>
@@ -318,7 +323,7 @@ $(document).ready( function() {
       <div class="list-reseller">
         <ul class="row">
           <li class="col-xs-12 col-sm-4">
-            <div class="bx-basic">
+            <div class="bx-basic" data-aos="fade-right">
               <div class="img-user bg-pp">
                 <img src="files/img/img_user01@2x.png">
               </div>
@@ -331,7 +336,7 @@ $(document).ready( function() {
             </div>
           </li>
           <li class="col-xs-12 col-sm-4">
-            <div class="bx-basic">
+            <div class="bx-basic" data-aos="fade-down">
               <div class="img-user bg-yl">
                 <img src="files/img/img_user02@2x.png">
               </div>
@@ -344,7 +349,7 @@ $(document).ready( function() {
             </div>
           </li>
           <li class="col-xs-12 col-sm-4">
-            <div class="bx-basic">
+            <div class="bx-basic" data-aos="fade-left">
               <div class="img-user bg-gn">
                 <img src="files/img/img_user03@2x.png">
               </div>
