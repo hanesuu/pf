@@ -46,15 +46,6 @@ $(".pg-api").find(".btn-sm").hover(function(){
 	$(this).parent().toggleClass('hover');
 });
 
-//돈버는법 간편설정끝 클래스
-// $(window).scroll(function(){
-//   if($(this).scrollTop() > 700){
-//     $(".sect-finish").addClass('active');
-//   } else {
-//     $(".sect-finish").removeClass('active');
-//   }
-// });
-
 //탭메뉴
 $(".tab_content").hide();
 $(".tab_content:first").show();
