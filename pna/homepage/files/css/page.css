@@ -447,37 +447,24 @@ section.sect-picxell {padding:65px 0 100px}
 .sect-step .wrap-step .tit {margin-bottom:10px; font-size:1.8rem; font-weight:700; line-height:1.4}
 section.sect-finish {padding:80px 0}
 .sect-finish .bg-grad,.sect-finish .bg-grad .inner {height:340px}
-.sect-finish .bg-grad span {
-    position:absolute; display:block; opacity:0; transform:scale(.9);
-    transition:margin-top .4s ease-in
-}
+.sect-finish .bg-grad span {position:absolute; display:block}
 .sect-finish .bg-grad .bg-back-l {
     top:8%; left:0;
     width:60vw; max-width:472px; height:24.5vw; max-height:192px; 
-    background:url('../img/bg_fire_left@2x.png') no-repeat 0 0 / 100%;
-    animation:fmove 1.2s ease infinite
+    background:url('../img/bg_fire_left@2x.png') no-repeat 0 0 / 100%
 }
 .sect-finish .bg-grad .bg-back-r {
     top:14%; right:0; 
     width:40vw; max-width:343px; height:26.5vw; max-height:226px; 
-    background:url('../img/bg_fire_right@2x.png') no-repeat 0 0 / 100%;
-    animation:fmove 1.2s 2s ease infinite
+    background:url('../img/bg_fire_right@2x.png') no-repeat 0 0 / 100%
 }
 .sect-finish .bg-grad .bg-fire-l {
     top:2%; left:7.4vw; width:16vw; max-width:120px; height:15.2vw; max-height:114px; 
-    background:url('../img/bg_fire1.svg') no-repeat 0 0 / 100%;
-    animation:fmove 1.6s 2.2s ease infinite
+    background:url('../img/bg_fire1.svg') no-repeat 0 0 / 100%
 }
 .sect-finish .bg-grad .bg-fire-r {
     top:42%; right:4.6vw; width:14vw; max-width:120px; height:14vw; max-height:114px; 
-    background:url('../img/bg_fire2.svg') no-repeat 0 0 / 100%;
-    animation:fmove 1.6s 2.4s ease infinite
-}
-@keyframes fmove {
-    0% {margin-top:0}
-    30% {margin-top:8px}
-    60% {margin-top:0}
-    0% {margin-top:0}
+    background:url('../img/bg_fire2.svg') no-repeat 0 0 / 100%
 }
 .sect-finish .bx-basic {padding:60px 20px 20px}
 .sect-finish .process > div {display:inline-block; margin:0 15px; vertical-align:middle}
