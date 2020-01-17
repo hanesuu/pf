@@ -28,7 +28,7 @@ body {
 }
 a,a:hover,a:active,a:visited {text-decoration:none; cursor:pointer; color:inherit}
 ul,li {@include margin-padding(all,0,all,0); list-style:none}
-// ::selection {background:$point; color:$white}
+::selection {background:rgba($point,.7); color:$white}
 
 /* placeholder */
 input::-webkit-input-placeholder {color:$light-d}
@@ -123,7 +123,7 @@ textarea.inp-txt {
 
 /* button */
 .btn {
-	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,background-image,border-color,box-shadow);
+	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,background-image,border-color,box-shadow); white-space:nowrap;
 	@include fw-md; font-size:1.4rem; color:$dark-6; background-color:$white; border:1px solid transparent; border-radius:3px;
 	&:hover {background-color:$dark-6; color:$white}
 
@@ -203,7 +203,10 @@ button[disabled=disabled], .btn-disable {
 			margin:0 0 0 24px;
 			@include media-mb {display:none}
 		}
-		.btn-nav {width:44px; height:38px; margin:0 10px 0 auto; @include hide-txt; background:url('../img/btn_nav.svg') no-repeat 50% 50% / 24px 18px; cursor:pointer}
+		.btn-nav {
+			width:44px; height:38px; margin:0 10px 0 auto; @include hide-txt; background:url('../img/btn_nav.svg') no-repeat 50% 50% / 24px 18px; cursor:pointer;
+			@include media-mb {margin-right:0}
+		}
 		.location {
 			@include flexbox; @include flex(1); @include align-items(center); padding:0 30px;
 			@include media-mb {padding:0 10px}

@@ -376,6 +376,8 @@ body .td-blank {
 		&.no-inp {padding:0 10px; background:$light-f; line-height:34px; color:$dark-6}
 		& > .inp-txt, & > .el-select {@include flex(1)}
 		.btn:not(:first-child) {margin-left:5px}
+		/* 에러메시지 */
+		&.txt-error {min-height:0; margin:0; color:$danger-rd; font-size:1.2rem}
 	}
 	.bottom-btn {margin-top:30px}
 }
@@ -485,8 +487,8 @@ body .td-blank {
 		dt {width:30%; font-size:1.3rem; color:$dark-6}
 		dd {
 			font-size:1.4rem; color:$dark-3; line-height:24px;
-			&:after {content:''; display:block; clear:both}
 			@include media-mb {line-height:inherit}
+			&:after {content:''; display:block; clear:both}
 			.d-right {
 				float:right;
 				@include media-mb {display:none}
@@ -507,7 +509,7 @@ body .td-blank {
 				&:focus {height:20vh}
 			}
 		}
-		.btn {float:right;}
+		.btn {float:right}
 	}
 }
 
@@ -524,7 +526,8 @@ body .td-blank {
 		.el-date-editor {max-width:300px; margin-right:20px}
 	}
 	@include media-mb {
-		.el-date-editor, &.filter .el-date-editor {max-width:100%; margin:0 0 10px}
+		.el-date-editor {max-width:100%}
+		&.filter .el-date-editor {max-width:100%; margin:0 0 10px}
 		.group-radio {@include flexbox; @include justify-content(space-between); width:100%; padding:0 10px}
 	}
 	/* 마진간편설정 */
@@ -545,6 +548,7 @@ body .td-blank {
 			.btn {border-radius:0}
 		}
 		@include media-mb {
+			padding:10px;
 			.controller {
 				@include flex-wrap(wrap);
 				& > .btn {@include flex(1 1 calc(50% - 6px)); margin:10px 3px 0}
@@ -557,6 +561,8 @@ body .td-blank {
 		}
 	}
 }
+.tab-lg .wrap-bx-search.filter {background:rgba($point,.1); border-radius:0; box-shadow:none}
+
 /* 웰컴 컨텐츠 */
 .wrap-intro {
 	h2 {margin:0; padding:20px; font-size:1.8rem; color:$dark-3}
@@ -639,7 +645,7 @@ body .td-blank {
 			}
 			.d-right {
 				@include media-mb {
-					width:100%; margin:0 0 0 30px;
+					margin:0 0 0 auto;
 					.el-select .el-input {width:100%}
 				}
 			}
@@ -794,7 +800,7 @@ body .td-blank {
 	@include media-mb {
 		.wrap-widget .widget-rd {
 			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%)}
+			.main-stat {@include flex(1 1 100%); padding-bottom:6px}
 		}
 	}
 }
@@ -815,6 +821,16 @@ body .td-blank {
 	}
 }
 
+/* 유료API관리 */
+.vue-apilist, .vue-apistats {
+	@include media-mb {
+		.wrap-widget .widget-pt {
+			@include flex-wrap(wrap);
+			.main-stat {@include flex(1 1 100%); padding-bottom:6px}
+		}
+	}
+}
+
 /* 이용안내 */
 .vue-info {
 	.el-tabs--card.tab-lg > .el-tabs__content {padding-bottom:0}
@@ -829,6 +845,16 @@ body .td-blank {
 			i {margin-right:4px; font-size:1.6rem; vertical-align:text-bottom}
 		}
 	}
+    /* 스크롤 탭 sticky */
+    .el-tabs--card.tab-lg.fixed-top .el-tabs__header {
+        position:fixed; top:60px; left:250px; width:calc(100% - 250px); border-bottom:1px solid $light-d; z-index:100;
+        .el-tabs__nav-wrap, .el-tabs__nav-scroll {margin:0; overflow:inherit}
+        .el-tabs__item {
+            border:0; background:$light-f; border-radius:0;
+            &.is-active {background:$white; box-shadow:0 4px 20px rgba($point,.5); z-index:2}
+        }
+    }
+    
 	/* 목록 */
 	.list-api-card {
 		.row {margin:0 -10px}

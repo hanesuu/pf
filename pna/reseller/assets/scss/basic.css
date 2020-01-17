@@ -2091,6 +2091,7 @@ body .td-blank p {
   margin-bottom: 4px;
   font-size: 1.4rem;
   color: #36384D;
+  /* 에러메시지 */
 }
 .wrap-form dd.no-inp {
   padding: 0 10px;
@@ -2107,6 +2108,12 @@ body .td-blank p {
 }
 .wrap-form dd .btn:not(:first-child) {
   margin-left: 5px;
+}
+.wrap-form dd.txt-error {
+  min-height: 0;
+  margin: 0;
+  color: #ed424d;
+  font-size: 1.2rem;
 }
 .wrap-form .bottom-btn {
   margin-top: 30px;
@@ -2449,15 +2456,15 @@ body .td-blank p {
   color: #36384D;
   line-height: 24px;
 }
-.detail-info .list-info dd:after {
-  content: "";
-  display: block;
-  clear: both;
-}
 @media only screen and (max-width: 768px) {
   .detail-info .list-info dd {
     line-height: inherit;
   }
+}
+.detail-info .list-info dd:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 .detail-info .list-info dd .d-right {
   float: right;
@@ -2592,7 +2599,10 @@ body .td-blank p {
   margin-right: 20px;
 }
 @media only screen and (max-width: 768px) {
-  .wrap-bx-search .el-date-editor, .wrap-bx-search.filter .el-date-editor {
+  .wrap-bx-search .el-date-editor {
+    max-width: 100%;
+  }
+  .wrap-bx-search.filter .el-date-editor {
     max-width: 100%;
     margin: 0 0 10px;
   }
@@ -2685,6 +2695,9 @@ body .td-blank p {
   border-radius: 0;
 }
 @media only screen and (max-width: 768px) {
+  .wrap-bx-search.margin {
+    padding: 10px;
+  }
   .wrap-bx-search.margin .controller {
     -webkit-flex-wrap: wrap;
     -moz-flex-wrap: wrap;
@@ -2714,6 +2727,12 @@ body .td-blank p {
   .wrap-bx-search.margin .form-btn .btn {
     margin-left: auto;
   }
+}
+
+.tab-lg .wrap-bx-search.filter {
+  background: rgba(111, 116, 244, 0.1);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* 웰컴 컨텐츠 */
@@ -3027,8 +3046,7 @@ body .td-blank p {
 }
 @media only screen and (max-width: 768px) {
   .vue-main .wrap-chart-today .tbl-filter .d-right {
-    width: 100%;
-    margin: 0 0 0 30px;
+    margin: 0 0 0 auto;
   }
   .vue-main .wrap-chart-today .tbl-filter .d-right .el-select .el-input {
     width: 100%;
@@ -3434,6 +3452,7 @@ body .td-blank p {
     -webkit-flex: 1 1 100%;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
+    padding-bottom: 6px;
   }
 }
 
@@ -3474,8 +3493,27 @@ body .td-blank p {
   }
 }
 
+/* 유료API관리 */
+@media only screen and (max-width: 768px) {
+  .vue-apilist .wrap-widget .widget-pt, .vue-apistats .wrap-widget .widget-pt {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .vue-apilist .wrap-widget .widget-pt .main-stat, .vue-apistats .wrap-widget .widget-pt .main-stat {
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    padding-bottom: 6px;
+  }
+}
+
 /* 이용안내 */
 .vue-info {
+  /* 스크롤 탭 sticky */
   /* 목록 */
   /* 목록-앱2앱 */
   /* 픽셀 */
@@ -3517,6 +3555,28 @@ body .td-blank p {
   margin-right: 4px;
   font-size: 1.6rem;
   vertical-align: text-bottom;
+}
+.vue-info .el-tabs--card.tab-lg.fixed-top .el-tabs__header {
+  position: fixed;
+  top: 60px;
+  left: 250px;
+  width: calc(100% - 250px);
+  border-bottom: 1px solid #DCDEE4;
+  z-index: 100;
+}
+.vue-info .el-tabs--card.tab-lg.fixed-top .el-tabs__header .el-tabs__nav-wrap, .vue-info .el-tabs--card.tab-lg.fixed-top .el-tabs__header .el-tabs__nav-scroll {
+  margin: 0;
+  overflow: inherit;
+}
+.vue-info .el-tabs--card.tab-lg.fixed-top .el-tabs__header .el-tabs__item {
+  border: 0;
+  background: #F9F9FC;
+  border-radius: 0;
+}
+.vue-info .el-tabs--card.tab-lg.fixed-top .el-tabs__header .el-tabs__item.is-active {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(111, 116, 244, 0.5);
+  z-index: 2;
 }
 .vue-info .list-api-card .row {
   margin: 0 -10px;
@@ -4771,6 +4831,11 @@ ul, li {
   list-style: none;
 }
 
+::selection {
+  background: rgba(111, 116, 244, 0.7);
+  color: #fff;
+}
+
 /* placeholder */
 input::-webkit-input-placeholder {
   color: #DCDEE4;
@@ -5053,6 +5118,7 @@ textarea.inp-txt.lg {
   transition-delay: 0s;
   -webkit-transition-property: color, background-color, background-image, border-color, box-shadow;
   transition-property: color, background-color, background-image, border-color, box-shadow;
+  white-space: nowrap;
   font-weight: 500;
   font-size: 1.4rem;
   color: #6E6E7A;
@@ -5351,6 +5417,11 @@ button[disabled=disabled]:hover, .btn-disable:hover {
   text-indent: -9999px;
   background: url("../img/btn_nav.svg") no-repeat 50% 50%/24px 18px;
   cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .header .top .btn-nav {
+    margin-right: 0;
+  }
 }
 .header .top .location {
   display: -webkit-box;
