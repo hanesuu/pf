@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  alert('test');
   
 //m-gnb
 $(".btn-m-gnb").click(function(){
+  alert('test');
   $(this).next("nav").animate({right:"0"},350);
   $(this).siblings(".bg-dim").addClass("on");
 });
@@ -39,6 +39,7 @@ $(window).scroll(function(){
   }
 });
 $(".top").click(function(){
+  alert('test');
   $('html, body').animate({scrollTop:0},400);
   return false;
 });
