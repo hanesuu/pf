@@ -281,7 +281,7 @@ section.sect-about {padding-bottom:70px}
     .sect-sell .wrap-img {margin-bottom:45px}
     .wrap-calc .bx-basic {padding:12px 3.5vw}
     .wrap-calc .bx-basic .img-store {height:85px}
-    .wrap-calc .bx-basic.left {float:none; margin:30px auto; padding-left:50px}
+    .wrap-calc .bx-basic.left {float:none; width:90vw; margin:30px auto; padding-left:50px}
     .wrap-calc .bx-basic.left .img-store {left:-15px; width:54px}
     .wrap-calc .bx-basic.right {float:none;margin:30px auto; padding-right:50px}
     .wrap-calc .bx-basic.right .img-store {right:-15px; width:68px}

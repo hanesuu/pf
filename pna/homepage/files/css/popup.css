@@ -40,12 +40,12 @@
 .wrap-pop .foot-pop .btn {top:0; margin:0 5px; padding:12px 40px; font-size:1.6rem; box-shadow:0 4px 20px rgba(54,56,88,.2)}
 /* mobile */
 @media all and (max-width:768px){
-	.wrap-pop {
+	.pop-layer .wrap-pop {
 		position:fixed; top:0; left:0; right:0; bottom:0;
 		transform:inherit; border-radius:0
 	}
-	.wrap-pop .con-pop {height:calc(100% - 132px); max-height:100%}
-	.wrap-pop .foot-pop {position:fixed; bottom:0; width:100%; padding:10px 0; border-top:1px solid #dcdee4}
+	.pop-layer .wrap-pop .con-pop {height:calc(100% - 132px); max-height:100%}
+	.pop-layer .wrap-pop .foot-pop {position:fixed; bottom:0; width:100%; padding:10px 0; border-top:1px solid #dcdee4}
 }
 
 

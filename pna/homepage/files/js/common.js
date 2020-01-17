@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  alert('test');
+  
 //m-gnb
 $(".btn-m-gnb").click(function(){
   $(this).next("nav").animate({right:"0"},350);
