@@ -45,7 +45,7 @@
   <a href="#" class="top">
     <i class="la la-angle-up"></i>
   </a>
-  <a onclick="fnShowPop('popHelp')" class="btn-help">
+  <a href="#" onclick="fnShowPop('popHelp')" class="btn-help">
     <i class="las la-user-edit"></i>
     <span>문의하기</span>
   </a>
@@ -65,8 +65,8 @@
           <dt>문의유형</dt>
           <dd>
             <div class="inp-txt select">
-              <label for="type">문의유형 선택</label>
-              <select id="type">
+              <label for="helpType">문의유형 선택</label>
+              <select id="helpType">
                 <option value="">가입 문의</option>
                 <option value="">API 연동 문의</option>
                 <option value="">이용 문의</option>
@@ -82,8 +82,8 @@
           <dt>API명</dt>
           <dd>
             <div class="inp-txt select">
-              <label for="api">API명 선택</label>
-              <select id="api">
+              <label for="helpApi">API명 선택</label>
+              <select id="helpApi">
                 <option value="">카드결제</option>
                 <option value="">실시간 계좌이체</option>
                 <option value="">가상계좌</option>
@@ -108,33 +108,33 @@
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt class="must"><label for="comp">회사명</label></dt>
+          <dt class="must"><label for="helpComp">회사명</label></dt>
           <dd>
-            <input class="inp-txt" id="comp" placeholder="회사명을 입력하세요." type="text">
+            <input class="inp-txt" id="helpComp" placeholder="회사명을 입력하세요." type="text">
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt class="must"><label for="email">이메일</label></dt>
+          <dt class="must"><label for="helpEmail">이메일</label></dt>
           <dd>
-            <input class="inp-txt" id="email" placeholder="이메일을 입력하세요." type="text">
+            <input class="inp-txt" id="helpEmail" placeholder="이메일을 입력하세요." type="text">
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt class="must"><label for="tel">전화번호</label></dt>
+          <dt class="must"><label for="helpTel">전화번호</label></dt>
           <dd>
-            <input class="inp-txt" id="tel" placeholder="전화번호를 입력하세요." type="tel">
+            <input class="inp-txt" id="helpTel" placeholder="전화번호를 입력하세요." type="tel">
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt class="must"><label for="pw">비밀번호</label></dt>
+          <dt class="must"><label for="helpPw">비밀번호</label></dt>
           <dd>
-            <input class="inp-txt" id="pw" placeholder="비밀번호를 입력하세요." type="password">
+            <input class="inp-txt" id="helpPw" placeholder="비밀번호를 입력하세요." type="password">
           </dd>
         </dl>
         <dl class="col-xs-12">
-          <dt class="must"><label for="cont">문의 내용</label></dt>
+          <dt class="must"><label for="helpCont">문의 내용</label></dt>
           <dd>
-            <input class="inp-txt" id="cont" placeholder="제목을 입력하세요." type="text">
+            <input class="inp-txt" id="helpCont" placeholder="제목을 입력하세요." type="text">
           </dd>
           <dd>
             <textarea class="inp-txt" placeholder="문의 내용을 입력하세요."></textarea>
@@ -142,9 +142,9 @@
         </dl>
       </div>
       <div class="agree">
-        <label class="inp-check" for="agree">
+        <label class="inp-check" for="helpAgree">
           <span class="txt"><a href="#" target="_blank" class="txt-link">서비스 이용약관</a> 및 <a href="#" target="_blank" class="txt-link">개인정보 처리방침</a>에 동의합니다.</span>
-          <input id="agree" name="agree" type="checkbox">
+          <input id="helpAgree" name="helpAgree" type="checkbox">
           <span class="checkmark"></span>
         </label>
       </div>
@@ -177,9 +177,9 @@
         <div id="tab1_1" class="tab_content">
           <div class="row wrap-form">
             <dl class="col-xs-12">
-              <dt><label for="user">이름</label></dt>
+              <dt><label for="joinUser">이름</label></dt>
               <dd>
-                <input class="inp-txt" id="user" placeholder="이름을 입력하세요." type="text">
+                <input class="inp-txt" id="joinUser" placeholder="이름을 입력하세요." type="text">
               </dd>
             </dl>
           </div>
@@ -190,21 +190,21 @@
         <div id="tab1_2" class="tab_content">
           <div class="row wrap-form">
             <dl class="col-xs-12">
-              <dt><label for="comp">상호명(법인명)</label></dt>
+              <dt><label for="joinComp">상호명(법인명)</label></dt>
               <dd>
-                <input class="inp-txt" id="comp" placeholder="상호명(법인명)을 입력하세요." type="text">
+                <input class="inp-txt" id="joinComp" placeholder="상호명(법인명)을 입력하세요." type="text">
               </dd>
             </dl>
             <dl class="col-xs-12 col-sm-6">
-              <dt><label for="compnum">사업자등록번호</label></dt>
+              <dt><label for="joinCompnum">사업자등록번호</label></dt>
               <dd>
-                <input class="inp-txt" id="compnum" placeholder="사업자등록번호를 입력하세요." type="tel">
+                <input class="inp-txt" id="joinCompnum" placeholder="사업자등록번호를 입력하세요." type="tel">
               </dd>
             </dl>
             <dl class="col-xs-12 col-sm-6">
-              <dt><label for="ceo">대표자명</label></dt>
+              <dt><label for="joinCeo">대표자명</label></dt>
               <dd>
-                <input class="inp-txt" id="ceo" placeholder="대표자명을 입력하세요." type="text">
+                <input class="inp-txt" id="joinCeo" placeholder="대표자명을 입력하세요." type="text">
               </dd>
             </dl>
           </div>
@@ -213,59 +213,59 @@
       <!--공통-->
       <div class="row wrap-form">
         <dl class="col-xs-12 col-sm-6">
-          <dt><label for="tel">휴대폰번호</label></dt>
+          <dt><label for="joinTel">휴대폰번호</label></dt>
           <dd class="alot">
-            <input class="inp-txt" id="tel" placeholder="휴대폰번호를 입력하세요." type="tel">
+            <input class="inp-txt" id="joinTel" placeholder="휴대폰번호를 입력하세요." type="tel">
             <button class="btn btn-line-b">인증받기</button>
           </dd>
           <dd class="txt-error">휴대폰 번호를 확인해 주세요.</dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt><label for="cert">휴대폰 인증번호</label></dt>
+          <dt><label for="joinCert">휴대폰 인증번호</label></dt>
           <dd class="alot">
             <div class="wrap-inp-time">
-              <input type="tel" placeholder="숫자만 입력하세요." class="inp-txt">
+              <input type="tel" id="joinCert" placeholder="숫자만 입력하세요." class="inp-txt">
               <span class="txt-time">3:00</span>
             </div>
             <button class="btn btn-line-b">인증완료</button>
           </dd>
         </dl>
         <dl class="col-xs-12">
-          <dt><label for="id">아이디</label></dt>
+          <dt><label for="joinId">아이디</label></dt>
           <dd class="alot">
-            <input class="inp-txt" id="id" placeholder="아이디를 입력하세요." type="text">
+            <input class="inp-txt" id="joinId" placeholder="아이디를 입력하세요." type="text">
             <button class="btn btn-line-b">중복확인</button>
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt><label for="pw">비밀번호</label></dt>
+          <dt><label for="joinPw">비밀번호</label></dt>
           <dd>
-            <input class="inp-txt" id="pw" placeholder="비밀번호를 입력하세요." type="password">
+            <input class="inp-txt" id="joinPw" placeholder="비밀번호를 입력하세요." type="password">
           </dd>
         </dl>
         <dl class="col-xs-12 col-sm-6">
-          <dt><label for="pwok">비밀번호 확인</label></dt>
+          <dt><label for="joinPwok">비밀번호 확인</label></dt>
           <dd>
-            <input class="inp-txt" id="pwok" placeholder="비밀번호를 한번 더 입력하세요." type="password">
+            <input class="inp-txt" id="joinPwok" placeholder="비밀번호를 한번 더 입력하세요." type="password">
           </dd>
         </dl>
         <dl class="col-xs-12">
-          <dt><label for="email">이메일</label></dt>
+          <dt><label for="joinEmail">이메일</label></dt>
           <dd>
-            <input class="inp-txt" id="email" placeholder="이메일을 입력하세요." type="text">
+            <input class="inp-txt" id="joinEmail" placeholder="이메일을 입력하세요." type="text">
           </dd>
         </dl>
         <dl class="col-xs-12">
-          <dt><label for="url">홈페이지</label></dt>
+          <dt><label for="joinUrl">홈페이지</label></dt>
           <dd>
-            <input class="inp-txt" id="url" placeholder="홈페이지를 입력하세요." type="text">
+            <input class="inp-txt" id="joinUrl" placeholder="홈페이지를 입력하세요." type="text">
           </dd>
         </dl>
       </div>
       <div class="agree">
-        <label class="inp-check" for="agree">
+        <label class="inp-check" for="joinAgree">
           <span class="txt"><a href="#" target="_blank" class="txt-link">서비스 이용약관</a> 및 <a href="#" target="_blank" class="txt-link">개인정보 처리방침</a>에 동의합니다.</span>
-          <input id="agree" name="agree" type="checkbox">
+          <input id="joinAgree" name="joinAgree" type="checkbox">
           <span class="checkmark"></span>
         </label>
       </div>
