@@ -3581,7 +3581,7 @@ body .td-blank p {
 .vue-info .list-api-card .row {
   margin: 0 -10px;
 }
-.vue-info .list-api-card .col-md-4 {
+.vue-info .list-api-card .col-sm-4 {
   margin: 0 0 20px;
   padding: 0 10px;
 }
@@ -3771,18 +3771,22 @@ body .td-blank p {
 }
 @media only screen and (max-width: 1200px) {
   .vue-info .wrap-api-card .wrap-btns {
-    position: absolute;
-    top: 50%;
-    right: 15px;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 100px;
-    transform: translateY(-50%);
   }
   .vue-info .wrap-api-card .wrap-btns .btn:not(:first-of-type) {
     margin: 5px 0 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .vue-info .wrap-api-card .wrap-btns {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 100px;
+    transform: translateY(-50%);
   }
 }
 .vue-info .wrap-apptwo {
