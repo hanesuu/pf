@@ -69,7 +69,7 @@ section.sect-sub-top {padding:60px 0 0}
 }
 .wrap-img .ani-oval.bg1 {
     width:120px; height:120px; margin:-60px 0 0 -60px; background:#fff;
-    animation:oval-bg1 3s 0 ease infinite
+    animation:oval-bg1 3s ease infinite
 }
 .wrap-img .ani-oval.bg2 {
     width:240px; height:240px; margin:-120px 0 0 -120px; background:#fff;
@@ -143,9 +143,7 @@ section.sect-sub-top {padding:60px 0 0}
     .wrap-txt .tit {font-size:3rem; line-height:1.4}
     .wrap-txt .tit-sub {font-size:2rem}
     .wrap-txt .tit-txt {font-size:1.8rem}
-
 }
-
 
 
 /*---------- main ----------*/
@@ -191,7 +189,6 @@ section.sect-main {padding-bottom:0}
     .sect-main .wrap-img .bg-back-r {transform:inherit; left:auto; right:-10px}
     .sect-main .wrap-img .bg-front-l {left:calc(50% - 42vw)}
     .sect-main .wrap-img .bg-front-r {transform:inherit; left:auto; right:-15px; bottom:-20px}
-
 }
 /* mobile */
 @media all and (max-width:768px){
@@ -279,13 +276,14 @@ section.sect-about {padding-bottom:70px}
 /* mobile */
 @media all and (max-width:768px){
     .sect-sell .wrap-img {margin-bottom:45px}
-    .wrap-calc .bx-basic {padding:12px 3.5vw}
+    .wrap-calc .bx-basic {width:90vw; padding:12px 3.5vw}
     .wrap-calc .bx-basic .img-store {height:85px}
-    .wrap-calc .bx-basic.left {float:none; width:90vw; margin:30px auto; padding-left:50px}
+    .wrap-calc .bx-basic.left {float:none; margin:30px auto; padding-left:50px}
     .wrap-calc .bx-basic.left .img-store {left:-15px; width:54px}
-    .wrap-calc .bx-basic.right {float:none;margin:30px auto; padding-right:50px}
+    .wrap-calc .bx-basic.right {float:none; margin:30px auto; padding-right:50px}
     .wrap-calc .bx-basic.right .img-store {right:-15px; width:68px}
     .wrap-calc .bx-basic i {padding:0 2vw}
+    .wrap-calc .ico-plus {width:30px; height:30px; background-size:18px}
 }
 
 /* 리셀러로 딱 */
@@ -346,7 +344,6 @@ section.sect-about {padding-bottom:70px}
     .sect-main-btm .wrap-img .ani-oval.bg2 {margin-top:-200px}
     .sect-main-btm .wrap-img .ani-oval.bg3 {margin-top:-170px}
 }
-
 
 
 /*---------- sub ----------*/
@@ -521,7 +518,7 @@ section.sect-finish {padding:80px 0}
 
 /* 돈 버는 법 - 대리점 */
 .pg-agent .sect-sub-top .sect-bl {background-image:linear-gradient(to left,#08bbd7,#799aff)}
-.pg-agent .sect-sub-top .bg-img {background-image: url(../img/bg_pic_agent.jpg)}
+.pg-agent .sect-sub-top .bg-img {background-image: url('../img/bg_pic_agent.jpg')}
 .pg-agent .sect-sub-top .bx-list {width:calc(100% - 20px); margin:20px 10px 40px}
 .pg-agent .label-rd {margin-bottom:5px; font-size:1.2rem; font-weight:300}
 .pg-agent .wrap-step .row:first-child {margin-bottom:60px}
@@ -589,7 +586,7 @@ section.sect-finish {padding:80px 0}
 .tbl-filter .pager .txt-pg .current {font-weight:700; color:#36384D}
 .tbl-filter .pager .txt-pg span:last-child:before {content:"/"; display:inline-block; margin-right:3px}
 .tbl-filter .pager .btn {width:34px; height:34px; padding:0}
-.tbl-filter .pager .btn:hover {top:auto; background:linear-gradient(to top, #fff, #F9F9FC);}
+.tbl-filter .pager .btn:hover {top:auto; background:linear-gradient(to top, #fff, #F9F9FC)}
 .tbl-filter .pager label {margin:0 2px 0 5px}
 .tbl-filter .pager .inp-txt {width:40px}
 @media all and (max-width:768px) {
@@ -602,9 +599,7 @@ section.sect-finish {padding:80px 0}
 }
 
 
-
-
-/* 섹션 공통 */
+/*---------- 섹션 공통 ----------*/
 @media all and (max-width:768px) {
     .sect-top {padding:60px 0 20px}
     .sect-sub .wrap-img {

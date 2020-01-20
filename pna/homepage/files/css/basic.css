@@ -2,15 +2,18 @@
 @import url('/ud/common/css/SpoqaHanSans-kr.css');
 @import url('/ud/common/css/normalize.css');
 @import url('/ud/common/css/grid.css');
+@import url('/ud/common/css/aos.css');
+@import url('/ud/common/css/line-awesome.min.css');
 @import url('page.css');
 @import url('popup.css');
 @font-face {
-    font-family:'Spoqa Han Sans',Apple SD Gothic Neo,'맑은 고딕','Malgun Gothic','돋움',Dotum,Verdana,Arial,sans-serif; font-weight:normal; font-style: normal
+    font-family:'Spoqa Han Sans',Apple SD Gothic Neo,'맑은 고딕','Malgun Gothic','돋움',Dotum,Verdana,Arial,sans-serif; font-weight:normal; font-style:normal
 }
 
 html, body {
     margin:0; padding:0; width:100%; height:auto; overflow-x:hidden;
-    font-family:'Spoqa Han Sans',Apple SD Gothic Neo,'맑은 고딕','Malgun Gothic','돋움',Dotum,Verdana,Arial,sans-serif; font-weight:300; font-size:10px; color:#36384d; word-break:keep-all; background-color:#fff
+    font-family:'Spoqa Han Sans',Apple SD Gothic Neo,'맑은 고딕','Malgun Gothic','돋움',Dotum,Verdana,Arial,sans-serif;
+    font-weight:300; font-size:10px; color:#36384d; word-break:keep-all; background-color:#fff
 }
 input::-ms-clear, input::-ms-reveal {display:none}
 button:disabled,
@@ -215,11 +218,13 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 }
 .m-gnb .btn-m-gnb,
 .m-gnb .btn-m-close {
-    display:block; position:absolute; width:50px; height:50px;
-    text-align:center; font-size:23px; line-height:50px
+    display:block; position:absolute; top:0; right:0; width:50px; height:50px;
+    text-align:center; font-size:23px
 }
-.m-gnb .btn-m-gnb {top:0; right:0; color:#6e6e7a}
-.m-gnb .btn-m-close {top:0; right:0; color:#fff}
+.m-gnb .btn-m-gnb {color:#6e6e7a}
+.m-gnb .btn-m-close {color:#fff}
+.m-gnb .btn-m-gnb i,
+.m-gnb .btn-m-close i {line-height:50px}
 .m-gnb .bg-dim {transition:background-color .2s ease-in-out; opacity:0}
 .m-gnb .bg-dim.on {
     position:fixed; top:0; left:0; right:0; bottom:0;
