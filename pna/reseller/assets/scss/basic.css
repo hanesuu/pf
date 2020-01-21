@@ -1313,6 +1313,9 @@ table th[class*=col-] {
   font-size: 1.3rem;
   line-height: 1;
 }
+.txt-statespan {
+  display: inline-block;
+}
 .txt-state:before {
   content: "";
   display: inline-block;
