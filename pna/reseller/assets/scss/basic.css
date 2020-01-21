@@ -2561,6 +2561,7 @@ body .td-blank p {
   -ms-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-bottom: 20px;
   /* 날짜검색만 */
   /* 마진간편설정 */
 }
