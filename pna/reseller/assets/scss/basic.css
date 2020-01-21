@@ -2556,12 +2556,6 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 20px;
   /* 날짜검색만 */
   /* 마진간편설정 */
 }

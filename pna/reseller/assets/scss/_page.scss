@@ -515,7 +515,7 @@ body .td-blank {
 
 /* 탭내 검색 및 설정영역 */
 .wrap-bx-search {
-	@include flexbox; @include align-items(center); margin-bottom:20px;
+	@include flexbox; 
 	@include media-mb {margin-bottom:10px}
 	.el-collapse-item {width:100%} 
 	/* 날짜검색만 */
