@@ -1,7 +1,14 @@
 # Pay&Api 프로젝트
+디자인 퍼블리싱 진행
 
-## 1. 리셀러 관리자
-https://hanesuu.github.io/ud/pna/reseller/pages/login.html
+## 리셀러 관리자
+ - https://hanesuu.github.io/ud/pna/reseller/pages/login.html
+ - Vue.js, HTML5, SASS(SCSS)
+ - Responsive Web
+ - Chrome, Firefox, Safari, IE10+
 
-## 2. 서비스 소개 홈페이지
-https://hanesuu.github.io/ud/pna/homepage/
+## 홈페이지 - 서비스 소개
+ - https://hanesuu.github.io/ud/pna/homepage/
+ - HTML5, jQuery, CSS
+ - Responsive Web
+ - Chrome, Firefox, Safari, IE10+
