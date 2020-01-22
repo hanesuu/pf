@@ -1584,9 +1584,9 @@ table th[class*=col-] {
   background: url("../img/img_bg_seller.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget div[class*=widget-].widget-rd {
-  background: #ff6576;
-  background: -webkit-linear-gradient(top, #ff6576, #f97f67);
-  background: linear-gradient(to bottom, #ff6576, #f97f67);
+  background: #FF808F;
+  background: -webkit-linear-gradient(top, #FF808F, #FFA17F);
+  background: linear-gradient(to bottom, #FF808F, #FFA17F);
 }
 .wrap-widget div[class*=widget-].widget-rd:after {
   width: 62px;
@@ -3224,7 +3224,7 @@ body .td-blank p {
   color: #6F74F4;
 }
 .vue-main .wrap-chart-list .list-chart li.pay dd {
-  color: #ff6576;
+  color: #FF808F;
 }
 .vue-main .wrap-chart-list .list-chart li.calc dd {
   color: #36be9c;
