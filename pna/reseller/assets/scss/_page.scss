@@ -211,7 +211,7 @@
 		}
 		&.widget-pt {
 			@include bg-gradient($point,$point-lt,'vertical');
-			&:after {width:74px; height:47px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
+			&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 		}
 		dl {@include flex(1); width:100%; padding:4px 10px}/* ie10 */
 		dt {
@@ -225,10 +225,9 @@
 			}
 		}
 		.sub-stat {
-			&.danger-rd * {color:$danger-rd}
 			dd {
-				padding-top:0.4rem; font-size:2rem;
-				@include media-mb {font-size:1.8rem}
+				padding-top:1rem; font-size:2rem;
+				@include media-mb {padding-top:0.4rem; font-size:1.8rem}
 			}
 			.sub-count {display:inline-block; font-size:1.8rem}
 		}
@@ -236,18 +235,22 @@
 			@include flex-direction(column);
 			&:after {
 				bottom:auto; right:auto; top:42px; height:4.4rem;
-				@include media-mb {top:2.5rem}
+				@include media-mb {display:none}
 			}
 			&.widget-yl:after {width:4.8rem}
 			&.widget-rd:after {width:6rem}
 			&.widget-pt:after {width:6.6rem}
-			dl {@include flex(inherit)}/* ie10 */
-			.main-stat dd {text-align:right}
+			dl {
+				@include flex(inherit);/* ie10 */
+				@include media-mb {@include flexbox; @include align-items(center)}
+			}
+			dd {@include flex(1); text-align:right}
+			.main-stat dt {@include media-mb {margin-bottom:0}}
 			.sub-stat {
 				height:90px; margin:6px 0 0; border-top:1px solid rgba($white,.2);
 				dl {@include flexbox; @include align-items(center); margin:5px 0 0}
 				dt {margin:0}
-				dd {@include flex(1); padding-top:0; text-align:right}
+				dd {padding-top:0}
 			}
 		}
 	}
@@ -802,7 +805,7 @@ body .td-blank {
 	@include media-mb {
 		.wrap-widget .widget-rd {
 			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); padding-bottom:6px}
+			.main-stat {@include flex(1 1 100%); padding-bottom:6px; border-bottom:1px solid rgba($white,.2)}
 		}
 	}
 }
@@ -812,7 +815,7 @@ body .td-blank {
 	@include media-mb {
 		.wrap-widget .widget-rd {
 			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%)}
+			.main-stat {@include flex(1 1 100%); border-bottom:1px solid rgba($white,.2)}
 			.sub-stat {
 				margin:3px;
 				&:first-of-type {@include flex(1 1 100%)}
@@ -828,7 +831,7 @@ body .td-blank {
 	@include media-mb {
 		.wrap-widget .widget-pt {
 			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); padding-bottom:6px}
+			.main-stat {@include flex(1 1 100%); padding-bottom:6px; border-bottom:1px solid rgba($white,.2)}
 		}
 	}
 }

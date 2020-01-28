@@ -1610,8 +1610,8 @@ table th[class*=col-] {
   background: linear-gradient(to bottom, #6F74F4, #b993fb);
 }
 .wrap-widget div[class*=widget-].widget-pt:after {
-  width: 74px;
-  height: 47px;
+  width: 90px;
+  height: 56px;
   background: url("../img/img_bg_linked.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget div[class*=widget-] dl {
@@ -1641,15 +1641,13 @@ table th[class*=col-] {
     font-size: 2.2rem;
   }
 }
-.wrap-widget div[class*=widget-] .sub-stat.danger-rd * {
-  color: #ed424d;
-}
 .wrap-widget div[class*=widget-] .sub-stat dd {
-  padding-top: 0.4rem;
+  padding-top: 1rem;
   font-size: 2rem;
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-] .sub-stat dd {
+    padding-top: 0.4rem;
     font-size: 1.8rem;
   }
 }
@@ -1662,7 +1660,6 @@ table th[class*=col-] {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  /* ie10 */
 }
 .wrap-widget div[class*=widget-].horizon:after {
   bottom: auto;
@@ -1672,7 +1669,7 @@ table th[class*=col-] {
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-].horizon:after {
-    top: 2.5rem;
+    display: none;
   }
 }
 .wrap-widget div[class*=widget-].horizon.widget-yl:after {
@@ -1690,9 +1687,39 @@ table th[class*=col-] {
   -webkit-flex: inherit;
   -ms-flex: inherit;
   flex: inherit;
+  /* ie10 */
 }
-.wrap-widget div[class*=widget-].horizon .main-stat dd {
+@media only screen and (max-width: 768px) {
+  .wrap-widget div[class*=widget-].horizon dl {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+.wrap-widget div[class*=widget-].horizon dd {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   text-align: right;
+}
+@media only screen and (max-width: 768px) {
+  .wrap-widget div[class*=widget-].horizon .main-stat dt {
+    margin-bottom: 0;
+  }
 }
 .wrap-widget div[class*=widget-].horizon .sub-stat {
   height: 90px;
@@ -1721,13 +1748,7 @@ table th[class*=col-] {
   margin: 0;
 }
 .wrap-widget div[class*=widget-].horizon .sub-stat dd {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   padding-top: 0;
-  text-align: right;
 }
 
 .tab-lg .wrap-widget div[class*=widget-] {
@@ -3462,6 +3483,7 @@ body .td-blank p {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -3479,6 +3501,7 @@ body .td-blank p {
     -webkit-flex: 1 1 100%;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   .vue-paystats .wrap-widget .widget-rd .sub-stat {
     margin: 3px;
@@ -3517,6 +3540,7 @@ body .td-blank p {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
