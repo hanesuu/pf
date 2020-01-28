@@ -235,12 +235,12 @@
 		&.horizon {
 			@include flex-direction(column);
 			&:after {
-				bottom:auto; right:auto; top:42px; height:44px;
-				@include media-mb {top:2rem}
+				bottom:auto; right:auto; top:42px; height:4.4rem;
+				@include media-mb {top:2.5rem}
 			}
-			&.widget-yl:after {width:48px}
-			&.widget-rd:after {width:60px}
-			&.widget-pt:after {width:66px}
+			&.widget-yl:after {width:4.8rem}
+			&.widget-rd:after {width:6rem}
+			&.widget-pt:after {width:6.6rem}
 			dl {@include flex(inherit)}/* ie10 */
 			.main-stat dd {text-align:right}
 			.sub-stat {

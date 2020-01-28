@@ -1668,21 +1668,21 @@ table th[class*=col-] {
   bottom: auto;
   right: auto;
   top: 42px;
-  height: 44px;
+  height: 4.4rem;
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-].horizon:after {
-    top: 2rem;
+    top: 2.5rem;
   }
 }
 .wrap-widget div[class*=widget-].horizon.widget-yl:after {
-  width: 48px;
+  width: 4.8rem;
 }
 .wrap-widget div[class*=widget-].horizon.widget-rd:after {
-  width: 60px;
+  width: 6rem;
 }
 .wrap-widget div[class*=widget-].horizon.widget-pt:after {
-  width: 66px;
+  width: 6.6rem;
 }
 .wrap-widget div[class*=widget-].horizon dl {
   -webkit-box-flex: inherit;
