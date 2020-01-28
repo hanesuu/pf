@@ -1561,15 +1561,16 @@ table th[class*=col-] {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  padding: 6px;
+  padding: 10px;
   box-shadow: 0 4px 20px 0 rgba(54, 56, 77, 0.2);
   border-radius: 10px;
+  color: #fff;
   /* ie10 */
 }
 .wrap-widget div[class*=widget-]:after {
   content: "";
   position: absolute;
-  left: 10px;
+  right: 20px;
   bottom: 0;
   opacity: 0.3;
 }
@@ -1579,8 +1580,8 @@ table th[class*=col-] {
   background: linear-gradient(to bottom, #799aff, #08bbd7);
 }
 .wrap-widget div[class*=widget-].widget-sk:after {
-  width: 79px;
-  height: 48px;
+  width: 100px;
+  height: 60px;
   background: url("../img/img_bg_seller.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget div[class*=widget-].widget-rd {
@@ -1589,8 +1590,8 @@ table th[class*=col-] {
   background: linear-gradient(to bottom, #FF808F, #FFA17F);
 }
 .wrap-widget div[class*=widget-].widget-rd:after {
-  width: 62px;
-  height: 47px;
+  width: 83px;
+  height: 60px;
   background: url("../img/img_bg_pay.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget div[class*=widget-].widget-yl {
@@ -1599,8 +1600,8 @@ table th[class*=col-] {
   background: linear-gradient(to bottom, #ff8722, #ffaf0e);
 }
 .wrap-widget div[class*=widget-].widget-yl:after {
-  width: 49px;
-  height: 45px;
+  width: 64px;
+  height: 56px;
   background: url("../img/img_bg_cash.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget div[class*=widget-].widget-pt {
@@ -1620,6 +1621,7 @@ table th[class*=col-] {
   -ms-flex: 1;
   flex: 1;
   width: 100%;
+  padding: 4px 10px;
 }
 .wrap-widget div[class*=widget-] dt {
   margin-bottom: 10px;
@@ -1627,40 +1629,24 @@ table th[class*=col-] {
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-] dt {
+    margin-bottom: 6px;
     font-size: 1.2rem;
   }
 }
-.wrap-widget div[class*=widget-] dd {
-  text-align: right;
-}
-.wrap-widget div[class*=widget-] .main-stat {
-  padding: 4px 8px 0;
-  color: #fff;
-}
 .wrap-widget div[class*=widget-] .main-stat dd {
-  font-size: 3.4rem;
+  font-size: 3rem;
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-] .main-stat dd {
     font-size: 2.2rem;
   }
 }
-.wrap-widget div[class*=widget-] .sub-stat {
-  margin-left: 6px;
-  padding: 6px 10px 4px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-}
-@media only screen and (max-width: 768px) {
-  .wrap-widget div[class*=widget-] .sub-stat {
-    margin: 0 3px;
-  }
-}
 .wrap-widget div[class*=widget-] .sub-stat.danger-rd * {
   color: #ed424d;
 }
 .wrap-widget div[class*=widget-] .sub-stat dd {
-  color: #36384D;
+  padding-top: 0.4rem;
+  font-size: 2rem;
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-] .sub-stat dd {
@@ -1679,13 +1665,24 @@ table th[class*=col-] {
   /* ie10 */
 }
 .wrap-widget div[class*=widget-].horizon:after {
-  bottom: 96px;
+  bottom: auto;
+  right: auto;
+  top: 42px;
+  height: 44px;
 }
 @media only screen and (max-width: 768px) {
   .wrap-widget div[class*=widget-].horizon:after {
-    bottom: auto;
     top: 2rem;
   }
+}
+.wrap-widget div[class*=widget-].horizon.widget-yl:after {
+  width: 48px;
+}
+.wrap-widget div[class*=widget-].horizon.widget-rd:after {
+  width: 60px;
+}
+.wrap-widget div[class*=widget-].horizon.widget-pt:after {
+  width: 66px;
 }
 .wrap-widget div[class*=widget-].horizon dl {
   -webkit-box-flex: inherit;
@@ -1694,9 +1691,13 @@ table th[class*=col-] {
   -ms-flex: inherit;
   flex: inherit;
 }
+.wrap-widget div[class*=widget-].horizon .main-stat dd {
+  text-align: right;
+}
 .wrap-widget div[class*=widget-].horizon .sub-stat {
   height: 90px;
   margin: 6px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .wrap-widget div[class*=widget-].horizon .sub-stat dl {
   display: -webkit-box;
@@ -1714,7 +1715,7 @@ table th[class*=col-] {
   -ms-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 5px;
+  margin: 5px 0 0;
 }
 .wrap-widget div[class*=widget-].horizon .sub-stat dt {
   margin: 0;
@@ -1725,6 +1726,7 @@ table th[class*=col-] {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  padding-top: 0;
   text-align: right;
 }
 
@@ -2480,6 +2482,9 @@ body .td-blank p {
 .detail-info .list-info dd .txt-s {
   display: inline-block;
   margin-left: 5px;
+}
+.detail-info .list-info dd .txt-state {
+  display: inline-block;
 }
 .detail-info .list-info dd .txt-wrap {
   display: inline-block;
@@ -5100,7 +5105,7 @@ textarea.inp-txt.lg {
 
 .txt-count {
   font-weight: 700;
-  font-size: 2.6rem;
+  font-size: 2.2rem;
 }
 .txt-count small {
   font-weight: 300;

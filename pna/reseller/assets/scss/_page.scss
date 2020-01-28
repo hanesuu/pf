@@ -195,43 +195,39 @@
 		@include media-mb {margin-bottom:10px}
 	}
 	div[class*="widget-"] {
-		position:relative; @include flexbox; padding:6px; @include bxshadow; border-radius:10px;
-		&:after {content:''; @include absolute(10px,null,null,0); opacity:.3}
+		position:relative; @include flexbox; padding:10px; @include bxshadow; border-radius:10px; color:$white;
+		&:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
 		&.widget-sk {
 			@include bg-gradient($sub-sk-dk,$sub-sk,'vertical');
-			&:after {width:79px; height:48px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
+			&:after {width:100px; height:60px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-rd {
 			@include bg-gradient($rd-dk,$rd-lt,'vertical');
-			&:after {width:62px; height:47px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+			&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-yl {
 			@include bg-gradient($warn-yl-dk,$warn-yl,'vertical');
-			&:after {width:49px; height:45px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
+			&:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-pt {
 			@include bg-gradient($point,$point-lt,'vertical');
 			&:after {width:74px; height:47px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 		}
-		dl {@include flex(1); width:100%}/* ie10 */
+		dl {@include flex(1); width:100%; padding:4px 10px}/* ie10 */
 		dt {
 			margin-bottom:10px; font-size:1.3rem;
-			@include media-mb {font-size:1.2rem}
+			@include media-mb {margin-bottom:6px; font-size:1.2rem}
 		}
-		dd {text-align:right}
-		.main-stat {
-			padding:4px 8px 0; color:$white;
+		.main-stat {			
 			dd {
-				font-size:3.4rem;
+				font-size:3rem;
 				@include media-mb {font-size:2.2rem}
 			}
 		}
 		.sub-stat {
-			margin-left:6px; padding:6px 10px 4px; background:rgba($white,.8); border-radius:5px;
-			@include media-mb {margin:0 3px}
 			&.danger-rd * {color:$danger-rd}
 			dd {
-				color:$dark-3;
+				padding-top:0.4rem; font-size:2rem;
 				@include media-mb {font-size:1.8rem}
 			}
 			.sub-count {display:inline-block; font-size:1.8rem}
@@ -239,15 +235,19 @@
 		&.horizon {
 			@include flex-direction(column);
 			&:after {
-				bottom:96px;
-				@include media-mb {bottom:auto; top:2rem}
+				bottom:auto; right:auto; top:42px; height:44px;
+				@include media-mb {top:2rem}
 			}
+			&.widget-yl:after {width:48px}
+			&.widget-rd:after {width:60px}
+			&.widget-pt:after {width:66px}
 			dl {@include flex(inherit)}/* ie10 */
+			.main-stat dd {text-align:right}
 			.sub-stat {
-				height:90px; margin:6px 0 0;
-				dl {@include flexbox; @include align-items(center); padding:5px}
+				height:90px; margin:6px 0 0; border-top:1px solid rgba($white,.2);
+				dl {@include flexbox; @include align-items(center); margin:5px 0 0}
 				dt {margin:0}
-				dd {@include flex(1); text-align:right}
+				dd {@include flex(1); padding-top:0; text-align:right}
 			}
 		}
 	}
@@ -495,6 +495,7 @@ body .td-blank {
 				@include media-mb {display:none}
 			}
 			.txt-s {display:inline-block; margin-left:5px}
+			.txt-state {display:inline-block}
 			.txt-wrap {display:inline-block; width:85%; max-width:330px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 			.btn-gy {height:24px; line-height:24px}
 		}

@@ -116,7 +116,7 @@ textarea.inp-txt {
 .txt-gn {color:$positive-gn}
 .txt-rd {color:$danger-rd}
 .txt-count {
-	@include fw-bd; font-size:2.6rem;
+	@include fw-bd; font-size:2.2rem;
 	small {@include fw-dl; font-size:12px}
 	@include media-mb {font-size:2.2rem}
 }
