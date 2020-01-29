@@ -234,7 +234,7 @@
 		&.horizon {
 			@include flex-direction(column);
 			&:after {
-				bottom:auto; right:auto; top:42px; height:4.4rem;
+				bottom:auto; right:auto; top:45px; height:4.4rem;
 				@include media-mb {display:none}
 			}
 			&.widget-yl:after {width:4.8rem}
