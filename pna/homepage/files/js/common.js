@@ -1,15 +1,5 @@
 $(document).ready(function(){
 
-//gnb
-$(init);
-function init() {
-  var menuSeq = parseInt('${param.menuSeq}');
-  if(!menuSeq) {
-    menuSeq = 1;
-  }
-  $('nav li').eq(menuSeq - 1).addClass('active');
-}
-
 //m-gnb
 $(".btn-m-gnb").click(function(){
   $(this).next("nav").animate({right:"0"},350);

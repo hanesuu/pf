@@ -13,6 +13,16 @@
 <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
+  $(init);
+  function init() {
+    var menuSeq = parseInt('${param.menuSeq}');
+    if(!menuSeq) {
+      menuSeq = 1;
+    }
+    $('nav li').eq(menuSeq - 1).addClass('active');
+  }
+</script>
+<script type="text/javascript">
 $(document).ready( function() {
   $("#header").load("./inc/header.html");
   $("#footer").load("./inc/footer.html");
@@ -26,7 +36,7 @@ $(document).ready( function() {
   <section class="sect-sub-top">
     <div class="bg-grad sect-bl">
       <div class="bg-img"></div>
-      <a href="sell_agent.html" class="a-link view-pc">
+      <a href="sell_agent.html?menuSeq=3" class="a-link view-pc">
         <span class="tit">대리점<br>수익모델</span>
         <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
@@ -39,7 +49,7 @@ $(document).ready( function() {
       <div class="wrap-txt txt-wt">
         <h2 class="tit">개발자, 프리랜서를 위한 리셀러 수익모델</h2>
         <h3 class="tit-sub">매달 500만원의 마진수익 벌기, 어렵지 않아요~</h3>
-        <a href="sell_agent.html" class="a-link view-mb">
+        <a href="sell_agent.html?menuSeq=3" class="a-link view-mb">
           <span class="tit">대리점<br>수익모델</span>
           <svg width="62px" height="38px" viewBox="0 0 62 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
