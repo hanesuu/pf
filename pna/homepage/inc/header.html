@@ -61,16 +61,4 @@
 </header>
 </body>
 <script src="./files/js/common.js"></script>
-<script type="text/javascript">
-  $(init);
-
-  function init() {
-    var menuSeq = parseInt('${param.menuSeq}');
-    if(!menuSeq) {
-      menuSeq = 1;
-    }
-
-    $('nav li').eq(menuSeq - 1).addClass('active');
-  }
-</script>
 </html>
