@@ -202,12 +202,14 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 .m-gnb nav li {border-bottom:1px solid rgba(255,255,255,.1)}
 .m-gnb nav li a {
     display:block; padding:0 15px;
-    color:#fff; font-size:1.8rem; font-weight:400; line-height:50px
+    color:#fff; font-size:1.8rem; font-weight:400; line-height:50px; opacity:.7
 }
 .m-gnb nav li a i {
     display:inline-block; position:relative; top:1.5px;
     min-width:18px; margin-right:5px; text-align:center; font-size:21px    
 }
+
+.m-gnb nav li.active a {opacity:1}
 .m-gnb .wrap-m-user {
     position:absolute; bottom:0; right:0;
     width:100%; text-align:center

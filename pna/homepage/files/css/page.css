@@ -391,7 +391,7 @@ section.sect-picxell {padding:65px 0 100px}
 }
 .sect-picxell .wrap-txt .tit .point:after {
     content:''; position:absolute; left:calc(50% - 10px); bottom:-8px;
-    width:0; height:0; border-top:10px solid transparent; border-right: 20px solid #6F74F4; border-bottom:10px solid transparent
+    width:0; height:0; border-top:4px solid transparent; border-right: 20px solid #6F74F4; border-bottom:10px solid transparent
 }
 /* pc */
 @media all and (max-width:1080px){
