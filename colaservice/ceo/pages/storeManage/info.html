@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="icon" type="image/x-icon" href="https://colaservice.com/s/favicon.ico">
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="h-info"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">모바일 전단지 정보 설정</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>상점관리</li>
+                <li>모바일 전단지 정보 설정</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-info">
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">기본 정보</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-8">
+                  <dl>
+                    <dt>모바일 전단지 URL</dt>
+                    <dd>
+                      <input type="text" disabled="disabled" value="https://025551313.colaservice.com/" class="flex1">
+                      <button class="btn btn-redline">URL 복사</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>콜라서비스 매장번호</dt>
+                    <dd>
+                      <div class="no-inp">050704800034</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">메인 페이지 이미지 설정</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>이미지 등록 (최대 9장)</dt>
+                    <dd class="wrap-list-thumb">
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://mblogthumb-phinf.pstatic.net/20150704_285/melhan1_1435976893744bgnsW_JPEG/%B3%D7%B3%D7%C4%A1%C5%B2%2C_%B0%A1%B0%DD%C7%A5%2C_%B8%DE%B4%BA%C6%C7.jpg?type=w2">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <label for="upfile1">
+                          <span class="plus"></span>
+                          <input type="file" id="upfile1" accept="image/*" multiple="multiple" class="upload-img">
+                          <span class="txt">이미지 등록</span>
+                        </label>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">정보 페이지 설정</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-6">
+                  <dl>
+                    <dt>최소 주문 금액</dt>
+                    <dd>
+                      <div class="inp-price">
+                        <input type="tel" placeholder="0" class="inp-txt num-txt">
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <dl>
+                    <dt>영업시간</dt>
+                    <dd class="timepicker">
+                      <el-time-select
+                              placeholder="시작 시간"
+                              v-model="startTime"
+                              :picker-options="{start: '00:00', step: '00:10', end: '23:50'}">
+                      </el-time-select>
+                      <el-time-select
+                              placeholder="종료 시간"
+                              v-model="endTime"
+                              :picker-options="{start: '00:00', step: '00:10', end: '23:50'}">
+                      </el-time-select>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>배달 가능 지역</dt>
+                    <dd>
+                      <textarea class="inp-txt" placeholder="배달 가능 지역을 입력해 주세요."></textarea>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <button class="btn btn-primary">저장하기</button>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+
+      <!--modal-->
+      <el-dialog :visible.sync="modal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-txt">
+        <div class="pop-title" slot="title">이미지 문자 발송 관련 유의사항</div>
+        <div class="contents">
+          <p>전단지 페이지에 등록되는 이미지는 고객님 폰의 데이터를 소모하지 않습니다.</p>
+          <p>그러나, 홍보문자 내용 밖에 이미지가 첨부돼 발송될 경우에는 이용 중인 통신사의 데이터 용량을 사용하게 됩니다. (통신사 정책 상 모바일 데이터를 끄고 와이파이 상태에서 발송이 돼도 통신사 데이터를 사용하는 것으로 돼있습니다.)</p>
+          <p>만약 통신요금의 기본 데이터가 모두 소진된 상태에서 이미지 문자를 발송하실 경우에는 모두 발송실패가 됩니다.</p>
+          <p>따라서, 한달에 2기가, 5기가 등 통신요금 데이터 용량이 크지 않으실 경우에는 홍보문자에 이미지를 한장만 첨부하시거나, 이미지 첨부 기능을 사용하지 않으시는 게 낫습니다.</p>
+          <p>데이터 무제한 요금제를 쓰시면 3장까지 이미지를 마음껏 첨부해 발송하셔도 됩니다.</p>
+        </div>
+        <div slot="footer">
+            <button @click="cancel" class="btn">확인</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 상점 select
+         */
+        storeList: [{
+          value: 'Option1',
+          storeName: '쏘다두마리치킨 구로점'
+        }, {
+          value: 'Option2',
+          storeName: '쏘다피자 당산2호점'
+        }, {
+          value: 'Option3',
+          storeName: '쏘다토스트 구로디지털점'
+        }],
+        value: '',
+
+        /**
+         * header 모바일메뉴
+         */
+        drawer: false,
+        direction: 'ltr',
+        mbMenu: ['mStore'],
+
+        /**
+         * 홍보문자 이미지 포함 switch
+         */
+        autoLeafletYn: true,
+
+        /**
+         * 영업시간 timepicker
+         */
+        startTime: '',
+        endTime: '',
+
+        /**
+         * 유의사항 modal
+         */
+        modal: false,
+      }
+    },
+    methods: {
+      /**
+       * header 모바일메뉴
+       */
+      handleChange(val) {
+        console.log(val);
+      },
+
+      /**
+       * 모달 닫기(취소)
+       */
+      cancel() {
+          this.modal = false
+      },
+    }
+  })
+</script>
+</html>

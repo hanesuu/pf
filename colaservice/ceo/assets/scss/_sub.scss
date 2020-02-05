@@ -1,0 +1,692 @@
+/** 예외 스타일 페이지 **/
+/* 로그인 -index */
+.wrap-login {
+	@include flexbox; @include align-items(center); @include justify-content(center);
+    width:100%; height:100vh; margin:0 auto; text-align:center; background:$lighten;
+    @include media(768px) {padding-left:10px; padding-right:10px}
+    .inner {width:370px}
+    .head-tit {width:187px; height:30px; margin:0 auto 50px; background:url('../img/logo.svg') no-repeat 0 0 / 100%; @include hide-txt;}
+    .form input {display:block; width:100%; height:60px; margin-bottom:10px; padding:20px; font-size:1.6rem}
+    .form-option {
+    	@include flexbox; @include align-items(center); margin:15px 0 25px; font-size:1.3rem;
+        label {margin-right:10px; font-size:1.3rem}
+        a {margin-left:auto; line-height:32px; color:$darker}
+    }
+    .btn-login {
+        display:block; width:100%; padding:20px 0; box-shadow:0 4px 8px 0 rgba($btn-dark,.4);
+        @include fw-bd; font-size:1.8rem
+    }
+}
+/* 약관 -clause */
+.wrap-terms {
+    width:100%; padding:5vh 10px; background:$lighten;
+    .el-tabs--border-card {
+    	max-width:1140px; margin:0 auto;
+    	.el-tabs__header {
+    		.el-tabs__nav {float:none; width:100%}
+    		.el-tabs__item {
+	    		width:calc(33.34% + 2px); height:50px; line-height:50px; text-align:center; font-size:1.4rem;
+	    		@include media(768px) {
+	    			padding:0 5px !important; font-size:1.3rem;
+	    			&:nth-child(1) {width:calc(23.34% + 2px)}
+	    			&:nth-child(3) {width:calc(43.34% + 2px)}
+	    		}
+	    		&.is-active, &:hover {color:$btn-dark}
+	    	}
+    	}
+    	.el-tabs__content {
+    		padding:30px;
+    		@include media(768px) {padding:15px}
+    	}
+	    .el-tab-pane {font-size:1.2rem}
+	}
+	.h1 {margin-bottom:5px; @include fw-md; font-size:1.5rem; color:$darken;}
+	dd:last-of-type {margin-bottom:15px}
+	p {
+		margin-bottom:10px;
+		&:last-of-type {margin-bottom:0}
+	}
+	.depth1 {margin:5px 0; padding:0}
+	.depth2 {margin:5px 5px 10px 10px; padding:0}
+	li {
+		position:relative; margin-bottom:5px;
+		& > * {margin:5px 10px}
+	}
+	.disc > li {
+		padding-left:8px;
+		&:before {content:''; display:block; @include absolute(0,7px,null,null); width:3px; height:3px; border-radius:50%; background:$darker}
+	}
+	.square > li {
+		padding-left:12px;
+		&:before {content:''; display:block; @include absolute(0,7px,null,null); width:6px; height:6px; background:$darker}
+	}
+	table {
+		min-width:50%; margin-top:5px; margin-bottom:5px;
+		@include media(768px) {width:calc(100% - 10px)}
+		th, td {padding:5px; border:1px solid $lighter; text-align:center}
+		th {background:$lighten-bl}
+	}
+	
+}
+
+/** 공통 **/
+/* mobile */
+@include media(768px) {	
+	.m-column {
+		@include prefix((
+				flex-direction:column
+			), webkit ms);
+		.m-flex {
+			@include flexbox; margin:5px 0 0;
+			& > *:not(:first-child) {margin-left:5px}
+		}
+		&.tbl-filter {
+			@include align-items(stretch);
+			.wrap-right {margin-left:inherit}
+		}
+	}
+	.m-column > *:not(:first-child),
+	.wrap-formbox .m-column > *:not(:first-child) {margin-left:0; margin-top:5px}
+	body .m-hide {display:none}
+}
+/* page info */
+.page-info {
+	@include flexbox; @include align-items(center); margin-bottom:20px;
+	.tit {margin:0; color:$darken; font-size:2.3rem; @include fw-md;}
+	.breadcrumb {
+		margin-left:auto;
+		li {
+			display:inline-block; font-size:1.2rem; color:$dark;
+			&:after {content:'\f112'; display:inline-block; margin:0 2px; font-family:LineAwesome; font-size:8px; color:$lighter}
+			&:last-child {color:$darker}
+			&:last-child:after {content:''}
+			@include media(768px) {font-size:1.1rem}
+		}
+	}
+	.label-link {
+		position:relative; display:inline-block; height:18px; margin-left:5px; padding:0 8px; font-size:1.2rem; @include fw-rg; color:$white; line-height:18px; background:#f7ba2a;
+		&:hover {text-decoration:underline}
+		&:after {content:''; position:absolute; right:-9px; top:0; width:0; height:0; border-left:9px solid #f7ba2a; border-top:9px solid transparent; border-bottom:9px solid transparent}
+		@include media(768px) {display:none}
+	}
+}
+
+/* 폼박스 구성 */
+.wrap-formbox {
+	margin-bottom:20px;
+	&:last-of-type {margin-bottom:0}
+	.bx-tit {
+		padding:10px 15px; background-color:$lighten-bl; border:1px solid $lighter; border-radius:3px 3px 0 0; @include clearfix;
+		.tit {display:inline-block; margin:0; font-size:1.4rem; @include fw-md; color:$darken}
+		.btn-txt {display:inline-block; margin-left:12px}
+		.el-switch {float:right}
+	}
+	.bx-con {
+		@include clearfix; padding:12px 5px 4px; background:$white; border:1px solid $lighter; border-top:0; border-radius:0 0 3px 3px;
+		@include media(768px) {padding-left:0; padding-right:0}
+		& > div[class*="col-"] {padding:0 10px 20px}
+		.no-inp {min-height:32px; padding:0 10px; line-height:32px; background-color:$lighten-bl; color:$darken}
+		.list-inp {
+			@include flexbox; @include justify-content(space-between);
+			@include media(768px) {@include justify-content(inherit);}
+			& > label {margin:inherit; @include flex(1);}
+		}
+	}
+	dt {margin-bottom:4px; font-size:1.2rem; color:$dark; line-height:18px}
+	dd {
+		@include flexbox; min-height:32px; font-size:1.3rem;
+		& > *:only-child, .flex1 {@include flex(1);}
+		& > *:not(:first-child) {margin-left:5px}
+		.list-thumb.no-flex {@include flex(none);}
+		.el-switch {display:block; line-height:32px; height:32px}
+		.dd-add {line-height:32px}
+		@include media(768px) {
+			&.wrap-list-thumb {display:block; margin-top:-3px; font-size:0}
+		}
+	}
+	.right {float:right}
+	.column {
+		@include prefix((
+				flex-direction:column
+			), webkit ms);
+	}
+}
+
+/* 게시판 */
+.board-list {
+	@include media(768px) {position:relative; overflow-x:auto; -webkit-overflow-scrolling:touch}
+	table {width:100%; border:1px solid $lighter}
+	th, td {height:40px; padding:10px; border-bottom:1px solid $lighter; text-align:center; line-height:100%; white-space:nowrap}
+	thead {
+		background:$lighten-bl;
+		th {color:$darken; font-size:1.3rem; @include fw-md;}
+	}
+	tbody {
+		background:$white;
+		tr {
+			&:hover, &.checked {background-color:$lighten; cursor:pointer}
+			.td-blank {background-color:$white}
+		}
+		td {
+			color:$darker; font-size:1.2rem;
+			&.txt {
+				line-height:1.3;
+				span {display:-webkit-box; text-overflow:ellipsis; -webkit-line-clamp:4; -webkit-box-orient:vertical; word-break:break-all; white-space:normal; overflow:hidden}
+			}
+			&.btns * {
+				vertical-align:middle;
+				&:not(:first-child) {margin-left:5px}
+			}
+			p:not(:last-child) {margin-bottom:5px}
+		}
+		a {display:block; padding:5px 0; color:$darker}
+		a:hover {color:$darken}
+	}
+	.ta-left {text-align:left}
+	.ta-right {text-align:right}
+	.ta-center {text-align:center}
+}
+body .td-blank {
+	padding:30px 0; text-align:center;
+	i {margin-bottom:10px; font-size:40px; color:$light}
+	p {color:$light; font-size:1.2rem}
+}
+.tbl-filter {
+	@include flexbox; @include align-items(flex-end); position:relative; min-height:32px; margin:10px 0; font-size:0;
+	.txt-count {font-size:1.3rem}
+	.wrap-right {margin-left:auto}
+	.btn:not(:first-child) {margin-left:5px}
+	// & > *:only-child {@include flex(1);}
+}
+.board-view {
+	.bx-tit {
+		.tit {
+			width:calc(100% - 90px);
+			@include media(768px) {float:none; width:auto; line-height:1.3}
+		}
+		.date {
+			float:right; margin-top:4px; color:$dark; font-size:1.2rem;
+			@include media(768px) {float:none}
+		}		
+	}
+	.bx-con {
+		font-size:1.2rem;
+		/* qna */
+		&.qna .answer {
+			position:relative; padding-top:20px; padding-left:36px; border-top:1px solid $lighter;
+			&:before {content:'A.'; @include absolute(7px,20px,null,null); font-family:'Roboto'; @include fw-bd; font-size:23px; color:$darken}
+		}
+	}
+}
+
+/* 이미지 등록 input */
+.wrap-list-thumb .list-thumb {
+	position:relative; width:110px; height:110px; overflow:hidden; border:1px solid $point; border-radius:2px; background:$darken;
+	img {width:100%; opacity:.8}
+	label, input[type=file] {@include absolute(0,0,0,0); width:100%; height:100%; cursor:pointer}
+	input[type=file] {opacity:0}
+	label {
+		background:$lighten-rd; text-align:center; @include transition(box-shadow);
+		&:hover {box-shadow:inset 0 0 10px rgba($point,.5)}
+		.plus {
+			position:relative; display:block; width:25px; height:25px; margin:28px auto 10px;
+			&:before, &:after {content:''; position:absolute; background:$point}
+			&:before {top:12px; left:0; width:25px; height:1px}
+			&:after {left:12px; width:1px; height:25px}
+			@include media(768px) {margin-top:20px}
+		}
+		.txt {font-size:1.2rem; color:$point}
+	}
+	.btn-del {
+		@include absolute(null,null,10px,10px); background:rgba($point,.7); color:$white;
+		border-color:$point; box-shadow:0 0 10px rgba($darken,.5);
+		&:hover {background:$point}
+	}
+	@include media(768px) {display:inline-block; width:84px; height:84px; margin:3px 5px 0 0 !important}
+}
+
+/* 파일 input */
+.wrap-inp-file {
+	position:relative; @include flex(1); height:32px;
+	label {
+		padding:0 10px; background:$lighten;
+		&, input[type=file] {@include absolute(0,0,0,0); width:100%; height:100%; cursor:pointer}
+		input[type=file] {opacity:0}
+		span {
+			display:block; line-height:30px;
+			&.placeholder {color:$light}
+			&.txt {color:$darker}
+		}
+		.btn {position:absolute; top:-1px; right:-1px; height:32px; padding:0 20px; line-height:32px; background:$lighten-rd; border-radius:0 2px 2px 0}
+	}
+}
+
+/* 검색 */
+.wrap-search {
+	position:relative;
+	input.inp-txt {padding-right:32px}
+	.btn-search {
+		position:absolute; right:0; height:32px; padding:0 5px;
+		i {font-size:20px; transform:scaleX(-1); line-height:32px}
+	} 
+}
+
+/* 하단버튼 */
+.bottom-btn {
+	margin-top:20px; text-align:center;
+	@include media(768px) {position:fixed; left:0; right:0; bottom:0; @include flexbox; box-shadow:0 2px 5px rgba($darken,.5); z-index:10}
+	.btn {
+		@include margin-padding(all,0 5px,all,10px 30px); font-size:1.4rem; border-color:transparent; box-shadow:0 4px 8px rgba($btn-dark,.3);
+		&:hover {border-color:transparent}
+		@include media(768px) {@include flex(1); margin:0; border-radius:0;}
+	}
+	.btn-disable {box-shadow:none}
+}
+
+/* 하단 부가적 텍스트 영역 */
+.txt-caution {
+	margin-top:5px; padding:10px 20px; font-size:1.1rem; background:rgba($btn-basic,.1);
+	.title {margin:0 0 5px; color:$darken; @include fw-md;}
+	.list-type li {margin-bottom:2px}
+}
+
+/* 페이징 */
+.pager {
+	@include absolute(0,0,null,null); @include flexbox; font-size:1.2rem;
+	& > * {display:inline-block; height:32px; line-height:32px; vertical-align:top}
+	.txt-pg {
+		margin-right:8px; @include fw-dl; color:$dark;
+		.current {@include fw-bd; color:$darken}
+		span:last-child:before {content:'/'; display:inline-block; margin-right:3px}
+	}
+	.btn {
+		width:32px; padding:0; border-color:$light;
+		i {font-size:15px; line-height:100%}
+	}
+	.btn:not(:first-child), label {margin:0 2px}
+	.inp-txt {width:40px}
+}
+
+/* 목록 텍스트 */
+.bx-gry {
+	@include margin-padding(all,10px 0,all,15px); background:$lighten;
+	@include media(768px) {padding:10px}
+}
+.list-type {
+	& > li {
+	    list-style:none; position:relative; padding-left:8px; margin-bottom:10px; line-height:1.5;
+	    &:before {
+	        content:''; display:block; @include absolute(0,7px,null,null); width:3px; height:3px;
+	        border-radius:50%; background-color:$darker
+	    }
+	    &:last-of-type {margin-bottom:0}
+	}
+	&.decimal {
+		padding-left:15px;
+		& > li {
+			list-style:decimal; padding-left:0;
+			&:before {display:none}
+		}
+	}
+}
+.list-radio {
+	margin:5px 0; border:1px solid $lighter; border-left:0; border-right:0;
+	li .el-radio {
+		display:block; padding:5px 10px;
+		&:hover, &.is-checked {background:$lighten}
+		@include media(768px) {padding:2px 10px}
+	}
+}
+
+/* tooltip  */
+.wrap-tooltip {
+    position:relative; display:inline-block; margin:0 3px; cursor:pointer; vertical-align:bottom; line-height:16px;
+	.ico-link-q {
+	    display:inline-block; width:16px; height:16px;
+	    text-align:center; color:$dark; font-size:12px; @include fw-bd;
+	    background:$white; border:1px solid $light; border-radius:50%; cursor:pointer;
+	}
+	&:hover .tooltip-link {bottom:18px; left:-18px; opacity:1}
+	&:hover .ico-link-q {color:$darken; border-color:$darker}
+}
+.tooltip-link {
+    position:absolute; bottom:10px; left:-9999px; width:280px; padding:8px 12px;
+    border-radius:10px; background:rgba($btn-dark,.9); color:$white;
+    font-size:1.2rem; @include fw-dl; line-height:1.3; box-shadow:0 2px 4px rgba(0,0,0,.2);
+    opacity:0; @include transition(bottom,opacity); word-break:keep-all;
+    &:before {
+        content:''; @include absolute(21px,null,null,-7px); width:0; height:0;
+        border: {
+            top:7px solid rgba($btn-dark,.9); left:5px solid transparent; right:5px solid transparent;
+        }
+    }
+    /* 말풍선 고정 노출시 */
+    &.block, &.block:hover {left:0; bottom:34px; opacity:1; padding:3px 8px; font-size:1.1rem}
+    @include media(768px) {padding:8px}
+}
+
+/* 큰탭 */
+.tab-lg {
+	@include flexbox; margin-bottom:20px;
+	&-item {
+		@include flex(1); height:38px; padding:0; border-color:$lighter; line-height:34px; text-align:center; font-size:1.5rem; color:$dark; background:$white; @include transition(background);
+
+		&:first-child {border-radius:5px 0 0 5px; border-left:1px solid $lighter}
+		&:not(:first-child) {margin-left:-1px}
+	    &:last-child {border-radius:0 5px 5px 0}
+	    &.active, &:hover {@include fw-md; color:$white;background-color:$btn-dark; border-color:transparent; z-index:2}
+	    span {vertical-align:middle}
+	    .num {
+	    	@include margin-padding(all,0 4px,all,1px 6px); @include fw-bd; color:$white; font-size:1.2rem; background:$btn-basic; border-radius:50px;
+			@include media(768px) {@include absolute(null,-5px,0,null); height:16px; line-height:16px}
+	    }
+	}
+}
+
+/* 정보관리 -info */
+.vue-info {
+	.col-xs-12 .no-inp {
+		.el-switch {float:left}
+		.btn-txt {float:right}
+	}
+	.wrap-list-thumb .list-thumb {@include flex(none);}
+	@include media(768px) {
+		.wrap-tooltip .tooltip-link {
+			width:180px;
+			&:before {left:42px}
+			&:after {left:43px}
+		}
+		.wrap-tooltip:hover .tooltip-link {left:-40px}		
+	}
+}
+
+/* 문자편집 -edit */
+.vue-amsedit {
+	.label-brand {
+		padding:2px; color:$white;
+		&.bm {background:#2ac1bc}
+		&.ygy {background:#f0001e}
+		&.kakao {background:#fee103; color:#3b1e1e}
+		&.bdt {background:#ff6a12}
+	}
+	.dd-add {
+		@include inline-flex; @include flex(1);
+		span {margin-left:5px}
+		.inp-price {@include flex(1); margin-left:2px}
+	} 
+	.ams-area {
+		dt {
+			@include clearfix;
+			label {display:inline-block; line-height:24px}
+			.btn {float:right; padding:2px 8px}
+
+			/* 이벤트문자 상태 */
+            span[class*="label-"] {@include margin-padding(left,5px,all,2px 4px); font-size:1.1rem; color:$white}
+            .label-grn {background:$positive-grn}
+            .label-rd {background:$point}
+            .label-gy {background:$light}
+		}
+		dd {
+			padding:5px; background:$lighten;
+			.el-tabs__header {margin:0}
+			.el-tabs__content {margin:10px 0 0}
+			textarea {
+				display:block; width:100%; height:300px;
+				&.short {height:80px}
+			}
+			.ams-txt p {margin:10px; color:$dark; font-size:1.2rem; line-height:1.5}
+		}
+	}
+	.datetime {
+		@include flexbox; margin-top:10px;
+		dt {
+			margin:0 10px 0 0; line-height:32px;
+			@include media(768px) {margin:0 0 4px; line-height:1}
+		}
+		dd {@include flex(1);}
+		.el-date-editor {width:auto}
+		@include media(768px) {display:block}
+	}
+}
+
+/* 발송설정 -setting */
+.vue-amsset {
+	.el-radio .tooltip-link {width:162px}
+}
+
+/* 회원관리 -manage */
+.summary {
+	@include clearfix; margin:0 -2px 10px;
+	.card {
+		padding:0 2px;
+		@include media(768px) {
+			&:nth-child(1), &:nth-child(2) {margin-bottom:5px}
+		}
+		dl {padding:10px 15px; border-radius:5px; color:$white;}
+		&.customer dl {background:linear-gradient(to left, $btn-dark, $btn-basic)}
+		&.all dl {background:linear-gradient(to left, $positive-grn, #14cabb)}
+		&.paid dl {background:linear-gradient(to left, $point, #ff847a)}
+		&.remain dl {background:linear-gradient(to left, #ff7d3c, $warn-yl)}
+		dt {font-size:1.4rem}
+		dd {
+			text-align:right; font-size:1.3rem;
+			b {
+				font-size:3.4rem;
+				@include media(1024px) {font-size:2.8rem}
+				@include media(768px) {font-size:2.2rem}
+			}
+		}
+	}
+}
+.search-filter {
+	@include flexbox; @include margin-padding(bottom,20px,all,15px); background:$white; box-shadow:0 2px 8px rgba($btn-dark,.1); text-align:center;font-size:0;
+	@include media(768px) {
+		@include flexbox; padding:15px 10px;
+		@include prefix((
+				flex-direction:column
+			), webkit ms);
+	}
+	& > * {display:inline-block; vertical-align:top}
+	& > *:not(:first-child) {margin-left:5px}
+	.btngroup {
+		margin-left:5px;
+		@include media(768px) {margin:10px 0 0}
+	}
+	.wrap-search {
+		@include flex(1);
+		input {width:100%}
+		@include media(1024px) {display:block; width:685px; margin:10px auto 0}
+		@include media(768px) {width:100%}
+	}
+}
+
+/* 이벤트 문자 보내기 -smsEdit */
+.vue-eventedit {
+	.bx-con .el-tabs--card .el-tabs__content {margin:0}
+	.send-setting {
+		@include margin-padding(top,5px,all,10px); background:$lighten-bl; @include clearfix;
+		.wrap-list {border:1px solid $light; overflow-y:auto}
+		.wrap-right {
+			float:right;
+			* {vertical-align:middle}
+			.btn:not(:first-child) {margin-left:5px}
+		}
+		.btn-excel {
+			padding-top:0; padding-bottom:0; line-height:30px;
+			i {font-size:20px; line-height:30px; vertical-align:top}
+			@include media(768px) {
+				&, i {line-height:28px}
+			}
+		}
+	}	
+	.wrap-list {
+		@include flex(1); height:200px; margin:10px 0 5px; background:$white;
+		li {
+			color:$darken; @include fw-md;
+			label {
+				display:block; padding:0 10px; cursor:pointer;
+				&:hover, &.checked {background:$lighten}
+				.checkmark {left:10px}
+				.txt {padding-left:30px}
+			}
+			em {margin-left:8px; font-style:normal; @include fw-dl; color:$darker}
+		} 
+	}
+	/* 1-고객리스트 검색 */
+	.select-list .col {
+		@include flexbox;
+		.inp-txt {margin:0 5px}
+		.btn {@include flex(0 0 54px);}
+	}
+	/* 2-그룹 보내기 */
+	.select-group .wrap-list {margin-top:0}
+	/* 3-직접 입력 */
+	.select-input .wrap-textarea {
+		@include flexbox; margin-bottom:5px;
+		textarea {height:80px}
+		button {margin-left:5px}
+		@include media(768px) {
+			@include prefix((
+				flex-direction:column
+			), webkit ms);
+			button {margin:-1px 0 0}
+		}
+	}
+
+	/* 하단공통 */
+	.total-count {
+		span[class*="txt-"] {vertical-align:bottom}
+		.txt-s {margin-left:4px; font-size:1.2rem; color:$darker}
+		.wrap-btn {
+			position:relative;
+			.tooltip-link {
+				width:188px;
+				@include media(768px) {width:130px}
+			}
+		}		
+	}
+	.col-xs-12.col-sm-8 dl {
+		padding-bottom:20px;
+		&:last-child {padding-bottom:0}
+		.m-flex > *:not(:first-child) {margin-left:5px}
+	}
+	dd .txt-dark {display:inline-block; line-height:32px}
+	.m-column .m-flex {@include flexbox}
+	.test-list {
+		@include margin-padding(top,5px,all,10px);
+		@include prefix((
+				flex-direction:row
+			), webkit ms);
+		.wrap-list {height:auto; max-height:200px; padding:2px 0}
+		.btn-primary {margin-bottom:auto}
+		@include media(768px) {
+			@include prefix((
+				flex-direction:column
+			), webkit ms);
+			.btn-primary {margin-left:0}
+		}
+	}
+	.bottom-btn .txt-total {
+		display:inline-block; margin:0 5px; font-size:1.5rem; line-height:42px;
+		@include media(768px) {margin:0; padding:0 15px; background:rgba($white,.8)}
+		&.success {color:$positive-grn}
+		&.danger {color:$point}
+		span {margin-left:10px; font-size:1.3rem}
+	}
+
+	/* 문자 미리보기 */
+	.sms-preview {
+		@include margin-padding(all,20px 0 10px,all,15px); border-radius:30px; box-shadow:inset 0 0 8px rgba($btn-dark,.3);border:1px solid $lighter; background:$white;
+		@include media(768px) {margin-top:10px}
+		&-wrap {border-radius:20px; box-shadow:0 0 3px rgba($darken,.2)}
+		&-head {background:$btn-basic; color:$white; text-align:center; @include fw-bd; font-size:1.3rem; line-height:44px; border-radius:20px 20px 0 0}
+		&-body {
+			@include flexbox; height:500px; padding:15px 10px; background:#fef4c1; border:1px solid $lighter; border-top:0; border-bottom:0; font-size:1.2rem; overflow-y:auto;
+			@include prefix((
+					flex-direction:column
+				), webkit ms);
+			& > * {margin-bottom:10px}
+			textarea {height:280px}
+		}
+		&-foot {
+			@include flexbox; padding:10px; background:$lighten; border:1px solid $lighter; border-radius:0 0 20px 20px;
+			@include prefix((
+					align-items:center
+				), webkit ms);
+			.txt-count {font-size:1.1rem; color:$dark;}
+			button {margin-left:auto}
+		}
+		&-bottom {
+			@include flexbox; margin-bottom:20px;
+			button {@include flex(1); margin:0 3px}
+		}
+	}
+	.txt-s {color:$dark}
+	.txt-point {color:$point}
+}
+/* 발송대상 추가한 영역 */
+.send-list {
+	@include flexbox; background:rgba($point,.1);
+	@include prefix((
+			flex-direction:column
+		), webkit ms);
+	.wrap-list {
+		@include margin-padding(all,0,all,10px); font-size:0; background:transparent; overflow-y:auto;
+		li {
+			display:inline-block; @include margin-padding(bottom,5px,all,0 10px); background:$white;
+			font-size:1.3rem; line-height:25px; @include fw-md; letter-spacing:normal; border:1px solid $btn-basic; border-radius:50px; cursor:pointer;
+			&:not(:last-child) {margin-right:5px}
+			&:hover {border-color:$point; color:$point}
+			&:hover i {color:$point}
+			@include media(768px) {padding:0 7px}
+		}
+		.la-close {margin-left:4px; font-size:14px; color:$light}
+	}
+	div.total {
+		@include flexbox; @include align-items(flex-end); @include margin-padding(all,0,all,10px); background:rgba($point,.1);
+		.txt-total {
+			margin:0 10px 0 auto; font-size:1.2rem; color:$point;
+			.title {margin-right:4px; color:$darken}
+			b {font-size:2.4rem}
+		}
+	}
+}
+
+/* 문자구매/충전 -smsCharge */
+.vue-smscharge {
+	.wrap-formbox .bx-con dd .txt-s {
+		position:relative; vertical-align:bottom;
+		.tooltip-link.block {left:20px; bottom:24px; width:188px}
+	}
+	.list-radio {margin-top:0}
+}
+
+/* 결제/충전내역 -payList */
+.vue-paylist {
+	.txt-caution {margin:0 0 20px}
+}
+
+/* 엑셀등록 -excel */
+.vue-excel {
+	.wrap-inp-file {
+		margin-right:15px;
+		@include media(768px) {@include flex(none); margin-right:0}
+	}
+	.btn-txt {margin-left:8px}
+	.send-list .wrap-list {
+		max-height:200px;
+		li {
+			cursor:inherit;
+			&:hover {border-color:$btn-basic; color:$darker;}
+		}
+	}
+}
+
+/* 그룹관리 -group */
+.vue-group {
+	.flex1 {@include flex(1);}
+	td {
+		.btn {height:24px}
+		a.txt-point {padding:5px; color:$point; @include fw-bd; text-decoration:underline}
+	}
+}

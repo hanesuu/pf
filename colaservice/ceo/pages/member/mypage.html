@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="icon" type="image/x-icon" href="https://colaservice.com/s/favicon.ico">
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="h-my"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">정보관리</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>마이페이지</li>
+                <li>정보관리</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-info">
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">정보관리</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>ID</dt>
+                    <dd>
+                      <div class="no-inp">050704800034</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="pw">비밀번호</label></dt>
+                    <dd>
+                      <input type="password" id="pw" class="inp-txt" placeholder="비밀번호 입력">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="pwCheck">비밀번호 확인</label></dt>
+                    <dd>
+                      <input type="password" id="pwCheck" class="inp-txt" placeholder="비밀번호 입력">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>매장전화번호</dt>
+                    <dd>
+                      <div class="no-inp">050704800034</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                  <dl>
+                    <dt>주소</dt>
+                    <dd>
+                      <div class="no-inp">서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>대표자 명</dt>
+                    <dd>
+                      <div class="no-inp">이학주</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="phone">대표자 휴대폰</label></dt>
+                    <dd>
+                      <input type="tel" id="phone" value="01099778686" class="flex1">
+                      <button class="btn btn-redline">인증번호 발송</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="phoneCheck">대표자 휴대폰 인증</label></dt>
+                    <dd>
+                      <input type="tel" id="phoneCheck" class="flex1" placeholder="인증번호 입력">
+                      <button class="btn btn-redline">인증하기</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="staffName">매장 담당자 명</label></dt>
+                    <dd>
+                      <input type="text" id="staffName">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="staffPhone">매장 담당자 휴대폰</label></dt>
+                    <dd>
+                      <input type="tel" id="staffPhone">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>이용료 결제</dt>
+                    <dd>
+                      <div class="no-inp">무료 이용 중 (~2019.10.31)</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <button class="btn btn-primary">저장하기</button>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 상점 select
+         */
+        storeList: [{
+          value: 'Option1',
+          storeName: '쏘다두마리치킨 구로점'
+        }, {
+          value: 'Option2',
+          storeName: '쏘다피자 당산2호점'
+        }, {
+          value: 'Option3',
+          storeName: '쏘다토스트 구로디지털점'
+        }],
+        value: '',
+
+        /**
+         * header 모바일메뉴
+         */
+        drawer: false,
+        direction: 'ltr',
+        mbMenu: ['mMember']
+      }
+    },
+    methods: {
+      /**
+       * header 모바일메뉴
+       */
+      handleChange(val) {
+        console.log(val);
+      }
+    }
+  })
+</script>
+</html>

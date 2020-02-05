@@ -1,0 +1,159 @@
+/* element theme color */
+$__color-primary:$point;
+
+/* input box */
+body .el-input__inner {border-radius:2px}
+
+/* selectbox */
+body .el-select {
+    vertical-align:top;
+    .el-input {
+        .el-select__caret {color:$darken}
+        &__inner:focus,
+        &.is-focus &__inner {border-color:$point}
+        &__icon {line-height:30px}
+    }
+}
+body .el-select-dropdown__item {font-size:1.3rem} 
+
+/* datepicker */
+body .wrap-date {
+    display:inline-block; vertical-align:top;
+    @include media(768px) {@include flexbox; @include justify-content(center);}
+}
+.el-date-editor {
+    &.el-input {
+        width:auto; vertical-align:top;
+        @include media(768px) {@include flex(1);}
+    }
+    &--datetimerange.el-input__inner {height:32px; line-height:32px}
+    &.el-input--prefix .el-input__inner {padding:0 30px}
+    .el-range-input {font-size:1.3rem}
+    .el-range-separator {padding:0 10px; line-height:1.8em}
+    .el-input__icon {line-height:initial}
+}
+.date-as {display:inline-block; margin:0 2px; text-align:center; vertical-align:top; line-height:32px; font-size:12px}
+.el-date-picker {
+    &__header .el-picker-panel__icon-btn {
+        margin-top:2px;
+        &:active {color:$white}
+    }
+}
+.timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {width:100%}
+
+/* switch */
+body {
+    .el-switch .el-switch__label {
+        vertical-align:top; color:$dark; @include fw-dl;
+        & * {font-size:1.2rem; @include fw-rg;}
+        &.is-active * {@include fw-bd; color:$point}
+        &--left {margin-right:3px}
+        &--right {margin-left:3px}
+    }
+}
+
+/* radio tab button group */
+body .el-radio-group {
+    @include media(768px) {@include flexbox;}
+
+    .el-radio-button {
+        @include media(768px) {@include flex(1);}
+        &:first-child .el-radio-button__inner {border-radius:2px 0 0 2px}
+        &:last-child .el-radio-button__inner {border-radius:0 2px 2px 0}
+        &__inner {
+            height:32px; line-height:32px; padding:0 10px; font-size:1.2rem; @include fw-rg;
+            @include media(768px) {width:100%}
+        }
+        &__orig-radio:checked + span {color:$point; background-color:$lighten-rd}    
+    }
+
+}
+
+/* tab-normal */
+body .el-tabs--card {
+    & > .el-tabs__header {
+        margin:0; border:0;
+        .el-tabs__nav {border:0}
+    }
+    .el-tabs__nav {
+        @include flexbox; float:none; border-color:$lighter; overflow:hidden;
+        .el-tabs__item {
+            @include flex(1);
+            height:34px; border:1px solid $lighter; line-height:34px; text-align:center;
+            font-size:1.3rem; color:$dark; @include fw-rg; background:$white;
+            
+            &:first-child {border-radius:5px 0 0 5px; border-left:1px solid $lighter}
+            &:not(:first-child) {margin-left:-1px}
+            &:last-child {border-radius:0 5px 5px 0}
+            &.is-active {
+                @include fw-md; color:$point; background-color:$lighten-rd;
+                border-color:$point; z-index:2
+            }
+        }
+    }
+    .el-tabs__content {margin:20px 0}
+}
+/* tab-large */
+body .el-tabs--card.tab-lg {
+    @include prefix((
+            flex-direction:column
+        ), webkit ms);
+    margin-bottom:0;
+    .el-tabs__item {
+        height:38px; font-size:1.5rem; line-height:38px;
+        &.is-active {@include fw-bd; color:$white; background-color:$btn-dark; border-color:transparent; z-index:2}
+    } 
+}
+
+/* collapse - faq */
+.wrap-content .el-collapse .el-collapse-item {
+    &__header {
+        position:relative; padding:0 20px; font-size:1.3rem; color:$darker; @include fw-rg;
+        @include media(768px) {height:38px; line-height:38px}
+        &.is-active {color:$darken; @include fw-md;}
+        .txt-point {
+            font-size:12px; color:$point; margin-right:5px;
+            &:before {content:'['}
+            &:after {content:']'}
+        }
+    }
+    &__arrow {
+        @include absolute(null,50%,15px,null); transform:translateY(-50%); color:$darker; line-height:0;
+        @include prefix((
+                transform:rotate(90deg)
+        ), webkit moz ms);
+        &.is-active {
+            color:$point;
+            @include prefix((
+                    transform:rotate(-90deg)
+            ), webkit moz ms);
+        }
+    }
+    &__wrap {background-color:$white}
+    &__content {
+        padding:5px 20px 15px; font-size:1.2rem;
+        a {color:$point; text-decoration:underline}
+    }
+}
+
+/* radio button */
+body .el-radio {
+    vertical-align:top;
+    &__inner {width:20px; height:20px}
+    &__label {padding-left:5px; font-size:1.3rem; @include fw-rg; line-height:32px; color:$darken}
+    &__input.is-checked .el-radio__inner {
+        background:$white;
+        &:after {width:8px; height:8px; background-color:$point}
+    }
+    &__input.is-checked + .el-radio__label {@include fw-md;}
+    & + input {margin-left:5px}
+}
+
+/* alert */
+body .el-notification {
+    .el-icon-success {color:$positive-grn}
+} 
+
+/* icon font path, required
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index"; */

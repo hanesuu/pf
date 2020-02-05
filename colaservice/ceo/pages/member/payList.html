@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="icon" type="image/x-icon" href="https://colaservice.com/s/favicon.ico">
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="h-pay"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">결제/충전내역</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>마이페이지</li>
+                <li>결제/충전내역</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-paylist">
+            <el-tabs type="card" @tab-click="handleClick" class="tab-lg">
+              <el-tab-pane label="이용료 결제내역">
+                <section class="board-list">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">결제일시</th>
+                        <th scope="col">금액</th>
+                        <th scope="col">결제방식</th>
+                        <th scope="col">상태</th>
+                        <th scope="col">비고</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>3,523원</td>
+                        <td></td>
+                        <td></td>
+                        <td>무료이용</td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>휴대폰결제</td>
+                        <td>결제완료</td>
+                        <td>
+                          <button class="btn btn-redline btn-xs">환불신청</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>카드결제</td>
+                        <td>결제완료</td>
+                        <td>
+                          <button class="btn btn-redline btn-xs">환불신청</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>카드결제</td>
+                        <td>결제완료</td>
+                        <td></td>
+                      </tr>
+                      <!--데이터 없을 경우 노출
+                      <tr>
+                        <td colspan="5" class="td-blank">
+                          <i class="el-icon-chat-dot-round"></i>
+                          <p>표시할 내용이 없습니다.</p>
+                        </td>
+                      </tr>-->
+                    </tbody>
+                  </table>
+                </section>
+                <div class="tbl-filter">
+                  <div role="pagination" class="pager">
+                    <div class="txt-pg">
+                      <span class="current">1</span>
+                      <span>3</span>
+                    </div>
+                    <button class="btn btn-prev"><i class="la la-angle-left"></i></button>
+                    <button class="btn btn-next"><i class="la la-angle-right"></i></button>
+                    <label for="goto">이동</label>
+                    <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+                  </div>
+                </div>
+                <div class="txt-caution">
+                  <h3 class="title">환불조건</h3>
+                  <ul class="list-type">
+                    <li>서비스 이용료는 선불결제가 기본이며, <span class="txt-point">결제일을 기준으로 30일 이내에만 환불이 가능</span>합니다.</li>
+                    <li>결제금액의 환불은 <span class="txt-point">① 환불신청일을 기준으로 해당월 서비스 이용료에서 [이용료 결제금액 &times; (해당월 잔여일 수 &divide; 해당월 총 일수)]에 해당하는 금액을 ② 환불신청일로부터 5영업일 이내에 지정계좌로 입금</span>해 드립니다.</li>
+                  </ul>
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="문자구매/충전내역">
+                <section class="board-list">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">결제일시</th>
+                        <th scope="col">금액</th>
+                        <th scope="col">SMS 충전 건수</th>
+                        <th scope="col">결제방식</th>
+                        <th scope="col">상태</th>
+                        <th scope="col">비고</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>3,523원</td>
+                        <td>325건</td>
+                        <td></td>
+                        <td></td>
+                        <td>무료이용</td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>62건</td>
+                        <td>휴대폰결제</td>
+                        <td>결제완료</td>
+                        <td>
+                          <button class="btn btn-redline btn-xs">환불신청</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>36건</td>
+                        <td>카드결제</td>
+                        <td>결제완료</td>
+                        <td>
+                          <button class="btn btn-redline btn-xs">환불신청</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2019-08-30 12:41</td>
+                        <td>823원</td>
+                        <td>783건</td>
+                        <td>카드결제</td>
+                        <td>결제완료</td>
+                        <td></td>
+                      </tr>
+                      <!--데이터 없을 경우 노출
+                      <tr>
+                        <td colspan="5" class="td-blank">
+                          <i class="el-icon-chat-dot-round"></i>
+                          <p>표시할 내용이 없습니다.</p>
+                        </td>
+                      </tr>-->
+                    </tbody>
+                  </table>
+                </section>
+                <div class="tbl-filter">
+                  <div role="pagination" class="pager">
+                    <div class="txt-pg">
+                      <span class="current">1</span>
+                      <span>3</span>
+                    </div>
+                    <button class="btn btn-prev"><i class="la la-angle-left"></i></button>
+                    <button class="btn btn-next"><i class="la la-angle-right"></i></button>
+                    <label for="goto">이동</label>
+                    <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+                  </div>
+                </div>
+                <div class="txt-caution">
+                  <h3 class="title">환불조건</h3>
+                  <ul class="list-type">
+                    <li>충전금액의 <span class="txt-point">결제취소는 결제일로부터 15일까지만 가능</span>합니다.</li>
+                    <li>다만, <span class="txt-point">[잔여건수]가 충전금액의 [제공건수] 보다 부족할 경우 환불이 불가</span>합니다.</li>
+                  </ul>
+                </div>
+              </el-tab-pane>
+            </el-tabs>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 상점 select
+         */
+        storeList: [{
+          value: 'Option1',
+          storeName: '쏘다두마리치킨 구로점'
+        }, {
+          value: 'Option2',
+          storeName: '쏘다피자 당산2호점'
+        }, {
+          value: 'Option3',
+          storeName: '쏘다토스트 구로디지털점'
+        }],
+        value: '',
+
+        /**
+         * header 모바일메뉴
+         */
+        drawer: false,
+        direction: 'ltr',
+        mbMenu: ['mMember'],
+
+        /**
+         * 충전금액 선택 radio
+         */
+        chargeType: 'chargeType30',
+      }
+    },
+    methods: {
+      /**
+       * header 모바일메뉴
+       */
+      handleChange(val) {
+        console.log(val);
+      },
+
+    }
+  })
+</script>
+</html>

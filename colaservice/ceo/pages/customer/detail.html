@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="icon" type="image/x-icon" href="https://colaservice.com/s/favicon.ico">
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="h-manage"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">고객/적립금 관리</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>고객관리</li>
+                <li>고객/적립금 관리</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-info">
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">회원정보</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>전화번호</dt>
+                    <dd>
+                      <div class="no-inp">010-34**-1235</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>가입일</dt>
+                    <dd>
+                      <div class="no-inp">2019-07-16 09:34:13</div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>BAD회원설정</dt>
+                    <dd>
+                      <div class="no-inp">                        
+                        <el-switch v-model="badMemberYn" active-text="설정" inactive-text="설정안함"></el-switch>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>그룹</dt>
+                    <dd>
+                      <el-select v-model="group" placeholder="그룹 선택">
+                        <el-option
+                          v-for="item in groupOptions"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                        </el-option>
+                      </el-select>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>성별</dt>
+                    <dd>
+                      <div class="no-inp">
+                        <el-radio v-model="genderType" label="male">남</el-radio>
+                        <el-radio v-model="genderType" label="female">여</el-radio>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>연령대</dt>
+                    <dd>
+                      <el-select v-model="ageGroup" placeholder="연령대 선택">
+                        <el-option
+                          v-for="item in ageGroupOptions"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                        </el-option>
+                      </el-select>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>메모</dt>
+                    <dd>
+                      <textarea class="inp-txt" placeholder="메모를 입력해 주세요."></textarea>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <a href="JavaScript:history.back()" class="btn">목록으로</a>
+              <button class="btn btn-redline">회원차단</button>
+              <button class="btn btn-primary">저장하기</button>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 상점 select
+         */
+        storeList: [{
+          value: 'Option1',
+          storeName: '쏘다두마리치킨 구로점'
+        }, {
+          value: 'Option2',
+          storeName: '쏘다피자 당산2호점'
+        }, {
+          value: 'Option3',
+          storeName: '쏘다토스트 구로디지털점'
+        }],
+        value: '',
+
+        /**
+         * header 모바일메뉴
+         */
+        drawer: false,
+        direction: 'ltr',
+        mbMenu: ['mCustomer'],
+
+        /**
+         * BAD회원설정 switch
+         */
+        badMemberYn: true,
+
+        /**
+         * 성별 radio
+         */
+        genderType: 'male',
+
+        /**
+         * 그룹 select
+         */
+        groupOptions: [{
+          value: '그룹 전체',
+          label: '그룹 전체'
+        }, {
+          value: 'VVIP',
+          label: 'VVIP'
+        }, {
+          value: 'VIP',
+          label: 'VIP'
+        }, {
+          value: '골드',
+          label: '골드'
+        }, {
+          value: '일반',
+          label: '일반'
+        }],
+        group: '',
+
+        /**
+         * 연령대 select
+         */
+        ageGroupOptions: [{
+          value: '10대',
+          label: '10대'
+        }, {
+          value: '20대',
+          label: '20대'
+        }, {
+          value: '30대',
+          label: '30대'
+        }, {
+          value: '40대',
+          label: '40대'
+        }, {
+          value: '50대',
+          label: '50대'
+        }, {
+          value: '60대 이상',
+          label: '60대 이상'
+        }],
+        ageGroup: '',
+      }
+    },
+    methods: {
+      /**
+       * header 모바일메뉴
+       */
+      handleChange(val) {
+        console.log(val);
+      },
+    }
+  })
+</script>
+</html>

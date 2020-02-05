@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <header class="header">
+    <div class="top">
+      <div class="container">
+        <div class="row">
+          <a href="#" class="m-nav-btn" @click="drawer = true">
+            <i class="la la-bars"></i>
+          </a>
+          <h1 class="logo">콜라서비스 사장님</h1>
+          <el-select v-model="value" value-key="storeName" placeholder="상점을 선택하세요." @change="setStore()" class="view-pc">
+            <el-option 
+              v-for="list in storeList"
+              :key="list.storeNo"
+              :label="list.storeName"
+              :value="list">              
+            </el-option>
+          </el-select>
+          <a onclick="window.open('https://sample.colaservice.com','window','width=375,height=667,left=50,top=50,scrollbars=yes')" class="btn btn-home view-pc">내 상점 보기</a>
+          <div class="util">
+            <a href="../member/mypage.html" class="wrap-my">
+              <i class="my"></i>
+              <span class="view-pc">쏘다두마리치킨 구로점</span>
+            </a>
+            <a href="../index.html" class="btn btn-lightline view-pc">로그아웃</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--gnb-->
+    <nav class="gnb view-pc">
+      <div class="depth1">
+        <div class="container">
+          <ul class="row">
+            <li class="col-xs-2 menu-store">
+              <a href="../storeManage/info.html">상점관리</a>
+              <ul class="depth2">
+                <li>
+                  <a href="../storeManage/info.html">상점관리</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-xs-2 menu-ams">
+              <a href="../ams/edit.html">문자발송</a>
+              <ul class="depth2">
+                <li>
+                  <a href="../ams/edit.html">자동문자 발송</a>
+                </li>
+                <li>
+                  <a href="../ams/smsEdit.html">이벤트문자 발송</a>
+                </li>
+                <li>
+                  <a href="../ams/setting.html">발송설정</a>
+                </li>
+                <li>
+                  <a href="../ams/sendList.html">발송내역</a>
+                </li>
+                <li>
+                  <a href="../ams/block.html">발송차단관리</a>
+                </li>
+                <li>
+                  <a href="../ams/smsCharge.html">문자충전</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-xs-2 menu-customer">
+              <a href="../customer/manage.html">고객관리</a>
+              <ul class="depth2">
+                <li>
+                  <a href="../customer/manage.html">고객/적립금 관리</a>
+                </li>
+                <li>
+                  <a href="../customer/excel.html">엑셀등록</a>
+                </li>
+                <li>
+                  <a href="../customer/group.html">그룹관리</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-xs-2 menu-board">
+              <a href="../board/list.html">이용안내</a>
+              <ul class="depth2">
+                <li>
+                  <a href="../board/list.html">공지사항</a>
+                </li>
+                <li>
+                  <a href="../board/faq.html">FAQ</a>
+                </li>
+                <li>
+                  <a href="../board/qna.html">1:1문의</a>
+                </li>
+              </ul>
+            </li>
+            <li class="col-xs-2 menu-mypage">
+              <a href="../member/mypage.html">마이페이지</a>
+              <ul class="depth2">
+                <li>
+                  <a href="../member/mypage.html">정보관리</a>
+                </li>
+                <li>
+                  <a href="../member/payList.html">결제/충전내역</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--mobile menu-->      
+    <div class="m-header">
+      <el-drawer class="m-gnb"
+        :visible.sync="drawer"
+        :direction="direction"
+        size="280px">
+        <nav>
+          <el-select v-model="value" value-key="storeName" placeholder="상점을 선택하세요." @change="setStore()">
+            <el-option 
+              v-for="list in storeList"
+              :key="list.storeNo"
+              :label="list.storeName"
+              :value="list">              
+            </el-option>
+          </el-select>
+          <div class="depth1">
+            <el-collapse v-model="mbMenu" @change="handleChange">
+              <el-collapse-item title="상점관리" name="mStore" class="menu-store">
+                <ul class="depth2">
+                  <li class="active">
+                    <a href="../storeManage/info.html">상점관리</a>
+                  </li>
+                </ul>
+              </el-collapse-item>
+              <el-collapse-item title="문자발송" name="mAms" class="menu-ams">
+                <ul class="depth2">
+                  <li>
+                    <a href="../ams/edit.html">자동문자 발송</a>
+                  </li>
+                  <li>
+                    <a href="../ams/smsEdit.html">이벤트문자 발송</a>
+                  </li>
+                  <li>
+                    <a href="../ams/setting.html">발송설정</a>
+                  </li>
+                  <li>
+                    <a href="../ams/sendList.html">발송내역</a>
+                  </li>
+                  <li>
+                    <a href="../ams/block.html">발송차단관리</a>
+                  </li>
+                  <li>
+                    <a href="../ams/smsCharge.html">문자충전</a>
+                  </li>
+                </ul>
+              </el-collapse-item>
+              <el-collapse-item title="고객관리" name="mCustomer" class="menu-customer">
+                <ul class="depth2">
+                  <li>
+                    <a href="../customer/manage.html">고객/적립금 관리</a>
+                  </li>
+                  <li>
+                    <a href="../customer/excel.html">엑셀등록</a>
+                  </li>
+                  <li>
+                    <a href="../customer/group.html">그룹관리</a>
+                  </li>
+                </ul>
+              </el-collapse-item>
+              <el-collapse-item title="이용안내" name="mBoard" class="menu-board">
+                <ul class="depth2">
+                  <li>
+                    <a href="../board/list.html">공지사항</a>
+                  </li>
+                  <li>
+                    <a href="../board/faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="../board/qna.html">1:1문의</a>
+                  </li>
+                </ul>
+              </el-collapse-item>
+              <el-collapse-item title="마이페이지" name="mMember" class="menu-mypage">
+                <ul class="depth2">
+                  <li>
+                    <a href="../member/mypage.html">정보관리</a>
+                  </li>
+                  <li>
+                    <a href="../member/payList.html">결제/충전내역</a>
+                  </li>
+                </ul>
+              </el-collapse-item>
+            </el-collapse>
+          </div>
+        </nav>
+        <div class="m-util">
+          <a href="https://sample.colaservice.com" class="btn btn-home">내 상점 보기</a>
+          <button class="btn btn-log">로그아웃</button>
+        </div>
+      </el-drawer>
+    </div><!--//mobile menu-->
+  </header>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+</html>
