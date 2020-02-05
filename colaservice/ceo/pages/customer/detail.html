@@ -145,25 +145,8 @@
     data: function() {
       return {
         /**
-         * header 상점 select
-         */
-        storeList: [{
-          value: 'Option1',
-          storeName: '쏘다두마리치킨 구로점'
-        }, {
-          value: 'Option2',
-          storeName: '쏘다피자 당산2호점'
-        }, {
-          value: 'Option3',
-          storeName: '쏘다토스트 구로디지털점'
-        }],
-        value: '',
-
-        /**
          * header 모바일메뉴
          */
-        drawer: false,
-        direction: 'ltr',
         mbMenu: ['mCustomer'],
 
         /**
@@ -223,12 +206,6 @@
       }
     },
     methods: {
-      /**
-       * header 모바일메뉴
-       */
-      handleChange(val) {
-        console.log(val);
-      },
     }
   })
 </script>
