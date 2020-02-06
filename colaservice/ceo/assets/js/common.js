@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	/* gnb */
 	$(".gnb .depth1 .col-xs-2").mouseover(function(){
+		alert();
 	  $(this).siblings().children(".depth2").hide();
 	  $(this).children(".depth2").show();
 	});
