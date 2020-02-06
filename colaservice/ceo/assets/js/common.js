@@ -1,11 +1,16 @@
 $(document).ready(function(){
+	$(".header").click(function(){
+		alert()
+	});
+
     /* gnb */
-    $(".header").mouseover(function(){
-      alert()
-    });
-    $(".gnb").children(".depth1").find(".col-xs-2").mouseout(function(){
-      $(this).siblings(".active").children(".depth2").show();
-    });
+    $('.depth1 .col-xs-3').mouseover(function(){
+	  $(this).siblings().children('.depth2').hide();
+	  $(this).children('.depth2').show();
+	});
+	$('.depth1 .col-xs-3').mouseout(function(){
+	  $(this).siblings('.active').children('.depth2').show();
+	});
 
 	/* gnb each */
 	//상점관리
