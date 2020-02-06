@@ -1,6 +1,6 @@
 $(document).ready(function(){
     /* gnb */
-    $(".header").children(".gnb").children(".depth1").find(".col-xs-2").mouseover(function(){
+    $(".header").mouseover(function(){
       alert()
     });
     $(".gnb").children(".depth1").find(".col-xs-2").mouseout(function(){
