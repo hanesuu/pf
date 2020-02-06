@@ -148,7 +148,7 @@ button[disabled=disabled], .btn-disable {
 
 /* header */
 .header {
-	position:fixed; top:0; left:0; right:0; width:100%; background:$white; z-index:2100;
+	position:fixed; top:0; left:0; right:0; width:100%; background:$white; z-index:2000;
 	@include media(768px) {border-bottom:1px solid $lighter}
 	.top .container .row {
         position:relative; padding:5px 0;
@@ -221,14 +221,15 @@ button[disabled=disabled], .btn-disable {
 	}
 }
 /* mobile gnb */
-.m-gnb.el-dialog__wrapper {
+.m-gnb.el-dialog__wrapper {position:fixed !important; top:0; left:0; bottom:0; height:100%; z-index:2100}
+.m-gnb .el-drawer {
 	background:#282d37;
-	&__header {
+	.el-drawer__header {
 		@include margin-padding(bottom,0,all,0); border:0; background:$white;
 		& > span:first-child {@include flex(0);}
 	}
-	&__close-btn {@include flex(1); height:50px; padding:0 10px; font-size:28px; text-align:left}
-	&__body {
+	.el-drawer__close-btn {@include flex(1); height:50px; padding:0 10px; font-size:28px; text-align:left}
+	.el-drawer__body {
 		@include flexbox;
 		@include prefix((
 				flex-direction:column

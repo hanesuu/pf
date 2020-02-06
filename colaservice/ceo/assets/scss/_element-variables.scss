@@ -14,7 +14,8 @@ body .el-select {
         &__icon {line-height:30px}
     }
 }
-body .el-select-dropdown__item {font-size:1.3rem} 
+body .el-select-dropdown {z-index:2100 !important}/* 헤더 위로 노출 */
+body .el-select-dropdown__item {font-size:1.3rem}
 
 /* datepicker */
 body .wrap-date {
