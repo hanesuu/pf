@@ -1,14 +1,14 @@
 $(document).ready(function(){
-	$(".header").click(function(){
+	$(".header .top").mouseover(function(){
 		alert()
 	});
 
     /* gnb */
-    $('.depth1 .col-xs-3').mouseover(function(){
+    $('.depth1 .col-xs-2').mouseover(function(){
 	  $(this).siblings().children('.depth2').hide();
 	  $(this).children('.depth2').show();
 	});
-	$('.depth1 .col-xs-3').mouseout(function(){
+	$('.depth1 .col-xs-2').mouseout(function(){
 	  $(this).siblings('.active').children('.depth2').show();
 	});
 
