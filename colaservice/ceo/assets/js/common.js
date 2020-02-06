@@ -1,13 +1,4 @@
 $(document).ready(function(){
-	/* gnb */
-	$(".gnb").children(".depth1").find(".col-xs-2").mouseover(function(){
-	  $(this).siblings().children(".depth2").hide();
-	  $(this).children(".depth2").show();
-	});
-	$(".gnb").children(".depth1").find(".col-xs-2").mouseout(function(){
-	  $(this).siblings(".active").children(".depth2").show();
-	});
-
 	/* 게시판 체크박스 */
 	$(".board-list tbody").find(".inp-check").click(function(){
 		var checkedTr = $(this).parent().parent();
