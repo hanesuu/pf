@@ -1,12 +1,11 @@
 $(document).ready(function(){
-	/* 게시판 체크박스 */
-	$(".board-list tbody").find(".inp-check").click(function(){
-		var checkedTr = $(this).parent().parent();
-		checkedTr.removeClass("checked");
-		if ($(this).children("input").is(":checked")) {
-			checkedTr.addClass("checked");
-		}
-	});
+    /* gnb */
+    $(".header").children(".gnb").children(".depth1").find(".col-xs-2").mouseover(function(){
+      alert()
+    });
+    $(".gnb").children(".depth1").find(".col-xs-2").mouseout(function(){
+      $(this).siblings(".active").children(".depth2").show();
+    });
 
 	/* gnb each */
 	//상점관리
