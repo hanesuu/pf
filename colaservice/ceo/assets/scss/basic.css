@@ -2825,6 +2825,13 @@ body .td-blank p {
   margin: 0 0 20px;
 }
 
+/* 고객/적립금관리 -manage */
+@media all and (max-width: 768px) {
+  .vue-managelist .search-filter section + .el-select {
+    margin: 10px 0 0;
+  }
+}
+
 /* 엑셀등록 -excel */
 .vue-excel .wrap-inp-file {
   margin-right: 15px;
@@ -2851,6 +2858,9 @@ body .td-blank p {
 .vue-excel .send-list .wrap-list li:hover {
   border-color: #6e7989;
   color: #666;
+}
+.vue-excel .wrap-formbox dd .txt-s {
+  line-height: 3.2rem;
 }
 
 /* 그룹관리 -group */
@@ -3191,7 +3201,7 @@ body .el-select {
 body .el-select .el-input .el-select__caret {
   color: #333;
 }
-body .el-select .el-input__inner:focus, body .el-select .el-input.is-focus body .el-select .el-input__inner {
+body .el-select .el-input .el-input__inner:focus, body .el-select .el-input.is-focus .el-input__inner {
   border-color: #ec3939;
 }
 body .el-select .el-input__icon {
@@ -3200,10 +3210,17 @@ body .el-select .el-input__icon {
 
 body .el-select-dropdown {
   z-index: 2100 !important;
+  /* 헤더 위로 노출 */
 }
-
-/* 헤더 위로 노출 */
-body .el-select-dropdown__item {
+body .el-select-dropdown .el-scrollbar__wrap {
+  /* 스크롤바 영역 삭제 */
+}
+@media all and (max-width: 768px) {
+  body .el-select-dropdown .el-scrollbar__wrap {
+    margin: 0 !important;
+  }
+}
+body .el-select-dropdown .el-select-dropdown__item {
   font-size: 1.3rem;
 }
 
@@ -3262,6 +3279,9 @@ body .wrap-date {
 .el-date-editor .el-input__icon {
   line-height: initial;
 }
+.el-date-editor .el-date-table td.today span {
+  color: #ec3939;
+}
 
 .date-as {
   display: inline-block;
@@ -3278,9 +3298,23 @@ body .wrap-date {
 .el-date-picker__header .el-picker-panel__icon-btn:active {
   color: #fff;
 }
+.el-date-picker .el-date-picker__header-label.active, .el-date-picker .el-date-picker__header-label:hover,
+.el-date-picker .el-time-panel__btn.confirm {
+  color: #ec3939;
+}
 
 .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {
   width: 100%;
+}
+
+/* button */
+.el-button:hover, .el-button:active {
+  border-color: #ec3939;
+  color: #ec3939;
+}
+
+.el-button--text {
+  color: #ec3939;
 }
 
 /* switch */
@@ -3302,6 +3336,10 @@ body .el-switch .el-switch__label--left {
 }
 body .el-switch .el-switch__label--right {
   margin-left: 3px;
+}
+body .el-switch.is-checked .el-switch__core {
+  border-color: #ec3939;
+  background-color: #ec3939;
 }
 
 /* radio tab button group */
@@ -3346,9 +3384,13 @@ body .el-radio-group .el-radio-button__inner {
     width: 100%;
   }
 }
+body .el-radio-group .el-radio-button__inner:hover {
+  color: #ec3939;
+}
 body .el-radio-group .el-radio-button__orig-radio:checked + span {
   color: #ec3939;
   background-color: #fdebeb;
+  border-color: #ec3939;
 }
 
 /* tab-normal */
@@ -3507,6 +3549,7 @@ body .el-radio__label {
 }
 body .el-radio__input.is-checked .el-radio__inner {
   background: #fff;
+  border-color: #ec3939;
 }
 body .el-radio__input.is-checked .el-radio__inner:after {
   width: 8px;
@@ -3515,6 +3558,7 @@ body .el-radio__input.is-checked .el-radio__inner:after {
 }
 body .el-radio__input.is-checked + .el-radio__label {
   font-weight: 500;
+  color: #ec3939;
 }
 body .el-radio + input {
   margin-left: 5px;

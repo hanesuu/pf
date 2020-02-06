@@ -9,13 +9,18 @@ body .el-select {
     vertical-align:top;
     .el-input {
         .el-select__caret {color:$darken}
-        &__inner:focus,
-        &.is-focus &__inner {border-color:$point}
+        .el-input__inner:focus,
+        &.is-focus .el-input__inner {border-color:$point}
         &__icon {line-height:30px}
     }
 }
-body .el-select-dropdown {z-index:2100 !important}/* 헤더 위로 노출 */
-body .el-select-dropdown__item {font-size:1.3rem}
+body .el-select-dropdown {
+    z-index:2100 !important;/* 헤더 위로 노출 */
+    .el-scrollbar__wrap {
+         @include media(768px) {margin:0 !important}/* 스크롤바 영역 삭제 */
+    }
+    .el-select-dropdown__item {font-size:1.3rem}
+} 
 
 /* datepicker */
 body .wrap-date {
@@ -25,13 +30,14 @@ body .wrap-date {
 .el-date-editor {
     &.el-input {
         width:auto; vertical-align:top;
-        @include media(768px) {@include flex(1);}
+        @include media(768px) {@include flex(1)}
     }
     &--datetimerange.el-input__inner {height:32px; line-height:32px}
     &.el-input--prefix .el-input__inner {padding:0 30px}
     .el-range-input {font-size:1.3rem}
     .el-range-separator {padding:0 10px; line-height:1.8em}
     .el-input__icon {line-height:initial}
+    .el-date-table td.today span {color:$point}
 }
 .date-as {display:inline-block; margin:0 2px; text-align:center; vertical-align:top; line-height:32px; font-size:12px}
 .el-date-picker {
@@ -39,33 +45,41 @@ body .wrap-date {
         margin-top:2px;
         &:active {color:$white}
     }
+    .el-date-picker__header-label.active,.el-date-picker__header-label:hover,
+    .el-time-panel__btn.confirm {color:$point}
 }
 .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {width:100%}
+
+/* button */
+.el-button:hover, .el-button:active {border-color:$point; color:$point}
+.el-button--text {color:$point}
 
 /* switch */
 body {
     .el-switch .el-switch__label {
         vertical-align:top; color:$dark; @include fw-dl;
-        & * {font-size:1.2rem; @include fw-rg;}
+        & * {font-size:1.2rem; @include fw-rg}
         &.is-active * {@include fw-bd; color:$point}
         &--left {margin-right:3px}
         &--right {margin-left:3px}
     }
+    .el-switch.is-checked .el-switch__core {border-color:$point; background-color:$point}
 }
 
 /* radio tab button group */
 body .el-radio-group {
-    @include media(768px) {@include flexbox;}
+    @include media(768px) {@include flexbox}
 
     .el-radio-button {
-        @include media(768px) {@include flex(1);}
+        @include media(768px) {@include flex(1)}
         &:first-child .el-radio-button__inner {border-radius:2px 0 0 2px}
         &:last-child .el-radio-button__inner {border-radius:0 2px 2px 0}
         &__inner {
             height:32px; line-height:32px; padding:0 10px; font-size:1.2rem; @include fw-rg;
             @include media(768px) {width:100%}
+            &:hover {color:$point}
         }
-        &__orig-radio:checked + span {color:$point; background-color:$lighten-rd}    
+        &__orig-radio:checked + span {color:$point; background-color:$lighten-rd; border-color:$point}    
     }
 
 }
@@ -143,10 +157,10 @@ body .el-radio {
     &__inner {width:20px; height:20px}
     &__label {padding-left:5px; font-size:1.3rem; @include fw-rg; line-height:32px; color:$darken}
     &__input.is-checked .el-radio__inner {
-        background:$white;
+        background:$white; border-color:$point;
         &:after {width:8px; height:8px; background-color:$point}
     }
-    &__input.is-checked + .el-radio__label {@include fw-md;}
+    &__input.is-checked + .el-radio__label {@include fw-md; color:$point}
     & + input {margin-left:5px}
 }
 

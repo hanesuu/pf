@@ -666,6 +666,13 @@ body .td-blank {
 	.txt-caution {margin:0 0 20px}
 }
 
+/* 고객/적립금관리 -manage */
+.vue-managelist {
+	@include media(768px) {
+		.search-filter section + .el-select {margin:10px 0 0}
+	}
+}
+
 /* 엑셀등록 -excel */
 .vue-excel {
 	.wrap-inp-file {
@@ -677,14 +684,15 @@ body .td-blank {
 		max-height:200px;
 		li {
 			cursor:inherit;
-			&:hover {border-color:$btn-basic; color:$darker;}
+			&:hover {border-color:$btn-basic; color:$darker}
 		}
 	}
+	.wrap-formbox dd .txt-s {line-height:3.2rem}
 }
 
 /* 그룹관리 -group */
 .vue-group {
-	.flex1 {@include flex(1);}
+	.flex1 {@include flex(1)}
 	td {
 		.btn {height:24px}
 		a.txt-point {padding:5px; color:$point; @include fw-bd; text-decoration:underline}
