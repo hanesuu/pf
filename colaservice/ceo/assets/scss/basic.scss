@@ -221,7 +221,7 @@ button[disabled=disabled], .btn-disable {
 	}
 }
 /* mobile gnb */
-.m-gnb.el-dialog__wrapper {position:fixed !important; top:0; left:0; bottom:0; height:100%; z-index:2100}
+.m-gnb.el-drawer__wrapper {position:fixed !important; top:0; left:0; bottom:0; height:100%; z-index:2100}
 .m-gnb .el-drawer {
 	background:#282d37;
 	.el-drawer__header {

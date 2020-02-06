@@ -4135,7 +4135,7 @@ button[disabled=disabled]:hover, .btn-disable:hover {
 }
 
 /* mobile gnb */
-.m-gnb.el-dialog__wrapper {
+.m-gnb.el-drawer__wrapper {
   position: fixed !important;
   top: 0;
   left: 0;
