@@ -148,7 +148,7 @@ button[disabled=disabled], .btn-disable {
 
 /* header */
 .header {
-	position:fixed; top:0; left:0; right:0; width:100%; background:$white; z-index:2000;
+	position:fixed; top:0; left:0; right:0; width:100%; background:$white; z-index:2100;
 	@include media(768px) {border-bottom:1px solid $lighter}
 	.top .container .row {
         position:relative; padding:5px 0;
@@ -221,7 +221,7 @@ button[disabled=disabled], .btn-disable {
 	}
 }
 /* mobile gnb */
-.m-gnb.el-dialog__wrapper .el-drawer {
+.m-gnb.el-dialog__wrapper {
 	background:#282d37;
 	&__header {
 		@include margin-padding(bottom,0,all,0); border:0; background:$white;
