@@ -1,9 +1,10 @@
 $(document).ready(function(){
 	/* gnb */
-	$(".gnb .depth1 .col-xs-2").mouseover(function(){
-		alert();
+	$(".gnb").children(".depth1").find(".col-xs-2").mouseover(function(){
+	  $(this).siblings().children(".depth2").hide();
+	  $(this).children(".depth2").show();
 	});
-	$(".gnb .depth1 .col-xs-2").mouseout(function(){
+	$(".gnb").children(".depth1").find(".col-xs-2").mouseout(function(){
 	  $(this).siblings(".active").children(".depth2").show();
 	});
 
