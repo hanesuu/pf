@@ -13,9 +13,11 @@
 <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/ud/common/js/slick.min.js"></script>
-<script src="/ud/common/js/wow.min.js"></script>
-<script>
-    new WOW().init();
+<script src="/ud/common/js/aos.js"></script>
+<script type="text/javascript">
+AOS.init({
+  once: true
+});
 </script>
 <script src="./files/js/main.js"></script>
 <link rel="stylesheet" type="text/css" href="/ud/common/css/slick.css">
@@ -23,7 +25,7 @@
 <link rel="stylesheet" href="./files/css/basic.css">
 </head>
 
-<body>
+<body data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-once="true">
 <!--공통 - 헤더-->
 <header class="header">
   <div class="inner">
@@ -167,7 +169,7 @@
       </div>
       <div class="wrap-img wrap-step">
         <ul>
-          <li>
+          <li data-aos="fade-right">
             <div class="img-step">
               <img alt="1. 주문서 프린터 출력" src="files/image/print_step01@2x.png">
             </div>
@@ -176,7 +178,7 @@
               <p>주문서 프린터 출력</p>
             </div>
           </li>
-          <li>
+          <li data-aos="fade-right">
             <div class="img-step">
               <img alt="2. 전화번호 추출" src="files/image/print_step02@2x.png">
             </div>
@@ -185,7 +187,7 @@
               <p>전화번호 추출</p>
             </div>
           </li>
-          <li>
+          <li data-aos="fade-right">
             <div class="img-step">
               <img alt="3. 홍보 문자 자동 발송(MMS)" src="files/image/print_step03@2x.png">
             </div>
@@ -205,8 +207,8 @@
         <h2 class="title">일주일 뒤 <em>리마인드 문자 자동 발송</em></h2>
         <p class="tit-sub">주문 일주일 뒤 식사 시간에 맞춰 홍보 문자 재발송</p>
       </div>
-      <p class="txt-quote">재주문이 확실히 늘어납니다!</p>
-      <div class="wrap-img">
+      <p class="txt-quote" data-aos="zoom-in">재주문이 확실히 늘어납니다!</p>
+      <div class="wrap-img" data-aos="fade-up">
         <img alt="주문 일주일 뒤 식사 시간에 맞춰 주문 고객들에게 안내문자 재발송되는 이미지" src="files/image/img_remind@2x.png">
       </div>
       <div class="view-mb">
@@ -225,10 +227,10 @@
         <div class="con-img">
           <div class="type1">
             <div class="img-block"></div>
-            <div class="img-ani wow pulse">
+            <div class="img-ani" data-aos="zoom-in">
               <img alt="" src="files/image/img_info_step3_01_ov@2x.png">
             </div>
-            <div class="wrap-bubble wow fadeInUp">
+            <div class="wrap-bubble" data-aos="fade-up">
               <p>버튼만 누르면 문자 내용이<br>자동 조합</p>
             </div>
           </div>
@@ -240,10 +242,10 @@
         <div class="con-img">
           <div class="type2">
             <div class="img-block"></div>
-            <div class="img-ani wow fadeIn">
+            <div class="img-ani" data-aos="zoom-in">
               <img alt="" src="files/image/img_info_step3_02_ov@2x.png">
             </div>
-            <div class="wrap-bubble wow fadeInUp" data-wow-delay="0.7s">
+            <div class="wrap-bubble" data-aos="fade-up" data-aos-delay="100">
               <p>추천문구 바로 사용 OK<br>원하는 대로 편집도 OK</p>
             </div>
           </div>
@@ -328,7 +330,7 @@
         </div>
       </div>
       <div class="wrap-img">
-        <img alt="콜라서비스 with 사디아페이. 사이다페이는 배달 시 현장결제나, 매장 백업용 결제수단으로 안성맞춤입니다~" src="files/image/sect_cider@2x.png">
+        <img alt="콜라서비스 with 사디아페이. 사이다페이는 배달 시 현장결제나 매장 백업용 결제수단으로 안성맞춤입니다" src="files/image/sect_cider@2x.png">
       </div>
     </div>
     <div class="cider-more">
@@ -500,7 +502,7 @@
     <div class="inner">
       <p class="tit-sub">매달 기본으로 뿌리는 종이 전단지... 성과 측정이 되시나요?</p>
       <h3 class="txt">그 중 <b>25,000원</b>만<br>콜라서비스로 바꿔보세요.</h3>
-      <div class="wrap-txt">
+      <div class="wrap-txt" data-aos="zoom-in">
         <h2 class="title">홍보비용이 팍팍 줄고<br>매출이 쑥쑥 늘어납니다!<em>지금 가입하시면 <span>2주 무료</span></em></h2>
       </div>
       <p class="tit-sub">간편가입과 초스피드 세팅으로 지금 바로 체험해 보세요.<br>콜라 고객센터에서 적극 지원해 드립니다.</p>

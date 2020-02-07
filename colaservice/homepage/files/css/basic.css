@@ -15,7 +15,7 @@
 html, body {
     margin:0; padding:0; width:100%; height:auto;
     font-family:'NotoSansCJKkr','Noto Sans Korean',AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
-    font-weight:300; font-size:10px; color:#666;
+    font-weight:100; font-size:10px; color:#666;
     letter-spacing:-0.05em; word-break:keep-all;
     background-color:#fff
 }

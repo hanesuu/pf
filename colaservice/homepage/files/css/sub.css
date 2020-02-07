@@ -71,7 +71,7 @@
 .price.sect06 .inner {background:none}
 .price.sect06 .wrap-txt {margin-bottom:30px}
 .price.sect06 .wrap-txt .tit-sub {color:#fff}
-.price.sect06 img {width:100%; max-width:620px}
+.price.sect06 img, .price.sect03 img {width:100%; max-width:620px}
 
 /* tab2-step1 */
 .tab2 .sect01 .wrap-img img {max-width:269px}
@@ -130,9 +130,9 @@
     font:900 1.6rem/1 'Line Awesome Free'; color:#fff
 }
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-prev {left:0}
-.tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-prev:before {content:"\f111"}
+.tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-prev:before {content:"\f104"}
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-next {right:0}
-.tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-next:before {content:"\f112"}
+.tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-next:before {content:"\f105"}
 
 /* tab3-step2 */
 .tab3 .sect02 .wrap-step {max-width:100%}
@@ -202,7 +202,7 @@
     float:left; font-size:1.6rem; font-weight:500; color:#222
 }
 .card.info .title:before {
-    content:"\f05a"; margin-right:2px; font:900 2.3rem/1 'Line Awesome Free'; color:#ccc; vertical-align:text-top
+    content:"\f05a"; margin-right:2px; font:900 2.3rem/1.1 'Line Awesome Free'; color:#ccc; vertical-align:text-top
 }
 .list-txt-check {margin-top:40px}
 .list-txt-check li {
@@ -276,7 +276,7 @@
 .sell .sect05 .wrap-sum .oval:before {
     content:''; position:absolute; left:-4px; top:-4px; width:150px; height:150px; border:1px solid; border-radius:50%
 }
-.sell .sect05 .wrap-sum .oval p {position:relative}
+.sell .sect05 .wrap-sum .oval p {position:relative; line-height:1.15}
 .sell .sect05 .wrap-sum .oval.cola {background:#EC3939}
 .sell .sect05 .wrap-sum .oval.cola:before {border-color:#EC3939}
 .sell .sect05 .wrap-sum .oval.cider {background:#00d593}
@@ -294,7 +294,8 @@
 .sell .sect05 .wrap-sum .i-equal:before {left:0; top:7px; background:#EC3939}
 .sell .sect05 .wrap-sum .i-equal:after {left:0; top:18px; background:#EC3939}
 .sell .sect05 .wrap-sum .sum {
-    padding:18px 7%; color:#fff; font-size:2rem; background-image:linear-gradient(to bottom, #ffb83c, #ff7d3c); border-radius:100px
+    padding:18px 7%; color:#fff; font-size:2rem; line-height:1.15;
+    background-image:linear-gradient(to bottom, #ffb83c, #ff7d3c); border-radius:100px
 }
 .sell .sect05 .wrap-sum .sum em {font-size:3.2rem}
 .sell .sect05 .card.info {
