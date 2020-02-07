@@ -359,7 +359,7 @@
   font-size:1.8rem; line-height:1.5
 }
 .sect-sub.sect-cider .cider-more li:before {
-  content:"\f17b"; display:inline-block; margin-right:8px; font:16px/1 'Line Awesome Free'; color:#00d593
+  content:"\f00c"; display:inline-block; margin-right:8px; font:16px/1 'Line Awesome Free'; color:#00d593
 }
 .btn-cider {
   float:right; background-color:#00d593; color:#fff; box-shadow:0 6px 15px rgba(34,34,34,.2)
