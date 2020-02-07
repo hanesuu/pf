@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/*** 팝업 ***/
+.pop-layer {
+	position:fixed; top:0; left:0; width:100%; height:100%;
+	z-index:-1; opacity:0; transition:all 0.2s
+}
+.pop-layer.on {
+	z-index:9990; opacity:1
+}
+.pop-layer .bg-dim {
+	position:absolute; top:0; left:0; width:100%; height:100%;
+	background:rgba(0,0,0,.5)
+}
+.wrap-pop {
+	position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%;
+	max-width:640px; background-color:#fff; border:1px solid #ccc; border-radius:2px;
+	box-shadow:0 2px 10px rgba(0,0,0,.5)
+}
+.wrap-pop .head-pop {
+	position:relative; padding:15px 20px; border-bottom:1px solid #ccc
+}
+.wrap-pop .head-pop .title {
+	font-size:1.4rem; font-weight:500;
+}
+.wrap-pop .btn-i-close {
+	position:absolute; right:15px; top:6px;
+	width:30px; height:30px;
+	font-size:0; background:transparent; border:0; cursor:pointer
+}
+.wrap-pop .btn-i-close:before,
+.wrap-pop .btn-i-close:after {
+    content: ''; position:absolute; top:5px; left:15px; height:20px;
+    border-left:1px solid #000
+}
+.wrap-pop .btn-i-close:before {transform:rotate(-45deg)}
+.wrap-pop .btn-i-close:after {transform:rotate(45deg)}
+.wrap-pop .con-pop {
+	position:relative; padding:30px 20px
+}
+
+/* 무료상담신청 - Call */
+.pop-call .wrap-pop .con-pop {text-align:center}
+.pop-call .wrap-pop .form-front {margin-bottom:40px}
+.pop-call .wrap-pop .form-front dt {
+    margin-bottom:10px; font-size:1.4rem
+}
+.pop-call .wrap-pop .form-front dd input {text-align:center}
+.pop-call .wrap-pop p {
+	margin-bottom:40px; font-size:1.3rem
+}
+.wrap-pop .btn-big {
+    padding:10px 34px; font-size:1.4rem
+}
+
+/* 리셀러 회원가입 - ResellerJoin */
+.pop-join .con-pop {
+    max-height:72vh; padding:0; overflow-y:auto
+}
+.pop-join .wrap-pop .banner {
+    display:table; width:100%; padding:10px 20px; color:#fff; font-size:1.3rem; line-height:1.4;
+    background-image:linear-gradient(to bottom, #ffb83c, #ff7d3c)
+}
+.pop-join .wrap-pop .banner * {display:table-cell}
+.pop-join .wrap-pop .banner a {
+    text-align:right; font-size:1.5rem; color:#fff; text-decoration:underline; vertical-align:middle
+}
+.pop-join .wrap-pop .con-pop {
+    padding:30px 20px; text-align:left
+}
+.pop-join .tab-type01 {width:100%; margin-bottom:0; border:0}
+.pop-join .tab-type01 li {
+    width:50%; height:38px; border:0; background:#f0f0f0; 
+    font-size:1.6rem; font-weight:400; color:#999; text-align:center; line-height:38px
+}
+.pop-join .tab-type01 li.active {
+    background:#EC3939; color:#fff; font-weight:500
+}
+.pop-join .wrap-pop .con-pop dl {margin:20px 0}
+.pop-join .wrap-pop .con-pop dl:last-of-type {margin-bottom:0}
+.pop-join .wrap-pop .con-pop dt {margin-bottom:5px; font-size:1.4rem}
+.pop-join .wrap-pop .con-pop dd,
+.wrap-pop .con-pop dd .inp-txt {
+	width:100%; height:38px; line-height:38px; font-size:0
+}
+.wrap-pop .con-pop dd .inp-txt,
+.wrap-pop .con-pop dd .radio-inline span {font-size:1.3rem}
+.wrap-pop .con-pop dd:not(:first-of-type) {margin-top:10px}
+.pop-join .wrap-pop .con-pop .alot > .inp-txt,
+.pop-join .wrap-pop .con-pop .wrap-inp-time {display:inline-block; width:calc(100% - 105px)}
+.pop-join .wrap-pop .con-pop .alot .btn {
+    width:100px; height:38px; margin-left:5px; padding:0; vertical-align:top; font-size:1.4rem
+}
+.pop-join .wrap-pop .con-pop .wrap-inp-time {position:relative}
+.pop-join .wrap-pop .con-pop .wrap-inp-time input {padding-right:40px}
+.pop-join .wrap-pop .con-pop .wrap-inp-time .txt-point {
+    position:absolute; right:10px; top:0; font-size:1.2rem
+}
+.pop-join .wrap-pop .agree {margin:30px 0}
+.pop-join .wrap-pop .agree a {color:#222; text-decoration:underline}
+.pop-join .wrap-btn {text-align:center}
+.pop-join .wrap-btn .btn {margin:0 5px}
+
+@media all and (max-width:768px) {
+    .wrap-pop {
+        width:calc(100% - 20px)
+    }
+    body .el-dialog__header .el-dialog__title {font-size:1.8rem}
+    .wrap-pop .btn-big {
+        padding:15px 40px; font-size:2rem
+    }
+
+    /* 무료상담신청 - Call */
+    .pop-call .wrap-pop .form-front dt {font-size:1.6rem}
+
+    /* 리셀러 회원가입 - ResellerJoin */
+    .pop-join .wrap-pop .con-pop dl {margin:14px 0}
+    .pop-join .wrap-pop .con-pop dt,
+    .pop-join .wrap-pop .con-pop dd,
+    .pop-join .wrap-pop .con-pop .alot .btn,
+    .pop-join .wrap-pop .con-pop .inp-check {font-size:1.6rem}
+}

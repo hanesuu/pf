@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>ico_call_s@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="홈페이지" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="이용안내-종합안내" transform="translate(-739.000000, -1489.000000)" stroke="#FFFFFF">
+            <g id="section" transform="translate(0.000000, 1200.000000)">
+                <g id="btn-white" transform="translate(670.000000, 266.000000)">
+                    <path d="M73.86625,33.51625 C74.261875,33.38 74.7475,33.50375 74.988125,33.753125 L76.506875,34.85125 C78.52,33.78375 79.799375,32.505 80.8525,30.50625 L79.789375,29.02875 C79.48625,28.725625 79.376875,28.28375 79.5075,27.87 C79.796875,26.9925 79.944375,26.07375 79.944375,25.13625 C79.944375,24.51 80.45375,24 81.08,24 L83.864375,24 C84.49125,24 85,24.51 85,25.13625 C85,32.780625 78.78125,39 71.136875,39 C70.510625,39 70,38.490625 70,37.86375 L70,35.088125 C70,34.461875 70.510625,33.95125 71.136875,33.95125 C72.074375,33.95125 72.99375,33.805 73.86625,33.51625 Z" id="ico_call_s" transform="translate(77.500000, 31.500000) scale(-1, 1) translate(-77.500000, -31.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
