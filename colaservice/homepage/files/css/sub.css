@@ -13,12 +13,12 @@
 }
 .breadcrumb a {color:#555}
 .breadcrumb span:first-child:before {
-    content:"\f015"; font-family:LineAwesome; padding-right:3px
+    content:"\f015"; font:900 1.4rem/1 'Line Awesome Free'; padding-right:3px
 }
 .breadcrumb span:first-child, 
 .breadcrumb span:first-child * {color:#ec3939}
 .breadcrumb span:after {
-    content:"\f105"; font:normal normal normal 10px LineAwesome;
+    content:"\f105"; font:900 1.4rem/1 'Line Awesome Free';
     padding:0 4px; color:#ccc
 }
 .breadcrumb span:last-child:after {display:none}
@@ -127,7 +127,7 @@
 }
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-arrow:hover {opacity:1}
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-arrow:before {
-    font-family:LineAwesome; color:#fff; font-size:16px
+    font:900 1.6rem/1 'Line Awesome Free'; color:#fff
 }
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-prev {left:0}
 .tab3 .sect01 .wrap-pcguide .wrap-img-guide .slick-prev:before {content:"\f111"}
@@ -202,14 +202,14 @@
     float:left; font-size:1.6rem; font-weight:500; color:#222
 }
 .card.info .title:before {
-    content:"\f05a"; margin-right:2px; font-family:LineAwesome; font-size:23px; color:#ccc; vertical-align:text-top
+    content:"\f05a"; margin-right:2px; font:900 2.3rem/1 'Line Awesome Free'; color:#ccc; vertical-align:text-top
 }
 .list-txt-check {margin-top:40px}
 .list-txt-check li {
     display:inline-block; margin:0 14px; font-size:1.8rem; color:#222
 }
 .list-txt-check li:before {
-    content:"\f00c"; display:inline-block; width:34px; height:34px; font-family:LineAwesome; font-size:24px; color:#fff; line-height:34px;
+    content:"\f00c"; display:inline-block; width:34px; height:34px; font:900 2.4rem/34px 'Line Awesome Free'; color:#fff;
     border-radius:50%; background:#ffb83c; text-align:center; vertical-align:text-top
 }
 .list-txt-check li p {
@@ -319,7 +319,7 @@
     display:inline-block; margin-top:4px; font-size:1.4rem
 }
 .sell .sect07 .card.info dd:after {
-    content:"\f105"; display:inline-block; margin:0 8px; font-family:LineAwesome; font-size:12px
+    content:"\f105"; display:inline-block; margin:0 8px; font:900 1.2rem/1 'Line Awesome Free';
 }
 .sell .sect07 .card.info dd:last-child:after {display:none}
 /* 무료가입 플로팅 버튼 */
