@@ -385,7 +385,7 @@
 .qna .qna-form .box dd .inp-txt {
     width:100%; font-size:1.4rem
 }
-.qna .qna-form .box dd select {height:38px}
+.qna .qna-form .box dd select {height:4.2rem; padding:0}
 .qna .qna-form .box dd textarea {height:200px}
 .qna .qna-form .qna-agree {margin:30px 0}
 .qna .qna-form .qna-agree a {color:#222; text-decoration:underline}
