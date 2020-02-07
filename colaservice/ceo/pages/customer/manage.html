@@ -84,11 +84,8 @@
                 <el-radio-group v-model="setDay" class="btngroup">
                   <el-radio-button label="전체"></el-radio-button>
                   <el-radio-button label="오늘"></el-radio-button>
-                  <el-radio-button label="어제"></el-radio-button>
-                  <el-radio-button label="금주"></el-radio-button>
-                  <el-radio-button label="전주"></el-radio-button>
-                  <el-radio-button label="금월"></el-radio-button>
-                  <el-radio-button label="전월"></el-radio-button>
+                  <el-radio-button label="이번주"></el-radio-button>
+                  <el-radio-button label="이번달"></el-radio-button>
                 </el-radio-group>
               </section>              
               <el-select v-model="listGroup" placeholder="그룹 선택">
@@ -250,10 +247,10 @@
           <div class="list-radio">
             <ul>
               <li>
-                <el-radio label="use" v-model="pointState">적립금으로 할인 처리 (적립금 사용)</el-radio>
+                <el-radio label="use" v-model="pointState">적립금 사용하기</el-radio>
               </li>
               <li>
-                <el-radio label="useCancel" v-model="pointState">적립금 할인 취소 처리 (적립금 사용 취소)</el-radio>
+                <el-radio label="useCancel" v-model="pointState">적립금 사용 취소하기</el-radio>
               </li>
               <li>
                 <el-radio label="insert" v-model="pointState">적립금 지급하기</el-radio>
