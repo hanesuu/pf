@@ -47,17 +47,6 @@ $(".tab-type01 li").click(function () {
     var activeTab = $(this).attr("rel");
     $("#" + activeTab).fadeIn()
 });
-//탭메뉴 스크롤 고정
-var tabfix = $('.tab-type01').offset();
-$(window).scroll(function(){
-  if($(document).scrollTop() > tabfix.top){
-    $('.tab-type01').addClass('fixed-top');
-    $('.header').addClass('no-fixed');
-  } else {
-    $('.tab-type01').removeClass('fixed-top');
-    $('.header').removeClass('no-fixed');
-  }
-});
 
 //작은탭
 $(".tab2_content").hide();
