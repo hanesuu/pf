@@ -63,7 +63,6 @@
     text-align:center; color:#fff;
     background:linear-gradient(to right, #ffb83c, #ff7d3c)
 }
-.sect-top .wrap-txt .title {margin-bottom:0}
 .sect-last .wrap-txt {margin-bottom:30px}
 
 /* 이용안내 */
@@ -322,7 +321,7 @@
 .sell .sect07 .wrap-img a:nth-child(2) img {max-width:210px}
 .sell .sect07 .wrap-img a:nth-child(3) img {max-width:225px}
 .sell .sect07 .card.info {padding:10px 10%; text-align:left}
-.sell .sect07 .card.info dl {display:table; margin:5px 0}
+.sell .sect07 .card.info dl {display:table; padding:8px 0}
 .sell .sect07 .card.info dt {width:150px}
 .sell .sect07 .card.info dd {
     display:inline-block; margin-top:4px; font-size:1.4rem
@@ -500,6 +499,7 @@
     }
 
     /* 영업안내 */
+    .sell .sect-top {padding-bottom:40px}
     .list-txt-check {margin-top:25px}
     .list-txt-check li {
         width:48%; margin:0 1% 10px; text-align:left
