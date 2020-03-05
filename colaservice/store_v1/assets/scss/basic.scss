@@ -1,8 +1,8 @@
-@import "https://hanesuu.github.io/ud/common/css/normalize.css";
-@import "https://hanesuu.github.io/ud/common/css/NotoSansKR-Hestia.css";
-@import "https://hanesuu.github.io/ud/common/css/roboto.css";
-@import "https://hanesuu.github.io/ud/common/css/line-awesome.min.css";
-@import "https://hanesuu.github.io/ud/common/css/element.css"; /* element */
+@import "/ud/common/css/normalize.css";
+@import "/ud/common/css/NotoSansKR-Hestia.css";
+@import "/ud/common/css/roboto.css";
+@import "/ud/common/css/line-awesome.min.css";
+@import "/ud/common/css/element.css"; /* element */
 @import "./mixin.scss"; /* mixin & var */
 @import "./grid.scss"; /* Grid system by Bootstrap */
 @import "./element-variables.scss";
@@ -35,11 +35,7 @@ body {
 
 *, *:before, *:after {margin:0; box-sizing:border-box}
 
-a {cursor:pointer}
-a:link,
-a:hover,
-a:active,
-a:visited {text-decoration:none}
+a,a:hover,a:active,a:visited {cursor:pointer; text-decoration:none; color:inherit}
 
 /* 공통 레이아웃 */
 .container {position:relative; padding:0}
@@ -143,7 +139,7 @@ header {
     .store-bi {
         position:absolute; top:50%; left:20px; width:32px; height:32px;
         /*border:1px solid $light-color;*/ border-radius:100%; overflow:hidden;
-        background:url('../img/bi_emblem.png') $white-color no-repeat 50% 50% / cover; transform:translateY(-50%);
+        background:url('/ud/colaservice/common/img/bi_emblem.png') $white-color no-repeat 50% 50% / cover; transform:translateY(-50%);
 
         img {
             position:absolute; left:50%; top:50%; min-width:100%; min-height:100%; max-width:110%; max-height:110%;

@@ -8,9 +8,6 @@
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
   <title>쏘다피자 구로디지털점</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
-  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
-  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
   <link rel="stylesheet" href="../assets/scss/basic.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../assets/js/common.js"></script>
@@ -60,25 +57,26 @@
       </div>
     </header>
     <div class="wrap-orderlist no-btn">
-      <section class="wrap-tit">
+      <section class="wrap-tit" v-if="!editYn">
         <h2 class="tit-page">주문내역</h2>
         <div class="btn-top-r">
-          <button class="btn btn-light">편집</button>
+          <button @click="editYn = true" class="btn btn-light">편집</button>
         </div>
       </section>
-      <section class="edit">
+      <section class="edit" v-if="editYn">
         <label for="all" class="inp-check">
           <span class="txt">전체선택</span>
           <input type="checkbox" name="all" id="all">
           <span class="checkmark"></span>
         </label>
         <div class="btn-top-r">
-          <button class="btn btn-light">취소</button>
+          <button @click="editYn = false" class="btn btn-light">취소</button>
           <button class="btn btn-redline">삭제</button>
+        </div>
       </section>
       <section class="wrap-list">
         <div class="list">
-          <label for="check1" class="inp-check">
+          <label for="check1" class="inp-check" v-if="editYn">
             <input type="checkbox" name="check1" id="check1">
             <span class="checkmark"></span>
           </label>
@@ -108,7 +106,7 @@
           </a>
         </div>
         <div class="list">
-          <label for="check2" class="inp-check">
+          <label for="check2" class="inp-check" v-if="editYn">
             <input type="checkbox" name="check2" id="check2">
             <span class="checkmark"></span>
           </label>
@@ -136,7 +134,7 @@
           </a>
         </div>
         <div class="list">
-          <label for="check3" class="inp-check">
+          <label for="check3" class="inp-check" v-if="editYn">
             <input type="checkbox" name="check3" id="check3">
             <span class="checkmark"></span>
           </label>
@@ -164,7 +162,7 @@
           </a>
         </div>
         <div class="list">
-          <label for="check4" class="inp-check">
+          <label for="check4" class="inp-check" v-if="editYn">
             <input type="checkbox" name="check4" id="check4">
             <span class="checkmark"></span>
           </label>
@@ -192,7 +190,7 @@
           </a>
         </div>
         <div class="list">
-          <label for="check5" class="inp-check">
+          <label for="check5" class="inp-check" v-if="editYn">
             <input type="checkbox" name="check5" id="check5">
             <span class="checkmark"></span>
           </label>
@@ -232,29 +230,22 @@
 </body>
 
 <!-- import Vue before Element -->
-<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<script src="/ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
-<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.wrap-tit').children('.btn-top-r').children('.btn').click(function(){
-      $(this).parent().parent('.wrap-tit').hide().next('.edit').show();
-      $(this).parent().parent('.wrap-tit').siblings('.wrap-list').children('.list').addClass('active').children('label').show();
-    });
-    $('.edit').children('.btn-top-r').children('.btn-light').click(function(){
-      $(this).parent().parent('.edit').hide().prev('.wrap-tit').show();
-      $(this).parent().parent('.edit').siblings('.wrap-list').children('.list').removeClass('active').children('label').hide();
-    })
-  });
-</script>
+<script src="/ud/common/js/element/index.js"></script>
 <script>
 	new Vue({
 		el: '#app',
 		data: function () {
 			return {
+        /**
+         * 편집 여부
+         * @type {boolean}
+         */
+        editYn: false,
 
-			};/* return */
-		},/* data */
+			}
+		},
 		methods: {
 			handleClick(tab, event) {
 				console.log(tab, event);

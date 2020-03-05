@@ -3,8 +3,7 @@
     position:fixed; width:100%; height:100%;
     .bi {
         width:220px; height:60px; font-size:0; margin:18vh auto 0;
-        background: url("../img/bi.png") no-repeat 50% 50% / 100%;
-        @include image-2x("../img/bi@2x.png", 100%, auto);
+        background: url("/ud/colaservice/common/img/bi_logo@2x.png") no-repeat 50% 50% / 100%
     }
     .login-btn-area {
         position:fixed; bottom:10vh; width:100%; padding:0 15px;

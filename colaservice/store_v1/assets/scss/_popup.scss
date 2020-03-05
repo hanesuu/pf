@@ -45,9 +45,7 @@ body .el-dialog {
     }
     .warning-txt {
         float:left; width:60%; margin:10px 0 0; padding-left:20px; color:$main-color; line-height:16px;
-        background: url("../img/../img/ico-warning.png") no-repeat;
-        @include image-2x("../img/../img/ico-warning2x.png", 13px, 12px);
-        background-position:0 2px;
+        background:url("../img/../img/ico-warning2x.png") no-repeat 0 2px / 13px 12px;
         &:after {content:''; clear:both}
     }
     
@@ -152,7 +150,7 @@ body .el-dialog {
 .pop-direct-home {
     .box-app {
         width:60px; height:60px; margin:0 auto 10px; border:1px solid $cd-color; border-radius:10px;
-        background:url('../img/bi_emblem.png') $white-color no-repeat 50% 50% / 44px;
+        background:url('/ud/colaservice/common/img/bi_emblem.png') $white-color no-repeat 50% 50% / 44px;
         overflow:hidden;
         img {width:100%}
     }

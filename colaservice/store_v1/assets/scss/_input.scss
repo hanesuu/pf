@@ -63,7 +63,6 @@ body {
     }
 }
 
-
 /* Check Box */
 .inp-check {
     display:inline-block; position:relative; font-size:1.3rem; line-height:24px; cursor:pointer;
@@ -84,24 +83,3 @@ body {
         &:after {display:block; border-color:$main-color}
     }
 }
-
-/* file upload
-.filebox input[type="file"] {
-    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-    overflow:hidden; clip:rect(0,0,0,0); border:0
-}
-
-.filebox label {
-    display:inline-block; padding:6px 8px;
-    color:$white-color; font-weight:$fw-bold; font-size:inherit; line-height:normal;
-    vertical-align:middle; background-color:$main-color; cursor:pointer; border-radius:$btn-radius
-}
-
-.filebox .upload-name {
-    display: inline-block; height:32px; padding:6px 8px;
-    font-family:inherit; font-size:inherit; line-height:normal; vertical-align:middle;
-    background-color:$bg-lighter; border:1px solid $lighter-color; border-radius:$btn-radius;
-    @include prefix((
-            appearance:none
-    ), webkit moz ms);
-} */
