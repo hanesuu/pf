@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li>
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li>
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li>
+          <a href="./point.html">포인트</a>
+        </li>
+        <li class="on">
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li>
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-stamp">
+      <section role="page-info" class="title-sec">
+        <h1>스탬프관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점관리</li>
+            <li class="this-page">스탬프관리</li>
+          </ul>
+        </div>
+      </section>
+      <div class="inner">
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">스탬프</h3>
+            <el-switch v-model="stampUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-4 col-sm-2">
+              <dl>
+                <dt>
+                  <label for="stampCount">최대 스탬프 지급 개수</label>
+                </dt>
+                <dd>
+                  <el-select v-model="stampCount" placeholder="선택">
+                    <el-option 
+                      v-for="item in stampCountList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-8 col-sm-6">
+              <dl>
+                <dt>
+                  <label for="stampProvide">스탬프 지급 기준 설정</label>
+                </dt>
+                <dd>
+                  <el-select v-model="stampProvide" placeholder="선택">
+                    <el-option
+                      v-for="item in stampProvideType"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                  <div class="flexbox" v-if="stampProvide">
+                    <div class="flexbox eltype" v-if="stampProvide == 'PRICE'">
+                      <input type="text" class="input-txt num-txt" placeholder="0">
+                      <span class="txt-after">원당</span>
+                    </div>
+                    <div class="flexbox eltype">
+                      <el-select v-model="provideCnt" placeholder="선택">
+                        <el-option
+                          v-for="item in provideCntList"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value">
+                        </el-option>
+                      </el-select>
+                      <span class="txt-after">개</span>
+                    </div>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">지급 상품 설정</h3>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-8 wrap-repeat">
+              <div class="flexbox">
+                <div class="txt-dt">스탬프 개수</div>
+              </div>
+              <div class="flexbox add" v-for="(sList, i) in stampProductList">
+                <div>
+                  <el-select v-model="stampCnt1" placeholder="스탬프 개수 선택" class="flex1">
+                    <el-option
+                      v-for="item in stampCntArray"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </div>
+                <div>
+                  <el-select v-model="menu1" placeholder="상품 선택" class="flex1">
+                    <el-option
+                      v-for="item in menuList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                  <button @click="addProduct()" class="btn btn-rdline" v-if="i == 0">&plus; 추가</button>
+                  <button @click="delProduct(i)" class="btn btn-dkline" v-if="i > 0">&minus; 삭제</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="btn-list-bottom">
+          <button class="btn btn-rd">저장하기</button>
+        </section>
+      </div>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 사용여부 */
+      stampUseYn: true,
+
+      /* 최대 스탬프 지급 */
+      stampCountList: [{
+        value: '3',
+        label: '3'
+      }, {
+        value: '5',
+        label: '5'
+      }, {
+        value: '10',
+        label: '10'
+      }, {
+        value: '20',
+        label: '20'
+      }, {
+        value: '30',
+        label: '30'
+      }, {
+        value: '40',
+        label: '40'
+      }],
+      stampCount: '5',
+
+      /* 스탬프 지급 기준 */
+      stampProvideType: [{
+        value: 'PRODUCT',
+        label: '개별 품목당 지급'
+      }, {
+        value: 'PRICE',
+        label: '금액당 지급'
+      }],
+      stampProvide: '',
+
+      /* 스탬프 지급 기준-개별 품목 개수 */
+      provideCntList: [{
+        value: '1',
+        label: '1'
+      }, {
+        value: '2',
+        label: '2'
+      }, {
+        value: '3',
+        label: '3'
+      }, {
+        value: '4',
+        label: '4'
+      }, {
+        value: '5',
+        label: '5'
+      }],
+      provideCnt: '',
+
+
+      /* 스탬프 개수와 상품 */
+      stampCntArray: [{
+        value: '1',
+        label: '1'
+      }, {
+        value: '5',
+        label: '5'
+      }, {
+        value: '10',
+        label: '10'
+      }, {
+        value: '20',
+        label: '20'
+      }, {
+        value: '30',
+        label: '30'
+      }],
+      stampCnt1: '',
+
+      /* 스탬프 지급 기준 */
+      menuList: [{
+        value: '하림 무뼈 닭발 中',
+        label: '하림 무뼈 닭발 中'
+      }, {
+        value: '과메기 모듬 패밀리세트',
+        label: '과메기 모듬 패밀리세트'
+      }, {
+        value: '비빔국수',
+        label: '비빔국수'
+      }, {
+        value: '계란찜',
+        label: '계란찜'
+      }],
+      menu1: '',
+
+      /* 스탬프 항목 추가 */
+      stampProductList: [{}]
+    }
+  },
+  methods: {
+    /**
+     * 스탬프 상품 추가
+     */
+    addProduct() {
+      this.stampProductList.push({})
+    },
+
+    /**
+     * 스탬프 상품 삭제
+     * @param i {number} 옵션 배열 번호
+     */
+    delProduct(i) {
+      this.stampProductList.splice(i, 1)
+    },
+  }
+})
+</script>
+</html>

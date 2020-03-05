@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+  <title>쏘다피자 구로디지털점</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <link rel="stylesheet" href="../assets/scss/basic.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <header class="header sub-header">
+      <div class="header-col">
+        <div onclick="location.href='index.html'" class="store-name">
+          <div class="store-bi full-bg-img"></div>
+          <h1>쏘다피자 구로디지털점</h1>
+        </div>
+        <div class="gnb">
+          <button class="btn-gnb">menu</button>
+          <nav class="gnb-content" role="navigation">
+            <button class="btn-close">메뉴 닫기</button>
+            <div class="profile default">
+              <div class="profile-pic">
+                <img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+              </div>
+              <p class="nick-name">떡볶이킬러2</p>
+            </div>
+            <div class="nav-list">
+              <ul>
+                <li><a href="mypage.html">내 정보</a></li>
+                <li><a href="address.html">주소관리</a></li>
+                <li><a href="order_list.html">주문관리</a></li>
+                <li><a href="stamp.html">스탬프관리</a></li>
+                <li><a href="coupon.html">쿠폰관리</a></li>
+                <li><a href="review.html">리뷰관리</a></li>
+              </ul>
+            </div>
+            <div class="nav-share">
+              <dl>
+                <dt>공유</dt>
+                <dd class="ico-naver"><a>네이버 공유하기</a></dd>
+                <dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+                <dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+                <dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+                <dd class="ico-url"><a>URL 공유하기</a></dd>
+              </dl>
+            </div>
+          </nav>
+          <div class="bg-dim"></div>
+        </div>
+        <button onclick="history.back()" class="btn-back el-icon-back">뒤로</button>
+      </div>
+    </header>
+    <div class="order-wrap">
+      <h2 class="tit-page">배달정보</h2>
+      <button onclick="location.href='address.html'" class="btn btn-light">배달주소내역</button>
+      <dl class="inner form-dl">
+        <dt class="tit">주소입력</dt>
+        <dd>
+          <el-tabs type="card" @tab-click="handleClick" class="tab-sm">
+            <el-tab-pane label="직접입력">
+              <div class="wrap-input">
+                <input type="text" class="input-txt inline" value="서울시 구로구 디지털로26길 61">
+                <button class="btn btn-input">주소검색</button>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="지도선택">
+              <input type="text" class="input-txt" value="서울시 구로구 디지털로26길 61">
+              <div class="map">
+                <img src="../assets/img/temp/map.jpg" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">
+                <button class="btn btn-opacity">선택한 위치로 지정</button>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+        </dd>
+        <dt class="tit">상세주소 입력</dt>
+        <dd>
+          <input type="text" class="input-txt" placeholder="상세 주소를 입력해주세요.">
+        </dd>
+      </dl>
+      <dl class="inner form-dl">
+        <dt class="tit">휴대전화번호</dt>
+        <dd>
+          <div class="wrap-input">
+            <input type="text" class="input-txt inline">
+            <button class="btn btn-input">인증번호발송</button>
+          </div>
+        </dd>
+        <dt class="tit">요청사항<span class="txt-s txt-gr txt-right">(0/300)</dt>
+        <dd>
+          <textarea class="input-txt"></textarea>
+        </dd>
+      </dl>
+      <dl class="inner form-dl">
+        <dt class="tit">공동현관 출입방법</dt>
+        <dd>
+          <el-radio-group v-model="radio2" size="small">
+            <el-radio-button label="자유출입" ></el-radio-button>
+            <el-radio-button label="경비실호출"></el-radio-button>
+            <el-radio-button label="비밀번호"></el-radio-button>
+            <el-radio-button label="기타"></el-radio-button>
+          </el-radio-group>
+        </dd>
+        <dd>
+          <input type="text" class="input-txt" value="* 2211 자물쇠">
+          <p class="txt-s txt-rd">※ 공동현관이 없는 배달주소(예:단독주택)의 경우 자유출입으로 설정해주세요.</p>
+        </dd>
+        <dd>
+          <label class="inp-check" for="check1">
+            <span class="txt">출입방법 저장</span>
+            <input type="checkbox" name="check1" id="check1" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+        </dd>
+      </dl>
+    </div>
+    <div class="order-wrap sale">
+      <h2 class="tit-page">할인적용</h2>
+      <dl class="inner form-dl sale-coupon">
+        <dt class="tit">할인쿠폰</dt>
+        <dd>
+          <button class="btn btn-bkline" @click="myCouponModal = true">쿠폰 변경</button>
+          <ul class="list-apply">
+            <li>
+              <div class="tit-s">첫주문 회원께만 드리는 할인 쿠폰</div>
+              <div class="price">
+                <b>2,000</b><span>원</span>
+              </div>
+              <button class="btn-ico-del">삭제</button>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      <dl class="inner form-dl sale-coupon">
+        <dt class="tit">스탬프</dt>
+        <dd>
+          <button class="btn btn-bkline" @click="myStampModal = true">스탬프 변경</button>
+          <ul class="list-apply">
+            <li>
+              <div class="tit-s">후라이드 반마리</div>
+              <button class="btn-ico-del">삭제</button>
+            </li>
+            <li>
+              <div class="tit-s">콜라 1개</div>
+              <button class="btn-ico-del">삭제</button>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      <dl class="inner form-dl sale-txt">
+        <dt class="tit">서비스</dt>
+        <dd class="txt-r">웨지감자(S)</dd>
+      </dl>
+      <dl class="inner form-dl sale-point">
+        <dt class="tit">통합 포인트
+          <a class="tool-tip" @click="pointInfoModal = true">?</a>
+          <p>포인트 : 1,400</p>
+        </dt>
+        <dd>
+          <div class="inp-point">
+            <input class="input-num" placeholder="0" type="tel">
+            <span class="txt-won">원</span>
+          </div>
+          <label class="inp-check" for="check2">
+            <span class="txt">모두 사용</span>
+            <input type="checkbox" name="check2" id="check2">
+            <span class="checkmark"></span>
+          </label>
+        </dd>
+      </dl>
+    </div>
+    <div class="order-wrap">
+      <h2 class="tit-page">결제정보</h2>
+      <dl class="wrap-price">
+        <dt class="tit">총 주문금액<a class="txt-s txt-link" @click="orderInfoModal = true">주문보기</a></dt>
+        <dd class="price">
+          <p>57,400</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">기본할인</dt>
+        <dd class="price">
+          <p>-1,000</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">메뉴할인</dt>
+        <dd class="price">
+          <p>-700</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">포인트할인</dt>
+        <dd class="price">
+          <p>-800</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price">
+        <dt class="tit">배달비</dt>
+        <dd class="price">
+          <p>1,000</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <div class="price-total">
+        <dl class="wrap-price">
+          <dt class="tit">최종 결제금액</dt>
+          <dd class="price">
+            <p>29,100</p>
+            <span>원</span>
+          </dd>
+        </dl>
+      </div>
+      <button class="pay-way" @click="paymentTypeModal = true">
+        신용카드 결제 <span>결제방식 변경<i class="las la-angle-down"></i></span>
+      </button>
+      <div class="order-agreement">
+        <ul>
+          <li>
+            <label class="inp-check" for="check3">
+              <span class="txt">전체동의</span>
+              <input type="checkbox" name="check3" id="check3">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="inp-check" for="check4">
+              <span class="txt">SMS수신동의</span>
+              <input type="checkbox" name="check4" id="check4">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="inp-check" for="check5">
+              <span class="txt">콜라서비스 이용약관에 동의합니다.</span>
+              <input type="checkbox" name="check5" id="check5">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="inp-check" for="check6">
+              <span class="txt">개인정보 처리방침에 동의합니다.</span>
+              <input type="checkbox" name="check6" id="check6" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="inp-check" for="check7">
+              <span class="txt">개인정보 제3자 제공에 동의합니다.</span>
+              <input type="checkbox" name="check7" id="check7" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>    
+    <div class="row order-bottom">
+      <button onclick="location.href='order_done.html'" class="col-xs-12 order-cart">주문하기</button>
+    </div>
+
+    <!--modal-->
+    <el-dialog :visible.sync="myCouponModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-sale">
+      <div class="pop-title" slot="title">할인쿠폰 선택</div>
+      <div class="contents">
+        <ul>
+          <li>
+            <el-radio v-model="radioCoupon" label="1">
+              <div class="price">
+                <p>3,000</p>
+                <span>원</span>
+              </div>
+              <dl>
+                <dt>[1월] FAMILY 회원 3천원 할인</dt>
+                <dd>(30,000원 이상 주문 시, ~1.31)</dd>
+              </dl>
+            </el-radio>
+          </li>
+          <li>
+            <el-radio v-model="radioCoupon" label="2">
+              <div class="price">
+                <p>1,000</p>
+                <span>원</span>
+              </div>
+              <dl>
+                <dt>첫구매 감사 할인쿠폰</dt>
+                <dd>(20,000원 이상 주문 시, ~1.31)</dd>
+              </dl>
+            </el-radio>
+          </li>
+          <li>
+            <el-radio v-model="radioCoupon" label="3">
+              <div class="price">
+                <p>1,000</p>
+                <span>원</span>
+              </div>
+              <dl>
+                <dt>단골손님 비밀 할인쿠폰</dt>
+                <dd>(20,000원 이상 주문 시, ~1.31)</dd>
+              </dl>
+            </el-radio>
+          </li>
+        </ul>
+      </div>
+      <div slot="footer">
+        <button @click="myCouponModal = false" class="btn">취소</button>
+        <button class="btn btn-red">확인</button>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="myStampModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-stamp">
+      <div class="pop-title" slot="title">스탬프 사용</div>
+      <div class="contents wrap-stamp">
+        <div class="tit-h2 mystamp">
+          <dl>
+            <dt>내 스탬프</dt>
+            <dd>17/30</dd>
+          </dl>
+        </div>
+        <div class="list-use-stamp">
+          <ul>
+            <li>
+              <span class="txt">후라이드 반마리</span>
+              <button class="btn btn-redline">스탬프 사용하기</button>
+            </li>
+            <li class="disabled">
+              <span class="txt">후라이드 한마리</span>
+              <button class="btn btn-redline" disabled>스탬프 사용하기</button>
+            </li>
+            <li class="disabled">
+              <span class="txt">스페셜 세트</span>
+              <button class="btn btn-redline" disabled>스탬프 사용하기</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div slot="footer">
+        <button @click="myStampModal = false" class="btn">취소</button>
+        <button class="btn btn-red">확인</button>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="pointInfoModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-point-info">
+      <div class="pop-title" slot="title">통합 포인트 적립 기준</div>
+      <div class="contents">
+        <ul class="list-type check">
+          <li>콜라서비스 App 최초 설치 시 <b class="txt-rd">1,000포인트</b> 지급</li>
+          <li>콜라서비스 내 미션 수행 시 <b class="txt-rd">별도 포인트</b> 지급</li>
+          <li>기타 콜라서비스 자체 프로모션 시 지급 가능</li>
+        </ul>
+      </div>
+      <div class="bg-light">
+        <div class="popup-layer">
+          <p class="txt-b">사용기준</p>
+          <ul class="list-type disc">
+            <li>콜라서비스 App 주문 시에만 사용 가능</li>
+            <li>제휴 및 가맹점 모두에서 사용 가능</li>
+            <li>단, 일부 매장은 사정에 따라 사용이 어려울 수 있습니다.</li>
+          </ul>
+        </div>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="orderInfoModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-order-info">
+      <div class="pop-title" slot="title">주문정보</div>
+      <div class="contents">
+        <div class="order-wrap receipt">
+          <div class="inner">
+            <dl class="wrap-price">
+              <dt class="tit tit-lg">하프앤하프피자</dt>
+              <dd class="price">
+                <p>30,000</p>
+                <span>원</span>
+              </dd>
+            </dl>
+            <dl class="wrap-price">
+              <dt class="tit">+ 이탈리안 도우</dt>
+              <dd class="price">
+                <p>+3,000</p>
+                <span>원</span>
+              </dd>
+            </dl>
+            <dl class="wrap-price">
+              <dt class="tit">+ 치즈 추가</dt>
+              <dd class="price">
+                <p>+3,000</p>
+                <span>원</span>
+              </dd>
+            </dl>
+            <div class="price-total">
+              <dl class="wrap-price">
+                <dt class="tit">수량</dt>
+                <dd class="price">
+                  <p>1</p>
+                  <span>개</span>
+                </dd>
+              </dl>
+              <dl class="wrap-price">
+                <dt class="tit">합계</dt>
+                <dd class="price">
+                  <p>36,000</p>
+                  <span>원</span>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="inner price-total">
+            <dl class="wrap-price">
+              <dt class="tit tit-lg">[서비스] 콜라</dt>
+              <dd class="price">
+                <p>1</p>
+                <span>개</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="inner price-total">
+            <dl class="wrap-price">
+              <dt class="tit tit-lg">[스탬프] 스페셜 세트</dt>
+              <dd class="price">
+                <p>1</p>
+                <span>개</span>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </el-dialog>
+
+    <el-dialog :visible.sync="paymentTypeModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-payway">
+      <div class="pop-title" slot="title">결제 수단</div>
+      <div class="contents">
+        <button class="btn btn-redline">콜라서비스 결제 - 카드</button>
+        <button class="btn btn-redline">현장 결제 - 카드</button>
+        <button class="btn btn-redline">현장 결제 - 현금</button>
+      </div>
+    </el-dialog>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: function () {
+			return {
+				input01: '',
+        input02: '',
+        input03: '',
+        radio1: '직접입력',
+        radio2: '자유출입',
+
+        //modal
+        myCouponModal: false,
+        radioCoupon: '1',
+        myStampModal: false,
+        pointInfoModal: false,
+        orderInfoModal: false,
+        paymentTypeModal: false,
+      }
+    },
+    methods: {
+     handleClick(tab, event) {
+      console.log(tab, event);
+      },
+      /**
+       * 모달 닫기(취소)
+       */
+      cancel() {
+          this.modal = false
+      },
+    }
+  })
+</script>
+
+</html>

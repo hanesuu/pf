@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="../storeManage/menu.html" class="store"><span>상점관리</span></a>
+      <a href="./manage.html" class="customer nuxt-link-active"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li class="on">
+          <a href="./manage.html">회원관리</a>
+        </li>
+        <li>
+          <a href="./grade.html">등급관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-managedetail">
+      <section role="page-info" class="title-sec">
+        <h1>회원관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>고객관리</li>
+            <li class="this-page">회원관리</li>
+          </ul>
+        </div>
+      </section>
+      <div class="inner">
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">회원정보</h3>
+            <span class="f-right mem-block">
+              <i class="el-icon-circle-close"></i>주문차단중
+            </span>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-3">
+              <dl>
+                <dt>회원번호</dt>
+                <dd class="no-inp">
+                  <div class="txt">S0004546</div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>가입계정</dt>
+                <dd class="no-inp">
+                  <div class="txt">
+                    <span class="icon-sns kakao"></span>number12@gmail.com
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>전화번호</dt>
+                <dd class="no-inp">
+                  <div class="txt">010****4451</div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>가입일</dt>
+                <dd class="no-inp">
+                  <div class="txt">2019-05-21</div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>성별</dt>
+                <dd class="no-inp">
+                  <el-radio v-model="genderYn" label="male">남</el-radio>
+                  <el-radio v-model="genderYn" label="female">여</el-radio>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>연령대</dt>
+                <dd>
+                  <el-select v-model="ageGroup" placeholder="연령대 선택">
+                    <el-option
+                      v-for="item in ageList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>등급</dt>
+                <dd>
+                  <el-select v-model="grade" placeholder="등급 선택">
+                    <el-option
+                      v-for="item in gradeList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3">
+              <dl>
+                <dt>BAD회원설정</dt>
+                <dd class="no-inp">
+                  <el-switch v-model="badYn" active-text="설정" inactive-text="설정안함"></el-switch>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-6">
+              <dl>
+                <dt>메모</dt>
+                <dd>
+                  <textarea rows="8" class="input-txt" placeholder="내용을 입력해 주세요."></textarea>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-6">
+              <dl>
+                <dt>배달주소</dt>
+                <dd class="no-inp">
+                  <ul class="list_addr">
+                    <li>서울시 구로구 디지털로26길 에이스하이엔드타워2차 1801호</li>
+                    <li>서울시 종로구 대학로12길 31 자유빌딩 5층</li>
+                    <li>서울시 마포구 독막로9길 13 마포리버빌 B동 301호</li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <el-tabs type="card" @tab-click="handleClick">
+          <el-tab-pane label="요약">
+            <div class="tab-summary">
+              <section class="total-figure">
+                <dl>
+                  <dt>총 주문 건수</dt>
+                  <dd>38<span>건</span></dd>
+                </dl>
+                <dl>
+                  <dt>월평균 주문 건수</dt>
+                  <dd>12.5<span>건</span></dd>
+                </dl>
+                <dl>
+                  <dt>총 주문 금액</dt>
+                  <dd>684,900<span>원</span></dd>
+                </dl>
+                <dl>
+                  <dt>평균 주문 금액</dt>
+                  <dd>18,023<span>원</span></dd>
+                </dl>
+              </section>
+              <section class="data-day">
+                <dl>
+                  <dt>주문 요일</dt>
+                  <dd>월요일<span>2</span></dd>
+                  <dd>화요일<span>0</span></dd>
+                  <dd>수요일<span>3</span></dd>
+                  <dd class="best">목요일<span>14</span></dd>
+                  <dd class="best">금요일<span>7</span></dd>
+                  <dd>토요일<span>2</span></dd>
+                  <dd>일요일<span>5</span></dd>
+                </dl>
+                <dl>
+                  <dt>주문 시간</dt>
+                  <dd>11~14시<span>2</span></dd>
+                  <dd>14~17시<span>0</span></dd>
+                  <dd class="best">17~20시<span>16</span></dd>
+                  <dd class="best">20~23시<span>5</span></dd>
+                  <dd>23~2시<span>1</span></dd>
+                  <dd>2~5시<span>0</span></dd>
+                  <dd>5~8시<span>0</span></dd>
+                  <dd>8~11시<span>0</span></dd>
+                </dl>
+              </section>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="주문내역">
+            <div class="tab-history">
+              <section class="table-filter">
+                <el-select v-model="orderState" placeholder="주문상태별">
+                  <el-option
+                    v-for="item in orderStateList"
+                    :key="item.value"
+                    :label="item.list"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+                <div role="search" class="search">
+                  <label>
+                    <span>검색</span>
+                    <input type="text" placeholder="검색어 입력">
+                    <a class="btn_search"></a>
+                  </label>
+                </div>
+              </section>
+              <section role="data-table" class="data-table">
+                <table>
+                  <colgroup>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                    <col/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>주문일시</th>
+                      <th>주문상태</th>
+                      <th>주문메뉴</th>
+                      <th>주소</th>
+                      <th class="right-cell">주문금액</th>
+                      <th class="right-cell">할인금액</th>
+                      <th class="right-cell">배달비</th>
+                      <th class="right-cell">결제금액</th>
+                      <th>사용쿠폰</th>
+                      <th class="centered-cell">적립스탬프</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2019.12.22</td>
+                      <td>접수</td>
+                      <td>하림무뼈닭발 외 2건</td>
+                      <td class="addr">서울시 구로구 디지털로26길 에이스하이엔드타워2차</td>
+                      <td class="right-cell">68,000</td>
+                      <td class="right-cell">1,000</td>
+                      <td class="right-cell">1,000</td>
+                      <td class="right-cell">68,000</td>
+                      <td class="centered-cell"></td>
+                      <td class="centered-cell">3</td>
+                    </tr>
+                    <tr>
+                      <td>2019.12.20</td>
+                      <td>배달완료</td>
+                      <td>캡숑매운엽기떡볶이 외 2건</td>
+                      <td class="addr">서울시 구로구 디지털로26길 에이스하이엔드타워2차</td>
+                      <td class="right-cell">41,000</td>
+                      <td class="right-cell"></td>
+                      <td class="right-cell">1,000</td>
+                      <td class="right-cell">40,000</td>
+                      <td class="centered-cell">웰컴 1,000원 할인</td>
+                      <td class="centered-cell">2</td>
+                    </tr>
+                    <!--<tr>
+                      <td class="td-blank" colspan="10">표시할 내용이 없습니다.</td>
+                    </tr>-->
+                  </tbody>
+                </table>
+              </section>
+              <section class="table-filter">
+                <div role="pagination" class="pager">
+                  <span><b>1</b>&#47;3</span>
+                  <button class="btn btn-ltline btn-prev">이전</button>
+                  <button class="btn btn-ltline btn-next">다음</button>
+                  <label for="act">
+                    <span>이동</span>
+                    <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+                  </label>
+                </div>
+              </section>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="쿠폰 및 스탬프">
+            <div class="tab-coupon">
+              <div class="box-coupon coupon" @click="customerCouponModal = true">
+                <dl>
+                  <dt>쿠폰</dt>
+                  <dd class="num">2<span>장</span></dd>
+                </dl>
+              </div>
+              <div class="box-coupon stamp" @click="CustomerStampModal = true">
+                <dl>
+                  <dt>스탬프</dt>
+                  <dd class="num">12<span>/ 30</span></dd>
+                </dl>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+        <section class="btn-list-bottom">
+          <button onclick="history.back()" class="btn btn-dkline">목록으로</button>
+          <button class="btn btn-rdline">차단해제</button>
+          <button class="btn btn-rd">저장하기</button>
+        </section>
+      </div>
+      <!--modal: 쿠폰-->
+      <el-dialog :visible.sync="customerCouponModal" :lock-scroll="true" :close-on-click-modal="false" @close="cancel" class="popup-layer pop-h-coupon">
+        <div class="pop-title" slot="title">보유 쿠폰</div>
+        <div class="content-wrap">
+          <table class="table-basic list">
+            <thead>
+              <tr>
+                <th>쿠폰명</th>
+                <th class="ta-right">할인금액</th>
+                <th class="ta-center">사용기간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>울적한 겨울 닭발로 견뎌보자 2월 할인쿠폰</td>
+                <td class="ta-right">2,000</td>
+                <td class="ta-center">2020.02.01 ~ 2020.02.28</td>
+              </tr>
+              <tr>
+                <td>새해를 닭발로 맞이하세요 1월 할인쿠폰</td>
+                <td class="ta-right">1,000</td>
+                <td class="ta-center">2020.01.01 ~ 2020.01.31</td>
+              </tr>
+              <!--<tr>
+                <td colspan="3" class="centered-cell">표시할 내용이 없습니다.</td>
+              </tr>-->
+            </tbody>
+          </table>
+        </div>
+        <div slot="footer">
+          <button class="btn btn-dkline" @close="cancel">닫기</button>
+        </div>
+      </el-dialog>
+      <!--modal: 스탬프-->
+      <el-dialog :visible.sync="CustomerStampModal" :lock-scroll="true" :close-on-click-modal="false" @close="cancel" class="popup-layer pop-h-stamp">
+        <div class="pop-title" slot="title">보유 스탬프</div>
+        <div class="content-wrap">
+          <ul class="stamps">
+            <li class="checked">
+              <div><p>10.12</p></div>
+            </li>
+            <li class="checked">
+              <div><p>10.15</p></div>
+            </li>
+            <li class="checked">
+              <div><p>10.16</p></div>
+            </li>
+            <li class="checked">
+              <div><p>10.21</p></div>
+            </li>
+            <li class="event checked used">
+              <div>
+                <p>10.27<span class="txt">콜라 1개</span></p>
+                <i class="el-icon-check"></i>
+              </div>
+            </li>
+            <li class="checked">
+              <div><p>10.30</p></div>
+            </li>
+            <li class="checked">
+              <div><p>11.05</p></div>
+            </li>
+            <li class="checked">
+              <div><p>11.09</p></div>
+            </li>
+            <li class="checked">
+              <div><p>11.13</p></div>
+            </li>
+            <li class="checked">
+              <div><p>11.21</p></div>
+            </li>
+            <li class="checked">
+              <div><p>11.29</p></div>
+            </li>
+            <li class="checked">
+              <div><p>12.01</p></div>
+            </li>
+            <li class="checked">
+              <div><p>12.03</p></div>
+            </li>
+            <li class="checked">
+              <div><p>12.04</p></div>
+            </li>
+            <li class="event checked">
+              <div>
+                <p>12.05<span class="txt">후라이드 반마리</span></p>
+              </div>
+            </li>
+            <li class="checked">
+              <div><p>12.07</p></div>
+            </li>
+            <li class="checked">
+              <div><p>12.11</p></div>
+            </li>
+            <li>
+              <div><p>18</p></div>
+            </li>
+            <li>
+              <div><p>19</p></div>
+            </li>
+            <li>
+              <div><p>20</p></div>
+            </li>
+            <li>
+              <div><p>21</p></div>
+            </li>
+            <li>
+              <div><p>22</p></div>
+            </li>
+            <li>
+              <div><p>23</p></div>
+            </li>
+            <li>
+              <div><p>24</p></div>
+            </li>
+            <li class="event">
+              <div>
+                <p>25<span class="txt">후라이드 한마리</span></p>
+              </div>
+            </li>
+            <li>
+              <div><p>26</p></div>
+            </li>
+            <li>
+              <div><p>27</p></div>
+            </li>
+            <li>
+              <div><p>28</p></div>
+            </li>
+            <li>
+              <div><p>29</p></div>
+            </li>
+            <li class="event">
+              <div>
+                <p>30<span class="txt">스페셜 세트</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* radio */
+      genderYn: 'female',
+
+      /* 연령대 */
+      ageList: [{
+        value: '10대',
+        label: '10대'
+      }, {
+        value: '20대',
+        label: '20대'
+      }, {
+        value: '30대',
+        label: '30대'
+      }, {
+        value: '40대',
+        label: '40대'
+      }, {
+        value: '50대',
+        label: '50대'
+      }, {
+        value: '60대 이상',
+        label: '60대 이상'
+      }],
+      ageGroup: '',
+
+      /* 등급 */
+      gradeList: [{
+        value: '일반',
+        label: '일반'
+      }, {
+        value: '골드',
+        label: '골드'
+      }, {
+        value: '프리미엄',
+        label: '프리미엄'
+      }],
+      grade: '',
+
+      /* BAD설정 */
+      badYn: true,
+
+      /* 주문상태 */
+      orderStateList: [{
+        value: '전체',
+        label: '전체'
+      }, {
+        value: '주문 접수 중',
+        label: '주문 접수 중'
+      }, {
+        value: '주문 접수',
+        label: '주문 접수'
+      }, {
+        value: '주문 취소',
+        label: '주문 취소'
+      }, {
+        value: '주문 거절',
+        label: '주문 거절'
+      }, {
+        value: '배달 중',
+        label: '배달 중'
+      }],
+      orderState: '',
+
+      /* modal */
+      customerCouponModal: false,
+      CustomerStampModal: false
+
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

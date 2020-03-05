@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="../storeManage/menu.html" class="store"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li class="on">
+          <a href="./mypage.html">상점정보관리</a>
+        </li>
+        <li>
+          <a href="./multiStore.html">다중상점관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents">
+      <section role="page-info" class="title-sec">
+        <h1>상점정보관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li class="this-page">상점정보관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="wrap-con mypage">
+        <table class="table-basic form">
+          <colgroup>
+            <col>
+            <col width="35%">
+            <col width="35%">
+          </colgroup>
+          <tr>
+            <th colspan="3">상점 정보 관리</th>
+          </tr>
+          <tr>
+            <td>
+              <dl>
+                <dt>
+                  <label>ID</label>
+                </dt>
+                <dd>iwantnostrs21</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label>비밀번호</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" placeholder="비밀번호 입력" type="password" maxlength="20">
+                </dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label>비밀번호 확인</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" placeholder="비밀번호 입력" type="password" maxlength="20">
+                </dd>
+              </dl>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <dl>
+                <dt>
+                  <label>매장전화번호</label>
+                </dt>
+                <dd>0266644454</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label>주소</label>
+                </dt>
+                <dd>서울 구로구 디지털로26길 61</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label>상세주소</label>
+                </dt>
+                <dd>에이스하이엔드타워2차 1801호</dd>
+              </dl>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <dl>
+                <dt>
+                  <label>대표자명</label>
+                </dt>
+                <dd>김포스</dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label for="ceoPhone">대표자 휴대폰</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" id="ceoPhone" maxlength="11" name="ceoPhone" placeholder="대표자 휴대폰을 입력해주세요." type="tel">
+                  <button class="btn btn-rdline">인증번호 발송</button>
+                  <!--<button class="btn-dim">인증번호 발송</button>-->
+                </dd>
+              </dl>
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <label for="ceoPhoneNum">대표자 휴대폰 인증번호 입력</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" id="ceoPhoneNum" maxlength="11" name="ceoPhoneNum" type="tel">
+                  <button class="btn btn-rdline">인증하기</button>
+                </dd>
+              </dl>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <dl>
+                <dt>
+                  <label>매장 담당자명</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" type="text" value="웨하스">
+                </dd>
+              </dl>
+            </td>
+            <td class="col1-empty" colspan="2">
+              <dl>
+                <dt>
+                  <label>매장 담당자 휴대폰</label>
+                </dt>
+                <dd>
+                  <input class="input-txt" type="tel" value="01018181813">
+                </dd>
+              </dl>
+            </td>
+          </tr>
+        </table>
+        <section class="btn-list-bottom">
+          <div class="wrap-btn-left">
+            <ul class="list-type">
+              <li>콜라서비스를 더 이상 이용하지 않는다면 <a href="#">콜라서비스 이용탈퇴</a>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-rd">저장하기</button>
+        </section>
+      </section>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause1.html" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause2.html" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+    }
+  },
+  methods: {
+  }
+})
+</script>
+</html>

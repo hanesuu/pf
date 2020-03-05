@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="keyword" content="" />
+	<!-- 아래 디스크립션과 같은 내용을 삽입, 두개 다 넣는다. -->
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<!-- IE최신버전으로 보기 -->
+
+	<meta property="og:type" content="website">
+
+	<link rel='stylesheet' href='css/normalize.css' />
+	<link rel='stylesheet' href='css/basic.css' />
+	<link href='https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- TODO: vuetify 추가  -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+
+	<title>하림두마리치킨 두마리파닭 구로3점</title>
+</head>
+
+<body>
+	<div id="app">
+            <!-- vue start  -->
+
+            <!--
+            GRID SYSTEM GUIDE
+            xs (for phones 				 - screens less than <768px wide)
+            sm (for tablets 			 - screens equal to or greater than ≥768px wide)
+            md (for small laptops 		 - screens equal to or greater than ≥992px wide)
+            lg (for laptops and desktops - screens equal to or greater than ≥1200px wide)
+            -->
+            <div class="container">
+                <button class="btn-back">back</button>
+
+                <header class="sub-header">
+                    <h1>하림두마리 치킨 두마리파닭</h1>
+                    <button class="gnb">menu</button>
+                </header>
+
+                <div class="row">
+                    <div class="col-xs-12 order-wrap">
+
+                        <section class="title-address"><h2>배달정보</h2> <button>배달주소내역</button> </section>
+                        <div class="form-mobile order-address">
+                            <dl>
+                                <dt>주소입력</dt>
+                                <dd>
+                                    <el-radio-group v-model="radio1" size="small">
+                                      <el-radio-button label="직접입력" ></el-radio-button>
+                                      <el-radio-button label="지도선택"></el-radio-button>
+                                      <el-radio-button label="현 위치 자동입력"></el-radio-button>
+                                    </el-radio-group>                                
+                                </dd>
+                                <dd><el-input placeholder="주소를 입력해주세요." v-model="input01"></el-input></dd>
+                                <dd><el-input placeholder="" v-model="input01" class="auto-address"></el-input></dd>
+
+                                <dd class="order-map">
+
+                                	<img src="img/ico_locate@2x.png" alt="location pointer" style="width:29px; height: 37px;" />
+
+                                	<div style=" display: inline-block; padding:10px; border:2px solid #ec3939; border-radius: 4px; color: #ec3939; text-align: center; background-color: #fff; padding:5px;">구로구 디지털로26길61 에이스하이앤드타워2차 1801호</div>
+
+                                </dd>
+                                <dd><button class="btn-select-map">선택한 위치로 지정</button></dd>
+                                
+                                <dt>상세주소 입력</dt>
+                                <dd><el-input placeholder="상세 주소를 입력해주세요." v-model="input02"></el-input></dd>
+                            </dl>
+                        </div><!-- .form-mobile .order-address// -->
+
+                        <div class="form-mobile order-number">
+                            <dl>
+                                <dt>휴대전화번호</dt>
+                                <dd><el-input placeholder="" v-model="input"></el-input></dd>
+                                
+                                <dt>요청사항 <p class="text-limit">(<span>0</span>/<sapn>300</sapn>)</p></dt>
+                                <dd>
+                                    <textarea></textarea>
+                                </dd>
+                            </dl>
+                        </div><!-- .order-number// -->
+
+                        <div class="form-mobile public-front">
+                            <dl>
+                                <dt>공동현관 출입방법</dt>
+                                <dd>
+                                    <el-radio-group v-model="radio2" size="small">
+                                      <el-radio-button label="자유출입" ></el-radio-button>
+                                      <el-radio-button label="경비실호출"></el-radio-button>
+                                      <el-radio-button label="비밀번호"></el-radio-button>
+                                      <el-radio-button label="기타"></el-radio-button>
+                                    </el-radio-group>                                
+                                </dd>
+                                <dd><el-input placeholder="출입 방법을 입력해주세요" v-model="input03"></el-input></dd>
+                                 <dd><el-input placeholder="" v-model="input03" :disabled="true"></el-input></dd>
+                                <dd class="ex-txt">※ 공동현관이 없는 배달주소(예:단독주택)의 경우 자유출입으로 설정해주세요.</dd>
+                                <dd>
+                                     <label for="check1" class="container-check" ><p>출입방법 저장<a class="tool-tip" href="#">?</a></p>
+                                        <input type="checkbox" name="check1" id="check1" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </dd>
+                            </dl>
+                        </div><!-- .form-mobile// -->
+                    </div><!-- col -->
+                </div><!-- row -->
+
+                <div class="row">
+                    <div class="col-xs-12 order-wrap">
+                        <section class="title-address"><h2>결제정보</h2></section>
+                        <div class="form-pay-mobile">
+                            <dl>
+                                <dt>총 주문금액 <a class="show-order" href="#">주문보기</a></dt>
+                                <dd class="price-dd">35,900 <span class="txt-won">원</span></dd>
+                                <dt class="basic-discount">추가할인<span class="ex-txt">(에스오더 기본 제공 할인)</span></dt>
+                                <dd class="basic-discount price-dd">-1,000 <span class="txt-won">원</span></dd>
+                            </dl>
+
+                            <dl class="s-cash">
+                                <dt>
+                                    <div class="s-cash-dt">
+                                        <p>S캐쉬<a class="tool-tip" href="#">?</a></p>
+                                        <span>캐쉬:5,000</span>
+                                    </div>
+                                </dt>
+                                <dd>
+                                    <div>
+                                        <el-input placeholder="" v-model="input" class="s-cash-text" ></el-input>
+                                    </div><!-- .s-cash// -->
+                                    <label for="check2" class="container-check" ><p>모두사용</p>
+                                        <input type="checkbox" name="check2" id="check2" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </dd>
+                            </dl><!-- .s-cash// -->
+
+                            <dl class="discount-coupon">
+                                <dt>할인쿠폰</dt>
+                                <dd><button class="btn-coupon-select">쿠폰선택</button></dd>
+                            </dl>
+                        </div><!-- .form-pay-mobile// -->
+
+                        <div class="form-pay-mobile">
+                            <dl class="total-price">
+                                <dt>최종 결제금액</dt>
+                                <dd class="total-price-dd">30,000 <span class="txt-won">원</span></dd>
+                            </dl>
+                            <div class="pay-way">
+                                신용카드 결제 <button>결제방식 변경</button>
+                            </div><!-- .pay-way// -->
+                        </div><!-- .form-pay-mobile// -->
+
+                        <div class="order-agreement">
+                            <ul>
+                                <li>
+                                    <label for="check3" class="container-check" ><p>전체동의</p>
+                                        <input type="checkbox" name="check3" id="check3" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="check4" class="container-check" ><p>SMS수신동의</p>
+                                        <input type="checkbox" name="check4" id="check4" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="check5" class="container-check" ><p>에스오더 이용약관에 동의합니다.</p>
+                                        <input type="checkbox" name="check5" id="check5" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="check6" class="container-check" ><p>개인정보 처리방침에 동의합니다.</p>
+                                        <input type="checkbox" name="check6" id="check6" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="check7" class="container-check" ><p>개인정보 제3자 제공에 동의합니다.</p>
+                                        <input type="checkbox" name="check7" id="check7" checked="checked" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div><!-- .order-agreement// -->
+
+                    </div><!-- col -->
+                </div><!-- row -->
+
+
+                <div class="row order-empty-sec">
+                    <div class="col-xs-12">
+                        하단 주문 영역 확보
+                    </div>
+                    <!-- col -->
+                </div>
+
+                <div class="row order-bottom">
+                    <div class="col-xs-12 order-cart">
+                        주문하기
+                    </div>
+                    <!-- col -->
+                </div>
+                <!-- .row// -->
+
+            </div>
+            <!-- .container// -->
+        </div>
+        <!-- #app// vue end  -->
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- TODO: vuetify 추가 -->
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: function () {
+			return {
+				input01: '',
+                input02: '',
+                input03: '',
+                radio1: '직접입력',
+                radio2: '자유출입',
+
+			};/* return */
+		},/* data */
+		methods: {
+			handleClick(tab, event) {
+				console.log(tab, event);
+			}
+		}
+	})
+</script>
+
+</html>

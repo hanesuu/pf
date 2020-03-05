@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li class="on">
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li>
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li>
+          <a href="./point.html">포인트</a>
+        </li>
+        <li>
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li>
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-info">
+      <section role="page-info" class="title-sec">
+        <h1>정보관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점관리</li>
+            <li class="this-page">정보관리</li>
+          </ul>
+        </div>
+      </section>
+      <div class="inner">
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">상점 URL 관리</h3>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-4 col-sm-2">
+              <dl>
+                <dt>
+                  <label for="qrcode">QR 코드</label>
+                </dt>
+                <dd class="product-qr">
+                  <div class="list-thumb">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" id="qrcode">
+                  </div>
+                  <button class="btn btn-rdline">QR코드 이미지 다운로드</button>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-8 col-sm-4">
+              <dl>
+                <dt>
+                  <label for="url">상점 URL</label>
+                </dt>
+                <dd>
+                  <input type="text" class="input-txt flex1" name="url" disabled value="http://colaservice.com/c/234">
+                  <button class="btn btn-rdline">클립보드 복사</button>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">상점 이미지 관리</h3>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-6 col-sm-4">
+              <dl class="picture banner">
+                <dt>
+                  <label for="bannerImg">배너 이미지</label>
+                </dt>
+                <dd>
+                  <div class="list-thumb" id="bannerImg">
+                    <img src="../../assets/img/banner_store_main2.gif">
+                    <button @click="bannerImgModal = true" class="btn btn-rdopacity btn-del">변경</button>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+              <dl class="picture">
+                <dt><label>썸네일 이미지</label></dt>
+                <dd>
+                  <div class="list-thumb">
+                    <p>이미지를 등록 해주세요.</p>
+                    <button class="btn btn-rdopacity">
+                      <input accept="image/*" class="upload-img" id="upfile" type="file">이미지 등록
+                    </button>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+              <dl class="picture">
+                <dt><label>전단지 이미지</label></dt>
+                <dd>
+                <div class="list-thumb">
+                  <img src="https://gdimg.gmarket.co.kr/665734611/still/600?ver=0">
+                  <button class="btn btn-rdopacity btn-del">삭제</button>
+                </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">소개 페이지 관리</h3>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-6">
+              <dl>
+                <dt>
+                  <label for="minPrice">최소 주문 금액</label>
+                </dt>
+                <dd>
+                  <input class="input-txt num-txt" placeholder="0" type="text" name="minPrice">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-6">
+              <dl>
+                <dt>
+                  <label>영업시간</label>
+                </dt>
+                <dd class="time-picker">
+                  <el-time-select
+                    :picker-options="{start: '00:00', step: '00:30', end: '23:30'}"
+                    placeholder="시작 시간"
+                    v-model="startTime">
+                  </el-time-select>
+                  <el-time-select
+                    :picker-options="{start: '00:00', step: '00:30', end: '23:30'}"
+                    placeholder="종료 시간"
+                    v-model="endTime">
+                  </el-time-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12">
+              <dl>
+                <dt>
+                  <label>결제 수단</label>
+                </dt>
+                <dd class="no-inp">
+                  <label for="directCard" class="container-check">
+                    <p>즉시 결제 - 카드</p>
+                    <input id="directCard" name="directCard" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="directMb" class="container-check">
+                    <p>즉시 결제 - 휴대폰</p>
+                    <input id="directMb" name="directMb" type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="faceCard" class="container-check">
+                    <p>현장 결제 - 카드</p>
+                    <input id="faceCard" name="faceCard" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label for="faceCash" class="container-check">
+                    <p>현장 결제 - 현금</p>
+                    <input id="faceCash" name="faceCash" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                  </label>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <dl>
+                <dt>
+                  <label for="deliveryFeeBasic">기본 배달비</label>
+                </dt>
+                <dd>
+                  <input class="input-txt num-txt" placeholder="0" type="text" name="deliveryFeeBasic">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <dl>
+                <dt>
+                  <label for="deliveryFeeYn">별도 배달비</label>
+                </dt>
+                <dd class="no-inp">
+                  <el-switch active-text="사용" inactive-text="사용안함" v-model="deliveryFeeYn" name="deliveryFeeYn"></el-switch>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <dl>
+                <dt>
+                  <label for="deliveryMinFeeYn">최소주문금액 미달 시 배달비 설정</label>
+                </dt>
+                <dd class="no-inp">
+                  <el-switch active-text="사용" inactive-text="사용안함" v-model="deliveryMinFeeYn" name="deliveryMinFeeYn"></el-switch>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12">
+              <dl>
+                <dt>
+                  <label>배달 지역 설정</label>
+                </dt>
+                <dd>
+                  <button class="btn btn-rd">1단계 선택한 지역 보기</button>
+                  <button class="btn btn-rd">2단계 선택한 지역 보기</button>
+                  <button class="btn btn-rd">3단계 선택한 지역 보기</button>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6 delivery">
+              <dl>
+                <dt>
+                  <label>배달비 설정</label>
+                </dt>
+                <dd>
+                  <button class="btn btn-rd">선택한 지역 보기</button>
+                  <el-select placeholder="추가금액 선택" v-model="deliveryFee1" class="flex1">
+                    <el-option
+                      v-for="item in priceList1"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+                <dd class="add">
+                  <button class="btn btn-rdline">배달지역 선택하기</button>
+                  <el-select placeholder="추가금액 선택" v-model="deliveryFee2" class="flex1">
+                    <el-option
+                      v-for="item in priceList2"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+                <dd class="add">
+                  <button class="btn btn-rdline">배달지역 선택하기</button>
+                  <el-select placeholder="추가금액 선택" v-model="deliveryFee3" class="flex1">
+                    <el-option
+                      v-for="item in priceList3"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6 origin">
+              <dl>
+                <dt>
+                  <label for="origin">원산지 정보</label>
+                </dt>
+                <dd>
+                  <textarea class="input-txt" rows="6" placeholder="원산지 정보를 입력해 주세요." name="origin"></textarea>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="btn-list-bottom">
+          <button class="btn btn-rd">저장하기</button>
+        </section>
+      </div>
+      <!--modal-->
+      <el-dialog :visible.sync="bannerImgModal" :close-on-click-modal="false" @close="cancel" class="popup-layer pop-bnimg">
+        <div class="pop-title" slot="title">배너 이미지 선택</div>
+        <section class="content-wrap">
+          <ul>
+            <li>
+              <el-radio v-model="bannerImg" label="1">
+                <img src="../../assets/img/banner_store_main1.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="2">
+                <img src="../../assets/img/banner_store_main2.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="3">
+                <img src="../../assets/img/banner_store_main3.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="4">
+                <img src="../../assets/img/banner_store_main4.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="5">
+                <img src="../../assets/img/banner_store_main5.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="6">
+                <img src="../../assets/img/banner_store_main6.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="7">
+                <img src="../../assets/img/banner_store_main7.gif">
+              </el-radio>
+            </li>
+            <li>
+              <el-radio v-model="bannerImg" label="8">
+                <img src="../../assets/img/banner_store_main8.gif">
+              </el-radio>
+            </li>
+          </ul>
+        </section>
+        <div slot="footer">
+          <button class="btn btn-dkline" @close="cancel">취소</button>
+          <button class="btn btn-rd">저장</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 영업시간 */
+      startTime: '',
+      endTime: '',
+
+      /* 사용여부 */
+      deliveryFeeYn: true,
+      deliveryMinFeeYn: false,
+
+      /* 메뉴구분 */
+      menuList: [{
+        value: '인기메뉴',
+        label: '인기메뉴'
+      }, {
+        value: '사이드메뉴',
+        label: '사이드메뉴'
+      }],
+      menuCategory: '',
+
+      /* 배달비 */
+      priceList1: [{
+        value: '+ 0',
+        label: '+ 0'
+      }, {
+        value: '+ 500',
+        label: '+ 500'
+      }, {
+        value: '+ 1,000',
+        label: '+ 1,000'
+      }, {
+        value: '+ 2,000',
+        label: '+ 2,000'
+      }, {
+        value: '+ 3,000',
+        label: '+ 3,000'
+      }, {
+        value: '+ 5,000',
+        label: '+ 5,000'
+      }, {
+        value: '+ 7,000',
+        label: '+ 7,000'
+      }, {
+        value: '+ 10,000',
+        label: '+ 10,000'
+      }],
+      deliveryFee1: '+ 0',
+
+      priceList2: [{
+        value: '+ 0',
+        label: '+ 0'
+      }, {
+        value: '+ 500',
+        label: '+ 500'
+      }, {
+        value: '+ 1,000',
+        label: '+ 1,000'
+      }, {
+        value: '+ 2,000',
+        label: '+ 2,000'
+      }, {
+        value: '+ 3,000',
+        label: '+ 3,000'
+      }, {
+        value: '+ 5,000',
+        label: '+ 5,000'
+      }, {
+        value: '+ 7,000',
+        label: '+ 7,000'
+      }, {
+        value: '+ 10,000',
+        label: '+ 10,000'
+      }],
+      deliveryFee2: '',
+
+      priceList3: [{
+        value: '+ 0',
+        label: '+ 0'
+      }, {
+        value: '+ 500',
+        label: '+ 500'
+      }, {
+        value: '+ 1,000',
+        label: '+ 1,000'
+      }, {
+        value: '+ 2,000',
+        label: '+ 2,000'
+      }, {
+        value: '+ 3,000',
+        label: '+ 3,000'
+      }, {
+        value: '+ 5,000',
+        label: '+ 5,000'
+      }, {
+        value: '+ 7,000',
+        label: '+ 7,000'
+      }, {
+        value: '+ 10,000',
+        label: '+ 10,000'
+      }],
+      deliveryFee3: '',
+
+      /* modal */
+      bannerImgModal: false,
+      bannerImg: '2',
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

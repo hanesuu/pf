@@ -1,0 +1,137 @@
+/* 회원관리 상세 -manageDetail */
+.vue-managedetail {
+    .bx-con .list_addr li {margin:8px 0; line-height:1.4}
+    .mem-block {
+        color:$point-c;
+        i {font-size:15px; margin-right:2px; vertical-align:middle}
+    }
+
+    .el-tabs {
+        margin-top:40px;
+
+        /* tab1.요약 */
+        .data-day {
+            margin:20px 0; border:2px solid $darker-c; border-left:0; border-right:0;
+            dl {
+                @include flexbox; @include align-items(center);
+                width:100%; border-bottom:1px solid $lighter-c;
+                &:last-of-type {border-bottom:0}
+                dt {width:100px; padding:10px; color:$dark-c}
+                dd {
+                    @include flex(1); text-align:center; padding:15px 0;
+                    span {display:block; color:$darken-c; font-weight:$fw-bold; font-size:20px}
+                    &.best {
+                        color:$point-c;
+                        span {color:$point-c}
+                    }
+                }
+            }
+        }
+        .graph {display:inline-block; width:50%}
+        
+        /* tab2.주문내역 */  
+        .tab-history section {margin-left:0; margin-right:0; padding-left:0; padding-right:0}
+
+        /* tab3.쿠폰및스탬프 */
+        .box-coupon {
+            display:inline-block; width:50%; max-width:330px; cursor:pointer;
+            &:first-of-type {padding-right:10px}
+            &:last-of-type {padding-left:10px}
+            dl {
+                display:block; padding:15px; border:1px solid $point-c; border-radius:2px; background-color:rgba($point-c,.1); @include transition(background-color);
+                &:hover {background-color:rgba($point-c,.2)}
+                dt {font-size:14px; color:$darken-c; font-weight:$fw-medium; margin-bottom:10px}
+                dd {
+                    text-align:right;
+                    &.num {
+                        color:$point-c; font-size:25px; font-weight:$fw-bold; margin-bottom:10px;
+                        span {font-size:13px; font-weight:$fw-regular}
+                    }
+                    &.date span {margin-left:10px}
+                }
+            }
+        }
+    }
+}
+
+/* tab3.쿠폰 pop */
+.pop-h-coupon .popup-layer {
+    .content-wrap {
+        td {padding-right:0}
+    }
+}
+
+/* tab3.스탬프 pop */
+.pop-h-stamp {
+    .el-dialog {width:480px; min-width:auto}
+    .stamps {
+        text-align:center;
+        li {
+            list-style:none; position:relative; display:inline-block; margin:8px; width:66px; height:66px;
+            border:2px solid $lighter-c; border-radius:50%;
+            div {
+                position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+                width:58px; height:58px; border:1px dashed $lighter-c; border-radius:50%;
+                p {
+                    position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+                    width:100%; padding:0 5px;
+                    font-size:15px; color:$light-c; font-weight:$fw-bold; line-height:1; word-break:keep-all
+                }
+            }
+            &.event {
+                div {
+                    border:0; background-color:$lighter-c;
+                    p {
+                        font-size:13px; color:$white-c !important;
+                        .txt {display:block; margin-top:3px; font-size:11px; font-weight:$fw-regular}
+                    }
+                }
+            }
+            &.checked {
+                border-color:$point-c;
+                div {
+                    border-color:$point-c;
+                    p {color:$point-c}
+                }
+                &.event {
+                    div {background-color:$point-c}
+                    &.used {
+                        div {
+                            background-color:rgba($point-c,.25);
+                            p {color:$point-c !important}
+                            i {
+                                position:absolute; right:-8px; top:-4px; width:22px; height:22px; padding:2px;
+                                font-size:16px; color:$point-c;
+                                background-color:$white-c; border-radius:50%; border:1px solid $point-c;
+                            }
+                        }
+                    }/* .used 증정품 수령 -end */
+                }
+            }/* .checked 스탬프 보유 -end */
+        }
+    }
+}
+
+/*** 2.등급관리-목록 ***/
+.grade-list {
+    .data-table {
+        th:first-of-type {width:5%}
+    }
+}
+
+.pop-grade {
+    .content-wrap {
+        .table-basic {
+            td {
+                width:50%; padding-bottom:20px;
+                dt {
+                    label .check-plz {width:180px}
+                }
+                dd {
+                    & > div {width:50%}
+                    .eltype .input-txt {width:65%}
+                }
+            }
+        }
+    }
+}

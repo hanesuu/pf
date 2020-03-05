@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+  <title>쏘다피자 구로디지털점</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <link rel="stylesheet" href="../assets/scss/basic.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <header class="header sub-header">
+      <div class="header-col">
+        <div onclick="location.href='index.html'" class="store-name">
+          <div class="store-bi full-bg-img"></div>
+          <h1>쏘다피자 구로디지털점</h1>
+        </div>
+        <div class="gnb">
+          <button class="btn-gnb">menu</button>
+          <nav class="gnb-content" role="navigation">
+            <button class="btn-close">메뉴 닫기</button>
+            <div class="profile default">
+              <div class="profile-pic">
+                <img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+              </div>
+              <p class="nick-name">떡볶이킬러2</p>
+            </div>
+            <div class="nav-list">
+              <ul>
+                <li><a href="mypage.html">내 정보</a></li>
+                <li><a href="address.html">주소관리</a></li>
+                <li><a href="order_list.html">주문관리</a></li>
+                <li><a href="stamp.html">스탬프관리</a></li>
+                <li><a href="coupon.html">쿠폰관리</a></li>
+                <li><a href="review.html">리뷰관리</a></li>
+              </ul>
+            </div>
+            <div class="nav-share">
+              <dl>
+                <dt>공유</dt>
+                <dd class="ico-naver"><a>네이버 공유하기</a></dd>
+                <dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+                <dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+                <dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+                <dd class="ico-url"><a>URL 공유하기</a></dd>
+              </dl>
+            </div>
+          </nav>
+          <div class="bg-dim"></div>
+        </div>
+        <button onclick="history.back()" class="btn-back el-icon-back">뒤로</button>
+      </div>
+    </header>
+    <div class="wrap-profile">
+      <h2 class="tit-h2">개인 정보 수정</h2>
+      <div class="profile">
+        <div class="profile-pic"></div>
+        <button class="btn btn-redline">프로필 이미지 변경<input type="file" id="upfile1" accept="image/*" @change="uploadFile()"/>
+        </button>
+      </div>
+      <div class="order-wrap">
+        <div class="form-dl">
+          <dl>
+            <dt class="tit">닉네임 설정</dt>
+            <dd>
+              <div class="wrap-input">
+                <input type="text" class="input-txt inline">
+                <button class="btn btn-input">중복확인</button>
+              </div>
+            </dd>
+            <dt class="tit">휴대전화번호</dt>
+            <dd>
+              <div class="wrap-input">
+                <input type="text" class="input-txt inline">
+                <button class="btn btn-input">인증번호발송</button>
+              </div>
+            </dd>
+            <dt class="tit">인증번호 입력</dt>
+            <dd>
+              <div class="wrap-input">
+                <input type="text" class="input-txt inline">
+                <button class="btn btn-input">인증하기</button>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="row order-bottom">
+        <button class="col-xs-12 order-cart">수정하기</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

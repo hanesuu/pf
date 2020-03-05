@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div class="login-wrap">
+      <div class="center-center">
+        <div class="head-title">
+          <a href="#">
+            <img src="https://hanesuu.github.io/ud/colaservice/common/img/bi_logo@2x.png" alt="콜라서비스"/>
+          </a>
+          <p>이제 배달도 직거래 하세요!</p>
+        </div>
+        <div class="login-idpw">
+          <input type="text" id="loginId" name="loginId"  placeholder="아이디" autofocus>
+          <input type="password" id="loginPw" name="loginPw" placeholder="비밀번호"
+          autocomplete="current-password">
+        </div>
+        <div class="join-us">
+          <label class="container-check" for="loginIdSave">
+            <p>아이디저장</p>
+            <input id="loginIdSave" name="loginIdSave" type="checkbox" checked>
+            <span class="checkmark"></span>
+          </label>
+          <label class="container-check" for="autoLogin">
+            <p>자동 로그인</p>
+            <input id="autoLogin" name="autoLogin" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <div class="id-pw-find">
+            <a href="http://ciderpay.com/web/find" target="_blank">아이디찾기/비밀번호찾기</a>
+            <a href="./member/agreement.html">회원가입</a>
+          </div>
+        </div>
+        <button onclick="location.href='./payment/calendar.html'" class="btn-login">로그인</button>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+    }
+  },
+  methods: {
+  }
+})
+</script>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="../storeManage/menu.html" class="store"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./mypage.html">상점정보관리</a>
+        </li>
+        <li class="on">
+          <a href="./multiStore.html">다중상점관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents">
+      <section role="page-info" class="title-sec">
+        <h1>다중상점관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li class="this-page">다중상점관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="data-table" role="data-table">
+        <table>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>상점명</th>
+              <th>상점ID</th>
+              <th>전화번호</th>
+              <th>주문페이지 URL</th>
+              <th>해지신청</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>원조홍대무뼈닭발 구로점</td>
+              <td>iwantnostrs21</td>
+              <td>0266464554</td>
+              <td>http://colaservice.com/c/35</td>
+              <td><a @click="requestWithdrawalModal= true" class="txt-link">해지신청</a></td>
+            </tr>
+            <tr>
+              <td>미스타피자 가양점</td>
+              <td>iwantnostrs21</td>
+              <td>027874647</td>
+              <td>http://colaservice.com/c/36</td>
+              <td><a @click="requestWithdrawalModal= true" class="txt-link">해지신청</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="table-filter">
+        <div class="btn-bottom-r">
+          <button @click="multiStoreApplyListModal= true" class="btn btn-rdline">다중상점 신청내역</button>
+          <button @click="multiStoreApplyModal= true" class="btn btn-rd">다중상점 신청</button>
+        </div>
+      </section>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause1.html" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause2.html" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+    }
+  },
+  methods: {
+  }
+})
+</script>
+</html>

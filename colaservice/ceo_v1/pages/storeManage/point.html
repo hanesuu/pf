@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li>
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li>
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li class="on">
+          <a href="./point.html">적립금관리</a>
+        </li>
+        <li>
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li>
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-point">
+      <section role="page-info" class="title-sec">
+        <h1>적립금관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점관리</li>
+            <li class="this-page">적립금관리</li>
+          </ul>
+        </div>
+      </section>
+      <div class="inner">
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">적립금 설정</h3>
+            <el-switch v-model="pointUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-4">
+              <dl>
+                <dt>
+                  <label for="pointJoinProvide">회원가입 적립금</label>
+                </dt>
+                <dd>
+                  <el-switch active-text="사용" inactive-text="사용안함" v-model="pointJoinProvide" class="no-inp"></el-switch>
+                  <div class="flexbox eltype" v-if="pointJoinProvide == true">
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="pointJoinProvide">
+                    <span class="txt-after">원 적립</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-4">
+              <dl>
+                <dt>
+                  <label for="pointReviewProvide">리뷰작성 적립금</label>
+                </dt>
+                <dd>
+                  <el-switch active-text="사용" inactive-text="사용안함" v-model="pointReviewProvide" class="no-inp"></el-switch>
+                  <div class="flexbox eltype" v-if="pointReviewProvide == true">
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="pointReviewProvide">
+                    <span class="txt-after">원 적립</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-4">
+              <dl>
+                <dt>
+                  <label for="pointReorderProvide">재주문 적립금</label>
+                </dt>
+                <dd>
+                  <el-switch active-text="사용" inactive-text="사용안함" v-model="pointReorderProvide" class="no-inp"></el-switch>
+                  <div class="flexbox eltype" v-if="pointReorderProvide == true">
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="pointReorderProvide">
+                    <span class="txt-after">&percnt; 적립</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-4">
+              <dl>
+                <dt>
+                  <label for="useStandard">적립금 사용 가능 주문금액</label>
+                </dt>
+                <dd>
+                  <div class="flexbox eltype">
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="useStandard">
+                    <span class="txt-after">원 이상 주문 시 사용 가능</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-4">
+              <dl>
+                <dt>
+                  <label for="minPrice">적립금 최소 사용 금액</label>
+                </dt>
+                <dd>
+                  <div class="flexbox eltype">
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="minPrice">
+                    <span class="txt-after">원부터 사용 가능</span>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <!--<div class="col-xs-6">
+              <dl>
+                <dt>
+                  <label for="salePrice">할인금액에 대한 적립금 지급</label>
+                </dt>
+                <dd class="no-inp">
+                  <el-radio v-model="salePrice" label="min">할인금액을 제외한 주문금액에 대해 적립</el-radio>
+                  <el-radio v-model="salePrice" label="all">전체 주문금액에 대해 적립</el-radio>
+                </dd>
+              </dl>
+            </div>-->
+          </div>
+        </section>
+        <section class="btn-list-bottom">
+          <button class="btn btn-rd">저장하기</button>
+        </section>
+      </div>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 사용여부 */
+      pointUseYn: true,
+      pointJoinProvide: true,
+      pointReviewProvide: true,
+      pointReorderProvide: true,
+      salePrice: 'all'
+    }
+  },
+  methods: {
+  }
+})
+</script>
+</html>

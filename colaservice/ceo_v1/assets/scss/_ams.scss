@@ -1,0 +1,30 @@
+/* 자동메시지 설정 */
+.vue-autoset {
+    .wrap-formbox {
+        .no-inp .flex1 {position:relative}
+        .ams-form {
+            padding:10px; background-color:$lighten-c;
+            dt.flexbox {
+                margin-bottom:10px;
+                .el-switch {margin-left:auto}
+            }
+            .option {margin-top:5px; padding-top:10px; border-top:1px dotted $lighter-c}
+        }
+    }
+    .data-table {
+        td.centered-cell button {min-width:124px; margin:3px}
+        .txt-message {font-size:13px; color:$darker-c}
+    }
+}
+
+/* 발송내역 */
+.table-ams-send-list td {
+    a {color:$darker-c; text-decoration:underline}
+    span {
+        margin:0 5px;
+        i {width:12px; height:12px; margin-right:2px; border-radius:50%; color:$white-c; font-size:10px; line-height:12px}
+        &.i-fail i {background-color:$point-c}
+        &.i-ing i {background-color:#f7ba2a; animation:none}
+        &.i-ok i {background-color:#28b498}
+    }
+}

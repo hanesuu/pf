@@ -1,0 +1,164 @@
+.tit-page {margin-bottom:15px; font-size:1.5rem; color:$darken-color; font-weight:$fw-medium}
+.order-wrap {
+    position:relative; padding:20px 20px 0; background-color:$white-color;
+    .btn-light {position:absolute; top:20px; right:20px}
+    .inner {
+        margin-bottom:10px; padding:10px 0;
+        &:first-of-type {padding-top:0}
+        &:not(:last-of-type) {border-bottom:1px solid $light-color}
+    }
+    .form-dl {
+        .tit {margin-bottom:4px; font-size:1.2rem; line-height:1}
+        dd {
+            margin-bottom:10px;
+            & > *:not(:first-child) {margin-top:5px}
+        }
+        .input-txt {width:100%}
+        .txt-right {float:right}
+    }
+    .map {
+        position:relative; margin-top:10px; height:140px; 
+        border:1px solid $lighter-color; overflow:hidden;
+        .btn {position:absolute; right:5px; bottom:5px}
+    }
+
+    /* 할인적용 */
+    &.sale .inner {
+        @include flexbox;
+        &:not(:last-of-type) {border-bottom-style:dashed}
+        .tit {@include flex(1); margin-bottom:0; line-height:34px}
+        dd {
+            @include flex(3 1);
+            .btn {width:100%}
+        }
+        .list-apply {
+            position:relative;
+            li {
+                @include flexbox; @include align-items(center); padding:3px 10px; background:$bg-lighter;
+                &:not(:first-of-type) {margin-top:5px}
+            }
+            .tit-s {@include flex(3 1); max-width:42vw; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:1.1rem; color:$dark-color}
+            .price {@include flex(1); margin:0 3px 0 auto; text-align:right; font-size:1.2rem}
+            .btn-ico-del {
+                width:15px; height:15px; margin-left:auto; font-size:0; color:$white-color;
+                &:before {content:"\f00d"; font:900 10px/1 'Line Awesome Free'}
+            }
+        }
+        &.sale-txt {
+            padding-top:0;
+            .txt-r {margin-bottom:0; font-size:1.4rem; font-weight:$fw-medium; text-align:right; color:$darken-color; line-height:34px}
+        }
+        &.sale-point {
+            .tit p {line-height:1; font-size:1.2rem; color:$dark-color}
+            dd {@include flex(1)}
+            .inp-point {
+                @include flexbox; @include align-items(center);
+                input {@include flex(1);}
+            }
+        }
+    }
+    .wrap-price {margin:0 0 10px}
+    .price-total {
+        padding-top:15px; border-top:1px dashed $light-color;
+        .price p {font-size:2.3rem; font-weight:$fw-bold}
+    }
+    .pay-way {
+        display:block; width:100%; margin:15px 0; padding:15px; 
+        font-size:1.4rem; color:$darken-color; text-align:left; 
+        border:1px solid $darken-color; border-radius:2px;
+        span {float:right; font-size:1.2rem; color:$dark-color}
+        i {margin-left:2px; font-size:1rem}
+    }
+    .order-agreement {
+        padding:10px 0; border-top:1px dashed $light-color;
+        li {margin:10px 0}
+    }
+
+    /* 주문정보 */
+    &.info dl {
+        @include flexbox; @include align-items(flex-start); margin-bottom:12px; font-size:1.2rem;
+        dt {@include flex(0 0 25%); color:$dark-color}
+        dd {margin:0; line-height:1.4}
+    }
+    /* 영수증 */
+    &.receipt {
+        margin-bottom:10px; padding:0;
+        * {color:$sub-point-color}
+        .inner {
+            padding:14px 20px; border:0;
+            &:not(:last-of-type) {margin-bottom:0; border-bottom:1px solid rgba($sub-point-color,.5)}
+        }
+        .price-total {
+            border-color:rgba($sub-point-color,.5);
+            p {font-size:1.7rem}
+        }
+        .wrap-price {
+            &:only-child {margin-bottom:0}
+            .tit-lg {font-size:1.5rem; font-weight:$fw-medium}
+        }
+    }
+}
+.tool-tip {
+    display:inline-block; width:16px; height:16px; margin:0 3px; 
+    text-align:center; font-size:11px; font-weight:$fw-bold; line-height:16px; border:1px solid $light-color; border-radius:50%; color:$dark-color;
+}
+
+/* 주문완료*/
+.wrap-order-detail {
+    /* 주문완료 */
+    .wrap-order-txt {
+        margin:30px 0; text-align:center;
+        i {width:50px; height:50px; font-size:32px; line-height:50px; border:2px solid $darker-color; border-radius:50%}
+        p {margin-top:10px; font-size:1.5rem; color:$darken-color; font-weight:$fw-medium}
+    }
+    .order-wrap.pay .price-total {padding-bottom:10px}
+}
+
+/* 주문내역 목록 */
+.wrap-orderlist {
+    section.list {margin-bottom:10px; background-color:$white-color}
+    .wrap-tit, .edit {
+        position:relative; margin:12px 20px 20px;
+        .tit-page {line-height:24px}
+        button {background-color:$white-color; font-size:1.1rem}
+    }
+    .wrap-list .list {
+        display:block; margin-bottom:10px; padding:10px 20px; background:$white-color; color:$darker-color;
+        .tit-order {
+            position:relative; border-bottom:1px solid $lighter-color;
+            .txt-s {margin:0; color:$dark-color; font-size:1rem}
+            .tit {margin-bottom:8px; font-size:1.4rem; color:$darken-color; font-weight:$fw-medium}
+            i {position:absolute; right:0; top:50%; font-size:14px; transform:translateY(-50%)}
+        }
+        .bottom {
+            position:relative; padding:8px 0 0;
+            .price-r {top:10px; transform:inherit; margin-top:0}
+            .pay-type {
+                padding-right:75px; font-size:0;
+                * {display:inline-block; margin-right:2px; vertical-align:middle}
+                p {font-size:1.1rem; color:$dark-color}
+            }
+        }
+        .inp-check {display:none}
+    }
+    .state {
+        margin:10px 0 0; text-align:right;
+        i {margin-right:2px; font-size:1.4em; vertical-align:-1px; line-height:0}
+    }
+    .edit {
+        @include flexbox; display:none;
+        .btn-top-r {margin-left:auto; font-size:0}
+        .btn-redline {margin-left:5px}
+    }
+    .list.active {
+        @include flexbox; @include align-items(center);
+        .inp-check {@include flex(0 0 40px); margin-top:-24px}
+        a {@include flex(1);}
+    }
+}
+/* 쿠폰,스탬프 표시 라벨 */
+.label-cp {
+    display:inline-block; padding:2px;
+    font-size:10px; color:$dark-color; line-height:10px;
+    border:1px solid $dark-color; border-left-width:4px; transform:scale(0.9)
+}

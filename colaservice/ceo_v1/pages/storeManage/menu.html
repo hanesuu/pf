@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li class="on">
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li>
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li>
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li>
+          <a href="./point.html">포인트</a>
+        </li>
+        <li>
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li>
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-menulist">
+      <section role="page-info" class="title-sec">
+        <h1>메뉴관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점관리</li>
+            <li class="this-page">메뉴관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="table-filter">
+        <button class="btn btn-rdline">선택메뉴삭제</button>
+        <div role="search" class="search">
+          <label>
+            <span>검색</span>
+            <input type="text" placeholder="검색어 입력">
+            <a class="btn_search"></a>
+          </label>
+        </div>
+      </section>
+      <section class="data-table">
+        <table>
+          <colgroup>
+            <col width="40px">
+            <col width="100px">
+            <col>
+            <col width="10%">
+            <col width="10%">
+            <col width="5%">
+            <col width="140px">
+            <col width="75px">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="centered-cell" scope="col">
+                <label for="sListAll" class="container-check">
+                  <input type="checkbox" id="sListAll">
+                  <span class="checkmark"></span>
+                </label>
+              </th>
+              <th class="centered-cell" scope="col">사진</th>
+              <th class="left-cell" scope="col">메뉴구분 &sol; 메뉴명 &sol; 설명 &sol; 옵션</th>
+              <th class="right-cell" scope="col">판매가격</th>
+              <th class="right-cell" scope="col">할인가격</th>
+              <th class="centered-cell" scope="col">핫메뉴</th>
+              <th class="centered-cell" scope="col">사용</th>
+              <th class="centered-cell" scope="col">노출순서</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="centered-cell">
+                <label class="container-check">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td class="centered-cell">
+                <div class="list-thumb">
+                  <p>이미지 없음</p>
+                  <img src="https://images.deliveryhero.io/image/yogiyo/STOCK_IMG/%ED%95%9C%EC%8B%9D/%EC%9A%94%EB%A6%AC-%EB%B3%B6%EC%9D%8C%EB%A5%98/%EC%8A%A4%ED%83%81_20170824_foodad_fad51149_%EB%AC%B4%EB%BC%88%EB%8B%AD%EB%B0%9C03_1080x640.jpg?width=384&height=273&;quality=100">
+                </div>
+              </td>
+              <td onclick="location.href='menuDetail.html'" class="left-cell menu-product">
+                <dl class="info">
+                  <dt>닭발 메뉴</dt>
+                  <dd class="name">하림 무뼈 닭발 中</dd>
+                  <dd class="detail">주먹밥 계란찜 쿨피스 제공</dd>
+                </dl>
+                <ul class="add">
+                  <!-- <li class="no-option-txt">옵션없음</li> -->
+                  <li>+ 맵기 선택</li>
+                  <li>+ 맛 선택</li>
+                  <li>+ 떡사리 추가</li>
+                </ul>
+              </td>
+              <td class="right-cell">15,000</td>
+              <td class="right-cell">
+                <p class="sale">
+                  <span>(-4%)</span>14,400
+                </p>
+              </td>
+              <td class="centered-cell">O</td>
+              <td class="centered-cell">
+                <el-switch v-model="switchUse1" active-text="사용" inactive-text="사용안함"></el-switch>
+              </td>
+              <td class="centered-cell">
+                <div class="btn-group-seq">
+                  <el-button-group>
+                    <el-button icon="el-icon-arrow-up"></el-button>
+                    <el-button icon="el-icon-arrow-down"></el-button>
+                  </el-button-group>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="centered-cell">
+                <label class="container-check">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td class="centered-cell">
+                <div class="list-thumb">
+                  <p>이미지 없음</p>
+                  <img src="">
+                </div>
+              </td>
+              <td onclick="location.href='menuDetail.html'" class="left-cell menu-product">
+                <dl class="info">
+                  <dt>겨울 한정 메뉴</dt>
+                  <dd class="name">과메기 모듬 패밀리세트</dd>
+                  <dd class="detail">포항 바닷바람을 제대로 맞은 과메기</dd>
+                </dl>
+                <ul class="add">
+                  <li>+ 쌈채소 추가</li>
+                  <li>+ 김 추가</li>
+                  <li>+ 마늘쫑 추가</li>
+                  <li>+ 공기밥 추가</li>
+                </ul>
+              </td>
+              <td class="right-cell">28,000</td>
+              <td class="right-cell">
+                <p class="sale"></p>
+              </td>
+              <td class="centered-cell">X</td>
+              <td class="centered-cell">
+                <el-switch v-model="switchUse2" active-text="사용" inactive-text="사용안함"></el-switch>
+              </td>
+              <td class="centered-cell">
+                <div class="btn-group-seq">
+                  <el-button-group>
+                    <el-button icon="el-icon-arrow-up"></el-button>
+                    <el-button icon="el-icon-arrow-down"></el-button>
+                  </el-button-group>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="centered-cell">
+                <label class="container-check">
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+              <td class="centered-cell">
+                <div class="list-thumb">
+                  <p>이미지 없음</p>
+                  <img src="">
+                </div>
+              </td>
+              <td onclick="location.href='menuDetail.html'" class="left-cell menu-product">
+                <dl class="info">
+                  <dt>사이드</dt>
+                  <dd class="name">비빔국수</dd>
+                  <dd class="detail">오른손으로 비비고 왼손으로 비빈 국수</dd>
+                </dl>
+                <ul class="add">
+                  <li class="no-option-txt">옵션없음</li>
+                </ul>
+              </td>
+              <td class="right-cell">5,000</td>
+              <td class="right-cell">
+                <p class="sale"></p>
+              </td>
+              <td class="centered-cell">X</td>
+              <td class="centered-cell">
+                <el-switch v-model="switchUse3" active-text="사용" inactive-text="사용안함"></el-switch>
+              </td>
+              <td class="centered-cell">
+                <div class="btn-group-seq">
+                  <el-button-group>
+                    <el-button icon="el-icon-arrow-up"></el-button>
+                    <el-button icon="el-icon-arrow-down"></el-button>
+                  </el-button-group>
+                </div>
+              </td>
+            </tr>
+            <!--
+            <tr>
+              <td class="td-blank" colspan="8">표시할 내용이 없습니다.</td>
+            </tr>-->
+          </tbody>
+        </table>
+      </section>    
+      <section class="table-filter">
+        <div role="pagination" class="pager">
+          <span><b>1</b>&#47;3</span>
+          <button class="btn btn-ltline btn-prev">이전</button>
+          <button class="btn btn-ltline btn-next">다음</button>
+          <label for="act">
+            <span>이동</span>
+            <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+          </label>
+        </div>
+        <section class="btn-bottom-r">
+          <!--<button>엑셀 대량등록</button>-->
+          <button @click="optionModal = true" class="btn btn-rdline">옵션관리</button>
+          <button @click="categoryModal = true" class="btn btn-rdline">메뉴구분관리</button>
+          <!--<button @click="showGetFranchiseMenuListModal = true">&#43; 프랜차이즈 메뉴 가져오기</button>-->
+          <button onclick="location.href='menuInsert.html'" class="btn btn-rd">&#43; 메뉴등록</button>
+        </section>
+      </section>
+
+      <!--modal 메뉴구분관리-->
+      <el-dialog :visible.sync="categoryModal" :close-on-click-modal="false" @close="cancel" class="popup-layer pop-menu-cg">
+        <div class="pop-title" slot="title">메뉴구분 관리</div>
+        <div class="content-wrap">
+          <section class="wrap-formbox">
+            <div class="bx-tit">
+              <h3 class="tit">메뉴구분 추가</h3>
+            </div>
+            <div class="bx-con">
+              <div class="col-xs-2">
+                <dl>
+                  <dt>
+                    <label for="num">정렬순서</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" name="num" class="input-txt" placeholder="0">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-10 col-sm-4">
+                <dl>
+                  <dt>
+                    <label for="categoryName">메뉴구분명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" name="categoryName" class="input-txt" placeholder="메뉴구분명 입력">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-4 col-sm-3">
+                <dl>
+                  <dt>
+                    <label for="categoryUseYn">사용여부</label>
+                  </dt>
+                  <dd class="no-inp">
+                    <el-switch v-model="categoryUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-8 col-sm-3">
+                <dl>
+                  <dt>
+                    <label for="categoryDeliveryYn">단독배달</label>
+                  </dt>
+                  <dd class="no-inp">
+                    <el-switch v-model="categoryDeliveryYn" active-text="가능" inactive-text="불가능"></el-switch>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-12">
+                <dl>
+                  <dt>
+                    <label for="menuMemo">메모</label>
+                    <span class="txt-s">(0/50)</span>
+                  </dt>
+                  <dd>
+                    <input type="text" name="menuMemo" class="input-txt" placeholder="메뉴구분 메모 입력">
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+          <section class="table-filter">
+            <div class="btn-list-bottom flexbox">
+              <div class="warning-txt">단독배송 불가능 선택 시 해당 카테고리만 속해있는 주문은 배달이 불가능하게 설정됩니다.</div>
+              <section class="btn-bottom-r">
+                <button class="btn btn-dkline">취소</button>
+                <button class="btn btn-rd">저장</button>
+              </section>
+            </div>
+          </section>
+          <div class="data-table">
+            <table class="table-menu-order">
+              <colgroup>
+                <col width="60px">
+                <col>
+                <col width="120px">
+                <col width="120px">
+                <col>
+                <col width="80px">
+              </colgroup>
+              <tr>
+                <th>정렬순서</th>
+                <th class="left-cell">메뉴구분명</th>
+                <th>사용여부</th>
+                <th>단독배달</th>
+                <th>순서변경</th>
+                <th>수정</th>
+              </tr>
+              <tr>
+                <td class="centered-cell">1</td>
+                <td class="left-cell">
+                  <dl class="menu-content">
+                    <dt>인기메뉴</dt>
+                    <dd>원조홍대무뼈닭발의 베스트 메뉴</dd>
+                  </dl>
+                </td>
+                <td class="centered-cell">
+                  <el-switch v-model="listUseYn1" active-text="사용" inactive-text="사용안함"></el-switch>
+                </td>
+                <td class="centered-cell">
+                  <el-switch v-model="listDeliveryYn1" active-text="가능" inactive-text="불가능"></el-switch>
+                </td>
+                <td class="centered-cell">
+                  <div class="btn-group-seq">
+                    <el-button-group>
+                      <el-button icon="el-icon-arrow-up"></el-button>
+                      <el-button icon="el-icon-arrow-down"></el-button>
+                    </el-button-group>
+                  </div>
+                </td>
+                <td class="centered-cell">
+                  <button class="btn btn-rdline">수정<i class="el-icon-top"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="centered-cell">2</td>
+                <td class="left-cell">
+                  <dl class="menu-content">
+                    <dt>사이드메뉴</dt>
+                    <dd>메인과 곁들여 먹으면 맛이 두배!</dd>
+                  </dl>
+                </td>
+                <td class="centered-cell">
+                  <el-switch v-model="listUseYn2" active-text="사용" inactive-text="사용안함"></el-switch>
+                </td>
+                <td class="centered-cell">
+                  <el-switch v-model="listDeliveryYn2" active-text="가능" inactive-text="불가능"></el-switch>
+                </td>
+                <td class="centered-cell">
+                  <div class="btn-group-seq">
+                    <el-button-group>
+                      <el-button icon="el-icon-arrow-up"></el-button>
+                      <el-button icon="el-icon-arrow-down"></el-button>
+                    </el-button-group>
+                  </div>
+                </td>
+                <td class="centered-cell">
+                  <button class="btn btn-rdline">수정<i class="el-icon-top"></i></button>
+                </td>
+              </tr>
+              <!--<tr>
+                <td colspan="6" style="text-align: center">표시할 내용이 없습니다.</td>
+              </tr>-->
+            </table>
+          </div>
+          <section class="table-filter">              
+            <div role="pagination" class="pager">
+              <span><b>1</b>&#47;3</span>
+              <button class="btn btn-ltline btn-prev">이전</button>
+              <button class="btn btn-ltline btn-next">다음</button>
+              <label for="act">
+                <span>이동</span>
+                <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+              </label>
+            </div>
+          </section>
+        </div>
+      </el-dialog>
+      <!--modal 옵션관리-->
+      <el-dialog :visible.sync="optionModal" :close-on-click-modal="false" @close="cancel" class="popup-layer pop-menu-opt">
+        <div class="pop-title" slot="title">옵션관리</div>
+        <div class="content-wrap">
+          <section class="wrap-formbox">
+            <div class="bx-tit">
+              <h3 class="tit">옵션 수정</h3>
+            </div>
+            <div class="bx-con">
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="popOptionTitle" class="must">옵션 구분명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" name="popOptionTitle" class="input-txt" placeholder="옵션 그룹명">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-3">
+                <dl>
+                  <dt>
+                    <label for="popMultiSelect">다중선택 개수</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" name="popMultiSelect" class="input-txt" placeholder="0">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-3">
+                <dl>
+                  <dt>
+                    <label for="popRequireYn">필수선택</label>
+                  </dt>
+                  <dd class="no-inp">
+                    <el-switch v-model="popRequireYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="popOptionName">옵션명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" name="popOptionName" class="input-txt" placeholder="예) 매운맛 0단계">
+                  </dd>
+                  <dd class="add">
+                    <input type="text" name="popOptionName" class="input-txt" placeholder="예) 매운맛 0단계">
+                  </dd>
+                </dl>
+              </div> 
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="popOptionPrice">옵션 추가 가격</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" class="input-txt num-txt flex1" name="popOptionPrice" placeholder="0">
+                    <button class="btn btn-rdline">&plus; 추가</button>
+                  </dd>
+                  <dd class="add">
+                    <input type="tel" class="input-txt num-txt flex1" name="popOptionPrice" placeholder="0">
+                    <button class="btn btn-dkline">&minus; 삭제</button>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+          <section class="table-filter btn-list-bottom">
+            <section class="btn-bottom-r">
+              <button class="btn btn-dkline">취소</button>
+              <button class="btn btn-rd">저장</button>
+            </section>
+          </section>
+          <div class="data-table">
+            <table class="table-option-group">
+              <colgroup>
+                <col width="20%">
+                <col width="10%">
+                <col width="10%">
+                <col>
+                <col width="10%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>옵션 구분명</th>
+                  <th>필수여부</th>
+                  <th>선택개수</th>
+                  <th>옵션 / 가격</th>
+                  <th>수정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>사이드 추가</td>
+                  <td>필수 아님</td>
+                  <td>3개</td>
+                  <td>
+                    <ul class="content-ul">
+                      <li>
+                        <div class="txt-content">단무지</div>
+                        <span class="price">1,000</span>
+                      </li>
+                      <li>
+                        <div class="txt-content">무생채</div>
+                        <span class="price">2,100</span>
+                      </li>
+                      <li>
+                        <div class="txt-content">갓김치</div>
+                        <span class="price">3,800</span>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <button class="btn btn-rdline">수정<i class="el-icon-top"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>음료 사이즈 변경</td>
+                  <td>필수 아님</td>
+                  <td>1개</td>
+                  <td>
+                    <ul class="content-ul">
+                      <li>
+                        <div class="txt-content">콜라 500mL로 변경</div>
+                        <span class="price">500</span>
+                      </li>
+                      <li>
+                        <div class="txt-content">콜라 1.25L로 변경</div>
+                        <span class="price">1,200</span>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <button class="btn btn-rdline">수정<i class="el-icon-top"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>밥 사이즈</td>
+                  <td>필수</td>
+                  <td>1개</td>
+                  <td>
+                    <ul class="content-ul">
+                      <li>
+                        <div class="txt-content">공기밥(S)</div>
+                        <span class="price">1,000</span>
+                      </li>
+                      <li>
+                        <div class="txt-content">공기밥(M)</div>
+                        <span class="price">1,500</span>
+                      </li>
+                      <li>
+                        <div class="txt-content">공기밥(L)</div>
+                        <span class="price">2,000</span>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <button class="btn btn-rdline">수정<i class="el-icon-top"></i></button>
+                  </td>
+                </tr>
+                <!--<tr>
+                  <td colspan="5" style="text-align: center">표시할 내용이 없습니다.</td>
+                </tr>-->
+              </tbody>
+            </table>
+          </div>
+          <!-- 페이징 -->
+          <section class="table-filter">
+            <div role="pagination" class="pager">
+              <span><b>1</b>&#47;3</span>
+              <button class="btn btn-ltline btn-prev">이전</button>
+              <button class="btn btn-ltline btn-next">다음</button>
+              <label for="act">
+                <span>이동</span>
+                <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+              </label>
+            </div>
+          </section>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 사용여부 */
+      switchUse1: true,
+      switchUse2: false,
+      switchUse3: true,
+
+      /* 팝업 */
+      categoryModal: false,
+      /* 사용여부 */
+      categoryUseYn: true,
+      categoryDeliveryYn: true,
+      listUseYn1: true,
+      listDeliveryYn1: true,
+      listUseYn2: true,
+      listDeliveryYn2: false,
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

@@ -1,0 +1,190 @@
+/* 로그인 */
+.wrap-login {
+    position:fixed; width:100%; height:100%;
+    .bi {
+        width:220px; height:60px; font-size:0; margin:18vh auto 0;
+        background: url("../img/bi.png") no-repeat 50% 50% / 100%;
+        @include image-2x("../img/bi@2x.png", 100%, auto);
+    }
+    .login-btn-area {
+        position:fixed; bottom:10vh; width:100%; padding:0 15px;
+        .btn-login {
+            display:block; width:100%; height:50px; margin-bottom:10px; color: $white-color; font-size:1.2em; border-radius:$btn-radius;
+            &.naver {background:#00c73c url("../img/ico_sns_naver@2x.png") no-repeat 20px 50% / 35px}
+            &.fb {background:#4267b2 url("../img/ico_sns_fb@2x.png") no-repeat 20px 50% / 35px}
+            &.kakao {background:#ffde02 url("../img/ico_sns_ka@2x.png") no-repeat 20px 50% / 35px; color:$darken-color}
+        }
+    }
+}
+
+/* 가입 */
+.wrap-auth .order-agreement {
+    padding-top:0; border-top:0;
+    .txt-link {float:right}
+}
+
+/* 내 정보-myPage */
+.wrap-myp-main {
+    .profile {
+        @include flexbox; @include align-items(center); padding:15px 20px; background-color:$white-color;
+        .nick-name {
+            margin-left:10px; padding:0; font-size:1.4rem; font-weight:$fw-regular;
+            .txt-s {font-size:1.2rem; color:$dark-color}
+        }
+        .btn-top-r {position:inherit; margin-left:auto}
+        .btn-close {display:none}
+    }
+    .wrap-out {
+        display:none; padding:15px 20px; 
+        background:$white-color; border-top:1px solid $lighter-color; text-align:center;
+        button {display:block; width:100%; margin-bottom:8px}
+        &.active {display:block}
+    }
+    .wrap-menu-list {margin-top:10px}
+    .list {
+        li {
+            position:relative; border-bottom:1px solid $lighter-color; font-size:1.3rem; line-height:1; background-color:$white-color;
+            &:last-of-type {border-bottom:0}
+            a {display:block; padding:15px 20px; overflow:hidden}
+        }
+        .tit {float:left; color:$darker-color}
+        .tit-info {padding-right:25px; text-align:right; font-weight:$fw-bold; color:$darken-color}
+        i {
+            position:absolute; right:20px; top:50%;
+            font-size:15px; color:$cd-color; font-weight:$fw-bold; transform:translateY(-50%)
+        }
+    }
+}
+
+/* 보유쿠폰-coupon */
+.wrap-list-coupon {
+    @include wrapped;
+    .list-coupon li {margin-bottom:15px}
+}
+.coupon {
+    position:relative; max-width:300px; margin:0 auto; border:2px solid $main-color; border-radius:5px; @include bxshadow-rd;
+    .price {
+        padding:15px 15px 0;
+        p {font-size:2.3rem; font-weight:$fw-bold}
+    }
+    .txt {margin:0; padding:2px 15px 10px; font-size:1.2rem; color:$darken-color}
+    .info-bottom {
+        padding:8px 15px; border-top:1px dashed $main-color;
+        p {
+            display:inline-block; margin:0; color:$dark-color; font-size:1.1rem;
+            &:before {content:'|'; display:inline-block; margin:0 5px; color:$light-color}
+            &:first-of-type:before {display:none}
+        }
+    }
+    &:after {
+        content:''; display:block; position:absolute; right:0; top:0;
+        width:20px; height:100%; background-color:$main-color
+    }
+}
+
+/* 주소관리-address */
+.wrap-list-addr {
+    @include wrapped;
+    .list-addr li {
+        padding:8px 0; border-bottom:1px dashed $lighter-color;
+        &:last-of-type {border-bottom:0}
+        .txt {font-size:1.3rem; color:$darken-color; margin-bottom:10px}
+        .wrap-btn-r {
+            text-align:right;
+            button {margin-left:5px}
+        }
+    }
+    /* 주소추가입력 */
+    .order-wrap {
+        margin-bottom:0; padding:30px 0 0; border-top:1px solid $lighter-color;
+        .inner {margin-bottom:0}
+        button.close {
+            position:absolute; right:-5px; top:15px; padding:0; border:0;
+            .el-icon-close:before {padding-bottom:0; font-size:25px; color:$dark-color}
+        }
+    }
+    .pg-blank {
+        flex-direction:column;
+        &:after {
+            content:"\e6eb"; position:relative; margin-top:20px;
+            font-family:'element-icons'; speak:none; font-size:25px; color:$cd-color;
+            @include prefix((
+                    animation:arr 0.7s linear 1s infinite alternate
+            ), webkit moz);
+        }
+        /* Chrome, Safari, Opera */
+        @-webkit-keyframes arr {
+            0%   {top:15px}
+            100% {top:0}
+        }
+        /* Standard syntax */
+        @keyframes arr {
+            0%   {top:15px}
+            100% {top:0}
+        }
+    }
+    
+}
+.label-rd {
+    display:inline-block; height:14px; margin:0 5px; padding:0 4px;
+    background-color:$main-color; border-radius:100px;
+    vertical-align:0.2em; color:$white-color; font-size:9px; line-height:14px
+}
+
+/* 리뷰관리-review */
+.wrap-list-review {
+    @include wrapped;
+    .list-review li {
+        padding-left:0; padding-right:0;
+        &:first-of-type {padding-top:0}
+    }
+}
+
+/* 개인정보수정-profile */
+.wrap-profile {
+    @include wrapped;
+    .profile {
+        margin-bottom:10px;
+        .profile-pic {float:none; width:60px; height:60px; margin:0 auto 10px}
+        button {width:100%}
+    }
+    .order-wrap {
+        padding:0;
+        .form-mobile dl {padding:0; border:0}
+    }
+}
+
+/* 성인인증-adultcertify,resultcertify */
+.wrap-adult {
+    position:absolute; left:0; right:0; top:50%; width:100%; margin-top:-25px; transform:translateY(-50%)
+    i {
+        width:18px; height:18px; border-radius:50%; text-align:center; font-size:11px; line-height:18px;
+        &.el-icon-check {color:#1ec800; border:1px solid #1ec800}
+        &.ico-under-age {left:0; transform:inherit}
+    }
+    .tit {
+        margin:0; padding:100px 0 0;
+        text-align:center; font-weight:$fw-medium; color:$darken-color; font-size:1.85em;
+        background:url("../img/img-ico-lock@2x.png") no-repeat 50% 0 / 84px;
+    }
+    .wrap-txt {
+        margin:6vh 20px 0; padding:5px 24px; background-color:$white-color;
+        dl {display:block; margin:3vh 0}
+        dt {margin-bottom:5px; font-weight:$fw-medium; color:$darken-color; font-size:1.3em}
+        dd {padding-left:23px; color:$dark-color}
+    }
+    /* 인증결과 */
+    &.result i {
+        position:absolute; left:calc(50% + 15px);
+        width:30px; height:30px; background-color:$white-color; font-size:22px; line-height:30px
+    }
+    /* 인증실패 */
+    i.el-icon-close {
+        color:$main-color; border:1px solid $main-color;
+        &:before {padding:0; font-size:inherit}
+    }
+    &.result .btn-grey {
+        display:block; width:180px; margin:30px auto 0;
+        text-align:center; color:$darker-color; border-color:$darker-color
+    }
+}

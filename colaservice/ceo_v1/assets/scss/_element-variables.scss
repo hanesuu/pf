@@ -1,0 +1,150 @@
+/* element theme color */
+$--color-primary:$point-c;
+
+/* selectbox */
+body .el-select {
+    vertical-align:middle;
+    .el-input {
+        .el-select__caret {color:$darken-c}
+    }
+    .el-input.is-focus .el-input__inner, .el-input__inner:focus {border-color:$point-c}
+    .el-input__icon {line-height:30px}
+}
+body .el-select-dropdown {
+    .el-select-dropdown__item.hover {background:$lighten-c}
+    .el-select-dropdown__item.selected {color:$point-c}
+}
+
+/* input */
+body .el-input {
+    .el-input__inner {border-radius:2px}
+}
+
+/* datepicker */
+body .el-date-editor {
+    &.el-input {width:48%; vertical-align:top}
+    &.el-input--prefix .el-input__inner {padding:0 30px}
+    .el-input__inner:focus {border-color:$point-c}
+    .el-range-separator {padding:0 10px; line-height:1.8em}
+    .el-date-picker {
+        .el-date-picker__header .el-picker-panel__icon-btn {
+            margin-top:2px;
+            &:active {color:$white-c}
+        }
+    }
+    .el-input__icon {line-height:32px}
+}
+.date-as {display:inline-block; text-align:center; vertical-align:top; line-height:32px; font-size:12px}
+body .time-select-item {
+    &:hover {background-color:$lighten-c}
+    &.selected:not(.disabled) {color:$point-c}
+}
+body .el-date-picker {
+    .el-date-picker__header-label.active,
+    .el-date-picker__header-label:hover,
+    .el-picker-panel__icon-btn:hover {color:$point-c}
+}
+
+/* date calendar */
+body .el-date-table {
+    td.available:hover, td.today span {color:$point-c}
+    td.current:not(.disabled) span {background-color:$point-c}
+} 
+
+/* textarea */
+body .el-textarea .el-textarea__inner {padding:5px; border-color:$light-c; border-radius:2px; font-size:13px}
+
+/* switch */
+body .el-switch {
+    @include flexbox; line-height:32px; height:32px; white-space:nowrap;
+    .el-switch__label {
+        height:32px; font-weight:$fw-demiLight;
+        * {font-size:12px; line-height:inherit}
+        &.is-active {color:$point-c; font-weight:$fw-medium}
+    }
+    .el-switch__label--left {margin-right:3px}
+    .el-switch__label--right {margin-left:3px}
+    &.is-checked .el-switch__core {border-color:$point-c; background-color:$point-c}
+}
+
+/* tab */
+body .el-tabs--card {
+    & > .el-tabs__header {border-color:$lighter-c}
+    .el-tabs__nav {
+        border-color:$lighter-c; overflow:hidden;
+        .el-tabs__item {
+            font-size:12px; color:$dark-c; font-weight:$fw-regular; background-color:$lighten-c; border-color:$lighter-c;
+            &.is-active {color:$darken-c; background-color:$white-c; border-bottom-color:$white-c}
+        }
+    }
+    .el-tabs__content {margin:20px 0}
+}
+
+/* collapse - faq */
+body .el-collapse {
+    border-top:2px solid $darker-c;
+    .el-collapse-item__header {
+        position:relative; padding:0 20px; font-size:13px; color:$darker-c; font-weight:$fw-regular; border-bottom-color:$lighter-c;
+        &.is-active {color:$darken-c; border-bottom-color:$lighter-c}
+        &.focusing:focus:not(:hover) {color:$darken-c}
+        .txt-point {
+            font-size:12px; color:$point-c; margin-right:5px;
+            &:before {content:'['}
+            &:after {content:']'}
+        }
+        .el-collapse-item__arrow {
+            position:absolute; top:24px; right:15px;
+            color:$darker-c; line-height:0; transform:rotate(90deg);
+            &.is-active {color:$point-c; transform:rotate(-90deg)}
+        }
+    }
+    .el-collapse-item__wrap {
+        background-color:$lighten-c;
+        .el-collapse-item__content {
+           padding:15px 20px; font-size:12px;
+           a {color:$point-c; text-decoration:underline}
+       }
+    }
+}
+
+/* alert-messagebox */
+body .el-message-box__wrapper {
+    .el-message-box {
+        @include media(768px) {width:90%; min-width:300px; text-align:center}
+        .el-message-box__headerbtn {
+            &:hover, &:active, &:focus {background:transparent}
+        }
+    }
+    .el-message-box__btns {
+        @include media(768px) {text-align:center}
+    }
+}
+
+/* button */
+body .el-button {
+    padding:9px 20px; border-radius:2px; line-height:1;
+    &.el-button--danger {background-color:$point-c; border-color:$point-c}
+}
+body .popup-layer {
+    .el-button {font-size:13px; padding:10px 15px}
+}
+
+/* check box */
+.el-checkbox__inner { width:18px!important; height: 18px !important; border-color:$light-c}
+.el-checkbox__inner::after { width:5px!important; height:9px !important; left:5px !important; }
+
+/* radio button */
+body .el-radio {
+    vertical-align:middle; line-height:32px; font-size:inherit;
+    .el-radio__inner {
+        width:20px; height:20px;
+        &:hover {border-color:$point-c}
+    }
+    .el-radio__label {font-size:12px; font-weight:$fw-demiLight; padding-left:5px}
+    .el-radio__input.is-checked .el-radio__inner {
+        background:$white-c; border-color:$point-c;
+        &:after {width:8px; height:8px; background-color:$point-c}
+    }
+    & + input {margin-left:5px}
+    .el-radio__input.is-checked+.el-radio__label {color:$point-c}
+}

@@ -1,0 +1,60 @@
+/* element eleme theme color */
+$--color-primary: $main-color;
+
+/* 버튼 형태 tab */
+.tab-sm.el-tabs--card>.el-tabs__header {
+	margin-bottom:10px; border-bottom:0;
+	.el-tabs__nav {
+		@include flexbox; width:100%; border:0;
+		.el-tabs__item {
+			@include flex(1); height:32px; padding:0; line-height:32px;
+			font-size:1.1rem; font-weight:$fw-regular; text-align:center; border:1px solid $light-color; @include transition(border-color,background-color);
+			&:not(:first-of-type) {margin-left:-1px}
+			&:first-of-type {border-radius:2px 0 0 2px}
+			&:last-of-type {border-radius:0 2px 2px 0}
+			&:hover, &.is-active {color:$main-color; border-color:$main-color; background-color:rgba($main-color,.1); z-index:3}
+		}
+	}
+}
+
+/* radiogroup */
+body .el-radio-group {
+	@include flexbox; width:100%;
+	.el-radio-button {
+		@include flex(1);
+		&__inner {display:block; font-weight:$fw-regular}
+		&:first-child .el-radio-button__inner {border-radius:2px 0 0 2px}
+		&__orig-radio:checked+.el-radio-button__inner {background-color:rgba($main-color,.1); border-color:$main-color; color:$main-color; box-shadow:-1px 0 0 0 $main-color}
+	}
+}
+
+/* rate */
+body .el-rate {
+  height:auto;
+  .el-rate__icon {margin-right:0}
+  .el-icon-star-off:before {content:"\e797"}
+}
+
+/* top alert message */
+body .el-message {min-width:300px}
+
+/* alert message */
+body .el-message-box {
+    width:90%; max-width:360px;
+	.el-message-box__headerbtn {
+		top:10px; right:0;
+		&:hover .el-message-box__close {color:$main-color}
+	}
+    .el-button--primary {background-color:$main-color; border-color:$main-color}
+	.el-message-box__btns {
+        text-align:center;
+        button:nth-child(2) {margin-left:5px}
+    }
+	.el-button--small,
+	.el-button--small.is-round {padding:12px 18px}
+}
+
+/* ========== mini PC용 : 커스텀 사이즈 ========== */
+@media all and (min-width: 768px) {
+
+} /* PC용 // */

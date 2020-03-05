@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+  <title>쏘다피자 구로디지털점</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <link rel="stylesheet" href="../assets/scss/basic.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+</head>
+<body>
+  <div id="app" class="container no-btn">
+    <header class="header sub-header">
+      <div class="header-col">
+        <div onclick="location.href='index.html'" class="store-name">
+          <div class="store-bi full-bg-img"></div>
+          <h1>쏘다피자 구로디지털점</h1>
+        </div>
+        <div class="gnb">
+          <button class="btn-gnb">menu</button>
+          <nav class="gnb-content" role="navigation">
+            <button class="btn-close">메뉴 닫기</button>
+            <div class="profile default">
+              <div class="profile-pic">
+                <img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+              </div>
+              <p class="nick-name">떡볶이킬러2</p>
+            </div>
+            <div class="nav-list">
+              <ul>
+                <li><a href="mypage.html">내 정보</a></li>
+                <li><a href="address.html">주소관리</a></li>
+                <li><a href="order_list.html">주문관리</a></li>
+                <li><a href="stamp.html">스탬프관리</a></li>
+                <li><a href="coupon.html">쿠폰관리</a></li>
+                <li><a href="review.html">리뷰관리</a></li>
+              </ul>
+            </div>
+            <div class="nav-share">
+              <dl>
+                <dt>공유</dt>
+                <dd class="ico-naver"><a>네이버 공유하기</a></dd>
+                <dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+                <dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+                <dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+                <dd class="ico-url"><a>URL 공유하기</a></dd>
+              </dl>
+            </div>
+          </nav>
+          <div class="bg-dim"></div>
+        </div>
+        <button onclick="history.back()" class="btn-back el-icon-back">뒤로</button>
+      </div>
+    </header>
+    <div class="wrap-review wrap-list-review">
+      <h2 class="tit-h2">리뷰 관리</h2>
+      <ul class="list-review">
+        <li class="me">
+          <div class="profile">
+            <div class="profile-pic"></div>
+          </div>
+          <div class="con-review">
+            <div class="writer">고독한라이온즈
+              <div class="a-right">
+                <a class="modify">수정</a>
+                <a class="del">삭제</a>
+              </div>
+            </div>
+            <div class="info">
+              <el-rate v-model="eval1" :disabled-void-color="'#e0e0e0'" :colors="['#ec3939','#ec3939','#ec3939']" disabled></el-rate>
+              <span class="txt-s">5시간 전</span>
+            </div>
+            <div class="txt-con">
+              <p class="txt">치킨 텐더는 금액 맞추려고 주문한건데 오히려 피자보다 훨씬 맛있었어요 밤 11시 30분쯤에 주문했는데도 55분 걸렸어요 ㅜ ㅜ 최소 주문 금액만 좀 줄여주시면 종종 시키겠는데 좀 부담스러워서 자주는 못 시킬것 같아요 ㅜ 사장님 금액 좀 줄여주세용~~~ㅜ ㅜ</p>
+            </div>
+            <div class="wrap-reply">
+              <div class="writer">사장님<span class="txt-s">4시간 전</span></div>
+              <p class="txt">고객님 소중한 리뷰 감사합니다! 앞으로도 자주 이용해 주세요!!</p>
+            </div>
+          </div>
+        </li>
+        <li class="me">
+          <div class="profile">
+            <div class="profile-pic"></div>
+          </div>
+          <div class="con-review">
+            <div class="writer">고독한라이온즈
+              <div class="a-right">
+                <a class="modify">수정</a>
+                <a class="del">삭제</a>
+              </div>
+            </div>
+            <div class="info">
+              <el-rate v-model="eval2" :disabled-void-color="'#e0e0e0'" :colors="['#ec3939','#ec3939','#ec3939']" disabled></el-rate>
+              <span class="txt-s">2019.01.22</span>
+            </div>
+            <div class="txt-con">
+              <img src="../assets/img/temp/food01.jpg">
+              <p class="txt">양념은 딱 제 스타일!! 맛있어요 ㅎㅎ 마늘치킨은 생각보다 매웠음 ㅠ</p>
+            </div>
+            <div class="wrap-reply">
+              <div class="writer">사장님<span class="txt-s">2019.01.23</span></div>
+              <p class="txt">감사합니다 고객님 음료수는 제돈 털어 드린거니 뿌듯하네요. 다음엔 새우한마리 더 넣어드릴게요 ㅋㅋ</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!--
+      <div class="pg-blank">
+        <span>등록한 리뷰가 없습니다.</span>
+      </div>-->
+    </div>
+    <div class="wrap-btn">
+      <button class="btn btn-lg btn-gyline">더 보기</button>
+    </div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        eval1: 3,
+        eval2: 5,
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

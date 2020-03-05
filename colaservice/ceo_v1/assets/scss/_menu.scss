@@ -1,0 +1,72 @@
+/* 메뉴관리 목록 -menu */
+.vue-menulist .data-table {
+    td.right-cell {font-size:15px}
+	.list-thumb {width:100px; height:100px}
+    .menu-product {
+        .info {
+            dd.name {font-size:14px; color:$darken-c; font-weight:$fw-medium}
+            dd.detail {padding-bottom:8px}
+        }
+        .add {
+            margin:0; padding-top:8px; color:$sub-c; border-top:1px dashed $light-c;
+            li {display:inline-block; margin-right:8px}
+            .no-option-txt {color:$lighter-c}
+        }
+    }
+	/* 할인가격 */
+	p.sale {
+		position:relative;
+		span {
+			position:absolute; top:-14px; right:0; color:$point-c;
+			font: {
+				size:11px; weight:$fw-regular
+			}
+		}
+	}
+}
+/* 메뉴 상세 -menuInsert, menuDetail */
+.vue-menuinsert {
+	.btn-lg.btn-rdlight {display:block; margin-left:auto}
+	/* 메뉴관리-옵션 */
+	.wrap-formbox.option .bx-tit {
+        border-color:$point-c; background-color:rgba($point-c,.05); 
+        .tit {color:$point-c}
+    }
+}
+
+/* 정보관리 -info */
+.vue-info {
+	.wrap-formbox {
+		/* QR코드 */
+		.bx-con dd.product-qr {
+			@include flex-direction(column);
+			.list-thumb {margin-bottom:5px; border-radius:2px; background-color:$white-c}
+			button {margin:0}
+		}
+		/* 배너 이미지 */
+		.banner .list-thumb {
+			padding-top:48.7%;
+			img {left:0; top:0; transform:inherit; width:100%}
+		}
+		/* 배달비 설정 */
+		.delivery .btn {width:110px}
+		/* 원산지 */
+		.origin textarea {min-height:116px}
+	}
+}
+
+/* 적립금 -point */
+.vue-point .wrap-formbox {
+	.bx-con dd .el-switch.is-checked {@include flex(0);}
+	.input-txt {max-width:200px}
+}
+
+/* 스탬프 -stamp */
+.vue-stamp .wrap-formbox {
+	.wrap-repeat .add div:last-of-type {@include flex(3)}
+}
+
+/* 리뷰 -review */
+.vue-review {
+	.el-rate__icon {margin-right:0}
+}

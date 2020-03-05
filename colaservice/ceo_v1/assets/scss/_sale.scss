@@ -1,0 +1,139 @@
+/* 매출관리-캘린더형 */
+.payment-cal {
+    &:after {content:''; display:block; clear:both}
+    
+    /* fc calendar */
+    .wrap-cal {
+        position:relative; margin-bottom:25px;
+        .fc-toolbar.fc-header-toolbar {
+            margin-bottom:10px;
+
+            h2 {display:inline-block; vertical-align:middle; font-size:18px; color:$darken-c; line-height:1}            
+            .fc-button-primary {
+                display:inline-block; vertical-align:middle; width:30px; height:30px; padding:0;
+                border:1px solid $lighter-c; border-radius:2px;
+                color:$darker-c; background:$white-c;
+                text-shadow:none; box-shadow:none;
+
+                &:before {font:900 15px/1 'Line Awesome Free'}
+                &:active {background:$point-c; color:$white-c}
+                .fc-icon {display:none}                
+                &.fc-prev-button:before {content:"\f104"}
+                &.fc-next-button:before {content:"\f105"}
+            }
+        }
+        .fc-unthemed {
+            thead, tbody, th, td, .fc-row {border-color:$lighter-c; background:0}
+            .fc-head {
+                border-top:2px solid $darker-c;
+                th {
+                    padding:7px; font-weight:$fw-regular; text-align:right;
+                    &.fc-sat {color:$sub-c}
+                    &.fc-sun {color:$point-c}
+                }
+            }
+            .fc-body .fc-row {height:115px}
+            tbody {
+                td {
+                    .fc-day-number {padding:8px; font-size:12px; color:$darken-c; font-weight:$fw-medium}
+                    &.fc-widget-content {
+                        &.fc-today {
+                            position:relative;
+                            &:after {
+                                content:''; position:absolute; top:1px; left:1px; right:1px; bottom:1px;
+                                border:2px solid $sub-c
+                            }
+                        }
+                        .fc-event-container {
+                            .fc-event {
+                                background:0; border:0; margin:0;
+                                dl {
+                                    display:block; text-align:right; padding:5px 8px 0;
+                                    dt {color:$dark-c; font-size:12px}
+                                    dd a {color:$point-c; font-size:15px; font-weight:$fw-medium}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .fc-highlight-skeleton td {border-color:transparent}
+    }
+}
+
+.data-list {
+    float:left; width:50%;
+    .title {
+        font-size:14px; color:$darken-c; font-weight:$fw-regular; margin:0 0 8px;
+        .txt-date {
+            color:$sub-c;
+            &:after {content:"-"; color:$darken-c; margin:0 3px}
+        }
+    }
+    .data-title {
+        position:relative;
+        .a-more {
+            position:absolute; right:0; top:2px; color:$dark-c;
+            i {color:$light-c; margin-left:2px}
+        }
+    }
+    .data-table {
+        padding:0 0 30px;
+        &:last-of-type {padding-bottom:0}
+        .current-list {
+            th {font-weight:$fw-regular}
+            td {
+                &:nth-of-type(1) {width:20%; text-align:center}
+                &:nth-of-type(2) {text-align:left}
+                &:nth-of-type(3) {width:20%; text-align:right; font-weight:$fw-medium; font-size:13px}
+            }
+        }
+        .total-bottom {
+            display:table; width:100%; border-top: 2px solid $darker-c;
+            & > * {display:table-cell; padding:10px 10px 0}
+            dt {width:20%; text-align:center; vertical-align:middle}
+            dd {width:80%; text-align:right; color:$darken-c; font-size:20px; font-weight:$fw-bold; letter-spacing:normal}
+            .unit {font-weight:$fw-demiLight; font-size:12px}
+        }
+    }
+    &.month {
+        padding-right:12px;
+        .data-table table tr:last-of-type td {border-bottom:0}
+    }
+    &.daily {
+        padding-left:12px;
+        .data-table {
+            .current-list {
+                td &:nth-of-type(1) {width:30%; text-align:left}
+            }
+        }
+        .data-daily {
+            border-top: 2px solid $darker-c;
+            dl {
+                display:block; padding:15px 0;
+                &:first-of-type {border-bottom:1px solid $light-c}
+                dt {display:block; font-weight:$fw-bold; color:$darken-c; font-size:13px}
+                dd {
+                    display:inline-block; position:relative; width:50%; padding-left:12px; margin:5px 0;
+                    &:before {
+                        content:''; display:block; position:absolute; left:4px; top:8px;
+                        width:3px; height:3px;
+                        border-radius:50%; background-color:$darker-c
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 매출관리-리스트형 */
+.payment-list {
+    .data-table {
+        .list-type {margin-left:0}
+        td.dis {
+            width:10%;
+            @include media(960px) {width:auto}
+        }
+    }
+}

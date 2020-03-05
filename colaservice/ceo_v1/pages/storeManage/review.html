@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li>
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li>
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li>
+          <a href="./point.html">포인트</a>
+        </li>
+        <li>
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li class="on">
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-review">
+      <section role="page-info" class="title-sec">
+        <h1>리뷰관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점정보</li>
+            <li class="this-page">리뷰관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="table-filter">
+        <el-select v-model="reviewGrade" placeholder="평점별">
+          <el-option
+            v-for="item in reviewGradeList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+        <el-select v-model="reviewComment" placeholder="답변상태별">
+          <el-option
+            v-for="item in reviewCommentList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+        <div class="p-right">
+          <el-switch v-model="reviewUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+        </div>
+      </section>
+      <section role="data-table" class="data-table">
+        <table>
+          <colgroup>
+            <col width="4%">
+            <col>
+            <col>
+            <col width="50%">
+            <col width="10%">
+            <col width="20%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="centered-cell" scope="col">No</th>
+              <th scope="col">작성일자</th>
+              <th scope="col">작성자</th>
+              <th scope="col">내용</th>
+              <th class="centered-cell" scope="col">평가</th>
+              <th scope="col">답변</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr @click="reviewDetailModal = true">
+              <td class="centered-cell">3</td>
+              <td>2019.11.21</td>
+              <td>S0001221</td>
+              <td class="left-cell txt-wrap">맛있게 잘 먹었습니다 최애닭발집 폐업?해서 슬펐는데 진정되었습니다 앞으로 여기서만 시켜먹으면 되겠어요 쿄쿄</td>
+              <td class="centered-cell">
+                <el-rate v-model="rate3" disabled></el-rate>
+              </td>
+              <td class="left-cell txt-wrap"></td>
+            </tr>
+            <tr @click="reviewDetailModal = true">
+              <td class="centered-cell">2</td>
+              <td>2019.11.21</td>
+              <td>S0001145</td>
+              <td class="left-cell txt-wrap">전 뼈닭을 더 좋아하는데 여기 이번에 들어온 닭발이 안좋은가봐요. 그래서 연락받고 무뼈로 바꿯는데 와우.. 오돌뼈 씹는줄..전에 다른곳에서 먹고 비계씹는맛나서 무뼈 별로였는데.. 여기는 오돌뼈같은 무른뼈 다 씹히고 불맛에 씹히는 맛에 정말 맛있어요.</td>
+              <td class="centered-cell">
+                <el-rate v-model="rate2" disabled></el-rate>
+              </td>
+              <td class="left-cell txt-wrap">고객님 소중한 리뷰 감사합니다. 앞으로도 맛있게 보답해드리겠습니다!</td>
+            </tr>
+            <tr @click="reviewDetailModal = true">
+              <td class="centered-cell">1</td>
+              <td>2019.11.21</td>
+              <td>S0001145</td>
+              <td class="left-cell txt-wrap">맛이 너무 별로네요. 맛도,양도(주먹밥만 양이많네요),서비스도 ..... 말도 끝나기 전에 끊어버림 ㅠㅠ 인젠 닭발 안 먹을래요</td>
+              <td class="centered-cell">
+                <el-rate v-model="rate1" disabled></el-rate>
+              </td>
+              <td class="left-cell txt-wrap">솔직한 리뷰 감사합니다 고객님. 더욱 노력하겠습니다.</td>
+            </tr>
+            <!--<tr>
+              <td class="td-blank" colspan="6">표시할 내용이 없습니다.</td>
+            </tr>-->
+          </tbody>
+        </table>
+      </section>
+      <section class="table-filter">
+        <div role="pagination" class="pager">
+          <span><b>1</b>&#47;3</span>
+          <button class="btn btn-ltline btn-prev">이전</button>
+          <button class="btn btn-ltline btn-next">다음</button>
+          <label for="act">
+            <span>이동</span>
+            <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+          </label>
+        </div>
+      </section>
+      <el-dialog class="popup-layer pop-review" :visible.sync="reviewDetailModal" :close-on-click-modal="false" @close="cancel">
+        <div class="pop-title" slot="title">리뷰 상세</div>
+        <div class="content-wrap">
+          <table>
+            <colgroup>
+              <col width="15%">
+              <col>
+            </colgroup>
+            <tr>
+              <th>작성자</th>
+              <td>S0001221</td>
+            </tr>
+            <tr>
+              <th>작성일자</th>
+              <td>2019.11.21 21:32:51</td>
+            </tr>
+            <tr>
+              <th>주문 메뉴</th>
+              <td>
+                <span>엽기매운닭발(M) 1, 날치알주먹밥 1, 콜라 1.25L 1</span>
+              </td>
+            </tr>
+            <tr>
+              <th>평가</th>
+              <td><el-rate v-model="popEval" disabled></el-rate></td>
+            </tr>
+            <tr>
+              <th>내용</th>
+              <td>
+                <div>
+                  <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F272D64335974407301">
+                  <p>맛있게 잘 먹었습니다 <br>최애닭발집 폐업?해서 슬펐는데 진정되었습니다 <br>앞으로 여기서만 시켜먹으면 되겠어요 쿄쿄</p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>답변</th>
+              <td>
+                <textarea rows="8" class="input-txt" placeholder="답변을 입력해 주세요.">이용해 주셔서 감사합니다. 
+나무젓가락 누락하여 죄송합니다. 
+다음엔 잊지 않고 넣어드리겠습니다. 다음에 또 이용해 주세요^^</textarea>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div slot="footer">
+          <button class="btn btn-rd">등록하기</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 사용여부 */
+      reviewUseYn: true,
+
+      /* 평점별 */
+      reviewGradeList: [{
+        value: '전체',
+        label: '전체'
+      }, {
+        value: '5',
+        label: '5'
+      }, {
+        value: '4',
+        label: '4'
+      }, {
+        value: '3',
+        label: '3'
+      }, {
+        value: '2',
+        label: '2'
+      }, {
+        value: '1',
+        label: '1'
+      }],
+      reviewGrade: '',
+
+      /* 답변상태별 */
+      reviewCommentList: [{
+        value: '전체',
+        label: '전체'
+      }, {
+        value: '미답변 리뷰',
+        label: '미답변 리뷰'
+      }, {
+        value: '답변완료 리뷰',
+        label: '답변완료 리뷰'
+      }],
+      reviewComment: '',
+
+      /* 평점 */
+      rate3: 5,
+      rate2: 4,
+      rate1: 1,
+
+      /* modal */
+      reviewDetailModal: false,
+      popEval: 4,
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

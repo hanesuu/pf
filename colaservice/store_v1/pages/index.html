@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="keyword" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+	<title>쏘다피자 구로디지털점</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+	<link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+	<link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+	<link rel="stylesheet" href="../assets/scss/basic.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../assets/js/common.js"></script>
+</head>
+<body>
+	<div id="app" class="container">
+		<header class="header">
+			<div class="header-col">
+				<div onclick="location.href='index.html'" class="store-name">
+					<div class="store-bi full-bg-img"></div>
+					<h1>쏘다피자 구로디지털점</h1>
+				</div>
+				<div class="gnb">
+					<button class="btn-gnb">menu</button>
+					<nav class="gnb-content" role="navigation">
+						<button class="btn-close">메뉴 닫기</button>
+						<div class="profile default">
+							<div class="profile-pic">
+								<img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+							</div>
+							<p class="nick-name">떡볶이킬러2</p>
+						</div>
+						<div class="nav-list">
+							<ul>
+								<li><a href="mypage.html">내 정보</a></li>
+								<li><a href="address.html">주소관리</a></li>
+								<li><a href="order_list.html">주문관리</a></li>
+								<li><a href="stamp.html">스탬프관리</a></li>
+								<li><a href="coupon.html">쿠폰관리</a></li>
+								<li><a href="review.html">리뷰관리</a></li>
+							</ul>
+						</div>
+						<div class="nav-share">
+							<dl>
+								<dt>공유</dt>
+								<dd class="ico-naver"><a>네이버 공유하기</a></dd>
+								<dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+								<dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+								<dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+								<dd class="ico-url"><a>URL 공유하기</a></dd>
+							</dl>
+						</div>
+					</nav>
+					<div class="bg-dim"></div>
+				</div>
+			</div>
+		</header>
+		<div class="promotion">
+			<img src="../assets/img/banner_store.jpg" alt="프로모션 이미지">
+		</div>
+		<div class="store-info">
+			<div class="info-wrap">
+				<div class="label-info on">상점 영업중</div>
+				<div class="txt-info">최소 주문금액 : 15,000원 (즉시결제/현장결제)</div>
+			</div>
+		</div>
+		<div class="recent-order">
+			<div class="tit-recent">최근 주문내역<i class="las la-plus"></i></div>
+			<div class="con-order">
+				<dl>
+					<dt class="tit">최근 주문내역<i class="las la-times"></i></dt>
+					<dd class="wrap-list">
+						<div class="list-row">
+							<dl class="wrap-txt">
+								<dt class="menu">돈까스, 생선까스, 콜라(小), 공기밥</dt>
+								<dd class="addr">서울 구로구 디지털로26길 61 에이스하이앤드 타워2차 1801호 당구대 옆 사무실</dd>
+							</dl>
+							<button class="btn btn-redline">재주문</button>
+						</div>
+						<div class="list-row">
+							<dl class="wrap-txt">
+								<dt class="menu">돈까스*2, 공기밥</dt>
+								<dd class="addr">서울 구로구 디지털로26길 61 에이스하이앤드 타워2차 1801호 당구대 옆 사무실</dd>
+							</dl>
+							<button class="btn btn-redline">재주문</button>
+						</div>
+						<div class="list-row">
+							<dl class="wrap-txt">
+								<dt class="menu">순살 후라이드 파닭 + 순살 매운 양념파닭, 웨지감자(L), 콜라(1.8L)</dt>
+								<dd class="addr">서울 구로구 디지털로26길 61 에이스하이앤드 타워2차 1801호 당구대 옆 사무실</dd>
+							</dl>
+							<button class="btn btn-redline">재주문</button>
+						</div>
+					</dd>
+					<!--<dd class="pg-blank">
+						<span>최근 주문내역이 없습니다.</span>
+					</dd>-->
+				</dl>
+			</div>
+		</div>
+		<a href="stamp.html" class="mystamp">
+			<dl>
+				<dt>내 스탬프</dt>
+				<dd>3/20</dd>
+			</dl>
+		</a>
+		<el-tabs type="card" @tab-click="handleClick" class="tab-main">
+			<el-tab-pane label="메뉴">
+				<div class="wrap-con-main">
+					<div class="wrap-hotmenu">
+						<h3 class="tit-hot">
+							<span><b>HOT</b> MENU</span>
+						</h3>
+						<div class="con-list">
+							<div onclick="location.href='menu.html'" class="list-col">
+								<div class="thumb-pic">
+									<img src="../assets/img/temp/food01.jpg">
+									<span class="label-new">NEW</span>
+									<span class="label-discount">500원 할인</span>
+								</div>
+								<div class="con">
+									<dl>
+										<dt>
+											<div class="tit">햇님세트</div>
+										</dt>
+										<dd class="price-r">
+											<div class="option-price">
+												<p>18,500</p>
+												<span>원</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div onclick="location.href='menu.html'" class="list-col">
+								<div class="thumb-pic">
+									<img src="../assets/img/temp/food02.jpg">
+								</div>
+								<div class="con">
+									<dl>
+										<dt>
+											<div class="tit">웃음꽃피자 R</div>
+										</dt>
+										<dd class="price-r">
+											<div class="option-price">
+												<p>14,900</p>
+												<span>원</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div onclick="location.href='menu.html'" class="list-col">
+								<div class="thumb-pic">
+									<img src="../assets/img/temp/food03.jpg">
+									<span class="label-new">NEW</span>
+								</div>
+								<div class="con">
+									<dl>
+										<dt>
+											<div class="tit">콰트로포르테피자 M</div>
+										</dt>
+										<dd class="price-r">
+											<div class="option-price">
+												<p>14,500</p>
+												<span>원</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div onclick="location.href='menu.html'" class="list-col">
+								<div class="thumb-pic">
+									<img src="../assets/img/temp/food02.jpg">
+								</div>
+								<div class="con">
+									<dl>
+										<dt>
+											<div class="tit">웃음꽃피자 R</div>
+										</dt>
+										<dd class="price-r">
+											<div class="option-price">
+												<p>14,900</p>
+												<span>원</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<div onclick="location.href='menu.html'" class="list-col">
+								<div class="thumb-pic">
+									<img src="../assets/img/temp/food03.jpg">
+									<span class="label-new">NEW</span>
+								</div>
+								<div class="con">
+									<dl>
+										<dt>
+											<div class="tit">콰트로포르테피자 M</div>
+										</dt>
+										<dd class="price-r">
+											<div class="option-price">
+												<p>14,500</p>
+												<span>원</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="list-menu-main">
+						<el-collapse v-model="menulist">
+							<el-collapse-item title="홈피자 세트" name="1">
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food01.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">홈피자 세트 A (오리지널M+살로만치킨반마리+스파게티)</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>5년 숙성된 간장과 죽염을 넣은 고기다짐육의 육즙이 촤르르</span>
+											</dd>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>31,500</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food02.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<span class="label-new">NEW</span>
+												<div class="tit">홈피자 세트 B (피자M+살로만치킨반마리+스파게티)</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>해남산 생고구마와 유기농 크랜베리, 파스타 소스의 풍미가 가득</span>
+											</dd>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>24,900</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</el-collapse-item>
+							<el-collapse-item title="프리미엄피자 (30% 할인)" name="2">
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food03.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<span class="label-discount">900원 할인</span>
+												<div class="tit">1+1 치즈크러스트 피자 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>세상에 없는 고소함! 치즈가 입안에 한가득</span>
+											</dd>
+											<dd class="price-r">
+												<div class="normal-price">
+													<p>29,300</p>
+													<span>원</span>
+												</div>
+												<div class="option-price">
+													<p>28,200</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food01.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">갈릭버터 쉬림프 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>탱글탱글 통새우에 고소한 갈릭버터를 입혀 풍미를 한껏 끌어올린 고급진 맛</span>
+											</dd>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>24,130</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list w-soldout">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food02.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">갈릭마블 큐브 스테이크 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>큐브 스테이크 추가 가능</span>
+											</dd>
+											<dd class="price-r">
+												<span class="txt-soldout">품절</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food03.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">버팔로윙세트2 (치즈크러스트피자L+버팔로윙15조각or치킨텐더8조각)</div>
+											</dt>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>14,500</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</el-collapse-item>
+							<el-collapse-item title="치즈크러스트피자" name="3">
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food01.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<span class="label-discount">900원 할인</span>
+												<div class="tit">1+1 치즈크러스트 피자 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>세상에 없는 고소함! 치즈가 입안에 한가득</span>
+											</dd>
+											<dd class="price-r">
+												<div class="normal-price">
+													<p>29,300</p>
+													<span>원</span>
+												</div>
+												<div class="option-price">
+													<p>28,800</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food03.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">갈릭버터 쉬림프 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>탱글탱글 통새우에 고소한 갈릭버터를 입혀 풍미를 한껏</span>
+											</dd>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>24,130</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list w-soldout">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food02.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">갈릭마블 큐브 스테이크 L</div>
+											</dt>
+											<dd class="txt-sub">
+												<span>큐브 스테이크 추가 가능</span>
+											</dd>
+											<dd class="price-r">
+												<span class="txt-soldout">품절</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food01.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">버팔로윙세트2 (치즈크러스트피자L+버팔로윙15조각or치킨텐더8조각)</div>
+											</dt>
+											<dd class="txt-sub">
+												<span></span>
+											</dd>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>14,500</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</el-collapse-item>
+							<el-collapse-item title="사이드메뉴" name="4">
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="../assets/img/temp/food04.jpg">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">생맥주 500ml <i class="ico-under-age">19</i></div>
+											</dt>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>4,500</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">콜라 1.25L</div>
+											</dt>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>2,000</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div onclick="location.href='menu.html'" class="con-list">
+									<div class="thumb-pic">
+										<img src="">
+									</div>
+									<div class="con">
+										<dl>
+											<dt>
+												<div class="tit">피클 추가</div>
+											</dt>
+											<dd class="price-r">
+												<div class="option-price">
+													<p>1,200</p>
+													<span>원</span>
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</el-collapse-item>
+						</el-collapse>
+					</div>
+				</div>
+			</el-tab-pane>
+			<el-tab-pane label="정보">
+				<div class="wrap-con-main">
+					<div class="wrap-info">
+						<img src="../assets/img/temp/leaflet.jpg">
+						<div class="con-info">
+							<dl class="img-time">
+								<dt>영업시간</dt>
+								<dd>11:00 ~ 23:20</dd>
+							</dl>
+							<dl class="img-card">
+								<dt>최소주문금액</dt>
+								<dd>14,000원</dd>
+							</dl>
+							<dl class="img-card">
+								<dt>결제정보</dt>
+								<dd>온라인 카드, 온라인 휴대폰, 현장 카드</dd>
+							</dl>
+							<dl class="img-dv">
+								<dt>배달가능지역</dt>
+								<dd>구로동, 신림동, 봉천동</p>
+								</dd>
+							</dl>
+							<dl class="img-cont">
+								<dt>원산지 정보</dt>
+								<dd>밀가루 : 미국산<br>쇠고기 : 호주산<br>돼지고기 : 스페인산<br>쌀 : 국내산<br>배추 : 국내산<br>견과 : 미국산</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</el-tab-pane>
+			<el-tab-pane label="리뷰">
+				<div class="wrap-con-main">
+					<div class="wrap-review">
+						<div class="wrap-btn">
+							<a href="review_insert.html" class="btn btn-lg btn-red">리뷰 작성하기</a>
+						</div>
+						<ul class="list-review">
+							<li class="me">
+								<div class="profile">
+									<div class="profile-pic"></div>
+								</div>
+								<div class="con-review">
+									<div class="writer">
+										<span>너와나의암호마알</span><a class="a-link">Edit</a>
+										<div class="a-right">
+											<a href="complain.html">신고</a>
+										</div>
+									</div>
+									<div class="info">
+										<el-rate v-model="eval1" :colors="colors" :void-color="voidColor"></el-rate>
+										<span class="txt-s">3시간 전</span>
+									</div>
+									<div class="txt-con">
+										<div class="wrap-img">
+											<img src="../assets/img/temp/food02.jpg">
+										</div>
+										<p class="txt">여러분 진짜 스위트 포테이토 짱 좋아해서 시켰는데 도우.....ㅠ 다음부턴 꼭 일반도우로 시켜야집..😬</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="profile">
+									<div class="profile-pic"></div>
+								</div>
+								<div class="con-review">
+									<div class="writer">
+										<span>citypop82</span>
+										<div class="a-right">
+											<a href="complain.html">신고</a>
+										</div>
+									</div>
+									<div class="info">
+										<el-rate v-model="eval2" :colors="colors" :void-color="voidColor"></el-rate>
+										<span class="txt-s">지난 주</span>
+									</div>
+									<div class="txt-con">
+										<p class="txt">치킨 텐더는 금액 맞추려고 주문한건데 오히려 피자보다 훨씬 맛있었어요 밤 11시 30분쯤에 주문했는데도 55분 걸렸어요 ㅜ ㅜ 최소 주문 금액만 좀 줄여주시면 종종 시키겠는데 좀 부담스러워서 자주는 못 시킬것 같아요 ㅜ 사장님 금액 좀 줄여주세용~~~ㅜ ㅜ</p>
+									</div>
+									<div class="wrap-reply">
+										<div class="writer">사장님<span class="txt-s">지난 주</span></div>
+										<p class="txt">고객님 소중한 리뷰 감사합니다! 앞으로도 자주 이용해 주세요!!</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="profile">
+									<div class="profile-pic"></div>
+								</div>
+								<div class="con-review">
+									<div class="writer">
+										<span>얼굴좀피자</span>
+										<div class="a-right">
+											<a href="complain.html">신고</a>
+										</div>
+									</div>
+									<div class="info">
+										<el-rate v-model="eval3" :colors="colors" :void-color="voidColor"></el-rate>
+										<span class="txt-s">한달 전</span>
+									</div>
+									<div class="txt-con">
+										<div class="wrap-img">
+											<img src="../assets/img/temp/food01.jpg">
+										</div>
+										<p class="txt">배가 너무 고파서 사진 찍을 틈없이 다 먹었습니다 ㅎㅎ 피자도 맛나고 윙도 특별히 더 맛났는데 스파게티가 한쪽이 좀 타서 와서 아쉬웠네요</p>
+									</div>
+									<div class="wrap-reply">
+										<div class="writer">사장님<span class="txt-s">지난 주</span></div>
+										<p class="txt">고객님 소중한 리뷰 감사합니다! 스파게티 조리에 좀더 신경쓰겠습니다.</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="wrap-btn">
+							<button class="btn btn-lg btn-gyline">더 보기</button>
+						</div>
+						<!--<div class="pg-blank bi-w">
+							<span>등록한 리뷰가 없습니다.</span>
+						</div>-->
+					</div>
+				</div>
+			</el-tab-pane>
+		</el-tabs>
+		<div class="row order-bottom">
+			<button class="col-xs-6 order-call">전화주문</button>
+			<button onclick="location.href='basket.html'" class="col-xs-6 order-cart">
+				<span>장바구니</span><span class="count">3</span>
+			</button>
+		</div>
+		<footer>
+			<ul class="list-link">
+				<li><a href="" target="_blank">이용약관</a></li>
+				<li><a href="" target="_blank"><b>개인정보처리방침</b></a></li>
+			</ul>
+			<el-collapse>
+				<el-collapse-item title="판매자 정보" name="foot1">
+					<div class="list-foot">
+						<ul>
+							<li>쏘다피자 구로디지털점</li>
+							<li>대표 김피자</li>
+						</ul>
+						<ul>
+							<li>070-1212-2121</li>
+							<li>사업자등록번호 : 210-11-11221</li>
+						</ul>
+						<address>서울시 구로구 디지털로 26길 61 에이스하이엔드타워 1호</address>
+					</div>
+				</el-collapse-item>
+				<el-collapse-item title="서비스 제공업자 정보" name="foot2">
+					<div class="list-foot">
+						<ul>
+							<li>(주)쏘다</li>
+							<li>대표 장신호</li>
+							<li>고객센터 : 1599-5681</li>
+							<li>이메일 : ssoda@ssoda.co.kr</li>
+							<li>사업자등록번호 : 277-81-01253</li>
+							<li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+						</ul>
+						<address>[08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+					</div>
+				</el-collapse-item>
+			</el-collapse>
+		</footer>
+	</div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: function() {
+			return {
+				menulist: '1',
+
+				//리뷰 별점
+				eval1: 4,
+				eval2: 2,
+				eval3: 5,
+				colors: ['#ec3939','#ec3939','#ec3939'],
+				voidColor: ['#e0e0e0']
+			}
+		},
+		methods: {
+			handleClick(tab, event) {
+				console.log(tab, event);
+			}
+		}
+	})
+</script>
+</html>

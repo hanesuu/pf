@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="keyword" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+	<title>쏘다피자 구로디지털점</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+	<link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+	<link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+	<link rel="stylesheet" href="../assets/scss/basic.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../assets/js/common.js"></script>
+</head>
+<body>
+	<div id="app" class="container">
+		<header class="header sub-header">
+			<div class="header-col">
+				<div onclick="location.href='index.html'" class="store-name">
+					<div class="store-bi full-bg-img"></div>
+					<h1>쏘다피자 구로디지털점</h1>
+				</div>
+				<div class="gnb">
+					<button class="btn-gnb">menu</button>
+					<nav class="gnb-content" role="navigation">
+						<button class="btn-close">메뉴 닫기</button>
+						<div class="profile default">
+							<div class="profile-pic">
+								<img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+							</div>
+							<p class="nick-name">떡볶이킬러2</p>
+						</div>
+						<div class="nav-list">
+							<ul>
+								<li><a href="mypage.html">내 정보</a></li>
+								<li><a href="address.html">주소관리</a></li>
+								<li><a href="order_list.html">주문관리</a></li>
+								<li><a href="stamp.html">스탬프관리</a></li>
+								<li><a href="coupon.html">쿠폰관리</a></li>
+								<li><a href="review.html">리뷰관리</a></li>
+							</ul>
+						</div>
+						<div class="nav-share">
+							<dl>
+								<dt>공유</dt>
+								<dd class="ico-naver"><a>네이버 공유하기</a></dd>
+								<dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+								<dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+								<dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+								<dd class="ico-url"><a>URL 공유하기</a></dd>
+							</dl>
+						</div>
+					</nav>
+					<div class="bg-dim"></div>
+				</div>
+				<button onclick="history.back()" class="btn-back el-icon-back">뒤로</button>
+			</div>
+		</header>
+    <section class="product-solo menu-detail">
+      <div class="basket-product">
+        <div class="pic full-bg-img" style="background-image:url('../assets/img/temp/food01.jpg')"></div>
+        <dl class="name-info">
+          <dt>
+            <div class="tit">홈피자 세트 B (피자M+살로만치킨반마리+스파게티)</div>
+          </dt>
+          <dd class="txt-sub">해남산 생고구마와 유기농 크랜베리, 파스타 소스의 풍미가 가득</dd>
+        </dl>
+      </div>
+      <!--한줄가격
+      <section class="basket-list price-oneline">
+      	<dl>
+      		<dt class="tit">가격</dt>
+          <dd class="price">
+            <p>32,900</p>
+            <span>원</span>
+          </dd>
+      	</dl>
+      </section>-->
+			<section class="basket-list">
+				<h3 class="tit">가격</h3>
+				<el-radio v-model="radio" label="1" class="wrap-price">
+					<dl>
+						<dt class="tit">스몰 사이즈	</dt>
+	          <dd class="price">
+	          	<div class="discount">26,900원</div>
+	            <p>23,900</p>
+	            <span>원</span>
+	          </dd>
+	        </dl>
+        </el-radio>
+        <el-radio v-model="radio" label="2" class="wrap-price">
+	        <dl>
+	        	<dt class="tit">미디움 사이즈</dt>						
+	          <dd class="price">
+	            <p>28,900</p>
+	            <span>원</span>
+	          </dd>
+	        </dl>
+	      </el-radio>
+				<el-radio v-model="radio" label="3" class="wrap-price">
+	        <dl>
+	        	<dt class="tit">라지 사이즈</dt>
+	          <dd class="price">
+	            <p>32,900</p>
+	            <span>원</span>
+	          </dd>
+	        </dl>
+	      </el-radio>
+        <el-radio v-model="radio" label="4" class="wrap-price">
+        	<dl>
+	        	<dt class="tit">슈퍼 사이즈</dt>
+	          <dd class="price">
+	            <p>36,900</p>
+	            <span>원</span>
+	          </dd>
+	        </dl>
+	      </el-radio>
+			</section>
+			<section class="basket-list">
+				<h3 class="tit">토핑 선택 (필수아님) <span>3개까지 선택</span></h3>
+				<div class="wrap-price">
+					<label for="check1">
+						<dl class="inp-check">
+							<dt class="tit">
+									<span class="txt">치즈크러스트 추가</span>
+									<input type="checkbox" name="check1" id="check1" checked="checked">
+									<span class="checkmark"></span>
+							</dt>
+		          <dd class="price">
+		            <p>+ 2,900</p>
+		            <span>원</span>
+		          </dd>
+		        </dl>
+					</label>
+        </div>
+				<div class="wrap-price">
+					<label for="check2">
+						<dl class="inp-check">
+							<dt class="tit">
+									<span class="txt">고구마무스 추가</span>
+									<input type="checkbox" name="check2" id="check2">
+									<span class="checkmark"></span>
+							</dt>
+		          <dd class="price">
+		            <p>+ 3,900</p>
+		            <span>원</span>
+		          </dd>
+		        </dl>
+					</label>
+        </div>
+				<div class="wrap-price">
+					<label for="check3">
+						<dl class="inp-check">
+							<dt class="tit">
+									<span class="txt">비엔나소시지 추가 (20ea)</span>
+									<input type="checkbox" name="check3" id="check3">
+									<span class="checkmark"></span>
+							</dt>
+		          <dd class="price">
+		            <p>+ 3,000</p>
+		            <span>원</span>
+		          </dd>
+		        </dl>
+					</label>
+        </div>
+				<div class="wrap-price">
+					<label for="check4">
+						<dl class="inp-check">
+							<dt class="tit">
+									<span class="txt">4색 치즈 추가 (100g)</span>
+									<input type="checkbox" name="check4" id="check4" checked="checked">
+									<span class="checkmark"></span>
+							</dt>
+		          <dd class="price">
+		            <p>+ 3,000</p>
+		            <span>원</span>
+		          </dd>
+		        </dl>
+					</label>
+        </div>
+			</section>
+      <section class="basket-all-total">
+        <div class="wrap-price">
+          <div class="tit">수량선택</div>
+          <div class="price">
+            <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
+          </div>
+        </div>
+        <dl class="wrap-price">
+          <dt class="tit">총 금액</dt>
+          <dd class="price">
+            <p>29,800</p>
+            <span>원</span>
+          </dd>
+        </dl>
+        <dl class="wrap-price discount">
+          <dt class="tit">메뉴할인</dt>
+          <dd class="price">
+            <p>-700</p>
+            <span>원</span>
+          </dd>
+        </dl>
+        <dl class="wrap-price total">
+          <dt class="tit">총 주문금액</dt>
+          <dd class="price">
+            <p>29,100</p>
+            <span>원</span>
+          </dd>
+        </dl>
+      </section>
+			<div class="row order-bottom">
+				<button onclick="location.href='order.html'" class="col-xs-6 order-call">바로 주문하기</button>
+				<button onclick="location.href='basket.html'" class="col-xs-6 order-cart">
+					<span>장바구니</span>
+					<span class="count">3</span>
+				</button>
+				<!--<button class="col-xs-12 soldout" disabled>품절</button>-->
+			</div>
+    </section>
+	</div>
+</div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: function () {
+			return {
+				radio: '1',
+				checked: true,
+				num1: 1,
+			};/* return */
+		},/* data */
+		methods: {
+			handleClick(tab, event) {
+				console.log(tab, event);
+			}
+		}
+	})
+</script>
+</html>

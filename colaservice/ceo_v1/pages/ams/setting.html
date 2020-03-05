@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="../storeManage/menu.html" class="store"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="./sendList.html" class="ams nuxt-link-active"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./sendList.html">발송내역</a>
+        </li>
+        <li>
+          <a href="./chargeList.html">충전내역</a>
+        </li>
+        <li class="on">
+          <a href="./setting.html">자동메시지 설정</a>
+        </li>
+        <li>
+          <a href="./dispatch.html">일반메시지 보내기</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents vue-autoset">
+      <section role="page-info" class="title-sec">
+        <h1>자동메시지 설정</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>메시지관리</li>
+            <li class="this-page">자동메시지 설정</li>
+          </ul>
+        </div>
+      </section>
+      <div class="inner">
+        <section class="total-figure">
+          <dl>
+            <dt>보유 포인트</dt>
+            <dd>34,702<span>P</span></dd>
+          </dl>
+          <!-- 포인트 충전 팝업 -->
+          <button @click="chargeModal = true" class="btn btn-rdline">+ 충전하기</button>
+        </section>
+        <section class="wrap-formbox">
+          <div class="bx-tit">
+            <h3 class="tit">자동메시지 설정</h3>
+          </div>
+          <div class="bx-con">
+            <div class="col-xs-12 col-sm-6">
+              <dl>
+                <dt>발송설정</dt>
+                <dd class="no-inp">
+                  <el-radio v-model="amsSendType" label="WEB">프로그램 발송 (별도요금필요)</el-radio>
+                  <div class="flex1">
+                    <el-radio v-model="amsSendType" label="MOBILE">휴대폰 발송</el-radio>
+                    <a href="#" class="tooltip-link">App설치 및 사용방법 보기</a>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <dl>
+                <dt>
+                  <label>포인트 부족 알림</label>
+                </dt>
+                <dd class="no-inp">
+                  <el-radio v-model="amsNotiType" label="ONE_NOTI">한번 알림</el-radio>
+                  <el-radio v-model="amsNotiType" label="REPEAT_NOTI">반복 알림</el-radio>
+                  <el-radio v-model="amsNotiType" label="NOT_NOTI">기능 사용안함</el-radio>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="ams-form">
+                <dl>
+                  <dt class="flexbox eltype">
+                    <label>타플랫폼 주문 고객</label>
+                    <el-switch v-model="otherUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                  </dt>
+                  <dd>
+                    <textarea rows="10" class="input-txt" :disabled="otherUseYn == false">이제 모바일로 편하게 주문하세요! 콜라서비스 모바일 앱 다운로드 받고 쿠폰 받기 http://goo.gl/dk2942</textarea>
+                  </dd>
+                  <dd>
+                    <span class="txt-byte">(46/1000)</span>
+                  </dd>
+                </dl>
+                <div class="flexbox eltype option">
+                  <span class="txt-before">마지막 주문 기준</span>
+                  <el-select v-model="sendTime" placeholder="발송시간 선택">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                  <span class="txt-after">후 자동 발송</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="ams-form">
+                <dl>
+                  <dt class="flexbox eltype">
+                    <label>콜라서비스 주문 고객</label>
+                    <el-switch v-model="colaUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                  </dt>
+                  <dd>
+                    <textarea rows="10" class="input-txt" :disabled="colaUseYn == false">주문해 주셔서 정말 감사합니다. 콜라서비스로 다음에 또 주문하면 쿠폰 발급! 이제 모바일로 편하게 주문하세요! 콜라서비스 모바일 앱 다운로드 받고 쿠폰 받기 http://goo.gl/dk2942</textarea>
+                  </dd>
+                  <dd>
+                    <span class="txt-byte">(46/1000)</span>
+                  </dd>
+                </dl>
+                <div class="flexbox option">
+                  <div class="flexbox eltype">
+                    <span class="txt-before">마지막 주문 기준</span>
+                    <input type="text" placeholder="0" class="input-txt">
+                    <span class="txt-after">일</span>
+                  </div>
+                  <div class="flexbox eltype">
+                    <el-select v-model="sendTime2" placeholder="발송시간 선택">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                    <span class="txt-after">후 자동 발송</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="btn-list-bottom">
+          <button class="btn btn-rd">저장하기</button>
+        </div>
+      </div>
+      <!--
+      <section class="data-table">
+        <table>
+          <colgroup>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="left-cell">메시지 템플릿</th>
+              <th class="centered-cell">발송하기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="txt-message left-cell">[WEB발신](광고) 미래창조과학부는 발신번호 조작으로 인한 이용자 피해를 예방하기 위해 지난해 시범 도입한 '웹 발신문자 알림서비스'를 알뜰폰 사업자를 포함 콜라서비스를 이용해 주세요! 콜라서비스 모바일 앱 다운로드 받고 쿠폰 받기 http://goo.gl/dk2942
+              </td>
+              <td class="centered-cell">
+                <button class="btn btn-rdline">타플랫폼 발송하기</button>
+                <button class="btn btn-rdline">콜라서비스 발송하기</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="txt-message left-cell">[WEB발신](광고) 기분좋게 '가르랑'거리는 소리를 들어본 적이 있는가? 이는 일명 '골골송'으로 콜라서비스를 이용해 주세요! 콜라서비스 모바일 앱 다운로드 받고 쿠폰 받기 http://goo.gl/dk2942
+              </td>
+              <td class="centered-cell">
+                <button class="btn btn-rdline">타플랫폼 발송하기</button>
+                <button class="btn btn-rdline">콜라서비스 발송하기</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>-->
+
+      <!--modal-->
+      <el-dialog :close-on-click-modal="false" :lock-scroll="true" :visible.sync="chargeModal" @close="cancel" class="popup-layer pop-ams-point">
+        <div class="pop-title" slot="title">포인트 충전</div>
+        <div class="content-wrap">
+          <section class="total-figure">
+            <dl>
+              <dt>보유 포인트</dt>
+              <dd>34,702<span>P</span></dd>
+            </dl>
+          </section>
+          <ul class="list-s">
+            <li>적용 포인트 : SMS 1포인트/LMS 3포인트</li>
+            <li>결제취소는 결제일로부터 15일 이내까지만 가능하며, 구매 후 일부 금액을 사용한 경우 결제금액이 환불되지 않습니다.</li>
+          </ul>
+          <div class="list-radio">
+            <ul>
+              <li v-bind:class="{ active: smsPoint == 10000 }">
+                <el-radio label="10000" v-model="smsPoint" >1,000P</el-radio>
+                <b>10,000원</b>
+              </li>
+              <li v-bind:class="{ active: smsPoint == 30000 }">
+                <el-radio label="30000" v-model="smsPoint">3,000P</el-radio>
+                <b>30,000원</b>
+              </li>
+              <li v-bind:class="{ active: smsPoint == 50000 }">
+                <el-radio label="50000" v-model="smsPoint">5,000P</el-radio>
+                <b>50,000원</b>
+              </li>
+              <li v-bind:class="{ active: smsPoint == 100000 }">
+                <el-radio label="100000" v-model="smsPoint">10,000P</el-radio>
+                <b>100,000원</b>
+              </li>
+              <li v-bind:class="{ active: smsPoint == 200000 }">
+                <el-radio label="200000" v-model="smsPoint">20,000P</el-radio>
+                <b>200,000원</b>
+              </li>
+              <li v-bind:class="{ active: smsPoint == 300000 }">
+                <el-radio label="300000" v-model="smsPoint">30,000P</el-radio>
+                <b>300,000원</b>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div slot="footer">
+          <button @click="cancel" class="btn btn-dkline">취소</button>
+          <button class="btn btn-rd">결제하기</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* radio */
+      amsSendType: 'WEB',
+      amsNotiType: 'ONE_NOTI',
+
+      /* 발송시점 */
+      options: [{
+        value: '10분',
+        label: '10분'
+      }, {
+        value: '1시간',
+        label: '1시간'
+      }],
+      sendTime1: '',
+      sendTime2: '',
+
+      /* 사용여부 */
+      otherUseYn: false,
+      colaUseYn: true,
+
+      /* modal */
+      chargeModal: false,
+      smsPoint: '10000'
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

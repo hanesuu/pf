@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="../payment/calendar.html" class="sale"><span>매출관리</span></a>
+      <a href="./menu.html" class="store nuxt-link-active"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn btn-home">내 상점 보기</a>
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li>
+          <a href="./menu.html">메뉴관리</a>
+        </li>
+        <li>
+          <a href="./info.html">정보관리</a>
+        </li>
+        <li>
+          <a href="./sale.html">할인관리</a>
+        </li>
+        <li class="on">
+          <a href="./coupon.html">쿠폰관리</a>
+        </li>
+        <li>
+          <a href="./point.html">포인트</a>
+        </li>
+        <li>
+          <a href="./stamp.html">스탬프관리</a>
+        </li>
+        <li>
+          <a href="./service.html">서비스관리</a>
+        </li>
+        <li>
+          <a href="./review.html">리뷰관리</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents">
+      <section role="page-info" class="title-sec">
+        <h1>쿠폰관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li>상점정보</li>
+            <li class="this-page">쿠폰관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="table-filter">
+        <div role="search" class="search">
+          <label>
+            <span>검색</span>
+            <input type="text" placeholder="검색어 입력">
+            <a class="btn_search"></a>
+          </label>
+        </div>
+        <div class="p-right">
+          <el-switch v-model="couponUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+        </div>
+      </section>
+      <section role="data-table" class="data-table">
+        <table class="table-review-list">
+          <thead>
+            <tr>
+              <th scope="col">쿠폰</th>
+              <th class="right-cell" scope="col">할인 금액</th>
+              <th class="centered-cell" scope="col">제공 회원</th>
+              <th class="centered-cell" scope="col">할인 기간</th>
+              <th class="centered-cell" scope="col">사용 여부</th>
+              <th class="centered-cell" scope="col">비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="left-cell">오픈기념 닭발마니무거 쿠폰</td>
+              <td class="right-cell">1,000원</td>
+              <td class="centered-cell">전체</td>
+              <td class="centered-cell">2020.02.19~2020.03.19</td>
+              <td class="centered-cell">
+                <el-switch v-model="listUseYn" active-text="사용" inactive-text="사용안함"></el-switch>
+              </td>
+              <td class="centered-cell">
+                <a class="btn-txt-del">삭제</a>
+              </td>
+            </tr>
+            <!--
+            <tr>
+              <td class="td-blank" colspan="6">표시할 내용이 없습니다.</td>
+            </tr>-->
+          </tbody>
+        </table>
+      </section>
+      <section class="table-filter">
+        <div role="pagination" class="pager">
+          <span><b>1</b>&#47;3</span>
+          <button class="btn btn-ltline btn-prev">이전</button>
+          <button class="btn btn-ltline btn-next">다음</button>
+          <label for="act">
+            <span>이동</span>
+            <input type="text" class="input-txt" id="act" name="act" placeholder="0">
+          </label>
+        </div>
+        <section class="btn-bottom-r">
+          <button class="btn btn-rd" @click="couponAddModal = true">&#43; 쿠폰등록</button>
+        </section>
+      </section>
+      <!--modal 쿠폰추가-->
+      <el-dialog class="popup-layer pop-coupon" :visible.sync="couponAddModal" :close-on-click-modal="false" @close="cancel">
+        <div class="pop-title" slot="title">쿠폰 추가</div>
+        <div class="content-wrap">
+          <section class="wrap-formbox">
+            <div class="bx-tit">
+              <h3 class="tit">쿠폰 추가</h3>
+            </div>
+            <div class="bx-con">
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="coupunName">쿠폰명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="input-txt" placeholder="쿠폰명을 입력해 주세요." name="coupunName">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="disPrice">할인 금액</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="input-txt num-txt" placeholder="0" name="disPrice">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="member">제공 회원</label>
+                  </dt>
+                  <dd>
+                    <el-select v-model="member" placeholder="제공회원 선택">
+                      <el-option
+                        v-for="item in userList"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6">
+                <dl>
+                  <dt>
+                    <label for="date">적용 기간</label>
+                  </dt>
+                  <dd>
+                    <el-date-picker v-model="dateStart" type="date" placeholder="시작일 선택"></el-date-picker>
+                    <div class="date-as">~</div>
+                    <el-date-picker v-model="dateEnd" type="date" placeholder="종료일 선택"></el-date-picker>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div slot="footer">
+          <button class="btn btn-rd">추가하기</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause?type=1" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause?type=2" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: '',
+
+      /* 사용여부 */
+      couponUseYn: true,
+      listUseYn: true,
+
+      /* modal */
+      couponAddModal: false,
+      /* 회원 */
+      userList: [{
+        value: '전체회원',
+        label: '전체회원'
+      }, {
+        value: '단골',
+        label: '단골'
+      }],
+      member: '',
+      /* 기간 */
+      dateStart: '',
+      dateEnd: '',
+    }
+  },
+  methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
+  }
+})
+</script>
+</html>

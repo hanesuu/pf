@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="keyword" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/> <!-- IE최신버전으로 보기 -->
+	<title>쏘다피자 구로디지털점</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+	<link rel="stylesheet" href="../assets/scss/basic.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../assets/js/common.js"></script>
+</head>
+<body>
+	<div id="app" class="container">
+    <header class="header sub-header">
+      <div class="header-col">
+        <div onclick="location.href='index.html'" class="store-name">
+          <div class="store-bi full-bg-img"></div>
+          <h1>쏘다피자 구로디지털점</h1>
+        </div>
+        <div class="gnb">
+          <button class="btn-gnb">menu</button>
+          <nav class="gnb-content" role="navigation">
+            <button class="btn-close">메뉴 닫기</button>
+            <div class="profile default">
+              <div class="profile-pic">
+                <img src="http://210.183.36.207/uploads/-/system/user/avatar/79/avatar.png?width=90">
+              </div>
+              <p class="nick-name">떡볶이킬러2</p>
+            </div>
+            <div class="nav-list">
+              <ul>
+                <li><a href="mypage.html">내 정보</a></li>
+                <li><a href="address.html">주소관리</a></li>
+                <li><a href="order_list.html">주문관리</a></li>
+                <li><a href="stamp.html">스탬프관리</a></li>
+                <li><a href="coupon.html">쿠폰관리</a></li>
+                <li><a href="review.html">리뷰관리</a></li>
+              </ul>
+            </div>
+            <div class="nav-share">
+              <dl>
+                <dt>공유</dt>
+                <dd class="ico-naver"><a>네이버 공유하기</a></dd>
+                <dd class="ico-kakao"><a>카카오톡 공유하기</a></dd>
+                <dd class="ico-fb"><a>페이스북 공유하기</a></dd>
+                <dd class="ico-twitter"><a>트위터 공유하기</a></dd>
+                <dd class="ico-url"><a>URL 공유하기</a></dd>
+              </dl>
+            </div>
+          </nav>
+          <div class="bg-dim"></div>
+        </div>
+        <button onclick="history.back()" class="btn-back el-icon-back">뒤로</button>
+      </div>
+    </header>
+		<div class="wrap-con-main area-btm">
+			<div class="wrap-complain">
+				<h2 class="tit-h2">신고하기</h2>
+				<dl>
+					<dt>작성자</dt>
+					<dd class="user">citypop82</dd>
+					<dt>신고내용</dt>
+					<dd class="list-radio">
+						<el-radio-group v-model="troubleText">
+							<el-radio :label="1">상업적 광고 및 부적절한 홍보</el-radio>
+							<el-radio :label="2">타인에 대한 욕설 및 인신공격</el-radio>
+							<el-radio :label="3">음란성/선정적 내용 또는 관련 링크</el-radio>
+							<el-radio :label="4">개인정보 유출 및 명예훼손</el-radio>
+						</el-radio-group>
+					</dd>
+				</dl>
+			</div>
+			<div class="txt-caution">
+				<ul class="txt">
+					<li>신고된 내용은 콜라서비스 운영정책에 따라 삭제될 수 있습니다.</li>
+					<li>신고해주신 내용은 확인 후 처리하도록 하겠습니다.</li>
+				</ul>
+			</div>
+			<div class="row order-bottom">
+				<button onclick="history.back()" class="col-xs-12 btn btn-lg btn-red">신고</button>
+			</div>
+		</div>
+		<footer>
+			<ul class="list-link">
+				<li><a href="" target="_blank">이용약관</a></li>
+				<li><a href="" target="_blank"><b>개인정보처리방침</b></a></li>
+			</ul>
+			<el-collapse>
+				<el-collapse-item title="판매자 정보" name="foot1">
+					<div class="list-foot">
+						<ul>
+							<li>쏘다피자 구로디지털점</li>
+							<li>대표 김피자</li>
+						</ul>
+						<ul>
+							<li>070-1212-2121</li>
+							<li>사업자등록번호 : 210-11-11221</li>
+						</ul>
+						<address>서울시 구로구 디지털로 26길 61 에이스하이엔드타워 1호</address>
+					</div>
+				</el-collapse-item>
+				<el-collapse-item title="서비스 제공업자 정보" name="foot2">
+					<div class="list-foot">
+						<ul>
+							<li>(주)쏘다</li>
+							<li>대표 장신호</li>
+							<li>고객센터 : 1599-5681</li>
+							<li>이메일 : ssoda@ssoda.co.kr</li>
+							<li>사업자등록번호 : 277-81-01253</li>
+							<li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+						</ul>
+						<address>[08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+					</div>
+				</el-collapse-item>
+			</el-collapse>
+		</footer>
+	</div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: function() {
+			return {
+				troubleText: 1
+			}
+		},
+		methods: {
+			handleClick(tab, event) {
+				console.log(tab, event);
+			}
+		}
+	})
+</script>
+</html>

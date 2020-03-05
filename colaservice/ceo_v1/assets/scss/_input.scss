@@ -1,0 +1,73 @@
+/* placeholder */
+input::-webkit-input-placeholder {color:$light-c; font-weight:$fw-demiLight}
+input::-moz-placeholder {color:$light-c; font-weight:$fw-demiLight}
+input:-ms-input-placeholder {color:$light-c; font-weight:$fw-demiLight}
+input::placeholder {color:$light-c; font-weight:$fw-demiLight; opacity:1}
+textarea::-webkit-input-placeholder {color:$light-c; font-weight:$fw-demiLight}
+textarea::-moz-placeholder {color:$light-c; font-weight:$fw-demiLight}
+textarea:-ms-input-placeholder {color:$light-c; font-weight:$fw-demiLight}
+textarea::placeholder {color:$light-c; font-weight:$fw-demiLight; opacity:1}
+
+/* input 공용 스타일 */
+input[type=text],
+input[type=password],
+.input-txt {
+  min-width:0; height:32px; margin:0; padding:5px 10px;
+  font-size:1rem; font-weight:$fw-demiLight; color:$darken-c; border-radius:2px; border:1px solid $light-c; background-color:$white-c; vertical-align:top; @include transition(background-color,border-color); -webkit-appearance:none;
+  /* v1.6: height:34px; border-radius:3px; border-color:#e2e5ec; */
+  &:focus {border-color:$point-c; outline:0}
+}
+input[type=number] {text-align:right}
+.num-txt {padding-right: 10px !important; text-align:right !important; font-weight:$fw-medium}
+input[disabled], textarea[disabled], .inp-txt[disabled] {background-color:#f0f0f0; color:$light-c; pointer-events:none}
+
+/* textarea */
+textarea.input-txt {padding:10px; height:inherit; overflow-y:auto}
+
+/* Check Box */
+.container-check {
+  display:inline-block; position:relative; cursor:pointer; font-size:1rem; font-weight:$fw-demiLight; line-height:32px;
+  @include prefix((
+          user-select:none
+  ), webkit moz ms);
+  
+  p {display:inline-block; position:relative; /*top:0.1em; left:0;*/ margin:0; padding-left:24px}
+  input {position:absolute; width:0; height:0; opacity:0; cursor:pointer}
+  .checkmark {
+    position:absolute; top:6px; left:0; width:20px; height:20px; background-color:$white-c; border:1px solid $light-c; border-radius:2px;
+    &:after {
+      content:""; display:none; position:absolute; top:2px; left:7px; width:5px; height:10px;
+      border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg)
+    }
+  }
+  input:checked ~ .checkmark {
+    background-color:$point-c; border:none;
+    &:after {display:block}
+  }
+}
+
+
+/* table elements input */
+.table-filter {
+  input[type=text] {height:32px; padding-left:5px}
+  input[type=number]{
+    height:32px; padding-left:5px;
+    color:$darken-c; border:1px solid $light-c; border-radius:2px; background:$white-c
+  }
+  .search {
+    span {display:none}
+    .btn_search {
+      display:inline-block; width:32px; height:32px; margin:0; vertical-align:top;
+      text-align:center; font-size:17px; color:$darken-c; background:$white-c;
+      border:1px solid $light-c; border-radius:2px; cursor:pointer;
+      &:active {background:$point-c; border-color:$point-c; color:$white-c}
+      .svg-icon {position:relative; top:7px; left:0}
+    }
+  }
+}
+.data-table {
+  .container-check {
+    width:20px; height:20px; padding:0; vertical-align:middle; line-height:20px;
+    .checkmark {top:0}
+  }
+}

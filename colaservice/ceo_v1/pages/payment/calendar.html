@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="https://hanesuu.github.io/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.css' rel='stylesheet' />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.css' rel='stylesheet' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.js'></script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+<div id="app" class="admin-wrap">
+  <header>
+    <div role="global-navigation">
+      <h1 class="logo">콜라서비스</h1>
+      <a href="./calendar.html" class="sale nuxt-link-active"><span>매출관리</span></a>
+      <a href="../storeManage/menu.html" class="store"><span>상점관리</span></a>
+      <a href="../customer/manage.html" class="customer"><span>고객관리</span></a>
+      <a href="../ams/sendList.html" class="ams"><span>메시지관리</span></a>
+      <a href="../board/list.html" class="info"><span>이용안내</span></a>
+    </div>
+  </header>
+  <div class="flex-col">
+    <nav>
+      <!-- 상점 선택 -->
+      <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+        <el-option 
+          v-for="list in storeList"
+          :key="list.value"
+          :label="list.label"
+          :value="list.value">
+        </el-option>
+      </el-select>
+      <a class="btn-home">내 상점 보기</a>
+      <!--<div class="alert-account">
+        <dl class="bxbar-alert">
+          <dt>정산 불가</dt>
+          <dd>현재 정산 불가 상태입니다. 정산 신청을 하셔야 정산이 가능합니다.</dd>
+        </dl>
+        <div class="wrap-float-txt">
+          <ul class="list-type">
+            <li>정산시스템에 가입되지 않은 경우, 정산이 불가합니다. 정산을 받기 위해서는 정산 시스템에 별도 가입이 필요합니다.</li>
+            <li>정산신청 후 본사에서 확인절차를 거친 후 승인됩니다. 신청정보가 불충분한 경우에 가입이 거절될 수 있습니다.</li>
+            <li>콜라서비스 정산은 유디아이디의 udtrust를 통해서 진행됩니다.</li>
+          </ul>
+        </div>
+      </div>-->
+      <div class="wrap-mem">
+        <div class="wrap-my">
+          <i></i>
+          <a href="../member/mypage.html">원조홍대무뼈닭발 구로점</a>
+        </div>
+        <button onclick="location.href='../index.html'" class="btn btn-log">로그아웃</button>
+      </div>
+      <!-- 서브 메뉴 -->
+      <ul role="local-navigation">
+        <li class="on">
+          <a href="./calendar.html">캘린더형</a>
+        </li>
+        <li>
+          <a href="./list.html">리스트형</a>
+        </li>
+      </ul>
+    </nav>
+    <!--template-->
+    <div class="contents payment-cal">
+      <section role="page-info" class="title-sec">
+        <h1>매출관리</h1>
+        <div class="breadcrumb">
+          <ul>
+            <li>홈</li>
+            <li class="this-page">매출관리</li>
+          </ul>
+        </div>
+      </section>
+      <section class="wrap-con">
+        <section class="total-figure">
+          <dl>
+            <dt>총 주문</dt>
+            <dd>675<span>건</span></dd>
+          </dl>
+          <dl>
+            <dt>총 매출</dt>
+            <dd>9,981,500<span>원</span></dd>
+          </dl>
+        </section>
+        <section class="wrap-cal">
+          <div class="p-right">
+            <!-- 상점 선택 -->
+            <el-select v-model="currStore" placeholder="상점을 선택하세요.">
+              <el-option
+                v-for="list in storeList"
+                :key="list.value"
+                :label="list.label"
+                :value="list.value">
+              </el-option>
+            </el-select>
+          </div>
+          <div id="calendar"></div>
+        </section>
+      </section>
+    </div>
+    <!--//template-->    
+    <footer class="footer">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="../member/clause1.html" target="_blank">이용약관</a>
+          </li>
+          <li class="txt-bold">
+            <a href="../member/clause2.html" target="_blank">개인정보처리방침</a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
+          </li>
+          <li class="li-bn">
+            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <h5 class="comp">(주)쏘다</h5>
+        <ul>
+          <li>대표 : 장신호</li>
+          <li>사업자 등록번호 : 277-81-01253</li>
+          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
+        </ul>
+        <ul>
+          <li>고객센터 : 1599-5681</li>
+          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
+        </ul>
+        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
+        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+new Vue({
+  el: '#app',
+  data: function() {
+    return {
+      /* 상점선택 */
+      storeList: [{
+        value: '원조홍대무뼈닭발 구로점',
+        label: '원조홍대무뼈닭발 구로점'
+      }, {
+        value: '미스타피자 가양점',
+        label: '미스타피자 가양점'
+      }],
+      currStore: ''
+    }
+  },
+  methods: {
+  }
+})
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      locale: 'kr',
+      plugins: [ 'interaction', 'dayGrid' ],
+      header: {
+        left: 'prev title next',
+        center: '',
+        right: ''
+      },
+    });
+
+    calendar.render();
+  });
+</script>
+</html>
