@@ -3092,12 +3092,13 @@ nav ul .on:hover a, nav ul .on a {
 }
 
 .btn-txt-del {
-  padding: 10px 0 10px 12px;
+  padding: 10px;
   color: #ec3939;
 }
 .btn-txt-del:before {
   content: "";
   font: 900 13px/1 "Line Awesome Free";
+  color: #ec3939;
 }
 
 .btn-collapse:before {
@@ -3608,7 +3609,7 @@ nav ul .on:hover a, nav ul .on a {
   border-spacing: 0;
   text-align: center;
 }
-.data-table table tr th, .data-table table tr td {
+.data-table table th, .data-table table td {
   padding: 10px;
   margin: 0;
   border: 1px solid #cdcdcd;
@@ -3619,15 +3620,11 @@ nav ul .on:hover a, nav ul .on a {
   word-break: keep-all;
   font-weight: 400;
 }
-.data-table table tr:hover td {
+.data-table table:hover td {
   cursor: pointer;
 }
-.data-table table tr:hover .td-blank {
+.data-table table:hover .td-blank {
   cursor: inherit;
-}
-.data-table table tr a {
-  color: inherit;
-  text-decoration: underline;
 }
 .data-table table th {
   color: #36384D;
@@ -3641,14 +3638,24 @@ nav ul .on:hover a, nav ul .on a {
 .data-table table .th-date {
   width: 120px;
 }
-.data-table table ul {
-  margin: 0 0 0 20px;
-}
 .data-table table td.right-cell {
   font-weight: 700;
 }
 .data-table table td.td-blank {
   height: 20vh;
+}
+.data-table table a {
+  color: inherit;
+  text-decoration: underline;
+}
+.data-table table .btn-txt-del {
+  text-decoration: none;
+}
+.data-table table ul {
+  margin: 0 0 0 20px;
+}
+.data-table table .el-switch {
+  display: inline-block;
 }
 .data-table table .discount {
   position: relative;

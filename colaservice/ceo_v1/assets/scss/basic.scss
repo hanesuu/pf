@@ -241,8 +241,8 @@ nav {
 }
 .btn-r-ico:before {display:inline-block; margin-right:2px; font:900 13px/1 'Line Awesome Free'}
 .btn-txt-del {
-    padding:10px 0 10px 12px; color:$point-c;
-    &:before {content:"\f00d"; font:900 13px/1 'Line Awesome Free'}
+    padding:10px; color:$point-c;
+    &:before {content:"\f00d"; font:900 13px/1 'Line Awesome Free'; color:$point-c}
 }
 .btn-collapse {
     &:before {content:"\f107"; @include transition(transform)}
@@ -443,24 +443,24 @@ nav {
     padding:0 20px 5px;
     table {
         width:100%; border-top:2px solid $darker-c; border-collapse:collapse; border-spacing:0; text-align:center;
-        tr {
-            th, td {
-                padding:10px; margin:0; border:1px solid $light-c; border-left:none; border-right:none;
-                vertical-align:middle; word-wrap: break-word; word-break: keep-all; font-weight:$fw-regular
-            }
-            &:hover td {cursor:pointer}
-            &:hover .td-blank {cursor:inherit}
-            a {color:inherit; text-decoration:underline}
+        th, td {
+            padding:10px; margin:0; border:1px solid $light-c; border-left:none; border-right:none;
+            vertical-align:middle; word-wrap: break-word; word-break: keep-all; font-weight:$fw-regular
         }
+        &:hover td {cursor:pointer}
+        &:hover .td-blank {cursor:inherit}
         th {color:$darken-c}
         td {color:$darker-c}
-        
+
         .th-num {width:60px}
         .th-date {width:120px}
-        
-        ul {margin:0 0 0 20px}
         td.right-cell {font-weight:$fw-bold}
         td.td-blank {height:20vh}
+        
+        a {color:inherit; text-decoration:underline}
+        .btn-txt-del {text-decoration:none}
+        ul {margin:0 0 0 20px}
+        .el-switch {display:inline-block}
         
         .discount {
             position:relative; top:-7px;

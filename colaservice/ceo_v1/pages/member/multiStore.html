@@ -10,6 +10,11 @@
   <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
   <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
   <!-- import CSS -->
   <link rel="stylesheet" href="../../assets/scss/basic.css">
 </head>
@@ -108,38 +113,7 @@
       </section>
     </div>
     <!--//template-->
-    <footer class="footer">
-      <div class="terms">
-        <ul>
-          <li>
-            <a href="../member/clause1.html" target="_blank">이용약관</a>
-          </li>
-          <li class="txt-bold">
-            <a href="../member/clause2.html" target="_blank">개인정보처리방침</a>
-          </li>
-          <li class="li-bn">
-            <a class="btn-bn cola" href="https://colaservice.com/s/windows/setup.exe" target="_blank">PC프로그램 다운받기<i class="el-icon-download"></i></a>
-          </li>
-          <li class="li-bn">
-            <a class="btn-bn cider" href="https://www.ciderpay.com/" target="_blank">사이다페이 바로가기<i class="el-icon-arrow-right"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="copyright">
-        <h5 class="comp">(주)쏘다</h5>
-        <ul>
-          <li>대표 : 장신호</li>
-          <li>사업자 등록번호 : 277-81-01253</li>
-          <li>통신판매업 신고번호 : 제 2019-서울구로-0331호</li>
-        </ul>
-        <ul>
-          <li>고객센터 : 1599-5681</li>
-          <li>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></li>
-        </ul>
-        <address>주소 : [08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</address>
-        <p>&copy; 2019 Ssoda Inc. All rights reserved.</p>
-      </div>
-    </footer>
+    <div id="footer"></div>
   </div>
 </div>
 </body>
