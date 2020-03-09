@@ -139,7 +139,7 @@
         }
         .el-collapse-item__content {padding-bottom:0}
         .con-list {
-            @include flexbox; @include align-items(center); min-height:90px; padding:10px 20px;
+            @include flexbox; @include align-items(center); min-height:90px; padding:10px 20px; word-break:break-all;
             &:not(:last-of-type) {border-bottom:1px solid $lighter-color}
             .thumb-pic {@include flex(0 0 70px); position:relative; width:70px; height:70px}
             .con {

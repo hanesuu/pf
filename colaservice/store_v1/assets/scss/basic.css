@@ -1388,6 +1388,7 @@ body .el-message-box .el-button--small.is-round {
   align-items: center;
   min-height: 90px;
   padding: 10px 20px;
+  word-break: break-all;
 }
 .wrap-con-main .list-menu-main .con-list:not(:last-of-type) {
   border-bottom: 1px solid #eee;
