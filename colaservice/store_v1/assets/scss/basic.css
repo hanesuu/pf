@@ -982,6 +982,7 @@ body .el-radio-group .el-radio-button {
 body .el-radio-group .el-radio-button__inner {
   display: block;
   font-weight: 400;
+  font-size: 1.2rem;
 }
 body .el-radio-group .el-radio-button:first-child .el-radio-button__inner {
   border-radius: 2px 0 0 2px;
@@ -1175,13 +1176,13 @@ body .el-message-box .el-button--small.is-round {
   border-radius: 2px;
   background-color: #fff;
   font-weight: 700;
-  color: #ec3939;
   -webkit-box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
   -moz-box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
   box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
 }
 .mystamp dl {
   font-size: 1.3rem;
+  color: #ec3939;
 }
 .mystamp dt {
   float: left;
@@ -1611,7 +1612,7 @@ body .el-message-box .el-button--small.is-round {
 }
 .wrap-review .list-review .wrap-reply {
   padding: 10px;
-  margin: 10px -10px 0 0;
+  margin: 10px 0 0;
   background-color: #eee;
   border-radius: 2px;
 }
@@ -2228,12 +2229,13 @@ body .el-message-box .el-button--small.is-round {
   border-bottom: 1px solid #e0e0e0;
 }
 .order-wrap .form-dl .tit {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-size: 1.2rem;
   line-height: 1;
+  color: #999;
 }
 .order-wrap .form-dl dd {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 .order-wrap .form-dl dd > *:not(:first-child) {
   margin-top: 5px;
@@ -2364,6 +2366,9 @@ body .el-message-box .el-button--small.is-round {
   line-height: 1;
   font-size: 1.2rem;
   color: #999;
+}
+.order-wrap.sale .inner.sale-point .tit p b {
+  color: #333;
 }
 .order-wrap.sale .inner.sale-point dd {
   -webkit-box-flex: 1;
@@ -2825,10 +2830,11 @@ body .el-message-box .el-button--small.is-round {
   max-width: 300px;
   margin: 0 auto;
   border: 2px solid #ec3939;
-  border-radius: 5px;
+  border-radius: 12px;
   -webkit-box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
   -moz-box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
   box-shadow: 0 2px 4px rgba(236, 57, 57, 0.3);
+  overflow: hidden;
 }
 .coupon .price {
   padding: 15px 15px 0;
@@ -3549,15 +3555,14 @@ textarea::placeholder {
 .input-txt,
 input[type=text],
 input[type=tel] {
-  height: 32px;
+  height: 36px;
   margin: 0;
   padding: 0 0 0 10px;
   background-color: #fff;
   border-radius: 2px;
-  border: solid 1px #eee;
-  font-size: 12px;
+  border: solid 1px #e0e0e0;
+  font-size: 1.2rem;
   color: #333;
-  line-height: 32px;
   vertical-align: top;
 }
 
@@ -3584,14 +3589,13 @@ input[type=tel] {
   border-right: 0;
 }
 .wrap-input .btn-input {
-  -webkit-box-flex: 0 1 90px;
-  -moz-box-flex: 0 1 90px;
-  -webkit-flex: 0 1 90px;
-  -ms-flex: 0 1 90px;
-  flex: 0 1 90px;
-  height: 32px;
+  -webkit-box-flex: 0 1 100px;
+  -moz-box-flex: 0 1 100px;
+  -webkit-flex: 0 1 100px;
+  -ms-flex: 0 1 100px;
+  flex: 0 1 100px;
+  height: 36px;
   padding: 0 10px;
-  line-height: 32px;
   background: #ec3939;
   color: #fff;
   border-radius: 0 2px 2px 0;
@@ -3760,7 +3764,7 @@ html {
   min-height: 100%;
   font-family: "Roboto", "NotoSansCJKkr", "Noto Sans Korean", "돋움", Dotum, "Apple SD Gothic Neo", sans-serif;
   font-weight: 350;
-  font-size: 10px;
+  font-size: 11px;
 }
 html body {
   height: 100%;

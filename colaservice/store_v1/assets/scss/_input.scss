@@ -13,16 +13,16 @@ textarea::placeholder {color:$light-color; font-weight:$fw-demiLight; opacity:1}
 .input-txt,
 input[type=text],
 input[type=tel] {
-    height:32px; margin:0; padding:0 0 0 10px;
-    background-color:$white-color; border-radius:2px; border:solid 1px $lighter-color;
-    font-size:12px; color:$darken-color; line-height:32px; vertical-align:top;
+    height:36px; margin:0; padding:0 0 0 10px;
+    background-color:$white-color; border-radius:2px; border:solid 1px $light-color;
+    font-size:1.2rem; color:$darken-color; vertical-align:top
 }
 
 /* 버튼이 붙어있는 인풋 */
 .wrap-input {
     @include flexbox;
     .input-txt {@include flex(2); border-radius:2px 0 0 2px; border-right:0}
-    .btn-input {@include flex(0 1 90px); height:32px; padding:0 10px; line-height:32px; background:$main-color; color:$white-color; border-radius:0 2px 2px 0}
+    .btn-input {@include flex(0 1 100px); height:36px; padding:0 10px; background:$main-color; color:$white-color; border-radius:0 2px 2px 0}
 }
 
 body {

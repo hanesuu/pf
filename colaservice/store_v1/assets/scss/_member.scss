@@ -61,7 +61,7 @@
     .list-coupon li {margin-bottom:15px}
 }
 .coupon {
-    position:relative; max-width:300px; margin:0 auto; border:2px solid $main-color; border-radius:5px; @include bxshadow-rd;
+    position:relative; max-width:300px; margin:0 auto; border:2px solid $main-color; border-radius:12px; @include bxshadow-rd; overflow:hidden;
     .price {
         padding:15px 15px 0;
         p {font-size:2.3rem; font-weight:$fw-bold}

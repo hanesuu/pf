@@ -8,9 +8,9 @@
         &:not(:last-of-type) {border-bottom:1px solid $light-color}
     }
     .form-dl {
-        .tit {margin-bottom:4px; font-size:1.2rem; line-height:1}
+        .tit {margin-bottom:6px; font-size:1.2rem; line-height:1; color:$dark-color}
         dd {
-            margin-bottom:10px;
+            margin-bottom:14px;
             & > *:not(:first-child) {margin-top:5px}
         }
         .input-txt {width:100%}
@@ -49,7 +49,10 @@
             .txt-r {margin-bottom:0; font-size:1.4rem; font-weight:$fw-medium; text-align:right; color:$darken-color; line-height:34px}
         }
         &.sale-point {
-            .tit p {line-height:1; font-size:1.2rem; color:$dark-color}
+            .tit p {
+                line-height:1; font-size:1.2rem; color:$dark-color;
+                b {color:$darken-color}
+            }
             dd {@include flex(1)}
             .inp-point {
                 @include flexbox; @include align-items(center);
