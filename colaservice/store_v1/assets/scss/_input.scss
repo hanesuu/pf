@@ -32,12 +32,12 @@ body {
     /* el-input Num */
     .input-num {display:inline-block; padding-right:10px; text-align:right}
     .el-input-number {
-        width:96px; line-height:inherit;
+        width:104px; line-height:inherit;
         .el-icon-minus,
         .el-icon-plus {color:$main-color}
         .el-icon-minus:before,
         .el-icon-plus:before {position:relative; top:-3px}
-        span[role="button"] {width:30px; height:30px; background:$white-color; line-height:38px}
+        span[role="button"] {width:34px; height:34px; background:$white-color; line-height:42px}
         .el-input-number__decrease {border-right:1px solid $main-color}
         .el-input-number__increase {border-left:1px solid $main-color}
         .el-input__inner {padding:0 5px; border:1px solid $main-color; font-weight:$fw-demiLight; line-height:1}

@@ -3618,7 +3618,7 @@ body .input-num {
   text-align: right;
 }
 body .el-input-number {
-  width: 96px;
+  width: 104px;
   line-height: inherit;
 }
 body .el-input-number .el-icon-minus,
@@ -3631,10 +3631,10 @@ body .el-input-number .el-icon-plus:before {
   top: -3px;
 }
 body .el-input-number span[role=button] {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   background: #fff;
-  line-height: 38px;
+  line-height: 42px;
 }
 body .el-input-number .el-input-number__decrease {
   border-right: 1px solid #ec3939;
@@ -3762,6 +3762,7 @@ html {
   position: relative;
   min-width: 320px;
   min-height: 100%;
+  word-break: keep-all;
   font-family: "Roboto", "NotoSansCJKkr", "Noto Sans Korean", "돋움", Dotum, "Apple SD Gothic Neo", sans-serif;
   font-weight: 350;
   font-size: 11px;

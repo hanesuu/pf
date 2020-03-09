@@ -17,7 +17,7 @@
 
 /* 공용 */
 html {
-    position:relative; min-width:320px; min-height:100%;
+    position:relative; min-width:320px; min-height:100%; word-break:keep-all;
     font: {
         family:'Roboto','NotoSansCJKkr','Noto Sans Korean',"돋움",Dotum,'Apple SD Gothic Neo',sans-serif;
         weight:$fw-demiLight;

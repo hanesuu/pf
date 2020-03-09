@@ -87,23 +87,30 @@
       <div class="order-wrap receipt">
         <div class="inner">
           <dl class="wrap-price">
-            <dt class="tit tit-lg">하프앤하프피자</dt>
+            <dt class="tit tit-lg">홈피자 세트 B</dt>
             <dd class="price">
-              <p>30,000</p>
+              <p>23,900</p>
               <span>원</span>
             </dd>
           </dl>
           <dl class="wrap-price">
-            <dt class="tit">+ 이탈리안 도우</dt>
+            <dt class="tit">+ 치즈 크러스트</dt>
             <dd class="price">
-              <p>+3,000</p>
+              <p>+1,900</p>
               <span>원</span>
             </dd>
           </dl>
           <dl class="wrap-price">
-            <dt class="tit">+ 치즈 추가</dt>
+            <dt class="tit">+ 고구마무스</dt>
             <dd class="price">
-              <p>+3,000</p>
+              <p>+900</p>
+              <span>원</span>
+            </dd>
+          </dl>
+          <dl class="wrap-price">
+            <dt class="tit">+ 비엔나 소시지 20개</dt>
+            <dd class="price">
+              <p>+3,900</p>
               <span>원</span>
             </dd>
           </dl>
@@ -118,11 +125,20 @@
             <dl class="wrap-price">
               <dt class="tit">합계</dt>
               <dd class="price">
-                <p>36,000</p>
+                <p>30,600</p>
                 <span>원</span>
               </dd>
             </dl>
           </div>
+        </div>
+        <div class="inner price-total">
+          <dl class="wrap-price">
+            <dt class="tit tit-lg">1+1 치즈크러스트 피자 L</dt>
+            <dd class="price">
+              <p>23,900</p>
+              <span>원</span>
+            </dd>
+          </dl>
         </div>
         <div class="inner price-total">
           <dl class="wrap-price">
@@ -133,62 +149,53 @@
             </dd>
           </dl>
         </div>
-        <div class="inner price-total">
-          <dl class="wrap-price">
-            <dt class="tit tit-lg">[스탬프] 스페셜 세트</dt>
-            <dd class="price">
-              <p>1</p>
-              <span>개</span>
-            </dd>
-          </dl>
-        </div>
       </div>
       <div class="order-wrap pay">
         <h2 class="tit-page">결제정보</h2>
         <dl class="wrap-price">
-          <dt class="tit">총 주문금액</dt>
-          <dd class="price">
-            <p>57,400</p>
-            <span>원</span>
-          </dd>
-        </dl>
-        <dl class="wrap-price discount">
-          <dt class="tit">기본할인</dt>
-          <dd class="price">
-            <p>-1,000</p>
-            <span>원</span>
-          </dd>
-        </dl>
-        <dl class="wrap-price discount">
-          <dt class="tit">메뉴할인</dt>
-          <dd class="price">
-            <p>-700</p>
-            <span>원</span>
-          </dd>
-        </dl>
-        <dl class="wrap-price discount">
-          <dt class="tit">포인트할인</dt>
-          <dd class="price">
-            <p>-800</p>
-            <span>원</span>
-          </dd>
-        </dl>
+        <dt class="tit">총 주문금액<a class="txt-s txt-link" @click="orderInfoModal = true">주문보기</a></dt>
+        <dd class="price">
+          <p>54,500</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">기본할인</dt>
+        <dd class="price">
+          <p>-1,000</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">메뉴할인</dt>
+        <dd class="price">
+          <p>-700</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price discount">
+        <dt class="tit">포인트할인</dt>
+        <dd class="price">
+          <p>-500</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <dl class="wrap-price">
+        <dt class="tit">배달비</dt>
+        <dd class="price">
+          <p>1,000</p>
+          <span>원</span>
+        </dd>
+      </dl>
+      <div class="price-total">
         <dl class="wrap-price">
-          <dt class="tit">배달비</dt>
+          <dt class="tit">최종 결제금액</dt>
           <dd class="price">
-            <p>1,000</p>
+            <p>53,300</p>
             <span>원</span>
           </dd>
         </dl>
-        <div class="price-total">
-          <dl class="wrap-price">
-            <dt class="tit">최종 결제금액</dt>
-            <dd class="price">
-              <p>29,100</p>
-              <span>원</span>
-            </dd>
-          </dl>
-        </div>
+      </div>
       </div>
       <div class="wrap-btn">
         <button class="btn btn-lg btn-gyline">주문취소</button>
