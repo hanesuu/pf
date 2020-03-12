@@ -77,6 +77,15 @@ $btn-radius: 2px;
           -ms-flex: $values;
               flex: $values;
 }
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
 // Flex Line Wrapping
 // - applies to: flex containers
 // nowrap | wrap | wrap-reverse

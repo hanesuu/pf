@@ -22,7 +22,10 @@ body .el-radio-group {
 	@include flexbox; width:100%;
 	.el-radio-button {
 		@include flex(1);
-		&__inner {display:block; font-weight:$fw-regular; font-size:1.2rem}
+		&__inner {
+			display:block; font-weight:$fw-regular; font-size:1.2rem;
+			&:hover {color:$main-color}
+		}
 		&:first-child .el-radio-button__inner {border-radius:2px 0 0 2px}
 		&__orig-radio:checked+.el-radio-button__inner {background-color:rgba($main-color,.1); border-color:$main-color; color:$main-color; box-shadow:-1px 0 0 0 $main-color}
 	}
