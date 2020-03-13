@@ -10,13 +10,14 @@ textarea::placeholder {color:$light-color; font-weight:$fw-demiLight; opacity:1}
 
 
 /* input 공용 스타일 */
+input {-webkit-appearance:none; -webkit-border-radius:2px}
+input:focus {outline:none}
 .input-txt,
 input[type=text],
 input[type=tel] {
     height:36px; margin:0; padding:0 0 0 10px;
     background-color:$white-color; border-radius:2px; border:solid 1px $light-color;
-    font-size:1.2rem; color:$darken-color; vertical-align:top; webkit-appearance:none;
-    &:focus {outline:none}
+    font-size:1.2rem; color:$darken-color; vertical-align:top
 }
 
 /* 버튼이 붙어있는 인풋 */
