@@ -10,7 +10,7 @@ textarea::placeholder {color:$light-color; font-weight:$fw-demiLight; opacity:1}
 
 
 /* input 공용 스타일 */
-input {-webkit-appearance:none; -webkit-border-radius:2px}
+input {-webkit-appearance:none; -webkit-border-radius:2px; box-shadow:none}
 input:focus {outline:none}
 .input-txt,
 input[type=text],
