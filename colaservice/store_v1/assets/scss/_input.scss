@@ -15,7 +15,7 @@ input[type=text],
 input[type=tel] {
     height:36px; margin:0; padding:0 0 0 10px;
     background-color:$white-color; border-radius:2px; border:solid 1px $light-color;
-    font-size:1.2rem; color:$darken-color; vertical-align:top;
+    font-size:1.2rem; color:$darken-color; vertical-align:top; webkit-appearance:none;
     &:focus {outline:none}
 }
 

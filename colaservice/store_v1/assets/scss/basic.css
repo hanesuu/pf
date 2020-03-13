@@ -3580,6 +3580,7 @@ input[type=tel] {
   font-size: 1.2rem;
   color: #333;
   vertical-align: top;
+  webkit-appearance: none;
 }
 .input-txt:focus,
 input[type=text]:focus,
@@ -3807,6 +3808,18 @@ body ol, body ul, body li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+body:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(51, 51, 51, 0.2);
 }
 body:after {
   content: "";
@@ -4156,6 +4169,7 @@ header h1 {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  cursor: pointer;
 }
 header button {
   position: absolute;
@@ -4409,7 +4423,6 @@ footer .el-collapse .el-collapse-item:last-child {
 /* 하단고정버튼 */
 .order-bottom {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
   max-width: 560px;
