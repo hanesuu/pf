@@ -67,12 +67,20 @@
 					<dd class="user">citypop82</dd>
 					<dt>신고내용</dt>
 					<dd class="list-radio">
-						<el-radio-group v-model="troubleText">
-							<el-radio :label="1">상업적 광고 및 부적절한 홍보</el-radio>
-							<el-radio :label="2">타인에 대한 욕설 및 인신공격</el-radio>
-							<el-radio :label="3">음란성/선정적 내용 또는 관련 링크</el-radio>
-							<el-radio :label="4">개인정보 유출 및 명예훼손</el-radio>
-						</el-radio-group>
+						<ul>
+							<li>
+								<el-radio v-model="troubleText" :label="1">상업적 광고 및 부적절한 홍보</el-radio>
+							</li>
+							<li>
+								<el-radio v-model="troubleText" :label="2">타인에 대한 욕설 및 인신공격</el-radio>
+							</li>
+							<li>
+								<el-radio v-model="troubleText" :label="3">음란성/선정적 내용 또는 관련 링크</el-radio>
+							</li>
+							<li>
+								<el-radio v-model="troubleText" :label="4">개인정보 유출 및 명예훼손</el-radio>
+							</li>
+						</ul>
 					</dd>
 				</dl>
 			</div>

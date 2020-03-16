@@ -39,7 +39,7 @@ body {
 
 *, *:before, *:after {margin:0; box-sizing:border-box}
 
-a,a:hover,a:active,a:visited {cursor:pointer; text-decoration:none; color:inherit}
+a,a:hover,a:active,a:visited {cursor:pointer; text-decoration:none}
 
 /* 공통 레이아웃 */
 .container {position:relative; max-width:560px; padding:0}
