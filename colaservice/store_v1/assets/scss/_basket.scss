@@ -11,8 +11,8 @@
     .pic {position:relative; width:110px; height:110px; margin:0 auto 10px}
     .name-info { 
         padding:0 20px; text-align:center;
-        .tit {display:inline-block; font-size:1.5rem; font-weight:$fw-bold; color:$darken-color}
-        .txt-sub {font-size:1.2rem; color:$dark-color}
+        .tit {display:inline-block; font-size:1.6rem; font-weight:$fw-bold; color:$darken-color; line-height:1.3}
+        .txt-sub {margin-top:4px; font-size:1.15rem; color:$dark-color}
     }
 }
 .basket-list {
