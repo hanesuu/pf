@@ -1720,7 +1720,7 @@ body .el-message-box .el-button--small.is-round {
 }
 .wrap-complain dl dd {
   padding-left: 60px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .wrap-complain dl dd:after {
   content: "";
@@ -1738,8 +1738,7 @@ body .el-message-box .el-button--small.is-round {
 .wrap-complain dl dd .el-radio {
   position: relative;
   width: 100%;
-  margin: 0 0 2px;
-  padding: 10px 0;
+  margin: 0 0 16px;
 }
 .wrap-complain dl dd .el-radio .el-radio__input {
   position: absolute;
@@ -1749,6 +1748,9 @@ body .el-message-box .el-button--small.is-round {
 }
 .wrap-complain dl dd .el-radio .el-radio__label {
   padding-left: 0;
+}
+.wrap-complain dl .list-radio ul {
+  padding-top: 3px;
 }
 
 /* 스탬프 */

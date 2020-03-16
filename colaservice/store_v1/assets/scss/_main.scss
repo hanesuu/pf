@@ -263,16 +263,17 @@
         display:block;
         dt {float:left; font-size:1.2rem}
         dd {
-            padding-left:60px; margin-bottom:15px;
+            padding-left:60px; margin-bottom:20px;
             &:after {content:''; display:block; clear:both}
             &.user {font-weight:$fw-bold; color:$darken-color; font-size:1.4rem}
             .el-radio-group {margin-top:-7px}
             .el-radio {
-                position:relative; width:100%; margin:0 0 2px; padding:10px 0;
+                position:relative; width:100%; margin:0 0 16px;
                 .el-radio__input {position:absolute; right:0; top:50%; transform:translateY(-50%)}
                 .el-radio__label {padding-left:0}
             }
         }
+        .list-radio ul {padding-top:3px}
     }
 }
 
