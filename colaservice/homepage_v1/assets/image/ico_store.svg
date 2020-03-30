@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="46px" viewBox="0 0 36 46" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>ico_store</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main" transform="translate(-535.000000, -2208.000000)">
+            <g id="section" transform="translate(0.000000, 1619.000000)">
+                <g id="bx" transform="translate(454.000000, 215.000000)">
+                    <g id="li" transform="translate(30.000000, 355.000000)">
+                        <g id="ico_store" transform="translate(46.000000, 19.000000)">
+                            <rect id="bound" x="0" y="0" width="46" height="46"></rect>
+                            <g id="Group-17" transform="translate(5.000000, 1.000000)">
+                                <path d="M28,31.4369941 L28,33.6824937 L28,40.6418111 C28,42.496964 26.6180629,44 24.9144442,44 L4.08555582,44 C2.38193707,44 1,42.496964 1,40.6418111 L1,3.35919493 C1,1.50404206 2.38193707,0 4.08555582,0 L24.9144442,0 C26.6180629,0 28,1.50404206 28,3.35919493 L28,11.7607034" id="Stroke-1" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <polyline id="Stroke-9" stroke="#111111" stroke-width="2" fill="#F7667D" stroke-linecap="round" stroke-linejoin="round" points="17 15 35 15 31.687212 25 19.164977 25"></polyline>
+                                <polyline id="Stroke-11" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="12 11 15.5832977 11 19 25"></polyline>
+                                <path d="M32,28.5004594 C32,29.3283308 31.3296602,30 30.4995409,30 C29.6721763,30 29,29.3283308 29,28.5004594 C29,27.6716692 29.6721763,27 30.4995409,27 C31.3296602,27 32,27.6716692 32,28.5004594" id="Fill-13" fill="#111111"></path>
+                                <path d="M22,28.5004594 C22,29.3283308 21.3278237,30 20.5004591,30 C19.6721763,30 19,29.3283308 19,28.5004594 C19,27.6716692 19.6721763,27 20.5004591,27 C21.3278237,27 22,27.6716692 22,28.5004594" id="Fill-15" fill="#111111"></path>
+                                <line x1="1" y1="39" x2="28" y2="39" id="Stroke-5" stroke="#111111" stroke-width="2" stroke-linejoin="round"></line>
+                                <line x1="1" y1="5" x2="28" y2="5" id="Stroke-3" stroke="#111111" stroke-width="2" stroke-linejoin="round"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

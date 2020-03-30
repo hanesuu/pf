@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="52px" height="45px" viewBox="0 0 52 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>ico_join2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="이용안내" transform="translate(-339.000000, -414.000000)">
+            <g id="wrap-step" transform="translate(216.000000, 370.000000)">
+                <g id="li" transform="translate(14.000000, 40.000000)">
+                    <g id="ico_join2" transform="translate(109.000000, 0.000000)">
+                        <rect id="bound" x="0" y="0" width="52" height="52"></rect>
+                        <g id="Group-11" transform="translate(1.000000, 5.000000)" stroke="#111111" stroke-width="2">
+                            <path d="M25,31 L25.6973053,31 C32.4906228,31 38,36.3734614 38,43" id="Stroke-1" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M0,43 C0,36.3734614 5.82212904,31 13,31" id="Stroke-3" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M25,26.9445924 L25,30 C25,31.7984411 18.8378378,36 18.8378378,36 C18.8378378,36 13,31.7984411 13,30 L13,27" id="Stroke-5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M30,16.707518 C30,22.9443872 25.0737582,28 18.9994982,28 C12.9202208,28 8,22.9443872 8,16.707518 L8,11.2883625 C8,5.05561277 12.9202208,0 18.9994982,0 C25.0737582,0 30,5.05561277 30,11.2883625 L30,16.707518 Z" id="Stroke-7" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M9,12.7264065 C9,12.7264065 15.3919649,12.7264065 19.0452397,7 C19.0452397,7 23.6110736,14 30,14" id="Stroke-9" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <circle id="Oval" fill="#F7667D" cx="42" cy="24" r="8"></circle>
+                            <line x1="37.4166667" y1="24.25" x2="46.5833333" y2="24.25" id="Line" stroke-linecap="round"></line>
+                            <line x1="37.6666667" y1="24" x2="46.8333333" y2="24" id="Line" stroke-linecap="round" transform="translate(42.250000, 24.000000) rotate(90.000000) translate(-42.250000, -24.000000) "></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

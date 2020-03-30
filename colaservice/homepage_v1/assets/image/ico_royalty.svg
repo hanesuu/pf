@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="46px" height="43px" viewBox="0 0 46 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>ico_royalty</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="main" transform="translate(-530.000000, -2314.000000)">
+            <g id="section" transform="translate(0.000000, 1619.000000)">
+                <g id="bx" transform="translate(454.000000, 215.000000)">
+                    <g id="li" transform="translate(30.000000, 459.000000)">
+                        <g id="ico_royalty" transform="translate(46.000000, 19.000000)">
+                            <rect id="bound" x="0" y="0" width="46" height="46"></rect>
+                            <g id="Group-21" transform="translate(1.000000, 3.000000)" stroke="#111111" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M33.5,20.5 L33.2854414,14 L25.0390571,14 L16.1215026,14 L4.71485647,14 L4.5,20.5 C4.5,20.5 3.47904227,23.4176971 1.92731637,26.7448802 C0.382894628,30.0511978 -0.345295712,39.8063176 5.91436006,41 C18.3968667,41 27.2587467,41 32.5,41" id="Stroke-1"></path>
+                                <path d="M1,14 L1,12.1807229 C1,10.9759036 1.91463333,10 3.04182229,10 L34.9589828,10 C36.0853667,10 37,10.9759036 37,12.1807229 L37,14" id="Stroke-3"></path>
+                                <path d="M25,2.99913941 C25,4.65662651 23.6570118,6 22,6 C20.3429882,6 19,4.65662651 19,2.99913941 C19,1.34251291 20.3429882,0 22,0 C23.6570118,0 25,1.34251291 25,2.99913941 Z" id="Stroke-5"></path>
+                                <path d="M19,2.99913941 C19,4.65662651 17.6568192,6 16.0012907,6 C14.3431808,6 13,4.65662651 13,2.99913941 C13,1.34251291 14.3431808,0 16.0012907,0 C17.6568192,0 19,1.34251291 19,2.99913941 Z" id="Stroke-7"></path>
+                                <path d="M44,31.0004206 C44,36.5218105 39.5226517,41 33.9987381,41 C28.4773483,41 24,36.5218105 24,31.0004206 C24,25.4781895 28.4773483,21 33.9987381,21 C39.5226517,21 44,25.4781895 44,31.0004206 Z" id="Stroke-15" fill="#F7667D"></path>
+                                <polyline id="Stroke-17" points="29 27 31.676227 35 34.352454 27.1341597 36.6055342 35 39 27.2712359"></polyline>
+                                <line x1="16" y1="6" x2="16" y2="10" id="Stroke-11"></line>
+                                <line x1="22" y1="6" x2="22" y2="10" id="Stroke-9"></line>
+                                <line x1="40" y1="31" x2="28" y2="31" id="Stroke-19"></line>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

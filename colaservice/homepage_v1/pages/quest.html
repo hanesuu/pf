@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>콜라서비스 : 소개</title>
+<meta name="keyword" content="콜라서비스, colaservice, 배달앱, 배달, 배달직거래">
+<meta name="description" content="콜라서비스 사이트입니다.">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+<link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+<link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+<link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../assets/js/style.js"></script>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <h1>콜라서비스</h1>
+    </a>
+    <nav class="gnb">
+      <ul>
+        <li>
+          <a href="index.html">콜라서비스</a>
+        </li>
+        <li>
+          <a href="info.html">이용안내</a>
+        </li>
+        <li>
+          <a href="sell.html">영업안내</a>
+        </li>
+        <li>
+          <a href="quest.html">서비스문의</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="wrap-gnb-btns">
+      <a href="https://www.ciderpay.com/" target="_blank" class="btn btn-cider">
+        <i class="ico-s cider"></i>
+        <span class="txt">사이다페이 바로가기</span>
+      </a>
+      <a href="/ud/colaservice/ceo_v1/pages/member/join.html" target="_blank" class="btn btn-join">
+        <i class="ico-s join"></i>
+        <span class="txt">회원가입</span>
+      </a>
+      <a href="/ud/colaservice/ceo_v1/pages/" target="_blank" class="btn btn-login">
+        <i class="ico-s login"></i>
+        <span class="txt">로그인</span>
+      </a>
+    </div>
+  </div>
+  <div class="m-gnb">
+    <a href="#" class="btn-m-gnb">
+      <i class="las la-bars"></i>
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html"><i class="las la-mobile"></i>콜라서비스</a>
+        </li>
+        <li>
+          <a href="info.html"><i class="las la-info-circle"></i>이용안내</a>
+        </li>
+        <li>
+          <a href="sell.html"><i class="las la-user-tie"></i>영업안내</a>
+        </li>
+        <li>
+          <a href="quest.html"><i class="las la-headphones"></i>서비스문의</a>
+        </li>
+        <li>
+          <a href="/ud/colaservice/ceo_v1/pages/member/join.html" target="_blank"><i class="las la-user-plus"></i>회원가입</a>
+        </li>
+        <li>
+          <a href="/ud/colaservice/ceo_v1/pages/" target="_blank"><i class="las la-sign-in-alt"></i>로그인</a>
+        </li>
+        <li>
+          <a href="https://www.ciderpay.com/" target="_blank">
+            <i class="ico-s cider"></i>
+            <span class="ccider">사이다페이 바로가기</span>
+          </a>
+        </li>
+      </ul>
+      <a href="#" class="btn-m-close">
+        <i class="las la-times"></i>
+      </a>
+    </nav>
+    <div class="bg-dim"></div>
+  </div>  
+</header>
+<!--body-->
+<div id="content" class="v-quest">
+  <div class="container">
+    <div class="tit-page">
+      <h2>서비스문의</h2>
+      <div class="location">
+        <span><a href="/h">Home</a></span><span><a>서비스문의</a></span>
+      </div>
+    </div>
+    <section class="sect-sub first">
+      <div class="tit1">
+        <h2><strong>콜라서비스</strong> 서비스문의</h2>
+      </div>
+      <form id="inputForm" method="post">
+        <p class="requiredDataInfo"><span class="requiredData">*</span> 표시는 필수 입력 값입니다.</p>
+        <div class="form-tbl">
+          <table>
+            <colgroup>
+              <col width="195">
+              <col width="*">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th>
+                  <label for="qnSelct">문의유형</label>
+                </th>
+                <td>
+                  <div class="inp-txt select">
+                    <select id="qnSelct" name="qnSelct">
+                      <option value="undefined">선택하세요.</option>
+                      <option value="ADOPT">도입관련 문의</option>
+                      <option value="API">API연동 문의</option>
+                      <option value="JOIN">가입문의</option>
+                      <option value="ETC">기타문의</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="memberName">업체명 <span class="requiredData">*</span></label>
+                </th>
+                <td>
+                  <input type="text" id="memberName" name="memberName" class="inp-txt whalf" placeholder="업체명을 입력하세요.">
+                </td>
+               </tr>
+               <tr>
+                <th>
+                  <label for="homepageAddr">홈페이지</label>
+                </th>
+                <td>
+                  <input type="text" id="homepageAddr" name="homepageAddr" class="inp-txt whalf" placeholder="홈페이지 주소를 입력하세요.">
+                </td>
+               </tr>
+               <tr>
+                <th>
+                  <label for="mobile">휴대폰 번호 <span class="requiredData">*</span></label>
+                </th>
+                <td>
+                  <input type="tel" id="mobile" name="mobile" class="inp-txt whalf" placeholder="- 없이 입력하세요.">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="email">이메일(ID)</label>
+                </th>
+                <td>
+                  <input type="email" id="email" name="email" class="inp-txt whalf" placeholder="이메일 주소를 입력하세요.">
+               </td>
+             </tr>
+             <tr>
+              <th>
+                <label for="txtContent">문의사항</label>
+              </th>
+              <td>
+                <textarea class="inp-txt" id="txtContent" name="txtContent" placeholder="문의사항을 입력하세요."></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="agreeInfo group">
+        <h3>개인정보 처리방침</h3>
+        <div class="txt-bx">
+          <dl>
+            <dt class="h1">제1조 (개인정보의 처리 목적)</dt>
+            <dd>
+              <p>주식회사 쏘다(이하 “회사”라 함)가 운영하는 “콜라서비스”는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</p>
+              <ol class="depth1">
+                <li>
+                  1. 홈페이지 회원가입 및 관리
+                  <p>회원 가입의사 확인, 회원자격 유지•관리, 서비스 부정이용 방지, 각종 고지•통지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.</p>
+                </li>
+                <li>2. 민원사무 처리
+                  <p>민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락•통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.</p>
+                </li>
+                <li>3. 재화 또는 서비스 제공
+                  <p>서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 요금결제•정산 등을 목적으로 개인정보를 처리합니다.</p>
+                </li>
+                <li>4. 마케팅 및 광고에의 활용
+                  <p>신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 인구통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인, 접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.</p>
+                </li>
+              </ol>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="h1">제2조 (개인정보의 항목 및 수집방법)</dt>
+            <dd>
+              <ol class="depth1">
+                <li>
+                  1. 개인정보 수집 항목
+                  <ol class="depth2">
+                    <li>1. 회사는 회원가입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
+                      <ul class="disc">
+                        <li>필수항목 : 상호명, 사업자등록번호, 휴대폰번호, 사업자구분, 업태/업종, 대표자성함, 아이디, 비밀번호, 판매자명, 이메일</li>
+                        <li>선택항목 : 홈페이지, 정산은행, 계좌번호, 예금주(정산시 별도 필요)</li>
+                      </ul>
+                    </li>
+                    <li>2. 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.
+                      <ul class="disc">
+                        <li>접속 IP 정보, 쿠키, 서비스 이용 기록, 접속기록</li>
+                      </ul>
+                    </li>
+                  </ol>
+                </li>
+                <li>2. 개인정보 수집방법
+                  <ol class="depth2">
+                    <li>① 회원가입 및 전화, 상담 게시판, 상담신청</li>
+                    <li>② 업무제휴 계약을 체결한 제휴사로부터 고객이 제시하는 개인정보 수집</li>
+                  </ol>
+                </li>
+              </ol>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="h1">제3조 (개인정보의 처리 및 보유 기간)</dt>
+            <dd>
+              <p>회사는 법령에 따른 개인정보 보유&middot;이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유•이용기간 내에서 개인정보를 처리&middot;보유합니다.</p>
+              <ol class="depth1">
+                <li>1. 홈페이지 회원가입 및 관리, 민원사무 처리, 재화 또는 서비스 제공, 마케팅 및 광고의 활용과 관련한 개인정보는 수집•이용에 관한 동의일로부터 지체 없이 파기까지 위 이용목적을 위하여 보유•이용됩니다.</li>
+                <li>2. 상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.<br> 이 경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.
+                  <ul class="disc">
+                    <li>계약 또는 청약철회 등에 관한 기록 보존 이유: 전자상거래 등에서의 소비자보호에 관한 법률<br> 보존 기간: 5년</li>
+                    <li>대금결제 및 재화 등의 공급에 관한 기록 보존 이유: 전자상거래 등에서의 소비자보호에 관한 법률<br>보존 기간: 5년</li>
+                    <li>전자금융 거래에 관한 기록 보존 이유: 전자금융거래법 <br>보존 기간: 5년</li>
+                    <li>세금계산서 발행에 관한 기록 보존 이유: 부가가치세법 <br>보존기간: 5년</li>
+                    <li>소비자의 불만 또는 분쟁처리에 관한 기록 보존 이유: 전자상거래 등에서의 소비자보호에 관한 법률<br> 보존 기간: 3년</li>
+                    <li>신용정보의 수집/처리 및 이용 등에 관한 기록 보존 이유: 신용정보의 이용 및 보호에 관한 법률 <br>보존기간: 3년</li>
+                  </ul>
+                </li>
+              </ol>
+            </dd>
+          </dl>
+        </div>
+        <div class="text-center">
+          <label for="contractCb" class="inp-check">
+            <span class="txt">약관에 동의합니다.</span>
+            <input id="contractCb" name="contractCb" type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="btnArea">
+          <a href="#" class="btn bred">문의하기</a>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+<!--//body-->
+<!--footer-->
+<footer class="footer">
+  <h2 class="sr-only">푸터 메뉴</h2>
+  <div class="wrap-footmenu">    <div class="container">
+      <div class="footmenu">
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="quest.html">제휴문의</a></li>
+          <li><a href="#">서비스이용약관</a></li>
+          <li><a href="#"><b>개인정보처리방침</b></a></li>
+          <li><a href="#">위치기반서비스 이용약관</a></li>
+        </ul>
+      </div>
+      <div class="select foot-selectbox">
+        <select onchange="window.open(this.value)">
+          <optgroup label="Family site">
+            <option value="http://payapp.kr/">페이앱</option>
+            <option value="http://blogpay.co.kr/">블로그페이</option>
+            <option value="https://zipsa.net/">집사</option>
+            <option value="https://www.bootpay.co.kr/">부트페이</option>
+            <option value="https://www.ciderpay.com">사이다페이</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="container clearfix">
+    <div class="foot-support">
+      <dl>
+        <dt>고객센터</dt>
+        <dd>
+          <a class="call" href="tel:1599-5681">1599-5681</a>
+        </dd>
+        <dd>
+          <small>평일 09:00~18:00 (주말, 공휴일은 휴무)</small>
+        </dd>
+      </dl>
+    </div>
+    <div class="foot-info">
+      <dl class="foot-txt">
+        <dt class="tit">서비스 제공</dt>
+        <dd class="addr">
+          <span>㈜쏘다</span>
+          <span>사업자등록번호 : 277-81-01253</span>
+          <span><a href="http://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2019316015930200306&pageUnit=10&searchCnd=bup_nm&searchKrwd=%EC%8F%98%EB%8B%A4&pageIndex=1" target="_blank">통신판매업신고번호 : 제 2019-서울구로-0331호</a></span>
+          <span>대표자 : 장신호</span>
+          <span>이메일 : <a href="mailto:ssoda@ssoda.co.kr">ssoda@ssoda.co.kr</a></span>
+        </dd>
+        <dd class="addr">
+          <span>서울특별시 구로구 디지털로 26길 61, 1801호(구로동, 에이스하이엔드타워2차)</span>
+        </dd>
+      </dl>
+      <dl class="foot-txt">
+        <dt class="tit">결제대행 및 정산</dt>
+        <dd class="addr">
+          <span>㈜유디아이디</span>
+          <span>사업자등록번호 : 113-86-56537</span>
+          <span><a href="http://www.ftc.go.kr/www/bizCommView.do?key=232&apv_perm_no=2012316015930200239&pageUnit=10&searchCnd=wrkr_no&searchKrwd=1138656537&pageIndex=1" target="_blank">통신판매업신고번호 : 제 2012-서울구로-0239호</a></span>
+          <span>대표자 : 김재인</span>
+          <span>이메일 : <a href="mailto:payapp@udid.co.kr">payapp@udid.co.kr</a></span>
+        </dd>
+        <dd class="addr">
+          <span>고객센터 : 1800-3772</span>
+          <span>서울특별시 구로구 디지털로26길 61, 1202호(구로동, 에이스하이엔드타워 2차) </span>
+        </dd>
+      </dl>
+      <div class="foot-tbl">
+        <dl>
+          <dt>PG</dt>
+          <dd>전자지급결제대행업 등록번호 02-004-00096</dd>
+        </dl>
+        <dl>
+          <dt>ESCROW</dt>
+          <dd>결제대금예치업 등록번호 02-006-00035</dd>
+        </dl>
+      </div>
+      <p class="txt-s">※ ㈜유디아이디는 결제대금예치업/결제대행업 8920890843 금감원에 등록된 결제대행업체입니다.</p>
+      <p class="txt-s">Copyright &copy; 2019 SSODA Company. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
