@@ -44,7 +44,7 @@
                 <h3 class="tit">즉시할인 적립금 설정</h3>
                 <el-switch v-model="pointUse" active-text="제공" inactive-text="제공안함"></el-switch><!--제공안함 선택 시 하위 input에 각 disabled 처리-->
               </div>
-              <div class="bx-con" v-if="pointUse = true">
+              <div class="bx-con" v-if="pointUse === true">
                 <div class="col-xs-12 col-sm-4">
                   <dl>
                     <dt>적립금 설정</dt>
