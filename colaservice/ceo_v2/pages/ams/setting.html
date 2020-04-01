@@ -48,7 +48,7 @@
                 </div>
                 <el-switch v-model="choiceSend" active-text="사용" inactive-text="사용안함"></el-switch>
               </div>
-              <div class="bx-con">
+              <div class="bx-con" v-if="choiceSend === true">
                 <div class="col-xs-12 col-sm-4">
                   <dl>
                     <dt><label for="multiStore">대표상점 식별정보 등록</label></dt>
@@ -64,7 +64,7 @@
                 <h3 class="tit">프린트 콜 설정</h3>
                 <el-switch v-model="printPlatform" active-text="사용" inactive-text="사용안함"></el-switch>
               </div>
-              <div class="bx-con">
+              <div class="bx-con" v-if="printPlatform === true">
                 <div class="col-xs-12 col-sm-2 col-md-4">
                   <dl>
                     <dt>프린트 콜 발송 시점</dt>
@@ -121,7 +121,7 @@
                 </div>
                 <el-switch v-model="remindPlatform" active-text="사용" inactive-text="사용안함"></el-switch>
               </div>
-              <div class="bx-con">
+              <div class="bx-con" v-if="remindPlatform === true">
                 <div class="col-xs-12 col-sm-4">
                   <dl>
                     <dt>리마인드 콜 동일번호 발송</dt>

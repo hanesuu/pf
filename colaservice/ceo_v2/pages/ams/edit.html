@@ -61,7 +61,7 @@
                       <div class="no-inp">
                         <el-switch v-model="phoneBenefit" active-text="제공" inactive-text="제공안함"></el-switch>
                       </div>
-                      <label class="dd-add">
+                      <label class="dd-add" v-if="phoneBenefit === true">
                         <span>적립금</span>
                         <div class="inp-price">
                           <input type="tel" placeholder="0" class="inp-txt num-txt" value="2,000">
@@ -77,7 +77,7 @@
                       <div class="no-inp">
                         <el-switch v-model="reorderBenefit" active-text="제공" inactive-text="제공안함"></el-switch>
                       </div>
-                      <label class="dd-add">
+                      <label class="dd-add" v-if="reorderBenefit === true">
                         <span>적립금</span>
                         <div class="inp-price">
                           <input type="tel" placeholder="0" class="inp-txt num-txt">

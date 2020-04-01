@@ -88,7 +88,7 @@ body .el-radio-group {
             @include media(768px) {width:100%}
             &:hover {color:$point}
         }
-        &__orig-radio:checked + span {color:$point; background-color:$lighten-rd; border-color:$point}    
+        &__orig-radio:checked + span {color:$point; background-color:$lighten-rd; border-color:$point; box-shadow:-1px 0 0 0 $point}    
     }
 
 }

@@ -2519,6 +2519,10 @@ body .td-blank p {
     margin: -1px 0 0;
   }
 }
+.vue-eventedit .send-list + dd .txt-s {
+  margin-top: 4px;
+  text-align: right;
+}
 .vue-eventedit .total-count span[class*=txt-] {
   vertical-align: bottom;
 }
@@ -3411,6 +3415,7 @@ body .el-radio-group .el-radio-button__orig-radio:checked + span {
   color: #ec3939;
   background-color: #fdebeb;
   border-color: #ec3939;
+  box-shadow: -1px 0 0 0 #ec3939;
 }
 
 /* tab-normal */
