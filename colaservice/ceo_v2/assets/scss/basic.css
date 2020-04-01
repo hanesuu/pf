@@ -1122,6 +1122,7 @@ table th[class*=col-] {
 @media all and (max-width: 768px) {
   .m-column {
     -webkit-flex-direction: column;
+    -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
@@ -1401,6 +1402,7 @@ table th[class*=col-] {
 }
 .wrap-formbox .column {
   -webkit-flex-direction: column;
+  -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
@@ -2332,10 +2334,11 @@ body .td-blank p {
     /* TWEENER - IE 10 */
     display: flex;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    padding: 15px 10px;
     -webkit-flex-direction: column;
+    -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    padding: 15px 10px;
   }
 }
 .search-filter > * {
@@ -2508,6 +2511,7 @@ body .td-blank p {
 @media all and (max-width: 768px) {
   .vue-eventedit .select-input .wrap-textarea {
     -webkit-flex-direction: column;
+    -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
@@ -2560,11 +2564,12 @@ body .td-blank p {
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 .vue-eventedit .test-list {
-  margin-top: 5px;
-  padding: 10px;
   -webkit-flex-direction: row;
+  -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  margin-top: 5px;
+  padding: 10px;
 }
 .vue-eventedit .test-list .wrap-list {
   height: auto;
@@ -2577,6 +2582,7 @@ body .td-blank p {
 @media all and (max-width: 768px) {
   .vue-eventedit .test-list {
     -webkit-flex-direction: column;
+    -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
@@ -2644,6 +2650,10 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 500px;
   padding: 15px 10px;
   background: #fef4c1;
@@ -2652,9 +2662,6 @@ body .td-blank p {
   border-bottom: 0;
   font-size: 1.2rem;
   overflow-y: auto;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 .vue-eventedit .sms-preview-body > * {
   margin-bottom: 10px;
@@ -2673,13 +2680,15 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 10px;
   background: #f3f5f7;
   border: 1px solid #ddd;
   border-radius: 0 0 20px 20px;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
 }
 .vue-eventedit .sms-preview-foot .txt-count {
   font-size: 1.1rem;
@@ -2728,10 +2737,11 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  background: rgba(236, 57, 57, 0.1);
   -webkit-flex-direction: column;
+  -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  background: rgba(236, 57, 57, 0.1);
 }
 .send-list .wrap-list {
   margin: 0;
@@ -3279,8 +3289,8 @@ body .wrap-date {
 .el-date-editor .el-input__icon {
   line-height: initial;
 }
-.el-date-editor .el-date-table td.today span {
-  color: #ec3939;
+.el-date-editor.el-range-editor.is-active, .el-date-editor.el-range-editor.is-active:hover {
+  border-color: #ec3939;
 }
 
 .date-as {
@@ -3305,6 +3315,14 @@ body .wrap-date {
 
 .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {
   width: 100%;
+}
+
+.el-date-table td.today span,
+.el-date-table td.available:hover {
+  color: #ec3939;
+}
+.el-date-table td.current:not(.disabled) span {
+  background-color: #ec3939;
 }
 
 /* button */
@@ -3684,7 +3702,7 @@ textarea.inp-txt.inp-xs, .inp-txt.inp-xs {
 
 input[disabled=disabled] {
   background-color: #f5f5f5;
-  color: #666;
+  color: #999;
 }
 
 /* 금액 input */
@@ -3968,7 +3986,7 @@ button[disabled=disabled]:hover, .btn-disable:hover {
   padding: 5px 0;
 }
 .header .top .container .row .el-select {
-  margin: 0 10px 0 167px;
+  margin: 0 5px 0 167px;
 }
 @media all and (max-width: 768px) {
   .header .top .container .row {
@@ -4227,6 +4245,7 @@ button[disabled=disabled]:hover, .btn-disable:hover {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   -webkit-flex-direction: column;
+  -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }

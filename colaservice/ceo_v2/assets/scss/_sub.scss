@@ -73,9 +73,7 @@
 /* mobile */
 @include media(768px) {	
 	.m-column {
-		@include prefix((
-				flex-direction:column
-			), webkit ms);
+		@include flex-direction(column);
 		.m-flex {
 			@include flexbox; margin:5px 0 0;
 			& > *:not(:first-child) {margin-left:5px}
@@ -145,11 +143,7 @@
 		}
 	}
 	.right {float:right}
-	.column {
-		@include prefix((
-				flex-direction:column
-			), webkit ms);
-	}
+	.column {@include flex-direction(column);}
 }
 
 /* 게시판 */
@@ -480,12 +474,7 @@ body .td-blank {
 }
 .search-filter {
 	@include flexbox; @include margin-padding(bottom,20px,all,15px); background:$white; box-shadow:0 2px 8px rgba($btn-dark,.1); text-align:center;font-size:0;
-	@include media(768px) {
-		@include flexbox; padding:15px 10px;
-		@include prefix((
-				flex-direction:column
-			), webkit ms);
-	}
+	@include media(768px) {@include flexbox; @include flex-direction(column); padding:15px 10px}
 	& > * {display:inline-block; vertical-align:top}
 	& > *:not(:first-child) {margin-left:5px}
 	.btngroup {
@@ -546,9 +535,7 @@ body .td-blank {
 		textarea {height:80px}
 		button {margin-left:5px}
 		@include media(768px) {
-			@include prefix((
-				flex-direction:column
-			), webkit ms);
+			@include flex-direction(column);
 			button {margin:-1px 0 0}
 		}
 	}
@@ -573,16 +560,11 @@ body .td-blank {
 	dd .txt-dark {display:inline-block; line-height:32px}
 	.m-column .m-flex {@include flexbox}
 	.test-list {
-		@include margin-padding(top,5px,all,10px);
-		@include prefix((
-				flex-direction:row
-			), webkit ms);
+		@include flex-direction(row); @include margin-padding(top,5px,all,10px);
 		.wrap-list {height:auto; max-height:200px; padding:2px 0}
 		.btn-primary {margin-bottom:auto}
 		@include media(768px) {
-			@include prefix((
-				flex-direction:column
-			), webkit ms);
+			@include flex-direction(column);
 			.btn-primary {margin-left:0}
 		}
 	}
@@ -601,18 +583,12 @@ body .td-blank {
 		&-wrap {border-radius:20px; box-shadow:0 0 3px rgba($darken,.2)}
 		&-head {background:$btn-basic; color:$white; text-align:center; @include fw-bd; font-size:1.3rem; line-height:44px; border-radius:20px 20px 0 0}
 		&-body {
-			@include flexbox; height:500px; padding:15px 10px; background:#fef4c1; border:1px solid $lighter; border-top:0; border-bottom:0; font-size:1.2rem; overflow-y:auto;
-			@include prefix((
-					flex-direction:column
-				), webkit ms);
+			@include flexbox; @include flex-direction(column); height:500px; padding:15px 10px; background:#fef4c1; border:1px solid $lighter; border-top:0; border-bottom:0; font-size:1.2rem; overflow-y:auto;
 			& > * {margin-bottom:10px}
 			textarea {height:280px}
 		}
 		&-foot {
-			@include flexbox; padding:10px; background:$lighten; border:1px solid $lighter; border-radius:0 0 20px 20px;
-			@include prefix((
-					align-items:center
-				), webkit ms);
+			@include flexbox; @include align-items(center); padding:10px; background:$lighten; border:1px solid $lighter; border-radius:0 0 20px 20px;
 			.txt-count {font-size:1.1rem; color:$dark;}
 			button {margin-left:auto}
 		}
@@ -626,10 +602,7 @@ body .td-blank {
 }
 /* 발송대상 추가한 영역 */
 .send-list {
-	@include flexbox; background:rgba($point,.1);
-	@include prefix((
-			flex-direction:column
-		), webkit ms);
+	@include flexbox; @include flex-direction(column); background:rgba($point,.1);
 	.wrap-list {
 		@include margin-padding(all,0,all,10px); font-size:0; background:transparent; overflow-y:auto;
 		li {

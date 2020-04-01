@@ -79,6 +79,15 @@ $warn-yl: #ffb83c;
           -ms-flex: $values;
               flex: $values;
 }
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
 // Axis Alignment
 // - applies to: flex containers
 // flex-start | flex-end | center | space-between | space-around 

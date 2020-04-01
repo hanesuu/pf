@@ -37,7 +37,9 @@ body .wrap-date {
     .el-range-input {font-size:1.3rem}
     .el-range-separator {padding:0 10px; line-height:1.8em}
     .el-input__icon {line-height:initial}
-    .el-date-table td.today span {color:$point}
+    &.el-range-editor.is-active,
+    &.el-range-editor.is-active:hover {border-color:$point}
+
 }
 .date-as {display:inline-block; margin:0 2px; text-align:center; vertical-align:top; line-height:32px; font-size:12px}
 .el-date-picker {
@@ -49,6 +51,11 @@ body .wrap-date {
     .el-time-panel__btn.confirm {color:$point}
 }
 .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {width:100%}
+.el-date-table {
+    td.today span,
+    td.available:hover {color:$point}
+    td.current:not(.disabled) span {background-color:$point}
+}
 
 /* button */
 .el-button:hover, .el-button:active {border-color:$point; color:$point}
