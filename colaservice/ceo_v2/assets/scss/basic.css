@@ -3565,6 +3565,9 @@ body .el-radio__inner {
   width: 20px;
   height: 20px;
 }
+body .el-radio__inner:hover {
+  border-color: #ec3939;
+}
 body .el-radio__label {
   padding-left: 5px;
   font-size: 1.3rem;

@@ -163,7 +163,10 @@ body .el-tabs--card.tab-lg {
 /* radio button */
 body .el-radio {
     vertical-align:top;
-    &__inner {width:20px; height:20px}
+    &__inner {
+        width:20px; height:20px;
+        &:hover {border-color:$point}
+    }
     &__label {padding-left:5px; font-size:1.3rem; @include fw-rg; line-height:32px; color:$darken}
     &__input.is-checked .el-radio__inner {
         background:$white; border-color:$point;
