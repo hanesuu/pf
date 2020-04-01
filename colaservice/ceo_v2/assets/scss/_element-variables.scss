@@ -54,7 +54,9 @@ body .wrap-date {
 .el-date-table {
     td.today span,
     td.available:hover {color:$point}
-    td.current:not(.disabled) span {background-color:$point}
+    td.current:not(.disabled) span,
+    td.end-date span,
+    td.start-date span {background-color:$point}
 }
 
 /* button */

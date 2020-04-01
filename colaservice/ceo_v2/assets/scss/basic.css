@@ -3321,7 +3321,9 @@ body .wrap-date {
 .el-date-table td.available:hover {
   color: #ec3939;
 }
-.el-date-table td.current:not(.disabled) span {
+.el-date-table td.current:not(.disabled) span,
+.el-date-table td.end-date span,
+.el-date-table td.start-date span {
   background-color: #ec3939;
 }
 
