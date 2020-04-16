@@ -53,7 +53,7 @@ input::-ms-clear, input::-ms-reveal {display:none}
 :-moz-placeholder {color:var(--light-c); font-weight:300}
 input, textarea {-webkit-appearance:none}
 input[type="text"], input[type="tel"], input[type="email"], .inp-txt, select {
-  min-height:40px; padding:0 10px; border:1px solid transparent; border-radius:3px;
+  min-height:40px; padding:0 10px; border:1px solid var(--light-e); border-radius:3px;
   font-size:1rem; line-height:40px; background-color:var(--light-f); transition:border-color .2s ease, box-shadow .2s ease
 }
 input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .inp-txt:focus, select:focus {border-color:var(--point-c); box-shadow:0 0 0 3px rgba(236,57,57,.2); outline:none}
@@ -108,7 +108,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .i
 .btnLink, .btnLink:active, .btnLink:focus, .btnLink:hover {text-decoration:underline}
 
 .btnArea {margin-top:2.8rem; text-align:center}
-.btnArea .btn {display:inline-block; margin:0.4rem; padding:1.28rem 2rem; border-radius:3px; font-size:1.28rem; background-color:var(--white-c); border-color:var(--light-e)}
+.btnArea .btn {display:inline-block; min-width:180px; margin:0.4rem; padding:1.28rem 2rem; border-radius:3px; font-size:1.28rem; background-color:var(--white-c); border-color:var(--light-e)}
 
 /* button background & color */
 .btn.lred {background:var(--white-c); border-color:var(--point-c); color:var(--point-c)}
@@ -206,9 +206,8 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .i
 .footmenu li a b {font-weight:700}
 
 /* familysite-selectbox */
-.foot-selectbox {position:relative; float:right; width:18vw; min-height:36px; background:var(--dark5); border-radius:4px}
-.foot-selectbox:after {content:"\f107"; position:absolute; right:10px; top:12px; font:900 12px/1 'Line Awesome Free'; color:var(--white-c)}
-.foot-selectbox select {width:100%; -webkit-appearance:none; background:transparent; color:var(--white-c)}
+.foot-selectbox {float:right; width:18vw; min-height:36px; background:var(--dark5); border-radius:4px}
+.foot-selectbox select {background:transparent; color:var(--white-c)}
 .foot-selectbox select:focus {border-color:#000; box-shadow:0 0 0 3px rgba(0,0,0,.2)}
 
 /* 정보 */
@@ -235,7 +234,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .i
     .footmenu {display:block; text-align:center}
     .footmenu li {font-size:0.85rem}
     .footmenu li:not(:first-child):before {margin:0 1.2vw}
-    .foot-selectbox {position:relative; float:none; width:100%; margin-top:10px}
+    .foot-selectbox {float:none; width:100%; margin-top:10px}
     .foot-support, .foot-support, .foot-info, .foot-info .foot-txt .tit {float:none; width:auto}
     .foot-info .foot-txt dd {padding-left:0}
     .foot-info .foot-tbl {display:block}
