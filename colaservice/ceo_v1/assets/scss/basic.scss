@@ -505,6 +505,64 @@ nav {
     }
 }
 
+/* 설정 기본 table */
+.table-basic {
+    position:relative; width:100%; margin-bottom:50px;
+    &:last-of-type {margin-bottom:10px}
+    th {
+        position:relative; padding:10px 0; color:$darken-c; text-align:left;
+        font: {
+            weight:$fw-medium; size:13px
+        }
+        border: {
+            top:2px solid $darker-c; bottom:1px solid $lighter-c
+        }
+        
+        .el-switch {position:absolute; top:2px; right:0}
+    }
+    input[type=text], .input-txt {@include flex(1); width:100%; vertical-align:top}
+    input + button {margin-left:5px}
+    td {
+        padding:10px 5px; vertical-align:top;
+        &:last-child {padding-right:0}
+        &.col1-empty dl {width:50%}
+        .d-inline {display:inline-block; width:auto; margin-right:5px; vertical-align:middle}
+    }
+    dl {
+        width:100%;
+        dt label {
+            position:relative; display:inline-block; margin-bottom:5px;
+            font-weight:$fw-demiLight; color:$dark-c; vertical-align:middle;
+            .check-plz {color:$point-c}
+        }
+        dd {@include flexbox; min-height:32px; line-height:32px; color:$darken-c}
+    }
+    .el-select {
+        width:100%; padding-right:10px;
+        &:last-of-type {padding-right:0}
+    }
+    .eltype {
+        display: inline-block; vertical-align:middle;
+        & > input {width:auto}
+        .span-txt {display: inline-block; margin: 0 10px 0 3px; vertical-align:middle}
+    }
+}
+
+/* 설정 기본 title */
+.table-title {
+    height:auto; margin:0 20px 20px;
+    .title {
+        position:relative; padding:10px 0; color:$darken-c;
+        font: {
+            weight:$fw-medium; size:13px
+        }
+        border: {
+            top:2px solid $darker-c; bottom:1px solid $lighter-c
+        }
+    }
+    .el-switch {position:absolute; top:8px; right:0}
+}
+
 /* 목록 썸네일, 이미지 등록 썸네일 공통 */
 .list-thumb {
     position:relative; border:1px solid $lighter-c; background:$lighten-c; text-align:center; overflow:hidden;

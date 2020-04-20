@@ -308,6 +308,9 @@ textarea.input-txt {
   font-size: 1.4rem;
   font-weight: 700;
 }
+.login-wrap .center-center .login-idpw input:focus {
+  z-index: 3;
+}
 @media all and (max-width: 768px) {
   .login-wrap .center-center .login-idpw input {
     height: 42px;
@@ -3732,6 +3735,127 @@ nav ul .on:hover a, nav ul .on a {
 }
 .board-detail .data-table .bd-answer .bd-writer .txt-date {
   margin-left: 10px;
+}
+
+/* 설정 기본 table */
+.table-basic {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.table-basic:last-of-type {
+  margin-bottom: 10px;
+}
+.table-basic th {
+  position: relative;
+  padding: 10px 0;
+  color: #36384D;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+  border-top: 2px solid #6E6E7A;
+  border-bottom: 1px solid #E4E7ED;
+}
+.table-basic th .el-switch {
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+.table-basic input[type=text], .table-basic .input-txt {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  vertical-align: top;
+}
+.table-basic input + button {
+  margin-left: 5px;
+}
+.table-basic td {
+  padding: 10px 5px;
+  vertical-align: top;
+}
+.table-basic td:last-child {
+  padding-right: 0;
+}
+.table-basic td.col1-empty dl {
+  width: 50%;
+}
+.table-basic td .d-inline {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.table-basic dl {
+  width: 100%;
+}
+.table-basic dl dt label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 300;
+  color: #999;
+  vertical-align: middle;
+}
+.table-basic dl dt label .check-plz {
+  color: #ec3939;
+}
+.table-basic dl dd {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  min-height: 32px;
+  line-height: 32px;
+  color: #36384D;
+}
+.table-basic .el-select {
+  width: 100%;
+  padding-right: 10px;
+}
+.table-basic .el-select:last-of-type {
+  padding-right: 0;
+}
+.table-basic .eltype {
+  display: inline-block;
+  vertical-align: middle;
+}
+.table-basic .eltype > input {
+  width: auto;
+}
+.table-basic .eltype .span-txt {
+  display: inline-block;
+  margin: 0 10px 0 3px;
+  vertical-align: middle;
+}
+
+/* 설정 기본 title */
+.table-title {
+  height: auto;
+  margin: 0 20px 20px;
+}
+.table-title .title {
+  position: relative;
+  padding: 10px 0;
+  color: #36384D;
+  font-weight: 500;
+  font-size: 13px;
+  border-top: 2px solid #6E6E7A;
+  border-bottom: 1px solid #E4E7ED;
+}
+.table-title .el-switch {
+  position: absolute;
+  top: 8px;
+  right: 0;
 }
 
 /* 목록 썸네일, 이미지 등록 썸네일 공통 */

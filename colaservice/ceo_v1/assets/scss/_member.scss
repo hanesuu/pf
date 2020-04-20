@@ -25,6 +25,7 @@
                 font: {
                     size:1.4rem; weight:$fw-bold
                 }
+                &:focus {z-index:3}
                 @include media(768px) {height:42px; line-height:42px}
                 &:nth-child(2) {position:relative; top:-1px}
             }

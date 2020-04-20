@@ -106,14 +106,16 @@
                 </dd>
               </dl>
             </div>
-            <div class="col-xs-6 col-sm-4">
+            <div class="col-xs-6">
               <dl>
                 <dt>
                   <label for="salePriceInfo">할인 기준 금액</label>
                 </dt>
                 <dd>
-                  <el-radio v-model="salePriceInfo" label="MIN_PRICE">주문 최소 금액과 동일</el-radio>
-                  <el-radio v-model="salePriceInfo" label="DIRECT">별도 설정</el-radio>
+                  <div class="no-inp">
+                    <el-radio v-model="salePriceInfo" label="MIN_PRICE">주문 최소 금액과 동일</el-radio>
+                    <el-radio v-model="salePriceInfo" label="DIRECT">별도 설정</el-radio>
+                  </div>
                   <input v-if="salePriceInfo == 'DIRECT'" type="text" class="input-txt num-txt d-inline" placeholder="0">
                 </dd>
               </dl>
