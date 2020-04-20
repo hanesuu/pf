@@ -7,8 +7,8 @@
     position:fixed; top:0; left:0; right:0; z-index:9000;
     width:100%; height:6rem; text-align:center; background:#fff
 }
-.header h1 {padding:2rem 0; font-size:2rem; font-weight:300; color:var(--darken); line-height:1}
-.header h1 .logo {margin-right:4px; font-weight:900}
+.header h1 {padding:1.4rem 0; font-size:2rem; font-weight:300; color:var(--darken); line-height:1}
+.header h1 .logo {display:inline-block; width:88px; height:32px; margin-right:1rem; font-size:0; text-indent:-9999px; background:url('../../../common/img/logo_txt@2x.png') no-repeat 0 50% / 100%; vertical-align:middle}
 
 /* layout */
 .container-body {position:relative; margin-top:6rem; padding:5rem 0}
