@@ -1912,197 +1912,198 @@ body .el-dialog .vue-daum-postcode-container {
 }
 
 /* 주문정보(매출관리,회원관리) */
-.pop-receipt {
+body .pop-receipt {
   /* 주문품목(blue) */
 }
-.pop-receipt .el-dialog {
+body .pop-receipt .el-dialog {
   width: 410px;
   min-width: auto;
   border: 0;
   border-radius: 5px;
   overflow: hidden;
 }
-.pop-receipt .el-dialog__header {
+body .pop-receipt .el-dialog__header {
   background-color: #ec3939;
 }
-.pop-receipt .el-dialog__header .pop-title {
+body .pop-receipt .el-dialog__header .pop-title {
   color: #fff;
   border-bottom: 0;
 }
-.pop-receipt .el-dialog__header .el-dialog__close {
+body .pop-receipt .el-dialog__header .el-dialog__close {
   color: #fff;
 }
-.pop-receipt .el-dialog__headerbtn:hover i, .pop-receipt .el-dialog__headerbtn:active i {
+body .pop-receipt .el-dialog__headerbtn:hover i, body .pop-receipt .el-dialog__headerbtn:active i {
   color: #fff;
 }
-.pop-receipt .el-dialog__body {
+body .pop-receipt .el-dialog__body {
   background-color: #f6f7f9;
   color: #36384D;
 }
-.pop-receipt .el-dialog__body .td {
+body .pop-receipt .el-dialog__body .td {
   display: inline-block;
   vertical-align: middle;
 }
-.pop-receipt .el-dialog__body .td:nth-of-type(1) {
+body .pop-receipt .el-dialog__body .td:nth-of-type(1) {
   width: 70%;
 }
-.pop-receipt .el-dialog__body .td:nth-of-type(2) {
+body .pop-receipt .el-dialog__body .td:nth-of-type(2) {
   width: 30%;
   text-align: right;
   font-size: 14px;
 }
-.pop-receipt .el-dialog__body span {
+body .pop-receipt .el-dialog__body span {
   display: inline-block;
   font-weight: 300;
   font-size: 12px;
 }
-.pop-receipt .el-dialog__body .txt-detail {
+body .pop-receipt .el-dialog__body .txt-detail {
   font-size: 13px;
 }
-.pop-receipt .el-dialog__body .txt-detail:before {
+body .pop-receipt .el-dialog__body .txt-detail:before {
   content: "-";
   display: inline-block;
   margin: 0 3px;
 }
-.pop-receipt .info-basic {
+body .pop-receipt .info-basic {
   position: relative;
   padding: 20px;
   margin-bottom: 10px;
   background-color: #fff;
 }
-.pop-receipt .info-basic .order-info-dl {
+body .pop-receipt .info-basic .order-info-dl {
   display: table;
   width: 100%;
 }
-.pop-receipt .info-basic .order-info-dl:first-of-type dt, .pop-receipt .info-basic .order-info-dl:first-of-type dd {
+body .pop-receipt .info-basic .order-info-dl:first-of-type dt, body .pop-receipt .info-basic .order-info-dl:first-of-type dd {
   padding-top: 0;
 }
-.pop-receipt .info-basic .order-info-dl:last-of-type dt, .pop-receipt .info-basic .order-info-dl:last-of-type dd {
+body .pop-receipt .info-basic .order-info-dl:last-of-type dt, body .pop-receipt .info-basic .order-info-dl:last-of-type dd {
   padding-bottom: 0;
 }
-.pop-receipt .info-basic .order-info-dl dt, .pop-receipt .info-basic .order-info-dl dd {
+body .pop-receipt .info-basic .order-info-dl dt, body .pop-receipt .info-basic .order-info-dl dd {
   display: table-cell;
   padding: 6px 0;
   vertical-align: top;
   font-weight: 400;
   line-height: 1.3;
 }
-.pop-receipt .info-basic .order-info-dl dt {
+body .pop-receipt .info-basic .order-info-dl dt {
   width: 25%;
   color: #999;
 }
-.pop-receipt .info-basic .order-info-dl dd {
+body .pop-receipt .info-basic .order-info-dl dd {
   width: 75%;
 }
-.pop-receipt .info-basic button {
+body .pop-receipt .info-basic button {
   position: absolute;
   right: 20px;
   top: 20px;
 }
-.pop-receipt .wrap-receipt {
+body .pop-receipt .wrap-receipt {
   margin-bottom: 10px;
   color: #007ccd;
   background-color: #fff;
 }
-.pop-receipt .order-wrap {
+body .pop-receipt .order-wrap {
   padding: 20px;
   border-bottom: 1px solid #007ccd;
 }
-.pop-receipt .order-wrap:last-child {
+body .pop-receipt .order-wrap:last-child {
   border-bottom: 0;
 }
-.pop-receipt .order-wrap dl {
+body .pop-receipt .order-wrap dl {
   position: relative;
   display: block;
   min-height: 18px;
   margin-bottom: 8px;
 }
-.pop-receipt .order-wrap dl:last-of-type {
+body .pop-receipt .order-wrap dl:last-of-type {
   margin-bottom: 0;
 }
-.pop-receipt .order-wrap .product-name {
+body .pop-receipt .order-wrap .product-name {
   padding-right: 20%;
   font-size: 15px;
   font-weight: 500;
   line-height: 1.3em;
 }
-.pop-receipt .order-wrap .order-product {
+body .pop-receipt .order-wrap .order-product {
   position: relative;
+}
+body .pop-receipt .order-wrap .order-product:not(:last-of-type) {
   margin-bottom: 8px;
 }
-.pop-receipt .order-wrap .price-r {
+body .pop-receipt .order-wrap .price-r {
   position: absolute;
   right: 0;
   top: 50%;
-  width: 20%;
   text-align: right;
   transform: translateY(-50%);
 }
-.pop-receipt .order-wrap .price-r p {
+body .pop-receipt .order-wrap .price-r p {
   display: inline;
   font-size: 14px;
 }
-.pop-receipt .order-wrap .price-r p.line-through {
+body .pop-receipt .order-wrap .price-r p.line-through {
   margin-right: 3px;
   font-size: 11px;
   text-decoration: line-through;
   opacity: 0.6;
 }
-.pop-receipt .order-wrap .price-r span {
+body .pop-receipt .order-wrap .price-r span {
   font-size: 10px;
   margin-left: 1px;
   opacity: 0.8;
 }
-.pop-receipt .order-wrap .total-info {
+body .pop-receipt .order-wrap .total-info {
   padding: 15px 0 0;
   margin-top: 15px;
   border: 0;
   border-top: 1px dashed rgba(0, 124, 205, 0.5);
   /* 서비스품목 */
 }
-.pop-receipt .order-wrap .total-info .price-r p {
+body .pop-receipt .order-wrap .total-info .price-r p {
   font-size: 16px;
   font-weight: 700;
 }
-.pop-receipt .order-wrap .total-info.service {
+body .pop-receipt .order-wrap .total-info.service {
   padding: 0;
   margin: 0;
   border: 0;
 }
-.pop-receipt .info-pay {
+body .pop-receipt .info-pay {
   background-color: #fff;
 }
-.pop-receipt .info-pay .title-address h2 {
+body .pop-receipt .info-pay .title-address h2 {
   margin: 0;
   font-size: 15px;
   color: #36384D;
   font-weight: 500;
 }
-.pop-receipt .info-pay .form-pay-mobile {
+body .pop-receipt .info-pay .form-pay-mobile {
   padding: 18px 0;
   border-bottom: 1px dashed #cdcdcd;
   line-height: 1;
   /* 최종결제금액 */
 }
-.pop-receipt .info-pay .form-pay-mobile:last-of-type {
+body .pop-receipt .info-pay .form-pay-mobile:last-of-type {
   border-bottom: 0;
 }
-.pop-receipt .info-pay .form-pay-mobile dl.txt-rd, .pop-receipt .info-pay .form-pay-mobile dl.txt-rd .price-r * {
+body .pop-receipt .info-pay .form-pay-mobile dl.txt-rd, body .pop-receipt .info-pay .form-pay-mobile dl.txt-rd .price-r * {
   color: #ec3939;
 }
-.pop-receipt .info-pay .form-pay-mobile dl dt {
+body .pop-receipt .info-pay .form-pay-mobile dl dt {
   line-height: 1.4em;
 }
-.pop-receipt .info-pay .form-pay-mobile .price-r p {
+body .pop-receipt .info-pay .form-pay-mobile .price-r p {
   font-weight: 500;
 }
-.pop-receipt .info-pay .form-pay-mobile .total-price {
+body .pop-receipt .info-pay .form-pay-mobile .total-price {
   font-size: 13px;
 }
-.pop-receipt .info-pay .form-pay-mobile .total-price .price-r {
+body .pop-receipt .info-pay .form-pay-mobile .total-price .price-r {
   width: auto;
 }
-.pop-receipt .info-pay .form-pay-mobile .total-price .price-r p {
+body .pop-receipt .info-pay .form-pay-mobile .total-price .price-r p {
   font-size: 23px;
   font-weight: 700;
 }
