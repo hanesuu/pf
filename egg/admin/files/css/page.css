@@ -1,0 +1,187 @@
+@charset "utf-8";
+/*---------- COMMON ----------*/
+
+
+/* header */
+.page-header-fixed {position:fixed; top:0; left:0; right:0; width:100%; height:50px; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.2); z-index:1000}
+.header .page-logo {float:left; width:235px; height:50px}
+.header .page-logo .logo {float:left; width:88px; height:50px; margin-left:2rem; font-size:0; text-indent:-9999px; background:url('../../../common/img/logo_txt@2x.png') no-repeat 0 50% / 100%}
+.header .btn-menu-toggle {float:right; height:50px; padding:14px; opacity:.5; transition:opacity .2s}
+.header .btn-menu-toggle:hover {opacity:1}
+.header .btn-menu-toggle span {position:relative}
+.header .btn-menu-toggle span,
+.header .btn-menu-toggle span:before,
+.header .btn-menu-toggle span:after {content:''; display:block; width:24px; height:2px; background:var(--dark)}
+.header .btn-menu-toggle span:before {position:absolute; top:8px; left:0}
+.header .btn-menu-toggle span:after {position:absolute; top:-8px; left:0}
+.header .btn-logout {float:right; padding:6px 2rem; font-size:2.6rem; color:var(--darken); opacity:.6; transition:opacity .2s}
+.header .btn-logout:hover {opacity:1}
+/* 줄었을때 */
+.header .page-logo.less {width:auto}
+.header .page-logo.less .logo {display:none}
+.header .page-logo.less + .page-breadcrumb {margin-left:3rem}
+@media all and (max-width:768px) {
+	.header .page-logo {width:auto}
+}
+
+/* breadcrumb */
+.page-breadcrumb {display:inline-block; margin:0 20px}
+.page-breadcrumb ul {display:table; height:50px}
+.page-breadcrumb li {display:table-cell; vertical-align:middle}
+.page-breadcrumb li a {font-size:1.6rem; color:var(--point)}
+
+/* gnb */
+nav.gnb {position:fixed; left:0; top:50px; width:235px; height:calc(100% - 50px); padding-top:3rem; background:#28293F; z-index:1000; transition:width .2s ease}
+nav.gnb .nav-item {position:relative; min-height:42px; opacity:.6}
+nav.gnb .nav-item:hover, nav.gnb .nav-item.active, nav.gnb .nav-item.open {opacity:1}
+nav.gnb > ul > li.active > a, nav.gnb > ul > li.open > a {background:rgba(0,0,0,.2)}
+nav.gnb > ul > li.active i, nav.gnb > ul > li.open i {color:var(--point)}
+nav.gnb li a {display:block; padding:10px 15px; font-size:1.4rem; color:#fff}
+nav.gnb li a i {display:inline-block; margin-right:5px; font-size:2.2rem; vertical-align:text-top}
+nav.gnb li a .arrow {float:right}
+nav.gnb li a .arrow:before {content:"\f104"; font:900 1.4rem/1.4 'Line Awesome Free'; transition:transform .2s}
+nav.gnb li.open a .arrow {transform:rotate(-90deg)}
+nav.gnb .sub-menu {padding:.5rem 0 1.5rem; background:rgba(0,0,0,.2)}
+nav.gnb .sub-menu li a {padding:8px 15px 8px 43px; font-size:1.3rem; line-height:1; vertical-align:middle}
+nav.gnb .sub-menu li a:before {content:''; display:inline-block; width:5px; height:5px; margin-right:10px; border-radius:100%; vertical-align:middle; background:var(--dark)}
+nav.gnb .sub-menu li a:hover:before, nav.gnb .sub-menu li.active a:before {background:var(--point)}
+nav.gnb .heading {margin-top:2rem; padding:8px 15px}
+nav.gnb .heading h3 {color:#fff; font-size:1.1rem; font-weight:400; opacity:.5}
+/* 줄었을때 */
+nav.gnb.less {width:52px}
+nav.gnb.less:hover {width:235px}
+nav.gnb.less .title, nav.gnb.less .heading, nav.gnb.less li a .arrow {display:none}
+nav.gnb.less:hover .title, nav.gnb.less:hover li a .arrow {display:inline-block}
+@media all and (max-width:768px) {
+	nav.gnb {display:none; position:absolute; width:100%; height:auto; padding:2rem 0}
+}
+
+/* layout */
+.page-content {margin-left:235px; margin-top:50px; padding:3rem; background-color:#F9F9FC}
+/* 줄었을때 */
+.page-content.less {margin-left:52px}
+
+.wrap-bx {padding:3rem; background-color:var(--white); border-radius:4px; box-shadow:0 0 20px 0 rgba(0,0,0,.2)}
+section.wrap-bx:not(:last-of-type),
+.wrap-bx .row:not(:last-of-type) {margin-bottom:20px}
+.dl-form dt {margin-bottom:4px; font-size:1.3rem; color:var(--dark); line-height:1}
+.dl-form dd {display:-webkit-box; display:-ms-flexbox; display:flex}
+.dl-form dd .inp-txt {-webkit-box-flex:1; -ms-flex:1; flex:1}
+/* dd 내 요소가 인라인 나열일 때 여백 주가 */
+.dl-form .ele-inline *:not(:first-child) {margin-left:5px}
+
+/* title, text */
+.tit-md {margin-bottom:1rem; font-weight:300; font-size:1.6rem; color:var(--darken)}
+
+/* only pc,tablet */
+@media (min-width:768px) {
+}
+
+/* only mobile */
+@media all and (max-width:768px) {
+    .page-content {margin-left:0}
+    [class*="col-xs-"] {margin-bottom:2rem}
+}
+
+
+/*------- login -------*/
+.gga-login {position:absolute; height:100%; background:url('../img/bg_full@2x.jpg') no-repeat 50% 50% / cover}
+.gga-login .wrap-bx {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:640px; padding:0}
+.gga-login .logo {width:88px; height:56px; margin:3rem auto; background:url('../../../common/img/logo_img@2x.png') no-repeat 0 0 / 100%; font-size:0; text-indent:-9999px}
+.form-group {position:relative; width:30rem; margin:0 auto; text-align:left}
+.form-group .inp-txt {display:block; width:100%; margin-bottom:1rem}
+.form-group label.check {display:inline-block; margin-bottom:1rem; font-size:1.3rem}
+.form-group .btn {width:100%; margin:3rem 0}
+.form-group .alert {position:absolute; top:-34px; left:0; right:0; width:100%}
+
+
+
+/*---------- 대시보드 -index ----------*/
+.gga-dashboard {}
+.db-widget {display:table; width:100%; margin-bottom:3rem; padding:1.7rem; color:#fff; line-height:1}
+.db-widget.sms {background-image:linear-gradient(to right, #F9A6EE, #A472EE)}
+.db-widget.atalk {background-image:linear-gradient(to right, #FFB533, #F98B65)}
+.db-widget.auth {background-image:linear-gradient(to right, #57D09A, #09A193)}
+.db-widget.account {background-image:linear-gradient(to right, #56CAF6, #008CE7)}
+.db-widget i {display:table-cell; width:4rem; font-size:4rem; vertical-align:middle; opacity:.5}
+.db-widget dl {display:table-cell; padding-left:1.5rem; vertical-align:middle}
+.db-widget .tit {margin-bottom:1.6rem; font-size:1.4rem}
+.db-widget .txt-total {white-space:nowrap}
+.db-widget .txt-total b {font-size:3.6rem; font-weight:700}
+.db-widget .txt-total small {font-size:1.4rem}
+
+.wrap-bx.no-pd {padding:0}
+.wrap-bx .tit-bx {padding:1.8rem; font-size:1.4rem; color:#28293F; border-bottom:1px solid #EBEDF2}
+.wrap-bx .tit-bx i {font-size:2.2rem}
+.wrap-bx .tit-bx * {vertical-align:middle}
+.list-chart.daily .tit-bx i {color:#FFA939}
+.list-chart.month .tit-bx i {color:#7572EE}
+.list-topfive {padding:.6rem 2rem}
+.list-topfive li {
+	display:-webkit-box; display:-ms-flexbox; display:flex;
+	-webkit-box-align:center; -ms-flex-align:center; align-items:center;
+	-webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between;
+	padding:1.2rem 0
+}
+.list-topfive li:not(:last-child) {border-bottom:1px dashed #EBEDF2}
+.list-topfive li * {display:table-cell; vertical-align:middle}
+.list-topfive .numb {
+	width:24px; height:24px; background-color:#CDCED5; border-radius:2px; 
+	line-height:22px; text-align:center; 
+	font-style:normal; font-size:1.6rem; font-weight:700; color:#fff
+}
+.list-chart.daily .list-topfive li:first-child .numb {background-color:#FFA939}
+.list-chart.month .list-topfive li:first-child .numb {background-color:#7572EE}
+.list-topfive .user {
+	-webkit-box-flex:3; -ms-flex:3; flex:3;
+	width:50%; padding-left:2rem; font-size:1.4rem; font-weight:400; color:#28293F
+}
+.list-topfive .category {
+	-webkit-box-flex:2; -ms-flex:2; flex:2;
+	font-size:1.4rem
+}
+.list-topfive .count {
+	-webkit-box-flex:1; -ms-flex:1; flex:1;
+	padding-right:1.5rem; text-align:right; font-size:1.8rem; font-weight:700; color:#28293F
+}
+.list-chart .graph {padding:2rem 2rem 4rem}
+
+@media all and (max-width:768px) {
+	.db-widget {margin-bottom:0}
+}
+
+
+
+
+
+
+
+/* 조회 결과 데이터 영역 */
+.list-result {padding:1.2rem 5rem; background-color:var(--lighten)}
+.list-result .dl-txt {display:table; width:100%; margin:8px 0}
+.list-result .dl-txt dt, .list-result .dl-txt dd {display:table-cell; vertical-align:middle}
+.list-result .dl-txt dt {width:30%; font-size:1.3rem; color:var(--dark)}
+.list-result .dl-txt dd {font-weight:400; font-size:1.4rem; color:var(--darken)}
+/* 데이터 없는 경우 */
+.data-blank {padding:15px 0; text-align:center; font-size:1.4rem; color:var(--dark)}
+.data-blank i {font-size:3rem}
+.data-blank.danger {color:var(--danger)}
+table td.data-blank {padding:3.5rem 0}
+
+/* 데이터 테이블 */
+.tbl-list {width:100%; border:1px solid var(--lighter); border-top-width:2px; text-align:left}
+.tbl-list thead {border-bottom:2px solid var(--lighter)}
+.tbl-list th {padding:.8rem 1rem; font-weight:400; font-size:1.3rem; color:var(--darken)}
+.tbl-list td {padding:2rem 1rem; font-size:1.4rem; border-top:1px solid var(--lighter)}
+
+/* 페이징 */
+.pagination {margin-top:2rem; text-align:center}
+.pagination li {display:inline-block; margin:0 2px; vertical-align:top}
+.pagination li a {display:block; width:30px; height:30px; font-size:1.2rem; line-height:28px; border-radius:3px; transition:background .2s ease}
+.pagination .btn-pg-nav a {border:1px solid var(--light); color:var(--darker)}
+.pagination .btn-pg-nav:not(.disabled):hover a {border-color:transparent; color:#fff; background-color:var(--point)}
+.pagination .btn-pg-nav i {line-height:28px}
+.pagination .btn-pg-num a {color:var(--darker)}
+.pagination .btn-pg-num.active a,
+.pagination .btn-pg-num:hover a {background-color:var(--point); color:#fff; font-weight:700}
+.pagination .disabled a {cursor:not-allowed; opacity:.5}
