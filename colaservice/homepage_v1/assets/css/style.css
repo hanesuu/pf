@@ -60,7 +60,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .i
 
 /* select */
 .select {position:relative; padding:0}
-.select select {width:100%; height:100%; min-height:40px; -webkit-appearance:none;}
+.select select {width:100%; height:100%; min-height:40px; -webkit-appearance:none; border:0}
 .select:before {content:"\f107"; position:absolute; right:10px; top:50%; transform:translateY(-50%); font:900 1rem/1 'Line Awesome Free'; color:#9AA1AB}
 
 /* checkbox */
