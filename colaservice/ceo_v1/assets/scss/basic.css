@@ -1087,6 +1087,9 @@ textarea.input-txt {
 .payment-cal .wrap-cal .fc-highlight-skeleton td {
   border-color: transparent;
 }
+.payment-cal .wrap-cal .fc-event-container {
+  cursor: pointer;
+}
 
 .data-list {
   float: left;
