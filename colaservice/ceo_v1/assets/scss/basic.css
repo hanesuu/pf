@@ -1930,10 +1930,7 @@ body .pop-receipt .el-dialog__header .pop-title {
   border-bottom: 0;
 }
 body .pop-receipt .el-dialog__header .el-dialog__close {
-  color: #fff;
-}
-body .pop-receipt .el-dialog__headerbtn:hover i, body .pop-receipt .el-dialog__headerbtn:active i {
-  color: #fff;
+  color: #fff !important;
 }
 body .pop-receipt .el-dialog__body {
   background-color: #f6f7f9;

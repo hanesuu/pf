@@ -188,11 +188,7 @@ body .pop-receipt {
     .el-dialog__header {
         background-color:$point-c;
         .pop-title {color:$white-c; border-bottom:0}
-        .el-dialog__close {color:$white-c}
-    }
-    .el-dialog__headerbtn {
-        &:hover i,
-        &:active i {color:$white-c}
+        .el-dialog__close {color:$white-c !important}
     }
     .el-dialog__body {
         background-color:$lighten-c; color:$darken-c;
