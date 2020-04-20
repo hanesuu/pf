@@ -119,14 +119,16 @@
                 </dd>
               </dl>
             </div>
-            <div class="col-xs-6">
+            <div class="col-sm-7">
               <dl>
                 <dt>
                   <label>발송시점</label>
                 </dt>
                 <dd>
-                  <el-radio v-model="sendType" label="NOW">즉시 발송</el-radio>
-                  <el-radio v-model="sendType" label="READY">예약 발송</el-radio>
+                  <div class="no-inp">
+                    <el-radio v-model="sendType" label="NOW">즉시 발송</el-radio>
+                    <el-radio v-model="sendType" label="READY">예약 발송</el-radio>
+                  </div>
                   <div class="flexbox" v-if="sendType == 'READY'">
                     <div class="flexbox eltype">
                       <input type="tel" class="input-txt" maxlength="3" placeholder="0">

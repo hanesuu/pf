@@ -135,7 +135,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr @click="orderInfoModal = true">
               <td class="date">2020.02.20</td>
               <td class="num">S6565653</td>
               <td class="level">골드</td>
@@ -145,6 +145,17 @@
               <td class="right-cell total">63,000</td>
               <td class="pay">신용카드</td>
               <td class="etc">쿠폰사용</td>
+            </tr>
+            <tr @click="orderInfoModal = true">
+              <td class="date">2020.02.20</td>
+              <td class="num">S6565653</td>
+              <td class="level">골드</td>
+              <td class="left-cell item">클래식 티본스테이크&amp;쉬림프 M 세트</td>
+              <td class="right-cell order">43,500</td>
+              <td class="right-cell dis">2,000</td>
+              <td class="right-cell total">41,500</td>
+              <td class="pay">신용카드</td>
+              <td class="etc"></td>
             </tr>
             <!--
             <tr>
@@ -164,6 +175,166 @@
           </label>
         </div>
       </section>
+
+      <!--modal-->
+      <el-dialog :close-on-click-modal="false" :visible.sync="orderInfoModal" @close="cancel" class="popup-layer pop-receipt">
+        <div class="pop-title" slot="title">주문정보</div>
+        <div class="popup-layer">
+          <div class="info-basic">
+            <dl class="order-info-dl">
+              <dt>주문회원</dt>
+              <dd>S6565653</dd>
+            </dl>
+            <dl class="order-info-dl">
+              <dt>주문일시</dt>
+              <dd>2020년 02월 20일 19시 34분 41초</dd>
+            </dl>
+            <dl class="order-info-dl">
+              <dt>결제방식</dt>
+              <dd>신용카드</dd>
+            </dl>
+            <dl class="order-info-dl">
+              <dt>주소</dt>
+              <dd>서울 구로구 디지털로26길 61 에이스하이엔드타워2차 1801호</dd>
+            </dl>
+            <button class="btn btn-rd">인쇄하기</button>
+          </div>
+          <div class="wrap-receipt">
+            <div class="order-wrap">
+              <div class="form-pay-mobile">
+                <div>
+                  <div class="order-product">
+                    <dl>
+                      <dt class="product-name">클래식 티본스테이크&amp;쉬림프 M 세트</dt>
+                      <dd class="price-r">
+                        <div class="option-price">
+                          <p class="line-through">39,500원</p>
+                          <p>37,500</p>
+                          <span>원</span>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="order-product">
+                    <dl >
+                      <dt>&plus; 이탈리안 도우</dt>
+                      <dd class="price-r">
+                        <div class="option-price">
+                          <p>&plus;3,000</p>
+                          <span>원</span>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="order-product">
+                    <dl>
+                      <dt class="product-name">[서비스] 콜라</dt>
+                      <dd class="price-r">
+                        <div class="option-price">
+                          <p>1</p>
+                          <span class="txt-won">개</span>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="total-info">
+                    <dl>
+                      <dt>수량</dt>
+                      <dd class="price-r">
+                        <div class="option-price">
+                          <p>1</p>
+                          <span>개</span>
+                        </div>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>합계</dt>
+                      <dd class="price-r">
+                        <div class="option-price">
+                          <p>40,500</p>
+                          <span>원</span>
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-pay">
+            <div class="order-wrap">
+              <section class="title-address"><h2>결제정보</h2></section>
+              <div class="form-pay-mobile">
+                <dl>
+                  <dt>총 주문금액</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>42,500</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+                <dl class="txt-rd">
+                  <dt>기본할인</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>-1,000</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+                <dl class="txt-rd">
+                  <dt>메뉴할인</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>-1,000</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+                <!--<dl class="txt-rd">
+                  <dt>쿠폰할인</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>-500</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+                <dl class="txt-rd">
+                  <dt>포인트</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>-500</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>-->
+                <dl>
+                  <dt>배달비</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>1,000</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="form-pay-mobile">
+                <dl class="total-price">
+                  <dt>최종 결제금액</dt>
+                  <dd class="price-r">
+                    <div class="option-price">
+                      <p>41,500</p>
+                      <span>원</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </el-dialog>
     </div>
     <!--//template-->
     <div id="footer"></div>
@@ -193,10 +364,17 @@ new Vue({
 
       /* 날짜선택 */
       dateStart: '',
-      dateEnd: ''
+      dateEnd: '',
+
+      /* popup */
+      orderInfoModal: false
     }
   },
   methods: {
+    /* 모달 닫기(취소)*/
+    cancel() {
+        this.modal = false
+    }
   }
 })
 </script>
