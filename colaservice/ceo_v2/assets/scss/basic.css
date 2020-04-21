@@ -3206,6 +3206,7 @@ body .el-message-box__btns .el-button--primary:hover {
 /* input box */
 body .el-input__inner {
   border-radius: 2px;
+  border-color: #ccc;
 }
 
 /* selectbox */
@@ -3236,6 +3237,9 @@ body .el-select-dropdown .el-scrollbar__wrap {
 }
 body .el-select-dropdown .el-select-dropdown__item {
   font-size: 1.3rem;
+}
+body .el-select-dropdown .el-select-dropdown__item.selected {
+  color: #ec3939;
 }
 
 /* datepicker */

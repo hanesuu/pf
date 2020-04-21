@@ -2,7 +2,7 @@
 $__color-primary:$point;
 
 /* input box */
-body .el-input__inner {border-radius:2px}
+body .el-input__inner {border-radius:2px; border-color:$light}
 
 /* selectbox */
 body .el-select {
@@ -19,7 +19,10 @@ body .el-select-dropdown {
     .el-scrollbar__wrap {
          @include media(768px) {margin:0 !important}/* 스크롤바 영역 삭제 */
     }
-    .el-select-dropdown__item {font-size:1.3rem}
+    .el-select-dropdown__item {
+        font-size:1.3rem;
+        &.selected {color:$point}
+    }
 } 
 
 /* datepicker */
