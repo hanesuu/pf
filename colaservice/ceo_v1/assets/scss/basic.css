@@ -305,6 +305,7 @@ textarea.input-txt {
   height: 60px;
   padding: 29px 20px;
   color: #6E6E7A;
+  z-index: 1;
   font-size: 1.4rem;
   font-weight: 700;
 }
