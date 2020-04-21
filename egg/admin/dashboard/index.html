@@ -167,7 +167,7 @@
           </ul>
         </div>
         <div class="graph">
-          <canvas id="dailyChart" width="400" height="200"></canvas>
+          <canvas id="dailyChart" width="400" height="160"></canvas>
         </div>
       </section>
     </div><!--//금일 사용량-->
@@ -213,7 +213,7 @@
           </ul>
         </div>
         <div class="graph">
-          <canvas id="monthlyChart" width="400" height="200"></canvas>
+          <canvas id="monthlyChart" width="400" height="160"></canvas>
         </div>
       </section><!--//금일 사용량-->
     </div>
@@ -225,8 +225,8 @@
 <script type="text/javascript">
 $(function(){
 //금일 사용량
-var ctx = document.getElementById('dailyChart').getContext('2d');
-var dailyChart = new Chart(ctx, {
+var ctx1 = document.getElementById('dailyChart').getContext('2d');
+var dailyChart = new Chart(ctx1, {
     type: 'horizontalBar',
     data: {
         labels: ['cidermania88', 'payappstore', 'saeroipark', 'keunsoo2', 'mahyunee'],
@@ -249,8 +249,26 @@ var dailyChart = new Chart(ctx, {
         legend: {
             display: false
         },
+        tooltips: {
+          backgroundColor: 'white',
+          borderWidth: 1,
+          borderColor: '#CDCED5',
+          titleFontFamily: "'Spoqa Han Sans','Apple SD Gothic Neo','Arial',sans-serif",
+          titleFontStyle: 'normal',
+          titleFontColor: '#6E6E7A',
+          bodyFontFamily: "'Spoqa Han Sans','Apple SD Gothic Neo','Arial',sans-serif",
+          bodyFontStyle: 'bold',
+          bodyFontColor: '#28293F',
+          displayColors: false
+        },
         scales: {
             yAxes: [{
+                gridLines : {
+                  display: false
+                },
+            }],
+
+            xAxes: [{
                 ticks: {
                     beginAtZero: true
                 }
@@ -260,8 +278,8 @@ var dailyChart = new Chart(ctx, {
 });
 
 //금월 사용량
-var ctx = document.getElementById('monthlyChart').getContext('2d');
-var dailyChart = new Chart(ctx, {
+var ctx2 = document.getElementById('monthlyChart').getContext('2d');
+var monthlyChart = new Chart(ctx2, {
     type: 'horizontalBar',
     data: {
         labels: ['cidermania88', 'payappstore', 'saeroipark', 'keunsoo2', 'mahyunee'],
@@ -284,8 +302,26 @@ var dailyChart = new Chart(ctx, {
         legend: {
             display: false
         },
+        tooltips: {
+          backgroundColor: 'white',
+          borderWidth: 1,
+          borderColor: '#CDCED5',
+          titleFontFamily: "'Spoqa Han Sans','Apple SD Gothic Neo','Arial',sans-serif",
+          titleFontStyle: 'normal',
+          titleFontColor: '#6E6E7A',
+          bodyFontFamily: "'Spoqa Han Sans','Apple SD Gothic Neo','Arial',sans-serif",
+          bodyFontStyle: 'bold',
+          bodyFontColor: '#28293F',
+          displayColors: false
+        },
         scales: {
             yAxes: [{
+                gridLines : {
+                  display: false
+                },
+            }],
+
+            xAxes: [{
                 ticks: {
                     beginAtZero: true
                 }

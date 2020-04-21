@@ -31,8 +31,8 @@
 .page-breadcrumb li a {font-size:1.6rem; color:var(--point)}
 
 /* gnb */
-nav.gnb {position:fixed; left:0; top:50px; width:235px; height:calc(100% - 50px); padding-top:3rem; background:#28293F; z-index:1000; transition:width .2s ease}
-nav.gnb .nav-item {position:relative; min-height:42px; opacity:.6}
+nav.gnb {position:fixed; left:0; top:50px; width:235px; height:calc(100% - 50px); padding-top:3rem; background:#28293F; z-index:1000; transition:width .1s ease}
+nav.gnb .nav-item {position:relative; min-width:235px; opacity:.6}
 nav.gnb .nav-item:hover, nav.gnb .nav-item.active, nav.gnb .nav-item.open {opacity:1}
 nav.gnb > ul > li.active > a, nav.gnb > ul > li.open > a {background:rgba(0,0,0,.2)}
 nav.gnb > ul > li.active i, nav.gnb > ul > li.open i {color:var(--point)}
@@ -41,14 +41,16 @@ nav.gnb li a i {display:inline-block; margin-right:5px; font-size:2.2rem; vertic
 nav.gnb li a .arrow {float:right}
 nav.gnb li a .arrow:before {content:"\f104"; font:900 1.4rem/1.4 'Line Awesome Free'; transition:transform .2s}
 nav.gnb li.open a .arrow {transform:rotate(-90deg)}
-nav.gnb .sub-menu {padding:.5rem 0 1.5rem; background:rgba(0,0,0,.2)}
-nav.gnb .sub-menu li a {padding:8px 15px 8px 43px; font-size:1.3rem; line-height:1; vertical-align:middle}
+nav.gnb .sub-menu {display:none; padding:.5rem 0 1.5rem; background:rgba(0,0,0,.2)}
+nav.gnb li.open .sub-menu {display:block}
+nav.gnb .sub-menu li a {padding:8px 15px 8px 43px; font-size:1.3rem; line-height:1}
 nav.gnb .sub-menu li a:before {content:''; display:inline-block; width:5px; height:5px; margin-right:10px; border-radius:100%; vertical-align:middle; background:var(--dark)}
 nav.gnb .sub-menu li a:hover:before, nav.gnb .sub-menu li.active a:before {background:var(--point)}
+nav.gnb .sub-menu li .title {vertical-align:middle}
 nav.gnb .heading {margin-top:2rem; padding:8px 15px}
 nav.gnb .heading h3 {color:#fff; font-size:1.1rem; font-weight:400; opacity:.5}
 /* 줄었을때 */
-nav.gnb.less {width:52px}
+nav.gnb.less {width:52px; overflow:hidden}
 nav.gnb.less:hover {width:235px}
 nav.gnb.less .title, nav.gnb.less .heading, nav.gnb.less li a .arrow {display:none}
 nav.gnb.less:hover .title, nav.gnb.less:hover li a .arrow {display:inline-block}
