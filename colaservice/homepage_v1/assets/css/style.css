@@ -34,7 +34,7 @@ select::-ms-expand {display:none}
 a, a:hover, a:active, a:visited {text-decoration:none; cursor:pointer}
 
 html {
-    height:100%; font-family:"Roboto", "NotoSansCJKkr", "Noto Sans Korean", "돋움", Dotum, "Apple SD Gothic Neo", sans-serif; color:var(--dark3); line-height:1;
+    height:100%; font-family:"NotoSansCJKkr", "Noto Sans Korean", "돋움", Dotum, "Apple SD Gothic Neo", sans-serif; color:var(--dark3); line-height:1;
     font-weight:100; font-size:14px; letter-spacing:-0.05rem; word-break:keep-all
 }
 body {min-width:320px; height:auto; background:var(--white-c); overflow-x:hidden}
@@ -214,7 +214,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, .i
 .foot-support {float:left; width:30%; padding-top:2.14rem; color:var(--dark9)}
 .foot-support dd {margin-top:8px}
 .foot-support .call {font-size:2rem; font-weight:700; color:#FFC45D}
-.foot-support .call:before {content:"\f095"; margin-right:5px; font:900 2rem/1 'Line Awesome Free'; color:var(--dark9)}
+.foot-support .call:before {content:""; display:inline-block; width:20px; height:20px; margin-right:5px; background:url('../image/ico_call@2x.png') no-repeat 0 0 / 100%}
 .foot-support small {font-size:0.85rem; color:var(--dark9)}
 .foot-info {float:right; width:70%; padding:2.14rem 0 4.28rem; color:var(--dark9); font-size:0.85rem}
 .foot-info .foot-txt {margin-bottom:12px}
@@ -315,7 +315,7 @@ body .el-dialog__headerbtn .el-dialog__close:focus {color:inherit !important;}
 
 /* 배달앱 고객이..됩니다 */
 .sect-flow {position:relative; padding-bottom:2.85rem; background-image:linear-gradient(to right, #FF8460,  #FF6060)}
-.sect-flow:before {content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url("../image/bg_main_graph@2x.png") no-repeat 50% 50% / cover}
+.sect-flow:before {content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:url("../image/bg_main_graph.svg") no-repeat 50% 50% / cover}
 .sect-flow .container {position:relative}
 .sect-flow .wrap-txt {margin-bottom:30px}
 .sect-flow .wrap-txt .tit {text-align:center; color:var(--white-c)}
