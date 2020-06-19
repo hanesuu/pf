@@ -1,0 +1,233 @@
+/* element theme color */
+$__color-primary:$point;
+
+/* input box */
+body .el-input__inner {border-radius:2px}
+
+/* selectbox */
+body .el-select {
+    vertical-align:top;
+    .el-input {
+        .el-select__caret {color:$dark-9}
+        &__icon {line-height:30px}
+    }
+}
+body .el-select-dropdown__item {font-size:1.3rem} 
+
+/* datepicker */
+body .wrap-date {
+    display:inline-block; vertical-align:top;
+    @include media-mb {@include flexbox; @include justify-content(center);}
+}
+.el-date-editor {
+    &.el-input {
+        width:auto; vertical-align:top;
+        @include media-mb {@include flex(1);}
+    }
+    &.el-input__inner {height:34px; line-height:34px}
+    &.el-input--prefix .el-input__inner {padding:0 30px}
+    .el-range-input {font-size:1.3rem}
+    .el-range-separator {padding:0 10px; line-height:1.8em}
+    .el-input__icon {line-height:initial}
+}
+.el-date-picker {
+    &__header .el-picker-panel__icon-btn {
+        margin-top:2px;
+        &:active {color:$white}
+    }
+}
+// .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {width:100%}
+
+/* switch */
+body {
+    .el-switch .el-switch__label {
+        vertical-align:top; color:$dark-9; @include fw-dl;
+        & * {font-size:1.2rem; @include fw-rg;}
+        &.is-active * {@include fw-bd; color:$point}
+        &--left {margin-right:3px}
+        &--right {margin-left:3px}
+    }
+}
+
+/* radio tab button group */
+body .el-radio-group {
+    @include media-mb {@include flexbox}
+
+    .el-radio-button {
+        @include media-mb {@include flex(1)}
+        &:first-child .el-radio-button__inner {border-radius:3px 0 0 3px}
+        &:last-child .el-radio-button__inner {border-radius:0 3px 3px 0}
+        &__inner {
+            height:34px; line-height:34px; padding:0 10px; font-size:1.2rem; @include fw-rg;
+            @include media-mb {width:100%}
+        }
+        &__orig-radio:checked + span {@include fw-md; color:$white; background-color:$point}
+    }
+}
+
+/* tab-large */
+body .el-tabs--card.tab-lg {
+    & > .el-tabs__header {
+        margin:0; border-bottom:0;
+        .el-tabs__nav {@include flexbox; float:none; border:0}
+        .el-tabs__item {
+            @include flex(1); height:50px; text-align:center; font-size:1.6rem; line-height:50px; @include fw-dl; color:$dark-9; border-radius:5px 5px 0 0; border:1px solid transparent; border-bottom:0;
+            span {
+                position:relative;
+                &:before {content:''; @include absolute(0,null,0,0); width:0; @include transition(width)}
+            }
+            &.is-active:first-child {border-left:1px solid $light-d}
+            &.is-active {
+                background:$white; @include fw-md; color:$dark-3; border-color:$light-d;
+                span:before {width:100%; height:10px; background:rgba($point,.3)}
+            }
+        }
+    }
+    & > .el-tabs__content {padding:20px 20px 30px; background:$white; border:1px solid $light-d; border-radius:0 0 10px 10px}
+}
+
+/* tab-medium */
+body .el-tabs.tab-md {
+    & > .el-tabs__header {
+        .el-tabs__nav-wrap {margin:0}
+        .el-tabs__nav-wrap:after,.el-tabs__active-bar {display:none}
+        .el-tabs__nav {float:none; @include flexbox; max-width:730px}
+        .el-tabs__item {
+            @include flex(1); max-width:180px; padding:0; text-align:center; font-size:1.4rem; @include fw-dl; color:$dark-6; border:1px solid $light-d; @include transition(background,border,color); background:$white;
+            @include media-md {max-width:100%}
+            &:not(:last-of-type) {margin-right:-1px}
+            &.is-top:nth-child(2) {border-radius:3px 0 0 3px}
+            &.is-top:last-child {border-radius:0 3px 3px 0}
+            &.is-active {background:$dark-3; border-color:$dark-3; @include fw-md; color:$white}
+        }
+    }
+    .el-tabs__content {overflow:inherit}
+
+    &.wide {
+        .el-tabs__nav {max-width:100%}
+        .el-tabs__item {max-width:100%}
+    } 
+}
+
+
+/* collapse - faq */
+.el-collapse {border:1px solid $light-d}
+.el-collapse .el-collapse-item {
+    &__header {
+        position:relative; padding:0 20px; font-size:1.4rem; color:$point; @include fw-rg; @include transition(color,background);
+        @include media-mb {height:auto; padding:12px 30px 12px 12px; line-height:1.3}
+        &.is-active {@include fw-md; color:$dark-3; background:$light-f}
+    }
+    &__arrow {
+        @include absolute(null,50%,15px,null); transform:translateY(-50%); color:$dark-6; line-height:0;
+        @include media-mb {right:5px}
+        &.is-active {
+            color:$point;
+            @include prefix((
+                    transform:rotate(90deg)
+            ), webkit moz ms);
+        }
+    }
+    &__wrap {background:$white}
+    &__content {
+        padding:0 20px 15px; @include fw-lt; font-size:1.4rem; line-height:1.5;
+        @include media-mb {padding:0 12px 12px}
+        a {color:$point; text-decoration:underline}
+    }
+    &.is-active .el-collapse-item__wrap {background:$light-f}
+}
+
+/* radio button */
+body .el-radio {
+    vertical-align:top;
+    &__inner {width:20px; height:20px; @include transition(border)}
+    &__label {
+        padding-left:5px; font-size:1.3rem; @include fw-rg; line-height:34px; color:$dark-3; vertical-align:middle;
+        span {vertical-align:middle}
+    }
+    &__input {
+        &.is-checked .el-radio__inner {
+            background:$white; box-shadow:0 0 3px $point;
+            &:after {width:8px; height:8px; background-color:$point}
+        }
+        &.is-checked + .el-radio__label {@include fw-md;}
+    }
+    & + input {margin-left:5px}
+}
+
+/* alert */
+body .el-notification {
+    .el-icon-success {color:$positive-gn}
+}
+
+/* paging */
+body .el-pagination {
+    margin:10px 0; text-align:center;
+    .btn-prev, .btn-next {border:1px solid $light-d}
+}
+
+/* modal dialog */
+body .el-dialog {
+    max-width:600px; 
+    @include media-mb {width:90%}
+    &__header {
+        padding:12px 20px; background:$dark-3;
+        .el-dialog__title {font-size:1.4rem; color:$white}
+        .el-dialog__headerbtn {
+            top:12px; font-size:22px;
+            i {color:$light-b; @include transition(color)}
+            &:active i, &:hover i {color:$white}
+        }
+    }
+    &__body {
+        padding:0; max-height:60vh; overflow-y:scroll;
+        .contents {
+            padding:15px;
+            & > *:not(:last-child) {margin-bottom:10px}
+        }
+        .bottom-btn {
+            margin:0; padding:20px 0;
+            .btn {padding:10px 30px; font-size:1.4rem}
+        }
+    }
+}
+
+/* alert-messagebox */
+body .el-message-box {
+    max-width:600px; border:1px solid $dark-3; box-shadow:0 20px 30px rgba(0,0,0,.5); border-radius:2px;
+    @include media-mb {width:90%; min-width:300px; text-align:center}
+    &__header {
+        position:relative; padding:16px 20px;background:$dark-3;
+        @include media-mb {padding:10px 15px}
+    }
+    &__title span {
+        margin:0; font-size:1.7rem; @include fw-md; color:$white;
+        @include media-mb {font-size:1.3rem}
+    }
+    &__headerbtn {
+        top:50%; transform:translateY(-50%);
+        i {font-size:25px; color:$dark-9 !important}
+        @include media-mb {right:10px}
+    }
+    &__content {
+        padding:20px;
+        @include media-mb {padding:15px}
+    }
+    &__message {
+        text-align:center; font-size:1.3rem; word-break:keep-all;
+        p {line-height:1.4}
+    }
+    &__btns {
+        text-align:center;
+        .el-button {
+            @include margin-padding(all,0 5px,all,10px 30px); border:0; border-radius:2px;
+            font-size:1.4rem; color:$dark-3; line-height:inherit; box-shadow:0 4px 8px rgba($dark-3,.3); @include transition(color,background-color);
+            &:hover, &--primary {background-color:$dark-3; color:$white}
+            &--primary:hover {background-color:#282d37}
+        }
+    }
+}
+
+/* icon font path, required
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index"; */

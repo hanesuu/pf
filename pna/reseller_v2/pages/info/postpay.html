@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj5-2"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents vue-info">
+        <section class="bx-basic wrap-intro">
+          <div class="tit">
+            <h2>후불로 먼저 이용하시고, 다음 달에 납부하세요~</h2>
+            <p class="sub-tit">문자, 알림톡, 본인인증 등 유료 API 이용요금은 선불충전 기본 지불되나, 아래 절차에 따라 후불계약이 완료되면 후불결제가 가능합니다.</p>
+          </div>
+          <div class="bx-gry">
+            <ul class="list-type">
+              <li>당월 사용 후 익월 납부</li>
+              <li>사업자 및 공공기관 신청 가능</li>
+            </ul>
+            <a href="#" class="txt-close"><i class="las la-times"></i>다시 보지 않기</a>
+          </div>
+        </section>
+        <section class="wrap-basic">
+          <div class="inner">
+            <h3 class="tit-left">후불계약 <br>절차</h3>
+            <ul class="wrap-steps">
+              <li>
+                <div class="label-step">STEP 1</div>
+                <dl class="wrap-txt">
+                  <dt class="tit">후불계약 신청<small>1영업일 내 확인</small></dt>
+                  <dd class="txt">
+                    <p><a href="#">신청하기</a>를 누르고 담당자 정보, 납부정보를 입력하시면 후불신청이 접수됩니다.</p>
+                    <p>다음 단계에 따라 계약서와 보증보험 관련 처리를 진행해주세요.</p>
+                    <p>※ 부실기업, 스팸 및 불법문자 발송업체는 거절될 수 있습니다.</p>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <div class="label-step">STEP 2</div>
+                <dl class="wrap-txt">
+                  <dt class="tit">계약서 작성/제출<small>1영업일 내 확인</small></dt>
+                  <dd class="txt">
+                    <p><a href="#">계약서 다운로드</a> 후 작성/날인/간인 처리 하세요.</p>
+                    <p>① 인감날인된 계약서 1부, ② 사업자등록증 1부, ③ 법인인감증명서 1부,  ④ 통장사본 1부를 <br>이메일로 보내주세요.</p>
+                    <p>* 이메일 주소 : <a href="mailto:help@udpay.co.kr">help@udpay.co.kr</a></p>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <div class="label-step">STEP 3</div>
+                <dl class="wrap-txt">
+                  <dt class="tit">보증보험 가입<small>2~3 영업일 소요</small></dt>
+                  <dd class="txt">
+                    <p>후불계약 시 계약서류와 함께 지급이행보증보험증권 선발행이 필요합니다.</p>
+                    <p><a href="#">안내보기</a>에 따라 보증보험에 가입 후 보증료를 납부해주세요. </p>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <div class="label-step">STEP 4</div>
+                <dl class="wrap-txt">
+                  <dt class="tit">API 연동<small>당일 내 간편연동</small></dt>
+                  <dd class="txt">
+                    <p>판매점 연동토큰과 매뉴얼을 참고해 연동을 진행하세요.</p>
+                    <p><a href="index.html">이용 가능 API 보기</a></p>
+                  </dd>
+                </dl>
+              </li>
+              <li>
+                <div class="label-step">STEP 5</div>
+                <dl class="wrap-txt">
+                  <dt class="tit">이용료 납부</dt>
+                  <dd class="txt">
+                    <p>이메일 접수 및 보증보험증권 발행 후 후불로 전환되며, 매월 세금계산서가 발행됩니다.</p>
+                    <p>월 사용한도 금액은 100만원입니다. 한도 상향 시 추가 서류가 필요할 수 있습니다.</p>
+                    <p>세금계산서는 사용월 기준 익월 1일자로 발행되며, 영업일 기준 10~15일 이내에 확인 가능합니다.</p>
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>
