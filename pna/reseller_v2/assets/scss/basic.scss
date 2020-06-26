@@ -96,36 +96,71 @@ textarea.inp-txt {
 .d-inblock {display:inline-block}
 .d-none {display:none}
 
+/* flex */
+.flexbox {@include flexbox}
+.flex1 {@include flex(1)}
+.flex2 {@include flex(2)}
+.flex3 {@include flex(3)}
+
 /* text */
 .txt-bold {@include fw-bd;}
 .txt-s {font-size:1.1rem}
+.txt-sm {font-size:1.3rem}
 .txt-lg {font-size:2rem}
 .btn-txt {
 	a {font-size:1.2rem; color:$dark-6; text-decoration:underline}
 	a:hover {color:$dark-3; text-decoration:underline}
 }
-.ta-left {text-align:left}
-.ta-right {text-align:right}
-.ta-center {text-align:center}
+.txt-link {
+  color:$point; text-decoration:underline; @include transition(all);
+  &:hover {text-decoration:underline}
+}
+.ta-left {text-align:left !important}
+.ta-right {text-align:right !important}
+.ta-center {text-align:center !important}
 .txt-ing {color:$warn-yl}
 .txt-dark {color:$dark-6}
 .txt-point {color:$point}
 .txt-gn {color:$positive-gn}
 .txt-rd {color:$danger-rd}
 .txt-count {
-	@include fw-bd; font-size:2.2rem;
+	@include fw-bd; font-size:2.6rem;
 	small {@include fw-dl; font-size:12px}
-	@include media-mb {font-size:2.2rem}
 }
+.txt-info {
+  color:$dark-9; font-size:1.3rem;
+  &:before {
+    content:''; display:inline-block; width:12px; height:12px; margin-right:4px;
+    background:url('../img/ico_info.svg') no-repeat 0 0 / 12px
+  }
+  .d-left & {margin-bottom:10px}
+}
+/* font-weight */
+.fw-dl {@include fw-dl}
+.fw-rg {@include fw-rg}
+.fw-md {@include fw-md}
+.fw-bd {@include fw-bd}
+
+/* title style */
+.tit-md {margin:0; @include fw-md; font-size:1.4rem; color:$dark-3}
+
+/* text hidden */
+.txt-hidden {width:0; color:transparent; font-size:0; text-indent:-9999px}
+
+/* bg color */
+.bg-yl {background-color:lighten($warn-yl,40%)}
+.bg-yl2 {background-color:lighten($warn-yl,33%)}
 
 /* button */
+button {-webkit-appearance:none; border:0}
+button:focus, button:active {outline:0}
 .btn {
 	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,background-image,border-color,box-shadow); white-space:nowrap;
 	@include fw-md; font-size:1.4rem; color:$dark-6; background-color:$white; border:1px solid transparent; border-radius:3px;
 	&:hover {background-color:$dark-6; color:$white}
-
+	
 	i {opacity:.7; font-size:120%; vertical-align:text-bottom}
-
+	
 	&-primary {
 		background-color:$dark-3; color:$white;
 		&:hover {background-color:$point}
@@ -150,6 +185,10 @@ textarea.inp-txt {
 		background:$warn-yl; color:$white; @include transition(opacity);
 		&:hover {background:$warn-yl; opacity:.85}
 	}
+  &-line-yl {
+    border-color:$warn-yl; color:$warn-yl;
+    &:hover {background:$warn-yl; color:$white}
+  }
 	&-sk {
 		background:$sub-sk; color:$white; @include transition(opacity);
 		&:hover {background:$sub-sk; opacity:.85}
@@ -158,7 +197,8 @@ textarea.inp-txt {
 		@include bg-gradient($light-b,$dark-9,'vertical'); border-color:$dark-9; color:$white; @include transition(opacity);
 		&:hover {opacity:.85}
 	}
-	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem; line-height:26px}
+  &-block {display:block; margin-left:auto; margin-right:auto}
+	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem; line-height:28px}
 	&-xs-info {
 		height:24px; line-height:24px;
 		&:before {content:''; display:inline-block; width:12px; height:22px; margin-right:2px; background:url('../img/ico_info.svg') no-repeat 50% 50% /12px 12px; vertical-align:top}
@@ -168,6 +208,7 @@ button[disabled=disabled], .btn-disable {
 	opacity:.8; color:$light-d; @include fw-rg; cursor:default; background-color:$white; border-color:transparent;
 	&:hover {background-color:$white; color:$light-d; border-color:transparent}
 }
+button.btn-txt {border:0; background:transparent}
 
 .logo {width:120px; height:31px; padding:0; @include hide-txt; background:url('/ud/pna/common/img/logo_fill.svg') no-repeat 0 0 / 100%}
 
@@ -291,9 +332,9 @@ button[disabled=disabled], .btn-disable {
 
 /* layout */
 .wrap-content {
-	height:calc(100vh - 60px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; overflow-y:auto; @include transition(margin-left); overflow-x:hidden;
+	height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; overflow-y:auto; @include transition(margin-left); overflow-x:hidden;
 	&.wide {margin-left:0}
-	.contents {max-width:1130px; @include transition(margin-right)}
+	.contents {@include transition(margin-right)}
 	
 	@include media-mb {
 		padding:15px;

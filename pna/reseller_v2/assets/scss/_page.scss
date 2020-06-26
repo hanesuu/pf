@@ -19,77 +19,10 @@
     	a:hover {color:$point}
     }
 }
-/* 회원가입 -join */
-.join {
-	.bx-basic {
-		width:100%; max-width:640px; margin:6vh auto;
-		@include media-mb {margin:0 auto; border-radius:0; box-shadow:none}
-	}
-	.con {
-		padding:20px;
-		@include media-mb {padding-bottom:68px}
-	}
-	h1.tit {
-		@include flexbox; @include align-items(center); @include justify-content(center); margin:0; padding:20px 10px; font-size:1.8rem; @include fw-dl; color:$dark-3; border-bottom:1px solid $light-d;
-		.logo {width:93px; height:24px; margin-right:10px}
-	}
-	.el-tabs.tab-md > .el-tabs__header .el-tabs__item {max-width:100%}
-	.wrap-form {
-		padding:0; text-align:left;
-		.row {margin-right:-5px; margin-left:-5px}
-		.col-xs-12 {padding-right:5px; padding-left:5px}
-	}
-	.wrap-inp-time {
-		position:relative; @include flex(1);
-		.inp-txt {width:100%; padding-right:50px}
-		.txt-time {position:absolute; right:10px; top:8px; color:$danger-rd}
-	}
-}
-.wrap-join {
-	@include flexbox; width:100%; height:100%; background:$light-f;
-	.agree {
-		margin:10px 0 40px; text-align:center; color:$dark-3;
-		a {text-decoration:underline}
-	}
-}
-/* 아이디 비밀번호 찾기 */
-.vue-find {
-	@include media-mb {@include align-items(baseline); height:100%; padding:0}
-	.txt-top {
-		margin:40px auto 30px; font-size:1.3rem;
-		@include media-mb {margin:25px auto 15px}
-	}
-	.certi-radio {
-		@include flexbox; width:100%; max-width:480px; margin:0 auto 30px;
-		@include media-mb {margin-bottom:20px}
-		div {
-			@include flex(1); padding:28px 0 20px; background:$light-f; opacity:.5; @include transition(box-shadow,opacity,border); @include fw-dl; color:$dark-2; border:2px solid transparent; cursor:pointer;
-			@include media-mb {padding:18px 0 12px}
-			p {
-				margin-top:14px; font-size:1.6rem;
-				@include media-mb {margin-top:8px}
-			}
-			&:hover, &.active {opacity:1; @include fw-md; color:$point; border-color:$point; background:$white; box-shadow:0 2px 20px $point}
-		}
-	}
-	.wrap-form {width:100%; max-width:480px; margin:0 auto}
-	.txt-s {
-		margin-top:40px; font-size:1.2rem; color:$dark-9;
-		@include media-mb {margin-top:20px}
-	}
-	.bx-result {max-width:480px; margin:0 auto; padding:14px 0; background:rgba($point,.1); border-radius:3px; font-size:1.8rem; color:$dark-3}
-	&.vue-findresult #pane-id .txt-top {
-		@include media-mb{margin-top:22vh}//아이디 결과
-	}
-}
 
 /** 공통 **/
 /* layout */
 .contents > section:last-child {margin-bottom:0}
-.flex-wrap {
-	@include flexbox;
-	& > *:not(:first-child) {margin-left:10px}
-}
 /* flex position */
 .d-right {margin-left:auto}
 
@@ -103,36 +36,47 @@
 }
 
 /* box */
-.bx-basic {position:relative; margin-bottom:20px; background:$white; @include bxshadow; border-radius:10px; overflow:hidden}
+.bx-basic {position:relative; margin-bottom:20px; background:$white; @include bxshadow; border-radius:5px; overflow:hidden}
 .wrap-basic {position:relative; background:$white; border:1px solid $light-d; border-radius:10px; overflow:hidden}
 
 /* 정산가능여부 */
 .txt-state {
-	font-size:1.3rem; line-height:1;
-	&span {display:inline-block}
-	&:before {content:''; display:inline-block; width:4px; height:4px; margin:.4rem; border-radius:50%; vertical-align:top}
+	@include fw-md;
+	//&span {display:inline-block}
+	&:after {content:''; display:inline-block; width:4px; height:4px; margin:.4rem; border-radius:50%; vertical-align:text-top}
 	&.success {
 		color:$positive-gn;
-		&:before {background:$positive-gn; box-shadow:0 0 4px $positive-gn}
+		&:after {background:$positive-gn; box-shadow:0 0 4px $positive-gn}
 	}
 	&.fail {
 		color:$danger-rd;
-		&:before {background:$danger-rd; box-shadow:0 0 4px $danger-rd}
+		&:after {background:$danger-rd; box-shadow:0 0 4px $danger-rd; @include animation('ani-fail 1s infinite');}
+	    @include keyframes(ani-fail) {
+	      0% {opacity:.1}
+	      65% {opacity:1}
+	      100% {opacity:.1}
+	    }
 	}
+	.no-inp & {@include align-self(center);}
 }
 
-/* 상세검색 */
+/* 리스트 검색 */
 .wrap-bx-search {
+	.wrap-form {
+		padding:0;
+		dt {color:$dark-6; line-height:1}
+		dd {margin-bottom:0}
+	}
 	&.el-collapse .el-collapse-item__header {
-		height:44px; line-height:44px; color:$dark-3;
+		height:40px; line-height:40px; color:$dark-3;
 		&.is-active {border-bottom-color:$light-d; background:$white}
 	}
-	&.el-collapse .el-collapse-item.is-active .el-collapse-item__wrap {background:$white}
+	&.el-collapse .el-collapse-item.is-active .el-collapse-item__wrap {background:$white; border:0}
 	&.el-collapse .el-collapse-item__content {
-		position:relative; padding:10px 20px;
+		position:relative; padding:10px 20px 0;
 		@include media-mb {padding:10px}
 		.row {
-			margin:0 -5px 10px;
+			margin:0 -5px;
 			&:last-of-type {margin-bottom:0}
 			@include media-md {margin-bottom:0}
 		}
@@ -140,7 +84,11 @@
 			padding-left:5px; padding-right:5px;
 			@include media-md {margin-bottom:10px}
 		}
+		dl {padding-bottom:20px}
 		input {width:100%}
+
+		/* 상세검색 */
+    	.row.detail dl {padding-bottom:6.4rem}
 	}
 	.el-date-editor--daterange.el-input__inner {
 		width:100%;
@@ -159,7 +107,8 @@
 		@include media-mb {@include flexbox; @include justify-content(space-between)}
 	}
 	.el-radio {
-		margin-right:2vw;
+		margin-right:1vw;
+		&:last-of-type {margin-right:0}
 		&__label {@include inline-flex; @include align-items(center)}
 		button {
 			cursor:not-allowed; outline:0;
@@ -170,9 +119,15 @@
 			&:hover {background:$point; color:$white}
 		}
 	}
-	.btn-search {
-		@include absolute(null,null,20px,10px); padding:6px 20px;
+	/* 검색버튼 */
+	.wrap-btn {
+		@include absolute(null,null,20px,20px);
 		@include media-md {position:relative; right:auto; bottom:auto; width:100%}
+		.btn-search {padding:6px 20px}
+		.btn-line-b {
+		  i {font-size:1.4rem; @include transition(transform); vertical-align:baseline}
+		  &.active i {transform:rotate(180deg)}
+		}
 	}
 }
 /* 단일형태 검색 */
@@ -186,6 +141,17 @@
 	} 
 }
 
+/* 날짜 컨트롤러 -정산관리 */
+.cal-control {
+	position:relative; width:230px; margin:0 auto 30px; padding:10px; text-align:center; line-height:1;
+	.txt {font-size:2rem; color:$dark-3}
+	.btn {
+		position:absolute; top:0; padding:10px;
+		&.btn-prev {left:0}
+		&.btn-next {right:0}
+	}
+}
+
 /* 통계 위젯 */
 .wrap-widget {
 	margin:0 -7px 20px;
@@ -197,25 +163,26 @@
 	div[class*="widget-"] {
 		position:relative; @include flexbox; padding:10px; @include bxshadow; border-radius:10px; color:$white;
 		&:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
-		&.widget-sk {
-			@include bg-gradient($sub-sk-dk,$sub-sk,'vertical');
-			&:after {width:100px; height:60px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
-		}
 		&.widget-rd {
-			@include bg-gradient($rd-dk,$rd-lt,'vertical');
+			@include bg-gradient($rd-dk,$rd-lt,'horizontal');
 			&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
 		}
-		&.widget-yl {
-			@include bg-gradient($warn-yl-dk,$warn-yl,'vertical');
-			&:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
-		}
 		&.widget-pt {
-			@include bg-gradient($point,$point-lt,'vertical');
+			@include bg-gradient($point,$point-lt,'horizontal');
 			&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 		}
-		dl {@include flex(1); width:100%; padding:4px 10px}/* ie10 */
+		&.widget-wt-rd {
+			dt {color:$dark-6}
+			dd {color:$rd-dk}
+		}
+		dl {
+			position:relative; @include flex(1); width:100%; padding:1.5rem 2rem;/* ie10 */
+			&:not(.colored):not(:last-of-type):after {
+				content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-d
+			}
+		}
 		dt {
-			margin-bottom:10px; font-size:1.3rem;
+			margin-bottom:6px; font-size:1.3rem;
 			@include media-mb {margin-bottom:6px; font-size:1.2rem}
 		}
 		.main-stat {			
@@ -224,107 +191,116 @@
 				@include media-mb {font-size:2.2rem}
 			}
 		}
-		.sub-stat {
-			dd {
-				padding-top:1rem; font-size:2rem;
-				@include media-mb {padding-top:0.4rem; font-size:1.8rem}
-			}
-			.sub-count {display:inline-block; font-size:1.8rem}
-		}
 		&.horizon {
 			@include flex-direction(column);
 			&:after {
 				bottom:auto; right:auto; top:45px; height:4.4rem;
 				@include media-mb {display:none}
 			}
-			&.widget-yl:after {width:4.8rem}
-			&.widget-rd:after {width:6rem}
-			&.widget-pt:after {width:6.6rem}
 			dl {
 				@include flex(inherit);/* ie10 */
 				@include media-mb {@include flexbox; @include align-items(center)}
 			}
 			dd {@include flex(1); text-align:right}
 			.main-stat dt {@include media-mb {margin-bottom:0}}
-			.sub-stat {
-				height:90px; margin:6px 0 0; border-top:1px solid rgba($white,.2);
-				dl {@include flexbox; @include align-items(center); margin:5px 0 0}
-				dt {margin:0}
-				dd {padding-top:0}
-			}
 		}
 	}
 }
 .tab-lg .wrap-widget div[class*=widget-] {box-shadow:none}
 
+/* 게시판 리스트 toggle sticky layout */
+[data-v-sticky-container]{
+  position:relative; @include flexbox; @include align-items(flex-start);
+  
+  /* 리스트 영역 */
+  .board {
+    @include flex(3); @include transition(all); margin-bottom:0;
+    /* 우측 설정 열리면 클래스 추가됨 */
+    &.active {
+      @include flex(2); margin-right:20px;
+      & ~ .bx-right {margin-right:0; opacity:1}
+    }
+  }
+  /* 우측 설정 영역 */
+  .bx-right {
+    @include transition(margin,opacity); width:540px; margin-right:-540px; opacity:0;    
+    /* 내용 영역 */
+    .bx-con {overflow:auto}
+  }  
+}
+
+/* flex 공통 */
+.flex-wrap {
+  @include flexbox;
+  & > *:not(:first-child) {margin-left:10px}
+}
+
 /* 게시판 */
 .board-list {
-	position:relative; max-height:80vh; overflow-y:auto;
-	@include media-mb {max-height:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
-	&.noscroll {max-height:100%}
-	table {width:100%; border:1px solid $light-d}
+	position:relative; margin:0; padding:0; overflow-x:auto;
+	table {width:100%}
 	th, td {border-bottom:1px solid $light-d; text-align:left; line-height:100%; white-space:nowrap}
 	thead th {
-		padding:10px; color:$dark-6; font-size:1.3rem; @include fw-md; text-align:center;
-		&.sort {
-			cursor:pointer;
-			span {position:relative; padding-right:22px}
-			span:before, span:after {@include absolute(null,null,0,0); font:900 13px/15px 'Line Awesome Free'; opacity:.3; color:$dark-6}
-			span:before {content:"\f062"; right:8px}
-			span:after {content:"\f063"}
-			&.dsc span:before {opacity:1}
-			&.asc span:after {opacity:1}
-		}
+		padding:10px; color:$dark-6; font-size:1.3rem; @include fw-md; text-align:center; 
+		background:$light-f; border-bottom:2px solid $light-d
 	}
 	tbody {
 		background:$white;
 		tr {
-			&:hover, &.checked {cursor:pointer}
-			&.total {
-				background-color:rgba($danger-rd,.1);
-				td {@include fw-bd}
-			}
+			&:hover {cursor:pointer}
+			&.total td {@include fw-bd}
 			.td-blank {padding:6vh 10px; background-color:$white}
+			/* 선택된 tr */
+			&.checked > td {background:rgba($warn-yl,.1)}
 		}
 		th {padding:12px 15px; font-size:1.4rem; @include fw-md; color:$dark-3}
 		td {
-			padding:12px 15px; color:$dark-3; font-size:1.4rem; @include transition(color); text-align:center; vertical-align:middle;
+			padding:10px; color:$dark-3; font-size:1.4rem; @include transition(background); text-align:center; vertical-align:top; white-space:normal;
 			&.td-btns {
-				.btn {display:block; width:130px}
+				.btn {display:block; width:100%; max-width:130px; margin-left:auto; margin-right:auto}
 				.btn:not(:first-child) {margin-top:5px}
-				.set-btn {
-					padding:0;
-					button {
-						display:inline-block; height:100%; padding:0; border:0; background:transparent; color:$dark-6; @include transition(color);
-						&:hover {color:$dark-2}
-						&:not(:first-child):before {content:''; display:inline-block; width:1px; height:12px; margin:0 5px; vertical-align:middle; background:$light-d;}
-					}
-				}
 			}
 			&.td-labels {white-space:normal}
-			&.va-top {vertical-align:top}
-			& > * {margin:2px; vertical-align:middle}
-			.txt-state:before {width:4px; height:4px}
-			.link-resell {
-				span {color:$dark-9}
-				&.link span {cursor:pointer; @include fw-md; color:$sub-sk; text-decoration:underline}
-				&.link:after {content:"\f105"; color:$sub-sk; font:900 13px/1 'Line Awesome Free'}
-			}
 			b {@include fw-md}
 		}
 		.txt-gn {color:$positive-gn}
-
-		/* 판매점/리셀러 정보 */
-		.txt-info {
-			line-height:1.3;
-			dt {margin-bottom:5px; @include fw-md}
-			dd {margin-bottom:2px; font-size:1.3rem; color:$dark-6}
-		}
 	}
+	.va-top {vertical-align:top}
+	.va-mid {vertical-align:middle}
 	.ta-left {text-align:left}
 	.ta-right {text-align:right}
 	.ta-center {text-align:center}
+
+	/* checkbox -텍스트 없는 형태 */
+	.inp-check {
+		width:20px; height:20px; vertical-align:top;
+		.checkmark {top:0}
+	}
 }
+
+/* 테이블 */
+.tbl-xs {
+	width:100%; margin:0; border:1px solid lighten($point,20%);
+
+	/* 게시판 셀 안에 테이블 */
+	tr {
+		th, td {padding:.5rem 1rem; border:0 solid lighten($point,20%); text-align:left; line-height:1.4}
+		th {background-color:lighten($point,26%); color:$dark-6; font-size:1.2rem; @include fw-dl; border-right-width:1px; border-bottom-width:1px}
+		td {color:$dark-3; border-bottom-width:1px}
+		&:last-child {
+			th, td {border-bottom:0}
+		}
+	}
+	.board-list & td, &.tbl-row td {font-size:1.2rem; @include fw-md; white-space:nowrap}
+	.flex-wrap {@include justify-content(space-between); @include align-items(center)}
+	.btn {height:24px; margin:0 0 0 auto; line-height:24px}
+
+	/* 마진 테이블 */
+	&.tbl-col thead th {border-right-width:0; border-bottom:1px solid lighten($point,20%)}
+	&.tbl-col td {border-color:$light-d; font-size:1.4rem; @include fw-dl}
+}
+
+/* 게시판 데이터 빈 화면 */
 body .td-blank {
 	text-align:center;
 	i {margin-bottom:10px; font-size:40px; color:$light-d}
@@ -332,21 +308,24 @@ body .td-blank {
 }
 .f-right {
 	@include absolute(null,-50px,0,null);
-	@include media-md {position:relative; top:auto; margin-bottom:10px; text-align:right}
-	
+	@include media-md {position:relative; top:auto; margin-bottom:10px; text-align:right}	
 	.txt-s {margin:0 5px; line-height:24px; font-size:1.2rem; color:$dark-9}
-	.btn-down {@include media-mb {display:none}}
 }
+/* 게시판 옵션 */
 .tbl-filter {
-	position:relative; @include flexbox; @include align-items(flex-end); height:54px; padding:10px 20px; font-size:0; background:$white; border:1px solid $light-d;
+	position:relative; @include flexbox; @include align-items(flex-end); height:54px; padding:10px 20px; background:$white;
 	&.transparent {
-		height:auto; min-height:28px; margin:0 0 14px; padding:0; background:transparent; border:0;
-		.f-right {top:auto}
+		height:auto; min-height:28px; margin:0 0 10px; padding:0; background:transparent; border:0;
+		/* 버튼영역 */
+		.btn:not(:first-child) {margin-left:5px}
 	}
 	@include media-mb {
 		padding:10px;
 		.el-select .el-input {width:30vw}
 	}
+
+	/* 총 카운트 텍스트 */
+	.txt-result {font-size:1.4rem}
 
 	/* 페이징 */
 	.pager {
@@ -365,6 +344,39 @@ body .td-blank {
 		.inp-txt {width:40px}
 	}
 }
+/* 입력폼 박스, 리스트 오른쪽 상세 영역 */
+.bx-basic {
+	.bx-tit {
+		@include flexbox; @include align-items(center); margin:0; padding:10px 20px; border-bottom:1px solid $light-d;
+		.tit {font-size:1.4rem; @include fw-rg; color:$dark-3}
+		button {margin-left:auto; padding:0; font-size:1.8rem; color:$dark-9}
+	}
+	.bx-con {
+		padding:15px 20px 30px;
+		.row-con:not(:last-of-type) {margin-bottom:20px}
+		.tit {margin:0 0 4px; font-size:1.3rem; @include fw-rg}
+		/* 첨부파일 목록 */
+		.list-file {
+			margin-top:4px;
+			li {
+				position:relative; @include flexbox; @include align-items(center); padding:5px 10px; border:1px solid $light-d; background:rgba($dark-9,.2);
+				font-size:1.2rem; color:$dark-3;
+				&:not(:first-of-type) {margin-top:-1px}
+				button {
+					margin-left:auto; padding:3px; font-size:1.4rem; color:$dark-9; @include transition(color); background:transparent;
+					&:hover {color:$danger-rd}
+				}
+			}
+		}
+		textarea {width:100%}
+	}
+	&.bx-right {
+		.bottom-btn .btn {min-width:0; padding:10px 26px; font-size:1.4rem}
+
+		/* 폼형태 -익일정산신청 */
+		.wrap-form {padding:10px 0 0}
+	}
+}
 
 /* 입력폼 */
 .wrap-form {
@@ -373,46 +385,65 @@ body .td-blank {
 	dl {padding-bottom:10px}
 	dt {
 		margin-bottom:4px; font-size:1.3rem;
+		/* 필수입력 표시 */
 		&.must label:after {content:'*'; margin-left:3px; @include fw-bd; color:$point}
 	}
 	dd {
 		@include flexbox; min-height:34px; margin-bottom:4px; font-size:1.4rem; color:$dark-3;
-		&.no-inp {padding:0 10px; background:$light-f; line-height:34px; color:$dark-6}
 		& > .inp-txt, & > .el-select {@include flex(1)}
-		.btn:not(:first-child) {margin-left:5px}
-		/* 에러메시지 */
-		&.txt-error {min-height:0; margin:0; color:$danger-rd; font-size:1.2rem}
+
+		/* flex */
+		.flex1 {@include flex(1)}
+		.flex2 {@include flex(2)}
+		.flex3 {@include flex(3)}
 	}
+	/* 에러메시지 */
+	.txt-error {min-height:0; margin:0; color:$danger-rd; font-size:1.2rem}
+
+	.inp-txt {min-height:34px}
+	/* dd 내 요소가 인라인 나열일 때 여백 주기 */
+	.btn:not(:first-child) {margin-left:5px}
+	.ele-inline *:not(:first-child) {margin-left:5px}
 	.bottom-btn {margin-top:30px}
+
+	/* 제목과 내용이 일렬로 된 스타일 */
+	&.horizon {
+		padding:20px 20px 6px;
+		dl {display:table; width:100%; padding-bottom:14px}
+		dt {display:table-cell; width:7.5vw; padding-right:14px; text-align:right}
+		dd {@include flex(1); @include align-items(center)}
+		@include media-md {
+			dl {display:block}
+			dt {display:block; width:auto; padding-right:0; text-align:left}
+		}
+	}
 }
 .el-tabs__content .wrap-form {
 	@include media-mb {padding:0}
 }
+.no-inp {padding:0 10px; background:$light-f; line-height:34px; color:$dark-6; border-radius:3px}
 
 /* 라벨스타일 */
 *[class*="label-"] {display:inline-block; padding:3px 7px; border-radius:10px; @include fw-md; font-size:1.2rem; vertical-align:top}
 .label-new {padding:2px 5px; background:rgba($positive-gn,.1); color:$positive-gn; font-style:normal; @include fw-bd; font-size:10px}
 .label-default {background:rgba($point,.1); color:$point}
-.label-sspay {background:rgba(#1327a0,.1); color:#1327a0}
-.label-npay {background:rgba(#01c73c,.1); color:#01c73c}
-.label-kakao {background:rgba($warn-yl,.1); color:$warn-yl}
-.label-payco {background:rgba(#fa2828,.1); color:#fa2828}
 .label-gy {
 	background:rgba($dark-6,.1); color:$dark-6;
 	.txt-s {@include fw-dl}
 	b {color:$dark-3}
 }
 
-/* 버튼 관련 */
+/* 하단 큰 버튼 */
 .bottom-btn {
 	margin-top:30px; text-align:center;
 	@include media-mb {position:fixed; left:0; right:0; bottom:0; @include flexbox; box-shadow:0 2px 5px rgba($dark-3,.5); z-index:10}
 	.btn {
-		@include margin-padding(all,0 5px,all,12px 40px); font-size:1.6rem; box-shadow:0 4px 8px rgba($dark-6,.3);
+		min-width:120px; @include margin-padding(all,0 5px,all,12px); font-size:1.6rem; box-shadow:0 4px 8px rgba($dark-6,.3); text-align:center;
 		@include media-mb {@include flex(1); margin:0; padding-left:0; padding-right:0; border-radius:0}
 	}
 	.btn-disable {box-shadow:none}
 }
+/* 버튼 여러개 묶음 */
 .wrap-btns .btn:not(:first-of-type) {margin-left:5px}
 
 /* 하단 부가적 텍스트 영역 */
@@ -453,121 +484,6 @@ body .td-blank {
 	}
 }
 
-/* 리셀러/판매점 상세정보 */
-.detail-info {
-	@include flexbox; @include align-items(center); padding:14px 20px;
-	@include media-md {@include flex-direction(column)}
-	.info {
-		@include flex(1 1 180px); text-align:center;
-		@include media-md {@include flex(1)}
-		.btn {margin:20px auto 0; padding:0 24px}
-	} 
-	.info-name {
-		.i-store {
-			position:relative; display:block; width:60px; height:60px; margin:0 auto 4px; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal'); border-radius:50%;
-			&:after {content:''; @include absolute(0,0,0,0); width:60px; height:60px; background:url('../img/img_store.svg') no-repeat 50% 50% / 38px 36px}
-		}
-		&.store .i-store {@include bg-gradient($point-lt,$point,'horizontal')}
-		dt {font-size:1.6rem; color:$dark-3}
-		.txt-s {margin:2px 0; font-size:1.2rem; color:$dark-9}
-	}
-	.label-count {
-		display:table; margin:4px auto 0; padding:3px 8px; background:rgba($positive-gn,.1); border-radius:20px;
-		dt,dd {display:table-cell; vertical-align:middle}
-		dt {font-size:1.2rem; color:$dark-6}
-		dd {padding-left:8px; font-size:1.6rem; color:$positive-gn}
-	}
-	.list-info {
-		@include flex(1 1 50%); margin-left:20px;
-		@include media-md {width:100%; margin:20px 0 0}
-		dl {
-			display:table; table-layout:fixed; width:100%; border-bottom:1px solid $light-d;
-			&:last-child {border-bottom:0}
-		}
-		dt,dd {
-			display:table-cell; vertical-align:middle; padding:8px 10px;
-			@include media-md {padding:8px 5px}
-		}
-		dt {width:30%; font-size:1.3rem; color:$dark-6}
-		dd {
-			font-size:1.4rem; color:$dark-3; line-height:24px;
-			@include media-mb {line-height:inherit}
-			&:after {content:''; display:block; clear:both}
-			.d-right {
-				float:right;
-				@include media-mb {display:none}
-			}
-			.txt-s {display:inline-block; margin-left:5px}
-			.txt-state {display:inline-block}
-			.txt-wrap {display:inline-block; width:85%; max-width:330px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-			.btn-gy {height:24px; line-height:24px}
-		}
-	}
-	.wrap-memo {
-		@include flex(1 1 20%); margin-left:20px; padding:10px; border:1px solid $warn-yl; background:rgba($warn-yl,.15);
-		@include media-md {width:100%; margin:20px 0 0}
-		.tit {margin:0 0 10px; padding:0 0 5px; color:$warn-yl; @include fw-dl; font-size:1.3rem; border-bottom:1px solid $warn-yl}
-		textarea {
-			display:block; width:100%; height:100px; font-size:1.3rem; border:0; background:transparent; resize:none;
-			@include media-mb {
-				height:20px; @include transition(height);
-				&:focus {height:20vh}
-			}
-		}
-		.btn {float:right}
-	}
-}
-
-/* 탭내 검색 및 설정영역 */
-.wrap-bx-search {
-	@include flexbox; @include align-items(center); margin-bottom:20px;
-	@include media-mb {margin-bottom:10px}
-	.el-collapse-item {width:100%} 
-	/* 날짜검색만 */
-	&.filter {
-		@include justify-content(center); padding:10px 20px; background:rgba($point,.1); text-align:center;
-		&.bx-basic {background:$white}
-		@include media-mb {@include flex-direction(column); padding:10px}
-		.el-date-editor {max-width:300px; margin-right:20px}
-	}
-	@include media-mb {
-		.el-date-editor {max-width:100%}
-		&.filter .el-date-editor {max-width:100%; margin:0 0 10px}
-		.group-radio {@include flexbox; @include justify-content(space-between); width:100%; padding:0 10px}
-	}
-	/* 마진간편설정 */
-	&.margin {
-		@include justify-content(inherit); padding:10px 30px;
-		.tit {
-			margin:0 auto 0 0; font-size:1.4rem; @include fw-dl; color:$dark-3;
-			@include media-mb {margin:0 auto}
-		}
-		.controller {
-			@include flexbox;
-			& > * {margin-left:10px}
-		}
-		.form-btn {
-			@include flexbox; @include align-items(center); padding-left:10px; background:$white; border:1px solid $point; border-radius:3px;
-			label, span {margin-right:8px; font-size:1.3rem; color:$dark-6}
-			input {width:40px; height:26px; margin-right:4px}
-			.btn {border-radius:0}
-		}
-		@include media-mb {
-			padding:10px;
-			.controller {
-				@include flex-wrap(wrap);
-				& > .btn {@include flex(1 1 calc(50% - 6px)); margin:10px 3px 0}
-			}
-			.form-btn {
-				@include flex(1 1 100%); margin:10px 3px 0;
-				input {width:30vw; margin-left:auto}
-				.btn {margin-left:auto}
-			}
-		}
-	}
-}
-.tab-lg .wrap-bx-search.filter {background:rgba($point,.1); border-radius:0; box-shadow:none}
-
 /* 웰컴 컨텐츠 */
 .wrap-intro {
 	h2 {margin:0; padding:20px; font-size:1.8rem; color:$dark-3}
@@ -577,7 +493,7 @@ body .td-blank {
 	}
 }
 
-/* 홈 -main */
+/* 홈 -main
 .vue-main {
 	.wrap-intro {
 		.tit {@include fw-lt}
@@ -704,7 +620,6 @@ body .td-blank {
 			&.calc dd {color:$positive-gn}
 			.wrap-chart {@include flex(1 0 54%); margin-left:auto}
 		}
-		/* 실적 현황 목록편집 */
 		.edit {
 			&.tbl-filter {@include align-items(center)}
 			&.list-chart li {
@@ -714,103 +629,172 @@ body .td-blank {
 			}
 		}
 	}
-}
+} */
 
-/* 리셀러 상세-실적통계 */
+/* 판매점 상세 */
 .vue-rsdetail {
-	.wrap-widget div .horizon .sub-stat {height:auto}
-	.board-list {
-		.bg-yl {
-			background:rgba($warn-yl,.1);
-			.inp-txt {max-width:70px}
+	/* 왼쪽 정보 */
+	.side-info {float:left; width:320px; padding:3rem 2rem}
+	.user-info {
+		& > i {
+			float:left; display:table; width:60px; height:60px; border-radius:50%; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal');
+			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:initial; color:$white}
 		}
-		.bg-rd {background:rgba($danger-rd,.1)}
-		th img {margin-left:4px; vertical-align:middle}
-		.td-btns .btn-line-b:only-child {width:60px}
+		dl {padding-left:76px}
+		.user-name {
+			@include fw-md; font-size:1.6rem; color:$dark-3;
+			.label-gy {@include fw-dl; font-size:1.1rem}
+		}
+		.user-id {margin:2px 0 8px; color:$dark-9; font-size:1.3rem}
+		button:last-child {margin-left:4px}
+	}
+	.list-info {
+		margin:40px 0; font-size:0;
+		dt, dd {display:inline-block; min-height:24px}
+		dt {width:28%; text-align:right; @include fw-md; font-size:1.3rem; color:$dark-9}
+		dd {width:66%; margin-left:6%; font-size:1.4rem; color:$dark-3; word-break:break-word}
+	}
+	.info-nav li {
+		@include flexbox; @include align-items(center); height:43px; 
+		margin-bottom:4px; padding:0 15px; cursor:pointer; @include fw-md; color:$dark-3; border-radius:5px; @include transition(all);
+		i {font-size:20px; opacity:.4}
+		span {margin-left:8px; font-size:1.4rem}
+		.la-angle-right {margin-left:auto}
+		&:hover, &.on {
+			background-color:lighten($point,26%); color:$point;
+		}
 	}
 
-	/* API마진설정 */
-	.board-list.margin {
-		thead th {
-			&.area-yl {background:$warn-yl; color:$white; border:1px solid $warn-yl}
-			&.area-sk {background:$sub-sk; color:$white; border:1px solid $sub-sk}
-		}
-
-		/* 결제API-라인감싸기 */
-		&.paymargin {
-			/* 노란라인 */
-			thead tr:last-child th:first-child, tbody td:nth-child(2) {border-left:1px solid $warn-yl}
-			thead tr:last-child th:nth-child(2), tbody td:nth-child(3) {border-right:1px solid $warn-yl}
-			tbody tr:nth-last-child(3) td:nth-child(n+2):nth-child(-n+3) {border-bottom:1px solid $warn-yl}
-			/* 파란라인 */
-			thead tr:last-child th:nth-child(3), tbody td:nth-child(4) {border-left:1px solid $sub-sk}
-			thead tr:last-child th:last-child, tbody td:nth-child(5) {border-right:1px solid $sub-sk}
-			tbody tr:nth-last-child(3) td:nth-child(n+4):nth-child(-n+5) {border-bottom:1px solid $sub-sk}
-			/* 라인삭제 */
-			tbody tr:nth-last-child(2) td,
-			tbody tr:last-child td {border-left:0; border-right:0}
-		}
-
-		/* 유료-라인감싸기 */
-		&.msgmargin {
-			/* 노란라인 */	
-			thead tr:last-child th:first-child, tbody td:nth-child(2) {border-left:1px solid $warn-yl}
-			thead tr:last-child th:nth-child(4), tbody td:nth-child(5) {border-right:1px solid $warn-yl}
-			tbody tr:last-child td:nth-child(n+2):nth-child(-n+5) {border-bottom:1px solid $warn-yl}
-			/* 파란라인 */
-			thead tr:last-child th:nth-child(5), tbody td:nth-child(6) {border-left:1px solid $sub-sk}
-			thead tr:last-child th:nth-child(7), tbody td:nth-child(8) {border-right:1px solid $sub-sk}
-			tbody tr:last-child td:nth-child(n+6):nth-child(-n+8) {border-bottom:1px solid $sub-sk}
-		}
-	} 
-}
-
-/* 리셀러 등록 */
-.vue-rsadd {
-	.wrap-autoadd {
-		max-width:600px; margin:20px auto; text-align:center; font-size:1.4rem;
-		.tit {
-			margin-bottom:6px; font-size:1.8rem; @include fw-md; color:$dark-3;
-			i {font-size:2.6rem; color:$positive-gn; vertical-align:bottom}
-		}
-		.form {
-			@include flexbox; margin-top:20px;
-			input {@include flex(1); margin-right:5px; border-color:transparent}
-		}
-		.wrap-info {
-			display:table; width:100%; margin-top:50px;
-			@include media-mb {display:block}
-			.con {
-				display:table-cell; width:45%; padding:40px 10px 25px; background:rgba($positive-gn,.1);
-				img {
-					width:135px; height:82px;
-					@include media-mb {width:auto; height:18vw}
-				}
-				.txt {margin-top:20px; font-size:1.3rem}
-				@include media-mb {
-					display:block; width:auto; padding:20px;
-					.txt {margin-top:10px}
-				}
-			}
-			.or {
-				display:table-cell; vertical-align:middle; color:$dark-9;
-				@include media-mb {display:block; margin:5px}
-			}
-		}
+	/* 오른쪽 상세영역 */
+	.bx-right {
+		display:none; float:left; width:calc(100% - 340px); margin-left:20px;
+		&.on {display:block}
 	}
 }
 
-/* 리셀러관리,결제관리 */
+/* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */
+.wrap-autoadd {
+  max-width:600px; margin:20px auto; text-align:center; font-size:1.4rem;
+  .tit {
+    margin-bottom:6px; font-size:1.8rem; @include fw-md; color:$dark-3;
+    i {font-size:2.6rem; color:$positive-gn; vertical-align:bottom}
+  }
+  .form {
+    @include flexbox; margin-top:20px;
+    input {@include flex(1); margin-right:5px; font-size:1.4rem; border-color:transparent}
+  }
+  .wrap-info {
+    display:table; width:100%; margin-top:50px;
+    @include media-mb {display:block}
+    .con {
+      display:table-cell; width:45%; padding:40px 10px 25px; background:rgba($positive-gn,.1);
+      img {width:135px; height:82px}
+      .txt {margin-top:20px; font-size:1.3rem}
+      @include media-mb {
+        display:block; width:auto; padding:20px;
+        .txt {margin-top:10px}
+      }
+    }
+    .or {
+      display:table-cell; vertical-align:middle; color:$dark-9;
+      @include media-mb {display:block; margin:5px}
+    }
+  }
+}
+/* 비밀번호 변경 -settingPassword */
+.vue-password .wrap-autoadd {
+	margin:40px auto;
+	.wrap-form {padding:5rem 0 6px}
+}
+
+
+/* 리셀러관리,판매점관리 리스트 -MemberList */
 .vue-rslist {
-	@include media-mb {
-		.wrap-widget .widget-rd {
-			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); padding-bottom:6px; border-bottom:1px solid rgba($white,.2)}
+  /* 게시판 */
+  .board-list .tbl-xs .btn-txt {
+    margin-left:3px; padding:2px 3px; font-size:1.6rem; color:$warn-yl; @include transition(all); border-radius:3px;
+    &:hover {background:$warn-yl; color:$white}
+  }
+    
+  /* 결제설정, API설정 공통 - switch 우측 정보 */
+  .el-tab-pane .wrap-form dd.inline .d-right {
+    * {display:inline-block; vertical-align:middle; font-size:1.3rem}
+    .title {
+      margin:0; @include fw-dl; color:$dark-9;
+      &:not(:first-of-type) {margin-left:10px}
+    }
+    p {@include fw-md}
+  }
+  @media only screen and (max-width:1540px) {
+    .el-tab-pane .wrap-form dd {
+      @include flex-direction(column); @include justify-content(center);
+      .el-switch {margin:5px auto 0 0}
+      .el-switch ~ .d-right {margin:0 auto 0 0}
+    }
+  }
+  
+  /* 결제설정 - 결제수단 */
+  .tab-pay-use .wrap-form dt {width:5vw}
+  
+  /* 결제설정 - 결제마진 */
+  .tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
+  
+  /* 결제설정 - 결제한도 */
+  .tab-pay-limit {
+    .wrap-form .dl-limit {
+      width:auto; margin:0 auto;
+      dt {width:auto}
+    }
+    .list-type {
+      display:table; margin:0 auto 4px;
+      li {margin-bottom:2px; font-size:1.3rem}
+    }
+    .txt-s {text-align:center; color:$dark-9}
+  }
+  /* API설정 - 사용 */
+  .tab-api-use dt {width:85px}
+}
+
+/* 결제 현황 조회 - 리셀러/판매점 목록, 상세 공통 */
+.pay-inquiry {
+	.wrap-search {
+		margin-bottom:30px;
+		.row {@include flexbox; margin:0 -5px}
+		.col-md-3 {
+			width:auto; padding-left:5px; padding-right:5px;
+			&:first-child {@include flex(1)}
 		}
+	}
+	.wrap-widget .widget-wt-rd {
+		dl {padding:1rem 1.5rem}
+		dd {font-size:2.4rem}
+	}
+	.tbl-xs td {padding:.5rem; font-size:1.2rem}
+}
+
+/* 부가세 자료 조회 - 리셀러/판매점 목록, 상세 공통 */
+.pay-tax {
+	.wrap-search {
+		margin-bottom:30px;
+		.el-radio-group {margin-left:5px}
+	}
+	section {margin-top:20px}
+	.tit-md {@include align-self(center)}
+	.flexbox .no-inp {
+		font-size:1.3rem;
+		dt {display:inline-block; margin-right:10px}
+		dt:not(:first-child) {margin-left:20px}
+		dd {display:inline-block; color:$dark-3}
+	}
+.tbl-col {
+		margin-top:10px;
+		th {text-align:center}
+		td {font-size:1.2rem}
+		.ta-right {@include fw-md}
 	}
 }
 
-/* 결제통계 */
+/* 결제통계
 .vue-paystats {
 	@include media-mb {
 		.wrap-widget .widget-rd {
@@ -824,17 +808,56 @@ body .td-blank {
 		}
 		.tbl-filter.transparent {display:none}
 	}
-}
+	.wrap-bx-search {background:$white; @include bxshadow; border-radius:10px}
+} */
+
 
 /* 유료API관리 */
-.vue-apilist, .vue-apistats {
-	@include media-mb {
-		.wrap-widget .widget-pt {
-			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); padding-bottom:6px; border-bottom:1px solid rgba($white,.2)}
-		}
-	}
+.vue-apilist, .vue-apistats {}
+
+
+/* 정산관리 */
+/* 결제마진 정산 -AdjustSalesList */
+.v-aj-salelist {
+  .wrap-widget [class*="widget-"] {
+    @include flex-direction(column);
+    .colored {
+      padding:2rem 3rem;
+      dt {@include fw-md; font-size:2rem}
+      dd {font-size:1.2rem}
+    }
+    &.widget-pt .colored:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
+  }
+  /* 목록 상단 제목 */
+  .tbl-filter.transparent {
+    .d-left {
+      @include align-self(center);
+      .tit-md {display:inline-block}
+    }
+    .d-right {
+      .txt {font-size:1.4rem; vertical-align:middle}
+      .btn {vertical-align:middle}
+    }
+  }
+  .board-list {
+    th, td {vertical-align:middle}
+    p.fw-md {margin-bottom:5px; font-size:1.6rem}
+    .txt-id {color:$dark-9}
+    .total td {padding:15px 10px}
+  }
+  /* 데이터 없는 경우 */
+  .pg-blank {
+    margin-top:10vh; text-align:center; color:$dark-3;
+    dl {margin-bottom:6rem}
+    dt {margin-bottom:1rem; font-size:2.6rem; @include fw-md}
+    dd {font-size:1.4rem}
+    img {max-width:380px}
+  }
 }
+
+
+
+
 
 /* 이용안내 */
 .vue-info {
@@ -944,7 +967,7 @@ body .td-blank {
 					.point:after {content:''; position:absolute; left:calc(50% - 10px); bottom:-8px; width:0; height:0; border-top:10px solid transparent; border-right:20px solid $point; border-bottom:10px solid transparent}
 				}
 				dd {font-size:1.6rem; line-height:1.5}
-				.logo-picxell {@include hide-txt; display:inline-block; width:113px; height:34px; background:url('/ud/pna/common/img/logo_picxell@2x.png') no-repeat 0 0 / 100%; vertical-align:middle}
+				.logo-picxell {@include hide-txt; display:inline-block; width:113px; height:34px; background:url('../img/logo_picxell@2x.png') no-repeat 0 0 / 100%; vertical-align:middle}
 			}
 		}
 		.wrap-price {
@@ -958,7 +981,7 @@ body .td-blank {
 			}
 		}
 	}
-
+	
 	/* 후불계약 -postpay */
 	.wrap-basic .inner {
 		@include flexbox; padding:40px;
@@ -972,7 +995,7 @@ body .td-blank {
 		}
 		.wrap-steps {@include flex(1)}
 		.wrap-steps li {
-			position:relative; @include flexbox; @include flex(1);			
+			position:relative; @include flexbox; @include flex(1);
 			&:not(:last-child) {
 				padding-bottom:50px;
 				&:before {content:''; position:absolute; left:30px; top:0; width:0; height:100%; border-left:1px dashed $warn-yl;}
@@ -1001,4 +1024,17 @@ body .td-blank {
 			.el-tabs__item {min-width:70px}
 		}
 	}
+}
+
+/* 설정 -settingMypage */
+.vue-setting {
+  /* 계정정보 */
+  .wrap-form.horizon dt {min-width:112px}
+}
+
+/* 기본 마진 설정 -SettingMargin */
+.v-mg-setting {
+  .bx-gry .list-type li {font-size:1.3rem; margin-bottom:4px}
+  .tbl-xs {margin-top:3rem}
+  .txt-s {margin-top:4px; color:$dark-9}
 }

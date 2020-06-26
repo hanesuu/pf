@@ -30,19 +30,105 @@
       <div class="contents vue-rslist">
         <!--상세검색-->
         <el-collapse class="bx-basic wrap-bx-search" v-model="searchDetail" @change="handleChange">
-          <el-collapse-item title="상세검색" name="1">
+          <el-collapse-item title="검색" name="1" class="wrap-form">
             <div class="row">
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="상호/이름">
+                <dl>
+                  <dt>
+                    <label for="searchName">판매점명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchName" class="inp-box" placeholder="판매점명을 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="아이디">
+                <dl>
+                  <dt>
+                    <label for="searchId">판매점 ID</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchId" class="inp-box" placeholder="판매점 ID를 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="tel" class="inp-box" placeholder="휴대폰번호">
+                <dl>
+                  <dt>
+                    <label for="searchPhone">휴대폰 번호</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" id="searchPhone" class="inp-box" placeholder="휴대폰 번호를 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="이메일">
+                <dl>
+                  <dt>
+                    <label for="businessType">업체 구분</label>
+                  </dt>
+                  <dd class="no-inp" id="businessType">
+                    <el-radio-group v-model="businessType">
+                      <el-radio :label="ALL">전체</el-radio>
+                      <el-radio :label="COMPANY">사업자</el-radio>
+                      <el-radio :label="PERSONAL">개인</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="adjustSubmit">정산 서류 제출</label>
+                  </dt>
+                  <dd class="no-inp" id="adjustSubmit">
+                    <el-radio-group v-model="adjustSubmit">
+                      <el-radio :label="ALL">전체</el-radio>
+                      <el-radio :label="TRUE">제출 완료</el-radio>
+                      <el-radio :label="FALSE">미제출</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="adjustStatus">정산 가능 여부</label>
+                  </dt>
+                  <dd class="no-inp" id="adjustStatus">
+                    <el-radio-group v-model="adjustStatus">
+                      <el-radio :label="ALL">전체</el-radio>
+                      <el-radio :label="TRUE">정산 가능</el-radio>
+                      <el-radio :label="FALSE">정산 불가</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="usertype">소속</label>
+                  </dt>
+                  <dd class="no-inp" id="usertype">
+                    <el-radio-group v-model="usertype">
+                      <el-radio :label="ALL">전체</el-radio>
+                      <el-radio :label="AGENT">본인</el-radio>
+                      <el-radio :label="RESELLER">리셀러</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="parentID">상위 아이디</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="parentID" class="inp-box" placeholder="상위 아이디를 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
             </div>
             <div class="row">
@@ -79,141 +165,199 @@
             <button class="btn btn-point btn-search"><i class="la la-search"></i> 검색</button>
           </el-collapse-item>
         </el-collapse>
-        <!--통계 위젯-->
-        <section class="row wrap-widget">
-          <div class="col-xs-12 col-sm-4">
-            <div class="widget-sk">
-              <dl class="main-stat">
-                <dt>리셀러</dt>
-                <dd class="txt-count" id="rsAll">564</dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>판매점</dt>
-                <dd class="txt-count" id="rsStore">553</dd>
-              </dl>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <div class="widget-rd">
-              <dl class="main-stat">
-                <dt>총 마진</dt>
-                <dd class="txt-count" id="marginAll">1,578,000<small>원</small></dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>결제수수료 마진</dt>
-                <dd class="txt-count" id="marginSub1">1,270,000<small>원</small></dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>유료 API 마진</dt>
-                <dd class="txt-count" id="marginSub2">308,000<small>원</small></dd>
-              </dl>
-            </div>
-          </div>
-        </section>
-        <section class="board-list">
-          <table>
-            <colgroup>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col width="150px">
-            </colgroup>
-            <thead>
-              <tr>
-                <th class="sort">
-                  <span>리셀러 정보</span>
-                </th>
-                <th>정산정보</th>
-                <th class="sort">
-                  <span>판매점 총수</span>
-                </th>
-                <th class="sort">
-                  <span>총마진</span>
-                </th>
-                <th>관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt><a href="detail.html">하이젠버그 (walterwhite) <span class="label-new">NEW</span></a></dt>
-                    <dd>1599-5681</dd>
-                    <dd>2019.11.13</dd>
-                  </dl>
-                </td>
-                <td>
-                  <p class="txt-state fail">정산불가</p>
-                  <button class="btn btn-xs btn-line-b btn-xs-info">정산안내</button>
-                </td>
-                <td>34</td>
-                <td>15,240원</td>
-                <td class="td-btns">
-                  <button onclick="location.href='detail.html'" class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-point">리셀러 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button onclick="location.href='detail.html'">정보수정</button>
-                    <button onclick="location.href='detail.html'">메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>프로리셀러 (pro_reseller1)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                  </dl>
-                </td>
-                <td>
-                  <p class="txt-state success">정산가능</p>
-                </td>
-                <td>57</td>
-                <td>105,230원</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
-                  <button class="btn btn-xs btn-point">리셀러 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <div class="tbl-filter">
+        <!--목록-->
+        <section class="tbl-filter transparent">
           <div class="d-left">
-            <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
-              <el-option 
-                v-for="list in options"
-                :key="list.value"
-                :label="list.label"
-                :value="list.value">
-              </el-option>
-            </el-select>
+            <div class="txt-result">
+              <b class="txt-rd">2</b>개의 판매점
+            </div>
           </div>
           <div class="d-right">
-            <div role="pagination" class="pager">
-              <div class="txt-pg">
-                <span class="current">1</span>
-                <span>3</span>
+            <button class="btn btn-gy"><i class="la la-download"></i> 엑셀 다운로드</button>
+            <button class="btn btn-point" onclick="location.href='add.html'"><i class="las la-user-plus"></i> 판매점 등록</button>
+          </div>
+        </section>
+        <section class="bx-basic board">
+          <div class="board-list">
+            <table>
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>회원 정보</th>
+                  <th>담당자 정보</th>
+                  <th>정산 정보</th>
+                  <th>부가 기능</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="va-mid">2</td>
+                  <!--회원 정보-->
+                  <td>
+                    <table class="tbl-xs">
+                      <colgroup>
+                        <col width="30%">
+                        <col>
+                      </colgroup>
+                      <tbody>
+                      <tr>
+                        <th>판매점명</th>
+                        <td>하이젠버그
+                          <button @click="modify" class="btn-txt" title="정보 수정">
+                            <i class="las la-edit"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>판매점 ID</th>
+                        <td>walterwhite</td>
+                      </tr>
+                      <tr>
+                        <th>등록일</th>
+                        <td>2020.06.23</td>
+                      </tr>
+                      <tr>
+                        <th>소속 대리점</th>
+                        <td>(주)인텔리</td>
+                      </tr>
+                      <tr>
+                        <th>소속 리셀러</th>
+                        <td>서브라임샵</td>
+                      </tr>
+                      <tr>
+                        <th>상태</th>
+                        <td>사용중</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <!--담당자 정보-->
+                  <td>
+                    <table class="tbl-xs">
+                      <colgroup>
+                        <col width="30%">
+                        <col>
+                      </colgroup>
+                      <tbody>
+                      <tr>
+                        <th>휴대폰</th>
+                        <td>010-2121-1212</td>
+                      </tr>
+                      <tr>
+                        <th>이메일</th>
+                        <td>prayforjessi@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <th>업체 구분</th>
+                        <td>개인</td>
+                      </tr>
+                      <tr>
+                        <th>대표자명</th>
+                        <td>지선우</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <!--정산 정보-->
+                  <td>
+                    <table class="tbl-xs">
+                      <colgroup>
+                        <col width="30%">
+                        <col>
+                      </colgroup>
+                      <tbody>
+                      <tr>
+                        <th>정산 상태</th>
+                        <td>
+                          <span class="txt-state fail">정산불가</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>정산 서류</th>
+                        <td>
+                          <div class="flex-wrap">
+                            <span class="txt-state fail">미제출</span>
+                            <button class="btn btn-xs btn-line-point">제출</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>추가 서류</th>
+                        <td>
+                          <div class="flex-wrap">
+                            <span class="txt-state fail">미제출</span>
+                            <button class="btn btn-xs btn-line-point">제출</button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>익일 정산</th>
+                        <td>
+                          <button class="btn btn-xs btn-line-point">신청</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>보증보험</th>
+                        <td>
+                          <button class="btn btn-xs btn-line-point">요청</button>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <!--부가 기능-->
+                  <td class="td-btns">
+                    <button class="btn btn-xs btn-line-point">결제 현황 조회</button>
+                    <button class="btn btn-xs btn-line-point">부가세 자료 조회</button>
+                    <button class="btn btn-xs btn-line-yl btn-block">
+                      <i class="las la-file-alt"></i> 메모
+                    </button>
+                  </td>
+                  <!--관리-->
+                  <td class="td-btns">
+                    <button class="btn btn-xs btn-line-b" onclick="location.href='detail.html'">상세 정보</button>
+                    <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 결제 설정</button>
+                    <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> API 설정</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-filter">
+            <div class="d-left">
+              <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                <el-option 
+                  v-for="list in options"
+                  :key="list.value"
+                  :label="list.label"
+                  :value="list.value">
+                </el-option>
+              </el-select>
+            </div>
+            <div class="d-right">
+              <div role="pagination" class="pager">
+                <div class="txt-pg">
+                  <span class="current">1</span>
+                  <span>3</span>
+                </div>
+                <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                <label for="goto">이동</label>
+                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
               </div>
-              <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
-              <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
-              <label for="goto">이동</label>
-              <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
             </div>
           </div>
-        </div>
+        </section>
       </div><!--//페이지내용-->
-      <!--플로팅버튼-->
-      <div class="wrap-btn-float">
-        <button class="btn btn-float btn-regist" onclick="location.href='add.html'"><i class="las la-user-plus"></i>리셀러 등록</button>
-        <!-- <button class="btn btn-float btn-support" onclick="location.href='../support/support.html'"><i class="las la-edit"></i>문의하기</button> -->
-      </div><!--//플로팅버튼-->
     </div>
     <!--//template-->
     <div id="footer"></div>
@@ -233,6 +377,15 @@
         searchDetail: '1',
         searchDate: 'month',
         datepicker: '',
+
+        /* 업체 구분 */
+        businessType: 'ALL',
+        /* 정산 서류 */
+        adjustSubmit: 'ALL',
+        /* 정산 가능 여부 */
+        adjustStatus: 'ALL',
+        /* 소속 */
+        usertype: 'ALL',
         
         /**
          * 리스트 개수 select
@@ -258,38 +411,5 @@
       }
     }
   })
-</script>
-<script type="text/javascript">
-  //금액 카운트
-  var options = {
-    useEasing : true, 
-    useGrouping : true, 
-    separator : ',', 
-    decimal : '.', 
-    prefix : '', 
-    suffix : '' 
-  };
-
-  /**
-  [0] 카운트를 보여줄 ID
-  [1] 시작 카운트
-  [2] 종료 카운트
-  [3] 소수점
-  [4] 시작 ~ 종료 까지 실행 시간
-  [5] 옵션
-  */
-
-  let rsAll = new CountUp("rsAll", 0, 64, 0, 1.5, options);
-  rsAll.start();
-  let rsStore = new CountUp("rsStore", 0, 553, 0, 1.5, options);
-  rsStore.start();
-
-  let marginAll = new CountUp("marginAll", 0, 5128157, 0, 1.5, options);
-  marginAll.start();
-  let marginSub1 = new CountUp("marginSub1", 0, 4386102, 0, 1.5, options);
-  marginSub1.start();
-  let marginSub2 = new CountUp("marginSub2", 0, 742055, 0, 1.5, options);
-  marginSub2.start();
-
 </script>
 </html>

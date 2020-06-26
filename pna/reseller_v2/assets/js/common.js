@@ -55,15 +55,6 @@ $(document).ready(function(){
 	$(".mjadjust-1").find(".top").children(".location").children(".menu1").text("정산 관리");
 	$(".mjadjust-1").find(".top").children(".location").children(".menu2").text("API 마진 정산");
 
-    //이용안내
-    $(".mj5-1").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:nth-child(1)").addClass("active");
-    $(".mj5-1").find(".top").children(".location").children(".menu1").text("이용안내");
-    $(".mj5-1").find(".top").children(".location").children(".menu2").text("영업/수익 안내");
-
-    $(".mj5-4").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:nth-child(4)").addClass("active");
-    $(".mj5-2").find(".top").children(".location").children(".menu1").text("이용안내");
-    $(".mj5-2").find(".top").children(".location").children(".menu2").text("후불계약 안내");
-
     //설정
 	$(".mj7-1").find(".nav > ul > li:nth-child(8)").addClass("active").children(".depth2").show();
 	$(".mj7-1").find(".top").children(".location").children(".menu1").text("설정");
