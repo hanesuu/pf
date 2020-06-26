@@ -12,7 +12,7 @@ body .el-select {
         &__icon {line-height:30px}
     }
 }
-body .el-select-dropdown__item {font-size:1.3rem} 
+body .el-select-dropdown__item {font-size:1.3rem}
 
 /* datepicker */
 body .wrap-date {
@@ -24,7 +24,7 @@ body .wrap-date {
         width:auto; vertical-align:top;
         @include media-mb {@include flex(1);}
     }
-    &.el-input__inner {height:34px; line-height:34px}
+    &.el-input__inner {width:auto; height:34px; line-height:34px}
     &.el-input--prefix .el-input__inner {padding:0 30px}
     .el-range-input {font-size:1.3rem}
     .el-range-separator {padding:0 10px; line-height:1.8em}
@@ -41,7 +41,7 @@ body .wrap-date {
 /* switch */
 body {
     .el-switch .el-switch__label {
-        vertical-align:top; color:$dark-9; @include fw-dl;
+        padding:0; vertical-align:top; color:$dark-9; @include fw-dl;
         & * {font-size:1.2rem; @include fw-rg;}
         &.is-active * {@include fw-bd; color:$point}
         &--left {margin-right:3px}
@@ -52,19 +52,43 @@ body {
 /* radio tab button group */
 body .el-radio-group {
     @include media-mb {@include flexbox}
-
+    
     .el-radio-button {
         @include media-mb {@include flex(1)}
         &:first-child .el-radio-button__inner {border-radius:3px 0 0 3px}
         &:last-child .el-radio-button__inner {border-radius:0 3px 3px 0}
         &__inner {
-            height:34px; line-height:34px; padding:0 10px; font-size:1.2rem; @include fw-rg;
+            height:34px; line-height:34px; padding:0 10px; font-size:1.2rem; @include fw-rg; @include bg-gradient($white,$light-f,'vertical'); overflow:hidden;
             @include media-mb {width:100%}
         }
-        &__orig-radio:checked + span {@include fw-md; color:$white; background-color:$point}
+        &__orig-radio:checked + span {@include fw-md; color:$white; background:$point}
     }
 }
 
+/* tab-normal
+body .el-tabs--card {
+    & > .el-tabs__header {
+        margin:0; border:0;
+        .el-tabs__nav {border:0}
+    }
+    .el-tabs__nav {
+        @include flexbox; float:none; border-color:$light-d; overflow:hidden;
+        .el-tabs__item {
+            @include flex(1);
+            height:34px; border:1px solid $light-d; line-height:34px; text-align:center;
+            font-size:1.3rem; color:$dark-9; @include fw-rg; background:$white;
+            
+            &:first-child {border-radius:5px 0 0 5px; border-left:1px solid $light-d}
+            &:not(:first-child) {margin-left:-1px}
+            &:last-child {border-radius:0 5px 5px 0}
+            &.is-active {
+                @include fw-md; color:$point; background-color:$light-f;
+                border-color:$point; z-index:2
+            }
+        }
+    }
+    .el-tabs__content {margin:20px 0}
+} */
 /* tab-large */
 body .el-tabs--card.tab-lg {
     & > .el-tabs__header {
@@ -102,15 +126,16 @@ body .el-tabs.tab-md {
         }
     }
     .el-tabs__content {overflow:inherit}
-
+    
     &.wide {
         .el-tabs__nav {max-width:100%}
         .el-tabs__item {max-width:100%}
-    } 
+    }
 }
 
 
 /* collapse - faq */
+//.el-collapse {border:1px solid $light-d}
 .el-collapse .el-collapse-item {
     &__header {
         position:relative; padding:0 20px; font-size:1.4rem; color:$point; @include fw-rg; @include transition(color,background);
@@ -120,7 +145,12 @@ body .el-tabs.tab-md {
     &__arrow {
         @include absolute(null,50%,15px,null); transform:translateY(-50%); color:$dark-6; line-height:0;
         @include media-mb {right:5px}
-        &.is-active {color:$point; transform:rotate(90deg)}
+        &.is-active {
+            color:$point;
+            @include prefix((
+                    transform:rotate(90deg)
+            ), webkit moz ms);
+        }
     }
     &__wrap {background:$white}
     &__content {
@@ -162,7 +192,7 @@ body .el-pagination {
 
 /* modal dialog */
 body .el-dialog {
-    max-width:600px; 
+    max-width:600px;
     @include media-mb {width:90%}
     &__header {
         padding:12px 20px; background:$dark-3;
@@ -217,7 +247,7 @@ body .el-message-box {
             @include margin-padding(all,0 5px,all,10px 30px); border:0; border-radius:2px;
             font-size:1.4rem; color:$dark-3; line-height:inherit; box-shadow:0 4px 8px rgba($dark-3,.3); @include transition(color,background-color);
             &:hover, &--primary {background-color:$dark-3; color:$white}
-            &--primary:hover {background-color:#282d37}
+            &--primary:hover {background-color:$point}
         }
     }
 }

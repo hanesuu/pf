@@ -11,7 +11,6 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="../../assets/js/page.js"></script>
-  <script src="/ud/common/js/countUp.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
     $("#header").load("../inc/header.html");
@@ -69,9 +68,9 @@
                   </dt>
                   <dd class="no-inp" id="businessType">
                     <el-radio-group v-model="businessType">
-                      <el-radio :label="ALL">전체</el-radio>
-                      <el-radio :label="COMPANY">사업자</el-radio>
-                      <el-radio :label="PERSONAL">개인</el-radio>
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="COMPANY">사업자</el-radio>
+                      <el-radio label="PERSONAL">개인</el-radio>
                     </el-radio-group>
                   </dd>
                 </dl>
@@ -85,9 +84,9 @@
                   </dt>
                   <dd class="no-inp" id="adjustSubmit">
                     <el-radio-group v-model="adjustSubmit">
-                      <el-radio :label="ALL">전체</el-radio>
-                      <el-radio :label="TRUE">제출 완료</el-radio>
-                      <el-radio :label="FALSE">미제출</el-radio>
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="TRUE">제출 완료</el-radio>
+                      <el-radio label="FALSE">미제출</el-radio>
                     </el-radio-group>
                   </dd>
                 </dl>
@@ -99,9 +98,9 @@
                   </dt>
                   <dd class="no-inp" id="adjustStatus">
                     <el-radio-group v-model="adjustStatus">
-                      <el-radio :label="ALL">전체</el-radio>
-                      <el-radio :label="TRUE">정산 가능</el-radio>
-                      <el-radio :label="FALSE">정산 불가</el-radio>
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="TRUE">정산 가능</el-radio>
+                      <el-radio label="FALSE">정산 불가</el-radio>
                     </el-radio-group>
                   </dd>
                 </dl>
@@ -113,9 +112,9 @@
                   </dt>
                   <dd class="no-inp" id="usertype">
                     <el-radio-group v-model="usertype">
-                      <el-radio :label="ALL">전체</el-radio>
-                      <el-radio :label="AGENT">본인</el-radio>
-                      <el-radio :label="RESELLER">리셀러</el-radio>
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="AGENT">본인</el-radio>
+                      <el-radio label="RESELLER">리셀러</el-radio>
                     </el-radio-group>
                   </dd>
                 </dl>
@@ -142,24 +141,19 @@
                   default-value="2019-11-15">
                 </el-date-picker>
               </div>
-              <div class="col-xs-12 col-md-8 group-radio">
-                <el-radio v-model="searchDate" label="month">
-                  <span>당월</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="today">
-                  <span>오늘</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="all">
-                  <span>전체</span>
-                </el-radio>
+              <div class="col-xs-12 col-md-3 group-radio">
+                <dl>
+                  <dt class="txt-hidden">가입일 설정</dt>
+                  <dd>
+                    <el-radio-group v-model="btnType">
+                      <el-radio-button label="today">당일</el-radio-button>
+                      <el-radio-button label="week">1주</el-radio-button>
+                      <el-radio-button label="month1">1개월</el-radio-button>
+                      <el-radio-button label="month3">3개월</el-radio-button>
+                      <el-radio-button label="all">전체</el-radio-button>
+                    </el-radio-group>
+                  </dd>
+                </dl>
               </div>
             </div>
             <button class="btn btn-point btn-search"><i class="la la-search"></i> 검색</button>
@@ -377,6 +371,7 @@
         searchDetail: '1',
         searchDate: 'month',
         datepicker: '',
+        btnType: 'all',
 
         /* 업체 구분 */
         businessType: 'ALL',

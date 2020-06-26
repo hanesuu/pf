@@ -3805,6 +3805,7 @@ body .wrap-date {
   }
 }
 .el-date-editor.el-input__inner {
+  width: auto;
   height: 34px;
   line-height: 34px;
 }
@@ -3831,6 +3832,7 @@ body .wrap-date {
 
 /* switch */
 body .el-switch .el-switch__label {
+  padding: 0;
   vertical-align: top;
   color: #969AAF;
   font-weight: 300;
@@ -3886,6 +3888,10 @@ body .el-radio-group .el-radio-button__inner {
   padding: 0 10px;
   font-size: 1.2rem;
   font-weight: 400;
+  background: #fff;
+  background: -webkit-linear-gradient(top, #fff, #F9F9FC);
+  background: linear-gradient(to bottom, #fff, #F9F9FC);
+  overflow: hidden;
 }
 @media only screen and (max-width: 768px) {
   body .el-radio-group .el-radio-button__inner {
@@ -3895,9 +3901,33 @@ body .el-radio-group .el-radio-button__inner {
 body .el-radio-group .el-radio-button__orig-radio:checked + span {
   font-weight: 500;
   color: #fff;
-  background-color: #6F74F4;
+  background: #6F74F4;
 }
 
+/* tab-normal
+body .el-tabs--card {
+    & > .el-tabs__header {
+        margin:0; border:0;
+        .el-tabs__nav {border:0}
+    }
+    .el-tabs__nav {
+        @include flexbox; float:none; border-color:$light-d; overflow:hidden;
+        .el-tabs__item {
+            @include flex(1);
+            height:34px; border:1px solid $light-d; line-height:34px; text-align:center;
+            font-size:1.3rem; color:$dark-9; @include fw-rg; background:$white;
+
+            &:first-child {border-radius:5px 0 0 5px; border-left:1px solid $light-d}
+            &:not(:first-child) {margin-left:-1px}
+            &:last-child {border-radius:0 5px 5px 0}
+            &.is-active {
+                @include fw-md; color:$point; background-color:$light-f;
+                border-color:$point; z-index:2
+            }
+        }
+    }
+    .el-tabs__content {margin:20px 0}
+} */
 /* tab-large */
 body .el-tabs--card.tab-lg > .el-tabs__header {
   margin: 0;
@@ -4090,6 +4120,9 @@ body .el-tabs.tab-md.wide .el-tabs__item {
 }
 .el-collapse .el-collapse-item__arrow.is-active {
   color: #6F74F4;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .el-collapse .el-collapse-item__wrap {
@@ -4316,7 +4349,7 @@ body .el-message-box__btns .el-button:hover, body .el-message-box__btns .el-butt
   color: #fff;
 }
 body .el-message-box__btns .el-button--primary:hover {
-  background-color: #282d37;
+  background-color: #6F74F4;
 }
 
 /* alert top message */
