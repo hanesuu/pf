@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mjstore-1"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents vue-rsdetail clearfix">
+        <!--왼쪽 정보-->
+        <section class="bx-basic side-info">
+          <div class="user-info">
+            <i class="store">
+              <span>판매점</span>
+            </i>
+            <dl>
+              <dt class="user-name">하이젠버그 <span class="label-gy">사업자</span></dt>
+              <dd class="user-id">walterwhite</dd>
+              <dd>
+                <button class="btn btn-xs btn-line-point">판매점 로그인</button>
+                <button class="btn btn-xs btn-line-yl">정보 수정</button>
+              </dd>
+            </dl>
+          </div>
+          <!--정보 목록-->
+          <dl class="list-info">
+            <dt>휴대폰번호</dt>
+            <dd>010-2121-1212</dd>
+            <dt>이메일</dt>
+            <dd>prayforjessi@gmail.com</dd>
+            <dt>대표자</dt>
+            <dd>지선우</dd>
+            <dt>매장전화번호</dt>
+            <dd>02-1212-4455</dd>
+            <dt>정산가능 여부</dt>
+            <dd>
+              <span class="txt-state success">정산가능</span>
+            </dd>
+            <dt>소속 대리점</dt>
+            <dd>(주)인텔리</dd>
+            <dt>소속 리셀러</dt>
+            <dd>서브라임샵</dd>
+            <dt>등록일</dt>
+            <dd>2020.06.23</dd>
+          </dl>
+          <!--메뉴-->
+          <div class="info-nav">
+            <ul>
+              <li data-id="pay" class="on">
+                <i class="las la-coins"></i>
+                <span>결제 설정</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li data-id="api">
+                <i class="las la-network-wired"></i>
+                <span>API 설정</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li data-id="nextadjust">
+                <i class="las la-calendar-check"></i>
+                <span>익일 정산 신청</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li @click="applySurety">
+                <i class="las la-user-shield"></i>
+                <span>보증보험 관리</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li data-id="docu">
+                <i class="las la-folder"></i>
+                <span>서류 제출 관리</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li data-id="tax">
+                <i class="las la-search-dollar"></i>
+                <span>부가세 자료 조회</span>
+                <i class="las la-angle-right"></i>
+              </li>
+              <li data-id="memo">
+                <i class="las la-file-alt"></i>
+                <span>메모</span>
+                <i class="las la-angle-right"></i>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!--결제 설정-->
+        <section id="pay" class="bx-basic bx-right on">
+          <h3 class="bx-tit">
+            <span class="tit">결제 설정</span>
+          </h3>
+          <div class="bx-con">
+            <el-tabs v-model="tabPay" class="tab-md wide">
+              <!--결제 수단-->
+              <el-tab-pane label="결제 수단" name="payUse" class="tab-pay-use">
+                <div class="wrap-form horizon">
+                  <dl>
+                    <dt>신용카드</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="payUseCardYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">수수료 :</h4>
+                        <p>3.00%</p>
+                        <h4 class="title">정산일 :</h4>
+                        <p>D&plus;3</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>휴대전화</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="payUsePhoneYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">타입 :</h4>
+                        <p>실물</p>
+                        <h4 class="title">수수료 :</h4>
+                        <p>4.00%</p>
+                        <h4 class="title">정산일 :</h4>
+                        <p>D&plus;3</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>카카오페이</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="payUseKakaoYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">수수료 :</h4>
+                        <p>4.00%</p>
+                        <h4 class="title">정산일 :</h4>
+                        <p>D&plus;3</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>네이버페이</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="payUseNaverYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">수수료 :</h4>
+                        <p>3.50%</p>
+                        <h4 class="title">정산일 :</h4>
+                        <p>D&plus;3</p>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="bottom-btn">
+                  <button class="btn btn-sm btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+
+              <!--결제 마진-->
+              <el-tab-pane label="결제 마진" name="payMargin" class="tab-pay-margin">
+                <table class="tbl-xs tbl-col">
+                  <colgroup>
+                    <col>
+                    <col width="14%">
+                    <col width="14%">
+                    <col width="14%"><!--대리점 접속 시 보여짐-->
+                    <col width="14%"><!--익일정산 시 보여짐-->
+                    <col width="14%"><!--대리점 접속 & 익일정산 시 보여짐-->
+                    <col width="14%">
+                  </colgroup>
+                  <thead>
+                  <tr>
+                    <th>결제 수단</th>
+                    <th class="ta-center">공급가</th>
+                    <th class="ta-center">마진</th>
+                    <th class="ta-center">리셀러 마진</th><!--대리점 접속 시 보여짐-->
+                    <th class="ta-center">익일 정산 마진</th><!--익일정산 시 보여짐-->
+                    <th class="ta-center">리셀러 익일 정산 마진</th><!--대리점 접속 & 익일정산 시 보여짐-->
+                    <th class="ta-center">
+                      <span>최종 수수료</span>
+                      <el-tooltip class="item" effect="light" content="최종 수수료 = 공급가 + 마진 + 익일 정산 마진 + 리셀러 마진 + 리셀러 익일 정산 마진" placement="top">
+                        <!--
+                        ** 대리점 접속 시 content
+                        기본 :  최종 수수료 = 공급가 + 마진 + 리셀러 마진
+                        익일정산 :  최종 수수료 = 공급가 + 마진 + 익일 정산 마진 + 리셀러 마진 + 리셀러 익일 정산 마진
+
+                        ** 리셀러 접속 시 content
+                        기본 :  최종 수수료 = 공급가 + 마진
+                        익일정산 :  최종 수수료 = 공급가 + 마진 + 익일 정산 마진
+                        -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="ico-tooltip">
+                          <path fill="#969AAF" fill-rule="evenodd" d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0zm1 4.693H5V10h2V4.693zM7 2H5v1.882h2V2z" opacity=".5"/>
+                        </svg>
+                      </el-tooltip>
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <b class="fw-md">카드</b>
+                    </td>
+                    <td class="ta-center">2.0%</td>
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td>
+                    <!--대리점 접속 시 보여짐-->
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//대리점 접속 시 보여짐 끝-->
+                    <!--익일정산 시 보여짐-->
+                    <td rowspan="5" class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//익일정산 시 보여짐 끝-->
+                    <!--/대리점 접속 & 익일정산 시 보여짐-->
+                    <td rowspan="5" class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--///대리점 접속 & 익일정산 시 보여짐 끝-->
+                    <td class="ta-center bg-yl2">3.0%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">휴대폰(실물)</b>
+                    </td>
+                    <td class="ta-center">4.0%</td>
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td>
+                    <!--대리점 접속 시 보여짐-->
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//대리점 접속 시 보여짐 끝-->
+                    <td class="ta-center bg-yl2">5.0%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">휴대폰(컨텐츠)</b>
+                    </td>
+                    <td class="ta-center">4.2%</td>
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td>
+                    <!--대리점 접속 시 보여짐-->
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//대리점 접속 시 보여짐 끝-->
+                    <td class="ta-center bg-yl2">5.2%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">카카오페이</b>
+                    </td>
+                    <td class="ta-center">2.4%</td>
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td>
+                    <!--대리점 접속 시 보여짐-->
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//대리점 접속 시 보여짐 끝-->
+                    <td class="ta-center bg-yl2">3.4%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">네이버페이</b>
+                    </td>
+                    <td class="ta-center">2.4%</td>
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td>
+                    <!--대리점 접속 시 보여짐-->
+                    <td class="bg-yl">
+                      <div class="inp-price percent">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0">
+                      </div>
+                    </td><!--//대리점 접속 시 보여짐 끝-->
+                    <td class="ta-center bg-yl2">3.4%</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <p class="txt-s ta-right">*부가세 별도</p>
+                <div class="bottom-btn">
+                  <button class="btn btn-sm btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+
+              <!--결제 한도-->
+              <el-tab-pane label="결제 한도" name="payLimit" class="tab-pay-limit">
+                <div class="wrap-form horizon">
+                  <dl class="dl-limit">
+                    <dt>결제 한도</dt>
+                    <dd class="no-inp">
+                      <el-switch
+                        v-model="payLimitYn"
+                        active-text="사용" inactive-text="사용안함">
+                      </el-switch>
+                    </dd>
+                  </dl>
+                </div>
+                <ul class="list-type">
+                  <li>한도를 설정하지 않은 경우, 결제금액은 제한이 없습니다.</li>
+                  <li>기본적으로 판매점 등록 시, 결제한도에는 제한이 없습니다.</li>
+                  <li>사용에 제한이 필요한 경우, 결제한도를 설정하시기 바랍니다.</li>
+                </ul>
+                <div class="bx-gry" v-if="payLimitYn">
+                  <div class="wrap-form horizon">
+                    <dl>
+                      <dt>1회 결제 한도</dt>
+                      <dd class="no-inp">
+                        <div class="inp-price flex1">
+                          <input type="tel" class="inp-txt num-txt" placeholder="0">
+                        </div>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>일 결제 한도</dt>
+                      <dd class="no-inp">
+                        <div class="inp-price flex1">
+                          <input type="tel" class="inp-txt num-txt" placeholder="0">
+                        </div>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>월 결제 한도</dt>
+                      <dd class="no-inp">
+                        <div class="inp-price flex1">
+                          <input type="tel" class="inp-txt num-txt" placeholder="0">
+                        </div>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>연 결제 한도</dt>
+                      <dd class="no-inp">
+                        <div class="inp-price flex1">
+                          <input type="tel" class="inp-txt num-txt" placeholder="0">
+                        </div>
+                      </dd>
+                    </dl>
+                  </div>
+                  <p class="txt-s">* 설정 한도가 없을 경우, 결제금액은 제한이 없습니다.</p>
+                  <p class="txt-s">* 설정된 결제 한도가 초과될 경우, 결제가 거절됩니다.</p>
+                </div>
+                <div class="bottom-btn">
+                  <button class="btn btn-sm btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
+        </section>
+        <!--api 설정-->
+        <section id="api" class="bx-basic bx-right">
+          <h3 class="bx-tit">
+            <span class="tit">API 설정</span>
+          </h3>
+          <div class="bx-con">
+            <el-tabs v-model="tabApi" class="tab-md wide">
+              <!--API 사용-->
+              <el-tab-pane label="API 사용" name="apiUse" class="tab-api-use">
+                <div class="wrap-form horizon">
+                  <dl>
+                    <dt>SMS</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseSmsYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>LMS</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseLmsYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>MMS</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseMmsYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>알림톡</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseAlimYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>본인인증</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseCertYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>계좌성명조회</dt>
+                    <dd class="no-inp inline">
+                      <el-switch v-model="apiUseBankYn" active-text="사용" inactive-text="사용안함"></el-switch>
+                      <div class="d-right">
+                        <h4 class="title">이용료 :</h4>
+                        <p>9.5원(건)</p>
+                        <h4 class="title">마진 :</h4>
+                        <p>0.5원</p>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="bottom-btn">
+                  <button class="btn btn-sm btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+              <!--API 마진-->
+              <el-tab-pane label="API 마진" name="apiMargin" class="tab-api-margin">
+                <table class="tbl-xs tbl-col">
+                  <colgroup>
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                  </colgroup>
+                  <thead>
+                  <tr>
+                    <th>API</th>
+                    <th class="ta-center">공급가</th>
+                    <th class="ta-center">마진</th>
+                    <th class="ta-center">리셀러 마진</th>
+                    <th class="ta-center">서비스 요금</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <b class="fw-md">SMS</b>
+                    </td>
+                    <td class="ta-center">9.5원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">10.5원</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">LMS</b>
+                    </td>
+                    <td class="ta-center">12원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">13원</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">MMS</b>
+                    </td>
+                    <td class="ta-center">20원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">21원</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">알림톡</b>
+                    </td>
+                    <td class="ta-center">5원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">6원</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">본인인증</b>
+                    </td>
+                    <td class="ta-center">30원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">31원</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b class="fw-md">계좌성명조회</b>
+                    </td>
+                    <td class="ta-center">20원</td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="bg-yl">
+                      <div class="inp-price">
+                        <input type="tel" class="inp-txt num-txt" placeholder="0" value="0.5">
+                      </div>
+                    </td>
+                    <td class="ta-center bg-yl2">21원</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <p class="txt-s ta-right">*부가세 별도</p>
+                <div class="bottom-btn">
+                  <button class="btn btn-sm btn-line-b"><i class="las la-redo-alt"></i> 기본 마진으로 초기화</button>
+                  <button class="btn btn-sm btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
+        </section>
+        <!--익일 정산 신청-->
+        <section id="nextadjust" class="bx-basic bx-right">
+          <h3 class="bx-tit">
+            <span class="tit">익일 정산 신청</span>
+          </h3>
+          <div class="bx-con">
+            <p class="txt-sm">익일정산 신청 시 익일정산에 대한 <span class="txt-point">추가 마진</span>이 발생하며, 판매점의 <span class="txt-point">결제수수료</span>가 아래와 같이 변경됩니다.<br>추가 마진에 대한 설정은 익일정산 승인이 완료된 후 가능합니다.</p>
+            <div class="wrap-form horizon">
+              <dl>
+                <dt class="flex1">익일정산 추가 마진</dt>
+                <dd class="no-inp">0.1%</dd>
+              </dl>
+              <dl>
+                <dt class="flex1">리셀러 익일정산 추가 마진</dt>
+                <dd class="no-inp">0.2%</dd>
+              </dl>
+              <dl>
+                <dt class="flex1">카드결제 수수료</dt>
+                <dd class="no-inp">3.5%</dd>
+              </dl>
+              <dl>
+                <dt class="flex1">휴대폰결제 수수료</dt>
+                <dd class="no-inp">4.4%</dd>
+              </dl>
+            </div>
+            <div class="bottom-btn">
+              <button class="btn btn-sm btn-primary">신청</button>
+            </div>
+          </div>
+        </section>
+        <!--서류 제출 관리-->
+        <section id="docu" class="bx-basic bx-right">
+          <h3 class="bx-tit">
+            <span class="tit">서류 제출 관리</span>
+          </h3>
+          <div class="bx-con">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="tit">통장 사본</h4>
+                <el-upload class="wrap-inp-file"
+                  drag
+                  action=""
+                  :auto-upload="false"
+                  :show-file-list="false"
+                  multiple>
+                  <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
+                  <button class="btn btn-xs btn-point">파일 선택</button>
+                </el-upload>
+                <div class="list-file">
+                  <ul>
+                    <li>file_name.jpg<button><i class="las la-times"></i></button>
+                    </li>
+                    <li>file_name2.png<button><i class="las la-times"></i></button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h4 class="tit">신분증</h4>
+                <el-upload class="wrap-inp-file"
+                  drag
+                  action=""
+                  :auto-upload="false"
+                  :show-file-list="false"
+                  multiple>
+                  <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
+                  <button class="btn btn-xs btn-point">파일 선택</button>
+                </el-upload>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="tit">매장 사진</h4>
+                <el-upload class="wrap-inp-file"
+                  drag
+                  action=""
+                  :auto-upload="false"
+                  :show-file-list="false"
+                  multiple>
+                  <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
+                  <button class="btn btn-xs btn-point">파일 선택</button>
+                </el-upload>
+                <div class="list-file">
+                  <ul>
+                    <li>file_name.jpg<button><i class="las la-times"></i></button>
+                    </li>
+                    <li>file_name2.png<button><i class="las la-times"></i></button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h4 class="tit">상품 사진</h4>
+                <el-upload class="wrap-inp-file"
+                  drag
+                  action=""
+                  :auto-upload="false"
+                  :show-file-list="false"
+                  multiple>
+                  <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
+                  <button class="btn btn-xs btn-point">파일 선택</button>
+                </el-upload>
+              </div>
+            </div>
+            <div class="bottom-btn">
+              <button class="btn btn-sm btn-primary">제출</button>
+            </div>
+          </div>
+        </section>
+        <!--부가세 자료 조회-->
+        <section id="tax" class="bx-basic bx-right pay-tax">
+          <h3 class="bx-tit">
+            <span class="tit">부가세 자료 조회</span>
+          </h3>
+          <div class="bx-con">
+            <div class="wrap-search flex-wrap">
+              <el-select v-model="selectYear" placeholder="연도 선택" class="flex1">
+                <el-option
+                  v-for="item in year"
+                  :key="item"
+                  :label="item"
+                  :value="item">
+                </el-option>
+              </el-select>
+              <el-radio-group v-model="drType">
+                <el-radio-button label="1">1분기</el-radio-button>
+                <el-radio-button label="2">2분기</el-radio-button>
+                <el-radio-button label="3">3분기</el-radio-button>
+                <el-radio-button label="4">4분기</el-radio-button>
+                <el-radio-button label="5">상반기</el-radio-button>
+                <el-radio-button label="6">하반기</el-radio-button>
+              </el-radio-group>
+            </div>
+            <div id="printContent">
+              <section>
+                <table class="tbl-xs tbl-row">
+                  <colgroup>
+                    <col width="20%">
+                    <col>
+                    <col width="20%">
+                    <col>
+                  </colgroup>
+                  <tr>
+                    <th>상호명</th>
+                    <td>하이젠버그</td>
+                    <th>사업자 등록번호</th>
+                    <td>121-12-12121</td>
+                  </tr>
+                  <tr>
+                    <th>대표자명</th>
+                    <td>지선우</td>
+                    <th>연락처</th>
+                    <td>010-2121-1212</td>
+                  </tr>
+                  <tr>
+                    <th>이메일</th>
+                    <td colspan="3">prayforjessi@gmail.com</td>
+                  </tr>
+                </table>
+              </section>
+              <section>
+                <div class="flexbox">
+                  <h4 class="tit-md">매출내역</h4>
+                  <dl class="d-right no-inp">
+                    <dt>조회일</dt>
+                    <dd>2020-06-25</dd>
+                    <dt>조회기간</dt>
+                    <dd>2020-04-01 ~ 2020-06-30</dd>
+                  </dl>
+                </div>
+              </section>
+              <table class="tbl-xs tbl-col">
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>매출월</th>
+                  <th>항목구분</th>
+                  <th>구분</th>
+                  <th>거래 건수</th>
+                  <th>거래 금액</th>
+                  <th>면세</th>
+                  <th>과세</th>
+                  <th>부가세</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--month-->
+                <tr>
+                  <td rowspan="4" class="ta-center">2020년 06월</td>
+                  <td rowspan="2" class="ta-center">신용카드</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">523건</td>
+                  <td class="ta-right">1,248,510원</td>
+                  <td class="ta-right">8,457원</td>
+                  <td class="ta-right">98,754원</td>
+                  <td class="ta-right">45,987원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">2건</td>
+                  <td class="ta-right">35,000원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">3,500원</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="ta-center">현금영수증</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">24건</td>
+                  <td class="ta-right">110,540원</td>
+                  <td class="ta-right">56,700원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">11,054원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">0건</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                </tr>
+                <!--month-->
+                <tr>
+                  <td rowspan="4" class="ta-center">2020년 05월</td>
+                  <td rowspan="2" class="ta-center">신용카드</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">523건</td>
+                  <td class="ta-right">1,248,510원</td>
+                  <td class="ta-right">8,457원</td>
+                  <td class="ta-right">98,754원</td>
+                  <td class="ta-right">45,987원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">2건</td>
+                  <td class="ta-right">35,000원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">3,500원</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="ta-center">현금영수증</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">24건</td>
+                  <td class="ta-right">110,540원</td>
+                  <td class="ta-right">56,700원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">11,054원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">0건</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                </tr>
+                <!--month-->
+                <tr>
+                  <td rowspan="4" class="ta-center">2020년 04월</td>
+                  <td rowspan="2" class="ta-center">신용카드</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">523건</td>
+                  <td class="ta-right">1,248,510원</td>
+                  <td class="ta-right">8,457원</td>
+                  <td class="ta-right">98,754원</td>
+                  <td class="ta-right">45,987원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">2건</td>
+                  <td class="ta-right">35,000원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">3,500원</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" class="ta-center">현금영수증</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">24건</td>
+                  <td class="ta-right">110,540원</td>
+                  <td class="ta-right">56,700원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">11,054원</td>
+                </tr>
+                <tr>
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">0건</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                </tr>
+                </tbody>
+                <tbody>
+                <!--합계-->
+                <tr class="bg-yl">
+                  <td rowspan="4" class="ta-center">합계</td>
+                  <td rowspan="2" class="ta-center">신용카드</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">1,569건</td>
+                  <td class="ta-right">3,745,517원</td>
+                  <td class="ta-right">25,371원</td>
+                  <td class="ta-right">296,262원</td>
+                  <td class="ta-right">137,961원</td>
+                </tr>
+                <tr class="bg-yl">
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">6건</td>
+                  <td class="ta-right">105,000원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">10,500원</td>
+                </tr>
+                <tr class="bg-yl">
+                  <td rowspan="2" class="ta-center">현금영수증</td>
+                  <td class="ta-center">
+                    <span class="txt-gn">승인</span>
+                  </td>
+                  <td class="ta-right">72건</td>
+                  <td class="ta-right">331,620원</td>
+                  <td class="ta-right">170,100원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">33,162원</td>
+                </tr>
+                <tr class="bg-yl">
+                  <td class="ta-center">
+                    <span class="txt-rd">취소</span>
+                  </td>
+                  <td class="ta-right">0건</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                  <td class="ta-right">0원</td>
+                </tr><!--//합계-->
+                </tbody>
+              </table>
+            </div>
+            <section class="ta-center">
+              <button class="btn btn-sm btn-line-point"><i class="las la-print"></i> 인쇄하기</button>
+              <button class="btn btn-sm btn-line-point"><i class="las la-envelope"></i> 메일 보내기</button>
+            </section>
+          </div>
+        </section>
+        <!--메모-->
+        <section id="memo" class="bx-basic bx-right">
+          <h3 class="bx-tit">
+            <span class="tit">메모</span>
+          </h3>
+          <div class="bx-con">
+            <div class="row-con">
+              <textarea class="inp-txt" placeholder="메모를 입력하세요."></textarea>
+            </div>
+            <div class="bottom-btn">
+              <button class="btn btn-sm btn-primary">저장</button>
+            </div>
+          </div>
+        </section>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 결제설정 탭 */
+        tabPay: 'payUse',
+        /* 결제api 사용여부 */
+        payUseCardYn: true,
+        payUsePhoneYn: true,
+        payUseKakaoYn: false,
+        payUseNaverYn: true,
+
+      }
+    },
+    methods: {
+      /* 보증보험 요청 */
+      applySurety() {
+        this.$confirm('보증보험 요청 시 판매점은 보증보험서류를 제출해야만 정산이 가능하며,<br>보증보험 관리에 대한 별도의 비용이 발생할 수 있습니다.<br>보증보험을 요청하시겠습니까?', '보증보험 요청', {
+          confirmButtonText: '요청',
+          cancelButtonText: '취소',
+          dangerouslyUseHTMLString: true,
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '요청되었습니다.'
+          });
+        }).catch(() => {});
+      }
+    }
+  })
+</script>
+<script>
+  $(".bx-right").hide();
+    $(".bx-right:first").show();
+
+    $(".info-nav ul li").click(function () {
+        $(".info-nav ul li").removeClass("on");
+        $(this).addClass("on");
+        $(".bx-right").hide()
+        var activeTab = $(this).attr("data-id");
+        $("#" + activeTab).fadeIn()
+    });
+</script>
+</html>
