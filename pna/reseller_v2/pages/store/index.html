@@ -132,14 +132,19 @@
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-3">
-                <el-date-picker
-                  v-model="datepicker"
-                  type="daterange"
-                  align="right"
-                  start-placeholder="시작일 선택"
-                  end-placeholder="종료일 선택"
-                  default-value="2019-11-15">
-                </el-date-picker>
+                <dl>
+                  <dt>가입 기간</dt>
+                  <dd>
+                    <el-date-picker
+                      v-model="datepicker"
+                      type="daterange"
+                      align="right"
+                      start-placeholder="시작일 선택"
+                      end-placeholder="종료일 선택"
+                      default-value="2019-11-15">
+                    </el-date-picker>
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-12 col-md-3 group-radio">
                 <dl>
@@ -156,7 +161,9 @@
                 </dl>
               </div>
             </div>
-            <button class="btn btn-point btn-search"><i class="la la-search"></i> 검색</button>
+            <div class="wrap-btn">
+              <button class="btn btn-primary btn-search"><i class="la la-search"></i> 검색</button>
+            </div>
           </el-collapse-item>
         </el-collapse>
         <!--목록-->

@@ -332,9 +332,8 @@ button.btn-txt {border:0; background:transparent}
 
 /* layout */
 .wrap-content {
-	height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; overflow-y:auto; @include transition(margin-left); overflow-x:hidden;
+	min-height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; @include transition(margin-left); overflow:hidden;
 	&.wide {margin-left:0}
-	.contents {@include transition(margin-right)}
 	
 	@include media-mb {
 		padding:15px;

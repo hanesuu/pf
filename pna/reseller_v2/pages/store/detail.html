@@ -65,17 +65,17 @@
           <!--메뉴-->
           <div class="info-nav">
             <ul>
-              <li data-id="pay" class="on">
+              <li data-id="pay" class="nav-li on">
                 <i class="las la-coins"></i>
                 <span>결제 설정</span>
                 <i class="las la-angle-right"></i>
               </li>
-              <li data-id="api">
+              <li data-id="api" class="nav-li">
                 <i class="las la-network-wired"></i>
                 <span>API 설정</span>
                 <i class="las la-angle-right"></i>
               </li>
-              <li data-id="nextadjust">
+              <li data-id="nextadjust" class="nav-li">
                 <i class="las la-calendar-check"></i>
                 <span>익일 정산 신청</span>
                 <i class="las la-angle-right"></i>
@@ -85,17 +85,17 @@
                 <span>보증보험 관리</span>
                 <i class="las la-angle-right"></i>
               </li>
-              <li data-id="docu">
+              <li data-id="docu" class="nav-li">
                 <i class="las la-folder"></i>
                 <span>서류 제출 관리</span>
                 <i class="las la-angle-right"></i>
               </li>
-              <li data-id="tax">
+              <li data-id="tax" class="nav-li">
                 <i class="las la-search-dollar"></i>
                 <span>부가세 자료 조회</span>
                 <i class="las la-angle-right"></i>
               </li>
-              <li data-id="memo">
+              <li data-id="memo" class="nav-li">
                 <i class="las la-file-alt"></i>
                 <span>메모</span>
                 <i class="las la-angle-right"></i>
@@ -633,7 +633,7 @@
           </div>
         </section>
         <!--서류 제출 관리-->
-        <section id="docu" class="bx-basic bx-right">
+        <section id="docu" class="bx-basic bx-right bx-docu">
           <h3 class="bx-tit">
             <span class="tit">서류 제출 관리</span>
           </h3>
@@ -684,14 +684,6 @@
                   <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                   <button class="btn btn-xs btn-point">파일 선택</button>
                 </el-upload>
-                <div class="list-file">
-                  <ul>
-                    <li>file_name.jpg<button><i class="las la-times"></i></button>
-                    </li>
-                    <li>file_name2.png<button><i class="las la-times"></i></button>
-                    </li>
-                  </ul>
-                </div>
               </div>
               <div class="col-md-6">
                 <h4 class="tit">상품 사진</h4>
@@ -704,6 +696,12 @@
                   <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                   <button class="btn btn-xs btn-point">파일 선택</button>
                 </el-upload>
+                <div class="list-file">
+                  <ul>
+                    <li>file_name.jpg<button><i class="las la-times"></i></button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="bottom-btn">
@@ -1021,7 +1019,33 @@
         payUsePhoneYn: true,
         payUseKakaoYn: false,
         payUseNaverYn: true,
+        /* 결제한도 */
+        payLimitYn: true,
 
+        /* api 탭 */
+        tabApi: 'apiUse',
+        /* api 사용여부 */
+        apiUseSmsYn: true,
+        apiUseLmsYn: true,
+        apiUseMmsYn: true,
+        apiUseAlimYn: false,
+        apiUseCertYn: false,
+        apiUseBankYn: true,
+
+        /* 부가세 자료조회 연도 선택 */
+        year: [{
+          value: '2020',
+          label: '2020'
+        }, {
+          value: '2019',
+          label: '2019'
+        }, {
+          value: '2018',
+          label: '2018'
+        }],
+        selectYear: '',
+        /* 분기 선택 */
+        drType: '2',
       }
     },
     methods: {
@@ -1045,8 +1069,8 @@
   $(".bx-right").hide();
     $(".bx-right:first").show();
 
-    $(".info-nav ul li").click(function () {
-        $(".info-nav ul li").removeClass("on");
+    $(".info-nav .nav-li").click(function () {
+        $(".info-nav .nav-li").removeClass("on");
         $(this).addClass("on");
         $(".bx-right").hide()
         var activeTab = $(this).attr("data-id");

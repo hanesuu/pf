@@ -708,51 +708,54 @@ body .td-blank {
 }
 
 
-/* 리셀러관리,판매점관리 리스트 -MemberList */
+/* 리셀러/판매점관리 리스트 -MemberList */
 .vue-rslist {
   /* 게시판 */
   .board-list .tbl-xs .btn-txt {
     margin-left:3px; padding:2px 3px; font-size:1.6rem; color:$warn-yl; @include transition(all); border-radius:3px;
     &:hover {background:$warn-yl; color:$white}
   }
-    
-  /* 결제설정, API설정 공통 - switch 우측 정보 */
-  .el-tab-pane .wrap-form dd.inline .d-right {
-    * {display:inline-block; vertical-align:middle; font-size:1.3rem}
-    .title {
-      margin:0; @include fw-dl; color:$dark-9;
-      &:not(:first-of-type) {margin-left:10px}
-    }
-    p {@include fw-md}
-  }
-  @media only screen and (max-width:1540px) {
-    .el-tab-pane .wrap-form dd {
-      @include flex-direction(column); @include justify-content(center);
-      .el-switch {margin:5px auto 0 0}
-      .el-switch ~ .d-right {margin:0 auto 0 0}
-    }
-  }
-  
-  /* 결제설정 - 결제수단 */
-  .tab-pay-use .wrap-form dt {width:5vw}
-  
-  /* 결제설정 - 결제마진 */
-  .tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
-  
-  /* 결제설정 - 결제한도 */
-  .tab-pay-limit {
-    .wrap-form .dl-limit {
-      width:auto; margin:0 auto;
-      dt {width:auto}
-    }
-    .list-type {
-      display:table; margin:0 auto 4px;
-      li {margin-bottom:2px; font-size:1.3rem}
-    }
-    .txt-s {text-align:center; color:$dark-9}
-  }
-  /* API설정 - 사용 */
-  .tab-api-use dt {width:85px}
+}
+
+/* 리셀러/판매점 리스트, 상세 공통 */
+.bx-con {
+	/* 결제설정, API설정 공통 - switch 우측 정보 */
+	.el-tab-pane .wrap-form dd.inline .d-right {
+		* {display:inline-block; vertical-align:middle; font-size:1.3rem}
+		.title {
+			margin:0; @include fw-dl; color:$dark-9;
+			&:not(:first-of-type) {margin-left:10px}
+		}
+		p {@include fw-md}
+	}
+	@media only screen and (max-width:1540px) {
+		.el-tab-pane .wrap-form dd {
+			@include flex-direction(column); @include justify-content(center);
+			.el-switch {margin:5px auto 0 0}
+			.el-switch ~ .d-right {margin:0 auto 0 0}
+		}
+	}
+	/* 결제설정 - 결제수단 */
+	.tab-pay-use .wrap-form dt {width:5vw}
+
+	/* 결제설정 - 결제마진 */
+	.tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
+
+	/* 결제설정 - 결제한도 */
+	.tab-pay-limit {
+		.wrap-form .dl-limit {
+			width:auto; margin:0 auto;
+			dt {width:auto}
+		}
+		.list-type {
+			display:table; margin:0 auto 4px;
+			li {margin-bottom:2px; font-size:1.3rem}
+		}
+		.txt-s {text-align:center; color:$dark-9}
+	}
+	
+	/* API설정 - 사용 */
+	.tab-api-use dt {width:85px}
 }
 
 /* 결제 현황 조회 - 리셀러/판매점 목록, 상세 공통 */
@@ -793,6 +796,9 @@ body .td-blank {
 		.ta-right {@include fw-md}
 	}
 }
+
+/* 정산 서류 제출 */
+.bx-right.bx-docu .row:first-of-type {margin-bottom:2rem}
 
 /* 결제통계
 .vue-paystats {
