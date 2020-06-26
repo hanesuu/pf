@@ -631,47 +631,6 @@ body .td-blank {
 	}
 } */
 
-/* 판매점 상세 */
-.vue-rsdetail {
-	/* 왼쪽 정보 */
-	.side-info {float:left; width:320px; padding:3rem 2rem}
-	.user-info {
-		& > i {
-			float:left; display:table; width:60px; height:60px; border-radius:50%; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal');
-			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:initial; color:$white}
-		}
-		dl {padding-left:76px}
-		.user-name {
-			@include fw-md; font-size:1.6rem; color:$dark-3;
-			.label-gy {@include fw-dl; font-size:1.1rem}
-		}
-		.user-id {margin:2px 0 8px; color:$dark-9; font-size:1.3rem}
-		button:last-child {margin-left:4px}
-	}
-	.list-info {
-		margin:40px 0; font-size:0;
-		dt, dd {display:inline-block; min-height:24px}
-		dt {width:28%; text-align:right; @include fw-md; font-size:1.3rem; color:$dark-9}
-		dd {width:66%; margin-left:6%; font-size:1.4rem; color:$dark-3; word-break:break-word}
-	}
-	.info-nav li {
-		@include flexbox; @include align-items(center); height:43px; 
-		margin-bottom:4px; padding:0 15px; cursor:pointer; @include fw-md; color:$dark-3; border-radius:5px; @include transition(all);
-		i {font-size:20px; opacity:.4}
-		span {margin-left:8px; font-size:1.4rem}
-		.la-angle-right {margin-left:auto}
-		&:hover, &.on {
-			background-color:lighten($point,26%); color:$point;
-		}
-	}
-
-	/* 오른쪽 상세영역 */
-	.bx-right {
-		display:none; float:left; width:calc(100% - 340px); margin-left:20px;
-		&.on {display:block}
-	}
-}
-
 /* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */
 .wrap-autoadd {
   max-width:600px; margin:20px auto; text-align:center; font-size:1.4rem;
@@ -800,22 +759,52 @@ body .td-blank {
 /* 정산 서류 제출 */
 .bx-right.bx-docu .row:first-of-type {margin-bottom:2rem}
 
-/* 결제통계
-.vue-paystats {
-	@include media-mb {
-		.wrap-widget .widget-rd {
-			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); border-bottom:1px solid rgba($white,.2)}
-			.sub-stat {
-				margin:3px;
-				&:first-of-type {@include flex(1 1 100%)}
-				&:not(:first-of-type) {@include flex(1 1 calc(50% - 6px))}
-			}
+/* 판매점 상세 */
+.vue-rsdetail {
+	/* 왼쪽 정보 */
+	.side-info {float:left; width:320px; padding:3rem 2rem}
+	.user-info {
+		& > i {
+			float:left; display:table; width:60px; height:60px; border-radius:50%; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal');
+			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:initial; color:$white}
 		}
-		.tbl-filter.transparent {display:none}
+		dl {padding-left:76px}
+		.user-name {
+			@include fw-md; font-size:1.6rem; color:$dark-3;
+			.label-gy {@include fw-dl; font-size:1.1rem}
+		}
+		.user-id {margin:2px 0 8px; color:$dark-9; font-size:1.3rem}
+		button:last-child {margin-left:4px}
 	}
-	.wrap-bx-search {background:$white; @include bxshadow; border-radius:10px}
-} */
+	.list-info {
+		margin:40px 0; font-size:0;
+		dt, dd {display:inline-block; min-height:24px}
+		dt {width:28%; text-align:right; @include fw-md; font-size:1.3rem; color:$dark-9}
+		dd {width:66%; margin-left:6%; font-size:1.4rem; color:$dark-3; word-break:break-word}
+	}
+	.info-nav li {
+		@include flexbox; @include align-items(center); height:43px; 
+		margin-bottom:4px; padding:0 15px; cursor:pointer; @include fw-md; color:$dark-3; border-radius:5px; @include transition(all);
+		i {font-size:20px; opacity:.4}
+		span {margin-left:8px; font-size:1.4rem}
+		.la-angle-right {margin-left:auto}
+		&:hover, &.on {
+			background-color:lighten($point,26%); color:$point;
+		}
+	}
+
+	/* 오른쪽 상세영역 */
+	.bx-right {
+		display:none; float:left; width:calc(100% - 340px); margin-left:20px;
+		&.on {display:block}
+	}
+
+	/* 익일정산 신청 */
+	.bx-nextadjust {
+		.txt-sm {text-align:center}
+		.wrap-form.horizon dt {width:20%}
+	}
+}
 
 
 /* 유료API관리 */

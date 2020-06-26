@@ -2541,133 +2541,6 @@ body .td-blank p {
 		}
 	}
 } */
-/* 판매점 상세 */
-.vue-rsdetail {
-  /* 왼쪽 정보 */
-  /* 오른쪽 상세영역 */
-}
-.vue-rsdetail .side-info {
-  float: left;
-  width: 320px;
-  padding: 3rem 2rem;
-}
-.vue-rsdetail .user-info > i {
-  float: left;
-  display: table;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #08bbd7;
-  background: -webkit-linear-gradient(left, #08bbd7, #799aff);
-  background: linear-gradient(to right, #08bbd7, #799aff);
-}
-.vue-rsdetail .user-info > i span {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 1.6rem;
-  font-style: initial;
-  color: #fff;
-}
-.vue-rsdetail .user-info dl {
-  padding-left: 76px;
-}
-.vue-rsdetail .user-info .user-name {
-  font-weight: 500;
-  font-size: 1.6rem;
-  color: #36384D;
-}
-.vue-rsdetail .user-info .user-name .label-gy {
-  font-weight: 300;
-  font-size: 1.1rem;
-}
-.vue-rsdetail .user-info .user-id {
-  margin: 2px 0 8px;
-  color: #969AAF;
-  font-size: 1.3rem;
-}
-.vue-rsdetail .user-info button:last-child {
-  margin-left: 4px;
-}
-.vue-rsdetail .list-info {
-  margin: 40px 0;
-  font-size: 0;
-}
-.vue-rsdetail .list-info dt, .vue-rsdetail .list-info dd {
-  display: inline-block;
-  min-height: 24px;
-}
-.vue-rsdetail .list-info dt {
-  width: 28%;
-  text-align: right;
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: #969AAF;
-}
-.vue-rsdetail .list-info dd {
-  width: 66%;
-  margin-left: 6%;
-  font-size: 1.4rem;
-  color: #36384D;
-  word-break: break-word;
-}
-.vue-rsdetail .info-nav li {
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -webkit-flex;
-  /* NEW - Chrome */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 43px;
-  margin-bottom: 4px;
-  padding: 0 15px;
-  cursor: pointer;
-  font-weight: 500;
-  color: #36384D;
-  border-radius: 5px;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-  -webkit-transition-property: all;
-  transition-property: all;
-}
-.vue-rsdetail .info-nav li i {
-  font-size: 20px;
-  opacity: 0.4;
-}
-.vue-rsdetail .info-nav li span {
-  margin-left: 8px;
-  font-size: 1.4rem;
-}
-.vue-rsdetail .info-nav li .la-angle-right {
-  margin-left: auto;
-}
-.vue-rsdetail .info-nav li:hover, .vue-rsdetail .info-nav li.on {
-  background-color: #eaebfd;
-  color: #6F74F4;
-}
-.vue-rsdetail .bx-right {
-  display: none;
-  float: left;
-  width: calc(100% - 340px);
-  margin-left: 20px;
-}
-.vue-rsdetail .bx-right.on {
-  display: block;
-}
-
 /* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */
 .wrap-autoadd {
   max-width: 600px;
@@ -2947,22 +2820,140 @@ body .td-blank p {
   margin-bottom: 2rem;
 }
 
-/* 결제통계
-.vue-paystats {
-	@include media-mb {
-		.wrap-widget .widget-rd {
-			@include flex-wrap(wrap);
-			.main-stat {@include flex(1 1 100%); border-bottom:1px solid rgba($white,.2)}
-			.sub-stat {
-				margin:3px;
-				&:first-of-type {@include flex(1 1 100%)}
-				&:not(:first-of-type) {@include flex(1 1 calc(50% - 6px))}
-			}
-		}
-		.tbl-filter.transparent {display:none}
-	}
-	.wrap-bx-search {background:$white; @include bxshadow; border-radius:10px}
-} */
+/* 판매점 상세 */
+.vue-rsdetail {
+  /* 왼쪽 정보 */
+  /* 오른쪽 상세영역 */
+  /* 익일정산 신청 */
+}
+.vue-rsdetail .side-info {
+  float: left;
+  width: 320px;
+  padding: 3rem 2rem;
+}
+.vue-rsdetail .user-info > i {
+  float: left;
+  display: table;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #08bbd7;
+  background: -webkit-linear-gradient(left, #08bbd7, #799aff);
+  background: linear-gradient(to right, #08bbd7, #799aff);
+}
+.vue-rsdetail .user-info > i span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: initial;
+  color: #fff;
+}
+.vue-rsdetail .user-info dl {
+  padding-left: 76px;
+}
+.vue-rsdetail .user-info .user-name {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #36384D;
+}
+.vue-rsdetail .user-info .user-name .label-gy {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+.vue-rsdetail .user-info .user-id {
+  margin: 2px 0 8px;
+  color: #969AAF;
+  font-size: 1.3rem;
+}
+.vue-rsdetail .user-info button:last-child {
+  margin-left: 4px;
+}
+.vue-rsdetail .list-info {
+  margin: 40px 0;
+  font-size: 0;
+}
+.vue-rsdetail .list-info dt, .vue-rsdetail .list-info dd {
+  display: inline-block;
+  min-height: 24px;
+}
+.vue-rsdetail .list-info dt {
+  width: 28%;
+  text-align: right;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #969AAF;
+}
+.vue-rsdetail .list-info dd {
+  width: 66%;
+  margin-left: 6%;
+  font-size: 1.4rem;
+  color: #36384D;
+  word-break: break-word;
+}
+.vue-rsdetail .info-nav li {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 43px;
+  margin-bottom: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #36384D;
+  border-radius: 5px;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+.vue-rsdetail .info-nav li i {
+  font-size: 20px;
+  opacity: 0.4;
+}
+.vue-rsdetail .info-nav li span {
+  margin-left: 8px;
+  font-size: 1.4rem;
+}
+.vue-rsdetail .info-nav li .la-angle-right {
+  margin-left: auto;
+}
+.vue-rsdetail .info-nav li:hover, .vue-rsdetail .info-nav li.on {
+  background-color: #eaebfd;
+  color: #6F74F4;
+}
+.vue-rsdetail .bx-right {
+  display: none;
+  float: left;
+  width: calc(100% - 340px);
+  margin-left: 20px;
+}
+.vue-rsdetail .bx-right.on {
+  display: block;
+}
+.vue-rsdetail .bx-nextadjust .txt-sm {
+  text-align: center;
+}
+.vue-rsdetail .bx-nextadjust .wrap-form.horizon dt {
+  width: 20%;
+}
+
 /* 유료API관리 */
 /* 정산관리 */
 /* 결제마진 정산 -AdjustSalesList */

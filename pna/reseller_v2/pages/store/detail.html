@@ -603,7 +603,7 @@
           </div>
         </section>
         <!--익일 정산 신청-->
-        <section id="nextadjust" class="bx-basic bx-right">
+        <section id="nextadjust" class="bx-basic bx-right bx-nextadjust">
           <h3 class="bx-tit">
             <span class="tit">익일 정산 신청</span>
           </h3>
@@ -670,6 +670,12 @@
                   <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                   <button class="btn btn-xs btn-point">파일 선택</button>
                 </el-upload>
+                <div class="list-file">
+                  <ul>
+                    <li>file_name.jpg<button><i class="las la-times"></i></button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="row">
@@ -696,12 +702,6 @@
                   <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                   <button class="btn btn-xs btn-point">파일 선택</button>
                 </el-upload>
-                <div class="list-file">
-                  <ul>
-                    <li>file_name.jpg<button><i class="las la-times"></i></button>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
             <div class="bottom-btn">
@@ -719,9 +719,9 @@
               <el-select v-model="selectYear" placeholder="연도 선택" class="flex1">
                 <el-option
                   v-for="item in year"
-                  :key="item"
-                  :label="item"
-                  :value="item">
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
                 </el-option>
               </el-select>
               <el-radio-group v-model="drType">
@@ -989,7 +989,7 @@
           </h3>
           <div class="bx-con">
             <div class="row-con">
-              <textarea class="inp-txt" placeholder="메모를 입력하세요."></textarea>
+              <textarea class="inp-txt" rows="15" placeholder="메모를 입력하세요."></textarea>
             </div>
             <div class="bottom-btn">
               <button class="btn btn-sm btn-primary">저장</button>
