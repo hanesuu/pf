@@ -33,7 +33,7 @@
           <button class="btn btn-line-b btn-prev">
             <i class="las la-angle-left"></i>
           </button>
-          <button class="btn btn-line-b btn-next">
+          <button class="btn btn-line-b btn-next" onclick="location.href='blank.html'">
             <i class="las la-angle-right"></i>
           </button>
         </section>
@@ -140,7 +140,7 @@
               <tr>
                 <td>
                   <label class="inp-check" for="check1">
-                    <input id="check1" name="check1" type="checkbox">
+                    <input id="check1" name="chk" type="checkbox">
                     <span class="checkmark"></span>
                   </label>
                 </td>
@@ -161,7 +161,7 @@
               <tr>
                 <td>
                   <label class="inp-check" for="check2">
-                    <input id="check2" name="check1" type="checkbox">
+                    <input id="check2" name="chk" type="checkbox">
                     <span class="checkmark"></span>
                   </label>
                 </td>
@@ -197,9 +197,9 @@
         <!--<section class="pg-blank">
           <dl>
             <dt>결제 마진 생성 전입니다.</dt>
-            <dd>예상 결제 마진은 <a class="txt-link" @click="goUrl('/rm/payList')">결제 현황</a>을 이용해주세요.</dd>
+            <dd>예상 결제 마진은 <a class="txt-link">결제 현황</a>을 이용해주세요.</dd>
           </dl>
-          <img src="@/assets/img/img_blank@2x.png">
+          <img src="../../assets/img/img_blank@2x.png">
         </section>-->
         <!--//해당 월에 데이터가 없는 경우-->
       </div><!--//페이지내용-->

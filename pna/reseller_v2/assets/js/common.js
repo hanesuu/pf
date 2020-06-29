@@ -77,4 +77,16 @@ $(document).ready(function(){
     $(".mj6-3").find(".top").children(".location").children(".menu1").text("고객센터");
     $(".mj6-3").find(".top").children(".location").children(".menu2").text("자주 묻는 질문");
 
+    /* 체크박스 전체선택 */
+    $("#checkAll").click(function(){
+        //클릭되었으면
+        if($("#checkAll").prop("checked")){
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+            $("input[name=chk]").prop("checked",true);
+            //클릭이 안되있으면
+        }else{
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+            $("input[name=chk]").prop("checked",false);
+        }
+    })
 });

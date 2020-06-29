@@ -835,41 +835,43 @@ body .td-blank {
 .vue-apilist, .vue-apistats {}
 
 
-/* 정산관리 */
-/* 결제마진 정산 -AdjustSalesList */
+/* 정산관리 공통 -AdjustSalesList, AdjustApiList */
 .v-aj-salelist {
-  .wrap-widget [class*="widget-"] {
-    @include flex-direction(column);
-    .colored {
-      padding:2rem 3rem;
-      dt {@include fw-md; font-size:2rem}
-      dd {font-size:1.2rem}
-    }
-    &.widget-pt .colored:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
-  }
-  /* 목록 상단 제목 */
-  .tbl-filter.transparent {
-    .d-left {
-      @include align-self(center);
-      .tit-md {display:inline-block}
-    }
-    .d-right {
-      .txt {font-size:1.4rem; vertical-align:middle}
-      .btn {vertical-align:middle}
-    }
-  }
-  .board-list {
-    th, td {vertical-align:middle}
-    .total td {padding:15px 10px}
-  }
-  /* 데이터 없는 경우 */
-  .pg-blank {
-    margin-top:10vh; text-align:center; color:$dark-3;
-    dl {margin-bottom:6rem}
-    dt {margin-bottom:1rem; font-size:2.6rem; @include fw-md}
-    dd {font-size:1.4rem}
-    img {max-width:380px}
-  }
+	.wrap-widget [class*="widget-"] {
+		.colored {
+			padding:2rem 3rem;
+			dt {@include fw-md; font-size:2rem}
+			dd {font-size:1.2rem}
+		}
+		&.widget-pt .colored:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
+		.txt {font-size:1.8rem}
+	}  
+	.board-list {
+		th, td {vertical-align:middle}
+		.total td {padding:15px 10px}
+	}
+	/* 데이터 없는 경우 */
+	.pg-blank {
+		margin-top:10vh; text-align:center; color:$dark-3;
+		dl {margin-bottom:6rem}
+		dt {margin-bottom:1rem; font-size:2.6rem; @include fw-md}
+		dd {font-size:1.4rem}
+		img {max-width:380px}
+	}
+
+ 	/* 결제마진 정산 -AdjustSalesList */
+	.row.wrap-widget [class*="widget-"] {@include flex-direction(column)}
+	/* 목록 상단 제목 */
+	.tbl-filter.transparent {
+		.d-left {
+			@include align-self(center);
+			.tit-md {display:inline-block}
+		}
+		.d-right {
+			.txt {font-size:1.4rem; vertical-align:middle}
+			.btn {vertical-align:middle}
+		}
+	}
 }
 
 /* 고객센터 */

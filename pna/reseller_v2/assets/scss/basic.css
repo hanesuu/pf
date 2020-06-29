@@ -3021,17 +3021,11 @@ body .td-blank p {
 }
 
 /* 유료API관리 */
-/* 정산관리 */
-/* 결제마진 정산 -AdjustSalesList */
+/* 정산관리 공통 -AdjustSalesList, AdjustApiList */
 .v-aj-salelist {
-  /* 목록 상단 제목 */
   /* 데이터 없는 경우 */
-}
-.v-aj-salelist .wrap-widget [class*=widget-] {
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  /* 결제마진 정산 -AdjustSalesList */
+  /* 목록 상단 제목 */
 }
 .v-aj-salelist .wrap-widget [class*=widget-] .colored {
   padding: 2rem 3rem;
@@ -3048,21 +3042,8 @@ body .td-blank p {
   height: 56px;
   background: url("../img/img_bg_cash.svg") no-repeat 50% 50%/100%;
 }
-.v-aj-salelist .tbl-filter.transparent .d-left {
-  -webkit-align-self: center;
-  -moz-align-self: center;
-  -ms-align-self: center;
-  align-self: center;
-}
-.v-aj-salelist .tbl-filter.transparent .d-left .tit-md {
-  display: inline-block;
-}
-.v-aj-salelist .tbl-filter.transparent .d-right .txt {
-  font-size: 1.4rem;
-  vertical-align: middle;
-}
-.v-aj-salelist .tbl-filter.transparent .d-right .btn {
-  vertical-align: middle;
+.v-aj-salelist .wrap-widget [class*=widget-] .txt {
+  font-size: 1.8rem;
 }
 .v-aj-salelist .board-list th, .v-aj-salelist .board-list td {
   vertical-align: middle;
@@ -3088,6 +3069,28 @@ body .td-blank p {
 }
 .v-aj-salelist .pg-blank img {
   max-width: 380px;
+}
+.v-aj-salelist .row.wrap-widget [class*=widget-] {
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.v-aj-salelist .tbl-filter.transparent .d-left {
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  -ms-align-self: center;
+  align-self: center;
+}
+.v-aj-salelist .tbl-filter.transparent .d-left .tit-md {
+  display: inline-block;
+}
+.v-aj-salelist .tbl-filter.transparent .d-right .txt {
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+.v-aj-salelist .tbl-filter.transparent .d-right .btn {
+  vertical-align: middle;
 }
 
 /* 고객센터 */
