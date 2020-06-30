@@ -1013,6 +1013,9 @@ table th[class*=col-] {
 
 /** 공통 **/
 /* layout */
+.contents {
+  max-width: 1290px;
+}
 .contents > section:last-child {
   margin-bottom: 0;
 }
@@ -2716,7 +2719,7 @@ body .td-blank p {
 /* 리셀러/판매점 리스트, 상세 공통 */
 .bx-con {
   /* 결제설정, API설정 공통 - switch 우측 정보 */
-  /* 결제설정 - 결제수단 */
+  /* 결제설정, API설정 - 수단 */
   /* 결제설정 - 결제마진 */
   /* 결제설정 - 결제한도 */
   /* API설정 - 사용 */
@@ -2756,11 +2759,11 @@ body .td-blank p {
     margin: 0 auto 0 0;
   }
 }
-.bx-con .tab-pay-use .wrap-form dt {
+.bx-con .tab-pay-use .wrap-form dt, .bx-con .tab-api-use .wrap-form dt {
   min-width: 60px;
 }
 @media only screen and (min-width: 1540px) {
-  .bx-con .tab-pay-use .wrap-form dd {
+  .bx-con .tab-pay-use .wrap-form dd, .bx-con .tab-api-use .wrap-form dd {
     -webkit-flex-direction: inherit;
     -moz-flex-direction: inherit;
     -ms-flex-direction: inherit;

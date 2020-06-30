@@ -39,6 +39,9 @@ $(document).ready(function(){
 	$(".mjstore-1").find(".nav > ul > li:nth-child(3)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
 	$(".mjstore-1").find(".top").children(".location").children(".menu1").text("판매점 관리");
 	$(".mjstore-1").find(".top").children(".location").children(".menu2").text("판매점 등록");
+	$(".mjstore-2").find(".nav > ul > li:nth-child(3)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");
+	$(".mjstore-2").find(".top").children(".location").children(".menu1").text("판매점 관리");
+	$(".mjstore-2").find(".top").children(".location").children(".menu2").text("판매점 상세");
 
 	//결제 관리
     $(".mj3").find(".nav > ul > li:nth-child(4)").addClass("active");

@@ -23,6 +23,7 @@
 /** 공통 **/
 /* layout */
 .contents {
+	max-width:1290px;
 	& > section:last-child {margin-bottom:0}
 	&.v-width-lg {max-width:1100px}
 }
@@ -714,8 +715,8 @@ body .td-blank {
 			.el-switch ~ .d-right {margin:0 auto 0 0}
 		}
 	}
-	/* 결제설정 - 결제수단 */
-	.tab-pay-use .wrap-form {
+	/* 결제설정, API설정 - 수단 */
+	.tab-pay-use .wrap-form, .tab-api-use .wrap-form {
 		dt {min-width:60px}
 		@media only screen and (min-width:1540px) {
 			dd {@include flex-direction(inherit); @include align-items(center)}

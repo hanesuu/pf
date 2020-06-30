@@ -78,7 +78,7 @@
                   <dt>
                     <label for="payType">결제 수단</label>
                   </dt>
-                  <dd class="no-inp" id="payType">
+                  <dd id="payType">
                     <el-select v-model="payType" placeholder="선택">
                       <el-option
                         v-for="item in payTypeList"
@@ -109,7 +109,7 @@
                   <dt>
                     <label for="adjustStatus">정산 상태</label>
                   </dt>
-                  <dd class="no-inp" id="adjustStatus">
+                  <dd id="adjustStatus">
                     <el-select v-model="adjustStatus" placeholder="선택">
                       <el-option
                         v-for="item in adjustStatusList"
@@ -373,7 +373,9 @@
 <script src="/ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
 <script src="/ud/common/js/element/index.js"></script>
+<script src="/ud/common/js/element/ko.js"></script>
 <script>
+ELEMENT.locale(ELEMENT.lang.ko)
   new Vue({
     el: '#app',
     data: function() {
@@ -425,6 +427,7 @@
         searchDetail: '1',
         searchDate: 'month',
         datepicker: '',
+        btnType: 'all',
         
         /**
          * 리스트 개수 select
