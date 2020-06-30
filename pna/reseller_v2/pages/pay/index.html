@@ -10,7 +10,6 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="../../assets/js/page.js"></script>
   <script src="/ud/common/js/countUp.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
@@ -30,311 +29,340 @@
       <div class="contents vue-rslist">
         <!--상세검색-->
         <el-collapse class="bx-basic wrap-bx-search" v-model="searchDetail" @change="handleChange">
-          <el-collapse-item title="상세검색" name="1">
+          <el-collapse-item title="검색" name="1" class="wrap-form">
             <div class="row">
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="상호/이름">
+                <dl>
+                  <dt>
+                    <label for="searchName">판매점명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchName" class="inp-box" placeholder="판매점명을 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="아이디">
+                <dl>
+                  <dt>
+                    <label for="searchId">판매점 ID</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchId" class="inp-box" placeholder="판매점 ID를 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="tel" class="inp-box" placeholder="휴대폰번호">
+                <dl>
+                  <dt>
+                    <label for="searchPhone">휴대폰 번호</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" id="searchPhone" class="inp-box" placeholder="휴대폰 번호를 입력해 주세요.">
+                  </dd>
+                </dl>
               </div>
               <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="이메일">
+                <dl>
+                  <dt>
+                    <label for="product">상품명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="product" class="inp-box" placeholder="상품명을 입력해 주세요.">
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="payType">결제 수단</label>
+                  </dt>
+                  <dd class="no-inp" id="payType">
+                    <el-select v-model="payType" placeholder="선택">
+                      <el-option
+                        v-for="item in payTypeList"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="payStatus">결제 상태</label>
+                  </dt>
+                  <dd class="no-inp" id="payStatus">
+                    <el-radio-group v-model="payStatus">
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="TRUE">결제 완료</el-radio>
+                      <el-radio label="FALSE">결제 취소</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="adjustStatus">정산 상태</label>
+                  </dt>
+                  <dd class="no-inp" id="adjustStatus">
+                    <el-select v-model="adjustStatus" placeholder="선택">
+                      <el-option
+                        v-for="item in adjustStatusList"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-3">
-                <el-date-picker
-                  v-model="datepicker"
-                  type="daterange"
-                  align="right"
-                  start-placeholder="시작일 선택"
-                  end-placeholder="종료일 선택"
-                  default-value="2019-11-15">
-                </el-date-picker>
+                <dl>
+                  <dt>결제 기간</dt>
+                  <dd>
+                    <el-date-picker
+                      v-model="datepicker"
+                      type="daterange"
+                      align="right"
+                      start-placeholder="시작일 선택"
+                      end-placeholder="종료일 선택"
+                      default-value="2019-11-15">
+                    </el-date-picker>
+                  </dd>
+                </dl>
               </div>
-              <div class="col-xs-12 col-md-8 group-radio">
-                <el-radio v-model="searchDate" label="month">
-                  <span>당월</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="today">
-                  <span>오늘</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="all">
-                  <span>전체</span>
-                </el-radio>
+              <div class="col-xs-12 col-md-3 group-radio">
+                <dl>
+                  <dt class="txt-hidden">결제일 설정</dt>
+                  <dd>
+                    <el-radio-group v-model="btnType">
+                      <el-radio-button label="today">당일</el-radio-button>
+                      <el-radio-button label="week">1주</el-radio-button>
+                      <el-radio-button label="month1">1개월</el-radio-button>
+                      <el-radio-button label="month3">3개월</el-radio-button>
+                      <el-radio-button label="all">전체</el-radio-button>
+                    </el-radio-group>
+                  </dd>
+                </dl>
               </div>
             </div>
-            <button class="btn btn-point btn-search"><i class="la la-search"></i> 검색</button>
+            <div class="wrap-btn">
+              <button class="btn btn-primary btn-search"><i class="la la-search"></i> 검색</button>
+            </div>
           </el-collapse-item>
         </el-collapse>
         <!--통계 위젯-->
         <section class="row wrap-widget">
-          <div class="col-xs-12 col-sm-8">
+          <div class="col-xs-12">
             <div class="widget-rd">
-              <dl class="main-stat">
-                <dt>총 결제건수 (완료기준)</dt>
-                <dd class="txt-count" id="payAll">511<small>건</small></dd>
+              <dl class="main-stat colored">
+                <dt>
+                  <span>결제 마진</span>
+                  <el-tooltip class="item" effect="light" content="완료된 결제건 기준입니다." placement="top">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                      <path fill="#fff" fill-rule="evenodd" d="M6 0a6 6 0 1 1 0 12A6 6 0 0 1 6 0zm1 4.693H5V10h2V4.693zM7 2H5v1.882h2V2z" opacity=".5"/>
+                    </svg>
+                  </el-tooltip>
+                </dt>
+                <dd class="txt-count">
+                  <span id="payTotal">90,000</span>
+                  <small>원</small>
+                </dd>
               </dl>
-              <dl class="sub-stat">
-                <dt>결제총액 (완료기준)</dt>
-                <dd class="txt-count" id="paySub1">250,000,000<small>원</small></dd>
+              <dl class="main-stat ta-center">
+                <dt>총 결제건수</dt>
+                <dd class="txt-count">
+                  <span id="payPer"></span>
+                  <small>건</small>
+                </dd>
               </dl>
-              <dl class="sub-stat">
-                <dt>총 결제수수료 마진</dt>
-                <dd class="txt-count" id="paySub2">1,000,000<small>원</small></dd>
+              <dl class="main-stat ta-center">
+                <dt>결제 완료</dt>
+                <dd class="txt-count">
+                  <span id="paySub1"></span>
+                  <small>원</small>
+                </dd>
               </dl>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="widget-yl">
-              <dl class="main-stat">
-                <dt>정산완료</dt>
-                <dd class="txt-count" id="calcAll">900,000<small>원</small></dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>정산예정</dt>
-                <dd class="txt-count" id="calcSub">240,000<small>원</small></dd>
+              <dl class="main-stat ta-center">
+                <dt>결제 취소</dt>
+                <dd class="txt-count">
+                  <span id="paySub2"></span>
+                  <small>원</small></dd>
               </dl>
             </div>
           </div>
         </section>
-        <section class="board-list">
-          <table>
-            <colgroup>
-              <col width="30%">
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col width="150px">
-            </colgroup>
-            <thead>
-              <tr>
-                <th class="sort">
-                  <span>판매점 정보</span>
-                </th>
-                <th class="sort">
-                  <span>이용 중인 API</span>
-                </th>
-                <th>정산정보</th>
-                <th class="sort">
-                  <span>결제금액</span>
-                </th>
-                <th class="sort">
-                  <span>결제마진정보</span>
-                </th>
-                <th class="sort">
-                  <span>마진율</span>
-                </th>
-                <th>관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt><a href="detail.html">애니스토어 (shoppink) <span class="label-new">NEW</span></a></dt>
-                    <dd>1599-5681</dd>
-                    <dd>2019.11.13</dd>
-                    <dd class="link-resell">리셀러: <span>직접등록</span></dd>
-                  </dl>
-                </td>
-                <td>
-                  <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                </td>
-                <td>
-                  <p class="txt-state fail">정산불가</p>
-                  <button class="btn btn-xs btn-line-b btn-xs-info">정산안내</button>
-                </td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-point">판매자 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>베스트쇼핑 (bestshopping)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                    <dd class="link-resell link">리셀러: <span>devking</span></dd>
-                  </dl>
-                </td>
-                <td class="ta-left td-labels">
-                  <span class="label-default">카드결제</span>
-                  <span class="label-default">가상계좌</span>
-                  <span class="label-default">휴대폰결제</span>
-                  <span class="label-default">계좌이체</span>
-                  <span class="label-sspay">삼성페이</span>
-                  <span class="label-npay">네이버페이</span>
-                  <span class="label-kakao">카카오페이</span>
-                  <span class="label-payco">페이코</span>
-                </td>
-                <td>
-                  <p class="txt-state fail">정산불가</p>
-                  <button class="btn btn-xs btn-line-b btn-xs-info">정산안내</button>
-                </td>
-                <td>348,340원</td>
-                <td>1,230원</td>
-                <td>0.35%</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-point">판매자 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>여름상회 (summerstore)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                    <dd class="link-resell link">리셀러: <span>camelia39</span></dd>
-                  </dl>
-                </td>
-                <td class="ta-left td-labels">
-                  <span class="label-default">카드결제</span>
-                  <span class="label-default">가상계좌</span>
-                  <span class="label-sspay">삼성페이</span>
-                  <span class="label-npay">네이버페이</span>
-                  <span class="label-kakao">카카오페이</span>
-                </td>
-                <td>
-                  <p class="txt-state success">정산가능</p>
-                </td>
-                <td>2,148,340원</td>
-                <td>105,230원</td>
-                <td>0.42%</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
-                  <button class="btn btn-xs btn-point">판매자 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>베스트쇼핑 (bestshopping)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                    <dd class="link-resell link">리셀러: <span>devking</span></dd>
-                  </dl>
-                </td>
-                <td class="ta-left td-labels">
-                  <span class="label-default">카드결제</span>
-                  <span class="label-default">가상계좌</span>
-                  <span class="label-default">휴대폰결제</span>
-                  <span class="label-default">계좌이체</span>
-                  <span class="label-sspay">삼성페이</span>
-                  <span class="label-npay">네이버페이</span>
-                  <span class="label-kakao">카카오페이</span>
-                  <span class="label-payco">페이코</span>
-                </td>
-                <td>
-                  <p class="txt-state fail">정산불가</p>
-                  <button class="btn btn-xs btn-line-b btn-xs-info">정산안내</button>
-                </td>
-                <td>348,340원</td>
-                <td>1,230원</td>
-                <td>0.35%</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-point">판매자 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>여름상회 (summerstore)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                    <dd class="link-resell link">리셀러: <span>camelia39</span></dd>
-                  </dl>
-                </td>
-                <td class="ta-left td-labels">
-                  <span class="label-default">카드결제</span>
-                  <span class="label-default">가상계좌</span>
-                  <span class="label-sspay">삼성페이</span>
-                  <span class="label-npay">네이버페이</span>
-                  <span class="label-kakao">카카오페이</span>
-                </td>
-                <td>
-                  <p class="txt-state success">정산가능</p>
-                </td>
-                <td>2,148,340원</td>
-                <td>105,230원</td>
-                <td>0.42%</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
-                  <button class="btn btn-xs btn-point">판매자 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <div class="tbl-filter">
-          <div class="d-left">
-            <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
-              <el-option 
-                v-for="list in options"
-                :key="list.value"
-                :label="list.label"
-                :value="list.value">
-              </el-option>
-            </el-select>
-          </div>
+        <!--버튼영역-->
+        <div class="tbl-filter transparent">
           <div class="d-right">
-            <div role="pagination" class="pager">
-              <div class="txt-pg">
-                <span class="current">1</span>
-                <span>3</span>
-              </div>
-              <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
-              <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
-              <label for="goto">이동</label>
-              <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
-            </div>
+            <button class="btn btn-gy"><i class="la la-download"></i> 엑셀 다운로드</button>
           </div>
         </div>
+        <!--목록-->
+        <section class="bx-basic board">
+          <div class="board-list">
+            <table>
+              <colgroup>
+                <col width="5%">
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th>No.</th>
+                <th>판매자 정보</th>
+                <th>결제 정보</th>
+                <th>정산 정보</th>
+                <th>마진 정보</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="va-mid">1</td>
+                <td>
+                  <table class="tbl-xs">
+                    <colgroup>
+                      <col width="30%">
+                      <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>판매자명</th>
+                      <td>(주)코팡</td>
+                    </tr>
+                    <tr>
+                      <th>판매자 ID</th>
+                      <td>copang</td>
+                    </tr>
+                    <tr>
+                      <th>휴대폰 번호</th>
+                      <td>01032122211</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <table class="tbl-xs">
+                    <colgroup>
+                      <col width="30%">
+                      <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>상품명</th>
+                      <td>PNA 선불 충전</td>
+                    </tr>
+                    <tr>
+                      <th>결제일</th>
+                      <td>2020.06.29 08:24:15</td>
+                    </tr>
+                    <tr>
+                      <th>결제 취소일</th>
+                      <td>2020.06.29 10:26:27</td>
+                    </tr>
+                    <tr>
+                      <th>결제 수단</th>
+                      <td>카드 원격 결제</td>
+                    </tr>
+                    <tr>
+                      <th>결제 금액</th>
+                      <td>38,520원</td>
+                    </tr>
+                    <tr>
+                      <th>결제 상태</th>
+                      <td>
+                        <span class="txt-rd">결제 취소</span>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <table class="tbl-xs">
+                    <colgroup>
+                      <col width="30%">
+                      <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>수수료율</th>
+                      <td>1.8%</td>
+                    </tr>
+                    <tr>
+                      <th>정산 금액</th>
+                      <td>338원</td>
+                    </tr>
+                    <tr>
+                      <th>정산 예정일</th>
+                      <td>2020.07.15</td>
+                    </tr>
+                    <tr>
+                      <th>정산 상태</th>
+                      <td>
+                        <span class="txt-ing">정산 대기</span>
+                        <!--<span class="txt-gn">정산 완료</span>-->
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <table class="tbl-xs">
+                    <colgroup>
+                      <col width="30%">
+                      <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>마진율</th>
+                      <td>0.11%</td>
+                    </tr>
+                    <tr>
+                      <th>마진</th>
+                      <td>40원</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-filter">
+            <div class="d-left">
+              <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                <el-option 
+                  v-for="list in options"
+                  :key="list.value"
+                  :label="list.label"
+                  :value="list.value">
+                </el-option>
+              </el-select>
+            </div>
+            <div class="d-right">
+              <div role="pagination" class="pager">
+                <div class="txt-pg">
+                  <span class="current">1</span>
+                  <span>3</span>
+                </div>
+                <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                <label for="goto">이동</label>
+                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+              </div>
+            </div>
+          </div>
+        </section>
       </div><!--//페이지내용-->
-      <!--플로팅버튼-->
-      <div class="wrap-btn-float">
-        <button class="btn btn-float btn-regist" onclick="location.href='../store/add.html'"><i class="las la-user-plus"></i>판매점 등록</button>
-        <!-- <button class="btn btn-float btn-support" onclick="location.href='../support/support.html#tab-qna'"><i class="las la-edit"></i>문의하기</button> -->
-      </div><!--//플로팅버튼-->
     </div>
     <!--//template-->
     <div id="footer"></div>
@@ -350,6 +378,49 @@
     el: '#app',
     data: function() {
       return {
+        /**
+         * 결제수단 select
+         */
+        payTypeList: [{
+          value: 'Option1',
+          label: '전체'
+        }, {
+          value: 'Option2',
+          label: '카드'
+        }, {
+          value: 'Option3',
+          label: '휴대폰'
+        }, {
+          value: 'Option4',
+          label: '가상계좌'
+        }, {
+          value: 'Option5',
+          label: '계좌이체'
+        }, {
+          value: 'Option6',
+          label: '간편결제'
+        }],
+        payType: '',
+
+        /* 결제상태 */
+        payStatus: 'ALL',
+
+        /* 정산상태 */
+        adjustStatusList: [{
+          value: 'Option1',
+          label: '전체'
+        }, {
+          value: 'Option2',
+          label: '정산 대기'
+        }, {
+          value: 'Option3',
+          label: '정산 완료'
+        }, {
+          value: 'Option4',
+          label: '보류'
+        }],
+        adjustStatus: '',
+
         /* 날짜 선택 */
         searchDetail: '1',
         searchDate: 'month',
@@ -400,17 +471,14 @@
   [5] 옵션
   */
 
-  let payAll = new CountUp("payAll", 0, 511, 0, 1.5, options);
-  payAll.start();
-  let paySub1 = new CountUp("paySub1", 0, 250000000, 0, 1.5, options);
+  let payTotal = new CountUp("payTotal", 0, 4189100, 0, 1.5, options);
+  payTotal.start();
+  let payPer = new CountUp("payPer", 0, 253, 0, 1.5, options);
+  payPer.start();
+  let paySub1 = new CountUp("paySub1", 0, 4068810, 0, 1.5, options);
   paySub1.start();
-  let paySub2 = new CountUp("paySub2", 0, 1000000, 0, 1.5, options);
+  let paySub2 = new CountUp("paySub2", 0, 120290, 0, 1.5, options);
   paySub2.start();
-
-  let calcAll = new CountUp("calcAll", 0, 900000, 0, 1.5, options);
-  calcAll.start();
-  let calcSub = new CountUp("calcSub", 0, 240000, 0, 1.5, options);
-  calcSub.start();
 
 </script>
 </html>

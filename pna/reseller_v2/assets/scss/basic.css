@@ -3050,6 +3050,7 @@ body .td-blank p {
 }
 .v-aj-salelist .board-list .total td {
   padding: 15px 10px;
+  border-bottom: 0;
 }
 .v-aj-salelist .pg-blank {
   margin-top: 10vh;

@@ -848,7 +848,7 @@ body .td-blank {
 	}  
 	.board-list {
 		th, td {vertical-align:middle}
-		.total td {padding:15px 10px}
+		.total td {padding:15px 10px; border-bottom:0}
 	}
 	/* 데이터 없는 경우 */
 	.pg-blank {

@@ -51,7 +51,7 @@ $(document).ready(function(){
 	$(".mjadjust").find(".nav > ul > li:nth-child(6)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");
 	$(".mjadjust").find(".top").children(".location").children(".menu1").text("정산 관리");
 	$(".mjadjust").find(".top").children(".location").children(".menu2").text("결제 마진 정산");
-	$(".mjadjust-1").find(".nav > ul > li:nth-child(2)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
+	$(".mjadjust-1").find(".nav > ul > li:nth-child(6)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
 	$(".mjadjust-1").find(".top").children(".location").children(".menu1").text("정산 관리");
 	$(".mjadjust-1").find(".top").children(".location").children(".menu2").text("API 마진 정산");
 
