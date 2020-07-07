@@ -59,7 +59,7 @@ $(document).ready(function(){
 	$(".mjadjust-1").find(".top").children(".location").children(".menu2").text("API 마진 정산");
 
     //설정
-	$(".mj7-1").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show();
+	$(".mj7-1").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");
 	$(".mj7-1").find(".top").children(".location").children(".menu1").text("설정");
     $(".mj7-1").find(".top").children(".location").children(".menu2").text("계정정보");
 	$(".mj7-2").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
@@ -70,7 +70,7 @@ $(document).ready(function(){
     $(".mj7-3").find(".top").children(".location").children(".menu2").text("기본 마진 설정");
 
     //고객센터
-	$(".mj6-1").find(".nav > ul > li:nth-child(8)").addClass("active").children(".depth2").show();
+	$(".mj6-1").find(".nav > ul > li:nth-child(8)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");
 	$(".mj6-1").find(".top").children(".location").children(".menu1").text("고객센터");
     $(".mj6-1").find(".top").children(".location").children(".menu2").text("공지사항");
 	$(".mj6-2").find(".nav > ul > li:nth-child(8)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
