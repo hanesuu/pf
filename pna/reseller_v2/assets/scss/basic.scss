@@ -181,6 +181,10 @@ button:focus, button:active {outline:0}
 		background:$danger-rd; color:$white; @include transition(opacity);
 		&:hover {background:$danger-rd; opacity:.85}
 	}
+	&-line-rd {
+		border-color:$danger-rd; color:$danger-rd;
+		&:hover {background-color:$danger-rd; border-color:transparent; color:$white}
+	}
 	&-yl {
 		background:$warn-yl; color:$white; @include transition(opacity);
 		&:hover {background:$warn-yl; opacity:.85}

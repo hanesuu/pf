@@ -22,11 +22,63 @@
 </head>
 <body>
   <div id="app">
-    <div id="header" class="mj6-1"></div>
+    <div id="header" class="mj6-3"></div>
     <!--template-->
     <div class="wrap-content">
       <!--페이지내용-->
       <div class="contents v-board-list">
+        <!--검색-->
+        <el-collapse class="bx-basic wrap-bx-search">
+          <el-collapse-item title="검색" name="1" class="wrap-form">
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>문의 구분</dt>
+                  <dd>
+                    <el-select v-model="qnaType" placeholder="문의 구분">
+                      <el-option
+                        v-for="item in qnatypes"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>처리 구분</dt>
+                  <dd class="no-inp">
+                    <el-radio-group v-model="qnaState">
+                      <el-radio label="ALL">전체</el-radio>
+                      <el-radio label="COMPLETE">처리완료</el-radio>
+                      <el-radio label="CANCEL">미처리</el-radio>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>등록일</dt>
+                  <dd>
+                    <el-date-picker
+                      v-model="dates"
+                      type="daterange"
+                      align="right"
+                      start-placeholder="시작일 선택"
+                      end-placeholder="종료일 선택">
+                    </el-date-picker>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="wrap-btn">
+              <button class="btn btn-primary btn-search"><i class="la la-search"></i> 검색</button>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+        <!--//검색-->
         <section class="tbl-filter transparent">
           <div class="d-left">
             <div class="txt-result">
@@ -40,37 +92,49 @@
               <colgroup>
                 <col width="5%">
                 <col width="15%">
+                <col width="50%">
                 <col>
-                <col width="20%">
+                <col>
+                <col>
               </colgroup>
               <thead>
               <tr>
                 <th>No.</th>
                 <th>구분</th>
                 <th>제목</th>
+                <th>처리상태</th>
                 <th>등록일</th>
+                <th>처리일</th>
               </tr>
               </thead>
               <tbody>
               <tr>
                 <td class="va-mid">2</td>
                 <td class="va-mid">
-                  <p class="label-default label-lg">전체 공지</p>
+                  <p class="label-default label-lg">API 연동 문의</p>
                 </td>
                 <td class="va-mid ta-left">
-                  <a href="detail.html" class="board-tit">6월 서비스 정기 점검 안내</a>
+                  <a href="qnadetail.html" class="board-tit">javascript submit 이벤트 질문입니다.</a>
+                </td>
+                <td class="va-mid">
+                  <span class="txt-rd">미답변</span>
                 </td>
                 <td class="va-mid">2020-07-03 17:28</td>
+                <td class="va-mid"></td>
               </tr>
               <tr>
                 <td class="va-mid">1</td>
                 <td class="va-mid">
-                  <p class="label-default label-lg">전체 공지</p>
+                  <p class="label-default label-lg">이용 문의</p>
                 </td>
                 <td class="va-mid ta-left">
-                  <a href="detail.html" class="board-tit">개인정보 처리방침 개정 제목 제목 공지사항 제목</a>
+                  <a href="qnadetail.html" class="board-tit">하루 호출 가능 갯수 제한 있는 API를 쓰는데, postman으로 테스트해도 똑같나요?</a>
+                </td>
+                <td class="va-mid">
+                  <span class="txt-gn">답변완료</span>
                 </td>
                 <td class="va-mid">2020-07-03 17:28</td>
+                <td class="va-mid">2020-07-04 09:22</td>
               </tr>
               </tbody>
             </table>
@@ -129,6 +193,39 @@
           label: '100개씩 보기'
         }],
         viewList: '',
+
+        /**
+         * 문의유형 select
+         */
+        qnatypes: [{
+          value: 'Option1',
+          label: '가입 문의'
+        }, {
+          value: 'Option2',
+          label: 'API 연동 문의'
+        }, {
+          value: 'Option3',
+          label: '이용 문의'
+        }, {
+          value: 'Option4',
+          label: '개발요청'
+        }, {
+          value: 'Option5',
+          label: '영업 문의'
+        }, {
+          value: 'Option6',
+          label: '제휴 문의'
+        }, {
+          value: 'Option7',
+          label: '기타'
+        }],
+        qnaType: '',
+
+        /* 처리 구분 */
+        qnaState: 'ALL',
+
+        /* 날짜검색 */
+        dates: ''
       }
     },
     methods: {}

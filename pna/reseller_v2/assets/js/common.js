@@ -75,10 +75,14 @@ $(document).ready(function(){
     $(".mj6-1").find(".top").children(".location").children(".menu2").text("공지사항");
 	$(".mj6-2").find(".nav > ul > li:nth-child(9)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
     $(".mj6-2").find(".top").children(".location").children(".menu1").text("고객센터");
-    $(".mj6-2").find(".top").children(".location").children(".menu2").text("문의하기");
-	$(".mj6-3").find(".nav > ul > li:nth-child(9)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
+    $(".mj6-2").find(".top").children(".location").children(".menu2").text("자주 묻는 질문");
+	$(".mj6-3").find(".nav > ul > li:nth-child(9)").addClass("active").children(".depth2").show().children("li:nth-child(3)").addClass("active");
     $(".mj6-3").find(".top").children(".location").children(".menu1").text("고객센터");
-    $(".mj6-3").find(".top").children(".location").children(".menu2").text("자주 묻는 질문");
+    $(".mj6-3").find(".top").children(".location").children(".menu2").text("문의내역");
+
+	$(".mj6-4").find(".nav > ul > li:nth-child(9)").addClass("active").children(".depth2").show().children("li:nth-child(4)").addClass("active");
+    $(".mj6-4").find(".top").children(".location").children(".menu1").text("고객센터");
+    $(".mj6-4").find(".top").children(".location").children(".menu2").text("문의하기");
 
     /* 체크박스 전체선택 */
     $("#checkAll").click(function(){

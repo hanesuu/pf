@@ -446,7 +446,10 @@ body .td-blank {
 .no-inp {padding:0 10px; background:$light-f; line-height:34px; color:$dark-6; border-radius:3px}
 
 /* 라벨스타일 */
-*[class*="label-"] {display:inline-block; padding:3px 7px; border-radius:10px; @include fw-md; font-size:1.2rem; vertical-align:top}
+*[class*="label-"] {
+  display:inline-block; padding:3px 7px; border-radius:10px; @include fw-md; font-size:1.2rem; vertical-align:top;
+  &.label-lg {padding:8px; font-size:1.4rem}
+}
 .label-new {padding:2px 5px; background:rgba($positive-gn,.1); color:$positive-gn; font-style:normal; @include fw-bd; font-size:10px}
 .label-default {background:rgba($point,.1); color:$point}
 .label-gy {
@@ -875,16 +878,6 @@ body .td-blank {
 	}
 }
 
-/* 고객센터 */
-.vue-support {
-	@include media-mb {
-		.el-tabs.tab-md.wide .el-tabs__nav {
-			overflow-x:auto; white-space:nowrap;
-			.el-tabs__item {min-width:70px}
-		}
-	}
-}
-
 /* 설정 -settingMypage */
 .vue-setting {
   /* 계정정보 */
@@ -896,4 +889,46 @@ body .td-blank {
   .bx-gry .list-type li {font-size:1.3rem; margin-bottom:4px}
   .tbl-xs {margin-top:3rem}
   .txt-s {margin-top:4px; color:$dark-9}
+}
+
+/* 고객센터 */
+/* 공지사항,문의내역 -boardList */
+.v-board-list {
+  .board-tit {
+    display:block; @include transition(color);
+    &:hover {color:$point}
+  }
+}
+
+/* 공지사항,문의내역 상세 -boardDetail */
+.v-board-detail {
+  .bx-tit {
+    padding:2rem 3rem;
+    h3 {margin:0 0 0 10px; @include fw-md; font-size:1.6rem; color:$dark-3}
+    .d-right {
+      @include flexbox; @include align-items(center); font-size:1.3rem;
+      dt {color:$dark-9}
+      dd {margin-left:8px; @include fw-md; color:$dark-3}
+      .btn-line-rd {margin-left:10px}
+    }
+  }
+  .bx-con {padding:3rem; font-size:1.3rem}
+  
+  /* 문의내역 */
+  .bx-basic.answer {
+    border:2px solid $point;
+    h3 {color:$point}
+  }
+}
+
+/* 자주 묻는 질문 -boardFaq */
+.v-faq {
+  .faq-search {
+    max-width:480px; margin:20px auto 30px;
+    .inp-txt {height:44px; padding:10px 20px; border:2px solid $point; border-radius:30px; font-size:1.6rem}
+    .btn-search {right:10px; top:5px}
+  }
+  .el-tabs.tab-md .el-tabs__content {
+    position:relative; background:$white; border-radius:5px; @include bxshadow; overflow:hidden
+  }
 }
