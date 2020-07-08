@@ -262,13 +262,12 @@
 	table {width:100%}
 	th, td {border-bottom:1px solid $light-d; text-align:left; line-height:100%; white-space:nowrap}
 	thead th {
-		padding:10px; color:$dark-6; font-size:1.3rem; @include fw-md; text-align:center; 
+		padding:1rem; color:$dark-6; font-size:1.3rem; @include fw-md; text-align:center; 
 		background:$light-f; border-bottom:2px solid $light-d
 	}
 	tbody {
 		background:$white;
 		tr {
-			&:hover {cursor:pointer}
 			&.total td {@include fw-bd}
 			.td-blank {padding:6vh 10px; background-color:$white}
 			/* 선택된 tr */
@@ -276,7 +275,7 @@
 		}
 		th {padding:12px 15px; font-size:1.4rem; @include fw-md; color:$dark-3}
 		td {
-			padding:10px; color:$dark-3; font-size:1.4rem; @include transition(background); text-align:center; vertical-align:top; white-space:normal;
+			padding:1.6rem 1rem; color:$dark-3; font-size:1.4rem; @include transition(background); text-align:center; vertical-align:top; white-space:normal;
 			&.td-btns {
 				.btn {display:block; width:100%; max-width:130px; margin-left:auto; margin-right:auto}
 				.btn:not(:first-child) {margin-top:5px}
@@ -311,13 +310,13 @@
 		th, td {padding:.5rem 1rem; border:0 solid lighten($point,20%); text-align:left; line-height:1.4}
 		th {background-color:lighten($point,26%); color:$dark-6; font-size:1.2rem; @include fw-dl; border-right-width:1px; border-bottom-width:1px}
 		td {color:$dark-3; border-bottom-width:1px}
-		&:last-child {
+		.board-list &:last-child {
 			th, td {border-bottom:0}
 		}
 	}
 	.board-list & td, &.tbl-row td {font-size:1.2rem; @include fw-md; white-space:nowrap}
 	.flex-wrap {@include justify-content(space-between); @include align-items(center)}
-	.btn {height:24px; margin:0 0 0 auto; line-height:24px}
+	.btn {height:24px; margin:0 0 0 auto}
 
 	/* 마진 테이블 */
 	&.tbl-col thead th {border-right-width:0; border-bottom:1px solid lighten($point,20%)}
@@ -368,12 +367,12 @@ body .td-blank {
 		.inp-txt {width:40px}
 	}
 }
-/* 입력폼 박스, 리스트 오른쪽 상세 영역 */
+/* 입력폼 박스, 리스트 오른쪽 상세 영역 공통 */
 .bx-basic {
 	.bx-tit {
 		@include flexbox; @include align-items(center); margin:0; padding:10px 20px; border-bottom:1px solid $light-d;
 		.tit {font-size:1.4rem; @include fw-rg; color:$dark-3}
-		button {margin-left:auto; padding:0; font-size:1.8rem; color:$dark-9}
+		.btn-txt {margin-left:auto; padding:0; font-size:1.8rem; color:$dark-9}
 	}
 	.bx-con {
 		padding:15px 20px 30px;
@@ -394,12 +393,14 @@ body .td-blank {
 		}
 		textarea {width:100%}
 	}
-	&.bx-right {
-		.bottom-btn .btn {min-width:0; padding:10px 26px; font-size:1.4rem}
-
-		/* 폼형태 -익일정산신청 */
-		.wrap-form {padding:10px 0 0}
-	}
+}
+/* 리스트 오른쪽 상세 영역 */
+.bx-right {
+  .tbl-xs .inp-price {max-width:80px; margin:0 auto}
+  .bottom-btn .btn {min-width:0; padding:10px 26px; font-size:1.4rem}
+  
+  /* 폼형태 -익일정산신청 */
+  .wrap-form {padding:10px 0 0}
 }
 
 /* 입력폼 */
@@ -422,7 +423,7 @@ body .td-blank {
 		.flex3 {@include flex(3)}
 	}
 	/* 에러메시지 */
-	.txt-error {min-height:0; margin:0; color:$danger-rd; font-size:1.2rem}
+	.txt-error {min-height:0; margin:0; color:$danger-rd; font-size:1.2rem; text-align:left}
 
 	.inp-txt {min-height:34px}
 	/* dd 내 요소가 인라인 나열일 때 여백 주기 */
@@ -432,10 +433,13 @@ body .td-blank {
 
 	/* 제목과 내용이 일렬로 된 스타일 */
 	&.horizon {
-		padding:20px 20px 6px;
-		dl {@include flexbox; max-width:600px; margin:0 auto; padding-bottom:14px}
+		max-width:600px; margin:0 auto; padding:20px 20px 6px;
+		dl {@include flexbox; padding-bottom:14px}
 		dt {min-width:100px; margin:7px 14px 0 0; text-align:right}
-		dd {@include flex(1); @include flex-direction(column); @include justify-content(center); margin:0}
+		dd {
+			@include flex(2); @include flex-direction(column); @include justify-content(flex-start); margin:0;
+			&.inline {@include flex-direction(row); @include align-items(center)}
+		}
 		/* 주소 */
 		.f-row {@include flexbox; margin-bottom:5px}
 	}
@@ -703,14 +707,18 @@ body .td-blank {
 /* 리셀러/판매점 리스트, 상세 공통 */
 .bx-con {
 	/* 결제설정, API설정 공통 - switch 우측 정보 */
-	.el-tab-pane .wrap-form dd.inline .d-right {
-		* {display:inline-block; vertical-align:middle; font-size:1.3rem}
-		.title {
-			margin:0; @include fw-dl; color:$dark-9;
-			&:not(:first-of-type) {margin-left:10px}
-		}
-		p {@include fw-md}
-	}
+	.el-tab-pane .wrap-form {
+	    dt {@include flex(1)}
+	    dd {@include flex(4)}
+	    dd.inline .d-right {
+	      * {display:inline-block; vertical-align:middle; font-size:1.3rem}
+	      .title {
+	        margin:0; @include fw-dl; color:$dark-9;
+	        &:not(:first-of-type) {margin-left:10px}
+	      }
+	      p {@include fw-md}
+	    }
+	  }
 	@media only screen and (max-width:1540px) {
 		.el-tab-pane .wrap-form dd {
 			@include flex-direction(column); @include justify-content(center);
@@ -718,13 +726,8 @@ body .td-blank {
 			.el-switch ~ .d-right {margin:0 auto 0 0}
 		}
 	}
-	/* 결제설정, API설정 - 수단 */
-	.tab-pay-use .wrap-form, .tab-api-use .wrap-form {
-		dt {min-width:60px}
-		@media only screen and (min-width:1540px) {
-			dd {@include flex-direction(inherit); @include align-items(center)}
-		}
-	}
+	/* 결제설정 - 수단 */
+	.tab-pay-use {}
 
 	/* 결제설정 - 결제마진 */
 	.tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
@@ -742,18 +745,15 @@ body .td-blank {
 		.txt-s {text-align:center; color:$dark-9}
 	}	
 	/* API설정 - 사용 */
-	.tab-api-use dt {width:85px}
+	.tab-api-use {}
 }
 
 /* 결제 현황 조회 - 리셀러/판매점 목록, 상세 공통 */
 .pay-inquiry {
 	.wrap-search {
 		margin-bottom:30px;
-		.row {@include flexbox; margin:0 -5px}
-		.col-md-3 {
-			width:auto; padding-left:5px; padding-right:5px;
-			&:first-child {@include flex(1)}
-		}
+		.row {@include flexbox; width:100%; margin:0 -5px}
+    	.col-md-3 {width:auto; padding-left:5px; padding-right:5px}
 	}
 	.wrap-widget .widget-wt-rd {
 		dl {padding:1rem 1.5rem}
@@ -794,7 +794,7 @@ body .td-blank {
 	.user-info {
 		& > i {
 			float:left; display:table; width:60px; height:60px; border-radius:50%; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal');
-			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:initial; color:$white}
+			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:normal; color:$white}
 		}
 		dl {padding-left:76px}
 		.user-name {
@@ -806,7 +806,7 @@ body .td-blank {
 	}
 	.list-info {
 		margin:40px 0; font-size:0;
-		dt, dd {display:inline-block; min-height:24px}
+		dt, dd {display:inline-block; min-height:24px; vertical-align:top; line-height:1}
 		dt {width:28%; text-align:right; @include fw-md; font-size:1.3rem; color:$dark-9}
 		dd {width:66%; margin-left:6%; font-size:1.4rem; color:$dark-3; word-break:break-word}
 	}
@@ -836,7 +836,7 @@ body .td-blank {
 
 
 /* 유료API관리 */
-.vue-apilist, .vue-apistats {}
+.v-apilist {}
 
 
 /* 정산관리 공통 -AdjustSalesList, AdjustApiList */

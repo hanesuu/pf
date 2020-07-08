@@ -1718,7 +1718,7 @@ table th[class*=col-] {
   white-space: nowrap;
 }
 .board-list thead th {
-  padding: 10px;
+  padding: 1rem;
   color: #6E6E7A;
   font-size: 1.3rem;
   font-weight: 500;
@@ -1732,9 +1732,6 @@ table th[class*=col-] {
 }
 .board-list tbody tr {
   /* 선택된 tr */
-}
-.board-list tbody tr:hover {
-  cursor: pointer;
 }
 .board-list tbody tr.total td {
   font-weight: 700;
@@ -1753,7 +1750,7 @@ table th[class*=col-] {
   color: #36384D;
 }
 .board-list tbody td {
-  padding: 10px;
+  padding: 1.6rem 1rem;
   color: #36384D;
   font-size: 1.4rem;
   -webkit-transition-duration: 0.2s;
@@ -1844,7 +1841,7 @@ table th[class*=col-] {
   color: #36384D;
   border-bottom-width: 1px;
 }
-.tbl-xs tr:last-child th, .tbl-xs tr:last-child td {
+.board-list .tbl-xs tr:last-child th, .board-list .tbl-xs tr:last-child td {
   border-bottom: 0;
 }
 .board-list .tbl-xs td, .tbl-xs.tbl-row td {
@@ -1867,7 +1864,6 @@ table th[class*=col-] {
 .tbl-xs .btn {
   height: 24px;
   margin: 0 0 0 auto;
-  line-height: 24px;
 }
 .tbl-xs.tbl-col thead th {
   border-right-width: 0;
@@ -2011,7 +2007,7 @@ body .td-blank p {
   width: 40px;
 }
 
-/* 입력폼 박스, 리스트 오른쪽 상세 영역 */
+/* 입력폼 박스, 리스트 오른쪽 상세 영역 공통 */
 .bx-basic .bx-tit {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -2037,7 +2033,7 @@ body .td-blank p {
   font-weight: 400;
   color: #36384D;
 }
-.bx-basic .bx-tit button {
+.bx-basic .bx-tit .btn-txt {
   margin-left: auto;
   padding: 0;
   font-size: 1.8rem;
@@ -2105,15 +2101,21 @@ body .td-blank p {
 .bx-basic .bx-con textarea {
   width: 100%;
 }
-.bx-basic.bx-right {
+
+/* 리스트 오른쪽 상세 영역 */
+.bx-right {
   /* 폼형태 -익일정산신청 */
 }
-.bx-basic.bx-right .bottom-btn .btn {
+.bx-right .tbl-xs .inp-price {
+  max-width: 80px;
+  margin: 0 auto;
+}
+.bx-right .bottom-btn .btn {
   min-width: 0;
   padding: 10px 26px;
   font-size: 1.4rem;
 }
-.bx-basic.bx-right .wrap-form {
+.bx-right .wrap-form {
   padding: 10px 0 0;
 }
 
@@ -2193,6 +2195,7 @@ body .td-blank p {
   margin: 0;
   color: #ed424d;
   font-size: 1.2rem;
+  text-align: left;
 }
 .wrap-form .inp-txt {
   min-height: 34px;
@@ -2207,6 +2210,8 @@ body .td-blank p {
   margin-top: 30px;
 }
 .wrap-form.horizon {
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px 20px 6px;
   /* 주소 */
 }
@@ -2221,8 +2226,6 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  max-width: 600px;
-  margin: 0 auto;
   padding-bottom: 14px;
 }
 .wrap-form.horizon dt {
@@ -2231,21 +2234,32 @@ body .td-blank p {
   text-align: right;
 }
 .wrap-form.horizon dd {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: flex-start;
   margin: 0;
+}
+.wrap-form.horizon dd.inline {
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .wrap-form.horizon .f-row {
   display: -webkit-box;
@@ -2723,10 +2737,24 @@ body .td-blank p {
 /* 리셀러/판매점 리스트, 상세 공통 */
 .bx-con {
   /* 결제설정, API설정 공통 - switch 우측 정보 */
-  /* 결제설정, API설정 - 수단 */
+  /* 결제설정 - 수단 */
   /* 결제설정 - 결제마진 */
   /* 결제설정 - 결제한도 */
   /* API설정 - 사용 */
+}
+.bx-con .el-tab-pane .wrap-form dt {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.bx-con .el-tab-pane .wrap-form dd {
+  -webkit-box-flex: 4;
+  -moz-box-flex: 4;
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
 }
 .bx-con .el-tab-pane .wrap-form dd.inline .d-right * {
   display: inline-block;
@@ -2763,22 +2791,6 @@ body .td-blank p {
     margin: 0 auto 0 0;
   }
 }
-.bx-con .tab-pay-use .wrap-form dt, .bx-con .tab-api-use .wrap-form dt {
-  min-width: 60px;
-}
-@media only screen and (min-width: 1540px) {
-  .bx-con .tab-pay-use .wrap-form dd, .bx-con .tab-api-use .wrap-form dd {
-    -webkit-flex-direction: inherit;
-    -moz-flex-direction: inherit;
-    -ms-flex-direction: inherit;
-    flex-direction: inherit;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-}
 .bx-con .tab-pay-margin .tbl-xs thead th {
   letter-spacing: -0.1rem;
 }
@@ -2801,10 +2813,6 @@ body .td-blank p {
   text-align: center;
   color: #969AAF;
 }
-.bx-con .tab-api-use dt {
-  width: 85px;
-}
-
 /* 결제 현황 조회 - 리셀러/판매점 목록, 상세 공통 */
 .pay-inquiry .wrap-search {
   margin-bottom: 30px;
@@ -2820,19 +2828,13 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  width: 100%;
   margin: 0 -5px;
 }
 .pay-inquiry .wrap-search .col-md-3 {
   width: auto;
   padding-left: 5px;
   padding-right: 5px;
-}
-.pay-inquiry .wrap-search .col-md-3:first-child {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 .pay-inquiry .wrap-widget .widget-wt-rd dl {
   padding: 1rem 1.5rem;
@@ -2919,7 +2921,7 @@ body .td-blank p {
   vertical-align: middle;
   text-align: center;
   font-size: 1.6rem;
-  font-style: initial;
+  font-style: normal;
   color: #fff;
 }
 .vue-rsdetail .user-info dl {
@@ -2949,6 +2951,8 @@ body .td-blank p {
 .vue-rsdetail .list-info dt, .vue-rsdetail .list-info dd {
   display: inline-block;
   min-height: 24px;
+  vertical-align: top;
+  line-height: 1;
 }
 .vue-rsdetail .list-info dt {
   width: 28%;
@@ -4071,6 +4075,10 @@ ul, li {
   list-style: none;
 }
 
+select::-ms-expand {
+  display: none;
+}
+
 ::selection {
   background: rgba(111, 116, 244, 0.7);
   color: #fff;
@@ -4369,6 +4377,10 @@ textarea.inp-txt.lg {
   color: #ffaf0e;
 }
 
+.txt-yl {
+  color: #ff8722;
+}
+
 .txt-dark {
   color: #6E6E7A;
 }
@@ -4629,11 +4641,9 @@ button:focus, button:active {
   padding: 0 10px;
   font-weight: 400;
   font-size: 1.3rem;
-  line-height: 28px;
 }
 .btn-xs-info {
   height: 24px;
-  line-height: 24px;
 }
 .btn-xs-info:before {
   content: "";

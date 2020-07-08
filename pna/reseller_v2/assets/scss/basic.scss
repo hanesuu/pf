@@ -28,6 +28,7 @@ body {
 }
 a,a:hover,a:active,a:visited {text-decoration:none; cursor:pointer; color:inherit}
 ul,li {@include margin-padding(all,0,all,0); list-style:none}
+select::-ms-expand {display:none}
 ::selection {background:rgba($point,.7); color:$white}
 
 /* placeholder */
@@ -119,6 +120,7 @@ textarea.inp-txt {
 .ta-right {text-align:right !important}
 .ta-center {text-align:center !important}
 .txt-ing {color:$warn-yl}
+.txt-yl {color:$warn-yl-dk}
 .txt-dark {color:$dark-6}
 .txt-point {color:$point}
 .txt-gn {color:$positive-gn}
@@ -202,9 +204,9 @@ button:focus, button:active {outline:0}
 		&:hover {opacity:.85}
 	}
   &-block {display:block; margin-left:auto; margin-right:auto}
-	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem; line-height:28px}
+	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem}
 	&-xs-info {
-		height:24px; line-height:24px;
+		height:24px;
 		&:before {content:''; display:inline-block; width:12px; height:22px; margin-right:2px; background:url('../img/ico_info.svg') no-repeat 50% 50% /12px 12px; vertical-align:top}
 	}
 }

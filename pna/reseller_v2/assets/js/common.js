@@ -49,6 +49,9 @@ $(document).ready(function(){
     $(".mj3").find(".top").children(".location").children(".menu2").text("결제 현황");
 
 	//유료 API 관리
+    $(".mjapi").find(".nav > ul > li:nth-child(5)").addClass("active");
+    $(".mjapi").find(".top").children(".location").children(".menu1").text("유료 API 관리");
+    $(".mjapi").find(".top").children(".location").children(".menu2").text("유료 API 현황");
 
 	//정산 관리	
 	$(".mjadjust").find(".nav > ul > li:nth-child(6)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");
