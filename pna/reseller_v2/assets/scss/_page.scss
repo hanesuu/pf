@@ -73,7 +73,7 @@
 	}
 	&.el-collapse .el-collapse-item__header {
 		height:40px; line-height:40px; color:$dark-3;
-		&.is-active {border-bottom-color:$light-d; background:$white}
+		&.is-active {border-bottom-color:$light-e; background:$white}
 	}
 	&.el-collapse .el-collapse-item.is-active .el-collapse-item__wrap {background:$white; border:0}
 	&.el-collapse .el-collapse-item__content {
@@ -96,7 +96,7 @@
 	}
 	.el-date-editor--daterange.el-input__inner {
 		width:100%;
-		input {width:auto; max-width:38%}
+		input {max-width:38%}
 	}
 	.wrap-btn-arr {
 		display:inline-block; margin-left:7px; font-size:0; vertical-align:middle;
@@ -170,7 +170,7 @@
       position:relative;
       &:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
     }
-		&.widget-rd {
+    &.widget-rd {
       .colored {
         @include bg-gradient($rd-dk,$rd-lt,'horizontal');
         &:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
@@ -200,7 +200,7 @@
     }
     dl {
       position:relative; @include flex(1); width:100%; padding:1.5rem 2rem;/* ie10 */
-      &:not(.colored):not(:last-of-type):after {content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-d}
+      &:not(.colored):not(:last-of-type):after {content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-e}
     }
 		dt {
 			margin-bottom:6px; font-size:1.3rem;
@@ -208,7 +208,7 @@
 		}
 		.main-stat {
 			dd {
-				font-size:3rem;
+				font-size:3.2rem;
 				@include media-mb {font-size:2.2rem}
 			}
 		}
@@ -260,7 +260,7 @@
 .board-list {
 	position:relative; margin:0; padding:0; overflow-x:auto;
 	table {width:100%}
-	th, td {border-bottom:1px solid $light-d; text-align:left; line-height:100%; white-space:nowrap}
+	th, td {border-bottom:1px solid $light-e; text-align:left; line-height:100%; white-space:nowrap}
 	thead th {
 		padding:1rem; color:$dark-6; font-size:1.3rem; @include fw-md; text-align:center; 
 		background:$light-f; border-bottom:2px solid $light-d
@@ -319,7 +319,7 @@
 	.btn {height:24px; margin:0 0 0 auto}
 
 	/* 마진 테이블 */
-	&.tbl-col thead th {border-right-width:0; border-bottom:1px solid lighten($point,20%)}
+	&.tbl-col thead th {padding:.5rem; border-right-width:0; border-bottom:1px solid lighten($point,20%); text-align:center}
 	&.tbl-col td {border-color:$light-d; font-size:1.4rem; @include fw-dl}
 }
 
@@ -370,7 +370,7 @@ body .td-blank {
 /* 입력폼 박스, 리스트 오른쪽 상세 영역 공통 */
 .bx-basic {
 	.bx-tit {
-		@include flexbox; @include align-items(center); margin:0; padding:10px 20px; border-bottom:1px solid $light-d;
+		@include flexbox; @include align-items(center); margin:0; padding:10px 20px; border-bottom:1px solid $light-e;
 		.tit {font-size:1.4rem; @include fw-rg; color:$dark-3}
 		.btn-txt {margin-left:auto; padding:0; font-size:1.8rem; color:$dark-9}
 	}
@@ -435,7 +435,7 @@ body .td-blank {
 	&.horizon {
 		max-width:600px; margin:0 auto; padding:20px 20px 6px;
 		dl {@include flexbox; padding-bottom:14px}
-		dt {min-width:100px; margin:7px 14px 0 0; text-align:right}
+		dt {@include flex-basis(100px); margin:7px 14px 0 0; text-align:right}
 		dd {
 			@include flex(2); @include flex-direction(column); @include justify-content(flex-start); margin:0;
 			&.inline {@include flex-direction(row); @include align-items(center)}
@@ -522,143 +522,73 @@ body .td-blank {
 	}
 }
 
-/* 홈 -main
-.vue-main {
-	.wrap-intro {
-		.tit {@include fw-lt}
-		.logo {display:inline-block; width:93px; height:24px; margin-left:6px; vertical-align:text-bottom}
-		ul li {
-			@include flexbox; @include align-items(center); padding:10px 20px; border-top:1px solid $light-d;
-			@include media-mb {padding:12px}
-			dl, p {
-				@include flex(1);
-				@include media-mb {margin-right:10px}
+/* 홈 -main */
+.v-main {
+	section.f-row {@include flexbox; margin:0 -15px}
+	.wrap-widget {
+		margin:0 0 30px;
+		div[class*=widget-] {
+			margin:0 15px;
+			dt {margin-bottom:15px; @include fw-md; font-size:1.6rem}
+		}
+		h4.title {margin:30px 15px 10px; @include fw-md; font-size:1.8rem; color:$dark-3}
+		//정산여부
+		.widget-state {
+			@include flex(0 0 280px); @include align-items(center); padding:2rem; @include fw-md; font-size:1.6rem; color:$white; 
+			&:after {content:''; position:absolute; right:20px; top:8px; width:53px; height:64px; background:url('../img/img_bg_adjust.svg') no-repeat 0 0 / 100% auto; opacity:.3}
+			&.success {@include bg-gradient($positive-gn,$sub-sk,'horizontal')}
+			&.fail {
+				color:$danger-rd; border:1px solid $danger-rd; @include animation('wg-fail 1.5s infinite');
+				@include keyframes(wg-fail) {
+		      0% {box-shadow:0 0 15px rgba($danger-rd,0)}
+		      65% {box-shadow:0 0 15px rgba($danger-rd,0.7)}
+		      100% {box-shadow:0 0 15px rgba($danger-rd,0)}
+		    }
 			}
-			dt, p {font-size:1.4rem}
-			p {color:$point}
-			&:hover {background:$light-f}
 		}
-		.arrow {margin-right:10px; font-size:1.4rem; color:$dark-9}
-		.opened {
-			background:$light-f;
-			.arrow {@include align-self(flex-start); line-height:20px}
-			dt {@include fw-md; font-size:1.4rem; color:$dark-3}
-			dd {margin-top:10px; @include fw-lt; font-size:1.4rem}
-		}
-		.btn-close {
-			margin-left:10px; font-size:20px; color:$dark-9; @include transition(color);
-			&:hover {color:$dark-3}
-		}
-	}
-	.wrap-divide {
-		@include flexbox;
-		@include media-pc {display:block}
-		.banner {
-			position:relative; padding:14px; font-size:1.6rem; color:$white; border-radius:5px;
-			&:after {content:''; position:absolute; right:3%; bottom:0; opacity:.5}
-		}
-	}
-	.wrap-state-flex {
-		@include flexbox; @include flex(1); @include align-items(center); @include flex-direction(column); margin-right:20px;
-		@include media-pc {margin-right:0}
-	}
-	.wrap-state {
-		@include flexbox; @include align-items(center); width:100%; margin:0 0 10px;
-		@include media-mb {@include flex-direction(column)}
-		.txt-state {
-			font-size:1.8rem;
-			&:before {width:8px; height:8px}
-		}
-		.lookup-api {
-			margin-left:auto; padding-right:70px; @include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
-			@include media-mb {width:100%; margin:10px 0 0}
-			&:after {width:57px; height:43px; background:url('../img/img_bg_lookup.svg') no-repeat 0 0 / 100%}
-		}
-	}
-	.wrap-chart-today {
-		width:100%; padding:15px 20px;
-		.tbl-filter {
-			margin-bottom:15px;
-			@include media-mb {@include align-items(center); @include justify-content(space-between); margin-bottom:0}
-			.d-left {@include flexbox}
-			dt {min-height:20px; margin-bottom:8px; font-size:1.4rem}
-			.today {
-				margin-right:30px; color:$point;
-				@include media-mb {@include flex(1)}
+		//하위고객수
+		.widget-count {
+			@include flex(1); @include align-items(center); height:80px; padding:0 1rem 0 3rem;
+			dl {
+				@include flexbox; @include align-items(center); padding:0;
+				dt {margin:0 1rem 0 0; font-size:1.6rem}
+			}			
+			.txt-count {font-size:4rem}
+			.btn {height:40px}
+			//리셀러
+			&.reseller {
+				.txt-count {color:$sub-sk}
+				.btn {
+					color:$sub-sk; background:rgba($sub-sk,.1);
+					&:hover {color:$white; background:$sub-sk}
+				}
 			}
-			.yesterday {color:$dark-3}
-			.yesterday dt .el-input {
-				&__inner {position:relative; width:85px; height:20px; padding:0; border:0; font-size:1.4rem}
-				&__prefix, &__suffix {visibility:hidden}
-				&:after {content:''; position:absolute; right:3px; top:3px; width:6px; height:13px; opacity:1; background:url('../img/arrow_select.svg') no-repeat 0 0 / 100%}
-				input::placeholder {color:$dark-6}
-			}
-			.d-right {
-				@include media-mb {
-					margin:0 0 0 auto;
-					.el-select .el-input {width:100%}
+			//판매점
+			&.store {
+				.txt-count {color:$point}
+				.btn {
+					color:$point; background:rgba($point,.1);
+					&:hover {color:$white; background:$point}
 				}
 			}
 		}
-	}
-	.wrap-widget {
-		@include flexbox; margin:0 0 20px;
-		div[class*="widget-"] {
-			width:18vw; max-width:272px; @include flex-direction(column);
-			@include media-pc {max-width:100%; width:50%}
-			&:after {bottom:55px}
-			dt {font-size:1.6rem}
-			dd {font-size:4rem}
+		//마진합계
+		.widget-rd.total {
+			@include flex-direction(column); width:280px; @include bg-gradient($rd-dk,$rd-lt,'horizontal');
+			&:before {content:''; @include absolute(0,null,0,0); width:280px; height:196px; background:url('../img/img_bg_graph.svg') no-repeat 0 0 / 100% auto;}
+			dl {padding:3.62rem 2.5rem}
+			dl:after {display:none}
+			dt {color:$white}
+			dd {font-size:4rem; color:$white}
 		}
-		div.widget-sk {
-			margin-right:20px; @include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
-			a {color:$sub-sk}
-		}
-		div.widget-pt {
-			@include bg-gradient($point,$point-lt,'horizontal');
-			&:after {width:97px; height:55px; background-image:url('../img/img_bg_addstore.svg')}
-			a {color:$point}
-		}
-		a {
-			display:block; padding:13px; background:rgba($white,.8); border-radius:5px; text-align:center; @include fw-md; font-size:1.6rem; @include transition(background);
-			&:hover {background:rgba($white,1)}
+		//개별 마진 공통
+		.main-stat {
+			padding:2.4rem 3rem;
+			&.light:after {display:none}
+			&.ta-center {background:$light-f}
 		}
 	}
-	.bx-basic .tbl-filter {height:auto; padding:0; border:0; @include align-items(flex-start)}
-	.wrap-chart-list {
-		h2.tit {margin:0; padding:15px 20px 0; font-size:1.6rem; color:$dark-3}
-		.tbl-filter {
-			padding:15px 20px;
-			& > *:not(:last-child) {margin-right:10px}
-			.flex-wrap {flex:1 1 60%}
-			.txt {font-size:1.4rem}
-			.wrap-btns {margin-left:auto}
-
-			@include media-pc {
-				@include flex-wrap(wrap); @include align-items(center);
-				.flex-wrap {display:none}
-			}
-		}
-		.list-chart li {
-			@include flexbox; @include align-items(center); padding:15px 20px; background:$light-f; border-top:1px solid $light-d;
-			@include media-mb {padding:15px}
-			dl {@include flex(0 0 46%)}
-			dt {margin-bottom:8px; font-size:1.4rem}
-			&.total dd {color:$point}
-			&.pay dd {color:$rd-dk}
-			&.calc dd {color:$positive-gn}
-			.wrap-chart {@include flex(1 0 54%); margin-left:auto}
-		}
-		.edit {
-			&.tbl-filter {@include align-items(center)}
-			&.list-chart li {
-				position:relative; padding-left:45px; cursor:move;
-				&:hover:before {content:"\f0c9"; position:absolute; left:20px; top:50%; transform:translateY(-50%); font:900 16px/1 'Line Awesome Free'}
-				.txt {margin-left:10px; font-size:1.6rem}
-			}
-		}
-	}
-} */
+}
 
 /* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */
 .wrap-autoadd {
@@ -753,7 +683,8 @@ body .td-blank {
 	.wrap-search {
 		margin-bottom:30px;
 		.row {@include flexbox; width:100%; margin:0 -5px}
-    	.col-md-3 {width:auto; padding-left:5px; padding-right:5px}
+    	.col-md-3 {width:50%; padding-left:5px; padding-right:5px}
+    	.el-date-editor.el-input__inner {width:100%}
 	}
 	.wrap-widget .widget-wt-rd {
 		dl {padding:1rem 1.5rem}
@@ -776,6 +707,9 @@ body .td-blank {
 		dt:not(:first-child) {margin-left:20px}
 		dd {display:inline-block; color:$dark-3}
 	}
+	.tbl-row tr:last-child {
+		th, td {border-bottom:0}
+	}
 	.tbl-col {
 		margin-top:10px;
 		th {text-align:center}
@@ -788,11 +722,15 @@ body .td-blank {
 .bx-right.bx-docu .row:first-of-type {margin-bottom:2rem}
 
 /* 판매점 상세 */
-.vue-rsdetail {
+.v-rsdetail {
 	/* 왼쪽 정보 */
-	.side-info {float:left; width:320px; padding:3rem 2rem}
+	.side-info {
+		float:left; width:320px; padding:3rem 2rem;
+		@include media-pc {float:none; width:100%}
+		.m-btn {display:none; position:absolute; right:20px; top:20px; font:900 20px/1 'Line Awesome Free'; cursor:pointer}
+	}
 	.user-info {
-		& > i {
+		& > i.store {
 			float:left; display:table; width:60px; height:60px; border-radius:50%; @include bg-gradient($sub-sk,$sub-sk-dk,'horizontal');
 			span {display:table-cell; vertical-align:middle; text-align:center; font-size:1.6rem; font-style:normal; color:$white}
 		}
@@ -825,6 +763,7 @@ body .td-blank {
 	.bx-right {
 		display:none; float:left; width:calc(100% - 340px); margin-left:20px;
 		&.on {display:block}
+		@include media-pc {float:none; width:100%; margin-left:0}
 	}
 
 	/* 익일정산 신청 */

@@ -110,6 +110,16 @@ $rd-dk: #FF808F;
           -ms-flex: $values;
               flex: $values;
 }
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width> 
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+     -moz-flex-basis: $width;
+      -ms-flex-basis: $width;
+          flex-basis: $width;
+}
 // Flex Flow Direction
 // - applies to: flex containers
 // row | row-reverse | column | column-reverse

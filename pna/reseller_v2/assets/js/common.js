@@ -68,9 +68,6 @@ $(document).ready(function(){
 	$(".mj7-2").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:nth-child(2)").addClass("active");
     $(".mj7-2").find(".top").children(".location").children(".menu1").text("설정");
     $(".mj7-2").find(".top").children(".location").children(".menu2").text("비밀번호 변경");
-	$(".mj7-3").find(".nav > ul > li:nth-child(7)").addClass("active").children(".depth2").show().children("li:nth-child(3)").addClass("active");
-    $(".mj7-3").find(".top").children(".location").children(".menu1").text("설정");
-    $(".mj7-3").find(".top").children(".location").children(".menu2").text("기본 마진 설정");
 
     //고객센터
 	$(".mj6-1").find(".nav > ul > li:nth-child(8)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");

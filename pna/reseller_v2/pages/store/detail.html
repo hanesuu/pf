@@ -25,7 +25,7 @@
     <!--template-->
     <div class="wrap-content">
       <!--페이지내용-->
-      <div class="contents vue-rsdetail clearfix">
+      <div class="contents v-rsdetail clearfix">
         <!--왼쪽 정보-->
         <section class="bx-basic side-info">
           <div class="user-info">
@@ -40,67 +40,70 @@
                 <button class="btn btn-xs btn-line-yl">정보 수정</button>
               </dd>
             </dl>
+            <i class="las la-angle-down m-btn"></i>
           </div>
-          <!--정보 목록-->
-          <dl class="list-info">
-            <dt>휴대폰번호</dt>
-            <dd>010-2121-1212</dd>
-            <dt>이메일</dt>
-            <dd>prayforjessi@gmail.com</dd>
-            <dt>대표자</dt>
-            <dd>지선우</dd>
-            <dt>매장전화번호</dt>
-            <dd>02-1212-4455</dd>
-            <dt>정산가능 여부</dt>
-            <dd>
-              <span class="txt-state success">정산가능</span>
-            </dd>
-            <dt>소속 대리점</dt>
-            <dd>(주)인텔리</dd>
-            <dt>소속 리셀러</dt>
-            <dd>서브라임샵</dd>
-            <dt>등록일</dt>
-            <dd>2020.06.23</dd>
-          </dl>
-          <!--메뉴-->
-          <div class="info-nav">
-            <ul>
-              <li data-id="pay" class="nav-li on">
-                <i class="las la-coins"></i>
-                <span>결제 설정</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li data-id="api" class="nav-li">
-                <i class="las la-network-wired"></i>
-                <span>API 설정</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li data-id="nextadjust" class="nav-li">
-                <i class="las la-calendar-check"></i>
-                <span>익일 정산 신청</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li @click="applySurety">
-                <i class="las la-user-shield"></i>
-                <span>보증보험 관리</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li data-id="docu" class="nav-li">
-                <i class="las la-folder"></i>
-                <span>서류 제출 관리</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li data-id="tax" class="nav-li">
-                <i class="las la-search-dollar"></i>
-                <span>부가세 자료 조회</span>
-                <i class="las la-angle-right"></i>
-              </li>
-              <li data-id="memo" class="nav-li">
-                <i class="las la-file-alt"></i>
-                <span>메모</span>
-                <i class="las la-angle-right"></i>
-              </li>
-            </ul>
+          <div class="m-collapse">
+            <!--정보 목록-->
+            <dl class="list-info">
+              <dt>휴대폰번호</dt>
+              <dd>010-2121-1212</dd>
+              <dt>이메일</dt>
+              <dd>prayforjessi@gmail.com</dd>
+              <dt>대표자</dt>
+              <dd>지선우</dd>
+              <dt>매장전화번호</dt>
+              <dd>02-1212-4455</dd>
+              <dt>정산가능 여부</dt>
+              <dd>
+                <span class="txt-state success">정산가능</span>
+              </dd>
+              <dt>소속 대리점</dt>
+              <dd>(주)인텔리</dd>
+              <dt>소속 리셀러</dt>
+              <dd>서브라임샵</dd>
+              <dt>등록일</dt>
+              <dd>2020.06.23</dd>
+            </dl>
+            <!--메뉴-->
+            <div class="info-nav">
+              <ul>
+                <li data-id="pay" class="nav-li on">
+                  <i class="las la-coins"></i>
+                  <span>결제 설정</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li data-id="api" class="nav-li">
+                  <i class="las la-network-wired"></i>
+                  <span>API 설정</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li data-id="nextadjust" class="nav-li">
+                  <i class="las la-calendar-check"></i>
+                  <span>익일 정산 신청</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li @click="applySurety">
+                  <i class="las la-user-shield"></i>
+                  <span>보증보험 관리</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li data-id="docu" class="nav-li">
+                  <i class="las la-folder"></i>
+                  <span>서류 제출 관리</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li data-id="tax" class="nav-li">
+                  <i class="las la-search-dollar"></i>
+                  <span>부가세 자료 조회</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+                <li data-id="memo" class="nav-li">
+                  <i class="las la-file-alt"></i>
+                  <span>메모</span>
+                  <i class="las la-angle-right"></i>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
         <!--결제 설정-->
@@ -1067,14 +1070,25 @@
 </script>
 <script>
   $(".bx-right").hide();
-    $(".bx-right:first").show();
+  $(".bx-right:first").show();
 
-    $(".info-nav .nav-li").click(function () {
-        $(".info-nav .nav-li").removeClass("on");
-        $(this).addClass("on");
-        $(".bx-right").hide()
-        var activeTab = $(this).attr("data-id");
-        $("#" + activeTab).fadeIn()
-    });
+  $(".info-nav .nav-li").click(function () {
+      $(".info-nav .nav-li").removeClass("on");
+      $(this).addClass("on");
+      $(".bx-right").hide()
+      var activeTab = $(this).attr("data-id");
+      $("#" + activeTab).fadeIn()
+  });
+
+  //모바일
+  $(window).ready(function (){
+    if ($("body").width() < 1200 ){
+      $(".m-collapse").hide();
+      $(".m-btn").show();
+      $(".side-info").find(".m-btn").click(function(){
+        $(".m-collapse").slideToggle(300);
+      })
+    }
+  });
 </script>
 </html>
