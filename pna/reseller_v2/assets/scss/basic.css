@@ -2496,16 +2496,54 @@ body .td-blank p {
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   margin: 0 -15px;
 }
+@media only screen and (max-width: 1200px) {
+  .v-main section.f-row:last-child {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .v-main section.f-row {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
 .v-main .wrap-widget {
   margin: 0 0 30px;
 }
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget {
+    margin-bottom: 0;
+  }
+}
 .v-main .wrap-widget div[class*=widget-] {
-  margin: 0 15px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget div[class*=widget-] {
+    text-align: center;
+  }
 }
 .v-main .wrap-widget div[class*=widget-] dt {
   margin-bottom: 15px;
   font-weight: 500;
   font-size: 1.6rem;
+}
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget div[class*=widget-] dt {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget div[class*=widget-] .main-stat dd {
+    font-size: 2.4rem;
+  }
 }
 .v-main .wrap-widget h4.title {
   margin: 30px 15px 10px;
@@ -2529,11 +2567,22 @@ body .td-blank p {
   font-size: 1.6rem;
   color: #fff;
 }
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget .widget-state {
+    width: 100%;
+    -webkit-box-flex: 1 1 100%;
+    -moz-box-flex: 1 1 100%;
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+}
 .v-main .wrap-widget .widget-state:after {
   content: "";
   position: absolute;
   right: 20px;
-  top: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 53px;
   height: 64px;
   background: url("../img/img_bg_adjust.svg") no-repeat 0 0/100% auto;
@@ -2622,6 +2671,21 @@ body .td-blank p {
   height: 80px;
   padding: 0 1rem 0 3rem;
 }
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-count {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 2rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget .widget-count {
+    margin-top: 2rem;
+  }
+}
 .v-main .wrap-widget .widget-count dl {
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -2644,11 +2708,28 @@ body .td-blank p {
   margin: 0 1rem 0 0;
   font-size: 1.6rem;
 }
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget .widget-count dl dt {
+    font-size: 1.3rem;
+  }
+}
 .v-main .wrap-widget .widget-count .txt-count {
   font-size: 4rem;
 }
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-count .txt-count {
+    margin-left: auto;
+    font-size: 3.2rem;
+  }
+}
 .v-main .wrap-widget .widget-count .btn {
   height: 40px;
+}
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-count .btn {
+    width: 100%;
+    margin-top: 0.6rem;
+  }
 }
 .v-main .wrap-widget .widget-count.reseller .txt-count {
   color: #08bbd7;
@@ -2692,8 +2773,24 @@ body .td-blank p {
   height: 196px;
   background: url("../img/img_bg_graph.svg") no-repeat 0 0/100% auto;
 }
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-rd.total:before {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-rd.total {
+    width: auto;
+    text-align: center;
+  }
+}
 .v-main .wrap-widget .widget-rd.total dl {
   padding: 3.62rem 2.5rem;
+}
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .widget-rd.total dl {
+    padding: 1.6rem 2rem;
+  }
 }
 .v-main .wrap-widget .widget-rd.total dl:after {
   display: none;
@@ -2713,6 +2810,16 @@ body .td-blank p {
 }
 .v-main .wrap-widget .main-stat.ta-center {
   background: #F9F9FC;
+}
+@media only screen and (max-width: 1200px) {
+  .v-main .wrap-widget .main-stat {
+    padding: 1.6rem 2rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .v-main .wrap-widget .main-stat {
+    padding: 1.6rem;
+  }
 }
 
 /* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */

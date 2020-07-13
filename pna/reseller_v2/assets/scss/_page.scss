@@ -524,18 +524,33 @@ body .td-blank {
 
 /* 홈 -main */
 .v-main {
-	section.f-row {@include flexbox; margin:0 -15px}
+	section.f-row {
+		@include flexbox; margin:0 -15px;
+		&:last-child {
+			@include media-pc {@include flex-direction(column)}
+		}
+		@include media-md {@include flex-wrap(wrap)}
+	}
 	.wrap-widget {
 		margin:0 0 30px;
+		@include media-pc {margin-bottom:0}
 		div[class*=widget-] {
-			margin:0 15px;
-			dt {margin-bottom:15px; @include fw-md; font-size:1.6rem}
+			margin-left:1.5rem; margin-right:1.5rem;
+			@include media-md {text-align:center}
+			dt {
+				margin-bottom:15px; @include fw-md; font-size:1.6rem;
+				@include media-md {margin-bottom:.8rem; font-size:1.3rem}
+			}
+			.main-stat dd {
+				@include media-md {font-size:2.4rem}
+			}
 		}
 		h4.title {margin:30px 15px 10px; @include fw-md; font-size:1.8rem; color:$dark-3}
 		//정산여부
 		.widget-state {
 			@include flex(0 0 280px); @include align-items(center); padding:2rem; @include fw-md; font-size:1.6rem; color:$white; 
-			&:after {content:''; position:absolute; right:20px; top:8px; width:53px; height:64px; background:url('../img/img_bg_adjust.svg') no-repeat 0 0 / 100% auto; opacity:.3}
+			@include media-md {width:100%; @include flex(1 1 100%)}
+			&:after {content:''; position:absolute; right:20px; top:50%; transform:translateY(-50%); width:53px; height:64px; background:url('../img/img_bg_adjust.svg') no-repeat 0 0 / 100% auto; opacity:.3}
 			&.success {@include bg-gradient($positive-gn,$sub-sk,'horizontal')}
 			&.fail {
 				color:$danger-rd; border:1px solid $danger-rd; @include animation('wg-fail 1.5s infinite');
@@ -549,12 +564,23 @@ body .td-blank {
 		//하위고객수
 		.widget-count {
 			@include flex(1); @include align-items(center); height:80px; padding:0 1rem 0 3rem;
+			@include media-pc {@include flex-direction(column); height:auto; padding:1rem 2rem}
+			@include media-md {margin-top:2rem}
 			dl {
 				@include flexbox; @include align-items(center); padding:0;
-				dt {margin:0 1rem 0 0; font-size:1.6rem}
+				dt {
+					margin:0 1rem 0 0; font-size:1.6rem;
+					@include media-md {font-size:1.3rem}
+				}
 			}			
-			.txt-count {font-size:4rem}
-			.btn {height:40px}
+			.txt-count {
+				font-size:4rem;
+				@include media-pc {margin-left:auto; font-size:3.2rem}
+			}
+			.btn {
+				height:40px;
+				@include media-pc {width:100%; margin-top:.6rem}
+			}
 			//리셀러
 			&.reseller {
 				.txt-count {color:$sub-sk}
@@ -575,8 +601,15 @@ body .td-blank {
 		//마진합계
 		.widget-rd.total {
 			@include flex-direction(column); width:280px; @include bg-gradient($rd-dk,$rd-lt,'horizontal');
-			&:before {content:''; @include absolute(0,null,0,0); width:280px; height:196px; background:url('../img/img_bg_graph.svg') no-repeat 0 0 / 100% auto;}
-			dl {padding:3.62rem 2.5rem}
+			&:before {
+				content:''; @include absolute(0,null,0,0); width:280px; height:196px; background:url('../img/img_bg_graph.svg') no-repeat 0 0 / 100% auto;
+				@include media-pc {width:100%}
+			}
+			@include media-pc {width:auto; text-align:center}
+			dl {
+				padding:3.62rem 2.5rem;
+				@include media-pc {padding:1.6rem 2rem}
+			}
 			dl:after {display:none}
 			dt {color:$white}
 			dd {font-size:4rem; color:$white}
@@ -586,6 +619,8 @@ body .td-blank {
 			padding:2.4rem 3rem;
 			&.light:after {display:none}
 			&.ta-center {background:$light-f}
+			@include media-pc {padding:1.6rem 2rem}
+			@include media-mb {padding:1.6rem}
 		}
 	}
 }
