@@ -2762,20 +2762,52 @@ body .td-blank p {
   background: #FF808F;
   background: -webkit-linear-gradient(left, #FF808F, #FFA17F);
   background: linear-gradient(to right, #FF808F, #FFA17F);
+  overflow: hidden;
 }
-.v-main .wrap-widget .widget-rd.total:before {
-  content: "";
+.v-main .wrap-widget .widget-rd.total .total-bg {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 196px;
+  font-size: 0;
+  white-space: nowrap;
+}
+.v-main .wrap-widget .widget-rd.total .total-bg span {
+  display: inline-block;
   width: 280px;
   height: 196px;
-  background: url("../img/img_bg_graph.svg") no-repeat 0 0/100% auto;
+  background: url("../img/img_bg_graph.svg") no-repeat 0 0/100%;
+  -webkit-animation: flow 15s linear infinite;
+  -moz-animation: flow 15s linear infinite;
+  -ms-animation: flow 15s linear infinite;
+  -o-animation: flow 15s linear infinite;
+  animation: flow 15s linear infinite;
 }
-@media only screen and (max-width: 1200px) {
-  .v-main .wrap-widget .widget-rd.total:before {
-    width: 100%;
+@-webkit-keyframes flow {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-moz-keyframes flow {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-ms-keyframes flow {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-o-keyframes flow {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes flow {
+  100% {
+    transform: translateX(-100%);
   }
 }
 @media only screen and (max-width: 1200px) {
