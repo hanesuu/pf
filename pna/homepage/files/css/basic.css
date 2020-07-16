@@ -13,7 +13,7 @@
 html, body {
     margin:0; padding:0; width:100%; height:auto; overflow-x:hidden;
     font-family:'Spoqa Han Sans',Apple SD Gothic Neo,'맑은 고딕','Malgun Gothic','돋움',Dotum,Verdana,Arial,sans-serif;
-    font-weight:300; font-size:10px; color:#36384d; word-break:keep-all; background-color:#fff
+    font-weight:300; font-size:10px; color:#36384d; word-break:keep-all; background-color:#36384d
 }
 input::-ms-clear, input::-ms-reveal {display:none}
 button:disabled,
@@ -81,17 +81,22 @@ input[type="tel"]:focus,
 
 /* button */
 .btn {
-  position:relative; top:0; display:inline-block; padding:0 20px;
-  font-size:1rem; font-weight:400; text-align:center; white-space:nowrap;
-  vertical-align:middle; cursor:pointer;
-  border:1px solid transparent; border-radius:3px;
-  transition:top .2s ease, opacity .2s ease, background .2s ease; 
+    position:relative; display:inline-block; padding:0 20px;
+    font-size:1rem; font-weight:400; text-align:center; white-space:nowrap;
+    vertical-align:middle; cursor:pointer; z-index:2
 }
-.btn:hover {top:-2px; opacity:.85}
+.btn:before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0; transition:all .2s
+}
+.btn:hover:before {top:-6px; left:-6px; right:-6px; bottom:-6px}
 .btn-lg {padding:16px 40px; font-size:1.6rem; border-radius:50px}
+.btn-lg:before {border:3px solid; border-radius:50px}
 .btn-sm {padding:6px 15px; font-size:1.4rem; border-radius:3px}
+.btn-sm:before {border:1px solid; border-radius:3px}
 .btn-primary {background:#36384d; color:#fff}
+.btn-primary:before {border-color:rgba(54,56,77,.5)}
 .btn-point {background:#6f74f4; color:#fff}
+.btn-point:before {border-color:rgba(111,116,244,.5)}
 .btn-line-point {border-color:#6f74f4; color:#6f74f4}
 .btn-line-point:hover {background:#6f74f4; color:#fff}
 .btn-line-b {border-color:#bec0c7; color:#6E6E7A; background:linear-gradient(to bottom, #fff, #F9F9FC)}
@@ -144,7 +149,7 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
 .f-right {float:right}
 
 /* common */
-.container-body {position:relative; padding-top:60px}
+.container-body {position:relative; padding-top:60px; background:#fff}
 .inner {
     position:relative; width:100%; max-width:1080px;
     margin-left:auto; margin-right:auto
@@ -156,7 +161,7 @@ a.top i {color:#969aaf; font-size:20px; line-height:40px}
     font-size:0; text-indent:-9999px; vertical-align:middle
 }
 .logo-picxell {
-    display:inline-block; width:118px; height:36px;
+    display:inline-block; width:118px; height:32px;
     background:url('/ud/pna/common/img/logo_picxell@2x.png') no-repeat 0 0 / 100%;
     font-size:0; text-indent:-9999px; vertical-align:middle
 }

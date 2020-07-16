@@ -33,7 +33,7 @@ section.sect-sub-top {padding:60px 0 0}
 /* text */
 .wrap-txt {margin-bottom:60px; color:#36384d}
 .wrap-txt .tit {font-size:3.6rem; font-weight:700; line-height:1.8}
-.wrap-txt .tit-sub {font-size:2.4rem; font-weight:300; line-height:1.4}
+.wrap-txt .tit-sub {font-size:2.4rem; font-weight:100; line-height:1.4}
 .wrap-txt .tit-txt {margin-top:14px; font-size:2rem; font-weight:300; line-height:1.4}
 .wrap-txt .tit-txt-s {margin-top:14px; font-size:1.6rem}
 .txt {font-size:1.4rem}
@@ -278,15 +278,16 @@ section.sect-about {padding-bottom:70px}
     .sect-sell .wrap-img {margin-bottom:45px}
     .wrap-calc .bx-basic {width:90vw; padding:12px 3.5vw}
     .wrap-calc .bx-basic .img-store {height:85px}
-    .wrap-calc .bx-basic.left {float:none; margin:30px auto; padding-left:50px}
+    .wrap-calc .bx-basic.left {float:none; margin:3rem auto; padding-left:5rem}
     .wrap-calc .bx-basic.left .img-store {left:-15px; width:54px}
-    .wrap-calc .bx-basic.right {float:none; margin:30px auto; padding-right:50px}
+    .wrap-calc .bx-basic.right {float:none; margin:3rem auto; padding-right:5rem}
     .wrap-calc .bx-basic.right .img-store {right:-15px; width:68px}
-    .wrap-calc .bx-basic i {padding:0 2vw}
+    .wrap-calc .bx-basic i {padding:0 1.5vw}
     .wrap-calc .ico-plus {width:30px; height:30px; background-size:18px}
 }
 
 /* 리셀러로 딱 */
+.sect-reseller {overflow:hidden}
 .list-reseller .bx-basic {margin-bottom:40px; padding:20px}
 .list-reseller .img-user {position:relative; margin-bottom:12px; padding-top:12px}
 .list-reseller .img-user:before {
@@ -318,6 +319,7 @@ section.sect-about {padding-bottom:70px}
 }
 
 /* 메인하단 */
+.sect-main-btm {overflow:hidden}
 .sect-main-btm .bg-img {background-image:url('../img/bg_pic_btm.jpg')}
 .sect-main-btm .tit {line-height:1}
 .sect-main-btm .tit svg {margin-left:5px; vertical-align:middle}
@@ -544,7 +546,7 @@ section.sect-finish {padding:80px 0}
 .pg-calc .sect-calc .wrap-txt {margin-bottom:40px}
 .pg-calc .sect-calc .bx-gry {padding:0 20px; background:#f9f9fc; text-align:left}
 .pg-calc .sect-calc .bx-gry dl {display:table; width:100%; padding:40px 20px}
-.pg-calc .sect-calc .bx-gry dl:not(:last-child) {border-bottom:1px solid #dcdee4}
+.pg-calc .sect-calc .bx-gry dl:not(:last-child) {border-bottom:1px solid rgba(54,56,77,.1)}
 .pg-calc .sect-calc .bx-gry .tit {
     display:table-cell; width:30%; 
     font-size:1.8rem; font-weight:700; color:#6f74f4
