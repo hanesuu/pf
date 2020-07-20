@@ -1784,8 +1784,10 @@ table th[class*=col-] {
   color: #36be9c;
 }
 .board-list tbody p.fw-md {
-  margin-bottom: 5px;
   font-size: 1.6rem;
+}
+.board-list tbody p.fw-md:not(:only-child) {
+  margin-bottom: 5px;
 }
 .board-list tbody .txt-id {
   color: #969AAF;
@@ -1821,6 +1823,7 @@ table th[class*=col-] {
   border: 1px solid #cecffb;
   /* 게시판 셀 안에 테이블 */
   /* 마진 테이블 */
+  /* green -정산관련 테이블 색상 */
 }
 .tbl-xs tr th, .tbl-xs tr td {
   padding: 0.5rem 1rem;
@@ -1874,6 +1877,15 @@ table th[class*=col-] {
   border-color: #DCDEE4;
   font-size: 1.4rem;
   font-weight: 300;
+}
+.tbl-xs.tbl-gn {
+  border-color: rgba(54, 190, 156, 0.4);
+}
+.tbl-xs.tbl-gn tr th, .tbl-xs.tbl-gn tr td {
+  border-color: rgba(54, 190, 156, 0.15);
+}
+.tbl-xs.tbl-gn tr th {
+  background-color: rgba(54, 190, 156, 0.2);
 }
 
 /* 게시판 데이터 빈 화면 */
@@ -2774,6 +2786,11 @@ body .td-blank p {
   font-size: 0;
   white-space: nowrap;
 }
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget .widget-rd.total .total-bg {
+    bottom: -20%;
+  }
+}
 .v-main .wrap-widget .widget-rd.total .total-bg span {
   display: inline-block;
   width: 280px;
@@ -2808,6 +2825,11 @@ body .td-blank p {
 @keyframes flow {
   100% {
     transform: translateX(-100%);
+  }
+}
+@media only screen and (max-width: 992px) {
+  .v-main .wrap-widget .widget-rd.total .total-bg span {
+    width: calc(100vw - 3rem);
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -4861,6 +4883,14 @@ button:focus, button:active {
 }
 .btn-line-yl:hover {
   background: #ffaf0e;
+  color: #fff;
+}
+.btn-line-gn {
+  border-color: #36be9c;
+  color: #36be9c;
+}
+.btn-line-gn:hover {
+  background: #36be9c;
   color: #fff;
 }
 .btn-sk {

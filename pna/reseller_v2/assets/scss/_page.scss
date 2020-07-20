@@ -2,22 +2,22 @@
 /* 로그인 -login */
 .wrap-login {
 	@include flexbox; @include align-items(center); @include justify-content(center);
-    width:100%; height:100vh; margin:0 auto; text-align:center; background:$light-f;
-    @include media-mb {padding-left:10px; padding-right:10px}
-    .inner {width:370px}
-    .head-tit {width:174px; height:46px; margin:0 auto 40px; @include hide-txt; background:url('../../../common/img/logo_fill.svg') no-repeat 0 0 / 100%}
-    .form input {display:block; width:100%; height:50px; margin-bottom:10px; padding:0 20px; font-size:1.6rem}
-    .form-option {
-    	@include flexbox; @include align-items(center); margin:10px 0 25px; font-size:1.3rem;
-        label {margin-right:10px; font-size:1.3rem}
-        a {display:block; margin-left:auto; line-height:32px; color:$dark-6}
-    }
-    .btn-login {display:block; width:100%; padding:12px 0; box-shadow:0 4px 8px 0 rgba($dark-6,.4); @include fw-md; font-size:1.6rem}
-    .txt-bottom {
-    	margin-top:40px; font-size:1.4rem;
-    	a {margin-left:10px; color:$dark-3; text-decoration:underline}
-    	a:hover {color:$point}
-    }
+	width:100%; height:100vh; margin:0 auto; text-align:center; background:$light-f;
+	@include media-mb {padding-left:10px; padding-right:10px}
+	.inner {width:370px}
+	.head-tit {width:174px; height:46px; margin:0 auto 40px; @include hide-txt; background:url('../../../common/img/logo_fill.svg') no-repeat 0 0 / 100%}
+	.form input {display:block; width:100%; height:50px; margin-bottom:10px; padding:0 20px; font-size:1.6rem}
+	.form-option {
+		@include flexbox; @include align-items(center); margin:10px 0 25px; font-size:1.3rem;
+		label {margin-right:10px; font-size:1.3rem}
+		a {display:block; margin-left:auto; line-height:32px; color:$dark-6}
+	}
+	.btn-login {display:block; width:100%; padding:12px 0; box-shadow:0 4px 8px 0 rgba($dark-6,.4); @include fw-md; font-size:1.6rem}
+	.txt-bottom {
+		margin-top:40px; font-size:1.4rem;
+		a {margin-left:10px; color:$dark-3; text-decoration:underline}
+		a:hover {color:$point}
+	}
 }
 
 /** 공통 **/
@@ -55,11 +55,11 @@
 	&.fail {
 		color:$danger-rd;
 		&:after {background:$danger-rd; box-shadow:0 0 4px $danger-rd; @include animation('ani-fail 1s infinite');}
-	    @include keyframes(ani-fail) {
-	      0% {opacity:.1}
-	      65% {opacity:1}
-	      100% {opacity:.1}
-	    }
+		@include keyframes(ani-fail) {
+			0% {opacity:.1}
+			65% {opacity:1}
+			100% {opacity:.1}
+		}
 	}
 	//.no-inp & {@include align-self(center);}
 }
@@ -92,7 +92,7 @@
 		input {width:100%}
 
 		/* 상세검색 */
-    	.row.detail dl {padding-bottom:6.4rem}
+		.row.detail dl {padding-bottom:6.4rem}
 	}
 	.el-date-editor--daterange.el-input__inner {
 		width:100%;
@@ -129,8 +129,8 @@
 		@include media-md {position:relative; right:auto; bottom:auto; width:100%}
 		.btn-search {padding:6px 20px}
 		.btn-line-b {
-		  i {font-size:1.4rem; @include transition(transform); vertical-align:baseline}
-		  &.active i {transform:rotate(180deg)}
+			i {font-size:1.4rem; @include transition(transform); vertical-align:baseline}
+			&.active i {transform:rotate(180deg)}
 		}
 	}
 }
@@ -166,42 +166,42 @@
 	}
 	div[class*="widget-"] {
 		position:relative; @include flexbox; @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
-    .colored {
-      position:relative;
-      &:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
-    }
-    &.widget-rd {
-      .colored {
-        @include bg-gradient($rd-dk,$rd-lt,'horizontal');
-        &:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
-        &, dd {color:$white}
-      }
-      dd {color:$rd-dk}
+		.colored {
+			position:relative;
+			&:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
+		}
+		&.widget-rd {
+			.colored {
+				@include bg-gradient($rd-dk,$rd-lt,'horizontal');
+				&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+				&, dd {color:$white}
+			}
+			dd {color:$rd-dk}
 		}
 		&.widget-yl {
-      .colored {
-        @include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
-        &:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
-        &, dd {color:$white}
-      }
-      dd {color:$warn-yl-dk}
+			.colored {
+				@include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
+				&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+				&, dd {color:$white}
+			}
+			dd {color:$warn-yl-dk}
 		}
 		&.widget-pt {
-      .colored {
-        @include bg-gradient($point,$point-lt,'horizontal');
-        &:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
-        &, dd {color:$white}
-      }
-      dd {color:$point}
+			.colored {
+				@include bg-gradient($point,$point-lt,'horizontal');
+				&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
+				&, dd {color:$white}
+			}
+			dd {color:$point}
 		}
-    &.widget-wt-rd {
-      dt {color:$dark-6}
-      dd {color:$rd-dk}
-    }
-    dl {
-      position:relative; @include flex(1); width:100%; padding:1.5rem 2rem;/* ie10 */
-      &:not(.colored):not(:last-of-type):after {content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-e}
-    }
+		&.widget-wt-rd {
+			dt {color:$dark-6}
+			dd {color:$rd-dk}
+		}
+		dl {
+			position:relative; @include flex(1); width:100%; padding:1.5rem 2rem;/* ie10 */
+			&:not(.colored):not(:last-of-type):after {content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-e}
+		}
 		dt {
 			margin-bottom:6px; font-size:1.3rem;
 			@include media-mb {margin-bottom:6px; font-size:1.2rem}
@@ -231,29 +231,29 @@
 
 /* 게시판 리스트 toggle sticky layout */
 [data-v-sticky-container]{
-  position:relative; @include flexbox; @include align-items(flex-start);
-  
-  /* 리스트 영역 */
-  .board {
-    @include flex(3); @include transition(all); margin-bottom:0;
-    /* 우측 설정 열리면 클래스 추가됨 */
-    &.active {
-      @include flex(2); margin-right:20px;
-      & ~ .bx-right {margin-right:0; opacity:1}
-    }
-  }
-  /* 우측 설정 영역 */
-  .bx-right {
-    @include transition(margin,opacity); width:540px; margin-right:-540px; opacity:0;    
-    /* 내용 영역 */
-    .bx-con {overflow:auto}
-  }  
+	position:relative; @include flexbox; @include align-items(flex-start);
+
+	/* 리스트 영역 */
+	.board {
+		@include flex(3); @include transition(all); margin-bottom:0;
+		/* 우측 설정 열리면 클래스 추가됨 */
+		&.active {
+			@include flex(2); margin-right:20px;
+			& ~ .bx-right {margin-right:0; opacity:1}
+		}
+	}
+	/* 우측 설정 영역 */
+	.bx-right {
+		@include transition(margin,opacity); width:540px; margin-right:-540px; opacity:0;    
+		/* 내용 영역 */
+		.bx-con {overflow:auto}
+	}  
 }
 
 /* flex 공통 */
 .flex-wrap {
-  @include flexbox;
-  & > *:not(:first-child) {margin-left:10px}
+	@include flexbox;
+	& > *:not(:first-child) {margin-left:10px}
 }
 
 /* 게시판 */
@@ -284,9 +284,12 @@
 			b {@include fw-md}
 		}
 		.txt-gn {color:$positive-gn}
-	    /* 상호명/ID */
-	    p.fw-md {margin-bottom:5px; font-size:1.6rem}
-	    .txt-id {color:$dark-9}
+		/* 상호명/ID */
+		p.fw-md {
+			font-size:1.6rem;
+			&:not(:only-child) {margin-bottom:5px}
+		}
+		.txt-id {color:$dark-9}
 	}
 	.va-top {vertical-align:top}
 	.va-mid {vertical-align:middle}
@@ -321,6 +324,15 @@
 	/* 마진 테이블 */
 	&.tbl-col thead th {padding:.5rem; border-right-width:0; border-bottom:1px solid lighten($point,20%); text-align:center}
 	&.tbl-col td {border-color:$light-d; font-size:1.4rem; @include fw-dl}
+
+	/* green -정산관련 테이블 색상 */
+  &.tbl-gn {
+    border-color:rgba($positive-gn,.4);
+    tr {
+      th,td {border-color:rgba($positive-gn,.15)}
+      th {background-color:rgba($positive-gn,.2)}
+    }
+  }
 }
 
 /* 게시판 데이터 빈 화면 */
@@ -396,11 +408,11 @@ body .td-blank {
 }
 /* 리스트 오른쪽 상세 영역 */
 .bx-right {
-  .tbl-xs .inp-price {max-width:80px; margin:0 auto}
-  .bottom-btn .btn {min-width:0; padding:10px 26px; font-size:1.4rem}
-  
-  /* 폼형태 -익일정산신청 */
-  .wrap-form {padding:10px 0 0}
+	.tbl-xs .inp-price {max-width:80px; margin:0 auto}
+	.bottom-btn .btn {min-width:0; padding:10px 26px; font-size:1.4rem}
+
+	/* 폼형태 -익일정산신청 */
+	.wrap-form {padding:10px 0 0}
 }
 
 /* 입력폼 */
@@ -451,8 +463,8 @@ body .td-blank {
 
 /* 라벨스타일 */
 *[class*="label-"] {
-  display:inline-block; padding:3px 7px; border-radius:10px; @include fw-md; font-size:1.2rem; vertical-align:top;
-  &.label-lg {padding:8px; font-size:1.4rem}
+	display:inline-block; padding:3px 7px; border-radius:10px; @include fw-md; font-size:1.2rem; vertical-align:top;
+	&.label-lg {padding:8px; font-size:1.4rem}
 }
 .label-new {padding:2px 5px; background:rgba($positive-gn,.1); color:$positive-gn; font-style:normal; @include fw-bd; font-size:10px}
 .label-default {background:rgba($point,.1); color:$point}
@@ -489,12 +501,12 @@ body .td-blank {
 }
 .list-type {
 	& > li {
-	    list-style:none; position:relative; padding-left:8px; margin-bottom:10px; line-height:1.5;
-	    &:before {
-	        content:''; display:block; @include absolute(0,7px,null,null); width:3px; height:3px;
-	        border-radius:50%; background-color:$dark-6
-	    }
-	    &:last-of-type {margin-bottom:0}
+		list-style:none; position:relative; padding-left:8px; margin-bottom:10px; line-height:1.5;
+		&:before {
+			content:''; display:block; @include absolute(0,7px,null,null); width:3px; height:3px;
+			border-radius:50%; background-color:$dark-6
+		}
+		&:last-of-type {margin-bottom:0}
 	}
 	&.decimal {
 		padding-left:15px;
@@ -555,10 +567,10 @@ body .td-blank {
 			&.fail {
 				color:$danger-rd; border:1px solid $danger-rd; @include animation('wg-fail 1.5s infinite');
 				@include keyframes(wg-fail) {
-		      0% {box-shadow:0 0 15px rgba($danger-rd,0)}
-		      65% {box-shadow:0 0 15px rgba($danger-rd,0.7)}
-		      100% {box-shadow:0 0 15px rgba($danger-rd,0)}
-		    }
+					0% {box-shadow:0 0 15px rgba($danger-rd,0)}
+					65% {box-shadow:0 0 15px rgba($danger-rd,0.7)}
+					100% {box-shadow:0 0 15px rgba($danger-rd,0)}
+				}
 			}
 		}
 		//하위고객수
@@ -603,13 +615,15 @@ body .td-blank {
 			@include flex-direction(column); width:280px; @include bg-gradient($rd-dk,$rd-lt,'horizontal'); overflow:hidden;
 			.total-bg {
 				@include absolute(0,null,0,0); width:100%; height:196px; font-size:0; white-space:nowrap;
+				@include media-md {bottom:-20%}
 				span {
 					display:inline-block; width:280px; height:196px; background:url('../img/img_bg_graph.svg') no-repeat 0 0 / 100%; @include animation('flow 15s linear infinite');
 					//animation
 					@include keyframes(flow) {
-			      100% {transform:translateX(-100%)}
-			    }
-				}				
+						100% {transform:translateX(-100%)}
+					}
+					@include media-md {width:calc(100vw - 3rem)}
+				}
 			}
 			@include media-pc {width:auto; text-align:center}
 			dl {
@@ -633,32 +647,32 @@ body .td-blank {
 
 /* 리셀러 판매점 등록, 비밀번호 변경 -..Insert, settingPassword */
 .wrap-autoadd {
-  max-width:600px; margin:20px auto; text-align:center; font-size:1.4rem;
-  .tit {
-    margin-bottom:6px; font-size:1.8rem; @include fw-md; color:$dark-3;
-    i {font-size:2.6rem; color:$positive-gn; vertical-align:bottom}
-  }
-  .form {
-    @include flexbox; margin-top:20px;
-    input {@include flex(1); margin-right:5px; font-size:1.4rem; border-color:transparent}
-  }
-  .wrap-info {
-    display:table; width:100%; margin-top:50px;
-    @include media-mb {display:block}
-    .con {
-      display:table-cell; width:45%; padding:40px 10px 25px; background:rgba($positive-gn,.1);
-      img {width:135px; height:82px}
-      .txt {margin-top:20px; font-size:1.3rem}
-      @include media-mb {
-        display:block; width:auto; padding:20px;
-        .txt {margin-top:10px}
-      }
-    }
-    .or {
-      display:table-cell; vertical-align:middle; color:$dark-9;
-      @include media-mb {display:block; margin:5px}
-    }
-  }
+	max-width:600px; margin:20px auto; text-align:center; font-size:1.4rem;
+	.tit {
+		margin-bottom:6px; font-size:1.8rem; @include fw-md; color:$dark-3;
+		i {font-size:2.6rem; color:$positive-gn; vertical-align:bottom}
+	}
+	.form {
+		@include flexbox; margin-top:20px;
+		input {@include flex(1); margin-right:5px; font-size:1.4rem; border-color:transparent}
+	}
+	.wrap-info {
+		display:table; width:100%; margin-top:50px;
+		@include media-mb {display:block}
+		.con {
+			display:table-cell; width:45%; padding:40px 10px 25px; background:rgba($positive-gn,.1);
+			img {width:135px; height:82px}
+			.txt {margin-top:20px; font-size:1.3rem}
+			@include media-mb {
+				display:block; width:auto; padding:20px;
+				.txt {margin-top:10px}
+			}
+		}
+		.or {
+			display:table-cell; vertical-align:middle; color:$dark-9;
+			@include media-mb {display:block; margin:5px}
+		}
+	}
 }
 /* 비밀번호 변경 -settingPassword */
 .vue-password .wrap-autoadd {
@@ -668,28 +682,28 @@ body .td-blank {
 
 /* 리셀러/판매점관리 리스트 -MemberList */
 .vue-rslist {
-  /* 게시판 */
-  .board-list .tbl-xs .btn-txt {
-    margin-left:3px; padding:2px 3px; font-size:1.6rem; color:$warn-yl; @include transition(all); border-radius:3px;
-    &:hover {background:$warn-yl; color:$white}
-  }
+	/* 게시판 */
+	.board-list .tbl-xs .btn-txt {
+		margin-left:3px; padding:2px 3px; font-size:1.6rem; color:$warn-yl; @include transition(all); border-radius:3px;
+		&:hover {background:$warn-yl; color:$white}
+	}
 }
 
 /* 리셀러/판매점 리스트, 상세 공통 */
 .bx-con {
 	/* 결제설정, API설정 공통 - switch 우측 정보 */
 	.el-tab-pane .wrap-form {
-	    dt {@include flex(1)}
-	    dd {@include flex(4)}
-	    dd.inline .d-right {
-	      * {display:inline-block; vertical-align:middle; font-size:1.3rem}
-	      .title {
-	        margin:0; @include fw-dl; color:$dark-9;
-	        &:not(:first-of-type) {margin-left:10px}
-	      }
-	      p {@include fw-md}
-	    }
-	  }
+		dt {@include flex(1)}
+		dd {@include flex(4)}
+		dd.inline .d-right {
+			* {display:inline-block; vertical-align:middle; font-size:1.3rem}
+			.title {
+				margin:0; @include fw-dl; color:$dark-9;
+				&:not(:first-of-type) {margin-left:10px}
+			}
+			p {@include fw-md}
+		}
+	}
 	@media only screen and (max-width:1540px) {
 		.el-tab-pane .wrap-form dd {
 			@include flex-direction(column); @include justify-content(center);
@@ -724,8 +738,8 @@ body .td-blank {
 	.wrap-search {
 		margin-bottom:30px;
 		.row {@include flexbox; width:100%; margin:0 -5px}
-    	.col-md-3 {width:50%; padding-left:5px; padding-right:5px}
-    	.el-date-editor.el-input__inner {width:100%}
+		.col-md-3 {width:50%; padding-left:5px; padding-right:5px}
+		.el-date-editor.el-input__inner {width:100%}
 	}
 	.wrap-widget .widget-wt-rd {
 		dl {padding:1rem 1.5rem}
@@ -843,7 +857,7 @@ body .td-blank {
 		img {max-width:380px}
 	}
 
- 	/* 결제마진 정산 -AdjustSalesList */
+	/* 결제마진 정산 -AdjustSalesList */
 	.row.wrap-widget [class*="widget-"] {@include flex-direction(column)}
 	/* 목록 상단 제목 */
 	.tbl-filter.transparent {
@@ -860,55 +874,55 @@ body .td-blank {
 
 /* 설정 -settingMypage */
 .vue-setting {
-  /* 계정정보 */
-  .wrap-form.horizon dt {min-width:112px}
+	/* 계정정보 */
+	.wrap-form.horizon dt {min-width:112px}
 }
 
 /* 기본 마진 설정 -SettingMargin */
 .v-mg-setting {
-  .bx-gry .list-type li {font-size:1.3rem; margin-bottom:4px}
-  .tbl-xs {margin-top:3rem}
-  .txt-s {margin-top:4px; color:$dark-9}
+	.bx-gry .list-type li {font-size:1.3rem; margin-bottom:4px}
+	.tbl-xs {margin-top:3rem}
+	.txt-s {margin-top:4px; color:$dark-9}
 }
 
 /* 고객센터 */
 /* 공지사항,문의내역 -boardList */
 .v-board-list {
-  .board-tit {
-    display:block; @include transition(color);
-    &:hover {color:$point}
-  }
+	.board-tit {
+		display:block; @include transition(color);
+		&:hover {color:$point}
+	}
 }
 
 /* 공지사항,문의내역 상세 -boardDetail */
 .v-board-detail {
-  .bx-tit {
-    padding:2rem 3rem;
-    h3 {margin:0 0 0 10px; @include fw-md; font-size:1.6rem; color:$dark-3}
-    .d-right {
-      @include flexbox; @include align-items(center); font-size:1.3rem;
-      dt {color:$dark-9}
-      dd {margin-left:8px; @include fw-md; color:$dark-3}
-      .btn-line-rd {margin-left:10px}
-    }
-  }
-  .bx-con {padding:3rem; font-size:1.3rem}
-  
-  /* 문의내역 */
-  .bx-basic.answer {
-    border:2px solid $point;
-    h3 {color:$point}
-  }
+	.bx-tit {
+		padding:2rem 3rem;
+		h3 {margin:0 0 0 10px; @include fw-md; font-size:1.6rem; color:$dark-3}
+		.d-right {
+			@include flexbox; @include align-items(center); font-size:1.3rem;
+			dt {color:$dark-9}
+			dd {margin-left:8px; @include fw-md; color:$dark-3}
+			.btn-line-rd {margin-left:10px}
+		}
+	}
+	.bx-con {padding:3rem; font-size:1.3rem}
+
+	/* 문의내역 */
+	.bx-basic.answer {
+		border:2px solid $point;
+		h3 {color:$point}
+	}
 }
 
 /* 자주 묻는 질문 -boardFaq */
 .v-faq {
-  .faq-search {
-    max-width:480px; margin:20px auto 30px;
-    .inp-txt {height:44px; padding:10px 20px; border:2px solid $point; border-radius:30px; font-size:1.6rem}
-    .btn-search {right:10px; top:5px}
-  }
-  .el-tabs.tab-md .el-tabs__content {
-    position:relative; background:$white; border-radius:5px; @include bxshadow; overflow:hidden
-  }
+	.faq-search {
+		max-width:480px; margin:20px auto 30px;
+		.inp-txt {height:44px; padding:10px 20px; border:2px solid $point; border-radius:30px; font-size:1.6rem}
+		.btn-search {right:10px; top:5px}
+	}
+	.el-tabs.tab-md .el-tabs__content {
+		position:relative; background:$white; border-radius:5px; @include bxshadow; overflow:hidden
+	}
 }

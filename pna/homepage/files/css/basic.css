@@ -280,7 +280,7 @@ body .view-mb {display:none}
     .footer {padding:0 20px}
 }
 @media all and (max-width:768px) {
-    html,body {font-size:8.5px; letter-spacing:-0.1em}
+    html,body {font-size:8.5px; letter-spacing:-0.1em; background:#fff}
 
     /* button */
     .btn-lg {padding:12px 8vw}

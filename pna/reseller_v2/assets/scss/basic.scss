@@ -195,6 +195,10 @@ button:focus, button:active {outline:0}
     border-color:$warn-yl; color:$warn-yl;
     &:hover {background:$warn-yl; color:$white}
   }
+  &-line-gn {
+		border-color:$positive-gn; color:$positive-gn;
+		&:hover {background:$positive-gn; color:$white}
+	}
 	&-sk {
 		background:$sub-sk; color:$white; @include transition(opacity);
 		&:hover {background:$sub-sk; opacity:.85}
