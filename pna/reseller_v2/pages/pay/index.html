@@ -76,6 +76,23 @@
               <div class="col-xs-6 col-md-3">
                 <dl>
                   <dt>
+                    <label for="adjustStatus">정산 상태</label>
+                  </dt>
+                  <dd id="adjustStatus">
+                    <el-select v-model="adjustStatus" placeholder="선택">
+                      <el-option
+                        v-for="item in adjustStatusList"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
                     <label for="payType">결제 수단</label>
                   </dt>
                   <dd id="payType">
@@ -90,7 +107,7 @@
                   </dd>
                 </dl>
               </div>
-              <div class="col-xs-6 col-md-3">
+              <div class="col-xs-12 col-md-3">
                 <dl>
                   <dt>
                     <label for="payStatus">결제 상태</label>
@@ -101,23 +118,6 @@
                       <el-radio label="TRUE">결제 완료</el-radio>
                       <el-radio label="FALSE">결제 취소</el-radio>
                     </el-radio-group>
-                  </dd>
-                </dl>
-              </div>
-              <div class="col-xs-6 col-md-3">
-                <dl>
-                  <dt>
-                    <label for="adjustStatus">정산 상태</label>
-                  </dt>
-                  <dd id="adjustStatus">
-                    <el-select v-model="adjustStatus" placeholder="선택">
-                      <el-option
-                        v-for="item in adjustStatusList"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                      </el-option>
-                    </el-select>
                   </dd>
                 </dl>
               </div>

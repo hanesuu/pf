@@ -95,5 +95,18 @@ $(document).ready(function(){
             //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
             $("input[name=chk]").prop("checked",false);
         }
-    })
+    });
+
+    /* 판매점 목록 sticky layout */
+    $(".bx-right").children(".bx-basic").hide();
+    $(".bx-right").find("#btnClose").click(function(){
+    	$(".board").removeClass("active");
+    	$(this).parent().parent(".bx-basic").fadeOut();
+    });
+    //정산서류제출
+    $("#btnAdjust").click(function(){
+    	$(".bx-right").children(".bx-basic").hide();
+    	$(this).parents(".board").toggleClass("active");
+    	$(".bx-right").children("#bxAdjust").show();
+    });
 });

@@ -107,8 +107,13 @@
 		}
 		i {font-size:14px}
 	}
-	.col-xs-12.group-radio {
-		@include media-mb {@include flexbox; @include justify-content(space-between)}
+	@include media-mb {
+		.col-xs-12.group-radio {
+			margin-top:-30px;
+			.el-radio-group {
+				@include media-mb {width:100%}
+			}
+		}
 	}
 	.el-radio {
 		margin-right:1vw;
@@ -127,7 +132,10 @@
 	.wrap-btn {
 		@include absolute(null,null,20px,20px);
 		@include media-md {position:relative; right:auto; bottom:auto; width:100%}
-		.btn-search {padding:6px 20px}
+		.btn-search {
+			padding:6px 20px;
+			@include media-md {display:block; width:100%}
+		}
 		.btn-line-b {
 			i {font-size:1.4rem; @include transition(transform); vertical-align:baseline}
 			&.active i {transform:rotate(180deg)}
@@ -230,7 +238,7 @@
 .tab-lg .wrap-widget div[class*=widget-] {box-shadow:none}
 
 /* 게시판 리스트 toggle sticky layout */
-[data-v-sticky-container]{
+.sticky-container {
 	position:relative; @include flexbox; @include align-items(flex-start);
 
 	/* 리스트 영역 */
@@ -244,10 +252,10 @@
 	}
 	/* 우측 설정 영역 */
 	.bx-right {
-		@include transition(margin,opacity); width:540px; margin-right:-540px; opacity:0;    
+		@include transition(margin,opacity); width:440px; margin-right:-440px; opacity:0;
 		/* 내용 영역 */
 		.bx-con {overflow:auto}
-	}  
+	}
 }
 
 /* flex 공통 */

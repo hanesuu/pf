@@ -1259,21 +1259,12 @@ table th[class*=col-] {
 }
 @media only screen and (max-width: 768px) {
   .wrap-bx-search .col-xs-12.group-radio {
-    display: -webkit-box;
-    /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;
-    /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -webkit-flex;
-    /* NEW - Chrome */
-    display: -ms-flexbox;
-    /* TWEENER - IE 10 */
-    display: flex;
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    -webkit-justify-content: space-between;
-    -moz-justify-content: space-between;
-    -ms-justify-content: space-between;
-    justify-content: space-between;
-    -ms-flex-pack: space-between;
+    margin-top: -30px;
+  }
+}
+@media only screen and (max-width: 768px) and (max-width: 768px) {
+  .wrap-bx-search .col-xs-12.group-radio .el-radio-group {
+    width: 100%;
   }
 }
 .wrap-bx-search .el-radio {
@@ -1325,6 +1316,12 @@ table th[class*=col-] {
 }
 .wrap-bx-search .wrap-btn .btn-search {
   padding: 6px 20px;
+}
+@media only screen and (max-width: 992px) {
+  .wrap-bx-search .wrap-btn .btn-search {
+    display: block;
+    width: 100%;
+  }
 }
 .wrap-bx-search .wrap-btn .btn-line-b i {
   font-size: 1.4rem;
@@ -1615,7 +1612,7 @@ table th[class*=col-] {
 }
 
 /* 게시판 리스트 toggle sticky layout */
-[data-v-sticky-container] {
+.sticky-container {
   position: relative;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -1635,7 +1632,7 @@ table th[class*=col-] {
   /* 리스트 영역 */
   /* 우측 설정 영역 */
 }
-[data-v-sticky-container] .board {
+.sticky-container .board {
   -webkit-box-flex: 3;
   -moz-box-flex: 3;
   -webkit-flex: 3;
@@ -1652,7 +1649,7 @@ table th[class*=col-] {
   margin-bottom: 0;
   /* 우측 설정 열리면 클래스 추가됨 */
 }
-[data-v-sticky-container] .board.active {
+.sticky-container .board.active {
   -webkit-box-flex: 2;
   -moz-box-flex: 2;
   -webkit-flex: 2;
@@ -1660,11 +1657,11 @@ table th[class*=col-] {
   flex: 2;
   margin-right: 20px;
 }
-[data-v-sticky-container] .board.active ~ .bx-right {
+.sticky-container .board.active ~ .bx-right {
   margin-right: 0;
   opacity: 1;
 }
-[data-v-sticky-container] .bx-right {
+.sticky-container .bx-right {
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
   -webkit-transition-timing-function: ease-in-out;
@@ -1673,12 +1670,12 @@ table th[class*=col-] {
   transition-delay: 0s;
   -webkit-transition-property: margin, opacity;
   transition-property: margin, opacity;
-  width: 540px;
-  margin-right: -540px;
+  width: 440px;
+  margin-right: -440px;
   opacity: 0;
   /* 내용 영역 */
 }
-[data-v-sticky-container] .bx-right .bx-con {
+.sticky-container .bx-right .bx-con {
   overflow: auto;
 }
 
@@ -4797,7 +4794,7 @@ button:focus, button:active {
   color: #fff;
 }
 .btn-primary:hover {
-  background-color: #6F74F4;
+  background-color: #6E6E7A;
 }
 .btn-point {
   background-color: #6F74F4;
