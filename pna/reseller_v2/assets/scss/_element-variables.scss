@@ -271,31 +271,6 @@ body .el-tooltip {
   }
 }
 
-/* 파일첨부 */
-.wrap-inp-file {
-  /* 드래그 영역 */
-  .el-upload {
-    width:100%;
-    &-dragger {
-      position:relative; width:100%; height:auto; padding:1.8rem; border-radius:3px; border:1px dashed $dark-9; @include transition(border,background); text-align:center;
-      &:hover {border-color:$point; background:rgba($point,.1)}
-      *, .btn {vertical-align:middle}
-      span {display:inline-block; margin:0 4px; font-size:1.2rem; color:$dark-3}
-      i {font-size:1.8rem}
-    }
-  }
-  /* 첨부된 파일 목록 */
-  .el-upload-list {
-    margin-top:4px;
-    &__item {
-      margin-top:0; padding:.5rem; font-size:1.2rem; line-height:inherit; background:rgba($dark-9,.2); border-radius:0; border:1px solid $light-d; outline:0;
-      &:not(:first-of-type) {border-top:0}
-    }
-    &__item-status-label, .el-icon-close {top:50%; transform:translateY(-50%)}
-    .el-progress {left:0}
-  }
-}
-
 /* icon font path, required
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index"; */

@@ -1413,6 +1413,51 @@ table th[class*=col-] {
   right: 0;
 }
 
+/* 파일첨부 -정산서류제출 */
+.wrap-inp-file {
+  position: relative;
+  width: 100%;
+  padding: 1.8rem;
+  border-radius: 3px;
+  border: 1px dashed #969AAF;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transition-property: border, background;
+  transition-property: border, background;
+  text-align: center;
+}
+.wrap-inp-file:hover {
+  border-color: #6F74F4;
+  background: rgba(111, 116, 244, 0.1);
+}
+.wrap-inp-file *, .wrap-inp-file .btn {
+  vertical-align: middle;
+}
+.wrap-inp-file span {
+  display: inline-block;
+  margin: 0 4px;
+  font-size: 1.2rem;
+  color: #36384D;
+}
+.wrap-inp-file i {
+  font-size: 1.8rem;
+}
+.wrap-inp-file input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
 /* 통계 위젯 */
 .wrap-widget {
   margin: 0 -7px 20px;
@@ -4243,71 +4288,6 @@ body .el-tooltip__popper[x-placement^=top].is-light {
 }
 body .el-tooltip__popper[x-placement^=top].is-light .popper__arrow {
   border-color: transparent;
-}
-
-/* 파일첨부 */
-.wrap-inp-file {
-  /* 드래그 영역 */
-  /* 첨부된 파일 목록 */
-}
-.wrap-inp-file .el-upload {
-  width: 100%;
-}
-.wrap-inp-file .el-upload-dragger {
-  position: relative;
-  width: 100%;
-  height: auto;
-  padding: 1.8rem;
-  border-radius: 3px;
-  border: 1px dashed #969AAF;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-  -webkit-transition-property: border, background;
-  transition-property: border, background;
-  text-align: center;
-}
-.wrap-inp-file .el-upload-dragger:hover {
-  border-color: #6F74F4;
-  background: rgba(111, 116, 244, 0.1);
-}
-.wrap-inp-file .el-upload-dragger *, .wrap-inp-file .el-upload-dragger .btn {
-  vertical-align: middle;
-}
-.wrap-inp-file .el-upload-dragger span {
-  display: inline-block;
-  margin: 0 4px;
-  font-size: 1.2rem;
-  color: #36384D;
-}
-.wrap-inp-file .el-upload-dragger i {
-  font-size: 1.8rem;
-}
-.wrap-inp-file .el-upload-list {
-  margin-top: 4px;
-}
-.wrap-inp-file .el-upload-list__item {
-  margin-top: 0;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  line-height: inherit;
-  background: rgba(150, 154, 175, 0.2);
-  border-radius: 0;
-  border: 1px solid #DCDEE4;
-  outline: 0;
-}
-.wrap-inp-file .el-upload-list__item:not(:first-of-type) {
-  border-top: 0;
-}
-.wrap-inp-file .el-upload-list__item-status-label, .wrap-inp-file .el-upload-list .el-icon-close {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.wrap-inp-file .el-upload-list .el-progress {
-  left: 0;
 }
 
 /* icon font path, required
