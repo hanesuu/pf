@@ -101,11 +101,13 @@ $(document).ready(function(){
     $(".bx-right").children(".bx-basic").hide();
     $(".bx-right").find("#btnClose").click(function(){
     	$(".board").removeClass("active");
+    	$(".board").find("tr").removeClass("checked");
     	$(this).parent().parent(".bx-basic").fadeOut();
     });
     //정산서류제출
     $("#btnAdjust").click(function(){
     	$(".bx-right").children(".bx-basic").hide();
+    	$(this).parents(".tbl-xs").parent().parent().toggleClass("checked");
     	$(this).parents(".board").toggleClass("active");
     	$(".bx-right").children("#bxAdjust").show();
     });
