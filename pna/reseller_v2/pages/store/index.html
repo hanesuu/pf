@@ -477,11 +477,14 @@
               <div class="bx-con">
                 <div class="row-con">
                   <h4 class="tit">사업자 등록증</h4>
-                  <div class="wrap-inp-file">
+                  <el-upload class="wrap-inp-file"
+                    drag
+                    action=""
+                    :auto-upload="false"
+                    :show-file-list="false">
                     <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                     <button class="btn btn-xs btn-point">파일 선택</button>
-                    <input type="file">
-                  </div>
+                  </el-upload>
                   <div class="list-file">
                     <ul>
                       <li>
@@ -492,11 +495,14 @@
                 </div>
                 <div class="row-con">
                   <h4 class="tit">통장 사본</h4>
-                  <div class="wrap-inp-file">
+                  <el-upload class="wrap-inp-file"
+                    drag
+                    action=""
+                    :auto-upload="false"
+                    :show-file-list="false">
                     <span><i class="las la-mouse-pointer"></i> 드래그 또는</span>
                     <button class="btn btn-xs btn-point">파일 선택</button>
-                    <input type="file">
-                  </div>
+                  </el-upload>
                 </div>
                 <div class="bottom-btn">
                   <button class="btn btn-sm btn-primary">저장</button>
