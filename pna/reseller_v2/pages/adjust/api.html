@@ -26,7 +26,7 @@
     <!--template-->
     <div class="wrap-content">
       <!--페이지내용-->
-      <div class="contents v-aj-salelist v-width-lg">
+      <div class="contents v-aj-salelist">
         <!--날짜 컨트롤러-->
         <section class="cal-control">
           <span class="txt">2020년 04월</span>
@@ -39,26 +39,35 @@
         </section>
 
         <!--통계 위젯-->
-        <section class="wrap-widget">
-          <div class="widget-yl flexbox">
-            <dl class="colored">
-              <dt>총 API 마진</dt>
-              <dd class="txt">소속 판매점들이 사용한 API에 대한 마진의 합입니다.</dd>
-            </dl>
-            <dl class="main-stat ta-center">
-              <dt>총 마진</dt>
-              <dd class="txt-count">
-                <span id="apiAll">51,000</span>
-                <small>원</small>
-              </dd>
-            </dl>
-            <dl class="main-stat ta-center">
-              <dt>정산 상태</dt>
-              <dd class="txt-count">
-                <span class="txt txt-gn">정산 완료</span>
-                <!-- <span class="txt txt-yl">정산 대기</span> -->
-              </dd>
-            </dl>
+        <section class="row wrap-widget">
+          <div class="col-xs-12">
+            <div class="widget-yl">
+              <dl class="colored">
+                <dt>총 API 마진</dt>
+                <dd class="txt">소속 판매점들이 사용한 API에 대한 마진의 합입니다.</dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>정산 완료 금액</dt>
+                <dd class="txt-count">
+                  <span id="apiAll"></span>
+                  <small>원</small>
+                </dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>정산 대기 금액</dt>
+                <dd class="txt-count">
+                  <span id="apiWait"></span>
+                  <small>원</small>
+                </dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>정산 보류 금액</dt>
+                <dd class="txt-count">
+                  <span id="apiCancel" class="txt-rd"></span>
+                  <small class="txt-rd">원</small>
+                </dd>
+              </dl>
+            </div>
           </div>
         </section>
 
@@ -73,14 +82,18 @@
             <table>
               <colgroup>
                 <col>
-                <col>
-                <col>
+                <col width="18%">
+                <col width="18%">
+                <col width="18%">
+                <col width="18%">
               </colgroup>
               <thead>
               <tr>
                 <th>API 구분</th>
                 <th>건수</th>
-                <th>마진 금액</th>
+                <th class="ta-right">정산 완료 금액</th>
+                <th class="ta-right">정산 대기 금액</th>
+                <th class="ta-right">정산 보류 금액</th>
               </tr>
               </thead>
               <tbody>
@@ -89,20 +102,76 @@
                   <p class="fw-md">SMS</p>
                 </td>
                 <td>5건</td>
-                <td>10,400원</td>
+                <td class="ta-right">10,400원</td>
+                <td class="ta-right">25원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">0원</span>
+                </td>
               </tr>
               <tr>
                 <td>
                   <p class="fw-md">LMS</p>
                 </td>
                 <td>3건</td>
-                <td>11,520원</td>
+                <td class="ta-right">11,520원</td>
+                <td class="ta-right">685원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">15원</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-md">MMS</p>
+                </td>
+                <td>2건</td>
+                <td class="ta-right">350원</td>
+                <td class="ta-right">20원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">5원</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-md">알림톡</p>
+                </td>
+                <td>57건</td>
+                <td class="ta-right">38,125원</td>
+                <td class="ta-right">8,687원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">950원</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-md">본인인증</p>
+                </td>
+                <td>18건</td>
+                <td class="ta-right">10,400원</td>
+                <td class="ta-right">3,288원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">335원</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-md">계좌성명조회</p>
+                </td>
+                <td>3건</td>
+                <td class="ta-right">865원</td>
+                <td class="ta-right">887원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">0원</span>
+                </td>
               </tr>
               <!--합계-->
               <tr class="bg-yl total">
                 <td>합계</td>
-                <td>8건</td>
-                <td>21,920원</td>
+                <td>88건</td>
+                <td class="ta-right">71,660원</td>
+                <td class="ta-right">13,592원</td>
+                <td class="ta-right">
+                  <span class="txt-rd">1,305원</span>
+                </td>
               </tr><!--//합계-->
               </tbody>
             </table>
@@ -148,8 +217,12 @@
   [5] 옵션
   */
 
-  let apiAll = new CountUp("apiAll", 0, 51000, 0, 1.5, options);
+  let apiAll = new CountUp("apiAll", 0, 71660, 0, 1.5, options);
   apiAll.start();
+  let apiWait = new CountUp("apiWait", 0, 13592, 0, 1.5, options);
+  apiWait.start();
+  let apiCancel = new CountUp("apiCancel", 0, 1305, 0, 1.5, options);
+  apiCancel.start();
 
 </script>
 </html>

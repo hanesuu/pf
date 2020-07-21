@@ -10,7 +10,6 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="../../assets/js/page.js"></script>
   <script src="/ud/common/js/countUp.min.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
@@ -26,188 +25,274 @@
     <div id="header" class="mj2"></div>
     <!--template-->
     <div class="wrap-content">
-      <!--페이지내용-->
-      <div class="contents vue-rslist">
-        <!--상세검색-->
-        <el-collapse class="bx-basic wrap-bx-search" v-model="searchDetail" @change="handleChange">
-          <el-collapse-item title="상세검색" name="1">
-            <div class="row">
-              <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="상호/이름">
-              </div>
-              <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="아이디">
-              </div>
-              <div class="col-xs-6 col-md-3">
-                <input type="tel" class="inp-box" placeholder="휴대폰번호">
-              </div>
-              <div class="col-xs-6 col-md-3">
-                <input type="text" class="inp-box" placeholder="이메일">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-md-3">
-                <el-date-picker
-                  v-model="datepicker"
-                  type="daterange"
-                  align="right"
-                  start-placeholder="시작일 선택"
-                  end-placeholder="종료일 선택"
-                  default-value="2019-11-15">
-                </el-date-picker>
-              </div>
-              <div class="col-xs-12 col-md-8 group-radio">
-                <el-radio v-model="searchDate" label="month">
-                  <span>당월</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="today">
-                  <span>오늘</span>
-                  <div class="wrap-btn-arr">
-                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
-                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
-                  </div>
-                </el-radio>
-                <el-radio v-model="searchDate" label="all">
-                  <span>전체</span>
-                </el-radio>
-              </div>
-            </div>
-            <button class="btn btn-point btn-search"><i class="la la-search"></i> 검색</button>
-          </el-collapse-item>
-        </el-collapse>
+      <!--페이지내용 // 개인작업 새 디자인 적용-->
+      <div class="contents v-rslist">
         <!--통계 위젯-->
         <section class="row wrap-widget">
           <div class="col-xs-12 col-sm-4">
             <div class="widget-sk">
-              <dl class="main-stat">
-                <dt>리셀러</dt>
-                <dd class="txt-count" id="rsAll">564</dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>판매점</dt>
-                <dd class="txt-count" id="rsStore">553</dd>
-              </dl>
+              <div class="colored flex1">
+                <dl class="main-stat">
+                  <dt>리셀러</dt>
+                  <dd class="txt-count" id="rsAll">286</dd>
+                  <dd class="txt-sub">
+                    <span id="rsAllSub" class="txt-count">864</span>개의 판매점
+                  </dd>
+                </dl>
+              </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-8">
             <div class="widget-rd">
-              <dl class="main-stat">
-                <dt>총 마진</dt>
-                <dd class="txt-count" id="marginAll">1,578,000<small>원</small></dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>결제수수료 마진</dt>
-                <dd class="txt-count" id="marginSub1">1,270,000<small>원</small></dd>
-              </dl>
-              <dl class="sub-stat">
-                <dt>유료 API 마진</dt>
-                <dd class="txt-count" id="marginSub2">308,000<small>원</small></dd>
-              </dl>
-            </div>
-          </div>
-        </section>
-        <section class="board-list">
-          <table>
-            <colgroup>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col width="150px">
-            </colgroup>
-            <thead>
-              <tr>
-                <th class="sort">
-                  <span>리셀러 정보</span>
-                </th>
-                <th>정산정보</th>
-                <th class="sort">
-                  <span>판매점 총수</span>
-                </th>
-                <th class="sort">
-                  <span>총마진</span>
-                </th>
-                <th>관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt><a href="detail.html">하이젠버그 (walterwhite) <span class="label-new">NEW</span></a></dt>
-                    <dd>1599-5681</dd>
-                    <dd>2019.11.13</dd>
-                  </dl>
-                </td>
-                <td>
-                  <p class="txt-state fail">정산불가</p>
-                  <button class="btn btn-xs btn-line-b btn-xs-info">정산안내</button>
-                </td>
-                <td>34</td>
-                <td>15,240원</td>
-                <td class="td-btns">
-                  <button onclick="location.href='detail.html'" class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-point">리셀러 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button onclick="location.href='detail.html'">정보수정</button>
-                    <button onclick="location.href='detail.html'">메모</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="ta-left">
-                  <dl class="txt-info">
-                    <dt>프로리셀러 (pro_reseller1)</dt>
-                    <dd>010-1212-2121</dd>
-                    <dd>2019.11.02</dd>
-                  </dl>
-                </td>
-                <td>
-                  <p class="txt-state success">정산가능</p>
-                </td>
-                <td>57</td>
-                <td>105,230원</td>
-                <td class="td-btns">
-                  <button class="btn btn-xs btn-line-point"><i class="la la-cog"></i> 마진 설정</button>
-                  <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
-                  <button class="btn btn-xs btn-point">리셀러 로그인</button>
-                  <div class="btn btn-xs btn-line-b set-btn">
-                    <button>정보수정</button>
-                    <button>메모</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <div class="tbl-filter">
-          <div class="d-left">
-            <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
-              <el-option 
-                v-for="list in options"
-                :key="list.value"
-                :label="list.label"
-                :value="list.value">
-              </el-option>
-            </el-select>
-          </div>
-          <div class="d-right">
-            <div role="pagination" class="pager">
-              <div class="txt-pg">
-                <span class="current">1</span>
-                <span>3</span>
+              <div class="colored flexbox flex1">
+                <dl class="main-stat">
+                  <dt>총 마진</dt>
+                  <dd class="txt-count">
+                    <span id="marginAll">1,578,000</span><small>원</small>
+                  </dd>
+                </dl>
+                <dl class="main-stat">
+                  <dt>결제 마진</dt>
+                  <dd class="txt-count">
+                    <span id="marginSub1">1,270,000</span><small>원</small>
+                  </dd>
+                </dl>
+                <dl class="main-stat">
+                  <dt>API 마진</dt>
+                  <dd class="txt-count">
+                    <span id="marginSub2">308,000</span><small>원</small>
+                  </dd>
+                </dl>
               </div>
-              <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
-              <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
-              <label for="goto">이동</label>
-              <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
             </div>
           </div>
-        </div>
+        </section>
+        <section class="bx-basic">
+          <div class="board-list">
+            <table>
+              <colgroup>
+                <col width="50">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>회원 정보</th>
+                  <th>정산 정보</th>
+                  <th>판매점 수</th>
+                  <th>결제 마진</th>
+                  <th>API 마진</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="va-mid">6</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">인프제 (infjmbti)</dt>
+                      <dd class="txt-id">2020.07.21 등록</dd>
+                      <dd class="txt-id">010-4454-1121</dd>
+                      <dd class="txt-id">infjmbti@hanmail.net</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state fail">정산불가</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">15</td>
+                  <td class="va-mid">85,547원</td>
+                  <td class="va-mid">4,205원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">5</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">판매왕김씨 (sellerking_kim87)</dt>
+                      <dd class="txt-id">2020.07.19 등록</dd>
+                      <dd class="txt-id">010-2232-3311</dd>
+                      <dd class="txt-id">kkm3325@naver.com</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state success">정산가능</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">3</td>
+                  <td class="va-mid">1,240원</td>
+                  <td class="va-mid">0원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">4</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">마켓콜리 (marketkorly)</dt>
+                      <dd class="txt-id">2020.06.22 등록</dd>
+                      <dd class="txt-id">010-6644-4411</dd>
+                      <dd class="txt-id">k_o_r_ly@gmail.com</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state success">정산가능</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">11</td>
+                  <td class="va-mid">6,288원</td>
+                  <td class="va-mid">765원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">3</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">하이젠버그 (walterwhite)</dt>
+                      <dd class="txt-id">2020.06.08 등록</dd>
+                      <dd class="txt-id">010-1545-1211</dd>
+                      <dd class="txt-id">walterwhite@hanmail.net</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state fail">정산불가</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">61</td>
+                  <td class="va-mid">1,355,240원</td>
+                  <td class="va-mid">915,214원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">2</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">라이온즈 (lions2210)</dt>
+                      <dd class="txt-id">2020.05.25 등록</dd>
+                      <dd class="txt-id">010-9998-7778</dd>
+                      <dd class="txt-id">notforgetit@naver.com</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state success">정산가능</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">28</td>
+                  <td class="va-mid">155,240원</td>
+                  <td class="va-mid">85,214원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">1</td>
+                  <td class="ta-left va-mid">
+                    <dl>
+                      <dt class="fw-md">리셀러맨 (resellman88)</dt>
+                      <dd class="txt-id">2019.11.13 등록</dd>
+                      <dd class="txt-id">010-7877-2221</dd>
+                      <dd class="txt-id">resellman88@gmail.com</dd>
+                    </dl>
+                  </td>
+                  <td class="va-mid">
+                    <p class="txt-state success">정산가능</p>
+                    <button class="btn btn-xs btn-line-point">정산 관리</button>
+                  </td>
+                  <td class="va-mid">34</td>
+                  <td class="va-mid">101,240원</td>
+                  <td class="va-mid">41,214원</td>
+                  <td class="va-mid">
+                    <button class="btn btn-ico btn-line-point" title="정보 수정">
+                      <i class="las la-user-edit"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-yl" title="메모">
+                      <i class="las la-file-alt"></i>
+                    </button>
+                    <button class="btn btn-ico btn-line-b" title="설정">
+                      <i class="la la-cog"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-filter">
+            <div class="d-left">
+              <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                <el-option 
+                  v-for="list in options"
+                  :key="list.value"
+                  :label="list.label"
+                  :value="list.value">
+                </el-option>
+              </el-select>
+            </div>
+            <div class="d-right">
+              <div role="pagination" class="pager">
+                <div class="txt-pg">
+                  <span class="current">1</span>
+                  <span>3</span>
+                </div>
+                <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                <label for="goto">이동</label>
+                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+              </div>
+            </div>
+          </div>
+        </section>
       </div><!--//페이지내용-->
     </div>
     <!--//template-->

@@ -166,13 +166,13 @@
 
 /* 통계 위젯 */
 .wrap-widget {
-	margin:0 -7px 20px;
+	margin:0 -10px 20px;
 	@include media-mb {margin-bottom:10px}
-	div[class*="col-"] {
-		padding:0 7px;
+	[class^="col-"] {
+		padding:0 10px;
 		@include media-mb {margin-bottom:10px}
 	}
-	div[class*="widget-"] {
+	[class^="widget-"] {
 		position:relative; @include flexbox; @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
 		.colored {
 			position:relative;
@@ -206,8 +206,16 @@
 			dt {color:$dark-6}
 			dd {color:$rd-dk}
 		}
+		&.widget-sk {
+			.colored {
+				@include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
+				&:after {bottom:50%; transform:translateY(50%); width:100px; height:64px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
+				&, dd {color:$white}
+			}
+			dd {color:$point}
+		}
 		dl {
-			position:relative; @include flex(1); width:100%; padding:1.5rem 2rem;/* ie10 */
+			position:relative; @include flex(1); width:100%; padding:2.4rem 3rem;
 			&:not(.colored):not(:last-of-type):after {content:''; position:absolute; right:0; top:15%; width:1px; height:70%; background:$light-e}
 		}
 		dt {
@@ -293,11 +301,14 @@
 		}
 		.txt-gn {color:$positive-gn}
 		/* 상호명/ID */
-		p.fw-md {
+		p.fw-md, dt.fw-md {
 			font-size:1.6rem;
-			&:not(:only-child) {margin-bottom:5px}
+			&:not(:only-child) {margin-bottom:8px}
 		}
-		.txt-id {color:$dark-9}
+		.txt-id {
+			color:$dark-9;
+			&:not(:only-of-type) {margin-top:4px} //리셀러목록
+		}
 	}
 	.va-top {vertical-align:top}
 	.va-mid {vertical-align:middle}
@@ -683,13 +694,33 @@ body .td-blank {
 	}
 }
 /* 비밀번호 변경 -settingPassword */
-.vue-password .wrap-autoadd {
+.v-password .wrap-autoadd {
 	margin:40px auto;
 	.wrap-form {padding:5rem 0 6px}
 }
 
 /* 리셀러/판매점관리 리스트 -MemberList */
-.vue-rslist {
+.v-rslist {
+	//개인작업디자인--리셀러목록 위젯
+	.widget-sk dd {
+		display:inline-block;
+		&.txt-sub {
+			margin-left:8px; font-size:1.2rem;
+			.txt-count {font-size:2rem}
+			.txt-count:before {content:'+'; margin:0 2px}
+		}
+	}
+	.widget-rd dl:after {display:none}
+	//개인작업디자인--리셀러목록 게시판
+	.board-list tbody {
+		.txt-id {
+			display:inline-block;
+			&:not(:first-of-type) {margin-left:1rem}
+		}
+		.txt-state {margin-bottom:8px}
+		.btn-ico {margin:0 2px; padding:5px; font-size:1.8rem}
+	}
+
 	/* 게시판 */
 	.board-list .tbl-xs .btn-txt {
 		margin-left:3px; padding:2px 3px; font-size:1.6rem; color:$warn-yl; @include transition(all); border-radius:3px;
@@ -843,7 +874,7 @@ body .td-blank {
 
 /* 정산관리 공통 -AdjustSalesList, AdjustApiList */
 .v-aj-salelist {
-	.wrap-widget [class*="widget-"] {
+	.wrap-widget [class^="widget-"] {
 		.colored {
 			padding:2rem 3rem;
 			dt {@include fw-md; font-size:2rem}
@@ -853,8 +884,8 @@ body .td-blank {
 		.txt {font-size:1.8rem}
 	}  
 	.board-list {
-		th, td {vertical-align:middle}
-		.total td {padding:15px 10px; border-bottom:0}
+		th, td {padding-left:2rem; padding-right:2rem; vertical-align:middle}
+		.total td {border-bottom:0}
 	}
 	/* 데이터 없는 경우 */
 	.pg-blank {
@@ -866,7 +897,7 @@ body .td-blank {
 	}
 
 	/* 결제마진 정산 -AdjustSalesList */
-	.row.wrap-widget [class*="widget-"] {@include flex-direction(column)}
+	.row.wrap-widget .col-md-6 [class^="widget-"] {@include flex-direction(column)}
 	/* 목록 상단 제목 */
 	.tbl-filter.transparent {
 		.d-left {
@@ -881,7 +912,7 @@ body .td-blank {
 }
 
 /* 설정 -settingMypage */
-.vue-setting {
+.v-setting {
 	/* 계정정보 */
 	.wrap-form.horizon dt {min-width:112px}
 }
