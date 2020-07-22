@@ -702,6 +702,7 @@ body .td-blank {
 /* 리셀러/판매점관리 리스트 -MemberList */
 .v-rslist {
 	//개인작업디자인--리셀러목록 위젯
+	.wrap-widget {margin-top:54px}
 	.widget-sk dd {
 		display:inline-block;
 		&.txt-sub {
@@ -739,11 +740,12 @@ body .td-blank {
 
 //개인작업디자인--상단바
 .topbar {
-	@include flexbox; margin:-29px -30px 30px; padding:10px 30px; background:$white; @include bxshadow;
+	@include flexbox; position:fixed; top:61px; left:250px; right:0; padding:10px 30px; background:$white; @include bxshadow; z-index:99; @include transition(left);
 	@include media-mb {
-		@include flex-direction(column); margin-top:-15px;
+		@include flex-direction(column);
 		& > *:not(:first-child) {margin-top:10px}
 	}
+	&.wide {left:0}
 	.d-left, .d-right {
 		@include flexbox;
 		& > *:not(:first-child) {margin-left:10px}

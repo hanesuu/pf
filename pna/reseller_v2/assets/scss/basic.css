@@ -2993,6 +2993,9 @@ body .td-blank p {
 .v-rslist {
   /* 게시판 */
 }
+.v-rslist .wrap-widget {
+  margin-top: 54px;
+}
 .v-rslist .widget-sk dd {
   display: inline-block;
 }
@@ -3080,10 +3083,22 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  margin: -29px -30px 30px;
+  position: fixed;
+  top: 61px;
+  left: 250px;
+  right: 0;
   padding: 10px 30px;
   background: #fff;
   box-shadow: 0 4px 20px 0 rgba(54, 56, 77, 0.2);
+  z-index: 99;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transition-property: left;
+  transition-property: left;
 }
 @media only screen and (max-width: 768px) {
   .topbar {
@@ -3091,11 +3106,13 @@ body .td-blank p {
     -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin-top: -15px;
   }
   .topbar > *:not(:first-child) {
     margin-top: 10px;
   }
+}
+.topbar.wide {
+  left: 0;
 }
 .topbar .d-left, .topbar .d-right {
   display: -webkit-box;
@@ -5214,7 +5231,6 @@ button.btn-txt {
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   height: 60px;
   background: #fff;
-  box-shadow: 0 4px 20px 0 rgba(54, 56, 77, 0.2);
 }
 .header .top .area-logo {
   display: -webkit-box;
