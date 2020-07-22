@@ -1454,8 +1454,9 @@ table th[class*=col-] {
 .wrap-widget [class^=widget-] .colored:after {
   content: "";
   position: absolute;
-  right: 20px;
-  bottom: 0;
+  top: 0;
+  right: 2rem;
+  transform: translateY(-50%);
   opacity: 0.3;
 }
 .wrap-widget [class^=widget-].widget-rd .colored {
@@ -1464,8 +1465,8 @@ table th[class*=col-] {
   background: linear-gradient(to right, #FF808F, #FFA17F);
 }
 .wrap-widget [class^=widget-].widget-rd .colored:after {
-  width: 83px;
-  height: 60px;
+  width: 66px;
+  height: 64px;
   background: url("../img/img_bg_pay.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget [class^=widget-].widget-rd .colored, .wrap-widget [class^=widget-].widget-rd .colored dd {
@@ -1480,9 +1481,9 @@ table th[class*=col-] {
   background: linear-gradient(to right, #ff8722, #ffaf0e);
 }
 .wrap-widget [class^=widget-].widget-yl .colored:after {
-  width: 83px;
-  height: 60px;
-  background: url("../img/img_bg_pay.svg") no-repeat 50% 50%/100%;
+  width: 78px;
+  height: 67px;
+  background: url("../img/img_bg_linked.svg") no-repeat 50% 50%/100%;
 }
 .wrap-widget [class^=widget-].widget-yl .colored, .wrap-widget [class^=widget-].widget-yl .colored dd {
   color: #fff;
@@ -1518,8 +1519,6 @@ table th[class*=col-] {
   background: linear-gradient(to right, #799aff, #08bbd7);
 }
 .wrap-widget [class^=widget-].widget-sk .colored:after {
-  bottom: 50%;
-  transform: translateY(50%);
   width: 100px;
   height: 64px;
   background: url("../img/img_bg_seller.svg") no-repeat 50% 50%/100%;
@@ -3572,8 +3571,8 @@ body .td-blank p {
   font-size: 1.2rem;
 }
 .v-aj-salelist .wrap-widget [class^=widget-].widget-pt .colored:after {
-  width: 64px;
-  height: 56px;
+  width: 53px;
+  height: 61px;
   background: url("../img/img_bg_cash.svg") no-repeat 50% 50%/100%;
 }
 .v-aj-salelist .wrap-widget [class^=widget-] .txt {

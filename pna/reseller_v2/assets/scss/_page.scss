@@ -176,12 +176,12 @@
 		position:relative; @include flexbox; @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
 		.colored {
 			position:relative;
-			&:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
+			&:after {content:''; @include absolute(null,0,2rem,null); transform:translateY(-50%); opacity:.3}
 		}
 		&.widget-rd {
 			.colored {
 				@include bg-gradient($rd-dk,$rd-lt,'horizontal');
-				&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+				&:after {width:66px; height:64px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
 				&, dd {color:$white}
 			}
 			dd {color:$rd-dk}
@@ -189,7 +189,7 @@
 		&.widget-yl {
 			.colored {
 				@include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
-				&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+				&:after {width:78px; height:67px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 				&, dd {color:$white}
 			}
 			dd {color:$warn-yl-dk}
@@ -209,7 +209,7 @@
 		&.widget-sk {
 			.colored {
 				@include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
-				&:after {bottom:50%; transform:translateY(50%); width:100px; height:64px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
+				&:after {width:100px; height:64px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
 				&, dd {color:$white}
 			}
 			dd {color:$point}
@@ -940,7 +940,7 @@ body .td-blank {
 			dt {@include fw-md; font-size:2rem}
 			dd {font-size:1.2rem}
 		}
-		&.widget-pt .colored:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
+		&.widget-pt .colored:after {width:53px; height:61px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
 		.txt {font-size:1.8rem}
 	}  
 	.board-list {
