@@ -27,6 +27,47 @@
     <div class="wrap-content">
       <!--페이지내용 // 개인작업 새 디자인 적용-->
       <div class="contents v-rslist">
+        <!--검색바-->
+        <section class="topbar">
+          <div class="d-left">
+            <el-radio-group v-model="layoutType" class="mb-none">
+              <el-radio-button label="table" class="btn-line-b"><i class="las la-list"></i></el-radio-button>
+              <el-radio-button label="box" class="btn-line-b"><i class="las la-th-large"></i></el-radio-button>
+            </el-radio-group>
+            <div class="wrap-datepick">
+              <button class="btn btn-sm btn-line-b btn-date">
+                <i class="las la-calendar"></i><span class="txt">기간 검색</span>
+                <span class="ico-lines"></span>
+              </button>
+              <div class="layer">
+                <el-radio-group v-model="btnType">
+                  <el-radio-button label="week">1주</el-radio-button>
+                  <el-radio-button label="month1">1개월</el-radio-button>
+                  <el-radio-button label="month6">6개월</el-radio-button>
+                  <el-radio-button label="year">1년</el-radio-button>
+                </el-radio-group>
+                <el-date-picker
+                  v-model="datepicker"
+                  type="daterange"
+                  align="right"
+                  start-placeholder="시작일 선택"
+                  end-placeholder="종료일 선택"
+                  default-value="2020-07-22">
+                </el-date-picker>
+              </div>
+            </div>
+            <div class="wrap-search">
+              <input type="search" class="inp-txt inp-search" placeholder="검색어를 입력해 주세요.">
+              <button type="submit" title="검색" class="btn-search"><i class="las la-search"></i></button>
+            </div>
+          </div>
+          <div class="d-right">
+            <button class="btn btn-sm btn-point">
+              <i class="las la-user-plus"></i>리셀러 등록
+            </button>
+          </div>
+        </section>
+
         <!--통계 위젯-->
         <section class="row wrap-widget">
           <div class="col-xs-12 col-sm-4">
@@ -304,15 +345,19 @@
 <script src="/ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
 <script src="/ud/common/js/element/index.js"></script>
+<script src="/ud/common/js/element/ko.js"></script>
 <script>
+ELEMENT.locale(ELEMENT.lang.ko)
   new Vue({
     el: '#app',
     data: function() {
       return {
+        /* 레이아웃 선택 */
+        layoutType: 'table',
+
         /* 날짜 선택 */
-        searchDetail: '1',
-        searchDate: 'month',
         datepicker: '',
+        btnType: 'week',
         
         /**
          * 리스트 개수 select
@@ -359,17 +404,30 @@
   [5] 옵션
   */
 
-  let rsAll = new CountUp("rsAll", 0, 64, 0, 1.5, options);
+  let rsAll = new CountUp("rsAll", 0, 286, 0, 1.5, options);
   rsAll.start();
-  let rsStore = new CountUp("rsStore", 0, 553, 0, 1.5, options);
-  rsStore.start();
+  let rsAllSub = new CountUp("rsAllSub", 0, 864, 0, 1.5, options);
+  rsAllSub.start();
 
-  let marginAll = new CountUp("marginAll", 0, 5128157, 0, 1.5, options);
+  let marginAll = new CountUp("marginAll", 0, 1578000, 0, 1.5, options);
   marginAll.start();
-  let marginSub1 = new CountUp("marginSub1", 0, 4386102, 0, 1.5, options);
+  let marginSub1 = new CountUp("marginSub1", 0, 1270000, 0, 1.5, options);
   marginSub1.start();
-  let marginSub2 = new CountUp("marginSub2", 0, 742055, 0, 1.5, options);
+  let marginSub2 = new CountUp("marginSub2", 0, 308000, 0, 1.5, options);
   marginSub2.start();
 
+
+  //기간검색
+  $(".wrap-datepick").children(".layer").hide();
+  $(".wrap-datepick").mouseenter(function(){
+    $(this).children(".btn-date").addClass("active");
+    $(this).children(".layer").fadeIn(200);
+  });
+  $(".wrap-datepick").children(".btn-date").click(function(){
+    if($(this).hasClass("active")){
+      $(".btn-date").removeClass("active");
+      $(".layer").fadeOut(200);
+    }
+  });
 </script>
 </html>

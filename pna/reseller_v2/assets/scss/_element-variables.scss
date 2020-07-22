@@ -55,13 +55,21 @@ body .el-radio-group {
   
   .el-radio-button {
     @include media-mb {@include flex(1)}
-    &:first-child .el-radio-button__inner {border-radius:3px 0 0 3px}
-    &:last-child .el-radio-button__inner {border-radius:0 3px 3px 0}
     &__inner {
       height:34px; line-height:34px; padding:0 10px; font-size:1.2rem; @include fw-rg; @include bg-gradient($white,$light-f,'vertical'); overflow:hidden;
       @include media-mb {width:100%}
     }
     &__orig-radio:checked + span {@include fw-md; color:$white; background:$point}
+
+    //그레이 버튼
+    &.btn-line-b {
+      .el-radio-button__inner {
+        border-color:$light-b;
+        &:hover, &:focus {color:$dark-6}
+      }
+      .el-radio-button__orig-radio:checked + span {@include bg-gradient($light-b,$light-d,'vertical')}
+      .el-radio-button__orig-radio:checked+.el-radio-button__inner {box-shadow:-1px 0 0 $light-b}
+    }
   }
 }
 
