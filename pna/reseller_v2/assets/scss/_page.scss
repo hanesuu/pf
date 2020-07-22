@@ -176,7 +176,7 @@
 		position:relative; @include flexbox; @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
 		.colored {
 			position:relative;
-			&:after {content:''; @include absolute(null,0,2rem,null); transform:translateY(-50%); opacity:.3}
+			&:after {content:''; @include absolute(null,50%,2rem,null); transform:translateY(-50%); opacity:.3}
 		}
 		&.widget-rd {
 			.colored {

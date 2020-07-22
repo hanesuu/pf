@@ -1454,7 +1454,7 @@ table th[class*=col-] {
 .wrap-widget [class^=widget-] .colored:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 2rem;
   transform: translateY(-50%);
   opacity: 0.3;
