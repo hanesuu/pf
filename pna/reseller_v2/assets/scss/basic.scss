@@ -51,7 +51,10 @@ textarea.inp-txt, .inp-txt {
 }
 input[disabled=disabled] {background-color:rgba($light-d,.7); color:$dark-9}
 /* 금액 input */
-input[type=number], .num-txt {text-align:right; @include fw-bd}
+input[type=number], .num-txt {
+	text-align:right; @include fw-bd;
+	@include media-mb {min-width:60px}
+}
 .inp-price {
 	@include flexbox; position:relative;
 	.num-txt {width:100%; padding-right:25px}
@@ -211,6 +214,7 @@ button:focus, button:active {outline:0}
 	}
 	&-block {display:block; margin-left:auto; margin-right:auto}
 	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem}
+	&-lg {padding:1.2rem 2.2rem; font-size:1.6rem}
 }
 button[disabled=disabled], .btn-disable {
 	opacity:.8; color:$light-d; @include fw-rg; cursor:default; background-color:$white; border-color:transparent;

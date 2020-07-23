@@ -754,7 +754,7 @@ body .td-blank {
 
 //개인작업디자인--상단바
 .topbar {
-	@include flexbox; position:fixed; top:61px; left:250px; right:0; padding:10px 30px; background:$white; @include bxshadow; z-index:98; @include transition(left,top);
+	@include flexbox; position:fixed; top:60px; left:250px; right:0; padding:10px 30px; background:$white; @include bxshadow; z-index:98; @include transition(left,top); border-top:1px solid $light-e;
 	@include media-mb {
 		@include flex-direction(column); padding:10px 15px;
 		&.hide {top:-96px; transition-delay:.2s; transition-duration:.6s}
@@ -810,7 +810,7 @@ body .td-blank {
 			* {display:inline-block; vertical-align:middle}
 			.num {
 				margin-right:5px; padding:4px 9px; font-style:normal; background:$light-e; border-radius:5px;
-				@include media-mb {margin:0 0 4px}
+				@include media-mb {display:table; margin:0 auto 4px}
 			}
 			&.active {
 				background:$white; color:$dark-3; border-color:$light-d; border-bottom-color:$white; border-top-left-radius:10px; border-top-right-radius:10px; 
@@ -880,7 +880,10 @@ body .td-blank {
 	}
 
 	/* 결제설정 - 결제마진 */
-	.tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
+	.tab-pay-margin {
+		.tbl-xs thead th {letter-spacing:-0.1rem}
+		@include media-mb {overflow-x:scroll}
+	}
 
 	/* 결제설정 - 결제한도 */
 	.tab-pay-limit {

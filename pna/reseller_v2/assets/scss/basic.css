@@ -3265,7 +3265,7 @@ body .td-blank p {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   position: fixed;
-  top: 61px;
+  top: 60px;
   left: 250px;
   right: 0;
   padding: 10px 30px;
@@ -3280,6 +3280,7 @@ body .td-blank p {
   transition-delay: 0s;
   -webkit-transition-property: left, top;
   transition-property: left, top;
+  border-top: 1px solid #ededf2;
 }
 @media only screen and (max-width: 768px) {
   .topbar {
@@ -3456,7 +3457,8 @@ body .td-blank p {
 }
 @media only screen and (max-width: 768px) {
   .v-rsadd .step ul li .num {
-    margin: 0 0 4px;
+    display: table;
+    margin: 0 auto 4px;
   }
 }
 .v-rsadd .step ul li.active {
@@ -3636,6 +3638,11 @@ body .td-blank p {
 }
 .bx-con .tab-pay-margin .tbl-xs thead th {
   letter-spacing: -0.1rem;
+}
+@media only screen and (max-width: 768px) {
+  .bx-con .tab-pay-margin {
+    overflow-x: scroll;
+  }
 }
 .bx-con .tab-pay-limit .wrap-form .dl-limit {
   max-width: 220px;
@@ -5057,6 +5064,11 @@ input[type=number], .num-txt {
   text-align: right;
   font-weight: 700;
 }
+@media only screen and (max-width: 768px) {
+  input[type=number], .num-txt {
+    min-width: 60px;
+  }
+}
 
 .inp-price {
   display: -webkit-box;
@@ -5560,6 +5572,10 @@ button:focus, button:active {
   padding: 0 10px;
   font-weight: 400;
   font-size: 1.3rem;
+}
+.btn-lg {
+  padding: 1.2rem 2.2rem;
+  font-size: 1.6rem;
 }
 
 button[disabled=disabled], .btn-disable {
