@@ -316,6 +316,7 @@ button.btn-txt {border:0; background:transparent}
 	@include flexbox; margin-left:250px; padding:16px 30px; @include transition(margin-left);
 	&.wide {margin-left:0}
 	@include media-mb {@include flex-direction(column); margin-left:0; padding:15px}
+	a {color:inherit}
 	.foot-info {
 		h1 {
 			display:inline-block; margin:0 .5rem 0 0; font-size:1.1rem; @include fw-bd; color:$dark-3;

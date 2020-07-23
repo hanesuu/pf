@@ -6,6 +6,8 @@ $(document).ready(function(){
 		$(this).parents("#app").find(".footer").toggleClass("wide");
 		$(this).parents("#app").find(".topbar").toggleClass("wide");
 	});	
+
+	//반응형
 	if ($("body").width() < 768 ){
 		$(".header").children("nav").addClass("hide");
 		$("#app").find(".wrap-content").addClass("wide");

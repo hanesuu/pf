@@ -754,9 +754,10 @@ body .td-blank {
 
 //개인작업디자인--상단바
 .topbar {
-	@include flexbox; position:fixed; top:61px; left:250px; right:0; padding:10px 30px; background:$white; @include bxshadow; z-index:98; @include transition(left);
+	@include flexbox; position:fixed; top:61px; left:250px; right:0; padding:10px 30px; background:$white; @include bxshadow; z-index:98; @include transition(left,top);
 	@include media-mb {
 		@include flex-direction(column); padding:10px 15px;
+		&.hide {top:-96px; transition-delay:.2s; transition-duration:.6s}
 		& > *:not(:first-child) {margin-top:10px}
 	}
 	&.wide {left:0}
