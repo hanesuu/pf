@@ -1576,8 +1576,8 @@ table th[class*=col-] {
 }
 .wrap-widget div[class*=widget-].widget-sk {
   background: #799aff;
-  background: -webkit-linear-gradient(top, #799aff, #08bbd7);
-  background: linear-gradient(to bottom, #799aff, #08bbd7);
+  background: -webkit-linear-gradient(left, #799aff, #08bbd7);
+  background: linear-gradient(to right, #799aff, #08bbd7);
 }
 .wrap-widget div[class*=widget-].widget-sk:after {
   width: 100px;
@@ -1586,8 +1586,8 @@ table th[class*=col-] {
 }
 .wrap-widget div[class*=widget-].widget-rd {
   background: #FF808F;
-  background: -webkit-linear-gradient(top, #FF808F, #FFA17F);
-  background: linear-gradient(to bottom, #FF808F, #FFA17F);
+  background: -webkit-linear-gradient(left, #FF808F, #FFA17F);
+  background: linear-gradient(to right, #FF808F, #FFA17F);
 }
 .wrap-widget div[class*=widget-].widget-rd:after {
   width: 83px;
@@ -1596,8 +1596,8 @@ table th[class*=col-] {
 }
 .wrap-widget div[class*=widget-].widget-yl {
   background: #ff8722;
-  background: -webkit-linear-gradient(top, #ff8722, #ffaf0e);
-  background: linear-gradient(to bottom, #ff8722, #ffaf0e);
+  background: -webkit-linear-gradient(left, #ff8722, #ffaf0e);
+  background: linear-gradient(to right, #ff8722, #ffaf0e);
 }
 .wrap-widget div[class*=widget-].widget-yl:after {
   width: 64px;
@@ -1606,8 +1606,8 @@ table th[class*=col-] {
 }
 .wrap-widget div[class*=widget-].widget-pt {
   background: #6F74F4;
-  background: -webkit-linear-gradient(top, #6F74F4, #b993fb);
-  background: linear-gradient(to bottom, #6F74F4, #b993fb);
+  background: -webkit-linear-gradient(left, #6F74F4, #b993fb);
+  background: linear-gradient(to right, #6F74F4, #b993fb);
 }
 .wrap-widget div[class*=widget-].widget-pt:after {
   width: 90px;
@@ -1664,7 +1664,7 @@ table th[class*=col-] {
 .wrap-widget div[class*=widget-].horizon:after {
   bottom: auto;
   right: auto;
-  top: 42px;
+  top: 45px;
   height: 4.4rem;
 }
 @media only screen and (max-width: 768px) {

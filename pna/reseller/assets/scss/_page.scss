@@ -198,19 +198,19 @@
 		position:relative; @include flexbox; padding:10px; @include bxshadow; border-radius:10px; color:$white;
 		&:after {content:''; @include absolute(null,null,20px,0); opacity:.3}
 		&.widget-sk {
-			@include bg-gradient($sub-sk-dk,$sub-sk,'vertical');
+			@include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
 			&:after {width:100px; height:60px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-rd {
-			@include bg-gradient($rd-dk,$rd-lt,'vertical');
+			@include bg-gradient($rd-dk,$rd-lt,'horizontal');
 			&:after {width:83px; height:60px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-yl {
-			@include bg-gradient($warn-yl-dk,$warn-yl,'vertical');
+			@include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
 			&:after {width:64px; height:56px; background:url('../img/img_bg_cash.svg') no-repeat 50% 50% / 100%}
 		}
 		&.widget-pt {
-			@include bg-gradient($point,$point-lt,'vertical');
+			@include bg-gradient($point,$point-lt,'horizontal');
 			&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
 		}
 		dl {@include flex(1); width:100%; padding:4px 10px}/* ie10 */
