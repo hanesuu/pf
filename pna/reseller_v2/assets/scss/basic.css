@@ -3331,7 +3331,7 @@ body .td-blank p {
 .topbar .wrap-datepick .layer {
   position: absolute;
   top: 34px;
-  left: -20%;
+  left: 0;
   width: 330px;
   padding: 20px 15px;
   background: #fff;
