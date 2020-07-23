@@ -10,6 +10,7 @@ body .el-select {
   .el-input {
     .el-select__caret {color:$dark-9}
     &__icon {line-height:30px}
+    &__inner {background:$white}
   }
 }
 body .el-select-dropdown__item {font-size:1.3rem}

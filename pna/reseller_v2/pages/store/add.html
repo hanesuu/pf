@@ -101,7 +101,7 @@
                       <el-radio v-model="business" label="individual">개인</el-radio>
                     </dd>
                   </dl>
-                  <dl>
+                  <dl v-if="business == 'corporate'">
                     <dt class="must">
                       <label>상호명 (법인명)</label>
                     </dt>
@@ -109,7 +109,7 @@
                       <input type="text" class="inp-txt" placeholder="상호명 (법인명)을 입력해 주세요.">
                     </dd>
                   </dl>
-                  <dl>
+                  <dl v-if="business == 'corporate'">
                     <dt class="must">
                       <label>사업자 번호</label>
                     </dt>
@@ -131,12 +131,20 @@
                       </el-select>
                     </dd>
                   </dl>
-                  <dl>
+                  <dl v-if="business == 'corporate'">
                     <dt class="must">
-                      <label>대표자 명</label>
+                      <label>대표자명</label>
                     </dt>
                     <dd>
                       <input type="text" class="inp-txt" placeholder="대표자 명을 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl v-if="business == 'individual'">
+                    <dt class="must">
+                      <label>이름</label>
+                    </dt>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="이름을 입력해 주세요.">
                     </dd>
                   </dl>
                   <dl>
@@ -159,11 +167,11 @@
                       <input type="text" class="inp-txt" placeholder="상세주소를 입력해 주세요.">
                     </dd>
                   </dl>
-                </div>                
+                </div>
               </div>
               <div class="bottom-btn">
-                <button class="btn">취소</button>
-                <button class="btn btn-primary">저장</button>
+                <a href="javascript:history.back()" class="btn">취소</a>
+                <a href="./index.html" class="btn btn-primary" @click="confirm">저장</a>
               </div>
             </form>
           </el-tab-pane>
@@ -227,6 +235,13 @@
       }
     },
     methods: {
+      /* 완료메시지 */
+      confirm() {
+        this.$message({
+          message: '등록 완료되었습니다.',
+          type: 'success'
+        });
+      },
     }
   })
 </script>

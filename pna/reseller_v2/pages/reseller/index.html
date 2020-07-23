@@ -35,7 +35,7 @@
               <el-radio-button label="box" class="btn-line-b"><i class="las la-th-large"></i></el-radio-button>
             </el-radio-group>
             <div class="wrap-datepick">
-              <button class="btn btn-sm btn-line-b btn-date">
+              <button class="btn btn-sm btn-line-b btn-date clickme">
                 <i class="las la-calendar"></i><span class="txt">기간 검색</span>
                 <span class="ico-lines"></span>
               </button>
@@ -62,9 +62,9 @@
             </div>
           </div>
           <div class="d-right">
-            <button class="btn btn-sm btn-point">
+            <a href="./add.html" class="btn btn-sm btn-point">
               <i class="las la-user-plus"></i>리셀러 등록
-            </button>
+            </a>
           </div>
         </section>
 
@@ -419,15 +419,9 @@ ELEMENT.locale(ELEMENT.lang.ko)
 
   //기간검색
   $(".wrap-datepick").children(".layer").hide();
-  $(".wrap-datepick").mouseenter(function(){
-    $(this).children(".btn-date").addClass("active");
-    $(this).children(".layer").fadeIn(200);
-  });
   $(".wrap-datepick").children(".btn-date").click(function(){
-    if($(this).hasClass("active")){
-      $(".btn-date").removeClass("active");
-      $(".layer").fadeOut(200);
-    }
+    $(this).toggleClass("active");
+    $(this).next(".layer").fadeToggle(200);
   });
 </script>
 </html>

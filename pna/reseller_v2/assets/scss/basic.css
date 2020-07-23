@@ -1372,6 +1372,7 @@ table th[class*=col-] {
   -ms-flex: 1;
   flex: 1;
   min-width: 180px;
+  min-height: 3.4rem;
   padding-right: 34px;
 }
 .wrap-search .btn-search {
@@ -1790,6 +1791,7 @@ table th[class*=col-] {
   max-width: 130px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 28px;
 }
 .board-list tbody td.td-btns .btn:not(:first-child) {
   margin-top: 5px;
@@ -1969,6 +1971,11 @@ body .td-blank p {
   /* 총 카운트 텍스트 */
   /* 페이징 */
 }
+@media only screen and (max-width: 768px) {
+  .tbl-filter {
+    padding: 10px;
+  }
+}
 .tbl-filter.transparent {
   height: auto;
   min-height: 28px;
@@ -1981,11 +1988,11 @@ body .td-blank p {
 .tbl-filter.transparent .btn:not(:first-child) {
   margin-left: 5px;
 }
+.tbl-filter .el-select .el-input__inner {
+  min-height: 3.4rem;
+}
 @media only screen and (max-width: 768px) {
-  .tbl-filter {
-    padding: 10px;
-  }
-  .tbl-filter .el-select .el-input {
+  .tbl-filter .el-select .el-input__inner {
     width: 30vw;
   }
 }
@@ -2041,6 +2048,7 @@ body .td-blank p {
 }
 .tbl-filter .pager .inp-txt {
   width: 40px;
+  min-height: 3.4rem;
 }
 
 /* 입력폼 박스, 리스트 오른쪽 상세 영역 공통 */
@@ -2315,7 +2323,7 @@ body .td-blank p {
 .no-inp {
   padding: 0 10px;
   background: #F9F9FC;
-  line-height: 34px;
+  line-height: 4rem;
   color: #6E6E7A;
   border-radius: 3px;
 }
@@ -2491,24 +2499,169 @@ body .td-blank p {
   }
 }
 
-/* 웰컴 컨텐츠 */
-.wrap-intro h2 {
-  margin: 0;
-  padding: 20px;
-  font-size: 1.8rem;
-  color: #36384D;
-}
-.wrap-intro .tit {
+/* 클릭 유도 애니메이션 */
+.clickme {
   position: relative;
-  background: url("../img/bg_shape1@2x.png") no-repeat 0 0/310px;
-  background-position: right 10px top;
 }
-@media only screen and (max-width: 1200px) {
-  .wrap-intro .tit {
-    background-position: right top;
-  }
+.clickme:after {
+  content: "";
+  position: absolute;
+  background: rgba(111, 116, 244, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff;
+  z-index: 100;
+  -webkit-animation: clickme 2s infinite;
+  -moz-animation: clickme 2s infinite;
+  -ms-animation: clickme 2s infinite;
+  -o-animation: clickme 2s infinite;
+  animation: clickme 2s infinite;
 }
 
+@-webkit-keyframes clickme {
+  0% {
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+@-moz-keyframes clickme {
+  0% {
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+@-ms-keyframes clickme {
+  0% {
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+@-o-keyframes clickme {
+  0% {
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+@keyframes clickme {
+  0% {
+    bottom: 10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
 /* 홈 -main */
 .v-main section.f-row {
   display: -webkit-box;
@@ -2748,9 +2901,6 @@ body .td-blank p {
     margin-left: auto;
     font-size: 3.2rem;
   }
-}
-.v-main .wrap-widget .widget-count .btn {
-  height: 40px;
 }
 @media only screen and (max-width: 1200px) {
   .v-main .wrap-widget .widget-count .btn {
@@ -3046,7 +3196,7 @@ body .td-blank p {
     display: none;
   }
 }
-.v-rslist .board-list tbody .txt-state {
+.v-rslist .board-list tbody p.txt-state {
   margin-bottom: 8px;
 }
 .v-rslist .board-list tbody .btn-ico {
@@ -3419,11 +3569,21 @@ body .td-blank p {
   letter-spacing: -0.1rem;
 }
 .bx-con .tab-pay-limit .wrap-form .dl-limit {
-  width: auto;
+  max-width: 220px;
   margin: 0 auto;
 }
 .bx-con .tab-pay-limit .wrap-form .dl-limit dt {
-  width: auto;
+  -webkit-flex-basis: 5.4rem;
+  -moz-flex-basis: 5.4rem;
+  -ms-flex-basis: 5.4rem;
+  flex-basis: 5.4rem;
+}
+.bx-con .tab-pay-limit .wrap-form .dl-limit dd {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 .bx-con .tab-pay-limit .list-type {
   display: table;
@@ -3432,6 +3592,9 @@ body .td-blank p {
 .bx-con .tab-pay-limit .list-type li {
   margin-bottom: 2px;
   font-size: 1.3rem;
+}
+.bx-con .tab-pay-limit .inp-txt {
+  background: #fff;
 }
 .bx-con .tab-pay-limit .txt-s {
   text-align: center;
@@ -3668,6 +3831,13 @@ body .td-blank p {
 .v-rsdetail .bx-right.on {
   display: block;
 }
+.v-rsdetail .bx-right .wrap-form.horizon dd.inline {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 @media only screen and (max-width: 1200px) {
   .v-rsdetail .bx-right {
     float: none;
@@ -3678,8 +3848,8 @@ body .td-blank p {
 .v-rsdetail .bx-nextadjust .txt-sm {
   text-align: center;
 }
-.v-rsdetail .bx-nextadjust .wrap-form.horizon dt {
-  width: 20%;
+.v-rsdetail .bx-nextadjust .wrap-form.horizon {
+  max-width: 300px;
 }
 
 /* 유료API관리 */
@@ -3993,6 +4163,9 @@ body .el-select .el-input .el-select__caret {
 }
 body .el-select .el-input__icon {
   line-height: 30px;
+}
+body .el-select .el-input__inner {
+  background: #fff;
 }
 
 body .el-select-dropdown__item {
@@ -4705,7 +4878,6 @@ body {
 a, a:hover, a:active, a:visited {
   text-decoration: none;
   cursor: pointer;
-  color: inherit;
 }
 
 ul, li {
@@ -4770,7 +4942,7 @@ textarea.inp-txt, .inp-txt {
   line-height: 1;
   border: 1px solid #DCDEE4;
   border-radius: 3px;
-  background: #F9F9FC;
+  background: #fff;
   vertical-align: top;
   outline: 0;
   -webkit-transition-duration: 0.2s;
@@ -4827,7 +4999,7 @@ input[type=number], .num-txt {
   position: absolute;
   top: 0;
   right: 10px;
-  line-height: 34px;
+  line-height: 4rem;
   color: #6E6E7A;
 }
 

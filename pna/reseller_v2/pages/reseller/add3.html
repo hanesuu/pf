@@ -53,7 +53,7 @@
               <dd>
                 <el-radio-group v-model="businessType">
                   <el-radio label="corporate">사업자</el-radio>
-                  <el-radio label="individual">개인</el-radio>
+                  <el-radio label="individual" class="clickme">개인</el-radio>
                 </el-radio-group>
               </dd>
             </dl>
@@ -146,8 +146,8 @@
               </dd>
             </dl>
             <div class="bottom-btn">
-              <button class="btn" onclick="history.back();">이전</button>
-              <button class="btn btn-primary" @click="confirm">완료</button>
+              <a href="javascript:history.back()" class="btn">이전</button>
+              <a class="btn btn-primary clickme" @click="confirm">완료</a>
             </div>
           </form>
         </div>
