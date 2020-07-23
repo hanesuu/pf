@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj2-1"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-rsadd">
+        <!--순서-->
+        <section class="step">
+          <ul>
+            <li>
+              <i class="num">1</i>
+              <span class="txt">등록 방법 선택</span>
+            </li>
+            <li>
+              <i class="num">2</i>
+              <span class="txt">기본 정보 입력</span>
+            </li>
+            <li class="active">
+              <i class="num">3</i>
+              <span class="txt">사업자 정보 입력</span>
+            </li>
+          </ul>
+        </section>
+        <!--내용-->
+        <div class="content-add step3">
+          <form class="wrap-form horizon">
+            <dl>
+              <dt>
+                <label>사업자 여부</label>
+              </dt>
+              <dd>
+                <el-radio-group v-model="businessType">
+                  <el-radio label="corporate">사업자</el-radio>
+                  <el-radio label="individual">개인</el-radio>
+                </el-radio-group>
+              </dd>
+            </dl>
+            <dl v-if="businessType == 'corporate'">
+              <dt>
+                <label for="compName">상호명 (법인명)</label>
+              </dt>
+              <dd>
+                <input type="text" id="compName" class="inp-txt" placeholder="유디아이디">
+              </dd>
+            </dl>
+            <dl v-if="businessType == 'corporate'">
+              <dt>
+                <label for="compNum">사업자 번호</label>
+              </dt>
+              <dd>
+                <input type="tel" id="compNum" class="inp-txt" placeholder="-없이 숫자만 입력해 주세요.">
+              </dd>
+            </dl>
+            <dl v-if="businessType == 'corporate'">
+              <dt>
+                <label for="ceoName">대표자명</label>
+              </dt>
+              <dd>
+                <input type="text" id="ceoName" class="inp-txt" placeholder="홍길동">
+              </dd>
+            </dl>
+            <dl v-if="businessType == 'individual'">
+              <dt>
+                <label for="userName">이름</label>
+              </dt>
+              <dd>
+                <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label>서비스 구분</label>
+              </dt>
+              <dd>
+                <el-select v-model="serviceType" placeholder="서비스 구분">
+                  <el-option 
+                    v-for="type in types"
+                    :label="type.label"
+                    :value="type.value">
+                  </el-option>
+                </el-select>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="addr">주소</label>
+              </dt>
+              <dd>
+                <div class="f-row">
+                  <input type="text" name="addr" class="inp-txt flex1" placeholder="주소를 검색해 주세요.">
+                  <button class="btn btn-line-b">주소검색</button>
+                </div>
+                <input type="text" name="addr" class="inp-txt" placeholder="상세주소를 입력해 주세요.">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label>정산 계좌 은행</label>
+              </dt>
+              <dd>
+                <el-select v-model="bank" placeholder="은행 선택">
+                  <el-option 
+                    v-for="type in bankList"
+                    :label="type.label"
+                    :value="type.value">
+                  </el-option>
+                </el-select>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="bankNum">계좌번호</label>
+              </dt>
+              <dd>
+                <input type="tel" id="bankNum" class="inp-txt" placeholder="-없이 숫자만 입력해 주세요.">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="bankName">예금주</label>
+              </dt>
+              <dd>
+                <input type="text" id="bankName" class="inp-txt" placeholder="홍길동">
+              </dd>
+            </dl>
+            <div class="bottom-btn">
+              <button class="btn" onclick="history.back();">이전</button>
+              <button class="btn btn-primary" @click="confirm">완료</button>
+            </div>
+          </form>
+        </div>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 사업자여부 radio */
+        businessType: 'corporate',
+
+        /**
+         * 서비스구분 select
+         */
+        types: [{
+          value: 'Option1',
+          label: '방문판매'
+        }, {
+          value: 'Option2',
+          label: '음식점(배달)'
+        }, {
+          value: 'Option3',
+          label: 'A/S긴급출동'
+        }, {
+          value: 'Option4',
+          label: '운수업'
+        }, {
+          value: 'Option5',
+          label: '컨텐츠'
+        }, {
+          value: 'Option6',
+          label: '도소매'
+        }, {
+          value: 'Option7',
+          label: '유통'
+        }, {
+          value: 'Option8',
+          label: 'Blog 사업자'
+        }, {
+          value: 'Option9',
+          label: '쇼핑몰사업자'
+        }, {
+          value: 'Option10',
+          label: '병원'
+        }],
+        serviceType: '',
+
+        /**
+         * 정산 계좌 은행 select
+         */
+        bankList: [{
+          value: 'kb',
+          label: '국민은행'
+        }, {
+          value: 'keb',
+          label: '하나은행'
+        }, {
+          value: 'ibk',
+          label: '기업은행'
+        }, {
+          value: 'sh',
+          label: '신한은행'
+        }, {
+          value: 'wr',
+          label: '우리은행'
+        }, {
+          value: 'kkb',
+          label: '카카오뱅크'
+        }],
+        bank: '',
+      }
+    },
+    methods: {
+      /* 완료메시지 */
+      confirm() {
+        this.$message({
+          message: '등록 완료되었습니다.',
+          type: 'success'
+        });
+      },
+    }
+  })
+</script>
+</html>

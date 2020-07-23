@@ -1171,7 +1171,11 @@ table th[class*=col-] {
   line-height: 1;
 }
 .wrap-bx-search .wrap-form dd {
+  min-height: 3.4rem;
   margin-bottom: 0;
+}
+.wrap-bx-search .wrap-form input {
+  min-height: 3.4rem;
 }
 .wrap-bx-search.el-collapse .el-collapse-item__header {
   height: 40px;
@@ -1230,6 +1234,7 @@ table th[class*=col-] {
 }
 .wrap-bx-search .el-date-editor--daterange.el-input__inner input {
   max-width: 38%;
+  background: transparent;
 }
 .wrap-bx-search .wrap-btn-arr {
   display: inline-block;
@@ -1284,6 +1289,7 @@ table th[class*=col-] {
   -ms-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 3.4rem;
 }
 .wrap-bx-search .el-radio button {
   cursor: not-allowed;
@@ -2186,7 +2192,7 @@ body .td-blank p {
   /* TWEENER - IE 10 */
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  min-height: 34px;
+  min-height: 4rem;
   margin-bottom: 4px;
   font-size: 1.4rem;
   color: #36384D;
@@ -2227,9 +2233,6 @@ body .td-blank p {
   font-size: 1.2rem;
   text-align: left;
 }
-.wrap-form .inp-txt {
-  min-height: 34px;
-}
 .wrap-form .btn:not(:first-child) {
   margin-left: 5px;
 }
@@ -2263,7 +2266,7 @@ body .td-blank p {
   -moz-flex-basis: 100px;
   -ms-flex-basis: 100px;
   flex-basis: 100px;
-  margin: 7px 14px 0 0;
+  margin: 10px 14px 0 0;
   text-align: right;
 }
 .wrap-form.horizon dd {
@@ -2288,11 +2291,6 @@ body .td-blank p {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 .wrap-form.horizon .f-row {
   display: -webkit-box;
@@ -3227,6 +3225,137 @@ body .td-blank p {
 .topbar .btn-date.active .ico-lines:after {
   width: 14px;
   transform: translate(-2px, -5px) rotate(-45deg);
+}
+
+.v-rsadd .step ul {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  text-align: center;
+}
+.v-rsadd .step ul li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 2.2rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #969AAF;
+  border: 1px solid transparent;
+  border-bottom-color: #DCDEE4;
+}
+@media only screen and (max-width: 768px) {
+  .v-rsadd .step ul li {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+}
+.v-rsadd .step ul li * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.v-rsadd .step ul li .num {
+  margin-right: 5px;
+  padding: 4px 9px;
+  font-style: normal;
+  background: #ededf2;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 768px) {
+  .v-rsadd .step ul li .num {
+    margin: 0 0 4px;
+  }
+}
+.v-rsadd .step ul li.active {
+  background: #fff;
+  color: #36384D;
+  border-color: #DCDEE4;
+  border-bottom-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.v-rsadd .step ul li.active .num {
+  background-color: #eaebfd;
+  color: #6F74F4;
+}
+.v-rsadd .content-add {
+  padding: 3rem;
+  background: #fff;
+  border: 1px solid #DCDEE4;
+  border-top-color: transparent;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .v-rsadd .content-add {
+    padding: 2rem 1.4rem;
+  }
+}
+.v-rsadd .content-add.step1 {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  text-align: center;
+  color: #36384D;
+}
+.v-rsadd .content-add.step1 dl {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 6rem 0;
+}
+.v-rsadd .content-add.step1 dl:first-child {
+  border-right: 1px solid #ededf2;
+}
+.v-rsadd .content-add.step1 .tit {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.v-rsadd .content-add.step1 .txt {
+  font-size: 1.4rem;
+}
+.v-rsadd .content-add.step1 .img {
+  margin: 5rem auto;
+}
+.v-rsadd .content-add.step1 .form input[disabled] {
+  min-width: 300px;
+}
+.v-rsadd .content-add.step1 .form .btn {
+  min-height: 4rem;
+  margin-left: 4px;
+}
+.v-rsadd .content-add .wrap-form dl dt {
+  -webkit-box-flex: 1 1;
+  -moz-box-flex: 1 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+.v-rsadd .content-add .wrap-form dl dd {
+  -webkit-box-flex: 4 1;
+  -moz-box-flex: 4 1;
+  -webkit-flex: 4 1;
+  -ms-flex: 4 1;
+  flex: 4 1;
 }
 
 /* 리셀러/판매점 리스트, 상세 공통 */
@@ -4277,9 +4406,9 @@ body .el-radio__inner {
 }
 body .el-radio__label {
   padding-left: 5px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: 34px;
+  line-height: 4rem;
   color: #36384D;
   vertical-align: middle;
 }
@@ -4300,6 +4429,12 @@ body .el-radio__input.is-checked + .el-radio__label {
 }
 body .el-radio + input {
   margin-left: 5px;
+}
+body .el-radio:hover .el-radio__label {
+  color: #6F74F4;
+}
+body .el-radio:hover .el-radio__input .el-radio__inner {
+  border-color: #6F74F4;
 }
 
 /* alert */
@@ -4626,16 +4761,16 @@ textarea::placeholder {
 /* input 공용 스타일 */
 input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search],
 textarea.inp-txt, .inp-txt {
-  height: 34px;
+  min-height: 4rem;
   margin: 0;
   padding: 5px 10px;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #36384D;
   line-height: 1;
   border: 1px solid #DCDEE4;
   border-radius: 3px;
-  background: #fff;
+  background: #F9F9FC;
   vertical-align: top;
   outline: 0;
   -webkit-transition-duration: 0.2s;
@@ -4657,12 +4792,6 @@ input[type=text].inp-xs, input[type=password].inp-xs, input[type=number].inp-xs,
 textarea.inp-txt.inp-xs, .inp-txt.inp-xs {
   height: 24px;
   padding: 2px 10px;
-}
-@media only screen and (max-width: 768px) {
-  input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search],
-textarea.inp-txt, .inp-txt {
-    height: 33px;
-  }
 }
 
 input[disabled=disabled] {
@@ -5177,18 +5306,6 @@ button:focus, button:active {
   padding: 0 10px;
   font-weight: 400;
   font-size: 1.3rem;
-}
-.btn-xs-info {
-  height: 24px;
-}
-.btn-xs-info:before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 22px;
-  margin-right: 2px;
-  background: url("../img/ico_info.svg") no-repeat 50% 50%/12px 12px;
-  vertical-align: top;
 }
 
 button[disabled=disabled], .btn-disable {

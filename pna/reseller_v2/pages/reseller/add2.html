@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj2-1"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-rsadd">
+        <!--순서-->
+        <section class="step">
+          <ul>
+            <li>
+              <i class="num">1</i>
+              <span class="txt">등록 방법 선택</span>
+            </li>
+            <li class="active">
+              <i class="num">2</i>
+              <span class="txt">기본 정보 입력</span>
+            </li>
+            <li>
+              <i class="num">3</i>
+              <span class="txt">사업자 정보 입력</span>
+            </li>
+          </ul>
+        </section>
+        <!--내용-->
+        <div class="content-add step2">
+          <form class="wrap-form horizon">
+            <dl>
+              <dt>
+                <label for="id">리셀러 ID</label>
+              </dt>
+              <dd class="inline">
+                <input type="text" id="id" class="inp-txt" placeholder="영문 숫자 조합 6~13자리">
+                <button class="btn btn-line-b">ID 중복 검사</button>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="name">리셀러명</label>
+              </dt>
+              <dd>
+                <input type="text" id="name" class="inp-txt" placeholder="홍길동">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="password">비밀번호</label>
+              </dt>
+              <dd>
+                <input type="password" id="password" class="inp-txt" placeholder="영문 숫자 조합 6~13자리">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="passwordChk">비밀번호 확인</label>
+              </dt>
+              <dd>
+                <input type="password" id="passwordChk" class="inp-txt" placeholder="비밀번호를 한번 더 입력해 주세요.">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="email">이메일</label>
+              </dt>
+              <dd>
+                <input type="text" id="email" class="inp-txt" placeholder="example@pna.com">
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <label for="phone">휴대폰 번호</label>
+              </dt>
+              <dd>
+                <input type="text" id="phone" class="inp-txt" placeholder="-없이 숫자만 입력해 주세요.">
+              </dd>
+            </dl>
+            <div class="bottom-btn">
+              <button class="btn" onclick="history.back();">이전</button>
+              <button class="btn btn-primary" onclick="location.href='./add3.html'">다음</button>
+            </div>
+          </form>
+        </div>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

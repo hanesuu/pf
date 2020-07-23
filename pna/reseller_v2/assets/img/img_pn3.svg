@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="135" height="82" viewBox="0 0 135 82">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="135" height="82"/>
+    <g fill="#DCDEE4" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(1 1)">
+      <path d="M113.427856,0 C116.513667,0 119,2.50727761 119,5.62095951 L119,74.3775283 C119,77.4912102 116.513667,80 113.427856,80 L19.5721443,80 C16.487832,80 14,77.4912102 14,74.3775283 L14,5.62095951 C14,2.50727761 16.487832,0 19.5721443,0 L113.427856,0 Z M113,6.03773585 L20,6.03773585 L20,72.4528302 L113,72.4528302 L113,6.03773585 Z"/>
+      <path d="M124.453736,80 L7.54777398,80 C3.37838363,80 0,76.4176 0,72 L132,72 C132,76.4176 128.621616,80 124.453736,80 Z"/>
+    </g>
+    <g fill="#FFF" stroke="#36384D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(5 15)">
+      <polygon points="20 14 104 14 104 0 20 0"/>
+      <polygon points="10 32 94 32 94 18 10 18"/>
+      <polygon points="0 50 84 50 84 36 0 36"/>
+    </g>
+    <polygon fill="#FFD786" stroke="#36384D" stroke-linejoin="round" stroke-width="2" points="84 48 94 44 94 60 100 60 100 44 110 48 97 21" transform="rotate(-30 97 40.5)"/>
+  </g>
+</svg>
