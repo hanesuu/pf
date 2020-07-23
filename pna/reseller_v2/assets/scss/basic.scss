@@ -134,7 +134,7 @@ textarea.inp-txt {
 .txt-info {
 	color:$dark-9; font-size:1.3rem;
 	&:before {
-		content:''; display:inline-block; width:12px; height:12px; margin-right:4px;
+		content:''; display:inline-block; width:12px; height:12px; margin-right:4px; vertical-align:-.1em;
 		background:url('../img/ico_info.svg') no-repeat 0 0 / 12px
 	}
 	.d-left & {margin-bottom:10px}

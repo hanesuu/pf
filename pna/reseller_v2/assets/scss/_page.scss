@@ -3,7 +3,7 @@
 .wrap-login {
 	@include flexbox; @include align-items(center); @include justify-content(center);
 	width:100%; height:100vh; margin:0 auto; text-align:center; background:$light-f;
-	@include media-mb {padding-left:10px; padding-right:10px}
+	@include media-mb {padding:0 2rem}
 	.inner {width:370px}
 	.head-tit {width:174px; height:46px; margin:0 auto 40px; @include hide-txt; background:url('../../../common/img/logo_fill.svg') no-repeat 0 0 / 100%}
 	.form input {display:block; width:100%; height:50px; margin-bottom:10px; padding:0 20px; font-size:1.6rem}
@@ -146,6 +146,7 @@
 .wrap-search {
 	position:relative; @include flexbox; @include flex(1); width:100%;
 	input.inp-txt {@include flex(1); min-width:180px; min-height:3.4rem; padding-right:34px}
+	.el-select .el-input__inner {min-height:3.4rem; height:auto}
 	.btn-search {
 		position:absolute; right:0; bottom:auto; height:34px; padding:0 6px; border:0; background:transparent;
 		@include media-md {width:auto}
@@ -173,46 +174,12 @@
 		@include media-mb {margin-bottom:10px}
 	}
 	[class^="widget-"] {
-		position:relative; @include flexbox; @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
+		position:relative; @include flexbox; @include flex-wrap(wrap); @include bxshadow; border-radius:10px; overflow:hidden; background:$white;
 		.colored {
 			position:relative;
+			@include media-mb {@include flex-basis(100%); text-align:center}
 			&:after {content:''; @include absolute(null,50%,2rem,null); transform:translateY(-50%); opacity:.3}
-		}
-		&.widget-rd {
-			.colored {
-				@include bg-gradient($rd-dk,$rd-lt,'horizontal');
-				&:after {width:66px; height:64px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
-				&, dd {color:$white}
-			}
-			dd {color:$rd-dk}
-		}
-		&.widget-yl {
-			.colored {
-				@include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
-				&:after {width:78px; height:67px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
-				&, dd {color:$white}
-			}
-			dd {color:$warn-yl-dk}
-		}
-		&.widget-pt {
-			.colored {
-				@include bg-gradient($point,$point-lt,'horizontal');
-				&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
-				&, dd {color:$white}
-			}
-			dd {color:$point}
-		}
-		&.widget-wt-rd {
-			dt {color:$dark-6}
-			dd {color:$rd-dk}
-		}
-		&.widget-sk {
-			.colored {
-				@include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
-				&:after {width:100px; height:64px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
-				&, dd {color:$white}
-			}
-			dd {color:$point}
+			&, dd {color:$white}
 		}
 		dl {
 			position:relative; @include flex(1); width:100%; padding:2.4rem 3rem;
@@ -241,6 +208,38 @@
 			dd {@include flex(1); text-align:right}
 			.main-stat dt {@include media-mb {margin-bottom:0}}
 		}
+	}
+	.widget-rd {
+		.colored {
+			@include bg-gradient($rd-dk,$rd-lt,'horizontal');
+			&:after {width:66px; height:64px; background:url('../img/img_bg_pay.svg') no-repeat 50% 50% / 100%}
+		}
+		dd {color:$rd-dk}
+	}
+	.widget-yl {
+		.colored {
+			@include bg-gradient($warn-yl-dk,$warn-yl,'horizontal');
+			&:after {width:78px; height:67px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
+		}
+		dd {color:$warn-yl-dk}
+	}
+	.widget-pt {
+		.colored {
+			@include bg-gradient($point,$point-lt,'horizontal');
+			&:after {width:90px; height:56px; background:url('../img/img_bg_linked.svg') no-repeat 50% 50% / 100%}
+		}
+		dd {color:$point}
+	}
+	.widget-wt-rd {
+		dt {color:$dark-6}
+		dd {color:$rd-dk}
+	}
+	.widget-sk {
+		.colored {
+			@include bg-gradient($sub-sk-dk,$sub-sk,'horizontal');
+			&:after {width:100px; height:64px; background:url('../img/img_bg_seller.svg') no-repeat 50% 50% / 100%}
+		}
+		dd {color:$point}
 	}
 }
 .tab-lg .wrap-widget [class^=widget-] {box-shadow:none}
@@ -367,7 +366,7 @@ body .td-blank {
 }
 /* 게시판 옵션 */
 .tbl-filter {
-	position:relative; @include flexbox; @include align-items(flex-end); height:54px; padding:10px 20px; background:$white;
+	position:relative; @include flexbox; @include flex-wrap(wrap); @include align-items(flex-end); height:54px; padding:10px 20px; background:$white;
 	@include media-mb {padding:10px}
 	&.transparent {
 		height:auto; min-height:28px; margin:0 0 10px; padding:0; background:transparent; border:0;
@@ -375,7 +374,7 @@ body .td-blank {
 		.btn:not(:first-child) {margin-left:5px}
 	}
 	.el-select .el-input__inner {
-		min-height:3.4rem;
+		height:3.4rem; min-height:3.4rem;
 		@include media-mb {width:30vw}
 	}
 
@@ -465,8 +464,14 @@ body .td-blank {
 	/* 제목과 내용이 일렬로 된 스타일 */
 	&.horizon {
 		max-width:600px; margin:0 auto; padding:20px 20px 6px;
-		dl {@include flexbox; padding-bottom:14px}
-		dt {@include flex-basis(100px); margin:10px 14px 0 0; text-align:right}
+		dl {
+			@include flexbox; padding-bottom:14px;
+			@include media-mb {display:block}
+		}
+		dt {
+			@include flex-basis(100px); margin:10px 14px 0 0; text-align:right;
+			@include media-mb {margin:0 0 4px; text-align:left}
+		}
 		dd {
 			@include flex(2); @include flex-direction(column); @include justify-content(flex-start); margin:0;
 			&.inline {@include flex-direction(row)}
@@ -580,7 +585,7 @@ body .td-blank {
 				@include media-md {font-size:2.4rem}
 			}
 		}
-		h4.title {margin:30px 15px 10px; @include fw-md; font-size:1.8rem; color:$dark-3}
+		h4.title {margin:30px 1.5rem 10px; @include fw-md; font-size:1.8rem; color:$dark-3}
 		//정산여부
 		.widget-state {
 			@include flex(0 0 280px); @include align-items(center); padding:2rem; @include fw-md; font-size:1.6rem; color:$white; 
@@ -662,7 +667,10 @@ body .td-blank {
 			&.light:after {display:none}
 			&.ta-center {background:$light-f}
 			@include media-pc {padding:1.6rem 2rem}
-			@include media-mb {padding:1.6rem}
+			@include media-mb {
+				padding:1.6rem;
+				&.light {@include flex-basis(100%)}
+			}
 		}
 	}
 }
@@ -817,16 +825,25 @@ body .td-blank {
 		//1.등록 방법 선택
 		&.step1 {
 			@include flexbox; text-align:center; color:$dark-3;
+			@include media-md {@include flex-direction(column)}
 			dl {
 				@include flex(1); padding:6rem 0;
-				&:first-child {border-right:1px solid $light-e}
+				@include media-md {padding:3rem 0}
+				&:first-child {
+					border-right:1px solid $light-e;
+					@include media-md {border-right:0; border-bottom:1px solid $light-e}
+				}
 			}
 			.tit {margin-bottom:6px; @include fw-md; font-size:1.8rem}
 			.txt {font-size:1.4rem}
-			.img {margin:5rem auto}
+			.img {
+				margin:5rem auto;
+				@include media-md {margin:3rem auto}
+			}
+			.auto .form {@include flexbox; max-width:360px; margin:0 auto}
 			.form {
-				input[disabled] {min-width:300px}
-				.btn {min-height:4rem; margin-left:4px}
+				input[disabled] {margin-right:4px}
+				.btn {min-height:4rem}
 			}
 		}
 
@@ -860,8 +877,6 @@ body .td-blank {
 			.el-switch ~ .d-right {margin:0 auto 0 0}
 		}
 	}
-	/* 결제설정 - 수단 */
-	.tab-pay-use {}
 
 	/* 결제설정 - 결제마진 */
 	.tab-pay-margin .tbl-xs thead th {letter-spacing:-0.1rem}
@@ -871,7 +886,7 @@ body .td-blank {
 		.wrap-form .dl-limit {
 			max-width:220px; margin:0 auto;
 			dt {@include flex-basis(5.4rem)}
-			dd {@include flex(1)}
+			dd {@include flex(1); @include justify-content(center)}
 		}
 		.list-type {
 			display:table; margin:0 auto 4px;
@@ -879,9 +894,7 @@ body .td-blank {
 		}
 		.inp-txt {background:$white}
 		.txt-s {text-align:center; color:$dark-9}
-	}	
-	/* API설정 - 사용 */
-	.tab-api-use {}
+	}
 }
 
 /* 결제 현황 조회 - 리셀러/판매점 목록, 상세 공통 */
@@ -1018,7 +1031,10 @@ body .td-blank {
 			.tit-md {display:inline-block}
 		}
 		.d-right {
-			.txt {font-size:1.4rem; vertical-align:middle}
+			.txt {
+				font-size:1.4rem; vertical-align:middle;
+				@include media-mb {display:none}
+			}
 			.btn {vertical-align:middle}
 		}
 	}
@@ -1041,7 +1057,7 @@ body .td-blank {
 /* 공지사항,문의내역 -boardList */
 .v-board-list {
 	.board-tit {
-		display:block; @include transition(color);
+		display:block; @include transition(color); color:$dark-3;
 		&:hover {color:$point}
 	}
 }

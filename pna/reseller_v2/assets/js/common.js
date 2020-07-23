@@ -6,6 +6,12 @@ $(document).ready(function(){
 		$(this).parents("#app").find(".footer").toggleClass("wide");
 		$(this).parents("#app").find(".topbar").toggleClass("wide");
 	});	
+	if ($("body").width() < 768 ){
+		$(".header").children("nav").addClass("hide");
+		$("#app").find(".wrap-content").addClass("wide");
+		$("#app").find(".footer").addClass("wide");
+		$("#app").find(".topbar").addClass("wide");
+	}
 	$(window).resize(function (){		
 		if ($("body").width() < 768 ){
 			$(".header").children("nav").addClass("hide");
