@@ -56,7 +56,6 @@ $(document).ready(function(){
 	//결제 관리
 	$(".mj3").find(".nav > ul > li:nth-child(4)").addClass("active");
 	$(".mj3").find(".top").children(".location").children(".menu1").text("결제 관리");
-	$(".mj3").find(".top").children(".location").children(".menu2").text("결제 현황");
 
 	//유료 API 관리
 	$(".mjapi").find(".nav > ul > li:nth-child(5)").addClass("active");
@@ -114,11 +113,11 @@ $(document).ready(function(){
     	$(".board").find("tr").removeClass("checked");
     	$(this).parent().parent(".bx-basic").fadeOut();
     });
-    //정산서류제출
-    $("#btnAdjust").click(function(){
+    //목록 우측정보 열기 버튼
+    $("#btnOpen").click(function(){
     	$(".bx-right").children(".bx-basic").hide();
     	$(this).parents(".tbl-xs").parent().parent().toggleClass("checked");
     	$(this).parents(".board").toggleClass("active");
-    	$(".bx-right").children("#bxAdjust").show();
+    	$(".bx-right").children("#bxOpen").show();
     });
   });

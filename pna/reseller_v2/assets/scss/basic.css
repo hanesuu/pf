@@ -1174,6 +1174,7 @@ table th[class*=col-] {
   margin-bottom: 0;
 }
 .wrap-bx-search .wrap-form input {
+  height: 3.4rem;
   min-height: 3.4rem;
 }
 .wrap-bx-search.el-collapse .el-collapse-item__header {
@@ -1191,7 +1192,7 @@ table th[class*=col-] {
 }
 .wrap-bx-search.el-collapse .el-collapse-item__content {
   position: relative;
-  padding: 10px 20px 0;
+  padding: 10px 20px;
   /* 상세검색 */
 }
 @media only screen and (max-width: 768px) {
@@ -1218,9 +1219,6 @@ table th[class*=col-] {
   .wrap-bx-search.el-collapse .el-collapse-item__content [class^=col-] {
     margin-bottom: 10px;
   }
-}
-.wrap-bx-search.el-collapse .el-collapse-item__content dl {
-  padding-bottom: 20px;
 }
 .wrap-bx-search.el-collapse .el-collapse-item__content input {
   width: 100%;
@@ -3932,6 +3930,14 @@ body .td-blank p {
 }
 .v-rsdetail .bx-nextadjust .wrap-form.horizon {
   max-width: 300px;
+}
+
+/* 결제관리 --개인작업디자인 */
+.v-paylist .board-list tbody p.fw-md:not(:only-child) {
+  margin-bottom: 4px;
+}
+.v-paylist .board-list tbody .txt-rd.txt-sm {
+  margin-top: 4px;
 }
 
 /* 유료API관리 */

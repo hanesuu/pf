@@ -11,6 +11,7 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="/ud/common/js/countUp.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/common.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
     $("#header").load("../inc/header.html");
@@ -176,7 +177,7 @@
                 </dd>
               </dl>
               <dl class="main-stat ta-center">
-                <dt>총 결제건수</dt>
+                <dt>총 건수</dt>
                 <dd class="txt-count">
                   <span id="payPer"></span><small>건</small>
                 </dd>
@@ -202,161 +203,187 @@
             <button class="btn btn-gy"><i class="la la-download"></i> 엑셀 다운로드</button>
           </div>
         </div>
-        <!--목록-->
-        <section class="bx-basic board">
-          <div class="board-list">
-            <table>
-              <colgroup>
-                <col width="5%">
-                <col>
-                <col>
-                <col>
-                <col>
-              </colgroup>
-              <thead>
-              <tr>
-                <th>No.</th>
-                <th>판매자 정보</th>
-                <th>결제 정보</th>
-                <th>정산 정보</th>
-                <th>마진 정보</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td class="va-mid">1</td>
-                <td>
-                  <table class="tbl-xs">
-                    <colgroup>
-                      <col width="30%">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                      <th>판매자명</th>
-                      <td>(주)코팡</td>
-                    </tr>
-                    <tr>
-                      <th>판매자 ID</th>
-                      <td>copang</td>
-                    </tr>
-                    <tr>
-                      <th>휴대폰 번호</th>
-                      <td>01032122211</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-                <td>
-                  <table class="tbl-xs">
-                    <colgroup>
-                      <col width="30%">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                      <th>상품명</th>
-                      <td>PNA 선불 충전</td>
-                    </tr>
-                    <tr>
-                      <th>결제일</th>
-                      <td>2020.06.29 08:24:15</td>
-                    </tr>
-                    <tr>
-                      <th>결제 취소일</th>
-                      <td>2020.06.29 10:26:27</td>
-                    </tr>
-                    <tr>
-                      <th>결제 수단</th>
-                      <td>카드 원격 결제</td>
-                    </tr>
-                    <tr>
-                      <th>결제 금액</th>
-                      <td>38,520원</td>
-                    </tr>
-                    <tr>
-                      <th>결제 상태</th>
-                      <td>
-                        <span class="txt-rd">결제 취소</span>
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-                <td>
-                  <table class="tbl-xs">
-                    <colgroup>
-                      <col width="30%">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                      <th>수수료율</th>
-                      <td>1.8%</td>
-                    </tr>
-                    <tr>
-                      <th>정산 금액</th>
-                      <td>338원</td>
-                    </tr>
-                    <tr>
-                      <th>정산 예정일</th>
-                      <td>2020.07.15</td>
-                    </tr>
-                    <tr>
-                      <th>정산 상태</th>
-                      <td>
-                        <span class="txt-ing">정산 대기</span>
-                        <!--<span class="txt-gn">정산 완료</span>-->
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-                <td>
-                  <table class="tbl-xs">
-                    <colgroup>
-                      <col width="30%">
-                      <col>
-                    </colgroup>
-                    <tbody>
-                    <tr>
-                      <th>마진율</th>
-                      <td>0.11%</td>
-                    </tr>
-                    <tr>
-                      <th>마진</th>
-                      <td>40원</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="tbl-filter">
-            <div class="d-left">
-              <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
-                <el-option 
-                  v-for="list in options"
-                  :key="list.value"
-                  :label="list.label"
-                  :value="list.value">
-                </el-option>
-              </el-select>
+        <section class="sticky-container">
+          <!--목록-->
+          <section class="bx-basic board">
+            <div class="board-list">
+              <table>
+                <colgroup>
+                  <col width="5%">
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>판매점</th>
+                  <th>결제 상품</th>
+                  <th>결제 일시</th>
+                  <th>상태</th>
+                  <th>결제 수단</th>
+                  <th>결제 금액</th>
+                  <th>마진 (마진율)</th>
+                  <th>정산</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td class="va-mid">4</td>
+                  <td class="va-mid ta-left">
+                    <p class="fw-md">사피엔스스토어</p>
+                    <span class="txt-id">sapiens88</span>
+                  </td>
+                  <td class="va-mid">리빙/홈데코 외 2건</td>
+                  <td class="va-mid">2020.06.29 08:24:15</td>
+                  <td class="va-mid">
+                    <b class="txt-rd">결제취소</b>
+                    <p class="txt-rd txt-sm">2020.06.29 10:26:27</p>
+                  </td>
+                  <td class="va-mid">신용카드-온라인</td>
+                  <td class="va-mid">
+                    <b>38,520원</b>
+                  </td>
+                  <td class="va-mid">
+                    <p class="fw-md">971원</p>
+                    <span class="txt-id">(2.97%)</span>
+                  </td>
+                  <td class="va-mid">
+                    <button id="btnOpen" class="btn btn-xs btn-line-point clickme">정산 정보</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">3</td>
+                  <td class="va-mid ta-left">
+                    <p class="fw-md">찰리홈</p>
+                    <span class="txt-id">charliehome</span>
+                  </td>
+                  <td class="va-mid">페이 선불충전</td>
+                  <td class="va-mid">2020.06.28 05:10:21</td>
+                  <td class="va-mid">
+                    <b class="txt-gn">결제완료</b>
+                  </td>
+                  <td class="va-mid">신용카드-대면</td>
+                  <td class="va-mid">
+                    <b>2,800원</b>
+                  </td>
+                  <td class="va-mid">
+                    <p class="fw-md">67원</p>
+                    <span class="txt-id">(2.4%)</span>
+                  </td>
+                  <td class="va-mid">
+                    <button class="btn btn-xs btn-line-point">정산 정보</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">2</td>
+                  <td class="va-mid ta-left">
+                    <p class="fw-md">네이트샵</p>
+                    <span class="txt-id">shopnate</span>
+                  </td>
+                  <td class="va-mid">상품권</td>
+                  <td class="va-mid">2020.06.27 15:33:53</td>
+                  <td class="va-mid">
+                    <b class="txt-gn">결제완료</b>
+                  </td>
+                  <td class="va-mid">가상계좌</td>
+                  <td class="va-mid">
+                    <b>57,800원</b>
+                  </td>
+                  <td class="va-mid">
+                    <p class="fw-md">1,040원</p>
+                    <span class="txt-id">(1.8%)</span>
+                  </td>
+                  <td class="va-mid">
+                    <button class="btn btn-xs btn-line-point">정산 정보</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="va-mid">1</td>
+                  <td class="va-mid ta-left">
+                    <p class="fw-md">지구별의상점</p>
+                    <span class="txt-id">earthplanetstore</span>
+                  </td>
+                  <td class="va-mid">생활용품</td>
+                  <td class="va-mid">2020.06.23 11:44:35</td>
+                  <td class="va-mid">
+                    <b class="txt-gn">결제완료</b>
+                  </td>
+                  <td class="va-mid">휴대폰</td>
+                  <td class="va-mid">
+                    <b>9,700원</b>
+                  </td>
+                  <td class="va-mid">
+                    <p class="fw-md">242원</p>
+                    <span class="txt-id">(2.5%)</span>
+                  </td>
+                  <td class="va-mid">
+                    <button class="btn btn-xs btn-line-point">정산 정보</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="d-right">
-              <div role="pagination" class="pager">
-                <div class="txt-pg">
-                  <span class="current">1</span>
-                  <span>3</span>
+            <div class="tbl-filter">
+              <div class="d-left">
+                <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                  <el-option 
+                    v-for="list in options"
+                    :key="list.value"
+                    :label="list.label"
+                    :value="list.value">
+                  </el-option>
+                </el-select>
+              </div>
+              <div class="d-right">
+                <div role="pagination" class="pager">
+                  <div class="txt-pg">
+                    <span class="current">1</span>
+                    <span>3</span>
+                  </div>
+                  <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                  <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                  <label for="goto">이동</label>
+                  <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
                 </div>
-                <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
-                <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
-                <label for="goto">이동</label>
-                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
               </div>
             </div>
+          </section>
+          <!--우측영역-->
+          <div class="bx-right sticky">
+            <section id="bxOpen" class="bx-basic width-sm">
+              <h3 class="bx-tit">
+                <span class="tit">정산 정보</span>
+                <button id="btnClose" class="btn-txt"><i class="las la-times"></i></button>
+              </h3>
+              <div class="bx-con">
+                <div class="wrap-form horizon">
+                  <dl>
+                    <dt>수수료율</dt>
+                    <dd class="no-inp">3.96%</dd>
+                  </dl>
+                  <dl>
+                    <dt>정산 금액</dt>
+                    <dd class="no-inp">54,960</dd>
+                  </dl>
+                  <dl>
+                    <dt>정산 예정일</dt>
+                    <dd class="no-inp">2020-07-30</dd>
+                  </dl>
+                  <dl>
+                    <dt>정산 상태</dt>
+                    <dd class="no-inp">
+                      <span class="txt-ing">정산 대기</span>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
           </div>
         </section>
       </div><!--//페이지내용-->
