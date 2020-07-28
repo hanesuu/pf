@@ -13,6 +13,8 @@ $(document).ready(function(){
 		$("#app").find(".wrap-content").addClass("wide");
 		$("#app").find(".footer").addClass("wide");
 		$("#app").find(".topbar").addClass("wide");
+		//하단버튼픽스일때
+		$(".bottom-btn").parents("body").css("margin-bottom", "56px")
 	}
 	$(window).resize(function (){		
 		if ($("body").width() < 768 ){
@@ -55,12 +57,11 @@ $(document).ready(function(){
 
 	//결제 관리
 	$(".mj3").find(".nav > ul > li:nth-child(4)").addClass("active");
-	$(".mj3").find(".top").children(".location").children(".menu1").text("결제 관리");
+	$(".mj3").find(".top").children(".location").children(".menu1").text("결제 관리").next().hide();
 
 	//유료 API 관리
 	$(".mjapi").find(".nav > ul > li:nth-child(5)").addClass("active");
-	$(".mjapi").find(".top").children(".location").children(".menu1").text("유료 API 관리");
-	$(".mjapi").find(".top").children(".location").children(".menu2").text("유료 API 현황");
+	$(".mjapi").find(".top").children(".location").children(".menu1").text("유료 API 관리").next().hide();
 
 	//정산 관리	
 	$(".mjadjust").find(".nav > ul > li:nth-child(6)").addClass("active").children(".depth2").show().children("li:first-child").addClass("active");

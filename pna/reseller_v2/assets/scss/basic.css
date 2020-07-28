@@ -1788,7 +1788,6 @@ table th[class*=col-] {
   transition-property: background;
   text-align: center;
   vertical-align: top;
-  white-space: normal;
 }
 .board-list tbody td.td-btns .btn {
   display: block;
@@ -2409,6 +2408,7 @@ body .td-blank p {
     /* TWEENER - IE 10 */
     display: flex;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    margin: 0;
     box-shadow: 0 2px 5px rgba(54, 56, 77, 0.5);
     z-index: 10;
   }
@@ -2429,8 +2429,8 @@ body .td-blank p {
     -ms-flex: 1;
     flex: 1;
     margin: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 15px 0;
+    font-size: 1.8rem;
     border-radius: 0;
   }
 }
@@ -4066,11 +4066,44 @@ body .td-blank p {
 .v-board-detail .bx-tit {
   padding: 2rem 3rem;
 }
+@media only screen and (max-width: 768px) {
+  .v-board-detail .bx-tit {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .v-board-detail .bx-tit .label-default {
+    -webkit-box-flex: 0 0;
+    -moz-box-flex: 0 0;
+    -webkit-flex: 0 0;
+    -ms-flex: 0 0;
+    flex: 0 0;
+    white-space: nowrap;
+  }
+}
 .v-board-detail .bx-tit h3 {
   margin: 0 0 0 10px;
   font-weight: 500;
   font-size: 1.6rem;
   color: #36384D;
+}
+@media only screen and (max-width: 768px) {
+  .v-board-detail .bx-tit h3 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    line-height: 1.3;
+  }
 }
 .v-board-detail .bx-tit .d-right {
   display: -webkit-box;
@@ -4089,6 +4122,12 @@ body .td-blank p {
   -ms-flex-align: center;
   align-items: center;
   font-size: 1.3rem;
+}
+@media only screen and (max-width: 768px) {
+  .v-board-detail .bx-tit .d-right {
+    width: 100%;
+    margin: 10px 0 0;
+  }
 }
 .v-board-detail .bx-tit .d-right dt {
   color: #969AAF;
