@@ -11,7 +11,6 @@
   <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="/ud/common/js/countUp.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/common.js"></script>
   <script type="text/javascript">
   $(document).ready( function() {
     $("#header").load("../inc/header.html");
@@ -29,7 +28,7 @@
       <!--페이지내용-->
       <div class="contents v-paylist">
         <!--상세검색-->
-        <el-collapse class="bx-basic wrap-bx-search" v-model="searchDetail" @change="handleChange">
+        <el-collapse class="bx-basic wrap-bx-search" accordion>
           <el-collapse-item title="검색" name="1" class="wrap-form">
             <div class="row">
               <div class="col-xs-6 col-md-3">

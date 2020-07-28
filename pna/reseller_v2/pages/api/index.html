@@ -28,7 +28,7 @@
       <!--페이지내용-->
       <div class="contents v-apilist">
         <!--상세검색-->
-        <el-collapse class="bx-basic wrap-bx-search" v-model="searchDetail" @change="handleChange">
+        <el-collapse class="bx-basic wrap-bx-search" accordion>
           <el-collapse-item title="검색" name="1" class="wrap-form">
             <div class="row">
               <div class="col-xs-6 col-md-3">
@@ -297,47 +297,28 @@ ELEMENT.locale(ELEMENT.lang.ko)
     data: function() {
       return {
         /**
-         * 결제수단 select
+         * API select
          */
-        payTypeList: [{
+        apiTypeList: [{
           value: 'Option1',
-          label: '전체'
+          label: 'SMS'
         }, {
           value: 'Option2',
-          label: '카드'
+          label: 'LMS'
         }, {
           value: 'Option3',
-          label: '휴대폰'
+          label: 'MMS'
         }, {
           value: 'Option4',
-          label: '가상계좌'
+          label: '알림톡'
         }, {
           value: 'Option5',
-          label: '계좌이체'
+          label: '본인인증'
         }, {
           value: 'Option6',
-          label: '간편결제'
+          label: '계좌성명조회'
         }],
-        payType: '',
-
-        /* 결제상태 */
-        payStatus: 'ALL',
-
-        /* 정산상태 */
-        adjustStatusList: [{
-          value: 'Option1',
-          label: '전체'
-        }, {
-          value: 'Option2',
-          label: '정산 대기'
-        }, {
-          value: 'Option3',
-          label: '정산 완료'
-        }, {
-          value: 'Option4',
-          label: '보류'
-        }],
-        adjustStatus: '',
+        apiType: '',
 
         /* 날짜 선택 */
         searchDate: 'month',
