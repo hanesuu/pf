@@ -1,9 +1,9 @@
 @charset "UTF-8";
-@import "../../../../common/css/normalize.css";
-@import "../../../../common/css/NotoSansKR-Hestia.css";
-@import "../../../../common/css/roboto.css";
-@import "../../../../common/css/line-awesome.min.css";
-@import "../../../../common/css/element.css";
+@import "/ud/common/css/normalize.css";
+@import "/ud/common/css/NotoSansKR-Hestia.css";
+@import "/ud/common/css/roboto.css";
+@import "/ud/common/css/line-awesome.min.css";
+@import "/ud/common/css/element.css";
 /* element */
 /* Color */
 /* color for gradient */
@@ -6106,6 +6106,7 @@ button.btn-txt {
   transition-delay: 0s;
   -webkit-transition-property: margin-left;
   transition-property: margin-left;
+  box-shadow: 0 8px 10px inset rgba(54, 56, 77, 0.1);
   overflow: hidden;
 }
 .wrap-content.wide {

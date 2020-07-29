@@ -1,8 +1,8 @@
-@import "../../../../common/css/normalize.css";
-@import "../../../../common/css/NotoSansKR-Hestia.css";
-@import "../../../../common/css/roboto.css";
-@import "../../../../common/css/line-awesome.min.css";
-@import "../../../../common/css/element.css"; /* element */
+@import "/ud/common/css/normalize.css";
+@import "/ud/common/css/NotoSansKR-Hestia.css";
+@import "/ud/common/css/roboto.css";
+@import "/ud/common/css/line-awesome.min.css";
+@import "/ud/common/css/element.css"; /* element */
 @import "mixin"; /* mixin & var */
 @import "grid"; /* grid layout */
 @import "page";
@@ -345,7 +345,7 @@ button.btn-txt {border:0; background:transparent}
 
 /* layout */
 .wrap-content {
-	min-height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; @include transition(margin-left); overflow:hidden;
+	min-height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; @include transition(margin-left); box-shadow:0 8px 10px inset rgba($dark-3,.1); overflow:hidden;
 	&.wide {margin-left:0}
 	
 	@include media-mb {
