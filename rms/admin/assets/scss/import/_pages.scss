@@ -3,5 +3,40 @@
   _pages.scss
 */
 
+// 로그인
+.pg-login {
+	@extend %bxBase;
+	padding: 60px 10vw;
+
+	&__logo {
+		@extend %txthide;
+		width: 160px;
+		height: 37px;
+		margin: 0 auto 50px;
+		background: url('../../../common/img/logo_fill.svg') no-repeat 0 0 / 100%;
+	}
+
+	&__form {
+		.form-dl--row dt {
+			@include font-size(14px);
+			color: $color-dark-3;
+		}
+
+		.inp-txt {
+			width: 360px;
+			height: 50px;
+		}
+
+		.el-checkbox {
+			display: block;
+			margin-top: 20px;
+		}
+
+		.btn-lg--wide {
+			margin-top: 40px;
+		}
+	}
+}
+
 // 회원관리 > 회원리스트
 .pg-member {}

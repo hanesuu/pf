@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>UDRMS 관리자</title>
+<meta name="keyword" content="UDRMS 관리자, UDRMS, RMS, 관리자, 어드민, 솔루션">
+<meta name="description" content="UDRMS 관리자 페이지입니다.">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+<link rel="icon" href="/ud/rms/common/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/ud/rms/common/img/favicon_32.png" sizes="32x32">
+<link rel="icon" href="/ud/rms/common/img/favicon_64.png" sizes="64x64">
+<link rel="stylesheet" href="../assets/scss/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+  <div id="app" class="front-flex">
+    <div class="pg-login">
+      <h1 class="pg-login__logo">UDRMS</h1>
+      <div class="pg-login__form">
+        <dl class="form-dl--row">
+          <dt>ID</dt>
+          <dd>
+            <input type="text" class="inp-txt" placeholder="ID 입력" value="admin">
+          </dd>
+          <!-- <dd class="txt-alert">ID를 다시 확인해 주세요.</dd> -->
+        </dl>
+        <dl class="form-dl--row">
+          <dt>비밀번호</dt>
+          <dd>
+            <input type="password" class="inp-txt" placeholder="비밀번호 입력" value="1234">
+          </dd>
+          <dd class="txt-alert"></dd>
+        </dl>
+        <el-checkbox v-model="loginInfo">ID/비밀번호 저장</el-checkbox>
+        <button id="userIdBtn" class="btn-lg--wide btn-dark" onclick="location.href='./member/'">로그인</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://hanesuu.github.io/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://hanesuu.github.io/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        // checkbox
+        loginInfo: false
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

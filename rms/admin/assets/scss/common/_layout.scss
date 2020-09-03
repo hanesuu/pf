@@ -2,6 +2,14 @@
 /*
   _layout.scss
 */
+// center layout. ex) login, join, etc..
+.front-flex {
+	@include flexbox;
+	@include align-items(center);
+	@include justify-content(center);
+	height: 100vh;
+}
+
 
 // side nav menu
 .main-menu {

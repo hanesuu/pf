@@ -17,6 +17,13 @@
   }
 }
 
+// disabled
+button[disabled], button[disabled]:hover {
+  cursor: default;
+  background: $color-light-d;
+  color: $color-dark-9;
+  opacity: .7;
+}
 
 // size
 .btn-sm {
@@ -54,6 +61,13 @@
 
 .btn-lg {
   @extend %btnBase;
+  @include font-size(16px);
+  padding: 15px 40px;
+
+  &--wide {
+    width: 100%;
+    padding: 15px 0;
+  }
 }
 
 
