@@ -1,0 +1,125 @@
+@charset "utf-8";
+/*
+  _element-variables.scss
+*/
+
+// input
+.el-input__inner {
+	height: 42px;
+
+	&.is-active, .is-focus & {
+		@include transition(box-shadow .2s ease);
+		box-shadow: 0 0 0 3px rgba($color-primary, .2);
+	}
+}
+
+// radio
+.el-radio {
+	height: 42px;
+	margin-right: 1.2vw;
+	line-height: 42px;
+
+	&__inner {
+		@include transition(background .2s ease, border-color .2s ease, box-shadow .2s ease);
+		width: 22px;
+		height: 22px;
+
+		&:after {
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+	&__input {
+		vertical-align: text-top
+	}
+
+	&__input.is-checked &__inner {
+		box-shadow: 0 0 0 3px rgba($color-primary, .2);
+	}
+
+	&__label {
+		@include font-size(15px);
+		padding-left: 8px;
+	}
+}
+
+// radio group
+.el-radio-button {
+	&__inner {
+		padding: 13px;
+	}
+}
+
+// pager
+.el-pagination {
+	padding: 0;
+	color: $color-dark-9;
+	font-weight: 400;
+
+	.btn-prev, .btn-next {
+		@include transition(background .3s ease);
+		width: 42px;
+		height: 42px;
+		padding: 0;
+		border-radius: 4px;
+
+		&:not(:disabled):hover {
+			background: $color-light-primary;
+		}
+	}
+}
+.el-pager li {
+	@include font-size(14px);
+	@include transition(background .3s ease);
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	line-height: 42px;
+	border-radius: 4px;
+
+	&:not(.active):hover {
+		background: $color-light-primary;
+	}
+}
+
+
+// modal
+.el-dialog {
+	overflow: hidden;
+
+	&__header {
+		padding: 15px 20px;
+    border-bottom: 1px solid $color-light-e;
+
+		&--tit {
+			@include font-size(15px);
+      font-weight: 700;
+			color: $color-dark-3;
+		}
+
+		&btn {
+			top: 8px;
+			right: 10px;
+			width: 30px;
+			height: 30px;
+			font-size: 24px;
+			line-height: 1;
+			background: transparent;
+			border: 0;
+		}
+	}
+
+	&__body {}
+
+	&__footer {
+		padding: 0 20px 30px;
+		text-align: center;
+		font-size: 0;
+
+		button {
+			min-width: 88px;
+			margin: 0 5px;
+		}
+	}
+}

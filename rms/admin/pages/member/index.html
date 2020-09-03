@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>UDRMS 관리자</title>
+<meta name="keyword" content="UDRMS 관리자, UDRMS, RMS, 관리자, 어드민, 솔루션">
+<meta name="description" content="UDRMS 관리자 페이지입니다.">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+<link rel="icon" href="/ud/rms/common/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/ud/rms/common/img/favicon_32.png" sizes="32x32">
+<link rel="icon" href="/ud/rms/common/img/favicon_64.png" sizes="64x64">
+<link rel="stylesheet" href="../../assets/scss/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#header").load("../inc/header.html");
+});
+</script>
+</head>
+<body>
+  <div id="app">
+    <div id="header"></div>
+
+    <div class="page pg-member">
+      <section class="page__tit">
+        <h2>회원 리스트</h2>
+        <div class="page__breadcrumb">
+          <ul>
+            <li>회원 관리</li>
+            <li>회원 리스트</li>
+          </ul>
+        </div>
+      </section>
+      <!--content-->
+
+      <section class="search">
+        <div class="search__base">
+          <h3 class="search__base--tit">검색</h3>
+          <el-date-picker
+            v-model="datepick"
+            type="daterange"
+            start-placeholder="시작일 선택"
+            end-placeholder="종료일 선택"
+            default-value="2020-08-01">
+          </el-date-picker>
+          <el-radio-group v-model="dateFilter">
+            <el-radio-button label="오늘"></el-radio-button>
+            <el-radio-button label="1주"></el-radio-button>
+            <el-radio-button label="1개월"></el-radio-button>
+            <el-radio-button label="3개월"></el-radio-button>
+            <el-radio-button label="전체"></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="search__detail">
+          <div class="grid">
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="customerInfo">고객사</label>
+                </dt>
+                <dd>
+                  <el-select v-model="customerInfo" placeholder="선택">
+                    <el-option
+                      v-for="item in customerInfoList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="memberType">회원 타입</label>
+                </dt>
+                <dd>
+                  <el-select v-model="memberType" placeholder="선택">
+                    <el-option
+                      v-for="item in memberTypeList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="businessType">사업자 타입</label>
+                </dt>
+                <dd class="dd-bg">                  
+                  <el-radio-group v-model="businessType">
+                    <el-radio label="company">사업자</el-radio>
+                    <el-radio label="personal">개인</el-radio>
+                  </el-radio-group>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="userId">회원 아이디</label>
+                </dt>
+                <dd>
+                  <input type="text" id="userId" class="inp-txt" placeholder="회원 아이디 입력">
+                </dd>
+              </dl>
+            </div>
+
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="parentId">고객 아이디</label>
+                </dt>
+                <dd>
+                  <input type="text" id="parentId" class="inp-txt" placeholder="고객 아이디 입력">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="userName">회원 이름</label>
+                </dt>
+                <dd>
+                  <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-3">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="phoneNumb">휴대폰 번호</label>
+                </dt>
+                <dd>
+                  <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="search__btns">
+          <button class="btn-md btn-light btn-collapse">
+            <span>상세검색</span>
+            <i class="xi-angle-down-min"></i>
+          </button>
+          <button class="btn-md btn-dark">
+            <i class="xi-search"></i>
+            <span>검색</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="data-tbl">
+        <div class="data-tbl__filter">
+          <div class="data-tbl__filter--left">
+            <p class="data-tbl__count">총 <b>4</b>건</p>
+          </div>
+          <div class="data-tbl__filter--right">
+            <button class="btn-md btn-primary" @click="addMemberModal = true">
+              <i class="xi-user-plus-o"></i>
+              <span>고객 등록</span>
+            </button>
+          </div>          
+        </div>
+        <div class="data-tbl__body">
+          <table>
+            <colgroup>
+              <col width="40px">
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>고객 아이디</th>
+                <th>회원 아이디 (이름)</th>
+                <th>휴대폰 번호</th>
+                <th>회원 타입</th>
+                <th>사업자 타입</th>
+                <th>트리 정보</th>
+                <th>등록일</th>
+                <th class="ta-center">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>4</td>
+                <td class="txt-bold">ciderpay</td>
+                <td>
+                  <b>ciderpayre</b>
+                  <p class="mgt-sm">(판매왕)</p>
+                </td>
+                <td>01033332222</td>
+                <td>
+                  <span class="txt-secondary">판매자</span>
+                </td>
+                <td>
+                  <div class="txt-label__default">개인</div>
+                </td>
+                <td>
+                  <table class="tbl-opacity list-txt">
+                    <colgroup>
+                      <col width="60">
+                      <col>
+                    </colgroup>
+                    <tr>
+                      <th class="list-txt__line">총판</th>
+                      <td>ciderpayms</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">대리점</th>
+                      <td>ciderpayag</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">리셀러</th>
+                      <td>ciderpayre</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td class="txt-bold">ciderpay</td>
+                <td>
+                  <b>ciderpayreseller</b>
+                  <p class="mgt-sm">(사이다리셀러)</p>
+                </td>
+                <td>01044551144</td>
+                <td>
+                  <span class="txt-secondary">리셀러</span>
+                </td>
+                <td>
+                  <div class="txt-label__default">개인</div>
+                </td>
+                <td>                  
+                  <table class="tbl-opacity list-txt">
+                    <colgroup>
+                      <col width="60">
+                      <col>
+                    </colgroup>
+                    <tr>
+                      <th class="list-txt__line">총판</th>
+                      <td>ciderpayms</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">대리점</th>
+                      <td>ciderpayag</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">리셀러</th>
+                      <td>ciderpayre</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td class="txt-bold">ciderpay</td>
+                <td>
+                  <b>ciderag</b>
+                  <p class="mgt-sm">(사이다대리점)</p>
+                </td>
+                <td>01046554455</td>
+                <td>
+                  <span class="txt-secondary">대리점</span>
+                </td>
+                <td>
+                  <div class="txt-label__default">개인</div>
+                </td>
+                <td>
+                  <table class="tbl-opacity list-txt">
+                    <colgroup>
+                      <col width="60">
+                      <col>
+                    </colgroup>
+                    <tr>
+                      <th class="list-txt__line">총판</th>
+                      <td>ciderpayms</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">대리점</th>
+                      <td>ciderpayag</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td class="txt-bold">ciderpay</td>
+                <td>
+                  <b>ciderpayhq</b>
+                  <p class="mgt-sm">(사이다페이)</p>
+                </td>
+                <td>-</td>
+                <td>
+                  <span class="txt-secondary">본사</span>
+                </td>
+                <td>
+                  <div class="txt-label__default">사업자</div>
+                </td>
+                <td>-</td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="data-tbl__filter">
+          <div class="data-tbl__filter--left">
+            <el-select v-model="boardView" placeholder="선택">
+              <el-option
+                v-for="item in boardViewList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </div>
+          <div class="data-tbl__filter--right">
+            <el-pagination
+              layout="prev, pager, next"
+              :total="30">
+            </el-pagination>
+          </div>
+        </div>
+      </section>
+
+      <!--//content-->
+    </div>
+
+    <!-- dialog -->
+    <el-dialog :visible.sync="addMemberModal" :close-on-click-modal="false" @close="cancel" class="pop--add-member">
+      <div class="el-dialog__header--tit" slot="title">회원 등록</div>
+      <div class="contents">
+        <div class="grid">
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="customerInfo">고객사 정보</label>
+              </dt>
+              <dd>
+                <el-select v-model="customerInfo" placeholder="선택">
+                  <el-option
+                    v-for="item in customerInfoList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="parentId">상위 아이디</label>
+              </dt>
+              <dd>
+                <input type="text" id="parentId" class="inp-txt" placeholder="상위 아이디 입력">
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="userId">회원 아이디</label>
+              </dt>
+              <dd>
+                <input type="text" id="userId" class="inp-txt" placeholder="회원 아이디 입력">
+                <button class="btn-md btn-light-primary">중복확인</button>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="userName">회원 이름</label>
+              </dt>
+              <dd>
+                <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="memberType">회원 타입</label>
+              </dt>
+              <dd>
+                <el-select v-model="memberType" placeholder="선택">
+                  <el-option
+                    v-for="item in memberTypeList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="businessType">사업자 타입</label>
+              </dt>
+              <dd class="dd-bg">
+                <el-radio-group v-model="businessType">
+                  <el-radio label="company">사업자</el-radio>
+                  <el-radio label="personal">개인</el-radio>
+                </el-radio-group>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="phoneNumb">휴대폰 번호</label>
+              </dt>
+              <dd>
+                <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="email">이메일</label>
+              </dt>
+              <dd>
+                <input type="email" id="email" class="inp-txt" placeholder="example@email.com">
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div slot="footer">
+        <button @click="addMemberModal = false" class="btn-md btn-light">취소</button>
+        <button class="btn-md btn-dark">저장</button>
+      </div>
+    </el-dialog>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script src="/ud/common/js/element/ko.js"></script>
+<script>
+ELEMENT.locale(ELEMENT.lang.ko)
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        // datepick
+        datepick: '',
+
+        // date filter radio button
+        dateFilter: '전체',
+
+        // 고객사
+        customerInfoList: [{
+          value: 'ciderpay',
+          label: '사이다페이'
+        }, {
+          value: 'udpay',
+          label: '유디페이'
+        }],
+        customerInfo: '',
+
+        // 회원 타입
+        memberTypeList: [{
+          value: 'ud',
+          label: '본사'
+        }, {
+          value: 'master',
+          label: '총판'
+        }, {
+          value: 'agent',
+          label: '대리점'
+        }, {
+          value: 'reseller',
+          label: '리셀러'
+        }, {
+          value: 'store',
+          label: '판매점'
+        }],
+        memberType: '',
+
+        // 사업자 타입
+        businessType: 'company',
+
+        // 게시물 출력 개수
+        boardViewList: [{
+          value: '10',
+          label: '10개씩 보기'
+        }, {
+          value: '50',
+          label: '50개씩 보기'
+        }, {
+          value: '100',
+          label: '100개씩 보기'
+        }],
+        boardView: '',
+
+        // modal
+        addMemberModal: false,
+      }
+    },
+    methods: {
+      //모달 닫기(취소)
+      cancel() {
+          this.modal = false
+      },
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*
+  _buttons.scss
+*/
+
+/* base */
+%btnBase {
+  @include transition(background-color .3s ease, color .3s ease);
+  border-radius: 3px;
+  outline: 0;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+
+  * {
+    vertical-align: middle
+  }
+}
+
+
+// size
+.btn-sm {
+  @extend %btnBase;
+  @include font-size(12px);
+  height: 34px;
+  padding:8px 10px;
+
+  // icon only
+  &.btn-ico {
+    padding: 7px;
+    font-size: 20px;
+
+    * {
+      vertical-align: top
+    }
+  }
+}
+
+.btn-md {
+  @extend %btnBase;
+  @include font-size(15px);
+  height: 42px;
+  padding: 10px;
+
+  // with icon
+  i {
+    @include font-size(18px);
+    opacity: .7;
+  }
+  i ~ span {
+    margin-right: 4px;
+  }
+}
+
+.btn-lg {
+  @extend %btnBase;
+}
+
+
+// colored
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+
+  &:hover, &:focus {
+    background-color: darken($color-primary, 10%);
+  }
+}
+
+.btn-dark {
+  background-color: $color-dark-1;
+  color: $color-white;
+
+  &:hover, &:focus {
+    background-color: lighten($color-dark-1, 15%);
+  }
+}
+
+
+// light colored
+.btn-light {
+  background-color: $color-light-e;
+  color: $color-dark-6;
+
+  &:hover, &:focus {
+    background-color: $color-light-d;
+  }
+}
+
+.btn-light-primary {
+  background-color: $color-light-primary;
+  color: $color-primary;
+
+  &:hover, &:focus {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+.btn-light-warn {
+  background-color: $color-light-warning;
+  color: $color-warning;
+
+  &:hover, &:focus {
+    background-color: $color-warning;
+    color: $color-white;
+  }
+}
+
+.btn-light-danger {
+  background-color: $color-light-danger;
+  color: $color-danger;
+
+  &:hover, &:focus {
+    background-color: $color-danger;
+    color: $color-white;
+  }
+}

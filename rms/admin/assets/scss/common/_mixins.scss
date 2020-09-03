@@ -1,0 +1,167 @@
+@charset "utf-8";
+/*
+  _mixins.scss
+*/
+
+/* colors */
+//gray
+$color-white: #fff;
+$color-dark-1: #1D2A39;
+$color-dark-3: #364054;
+$color-dark-6: #6B7583;
+$color-dark-9: #989FAD;
+$color-light-b: #BFC4CA;
+$color-light-d: #DEE2E6;
+$color-light-e: #EEF2F7;
+$color-light-f: #F5F9FC;
+
+//color 
+$color-primary: #FF778B;
+$color-secondary: #759AFF;
+$color-danger: #FF5050;
+$color-positive: #0AB989;
+$color-warning: #FFBC00;
+$color-light-primary: #FFEBEE;
+$color-light-secondary: #EBF0FF;
+$color-light-danger: #FFE5E5;
+$color-light-positive: #DBF5EE;
+$color-light-warning: #FFF5D9;
+
+
+// for dark mode
+@media (prefers-color-scheme: dark) {}
+
+// shadow
+$dark-shadow: 0 4px 20px rgba($color-dark-3,.2);
+$dark-shadow-hover: 0 4px 40px rgba($color-dark-3,.25);
+
+
+// font rem size with pixel fallback
+// @include font-size(14px)
+@function calculateRem($size) {
+  $remSize: $size / 14px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+// font style
+@mixin font-basic {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1;
+}
+
+// clearfix
+// @extend %clearfix;
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// hidden
+// @extend %hide;
+%hide {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+%txthide {
+  font-size: 0;
+  color: transparent;
+  text-indent: -9999px;
+}
+
+
+// box style
+%bxBase {
+  position: relative;
+  padding: 20px;
+  background: $color-white;
+  border-radius: 5px;
+  box-shadow: $dark-shadow;
+}
+
+
+// animation
+// @include animation('sample 5s 3');
+// @include keyframes(sample) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+
+
+// transition
+// @include transition(color .3s ease);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+
+// gradient
+@mixin bg-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    
+    @if $orientation == 'vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+
+// Cross browser opacity
+// @include opacity(0.8);
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
