@@ -23,6 +23,11 @@ button[disabled], button[disabled]:hover {
   background: $color-light-d;
   color: $color-dark-9;
   opacity: .7;
+
+  // dark mode
+  .theme-dark & {
+    background: rgba($color-dark-6, .3); 
+  }
 }
 
 // size
@@ -89,6 +94,12 @@ button[disabled], button[disabled]:hover {
   &:hover, &:focus {
     background-color: lighten($color-dark-1, 15%);
   }
+
+  // dark mode
+  .theme-dark & {
+    background-color: $color-light-e;
+    color: $color-dark-3;
+  }
 }
 
 
@@ -100,6 +111,12 @@ button[disabled], button[disabled]:hover {
   &:hover, &:focus {
     background-color: $color-light-d;
   }
+
+  // dark mode
+  .theme-dark & {
+    background-color: $color-dark-6;
+    color: $color-light-e;
+  }
 }
 
 .btn-light-primary {
@@ -110,6 +127,11 @@ button[disabled], button[disabled]:hover {
     background-color: $color-primary;
     color: $color-white;
   }
+
+  // dark mode
+  // .theme-dark & {
+  //   background-color: rgba($color-light-primary, .2);
+  // }
 }
 
 .btn-light-warn {
@@ -120,6 +142,11 @@ button[disabled], button[disabled]:hover {
     background-color: $color-warning;
     color: $color-white;
   }
+
+  // dark mode
+  // .theme-dark & {
+  //   background-color: rgba($color-light-warning, .2);
+  // }
 }
 
 .btn-light-danger {
@@ -130,4 +157,9 @@ button[disabled], button[disabled]:hover {
     background-color: $color-danger;
     color: $color-white;
   }
+
+  // dark mode
+  // .theme-dark & {
+  //   background-color: rgba($color-light-danger, .2);
+  // }
 }

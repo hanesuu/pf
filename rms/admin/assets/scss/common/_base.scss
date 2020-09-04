@@ -35,11 +35,17 @@ html {
 }
 
 body {
+  @include transition(background-color .2s ease);
   min-width: 1200px;
   line-height: 1;
   overflow: auto;
   -webkit-text-size-adjust: none;
   background-color: $color-light-f;
+
+  // dark mode
+  &.theme-dark {
+    background-color: $color-dark-1;
+  }
 }
 
 ol, ul {
@@ -212,6 +218,36 @@ textarea::placeholder {
   opacity: 1;
 }
 
+// dark mode
+.theme-dark {
+  input::-webkit-input-placeholder {
+    color: $color-dark-6;
+  }
+  input::-moz-placeholder {
+    color: $color-dark-6;
+  }
+  input:-ms-input-placeholder {
+    color: $color-dark-6;
+  }
+  input::placeholder {
+    color: $color-dark-6;
+    opacity: 1;
+  }
+  textarea::-webkit-input-placeholder {
+    color: $color-dark-6;
+  }
+  textarea::-moz-placeholder {
+    color: $color-dark-6;
+  }
+  textarea:-ms-input-placeholder {
+    color: $color-dark-6;
+  }
+  textarea::placeholder {
+    color: $color-dark-6;
+    opacity: 1;
+  }
+}
+
 
 // margin, padding
 .mgt-sm {
@@ -260,6 +296,13 @@ textarea::placeholder {
 
 .txt-label__default {
   @extend %labelBase;
+  @include transition(background .2s ease, color .2s ease);
   background: $color-light-e;
   color: $color-dark-6;
+
+  // dark mode
+  .theme-dark & {
+    background: $color-dark-3;
+    color: $color-light-d;
+  }
 }

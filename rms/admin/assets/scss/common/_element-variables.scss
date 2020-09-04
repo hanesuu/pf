@@ -11,6 +11,54 @@
 		@include transition(box-shadow .2s ease);
 		box-shadow: 0 0 0 3px rgba($color-primary, .2);
 	}
+
+	// dark mode
+  .theme-dark & {
+  	background-color: rgba($color-dark-1, .3);
+  	border-color: $color-dark-6;
+  	color: $color-light-d;
+  }
+}
+
+// datepicker
+.el-date-editor {
+	.el-range-input {
+		background: transparent;
+	}
+	// dark mode
+  .theme-dark .el-range-separator {
+		color: $color-dark-6;
+	}
+}
+
+// select
+.el-select-dropdown {
+	// dark mode
+	.theme-dark & {
+		background-color: $color-dark-1;
+		border-color: $color-dark-1;
+	}
+
+	&__item {
+		// dark mode
+	  .theme-dark & {
+	  	color: $color-light-d;
+	  }
+
+	  &.hover, &:hover {
+	  	// dark mode
+		  .theme-dark & {
+		  	background-color: darken($color-dark-1, 5%);
+		  }
+	  }
+	}
+}
+// select dropdown arrow
+.el-popper[x-placement^=bottom] .popper__arrow {
+	// dark mode
+  .theme-dark &, .theme-dark &:after {
+  	border-bottom-color: $color-dark-1;
+  }
 }
 
 // radio
@@ -23,11 +71,17 @@
 		@include transition(background .2s ease, border-color .2s ease, box-shadow .2s ease);
 		width: 22px;
 		height: 22px;
+		background: transparent;
 
 		&:after {
 			width: 10px;
 			height: 10px;
 		}
+
+		// dark mode
+	  .theme-dark & {
+	  	border-color: $color-dark-6;
+	  }
 	}
 
 	&__input {
@@ -41,6 +95,11 @@
 	&__label {
 		@include font-size(15px);
 		padding-left: 8px;
+
+		// dark mode
+	  .theme-dark & {
+	  	color: $color-dark-9;
+	  }
 	}
 }
 
@@ -48,6 +107,18 @@
 .el-radio-button {
 	&__inner {
 		padding: 13px;
+
+		// dark mode
+	  .theme-dark & {
+	  	background: transparent;
+	  	color: $color-light-b;
+	  	border-color: $color-dark-6;
+	  }
+	}
+
+	// dark mode
+	.theme-dark &:first-child .el-radio-button__inner {
+		border-left-color: $color-dark-6;
 	}
 }
 
@@ -72,7 +143,7 @@
 		line-height: 1;
 		vertical-align: middle;
 	}
-	
+
 	&__input.is-checked + &__label {
 		font-weight: 700;
 	}
@@ -90,6 +161,7 @@
 		height: 42px;
 		padding: 0;
 		border-radius: 4px;
+		background: transparent;
 
 		&:not(:disabled):hover {
 			background: $color-light-primary;
@@ -104,6 +176,7 @@
 	padding: 0;
 	line-height: 42px;
 	border-radius: 4px;
+	background: transparent;
 
 	&:not(.active):hover {
 		background: $color-light-primary;
@@ -115,14 +188,29 @@
 .el-dialog {
 	overflow: hidden;
 
+	// dark mode
+	.theme-dark & {
+		background: $color-dark-3;
+	}
+
 	&__header {
 		padding: 15px 20px;
     border-bottom: 1px solid $color-light-e;
+
+    // dark mode
+		.theme-dark & {
+			border-bottom-color: rgba($color-dark-6, .3);
+		}
 
 		&--tit {
 			@include font-size(15px);
       font-weight: 700;
 			color: $color-dark-3;
+
+			// dark mode
+			.theme-dark & {
+				color: $color-light-e;
+			}
 		}
 
 		&btn {

@@ -1,9 +1,18 @@
 $(document).ready(function(){
 	/* mode */
-	$(".theme-mode").children().addClass("btn-light");
 	$(".theme-mode").children().click(function(){
-		$(this).toggleClass("btn-dark");
+		$(this).siblings().removeClass("active");
+		$(this).addClass("active");
+
+		if($(".theme-mode").children(".theme-mode--dark").hasClass("active")){
+			$("body").addClass("theme-dark");
+		}else{
+			$("body").removeClass("theme-dark");
+		}
 	});
+
+
+
 
 	/* search collapse */
 	$(".search__btns").children(".btn-collapse").click(function(){

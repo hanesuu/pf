@@ -13,6 +13,7 @@
 
 // side nav menu
 .main-menu {
+	@include transition(background .2s ease);
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -20,6 +21,11 @@
 	height: 100%;
 	background: $color-white;
 	z-index: 100;
+
+	// dark mode
+	.theme-dark & {
+		background: $color-dark-3;
+	}
 
 	.logo {
 		position: relative;
@@ -54,6 +60,11 @@
 			display: block;
 			margin-top: 2px;
 			color: $color-dark-6;
+
+			// dark mode
+			.theme-dark & {
+				color: $color-light-b;
+			}
 		}
 
 		&:hover span, &.active span {
@@ -123,6 +134,7 @@
 .header {
 	@include flexbox;
 	@include align-items(center);
+	@include transition(background .2s ease);
 	position: fixed;
 	left: 80px;
 	top: 0;
@@ -132,6 +144,11 @@
 	background: $color-white;
 	box-shadow: $dark-shadow;
 	z-index: 90;
+
+	// dark mode
+	.theme-dark & {
+		background: $color-dark-3;
+	}
 
 	// submenu
 	&__submenu ul {
@@ -150,6 +167,11 @@
 			font-weight: 700;
 			color: $color-dark-6;
 			border-radius: 15px;
+
+			// dark mode
+			.theme-dark & {
+				color: $color-light-e;
+			}
 
 			&:hover {
 				color: $color-primary;
@@ -179,6 +201,11 @@
 			g {
 				@include transition(fill .2s ease);
 				fill: $color-dark-3;
+
+				// dark mode
+				.theme-dark & {
+					fill: $color-light-b;
+				}
 			}
 
 			&:hover g {
@@ -196,10 +223,56 @@
 		}
 		span {
 			color: $color-dark-6;
+
+			// dark mode
+			.theme-dark & {
+				color: $color-light-b;
+			}
 		}
 		span:hover {
 			text-decoration: underline;
 		}
+	}
+}
+
+
+// theme mode button
+.theme-mode {
+	margin-right: 20px;
+	font-size: 0;
+
+	button {
+		background: $color-light-e;
+		font-weight: 400;
+
+		&:first-child {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&:last-child {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		i {
+			font-size: 16px;
+		}
+	}
+
+	&--light.active {
+		background: $color-warning;
+		color: $color-white;
+	}
+
+	&--dark.active {
+		background: $color-white;
+		color: $color-dark-3;
+	}
+
+	// dark mode
+	.theme-dark &--light {
+		background: $color-dark-6;
+		color: $color-light-e;
 	}
 }
 
@@ -216,9 +289,15 @@
 		margin-bottom: 20px;
 
 		h2 {
+			@include transition(color .2s ease);
 			@include font-size(18px);
 			color: $color-dark-3;
 			font-weight: 700;
+
+			// dark mode
+			.theme-dark & {
+				color: $color-light-e;
+			}
 		}
 	}
 
