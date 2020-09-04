@@ -22,6 +22,47 @@ $(document).ready(function() {
 </head>
 <body>
   <div id="app">
+
+    <!--side nav-->
+    <div class="main-menu">
+      <div class="logo">
+        <h1>UDRMS</h1>
+      </div>
+      <nav class="main-menu__list">
+        <ul>
+          <li>
+            <a href="">
+              <i class="ico-nav--home"></i>
+              <span slot="title">홈</span>
+            </a>
+          </li>
+          <li>
+            <a href="../member/">
+              <i class="ico-nav--member"></i>
+              <span slot="title">회원 관리</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="">
+              <i class="ico-nav--pay"></i>
+              <span slot="title">결제 관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="ico-nav--noti"></i>
+              <span slot="title">알림 관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="ico-nav--setting"></i>
+              <span slot="title">설정 관리</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <div id="header"></div>     
 
     <div class="page pg-member">
@@ -730,10 +771,5 @@ ELEMENT.locale(ELEMENT.lang.ko)
       },
     }
   })
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $("#header").children(".main-menu").find("li:nth-child(3)").addClass("active");
-});
 </script>
 </html>
