@@ -17,7 +17,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
   $("#header").load("../inc/header.html");
-  $("#header").children(".main-menu").find("li:nth-child(3)").addClass("active");
 });
 </script>
 </head>
@@ -732,4 +731,8 @@ ELEMENT.locale(ELEMENT.lang.ko)
     }
   })
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#header").children(".main-menu").find("li:nth-child(3)").addClass("active");
+});
 </html>
