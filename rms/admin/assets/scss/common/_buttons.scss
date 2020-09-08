@@ -134,6 +134,16 @@ button[disabled], button[disabled]:hover {
   // }
 }
 
+.btn-light-secondary {
+  background-color: $color-light-secondary;
+  color: $color-secondary;
+
+  &:hover, &:focus {
+    background-color: $color-secondary;
+    color: $color-white;
+  }
+}
+
 .btn-light-warn {
   background-color: $color-light-warning;
   color: $color-warning;
