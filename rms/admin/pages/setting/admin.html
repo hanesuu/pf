@@ -333,9 +333,9 @@ $(document).ready(function() {
                 <label for="userSelect">RM 설정</label>
               </dt>
               <dd>
-                <el-select v-model="adminAuth" placeholder="선택" multiple>
+                <el-select v-model="userSelect" placeholder="선택" multiple class="el-select__tags--primary">
                   <el-option
-                    v-for="item in adminAuthList"
+                    v-for="item in userSelectList"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value">
@@ -384,8 +384,18 @@ ELEMENT.locale(ELEMENT.lang.ko)
         }],
         boardView: '',
 
-        // rm설정
+        // 관리자 권한
         adminAuthList: [{
+          value: 'main',
+          label: '관리자'
+        }, {
+          value: 'sub',
+          label: '서브 관리자'
+        }],
+        adminAuth: '',
+
+        // rm설정
+        userSelectList: [{
           value: '20만원 이상 결제 건',
           label: '20만원 이상 결제 건'
         }, {
@@ -401,7 +411,7 @@ ELEMENT.locale(ELEMENT.lang.ko)
           value: '보증보험 초과 매출',
           label: '보증보험 초과 매출'
         }],
-        adminAuth: [],
+        userSelect: [],
 
         // modal
         addMemberModal: false,

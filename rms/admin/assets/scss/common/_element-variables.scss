@@ -61,6 +61,16 @@
   }
 }
 
+// select multiple tag
+.el-select__tags--primary {
+  .el-tag {
+    border-color: transparent;
+    background-color: lighten($color-primary, 24%);
+    color: $color-primary
+  } 
+}
+
+
 // radio
 .el-radio {
 	height: 42px;
