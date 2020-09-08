@@ -1,24 +1,24 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<title>UDRMS 관리자</title>
-<meta name="keyword" content="UDRMS 관리자, UDRMS, RMS, 관리자, 어드민, 솔루션">
-<meta name="description" content="UDRMS 관리자 페이지입니다.">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
-<link rel="icon" href="/ud/rms/common/img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/ud/rms/common/img/favicon_32.png" sizes="32x32">
-<link rel="icon" href="/ud/rms/common/img/favicon_64.png" sizes="64x64">
-<link rel="stylesheet" href="../../assets/scss/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="../../assets/js/common.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $("#header").load("../inc/header.html");
-});
-</script>
+  <meta charset="utf-8">
+  <title>UDRMS 관리자</title>
+  <meta name="keyword" content="UDRMS 관리자, UDRMS, RMS, 관리자, 어드민, 솔루션">
+  <meta name="description" content="UDRMS 관리자 페이지입니다.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+  <link rel="icon" href="/ud/rms/common/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/ud/rms/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/rms/common/img/favicon_64.png" sizes="64x64">
+  <link rel="stylesheet" href="../../assets/scss/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="../../assets/js/common.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#header").load("../inc/header.html");
+    });
+  </script>
 </head>
 <body>
   <div id="app">
@@ -42,14 +42,14 @@ $(document).ready(function() {
               <span slot="title">회원 관리</span>
             </a>
           </li>
-          <li class="active">
-            <a href="">
+          <li>
+            <a href="../payment/">
               <i class="ico-nav--pay"></i>
               <span slot="title">결제 관리</span>
             </a>
           </li>
-          <li>
-            <a href="../noti/">
+          <li class="active">
+            <a href="">
               <i class="ico-nav--noti"></i>
               <span slot="title">알림 관리</span>
             </a>
@@ -68,7 +68,7 @@ $(document).ready(function() {
       <nav class="header__submenu">
         <ul>
           <li class="active">
-            <a href="">결제 리스트</a>
+            <a href="">알림 리스트</a>
           </li>
         </ul>
       </nav>      
@@ -77,11 +77,11 @@ $(document).ready(function() {
 
     <div class="page pg-member">
       <section class="page__tit">
-        <h2>결제 리스트</h2>
+        <h2>알림 리스트</h2>
         <div class="page__breadcrumb">
           <ul>
-            <li>결제 관리</li>
-            <li>결제 리스트</li>
+            <li>알림 관리</li>
+            <li>알림 리스트</li>
           </ul>
         </div>
       </section>
@@ -127,52 +127,10 @@ $(document).ready(function() {
             <div class="col-desk-3">
               <dl class="form-dl--row">
                 <dt>
-                  <label for="memberType">회원 타입</label>
-                </dt>
-                <dd>
-                  <el-select v-model="memberType" placeholder="선택">
-                    <el-option
-                      v-for="item in memberTypeList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="businessType">사업자 타입</label>
-                </dt>
-                <dd class="dd-bg">                  
-                  <el-radio-group v-model="businessType">
-                    <el-radio label="all">전체</el-radio>
-                    <el-radio label="company">사업자</el-radio>
-                    <el-radio label="personal">개인</el-radio>
-                  </el-radio-group>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
                   <label for="userId">회원 아이디</label>
                 </dt>
                 <dd>
                   <input type="text" id="userId" class="inp-txt" placeholder="회원 아이디 입력">
-                </dd>
-              </dl>
-            </div>
-
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="parentId">고객 아이디</label>
-                </dt>
-                <dd>
-                  <input type="text" id="parentId" class="inp-txt" placeholder="고객 아이디 입력">
                 </dd>
               </dl>
             </div>
@@ -193,74 +151,6 @@ $(document).ready(function() {
                 </dt>
                 <dd>
                   <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="pgType">PG 타입</label>
-                </dt>
-                <dd>
-                  <el-select v-model="pgType" placeholder="선택">
-                    <el-option
-                      v-for="item in pgTypeList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="requestType">결제 요청 타입</label>
-                </dt>
-                <dd>
-                  <el-select v-model="requestType" placeholder="선택">
-                    <el-option
-                      v-for="item in requestTypeList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="payMethod">결제 수단</label>
-                </dt>
-                <dd>
-                  <el-select v-model="payMethod" placeholder="선택">
-                    <el-option
-                      v-for="item in payMethodList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="payState">결제 상태</label>
-                </dt>
-                <dd>
-                  <el-select v-model="payState" placeholder="선택">
-                    <el-option
-                      v-for="item in payStateList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
                 </dd>
               </dl>
             </div>
@@ -287,11 +177,11 @@ $(document).ready(function() {
             <p class="data-tbl__count">총 <b>2</b>건</p>
           </div>
           <div class="data-tbl__filter--right">
-            <button class="btn-md btn-primary" @click="addMemberModal = true">
-              <i class="xi-user-plus-o"></i>
-              <span>결제 등록</span>
+            <button class="btn-md btn-primary" @click="addNotiModal = true">
+              <i class="xi-plus-circle-o"></i>
+              <span>알림 등록</span>
             </button>
-          </div>          
+          </div>
         </div>
         <div class="data-tbl__body">
           <table>
@@ -504,41 +394,14 @@ $(document).ready(function() {
         </div>
       </section>
 
-      <!--//content-->
+    <!--//content-->
     </div>
 
     <!-- dialog -->
-    <el-dialog :visible.sync="addMemberModal" :close-on-click-modal="false" @close="cancel" class="pop--add-member">
-      <div class="el-dialog__header--tit" slot="title">회원 등록</div>
+    <el-dialog :visible.sync="addNotiModal" :close-on-click-modal="false" @close="cancel" class="pop--add-noti">
+      <div class="el-dialog__header--tit" slot="title">알림 등록</div>
       <div class="contents">
         <div class="grid">
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="customerInfo">고객사 정보</label>
-              </dt>
-              <dd>
-                <el-select v-model="customerInfo" placeholder="선택">
-                  <el-option
-                    v-for="item in customerInfoList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="parentId">상위 아이디</label>
-              </dt>
-              <dd>
-                <input type="text" id="parentId" class="inp-txt" placeholder="상위 아이디 입력">
-              </dd>
-            </dl>
-          </div>
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
@@ -553,22 +416,12 @@ $(document).ready(function() {
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="userName">회원 이름</label>
+                <label for="notiType">알림 타입</label>
               </dt>
               <dd>
-                <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="memberType">회원 타입</label>
-              </dt>
-              <dd>
-                <el-select v-model="memberType" placeholder="선택">
+                <el-select v-model="notiType" placeholder="선택">
                   <el-option
-                    v-for="item in memberTypeList"
+                    v-for="item in notiTypeList"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value">
@@ -580,43 +433,47 @@ $(document).ready(function() {
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="businessType">사업자 타입</label>
+                <label for="notiState">알림 상태</label>
               </dt>
-              <dd class="dd-bg">
-                <el-radio-group v-model="popBusinessType">
-                  <el-radio label="company">사업자</el-radio>
-                  <el-radio label="personal">개인</el-radio>
-                </el-radio-group>
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="phoneNumb">휴대폰 번호</label>
-              </dt>
-              <dd>
-                <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="email">이메일</label>
-              </dt>
-              <dd>
-                <input type="email" id="email" class="inp-txt" placeholder="example@email.com">
-              </dd>
-            </dl>
+                <dd>
+                  <el-select v-model="notiState" placeholder="선택">
+                    <el-option
+                      v-for="item in notiStateList"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-6">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="notiTitle">알림 제목</label>
+                </dt>
+                <dd>
+                  <input type="text" id="notiTitle" class="inp-txt" placeholder="알림 타입에 따라 자동으로 생성됩니다." disabled>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-desk-12">
+              <dl class="form-dl--row">
+                <dt>
+                  <label for="notiKey">알림 연결키</label>
+                </dt>
+                <dd>
+                  <input type="text" id="notiKey" class="inp-txt" placeholder="알림 연결키 입력">
+                </dd>
+              </dl>
+            </div>
           </div>
         </div>
-      </div>
-      <div slot="footer">
-        <button @click="addMemberModal = false" class="btn-md btn-light">취소</button>
-        <button class="btn-md btn-dark">저장</button>
-      </div>
-    </el-dialog>
+        <div slot="footer">
+          <button @click="addNotiModal = false" class="btn-md btn-light">취소</button>
+          <button class="btn-md btn-dark">저장</button>
+        </div>
+      </el-dialog>
   </div>
 </body>
 
@@ -626,7 +483,7 @@ $(document).ready(function() {
 <script src="/ud/common/js/element/index.js"></script>
 <script src="/ud/common/js/element/ko.js"></script>
 <script>
-ELEMENT.locale(ELEMENT.lang.ko)
+  ELEMENT.locale(ELEMENT.lang.ko)
   new Vue({
     el: '#app',
     data: function() {
@@ -647,113 +504,28 @@ ELEMENT.locale(ELEMENT.lang.ko)
         }],
         customerInfo: '',
 
-        // 회원 타입
-        memberTypeList: [{
-          value: 'ud',
-          label: '본사'
+        // 알림 타입
+        notiTypeList: [{
+          value: 'rm',
+          label: 'RM'
         }, {
-          value: 'master',
-          label: '총판'
-        }, {
-          value: 'agent',
-          label: '대리점'
-        }, {
-          value: 'reseller',
-          label: '리셀러'
-        }, {
-          value: 'store',
-          label: '판매점'
+          value: 'item',
+          label: '게시글'
         }],
-        memberType: '',
-
-        // 사업자 타입
-        businessType: 'all',
+        notiType: '',
 
         // pg 타입
-        pgTypeList: [{
-          value: 'all',
-          label: '전체'
+        notiStateList: [{
+          value: 'send',
+          label: '알림'
         }, {
-          value: 'jtnet',
-          label: '제이티넷'
+          value: 'confirm',
+          label: '확인'
         }, {
-          value: 'kcp',
-          label: 'KCP'
-        }, {
-          value: 'payapp',
-          label: '페이앱'
-        }, {
-          value: 'danal',
-          label: '다날'
-        }, {
-          value: 'nice',
-          label: '나이스'
+          value: 'not',
+          label: '미처리'
         }],
-        pgType: '',
-
-        // 결제요청 타입
-        requestTypeList: [{
-          value: 'all',
-          label: '전체'
-        }, {
-          value: 'api',
-          label: 'API'
-        }, {
-          value: 'app',
-          label: '앱결제'
-        }, {
-          value: 'remote',
-          label: '원격결제'
-        }, {
-          value: 'link',
-          label: '링크결제'
-        }, {
-          value: 'periodic',
-          label: '정기결제'
-        }],
-        requestType: '',
-
-        // 결제 수단
-        payMethodList: [{
-          value: 'all',
-          label: '전체'
-        }, {
-          value: 'card',
-          label: '카드'
-        }, {
-          value: 'mobile',
-          label: '휴대폰'
-        }, {
-          value: 'easy',
-          label: '간편결제'
-        }, {
-          value: 'kakao',
-          label: '카카오페이'
-        }, {
-          value: 'naver',
-          label: '네이버페이'
-        }, {
-          value: 'virtual',
-          label: '가상계좌'
-        }, {
-          value: 'bank',
-          label: '계좌이체'
-        }],
-        payMethod: '',
-
-        // 결제 상태
-        payStateList: [{
-          value: 'all',
-          label: '전체'
-        }, {
-          value: 'paid',
-          label: '결제 완료'
-        }, {
-          value: 'cancel',
-          label: '결제 취소'
-        }],
-        payState: '',
-
+        notiState: '',
 
         // 게시물 출력 개수
         boardViewList: [{
@@ -769,15 +541,13 @@ ELEMENT.locale(ELEMENT.lang.ko)
         boardView: '',
 
         // modal
-        addMemberModal: false,
-
-        popBusinessType: 'company'
+        addNotiModal: false,
       }
     },
     methods: {
       //모달 닫기(취소)
       cancel() {
-          this.modal = false
+        this.modal = false
       },
     }
   })

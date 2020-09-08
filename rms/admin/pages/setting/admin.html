@@ -36,8 +36,8 @@ $(document).ready(function() {
               <span slot="title">홈</span>
             </a>
           </li>
-          <li class="active">
-            <a href="">
+          <li>
+            <a href="../member/">
               <i class="ico-nav--member"></i>
               <span slot="title">회원 관리</span>
             </a>
@@ -54,8 +54,8 @@ $(document).ready(function() {
               <span slot="title">알림 관리</span>
             </a>
           </li>
-          <li>
-            <a href="../setting/">
+          <li class="active">
+            <a href="">
               <i class="ico-nav--setting"></i>
               <span slot="title">설정 관리</span>
             </a>
@@ -67,21 +67,24 @@ $(document).ready(function() {
     <header class="header">
       <nav class="header__submenu">
         <ul>
+          <li>
+            <a href="./index.html">고객사 설정</a>
+          </li>
           <li class="active">
-            <a href="">회원 리스트</a>
+            <a href="">관리자 설정</a>
           </li>
         </ul>
       </nav>      
       <div id="header"></div>
-    </header>  
+    </header>
 
     <div class="page pg-member">
       <section class="page__tit">
-        <h2>회원 리스트</h2>
+        <h2>관리자 리스트</h2>
         <div class="page__breadcrumb">
           <ul>
-            <li>회원 관리</li>
-            <li>회원 리스트</li>
+            <li>설정 관리</li>
+            <li>관리자 리스트</li>
           </ul>
         </div>
       </section>
@@ -110,88 +113,20 @@ $(document).ready(function() {
             <div class="col-desk-3">
               <dl class="form-dl--row">
                 <dt>
-                  <label for="customerInfo">고객사</label>
+                  <label for="userId">아이디</label>
                 </dt>
                 <dd>
-                  <el-select v-model="customerInfo" placeholder="선택">
-                    <el-option
-                      v-for="item in customerInfoList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
+                  <input type="text" id="userId" class="inp-txt" placeholder="아이디 입력">
                 </dd>
               </dl>
             </div>
             <div class="col-desk-3">
               <dl class="form-dl--row">
                 <dt>
-                  <label for="memberType">회원 타입</label>
-                </dt>
-                <dd>
-                  <el-select v-model="memberType" placeholder="선택">
-                    <el-option
-                      v-for="item in memberTypeList"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value">
-                    </el-option>
-                  </el-select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="businessType">사업자 타입</label>
-                </dt>
-                <dd class="dd-bg">                  
-                  <el-radio-group v-model="businessType">
-                    <el-radio label="company">사업자</el-radio>
-                    <el-radio label="personal">개인</el-radio>
-                  </el-radio-group>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="userId">회원 아이디</label>
-                </dt>
-                <dd>
-                  <input type="text" id="userId" class="inp-txt" placeholder="회원 아이디 입력">
-                </dd>
-              </dl>
-            </div>
-
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="parentId">고객 아이디</label>
-                </dt>
-                <dd>
-                  <input type="text" id="parentId" class="inp-txt" placeholder="고객 아이디 입력">
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="userName">회원 이름</label>
+                  <label for="userName">이름</label>
                 </dt>
                 <dd>
                   <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
-                </dd>
-              </dl>
-            </div>
-            <div class="col-desk-3">
-              <dl class="form-dl--row">
-                <dt>
-                  <label for="phoneNumb">휴대폰 번호</label>
-                </dt>
-                <dd>
-                  <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
                 </dd>
               </dl>
             </div>
@@ -202,6 +137,9 @@ $(document).ready(function() {
             <span>상세검색</span>
             <i class="xi-angle-down-min"></i>
           </button>
+          <button class="btn-md btn-light-warn">
+            <i class="xi-refresh"></i>
+          </button> 
           <button class="btn-md btn-dark">
             <i class="xi-search"></i>
             <span>검색</span>
@@ -217,7 +155,7 @@ $(document).ready(function() {
           <div class="data-tbl__filter--right">
             <button class="btn-md btn-primary" @click="addMemberModal = true">
               <i class="xi-user-plus-o"></i>
-              <span>고객 등록</span>
+              <span>고객사 등록</span>
             </button>
           </div>          
         </div>
@@ -230,19 +168,13 @@ $(document).ready(function() {
               <col>
               <col>
               <col>
-              <col>
-              <col>
-              <col>
             </colgroup>
             <thead>
               <tr>
                 <th>#</th>
-                <th>고객 아이디</th>
-                <th>회원 아이디 (이름)</th>
-                <th>휴대폰 번호</th>
-                <th>회원 타입</th>
-                <th>사업자 타입</th>
-                <th>트리 정보</th>
+                <th>아이디</th>
+                <th>관리자 이름</th>
+                <th>권한</th>
                 <th>등록일</th>
                 <th class="ta-center">관리</th>
               </tr>
@@ -251,36 +183,9 @@ $(document).ready(function() {
               <tr>
                 <td>4</td>
                 <td class="txt-bold">ciderpay</td>
+                <td>고길동</td>
                 <td>
-                  <b>ciderpayre</b>
-                  <p class="mgt-sm">(판매왕)</p>
-                </td>
-                <td>01033332222</td>
-                <td>
-                  <span class="txt-secondary">판매자</span>
-                </td>
-                <td>
-                  <div class="txt-label__default">개인</div>
-                </td>
-                <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="60">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">총판</th>
-                      <td>ciderpayms</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">대리점</th>
-                      <td>ciderpayag</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">리셀러</th>
-                      <td>ciderpayre</td>
-                    </tr>
-                  </table>
+                  <div class="txt-label__default">서브 관리자</div>
                 </td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
@@ -294,37 +199,10 @@ $(document).ready(function() {
               </tr>
               <tr>
                 <td>3</td>
-                <td class="txt-bold">ciderpay</td>
+                <td class="txt-bold">designid22</td>
+                <td>김디잔</td>
                 <td>
-                  <b>ciderpayreseller</b>
-                  <p class="mgt-sm">(사이다리셀러)</p>
-                </td>
-                <td>01044551144</td>
-                <td>
-                  <span class="txt-secondary">리셀러</span>
-                </td>
-                <td>
-                  <div class="txt-label__default">개인</div>
-                </td>
-                <td>                  
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="60">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">총판</th>
-                      <td>ciderpayms</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">대리점</th>
-                      <td>ciderpayag</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">리셀러</th>
-                      <td>ciderpayre</td>
-                    </tr>
-                  </table>
+                  <div class="txt-label__default">서브 관리자</div>
                 </td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
@@ -338,33 +216,10 @@ $(document).ready(function() {
               </tr>
               <tr>
                 <td>2</td>
-                <td class="txt-bold">ciderpay</td>
+                <td class="txt-bold">almondbreeze</td>
+                <td>정아몬</td>
                 <td>
-                  <b>ciderag</b>
-                  <p class="mgt-sm">(사이다대리점)</p>
-                </td>
-                <td>01046554455</td>
-                <td>
-                  <span class="txt-secondary">대리점</span>
-                </td>
-                <td>
-                  <div class="txt-label__default">개인</div>
-                </td>
-                <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="60">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">총판</th>
-                      <td>ciderpayms</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">대리점</th>
-                      <td>ciderpayag</td>
-                    </tr>
-                  </table>
+                  <div class="txt-label__default">서브 관리자</div>
                 </td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
@@ -378,19 +233,11 @@ $(document).ready(function() {
               </tr>
               <tr>
                 <td>1</td>
-                <td class="txt-bold">ciderpay</td>
+                <td class="txt-bold">guuguroo</td>
+                <td>이비둘</td>
                 <td>
-                  <b>ciderpayhq</b>
-                  <p class="mgt-sm">(사이다페이)</p>
+                  <div class="txt-label__default">관리자</div>
                 </td>
-                <td>-</td>
-                <td>
-                  <span class="txt-secondary">본사</span>
-                </td>
-                <td>
-                  <div class="txt-label__default">사업자</div>
-                </td>
-                <td>-</td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
                   <button class="btn-sm btn-ico btn-light-warn" title="수정">
@@ -429,43 +276,16 @@ $(document).ready(function() {
 
     <!-- dialog -->
     <el-dialog :visible.sync="addMemberModal" :close-on-click-modal="false" @close="cancel" class="pop--add-member">
-      <div class="el-dialog__header--tit" slot="title">회원 등록</div>
+      <div class="el-dialog__header--tit" slot="title">관리자 등록</div>
       <div class="contents">
         <div class="grid">
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="customerInfo">고객사 정보</label>
+                <label for="userId">관리자 아이디</label>
               </dt>
               <dd>
-                <el-select v-model="customerInfo" placeholder="선택">
-                  <el-option
-                    v-for="item in customerInfoList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="parentId">상위 아이디</label>
-              </dt>
-              <dd>
-                <input type="text" id="parentId" class="inp-txt" placeholder="상위 아이디 입력">
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="userId">회원 아이디</label>
-              </dt>
-              <dd>
-                <input type="text" id="userId" class="inp-txt" placeholder="회원 아이디 입력">
+                <input type="text" id="userId" class="inp-txt" placeholder="관리자 아이디 입력">
                 <button class="btn-md btn-light-primary">중복확인</button>
               </dd>
             </dl>
@@ -473,22 +293,32 @@ $(document).ready(function() {
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="userName">회원 이름</label>
+                <label for="userName">관리자 이름</label>
               </dt>
               <dd>
-                <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
+                <input type="text" id="userName" class="inp-txt" placeholder="관리자 이름 입력">
               </dd>
             </dl>
           </div>
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="memberType">회원 타입</label>
+                <label for="userPw">관리자 비밀번호</label>
               </dt>
               <dd>
-                <el-select v-model="memberType" placeholder="선택">
+                <input type="password" id="userPw" class="inp-txt" placeholder="고객사 아이디 입력">
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="adminAuth">관리자 권한</label>
+              </dt>
+              <dd>
+                <el-select v-model="adminAuth" placeholder="선택">
                   <el-option
-                    v-for="item in memberTypeList"
+                    v-for="item in adminAuthList"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value">
@@ -497,36 +327,20 @@ $(document).ready(function() {
               </dd>
             </dl>
           </div>
-          <div class="col-desk-6">
+          <div class="col-desk-12">
             <dl class="form-dl--row">
               <dt>
-                <label for="businessType">사업자 타입</label>
-              </dt>
-              <dd class="dd-bg">
-                <el-radio-group v-model="businessType">
-                  <el-radio label="company">사업자</el-radio>
-                  <el-radio label="personal">개인</el-radio>
-                </el-radio-group>
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="phoneNumb">휴대폰 번호</label>
+                <label for="userSelect">RM 설정</label>
               </dt>
               <dd>
-                <input type="tel" id="phoneNumb" class="inp-txt" placeholder="01011110000">
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="email">이메일</label>
-              </dt>
-              <dd>
-                <input type="email" id="email" class="inp-txt" placeholder="example@email.com">
+                <el-select v-model="adminAuth" placeholder="선택" multiple>
+                  <el-option
+                    v-for="item in adminAuthList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
               </dd>
             </dl>
           </div>
@@ -557,38 +371,6 @@ ELEMENT.locale(ELEMENT.lang.ko)
         // date filter radio button
         dateFilter: '전체',
 
-        // 고객사
-        customerInfoList: [{
-          value: 'ciderpay',
-          label: '사이다페이'
-        }, {
-          value: 'udpay',
-          label: '유디페이'
-        }],
-        customerInfo: '',
-
-        // 회원 타입
-        memberTypeList: [{
-          value: 'ud',
-          label: '본사'
-        }, {
-          value: 'master',
-          label: '총판'
-        }, {
-          value: 'agent',
-          label: '대리점'
-        }, {
-          value: 'reseller',
-          label: '리셀러'
-        }, {
-          value: 'store',
-          label: '판매점'
-        }],
-        memberType: '',
-
-        // 사업자 타입
-        businessType: 'company',
-
         // 게시물 출력 개수
         boardViewList: [{
           value: '10',
@@ -601,6 +383,25 @@ ELEMENT.locale(ELEMENT.lang.ko)
           label: '100개씩 보기'
         }],
         boardView: '',
+
+        // rm설정
+        adminAuthList: [{
+          value: '20만원 이상 결제 건',
+          label: '20만원 이상 결제 건'
+        }, {
+          value: '50만원 이상 결제 건',
+          label: '50만원 이상 결제 건'
+        }, {
+          value: '100만원 이상 결제 건',
+          label: '100만원 이상 결제 건'
+        }, {
+          value: '보증보험 없이 500만원 이상 결제 건',
+          label: '보증보험 없이 500만원 이상 결제 건'
+        }, {
+          value: '보증보험 초과 매출',
+          label: '보증보험 초과 매출'
+        }],
+        adminAuth: [],
 
         // modal
         addMemberModal: false,
