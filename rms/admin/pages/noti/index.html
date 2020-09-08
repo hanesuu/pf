@@ -174,7 +174,7 @@
       <section class="data-tbl">
         <div class="data-tbl__filter">
           <div class="data-tbl__filter--left">
-            <p class="data-tbl__count">총 <b>2</b>건</p>
+            <p class="data-tbl__count">총 <b>4</b>건</p>
           </div>
           <div class="data-tbl__filter--right">
             <button class="btn-md btn-primary" @click="addNotiModal = true">
@@ -195,73 +195,39 @@
               <col>
               <col>
               <col>
+              <col>
             </colgroup>
             <thead>
               <tr>
                 <th>#</th>
-                <th>고객 아이디</th>
+                <th>관리자 아이디 (이름)</th>
                 <th>회원 아이디 (이름)</th>
-                <th>결제 구매자 정보</th>
-                <th>결제 금액 정보</th>
-                <th>결제 정보</th>
+                <th>휴대폰 번호</th>
+                <th>알림 제목</th>
+                <th>알림 타입</th>
+                <th>알림 상태</th>
                 <th>트리 정보</th>
-                <th>결제일</th>
+                <th>등록일</th>
                 <th class="ta-center">관리</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>2</td>
-                <td class="txt-bold">ciderpay</td>
+                <td>4</td>
                 <td>
                   <b>ciderpayre</b>
                   <p class="mgt-sm">(판매왕)</p>
                 </td>
                 <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="60">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">이름</th>
-                      <td>홍길동</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">휴대폰</th>
-                      <td>01065654455</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">이메일</th>
-                      <td>hongildong@gmail.com</td>
-                    </tr>
-                  </table>
+                  <b>almondbreeze</b>
+                  <p class="mgt-sm">(정아몬)</p>
                 </td>
+                <td>01032325566</td>
+                <td>새로운 게시글 알림</td>
                 <td>
-                  <b>9,300</b>원
+                  <div class="txt-label__default">게시글</div>
                 </td>
-                <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="80">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">요청 타입</th>
-                      <td>원격결제</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">결제 상태</th>
-                      <td>
-                        <span class="txt-success">결제 완료</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">결제 수단</th>
-                      <td>가상계좌</td>
-                    </tr>
-                  </table>
-                </td>
+                <td class="txt-success">확인</td>
                 <td>
                   <table class="tbl-opacity list-txt">
                     <colgroup>
@@ -284,6 +250,101 @@
                 </td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <b>promac</b>
+                  <p class="mgt-sm">(프로맥 관리자)</p>
+                </td>
+                <td>
+                  <b>hollywood6</b>
+                  <p class="mgt-sm">(조휴일)</p>
+                </td>
+                <td>01032325566</td>
+                <td>새로운 RM 알림</td>
+                <td>
+                  <div class="txt-label__default">RM</div>
+                </td>
+                <td class="txt-warn">알림</td>
+                <td>
+                  <table class="tbl-opacity list-txt">
+                    <colgroup>
+                      <col width="60">
+                      <col>
+                    </colgroup>
+                    <tr>
+                      <th class="list-txt__line">총판</th>
+                      <td>ciderpayms</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">대리점</th>
+                      <td>ciderpayag</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">리셀러</th>
+                      <td>session33</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
+                  <button class="btn-sm btn-ico btn-light-danger" title="삭제">
+                    <i class="xi-trash-o"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <b>soundcloudhound</b>
+                  <p class="mgt-sm">(김우디)</p>
+                </td>
+                <td>
+                  <b>devprod</b>
+                  <p class="mgt-sm">(박평식)</p>
+                </td>
+                <td>01065654455</td>
+                <td>새로운 RM 알림</td>
+                <td>
+                  <div class="txt-label__default">RM</div>
+                </td>
+                <td class="txt-danger">미처리</td>
+                <td>
+                  <table class="tbl-opacity list-txt">
+                    <colgroup>
+                      <col width="60">
+                      <col>
+                    </colgroup>
+                    <tr>
+                      <th class="list-txt__line">총판</th>
+                      <td>ciderpayms</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">대리점</th>
+                      <td>ciderpayag</td>
+                    </tr>
+                    <tr>
+                      <th class="list-txt__line">리셀러</th>
+                      <td>session33</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>2020.08.11 16:01:08</td>
+                <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
                   <button class="btn-sm btn-ico btn-light-danger" title="삭제">
                     <i class="xi-trash-o"></i>
                   </button>
@@ -291,59 +352,20 @@
               </tr>
               <tr>
                 <td>1</td>
-                <td class="txt-bold">ciderpay</td>
                 <td>
-                  <b>purpleblue42</b>
-                  <p class="mgt-sm">(김보라)</p>
+                  <b>saveryan</b>
+                  <p class="mgt-sm">(김단절)</p>
                 </td>
                 <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="60">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">이름</th>
-                      <td>김은비</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">휴대폰</th>
-                      <td>01032321212</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">이메일</th>
-                      <td>jessieunbi@naver.com</td>
-                    </tr>
-                  </table>
+                  <b>babepinky</b>
+                  <p class="mgt-sm">(윤분홍)</p>
                 </td>
+                <td>01054544455</td>
+                <td>새로운 게시글 알림</td>
                 <td>
-                  <b>24,300</b>원
-                  <p class="txt-danger mgt-sm">
-                    <b>24,300</b>원 취소
-                  </p>
+                  <div class="txt-label__default">게시글</div>
                 </td>
-                <td>
-                  <table class="tbl-opacity list-txt">
-                    <colgroup>
-                      <col width="80">
-                      <col>
-                    </colgroup>
-                    <tr>
-                      <th class="list-txt__line">요청 타입</th>
-                      <td>앱결제</td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">결제 상태</th>
-                      <td>
-                        <span class="txt-danger">결제 완료</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="list-txt__line">결제 수단</th>
-                      <td>카카오페이</td>
-                    </tr>
-                  </table>
-                </td>
+                <td class="txt-success">확인</td>
                 <td>
                   <table class="tbl-opacity list-txt">
                     <colgroup>
@@ -366,6 +388,9 @@
                 </td>
                 <td>2020.08.11 16:01:08</td>
                 <td class="ta-center">
+                  <button class="btn-sm btn-ico btn-light-warn" title="수정">
+                    <i class="xi-pen"></i>
+                  </button>
                   <button class="btn-sm btn-ico btn-light-danger" title="삭제">
                     <i class="xi-trash-o"></i>
                   </button>
