@@ -1,17 +1,17 @@
-@import "/ud/common/css/normalize.css";
+@import "/pf/pf_ud/common/css/normalize.css";
 @import "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
 @import "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/theme-chalk/index.css"; /* element */
-@import "./mixin.scss"; /* mixin & var */
-@import "./grid.scss"; /* Grid system by Bootstrap */
-@import "./element-variables.scss";
-@import "./main.scss";
-@import "./basket.scss";
-@import "./order.scss";
-@import "./member.scss";
-@import "./popup.scss";
-@import "./input.scss"; /* mixin & var */
+@import "mixin"; /* mixin & var */
+@import "grid"; /* Grid system by Bootstrap */
+@import "input";
+@import "element-variables";
+@import "main";
+@import "basket";
+@import "order";
+@import "member";
+@import "popup";
 
 @font-face {font-family:'Roboto'; unicode-range: U+30-39}
 
@@ -144,7 +144,7 @@ header {
     .store-bi {
         position:absolute; top:50%; left:20px; width:32px; height:32px;
         /*border:1px solid $light-color;*/ border-radius:100%; overflow:hidden;
-        background:url('/ud/colaservice/common/img/bi_emblem.png') $white-color no-repeat 50% 50% / cover; transform:translateY(-50%);
+        background:url('/pf/pf_ud/colaservice/common/img/bi_emblem.png') $white-color no-repeat 50% 50% / cover; transform:translateY(-50%);
 
         img {
             position:absolute; left:50%; top:50%; min-width:100%; min-height:100%; max-width:110%; max-height:110%;
