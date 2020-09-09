@@ -1,0 +1,357 @@
+@import "/ud/common/css/normalize.css";
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+@import "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/theme-chalk/index.css"; /* element */
+@import "mixin"; /* mixin & var */
+@import "grid"; /* grid layout */
+@import "page";
+@import "popup";
+@import "element-variables";
+
+@font-face {font-family:'Roboto'; @include fw-rg; unicode-range:U+30-39}
+
+
+/* common */
+html {
+	position:relative; font-size:10px;
+	@include media-mb {font-size:9px}
+}
+body {
+	@include margin-padding(all,0,all,0); overflow:auto; vertical-align:middle; background:$white; color:$dark-6; letter-spacing:-0.5px;
+	font-family:"Roboto","Noto Sans KR", "Nanum Gothic", "나눔고딕", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+	@include fw-dl; word-break:keep-all
+}
+* {
+	@include prefix((
+		box-sizing: border-box
+		), webkit moz);
+}
+a,a:hover,a:active,a:visited {text-decoration:none; cursor:pointer}
+ul,li {@include margin-padding(all,0,all,0); list-style:none}
+select::-ms-expand {display:none}
+::selection {background:rgba($point,.7); color:$white}
+
+/* placeholder */
+input::-webkit-input-placeholder {color:$light-d}
+input::-moz-placeholder {color:$light-d}
+input:-ms-input-placeholder {color:$light-d}
+input::placeholder {color:$light-d; opacity:1}
+textarea::-webkit-input-placeholder {color:$light-d}
+textarea::-moz-placeholder {color:$light-d}
+textarea:-ms-input-placeholder {color:$light-d}
+textarea::placeholder {color:$light-d; opacity:1}
+
+/* input 공용 스타일 */
+input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search],
+textarea.inp-txt, .inp-txt {
+	min-height:4rem; @include margin-padding(all,0,all,5px 10px); @include fw-dl; font-size:1.4rem; color:$dark-3; line-height:1; 
+	border:1px solid $light-d; border-radius:3px; background:$white; vertical-align:top; outline:0; @include transition(border-color,box-shadow); -webkit-appearance:none;
+	&:focus {border-color:$point; box-shadow:0 0 0 3px rgba($point,.2)}
+	&.inp-xs {height:24px; padding:2px 10px}
+}
+input[disabled=disabled] {background-color:rgba($light-d,.7); color:$dark-9}
+/* 금액 input */
+input[type=number], .num-txt {
+	text-align:right; @include fw-bd;
+	@include media-mb {min-width:60px}
+}
+.inp-price {
+	@include flexbox; position:relative;
+	.num-txt {width:100%; padding-right:25px}
+	&:after {content:'원'; @include absolute(null,0,10px,null); line-height:4rem; color:$dark-6}
+}
+
+/* textarea */
+textarea.inp-txt {
+	height:auto; min-height:80px; line-height:1.4;
+	&.lg {min-height:260px}
+}
+
+/* checkbox */
+.inp-check {
+	display:inline-block; position:relative; font-size:1.3rem; line-height:34px; cursor:pointer;
+	@include prefix((
+		user-select:none
+		), webkit moz ms);
+	.txt {display:inline-block; position:relative; @include margin-padding(all,0,left,24px);}
+	input {position:absolute; width:0; height:0; opacity:0; cursor:pointer}
+	.checkmark {
+		@include absolute(0,6px,null,null); width:20px; height:20px; background:$white; border:1px solid $light-d; border-radius:2px;
+		&:after {
+			content:""; display:none; @include absolute(7px,2px,null,null); width:5px; height:10px; border:solid $white; border-width:0 2px 2px 0; transform:rotate(45deg)
+		}
+	}
+	input:checked ~ .checkmark {
+		background:$point; border:none;
+		&:after {display:block}
+	}
+	/* 텍스트 없이 체크박스만 존재 */
+	&.box {
+		width:20px; height:20px; line-height:inherit;
+		.checkmark {top:0}
+	}
+}
+
+/* display */
+.d-block {display:block}
+.d-inblock {display:inline-block}
+.d-none {display:none}
+
+/* responsive */
+.pc-none {@include media-pc {display:none !important}}
+.md-none {@include media-md {display:none !important}}
+.mb-none {@include media-mb {display:none !important}}
+
+/* flex */
+.flexbox {@include flexbox}
+.flex1 {@include flex(1)}
+.flex2 {@include flex(2)}
+.flex3 {@include flex(3)}
+
+/* text */
+.txt-bold {@include fw-bd;}
+.txt-s {font-size:1.1rem}
+.txt-sm {font-size:1.3rem}
+.txt-lg {font-size:2rem}
+.btn-txt {
+	a {font-size:1.2rem; color:$dark-6; text-decoration:underline}
+	a:hover {color:$dark-3; text-decoration:underline}
+}
+.txt-link {
+	color:$point; text-decoration:underline; @include transition(all);
+	&:hover {text-decoration:underline}
+}
+.ta-left {text-align:left !important}
+.ta-right {text-align:right !important}
+.ta-center {text-align:center !important}
+.txt-ing {color:$warn-yl}
+.txt-yl {color:$warn-yl-dk}
+.txt-dark {color:$dark-6}
+.txt-point {color:$point}
+.txt-gn {color:$positive-gn}
+.txt-rd {color:$danger-rd}
+.txt-count {
+	@include fw-bd; font-size:2.6rem;
+	small {@include fw-dl; font-size:12px}
+}
+.txt-info {
+	color:$dark-9; font-size:1.3rem;
+	&:before {
+		content:''; display:inline-block; width:12px; height:12px; margin-right:4px; vertical-align:-.1em;
+		background:url('../img/ico_info.svg') no-repeat 0 0 / 12px
+	}
+	.d-left & {margin-bottom:10px}
+}
+/* font-weight */
+.fw-dl {@include fw-dl}
+.fw-rg {@include fw-rg}
+.fw-md {@include fw-md}
+.fw-bd {@include fw-bd}
+
+/* title style */
+.tit-md {margin:0; @include fw-md; font-size:1.4rem; color:$dark-3}
+
+/* text hidden */
+.txt-hidden {width:0; color:transparent; font-size:0; text-indent:-9999px}
+
+/* bg color */
+.bg-yl {background-color:lighten($warn-yl,40%)}
+.bg-yl2 {background-color:lighten($warn-yl,33%)}
+
+/* button */
+button {-webkit-appearance:none; border:0}
+button:focus, button:active {outline:0}
+.btn {
+	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,background-image,border-color,box-shadow); white-space:nowrap;
+	@include fw-md; font-size:1.4rem; color:$dark-6; background-color:$white; border:1px solid transparent; border-radius:3px;
+	&:hover {background-color:$dark-6; color:$white}
+	
+	i {opacity:.7; font-size:120%; vertical-align:text-bottom}
+	
+	&-primary {
+		background-color:$dark-3; color:$white;
+		&:hover {background-color:$dark-6}
+	}
+	&-point {
+		background-color:$point; border-color:transparent; color:$white; @include transition(opacity);
+		&:hover {background-color:$point; opacity:.85}
+	}
+	&-line-b {
+		border-color:$light-b; color:$dark-6; @include bg-gradient($white,$light-f,'vertical');
+		&:hover {border-color:$dark-2; color:$dark-2}
+	}
+	&-line-point {
+		border-color:$point; color:$point;
+		&:hover {background-color:$point; border-color:transparent; color:$white}
+	}
+	&-rd {
+		background:$danger-rd; color:$white; @include transition(opacity);
+		&:hover {background:$danger-rd; opacity:.85}
+	}
+	&-line-rd {
+		border-color:$danger-rd; color:$danger-rd;
+		&:hover {background-color:$danger-rd; border-color:transparent; color:$white}
+	}
+	&-yl {
+		background:$warn-yl; color:$white; @include transition(opacity);
+		&:hover {background:$warn-yl; opacity:.85}
+	}
+	&-line-yl {
+		border-color:$warn-yl; color:$warn-yl;
+		&:hover {background:$warn-yl; color:$white}
+	}
+	&-line-gn {
+		border-color:$positive-gn; color:$positive-gn;
+		&:hover {background:$positive-gn; color:$white}
+	}
+	&-sk {
+		background:$sub-sk; color:$white; @include transition(opacity);
+		&:hover {background:$sub-sk; opacity:.85}
+	}
+	&-gy {
+		@include bg-gradient($light-b,$dark-9,'vertical'); border-color:$dark-9; color:$white; @include transition(opacity);
+		&:hover {opacity:.85}
+	}
+	&-block {display:block; margin-left:auto; margin-right:auto}
+	&-xs {height:28px; padding:0 10px; @include fw-rg; font-size:1.3rem}
+	&-lg {padding:1.2rem 2.2rem; font-size:1.6rem}
+}
+button[disabled=disabled], .btn-disable {
+	opacity:.8; color:$light-d; @include fw-rg; cursor:default; background-color:$white; border-color:transparent;
+	&:hover {background-color:$white; color:$light-d; border-color:transparent}
+}
+button.btn-txt {border:0; background:transparent}
+
+.logo {width:120px; height:31px; padding:0; @include hide-txt; background:url('/ud/pna/common/img/logo_fill.svg') no-repeat 0 0 / 100%}
+
+/* header */
+.header {
+	position:relative; z-index:99;
+	.top {
+		position:fixed; top:0; left:0; right:0; @include flexbox; height:60px; background:$white;
+		.area-logo {
+			@include flexbox; @include align-items(center); width:250px;
+			@include media-mb {width:auto; padding-left:10px}
+		}
+		.logo {
+			margin:0 0 0 24px;
+			@include media-mb {display:none}
+		}
+		.btn-nav {
+			width:44px; height:38px; margin:0 10px 0 auto; @include hide-txt; background:url('../img/btn_nav.svg') no-repeat 50% 50% / 24px 18px; cursor:pointer;
+			@include media-mb {margin-right:0}
+		}
+		.location {
+			@include flexbox; @include flex(1); @include align-items(center); padding:0 30px;
+			@include media-mb {padding:0 10px}
+
+			a {
+				font-size:1.8rem; color:$point;
+				@include media-mb {font-size:1.6rem}
+			}
+			a:before {content:'\f105'; margin:0 5px; font-family:'Line Awesome Free'; font-weight:900}
+			a:first-child:before {display:none}
+			a:hover {text-decoration:underline}
+			a:focus {outline:none}
+		}
+		.utils {
+			@include flexbox; @include align-items(center); margin-left:auto;
+			& > *:not(:first-child) {margin-left:12px}
+		}
+		.top-user {
+			@include flexbox; @include align-items(center);
+			.type {
+				margin-right:4px; padding:4px; border-radius:20px; line-height:1;
+				i {font-size:1.3rem}
+				span {@include fw-md; font-size:1.1rem}
+				&.agent {background:rgba($positive-gn,.1); color:$positive-gn}
+				&.reseller {background:rgba($sub-sk,.1); color:$sub-sk}
+			}
+			p {@include fw-md; color:$dark-3; font-size:1.4rem}
+
+			@include media-md {
+				width:40px; height:40px; background:url('../img/img_profile.svg') no-repeat 0 0 / 100%;
+				.type, p {display:none}
+			}
+			@include media-mb {display:none}
+		}
+		.btn-logout {
+			display:block; width:40px; height:40px; margin:auto 30px auto 0; @include hide-txt; background:url('../img/ico_logout.svg') no-repeat 50% 50% / 20px 26px;
+			@include media-mb {margin-right:10px}
+		}
+	}
+
+	/* gnb */
+	.nav {
+		position:fixed; top:60px; left:0; bottom:0; width:250px; background:$dark-3; @include transition(left,opacity); opacity:1; z-index:100;
+		&.hide {left:-250px; opacity:0}
+		a {position:relative; display:block; line-height:1; color:$white; outline:none}
+		.depth1 {
+			& > a {@include flexbox(); @include align-items(center); padding:15px; font-size:1.6rem; opacity:.7; @include transition(opacity)}
+			i {margin-right:8px; font-size:22px}
+			&:hover > a, &.active > a {
+				@include fw-bd; opacity:1;
+				&:before {content:''; @include absolute(0,0,null,null); width:3px; height:100%; background:$point}
+			}
+			&.add-arr {
+				& > a:after {content:'\f107'; display:block; font-family:'Line Awesome Free'; font-weight:900; margin-left:auto; @include transition(transform)}
+				&.active > a:after {transform:rotateZ(180deg)}
+			}
+		}
+		.depth2 {
+			background:$dark-2;
+			li {
+				margin:0 30px;
+				&:first-child {padding-top:15px}
+				&:last-child {padding-bottom:15px}
+				a {padding:10px 12px; font-size:1.4rem; opacity:.7}
+				a:before {content:''; @include absolute(0,15px,null,null); width:4px; height:4px; background:$white; border-radius:50%}
+				a:hover, &.active a {
+					opacity:1;
+					&:before {background:$point}
+				}
+			}
+		}
+	}
+}
+
+/* footer */
+.footer {
+	@include flexbox; margin-left:250px; padding:16px 30px; @include transition(margin-left);
+	&.wide {margin-left:0}
+	@include media-mb {@include flex-direction(column); margin-left:0; padding:15px}
+	a {color:inherit}
+	.foot-info {
+		h1 {
+			display:inline-block; margin:0 .5rem 0 0; font-size:1.1rem; @include fw-bd; color:$dark-3;
+			@include media-mb {display:block}
+		}
+		dl {
+			display:inline-block; margin:.5rem .5rem 0 0; font-size:1.1rem;
+			dt {display:inline-block; color:$light-b; @include fw-dl}
+			dd {display:inline-block; color:$dark-9; @include fw-md}
+		}
+		address {font-style:normal}
+		p {margin-top:.5rem; font-size:1.1rem; @include fw-dl; color:$dark-9}
+	}
+	.d-right {
+		font-size:1.1rem; text-align:right; color:$dark-9;
+		@include media-mb {margin:1rem 0 0; text-align:left}
+		dt {display:inline-block; color:$light-b}
+		dd {display:inline-block; font-size:1.6rem; @include fw-bd; color:$point}
+		span:last-of-type {margin-left:5px}
+	}
+}
+
+/* layout */
+.wrap-content {
+	min-height:calc(100vh - 132px); @include margin-padding(all,60px 0 0 250px,all,30px); background-color:$light-f; @include transition(margin-left); box-shadow:0 8px 10px inset rgba($dark-3,.1); overflow:hidden;
+	&.wide {margin-left:0}
+	
+	@include media-mb {
+		padding:15px;
+		.contents {margin-right:-250px}
+		&.wide .contents {margin:0 0 50px}
+	}
+}

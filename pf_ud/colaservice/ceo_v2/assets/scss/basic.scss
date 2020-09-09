@@ -1,0 +1,317 @@
+@import "/ud/common/css/normalize.css";
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+@import "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/theme-chalk/index.css"; /* element */
+@import "./mixin.scss"; /* mixin & var */
+@import "./grid.scss"; /* grid layout */
+@import "./sub.scss";
+@import "./popup.scss";
+@import "./element-variables.scss";
+
+@font-face {font-family:'Roboto'; @include fw-rg; unicode-range:U+30-39}
+
+
+/* common */
+html {
+    position:relative; height:100%; font-size:10px;
+    @include media(768px) {font-size:9px}
+}
+body {
+    min-height:100%; height:100%; @include margin-padding(all,0,all,0); overflow:auto; vertical-align:middle; background:$white; color:$darker; letter-spacing:-0.7px;
+    font-family:'Roboto','Noto Sans KR', "Nanum Gothic", "나눔고딕", "Apple SD Gothic Neo",sans-serif; @include fw-rg;
+}
+* {
+    @include prefix((
+            box-sizing: border-box
+    ), webkit moz);
+}
+
+a,a:hover,a:active,a:visited {text-decoration:none; cursor:pointer}
+
+ul,li {@include margin-padding(all,0,all,0); list-style:none}
+
+/* placeholder */
+input::-webkit-input-placeholder {color:$light}
+input::-moz-placeholder {color:$light}
+input:-ms-input-placeholder {color:$light}
+input::placeholder {color:$light; opacity:1}
+textarea::-webkit-input-placeholder {color:$light}
+textarea::-moz-placeholder {color:$light}
+textarea:-ms-input-placeholder {color:$light}
+textarea::placeholder {color:$light; opacity:1}
+
+/* input 공용 스타일 */
+input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search],
+textarea.inp-txt, .inp-txt {
+	height:32px; @include margin-padding(all,0,all,5px 10px); font-size:1.3rem; color:$darken; line-height:1; 
+	border:1px solid $light; border-radius:2px; background:$white; vertical-align:top; outline:0;
+	@include prefix((
+		appearance:none
+	), webkit);
+	&:focus {border-color:$point}
+	&.inp-xs {height:24px; padding:2px 10px}
+}
+input[disabled=disabled] {background-color:#f5f5f5; color:$dark}
+/* 금액 input */
+input[type=number], .num-txt {text-align:right; @include fw-bd;}
+.inp-price {
+	@include flexbox; position:relative;
+	.num-txt {width:100%; padding-right:25px}
+	&:after {content:'원'; @include absolute(null,0,10px,null); line-height:32px; color:$dark}
+}
+
+/* textarea */
+textarea.inp-txt {height:auto; min-height:80px; line-height:1.4}
+
+/* checkbox */
+.inp-check {
+	display:inline-block; position:relative; font-size:1.3rem; line-height:32px; cursor:pointer;
+	@include prefix((
+		user-select:none
+	), webkit moz ms);
+	.txt {display:inline-block; position:relative; @include margin-padding(all,0,left,24px);}
+	input {position:absolute; width:0; height:0; opacity:0; cursor:pointer}
+	.checkmark {
+		@include absolute(0,6px,null,null); width:20px; height:20px; background:$white; border:1px solid $light; border-radius:2px;
+		&:after {
+			content:""; display:none; @include absolute(7px,2px,null,null); width:5px; height:10px; border:solid $white; border-width:0 2px 2px 0;
+			@include prefix((
+				transform:rotate(45deg)
+			), webkit moz ms);
+		}
+	}
+	input:checked ~ .checkmark {
+		background:$point; border:none;
+		&:after {display:block}
+	}
+	/* 텍스트 없이 체크박스만 존재 */
+	&.box {
+		width:20px; height:20px; line-height:inherit;
+		.checkmark {top:0}
+	}
+}
+
+/* display */
+.d-block {display:block}
+.d-inblock {display:inline-block}
+.d-none {display:none}
+
+/* text */
+.txt-bold {@include fw-bd;}
+.txt-s {font-size:1.1rem}
+.txt-lg {font-size:2rem}
+.btn-txt {
+	a {font-size:1.2rem; color:$darker; text-decoration:underline}
+	a:hover {color:$darken; text-decoration:underline}
+}
+.txt-ing {color:$warn-yl}
+.txt-dark {color:$dark}
+.txt-point {color:$point}
+.txt-success {color:$positive-grn}
+
+/* button */
+.btn {
+	display:inline-block; vertical-align:top; padding:6px 10px; cursor:pointer; @include transition(color,background-color,border-color,box-shadow);
+	@include fw-md; font-size:1.2rem; color:$btn-dark; background-color:$white; border:1px solid $btn-basic; border-radius:2px;
+	&:hover {background-color:$btn-dark; border-color:$btn-dark; color:$white}
+
+	&-primary {
+	background-color:$btn-dark; border-color:transparent; color:$white;
+		&:hover {background-color:#282d37}
+	}
+	&-lightline {
+		border-color:$lighter; color:$dark;
+		&:hover {border-color:$darken; color:$darker}
+	}
+	&-redline {border-color:$point; color:$point}
+	&-redline:hover, &-red {background-color:$point; border-color:transparent; color:$white}
+	&-home:before {
+		content:''; display:inline-block; width:11px; height:10px; margin-right:2px; background:url('../img/ico_shop.svg') no-repeat 0 0 / 100%;
+	}
+	&-xs {padding:2px 8px; @include fw-rg; font-size:1.1rem}
+}
+button[disabled=disabled], .btn-disable {
+	opacity:.8; color:$light; @include fw-rg; cursor:default; background-color:$white; border-color:transparent;
+	&:hover {background-color:$white; color:$light; border-color:transparent}
+} 
+
+/* layout */
+.container {
+	max-width:1140px;
+	@include media(1160px) {padding-left:25px; padding-right:25px}
+}
+.wrap-content {
+	min-height:680px; padding:150px 0 80px; background-color:$lighten;
+	@include media(768px) {min-height:auto; padding:70px 0 20px}
+}
+
+/* header */
+.header {
+	position:fixed; top:0; left:0; right:0; width:100%; background:$white; z-index:2000;
+	@include media(768px) {border-bottom:1px solid $lighter}
+	.top .container .row {
+        position:relative; padding:5px 0;
+        .el-select {margin:0 5px 0 167px}
+        @include media(768px) {height:50px; padding:10px 0}
+    }
+	h1.logo {
+		@include absolute(0,11px,null,null); width:137px; height:22px; margin:0; background:url('../img/logo.svg') no-repeat 0 0 / 100%; font-size:0; text-indent:-9999px;
+		@include media(768px) {
+			left:50%; transform:translateX(-50%); width:162px; height:26px
+		}
+	}
+	.util {
+		@include absolute(null,5px,0,null); @include flexbox; @include align-items(center);
+		@include media(768px) {top:50%; transform:translateY(-50%)}
+        .wrap-my .my {
+        	display:inline-block; width:28px; height:28px; margin-right:4px; 
+        	border-radius:50%; vertical-align:middle; background:$lighter url('../img/ico_my.svg') no-repeat 50% 50% / 18px
+        }
+        .wrap-my span {font-size:1.1rem; color:$dark; text-decoration:underline; vertical-align:middle}
+        .btn {margin-left:20px}
+	}
+	.m-nav-btn {width:36px; padding:0 5px; font-size:26px; color:$btn-dark}
+	.m-nav-btn, .m-header {
+		display:none;
+		@include media(768px) {display:block}
+	}
+	.btn:hover {background-color:$lighten; border-color:$darken; color:$darken}
+
+	/* gnb */
+	nav {
+		position:relative; padding-bottom:40px; background:#282d37;
+		&:after {
+			content:''; position:absolute; width:100%; height:40px; background:#465468; box-shadow:inset 0 -2px 5px rgba(0,0,0,.2)
+		}
+		ul {@include clearfix}
+		a {display:block}
+		.depth1 .container > ul > li {
+			position:relative; width:20%; padding:0; text-align:center; @include transition(background-color);
+			& > a {height:48px; line-height:48px; font-size:1.4rem; @include fw-md; color:$white}
+			& > a:before {
+				content:''; display:inline-block; width:32px; height:32px; margin-right:10px;
+				border-radius:50%; background:rgba($white,.1) no-repeat 50% 50% / 20px; vertical-align:middle
+			}
+			&.menu-store > a:before {background-image:url('../img/ico_gnb_store.svg')}
+			&.menu-ams > a:before {background-image:url('../img/ico_gnb_ams.svg')}
+			&.menu-event > a:before {background-image:url('../img/ico_gnb_event.svg')}
+			&.menu-customer > a:before {background-image:url('../img/ico_gnb_customer.svg')}
+			&.menu-board > a:before {background-image:url('../img/ico_gnb_info.svg')}
+			&.menu-mypage > a:before {background-image:url('../img/ico_gnb_my.svg')}
+			&.menu-mypage .depth2 {left:auto; right:0; padding-right:20px; text-align:right}
+			.depth2 {
+				display:none; @include absolute(0,48px,null,null); width:400%; text-align:left; z-index:1;
+				li {
+					display:inline-block;
+					&:first-child {margin-left:20px}
+					&:not(:first-child) {margin-left:50px}
+					a {display:block; height:40px; line-height:40px; color:$light; font-size:1.4rem}
+					&.active a, &:hover a {@include fw-bd; color:$white; border-bottom:3px solid $point}
+				}
+			}
+			&:hover, &.active {
+				background-color:$point;
+				.depth2 {display:block}
+			}
+		}
+	}
+	.view-pc {
+		@include media(768px) {display:none}
+	}
+}
+/* mobile gnb */
+.m-header .el-drawer__wrapper {position:fixed !important; top:0; left:0; bottom:0; height:100%; z-index:2100}
+.m-gnb .el-drawer {
+	background:#282d37;
+	.el-drawer__header {
+		@include margin-padding(bottom,0,all,0); border:0; background:$white;
+		& > span:first-child {@include flex(0);}
+	}
+	.el-drawer__close-btn {@include flex(1); height:50px; padding:0 10px; font-size:28px; text-align:left}
+	.el-drawer__body {
+		@include flexbox; @include flex-direction(column);
+		nav:after {display:none}
+	}
+	.el-select {display:block; padding:10px; border-bottom:1px solid #465468}
+	.el-collapse {
+		border:0;
+		&-item {
+			&__header {
+				padding:0 20px; font-size:1.5rem; @include fw-md; color:$white; background-color:transparent; border-bottom:0;
+				&:before {
+					content:''; display:inline-block; width:32px; height:32px; margin-right:10px;
+					border-radius:50%; background:rgba($white,.1) no-repeat 50% 50% / 20px; vertical-align:middle
+				}
+				&.is-active {background-color:$point}
+			}
+			&__wrap {
+				background:#465468; border:0;
+				.el-collapse-item__content {padding:0; font-size:1.5rem}
+				.depth2 a {display:block; padding:8px 8px 8px 62px; color:$white}
+				li.active {@include fw-bd; background:$btn-dark}
+			}
+		}
+		.menu-store .el-collapse-item__header:before {background-image:url('../img/ico_gnb_store.svg')}
+		.menu-ams .el-collapse-item__header:before {background-image:url('../img/ico_gnb_ams.svg')}
+		.menu-event .el-collapse-item__header:before {background-image:url('../img/ico_gnb_event.svg')}
+		.menu-customer .el-collapse-item__header:before {background-image:url('../img/ico_gnb_customer.svg')}
+		.menu-board .el-collapse-item__header:before {background-image:url('../img/ico_gnb_info.svg')}
+		.menu-mypage .el-collapse-item__header:before {background-image:url('../img/ico_gnb_my.svg')}
+
+	}
+	.m-util {
+		@include flexbox; @include margin-padding(top,auto,all,0 10px 20px);
+		.btn {padding:10px}
+		.btn-log {@include flex(1); margin-left:10px; background:#465468; border-color:transparent; color:$white}
+	}
+}
+
+/* footer */
+footer {
+    ul li {display:inline-block}
+	@include media(768px) {text-align:center}
+    .terms {
+    	border:1px solid $lighter; border-left:0; border-right:0;
+    	@include media(768px) {border:0}
+        li {
+            a {
+            	display:block; padding:10px 20px 10px 0; font-size:1.2rem; color:$darker;
+    			@include media(768px) {padding:10px}
+            }
+            &.txt-bold a {color:$darken; @include fw-md}
+        }
+    }
+    address {font-style:normal}
+    .copyright {
+        color:$light; line-height:1.7; font-size:1.1rem;
+        .comp {margin:10px 0 7px; font-size:1.2rem; color:$dark; @include fw-rg}
+        li {
+            &:after {content:''; display:inline-block; width:1px; height:9px; margin:0 7px; background:$light}
+            &:last-of-type:after {visibility:hidden}
+            a {color:$light}
+        }
+        p {margin:5px 0 20px}
+        @include media(768px) {
+        	.view-pc {display:none}
+        	p {margin:0 0 50px}
+        }
+    }
+    /* mobile */    
+    .m-comp {
+    	display:none;
+    	@include media(768px) {display:block}
+    	.el-collapse {
+    		border-color:$lighter;
+    		&-item__header {display:block; height:34px; line-height:34px; font-size:1.3rem; @include fw-rg; color:$darker}
+	    	&-item__arrow {margin-left:6px}
+	    	&-item__content {padding:5px 0; font-size:1.2rem; color:$darker}
+    	}
+    }
+    /* scroll-top */
+    a.top {
+    	display:none; position:fixed; right:2em; bottom:2em; width:40px; height:40px;
+    	text-align:center; background:$white; border-radius:50%; box-shadow:0 3px 10px rgba(0,0,0,.2); @include transition(bottom); z-index:9000; opacity:.8
+    }
+    a.top i {color:$darken; font-size:20px; line-height:40px}
+}
