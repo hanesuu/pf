@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="header" class="h-group"></div>
+  <div id="app">
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">그룹관리</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>고객관리</li>
+                <li>그룹관리</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-group">
+            <div class="tbl-filter m-column">
+              <!--목록 선택 시 disabled 값 삭제되게-->
+              <div class="m-flex">
+                <button class="btn" disabled="disabled">선택그룹 문자 발송</button>
+                <button class="btn btn-redline" disabled="disabled">선택그룹 삭제</button>
+              </div>
+              <div class="wrap-right m-flex m-column">
+                <!--그룹등록 누르면 버튼이 가려지고 아래 내용이 보여짐
+                <button class="btn">&plus; 그룹 등록</button>
+              -->
+                <div class="m-flex">
+                  <input type="text" class="flex1" placeholder="그룹명 입력">
+                  <button class="btn btn-redline">등록하기</button>
+                  <button class="btn">취소</button>
+                </div>
+              </div>
+            </div>
+            <section class="board-list">
+              <table>
+                <colgroup>
+                  <col width="50px">
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"><!--check 시 부모 tr에 class:active 추가-->
+                      <label class="inp-check box" for="listAll">
+                        <input id="listAll" name="listAll" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </th>
+                    <th scope="col">그룹명</th>
+                    <th scope="col">그룹 내 고객 수</th>
+                    <th scope="col">그룹 추가일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="inp-check box" for="list1">
+                        <input id="list1" name="list" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="ta-left btns">
+                      <span>골드</span
+                      ><button class="btn btn-xs btn-redline">수정</button>
+                      <!--수정 누르면 아래 내용으로 대체됨
+                      <input type="text" class="inp-txt-xs" placeholder="그룹명 입력" value="골드">
+                      <button class="btn btn-xs btn-redline">수정완료</button>
+                      <button class="btn">취소</button>
+                      -->
+                    </td>
+                    <td><a href="manage.html" class="txt-bd txt-point" title="이 그룹에게 문자 보내기로 이동">84</a></td>
+                    <td>2019-08-30 12:51</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="inp-check box" for="list2">
+                        <input id="list2" name="list" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="ta-left btns">
+                    <!--
+                      <span>실버</span>                      
+                      <button class="btn btn-xs btn-redline">수정</button>
+                      수정 누르면 아래 내용으로 대체됨-->
+                      <input type="text" class="inp-txt inp-xs" placeholder="그룹명 입력" value="실버"
+                      ><button class="btn btn-xs btn-redline">수정완료</button
+                        ><button class="btn btn-xs">취소</button>
+                    </td>
+                    <td><a href="manage.html" class="txt-bd txt-point" title="이 그룹에게 문자 보내기로 이동">243</a></td>
+                    <td>2019-08-30 12:51</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="inp-check box" for="list3">
+                        <input id="list3" name="list" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="ta-left btns">
+                      <span>일반</span>
+                    </td>
+                    <td>0</td>
+                    <td></td>
+                  </tr>
+                  <!--데이터 없을 경우 노출
+                  <tr>
+                    <td colspan="4" class="td-blank">
+                      <i class="el-icon-chat-dot-round"></i>
+                      <p>표시할 내용이 없습니다.</p>
+                    </td>
+                  </tr>-->
+                </tbody>
+              </table>
+            </section>
+            <div class="tbl-filter">
+              <div role="pagination" class="pager">
+                <div class="txt-pg">
+                  <span class="current">1</span>
+                  <span>3</span>
+                </div>
+                <button class="btn btn-prev"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-next"><i class="la la-angle-right"></i></button>
+                <label for="goto">이동</label>
+                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+              </div>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+      <!--modal-->
+    </div>
+    <!--//template-->
+  </div>
+  <div id="footer"></div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 모바일메뉴
+         */
+        mbMenu: ['mCustomer'],
+
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

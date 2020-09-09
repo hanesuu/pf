@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="/ud/common/js/countUp.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mjapi"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-apilist">
+        <!--상세검색-->
+        <el-collapse class="bx-basic wrap-bx-search" accordion>
+          <el-collapse-item title="검색" name="1" class="wrap-form">
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="searchName">판매점명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchName" class="inp-box" placeholder="판매점명을 입력해 주세요.">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="searchId">판매점 ID</label>
+                  </dt>
+                  <dd>
+                    <input type="text" id="searchId" class="inp-box" placeholder="판매점 ID를 입력해 주세요.">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <dl>
+                  <dt>
+                    <label for="api">API</label>
+                  </dt>
+                  <dd>
+                    <el-select v-model="apiType" placeholder="선택">
+                      <el-option
+                        v-for="item in apiTypeList"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-3">
+                <dl>
+                  <dt>결제 기간</dt>
+                  <dd>
+                    <el-date-picker
+                      v-model="datepicker"
+                      type="daterange"
+                      align="right"
+                      start-placeholder="시작일 선택"
+                      end-placeholder="종료일 선택"
+                      default-value="2019-11-15">
+                    </el-date-picker>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-12 col-md-3 group-radio">
+                <dl>
+                  <dt class="txt-hidden">결제일 설정</dt>
+                  <dd>
+                    <el-radio-group v-model="btnType">
+                      <el-radio-button label="today">당일</el-radio-button>
+                      <el-radio-button label="week">1주</el-radio-button>
+                      <el-radio-button label="month1">1개월</el-radio-button>
+                      <el-radio-button label="month3">3개월</el-radio-button>
+                      <el-radio-button label="all">전체</el-radio-button>
+                    </el-radio-group>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="wrap-btn">
+              <button class="btn btn-primary btn-search"><i class="la la-search"></i> 검색</button>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+        <!--통계 위젯-->
+        <section class="row wrap-widget">
+          <div class="col-xs-12">
+            <div class="widget-yl">
+              <dl class="main-stat colored">
+                <dt>총 사용 건수</dt>
+                <dd class="txt-count">
+                  <span id="apiAll">768</span><small>건</small>
+                </dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>성공 건수</dt>
+                <dd class="txt-count">
+                  <span id="apiSuccess">753</span><small>건</small>
+                </dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>실패 건수</dt>
+                <dd class="txt-count">
+                  <span id="apiFail" class="txt-rd">15</span><small class="txt-rd">건</small>
+                </dd>
+              </dl>
+              <dl class="main-stat ta-center">
+                <dt>API 마진</dt>
+                <dd class="txt-count">
+                  <span id="apiMargin">84,480</span><small>원</small>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <div class="d-left">
+          <p class="txt-info">상세 내역 조회는 최대 3개월까지 가능합니다.</p>
+        </div>
+
+        <!--목록-->
+        <section class="bx-basic board">
+          <div class="board-list">
+            <table>
+              <colgroup>
+                <col width="5%">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <thead>
+              <tr>
+                <th>No.</th>
+                <th>판매점</th>
+                <th>API</th>
+                <th>사용일시</th>
+                <th>수신번호</th>
+                <th>성공여부</th>
+                <th>과금타입</th>
+                <th>서비스 요금</th>
+                <th>마진</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="va-mid">4</td>
+                <td class="va-mid ta-left">
+                  <p class="fw-md">사피엔스스토어</p>
+                  <span class="txt-id">sapiens88</span>
+                </td>
+                <td class="va-mid">
+                  <p class="label-default label-lg">카카오 알림톡</p>
+                </td>
+                <td class="va-mid">2020-07-07 12:41:55</td>
+                <td class="va-mid">01066661111</td>
+                <td class="va-mid">
+                  <span class="txt-gn">성공</span>
+                </td>
+                <td class="va-mid">선불</td>
+                <td class="va-mid"><b>18.0</b>원</td>
+                <td class="va-mid">
+                  <span class="txt-yl"><b>1.0</b>원</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="va-mid">3</td>
+                <td class="va-mid ta-left">
+                  <p class="fw-md">스마트워킹</p>
+                  <span class="txt-id">smartwk</span>
+                </td>
+                <td class="va-mid">
+                  <p class="label-default label-lg">LMS</p>
+                </td>
+                <td class="va-mid">2020-07-07 12:31:12</td>
+                <td class="va-mid">01044447777</td>
+                <td class="va-mid">
+                  <span class="txt-gn">성공</span>
+                </td>
+                <td class="va-mid">후불</td>
+                <td class="va-mid"><b>18.5</b>원</td>
+                <td class="va-mid">
+                  <span class="txt-yl"><b>3.5</b>원</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="va-mid">2</td>
+                <td class="va-mid ta-left">
+                  <p class="fw-md">오프온오프</p>
+                  <span class="txt-id">offonoff</span>
+                </td>
+                <td class="va-mid">
+                  <p class="label-default label-lg">SMS</p>
+                </td>
+                <td class="va-mid">2020-07-06 21:14:55</td>
+                <td class="va-mid">01022224444</td>
+                <td class="va-mid">
+                  <span class="txt-rd">실패</span>
+                </td>
+                <td class="va-mid">후불</td>
+                <td class="va-mid"><b>10.0</b>원</td>
+                <td class="va-mid">
+                  <span class="txt-yl"><b>1.0</b>원</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="va-mid">1</td>
+                <td class="va-mid ta-left">
+                  <p class="fw-md">고양고양야옹해</p>
+                  <span class="txt-id">cutekittymiaoshop</span>
+                </td>
+                <td class="va-mid">
+                  <p class="label-default label-lg">본인인증</p>
+                </td>
+                <td class="va-mid">2020-07-06 15:05:17</td>
+                <td class="va-mid">01055550000</td>
+                <td class="va-mid">
+                  <span class="txt-gn">성공</span>
+                </td>
+                <td class="va-mid">선불</td>
+                <td class="va-mid"><b>17.0</b>원</td>
+                <td class="va-mid">
+                  <span class="txt-yl"><b>5.0</b>원</span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-filter">
+            <div class="d-left">
+              <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                <el-option 
+                  v-for="list in options"
+                  :key="list.value"
+                  :label="list.label"
+                  :value="list.value">
+                </el-option>
+              </el-select>
+            </div>
+            <div class="d-right">
+              <div role="pagination" class="pager">
+                <div class="txt-pg">
+                  <span class="current">1</span>
+                  <span>3</span>
+                </div>
+                <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                <label for="goto">이동</label>
+                <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script src="/ud/common/js/element/ko.js"></script>
+<script>
+ELEMENT.locale(ELEMENT.lang.ko)
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * API select
+         */
+        apiTypeList: [{
+          value: 'Option1',
+          label: 'SMS'
+        }, {
+          value: 'Option2',
+          label: 'LMS'
+        }, {
+          value: 'Option3',
+          label: 'MMS'
+        }, {
+          value: 'Option4',
+          label: '알림톡'
+        }, {
+          value: 'Option5',
+          label: '본인인증'
+        }, {
+          value: 'Option6',
+          label: '계좌성명조회'
+        }],
+        apiType: '',
+
+        /* 날짜 선택 */
+        searchDate: 'month',
+        datepicker: '',
+        btnType: 'all',
+        
+        /**
+         * 리스트 개수 select
+         */
+        options: [{
+          value: 'Option1',
+          label: '10개씩 보기'
+        }, {
+          value: 'Option2',
+          label: '50개씩 보기'
+        }, {
+          value: 'Option3',
+          label: '100개씩 보기'
+        }],
+        viewList: '',
+
+      }
+    },
+    methods: {
+      /* collapse */
+      handleChange(val) {
+        console.log(val);
+      }
+    }
+  })
+</script>
+<script type="text/javascript">
+  //금액 카운트
+  var options = {
+    useEasing : true, 
+    useGrouping : true, 
+    separator : ',', 
+    decimal : '.', 
+    prefix : '', 
+    suffix : '' 
+  };
+
+  /**
+  [0] 카운트를 보여줄 ID
+  [1] 시작 카운트
+  [2] 종료 카운트
+  [3] 소수점
+  [4] 시작 ~ 종료 까지 실행 시간
+  [5] 옵션
+  */
+
+  let apiAll = new CountUp("apiAll", 0, 753, 0, 1.5, options);
+  apiAll.start();
+  let apiSuccess = new CountUp("apiSuccess", 0, 753, 0, 1.5, options);
+  apiSuccess.start();
+  let apiFail = new CountUp("apiFail", 0, 15, 0, 1.5, options);
+  apiFail.start();
+  let apiMargin = new CountUp("apiMargin", 0, 84480, 0, 1.5, options);
+  apiMargin.start();
+
+</script>
+</html>

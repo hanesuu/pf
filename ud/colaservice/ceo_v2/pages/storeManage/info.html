@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="header" class="h-info"></div>
+  <div id="app">
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">모바일 전단지 설정</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>상점관리</li>
+                <li>모바일 전단지 설정</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-info">
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">기본 정보</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-8">
+                  <dl>
+                    <dt>모바일 전단지 URL</dt>
+                    <dd>
+                      <input type="text" disabled="disabled" value="https://025551313.colaservice.com/" class="flex1">
+                      <button class="btn btn-redline">URL 복사하기</button>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>콜라서비스 매장번호</dt>
+                    <dd>
+                      <div class="no-inp">050704800034</div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">메인 페이지 이미지 설정</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>이미지 등록 (최대 9장)</dt>
+                    <dd class="wrap-list-thumb">
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://mblogthumb-phinf.pstatic.net/20150704_285/melhan1_1435976893744bgnsW_JPEG/%B3%D7%B3%D7%C4%A1%C5%B2%2C_%B0%A1%B0%DD%C7%A5%2C_%B8%DE%B4%BA%C6%C7.jpg?type=w2">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <label for="upfile1">
+                          <span class="plus"></span>
+                          <input type="file" id="upfile1" accept="image/*" multiple="multiple" class="upload-img">
+                          <span class="txt">이미지 등록</span>
+                        </label>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">정보 페이지 설정</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-6">
+                  <dl>
+                    <dt>최소 주문 금액</dt>
+                    <dd>
+                      <div class="inp-price">
+                        <input type="tel" placeholder="0" class="inp-txt num-txt">
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <dl>
+                    <dt>영업시간</dt>
+                    <dd class="timepicker">
+                      <el-time-select
+                              placeholder="시작 시간"
+                              v-model="startTime"
+                              :picker-options="{start: '00:00', step: '00:10', end: '23:50'}">
+                      </el-time-select>
+                      <el-time-select
+                              placeholder="종료 시간"
+                              v-model="endTime"
+                              :picker-options="{start: '00:00', step: '00:10', end: '23:50'}">
+                      </el-time-select>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>배달 가능 지역</dt>
+                    <dd>
+                      <textarea class="inp-txt" placeholder="배달 가능 지역을 입력해 주세요."></textarea>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <button class="btn btn-primary">저장하기</button>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+  </div>
+  <div id="footer"></div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 모바일메뉴
+         */
+        mbMenu: ['mStore'],
+
+        /**
+         * 영업시간 timepicker
+         */
+        startTime: '',
+        endTime: ''
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

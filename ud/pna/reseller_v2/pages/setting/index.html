@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj7-1"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-setting">
+        <section class="bx-basic">
+          <form class="wrap-form">
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <dl>
+                  <dt>
+                    <label>계정 명</label>
+                  </dt>
+                  <dd class="no-inp">하이젠버그</dd>
+                </dl>
+                <dl>
+                  <dt>
+                    <label>계정 ID</label>
+                  </dt>
+                  <dd class="no-inp">walterwhite</dd>
+                </dl>
+                <dl>
+                  <dt class="must">
+                    <label>비밀번호</label>
+                  </dt>
+                  <dd>
+                    <input type="password" class="inp-txt" placeholder="비밀번호를 입력해 주세요.">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="must">
+                    <label>비밀번호 확인</label>
+                  </dt>
+                  <dd>
+                    <input type="password" class="inp-txt" placeholder="비밀번호를 한번 더 입력해 주세요.">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="must">
+                    <label>이메일</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="이메일을 입력해 주세요.">
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <dl>
+                  <dt class="must">
+                    <label>상호명 (법인명)</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="상호명 (법인명)을 입력해 주세요.">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="must">
+                    <label>사업자 번호</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" class="inp-txt" placeholder="사업자 번호를 입력해 주세요.">
+                  </dd>
+                </dl>
+                <!--
+                <dl>
+                  <dt class="must">
+                    <label>서비스 구분</label>
+                  </dt>
+                  <dd>
+                    <el-select v-model="serviceType" placeholder="서비스 구분">
+                      <el-option 
+                        v-for="type in types"
+                        :label="type.label"
+                        :value="type.value">
+                      </el-option>
+                    </el-select>
+                  </dd>
+                </dl>-->
+                <dl>
+                  <dt class="must">
+                    <label>대표자 명</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="대표자 명을 입력해 주세요.">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt class="must">
+                    <label>휴대폰 번호</label>
+                  </dt>
+                  <dd>
+                    <input type="tel" class="inp-txt" placeholder="휴대폰 번호를 입력해 주세요.">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>
+                    <label>주소</label>
+                  </dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="주소를 입력해 주세요.">
+                    <button class="btn btn-line-b">주소검색</button>
+                  </dd>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="상세주소를 입력해 주세요.">
+                  </dd>
+                </dl>
+              </div>                
+            </div>
+            <div class="bottom-btn">
+              <!-- <button class="btn">취소</button> -->
+              <button class="btn btn-primary">저장</button>
+            </div>
+          </form>
+        </section>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * 서비스구분 select
+         
+        types: [{
+          value: 'Option1',
+          label: '방문판매'
+        }, {
+          value: 'Option2',
+          label: '음식점(배달)'
+        }, {
+          value: 'Option3',
+          label: 'A/S긴급출동'
+        }, {
+          value: 'Option4',
+          label: '운수업'
+        }, {
+          value: 'Option5',
+          label: '컨텐츠'
+        }, {
+          value: 'Option6',
+          label: '도소매'
+        }, {
+          value: 'Option7',
+          label: '유통'
+        }, {
+          value: 'Option8',
+          label: 'Blog 사업자'
+        }, {
+          value: 'Option9',
+          label: '쇼핑몰사업자'
+        }, {
+          value: 'Option10',
+          label: '병원'
+        }],
+        serviceType: '',*/
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

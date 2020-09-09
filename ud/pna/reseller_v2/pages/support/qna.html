@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj6-4"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-board-insert v-width-lg">
+        <form class="bx-basic wrap-form">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt>
+                  <label>문의유형</label>
+                </dt>
+                <dd>
+                  <el-select v-model="qnaType" placeholder="문의유형 선택">
+                    <el-option 
+                      v-for="qna in qnatypes"
+                      :label="qna.label"
+                      :value="qna.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt>
+                  <label>API명</label>
+                </dt>
+                <dd>
+                  <el-select v-model="apiType" placeholder="API명 선택">
+                    <el-option 
+                      v-for="api in apitypes"
+                      :label="api.label"
+                      :value="api.value">
+                    </el-option>
+                  </el-select>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt class="must">
+                  <label>회사명</label>
+                </dt>
+                <dd>
+                  <input type="text" class="inp-txt" placeholder="회사명을 입력해 주세요." value="애니스토어">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt class="must">
+                  <label>이메일</label>
+                </dt>
+                <dd>
+                  <input type="text" class="inp-txt" placeholder="이메일을 입력해 주세요." value="anystore@gmail.com">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt class="must">
+                  <label>전화번호</label>
+                </dt>
+                <dd>
+                  <input type="tel" class="inp-txt" placeholder="전화번호를 입력해 주세요." value="01030301010">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <dl>
+                <dt class="must">
+                  <label>비밀번호</label>
+                </dt>
+                <dd>
+                  <input type="password" class="inp-txt" placeholder="비밀번호를 입력해 주세요.">
+                </dd>
+              </dl>
+            </div>
+            <div class="col-xs-12">
+              <dl>
+                <dt class="must">
+                  <label>문의 내용</label>
+                </dt>
+                <dd>
+                  <input type="text" class="inp-txt" placeholder="제목을 입력해 주세요.">
+                </dd>
+                <dd>
+                  <textarea class="inp-txt lg" placeholder="문의 내용을 작성해 주세요."></textarea>
+                </dd>
+              </dl>
+            </div>                
+          </div>
+          <div class="bottom-btn">
+            <button class="btn btn-primary">문의하기</button>
+          </div>
+        </form>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * 문의유형 select
+         */
+        qnatypes: [{
+          value: 'Option1',
+          label: '가입 문의'
+        }, {
+          value: 'Option2',
+          label: 'API 연동 문의'
+        }, {
+          value: 'Option3',
+          label: '이용 문의'
+        }, {
+          value: 'Option4',
+          label: '개발요청'
+        }, {
+          value: 'Option5',
+          label: '영업 문의'
+        }, {
+          value: 'Option6',
+          label: '제휴 문의'
+        }, {
+          value: 'Option7',
+          label: '기타'
+        }],
+        qnaType: '',
+
+        /**
+         * API명 select
+         */
+        apitypes: [{
+          value: 'Option1',
+          label: '신용카드'
+        }, {
+          value: 'Option2',
+          label: '실시간 계좌이체'
+        }, {
+          value: 'Option3',
+          label: '가상계좌'
+        }, {
+          value: 'Option4',
+          label: '휴대폰결제 (실물)'
+        }, {
+          value: 'Option5',
+          label: '휴대폰결제 (디지털)'
+        }, {
+          value: 'Option6',
+          label: '삼성페이'
+        }, {
+          value: 'Option7',
+          label: '네이버페이'
+        }, {
+          value: 'Option8',
+          label: '카카오페이 / 카카오머니'
+        }, {
+          value: 'Option9',
+          label: '페이코'
+        }, {
+          value: 'Option10',
+          label: '알리페이'
+        }, {
+          value: 'Option11',
+          label: '텐페이'
+        }, {
+          value: 'Option12',
+          label: '페이팔'
+        }, {
+          value: 'Option13',
+          label: '정기결제 (카드/빌링결제)'
+        }, {
+          value: 'Option14',
+          label: 'OCR 카드 결제 (앱2앱 연동)'
+        }, {
+          value: 'Option15',
+          label: 'NFC 카드 결제 (앱2앱 연동)'
+        }, {
+          value: 'Option16',
+          label: '링크결제'
+        }, {
+          value: 'Option17',
+          label: '현금영수증'
+        }, {
+          value: 'Option18',
+          label: 'SMS 발송'
+        }, {
+          value: 'Option19',
+          label: 'LMS 발송'
+        }, {
+          value: 'Option20',
+          label: 'MMS 발송'
+        }, {
+          value: 'Option21',
+          label: '알림톡'
+        }, {
+          value: 'Option22',
+          label: '본인인증'
+        }],
+        apiType: '',
+      }
+    },
+    methods: {}
+  })
+</script>
+</html>

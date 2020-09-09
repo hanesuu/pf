@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script src="/ud/common/js/countUp.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj4-2"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents vue-apistats">
+        <!--상세검색-->        
+        <section class="bx-basic wrap-bx-search filter">
+          <el-date-picker
+            v-model="datepicker"
+            type="daterange"
+            align="right"
+            start-placeholder="시작일 선택"
+            end-placeholder="종료일 선택"
+            default-value="2019-11-15">
+          </el-date-picker>
+          <div class="group-radio">
+            <el-radio v-model="searchDate" label="month">
+              <span>당월</span>
+              <div class="wrap-btn-arr">
+                <button class="btn btn-line"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line"><i class="la la-angle-right"></i></button>
+              </div>
+            </el-radio>
+            <el-radio v-model="searchDate" label="today">
+              <span>오늘</span>
+              <div class="wrap-btn-arr">
+                <button class="btn btn-line"><i class="la la-angle-left"></i></button>
+                <button class="btn btn-line"><i class="la la-angle-right"></i></button>
+              </div>
+            </el-radio>
+            <el-radio v-model="searchDate" label="all">
+              <span>전체</span>
+            </el-radio>
+          </div>
+        </section>
+        <!--통계 위젯-->
+        <section class="row wrap-widget">
+          <div class="col-xs-12 col-sm-6">
+            <div class="widget-pt">
+              <dl class="main-stat">
+                <dt>총 연동건수</dt>
+                <dd class="txt-count"><span id="apiAll">0</span><small>건</small></dd>
+              </dl>
+              <dl class="sub-stat">
+                <dt>성공</dt>
+                <dd class="txt-count"><span id="apiSub1">0</span><small>건</small></dd>
+              </dl>
+              <dl class="sub-stat danger-rd">
+                <dt>실패</dt>
+                <dd class="txt-count"><span id="apiSub2">0</span><small>건</small></dd>
+              </dl>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="widget-rd">
+              <dl class="main-stat">
+                <dt>요금총액</dt>
+                <dd class="txt-count"><span id="payAll">0</span><small>원</small></dd>
+              </dl>
+              <dl class="sub-stat">
+                <dt>연동마진</dt>
+                <dd class="txt-count"><span id="paySub">0</span><small>원</small></dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <el-tabs v-model="tabMd1" class="tab-md">
+          <!--1.요약보기-->
+          <el-tab-pane label="요약보기" name="viewsum">
+            <div class="f-right">
+              <button class="btn btn-xs btn-gy btn-down"><i class="la la-download"></i> 엑셀 다운로드</button>
+            </div>
+            <section class="board-list">
+              <table>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>건당 요금</th>
+                    <th>전체 연동건수</th>
+                    <th>성공</th>
+                    <th>실패</th>
+                    <th>연동마진</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="ta-left">
+                      <b>SMS 발송</b>
+                    </td>
+                    <td>8원</td>
+                    <td>1,545건</td>
+                    <td>1,544건</td>
+                    <td><span class="txt-rd">1건</span></td>
+                    <td>12,360원</td>
+                  </tr>
+                  <tr>
+                    <td class="ta-left">
+                      <b>LMS 발송</b>
+                    </td>
+                    <td>30원</td>
+                    <td>939건</td>
+                    <td>932건</td>
+                    <td><span class="txt-rd">7건</span></td>
+                    <td>28,170원</td>
+                  </tr>
+                  <tr>
+                    <td class="ta-left">
+                      <b>MMS 발송</b>
+                    </td>
+                    <td>100원</td>
+                    <td>1,545건</td>
+                    <td>1,544건</td>
+                    <td><span class="txt-rd">1건</span></td>
+                    <td>12,360원</td>
+                  </tr>
+                  <tr>
+                    <td class="ta-left">
+                      <b>알림톡</b>
+                    </td>
+                    <td>7원</td>
+                    <td>1,545건</td>
+                    <td>1,544건</td>
+                    <td><span class="txt-rd">1건</span></td>
+                    <td>12,360원</td>
+                  </tr>
+                  <tr>
+                    <td class="ta-left">
+                      <b>본인인증</b>
+                    </td>
+                    <td>100원</td>
+                    <td>1,545건</td>
+                    <td>1,544건</td>
+                    <td><span class="txt-rd">1건</span></td>
+                    <td>12,360원</td>
+                  </tr>
+                  <tr class="total">
+                    <td class="ta-left">
+                      <b>합계</b>
+                    </td>
+                    <td>-</td>
+                    <td>5,301건</td>
+                    <td>5,196건</td>
+                    <td><span class="txt-rd">105건</span></td>
+                    <td>125,040원</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </el-tab-pane>
+          <!--2.건별보기-->
+          <el-tab-pane label="건별보기" name="viewitem">
+            <div class="f-right">
+              <button class="btn btn-xs btn-gy btn-down"><i class="la la-download"></i> 엑셀 다운로드</button>
+            </div>
+            <section class="board-list">
+              <table>
+                <colgroup>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col>
+                  <col width="150px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>판매점 정보</th>
+                    <th>API 서비스</th>
+                    <th>사용일시</th>
+                    <th>대상번호</th>
+                    <th>성공여부</th>
+                    <th>서비스요금</th>
+                    <th>지불방식</th>
+                    <th>관리</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="ta-left">
+                      <dl class="txt-info">
+                        <dt><a href="../pay/detail.html">애니스토어 (shoppink)</a></dt>
+                        <dd class="link-resell">리셀러: <span>직접등록</span></dd>
+                      </dl>
+                    </td>
+                    <td>SMS 발송</td>
+                    <td>2019-11-27 11:24</td>
+                    <td>01065656544</td>
+                    <td><span>성공</span></td>
+                    <td>10원</td>
+                    <td>후불</td>
+                    <td class="td-btns">
+                      <button class="btn btn-xs btn-line-point"><i class="la la-info-circle"></i> 마진 정보</button>
+                      <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ta-left">
+                      <dl class="txt-info">
+                        <dt>베스트쇼핑 (bestshopping)</dt>
+                        <dd class="link-resell link">리셀러: <span>devking</span></dd>
+                      </dl>
+                    </td>
+                    <td>LMS 발송</td>
+                    <td>2019-11-27 11:24</td>
+                    <td>01065656544</td>
+                    <td><span class="txt-rd">실패</span></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="td-btns">
+                      <button class="btn btn-xs btn-line-point"><i class="la la-info-circle"></i> 마진 정보</button>
+                      <button class="btn btn-xs btn-line-point"><i class="la la-chart-bar"></i> 실적 통계</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <div class="tbl-filter">
+              <div class="d-left">
+                <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                  <el-option 
+                    v-for="list in options"
+                    :key="list.value"
+                    :label="list.label"
+                    :value="list.value">
+                  </el-option>
+                </el-select>
+              </div>
+              <div class="d-right">
+                <div role="pagination" class="pager">
+                  <div class="txt-pg">
+                    <span class="current">1</span>
+                    <span>3</span>
+                  </div>
+                  <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                  <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                  <label for="goto">이동</label>
+                  <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+                </div>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 날짜 선택 */
+        searchDetail: '1',
+        searchDate: 'month',
+        datepicker: '',
+        
+        /**
+         * 리스트 개수 select
+         */
+        options: [{
+          value: 'Option1',
+          label: '10개씩 보기'
+        }, {
+          value: 'Option2',
+          label: '50개씩 보기'
+        }, {
+          value: 'Option3',
+          label: '100개씩 보기'
+        }],
+        viewList: '',
+
+        /* 탭 */
+        tabMd1: 'viewsum',
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+<script type="text/javascript">
+  //금액 카운트
+  var options = {
+    useEasing : true, 
+    useGrouping : true, 
+    separator : ',', 
+    decimal : '.', 
+    prefix : '', 
+    suffix : '' 
+  };
+
+  /**
+  [0] 카운트를 보여줄 ID
+  [1] 시작 카운트
+  [2] 종료 카운트
+  [3] 소수점
+  [4] 시작 ~ 종료 까지 실행 시간
+  [5] 옵션
+  */
+
+  let apiAll = new CountUp("apiAll", 0, 8612, 0, 1.5, options);
+  apiAll.start();
+  let apiSub1 = new CountUp("apiSub1", 0, 8586, 0, 1.5, options);
+  apiSub1.start();
+  let apiSub2 = new CountUp("apiSub2", 0, 26, 0, 1.5, options);
+  apiSub2.start();
+
+  let payAll = new CountUp("payAll", 0, 686880, 0, 1.5, options);
+  payAll.start();
+  let paySub = new CountUp("paySub", 0, 245314, 0, 1.5, options);
+  paySub.start();
+
+</script>
+</html>

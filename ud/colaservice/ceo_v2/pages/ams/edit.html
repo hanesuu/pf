@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="header" class="h-edit"></div>
+  <div id="app">
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">자동문자 발송</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>문자발송</li>
+                <li>자동문자 발송</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-amsedit">
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">혜택 설정</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>콜라 보상</dt>
+                    <dd>
+                      <div class="no-inp">
+                        <el-switch v-model="colaBenefit" active-text="제공" inactive-text="제공안함"></el-switch>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>번호등록 보상</dt>
+                    <dd>
+                      <div class="no-inp">
+                        <el-switch v-model="phoneBenefit" active-text="제공" inactive-text="제공안함"></el-switch>
+                      </div>
+                      <label class="dd-add" v-if="phoneBenefit === true">
+                        <span>적립금</span>
+                        <div class="inp-price">
+                          <input type="tel" placeholder="0" class="inp-txt num-txt" value="2,000">
+                        </div>
+                      </label>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>재주문 보상</dt>
+                    <dd>
+                      <div class="no-inp">
+                        <el-switch v-model="reorderBenefit" active-text="제공" inactive-text="제공안함"></el-switch>
+                      </div>
+                      <label class="dd-add" v-if="reorderBenefit === true">
+                        <span>적립금</span>
+                        <div class="inp-price">
+                          <input type="tel" placeholder="0" class="inp-txt num-txt">
+                        </div>
+                      </label>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">부가 설정</h3><!-- 
+                <div @click="infoModal = true" class="btn-txt">
+                  <a>안내</a>
+                  <i class="la la-angle-right"></i>
+                </div> -->
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt>첨부 이미지 (최대 3장)</dt>
+                    <dd class="wrap-list-thumb">
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main04(0).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <img src="https://nenechicken.com/17_new/images/adm/main02(1).jpg">
+                        <button class="btn btn-del">삭제</button>
+                      </div>
+                      <div class="list-thumb">
+                        <label for="upfile1">
+                          <span class="plus"></span>
+                          <input type="file" id="upfile1" accept="image/*" multiple="multiple" class="upload-img">
+                          <span class="txt">이미지 등록</span>
+                        </label>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="bm" class="label-brand bm">배달의민족</label></dt>
+                    <dd>
+                      <input type="text" id="bm" placeholder="URL 입력" value="https://baemin.me/D_GK2MWb">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="ygy" class="label-brand ygy">요기요</label></dt>
+                    <dd>
+                      <input type="text" id="ygy" placeholder="URL 입력">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="kakao" class="label-brand kakao">카카오톡 주문</label></dt>
+                    <dd>
+                      <input type="text" id="kakao" placeholder="URL 입력">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <dl>
+                    <dt><label for="bdt" class="label-brand bdt">배달통</label></dt>
+                    <dd>
+                      <input type="text" id="bdt" placeholder="URL 입력">
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">기본 자동문자</h3><!-- 
+                <div @click="smsTypeModal = true" class="btn-txt">
+                  <a>주문경로별 문자유형 보기</a>
+                  <i class="la la-angle-right"></i>
+                </div> -->
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-6">
+                  <dl class="ams-area">
+                    <dt>
+                      <label for="normalPrintCall">프린트 콜</label>
+                      <button class="btn"><i class="el-icon-refresh-left"></i>초기화</button>
+                    </dt>
+                    <dd>
+                      <el-tabs type="card" id="normalPrintCall">
+                        <el-tab-pane label="050 고객용 문자">
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">고객님, 주문 감사합니다. 더 큰 혜택을 드리기 위한 다음 안내사항을 꼭 봐주세요~</textarea>
+                          <div class="ams-txt">
+                            <p>◆ 감사 적립금 받으세요~<br>조금 전 주문에 대한 감사 적립금이 2,000원 있습니다. 아래 직거래 주문 사이트에 접속하셔서 적립금을 챙기세요~<br>적립금을 챙기신 후 직거래 주문 사이트나 매장전화로 전화주문 하시면 적립금 만큼 즉시 할인되십니다~</p>
+                            <p>▶ 직거래 주문 → 01042847479.colaservice.com</p>
+                            <p>▷ 매장 전화 : 050704800034</p>
+                            <p>◆ 직거래 할인 적립금 2,000원을 적립해 드렸습니다. 다음 주문 때 아래 직거래 주문 사이트나 매장전화로 주문하시면 즉시 할인되세요~ (적립금 총잔액 : 5,000원)</p>
+                            <p>◆ 직거래로 주문하실 때마다 2,000원씩 팍팍 적립해 드립니다~</p>
+                            <p>◆ 직거래로 주문하시면 무조건 콜라 하나 더 공짜로 드려요~</p>
+                            <p>◆ 배달앱으로 주문하기<br>☆ 배달의민족 : https://baemin.me/D_GK2MWb<br>☆ 요기요 : https://yogiyo.me/A_BCIER9Ec<br>※ 온라인 주문 시 위 경로로 편리하게 주문하세요.</p>
+                          </div>
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">기분좋은 하루 되세요. 감사합니다~</textarea>
+                        </el-tab-pane>
+                        <el-tab-pane label="실번호 고객용 문자">                          
+                          <textarea class="inp-txt" placeholder="문자 내용을 입력하세요.">
+주문해 주셔서 감사 드립니다.
+★ 다음 주문 시 아래 링크를 통해 주문하시면 콜라 공짜! 원래 서비스면 하나 더 공짜!!
+▶ 직거래 주문 → https://sample.colaservice.com
+▷ 매장 전화 : 050704800042</textarea>
+                        </el-tab-pane>
+                      </el-tabs>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <dl class="ams-area">
+                    <dt>
+                      <label for="normalRemindCall">리마인드 콜</label>
+                      <button class="btn"><i class="el-icon-refresh-left"></i>초기화</button>
+                    </dt>
+                    <dd>
+                      <el-tabs type="card" id="normalRemindCall">
+                        <el-tab-pane label="배달앱 고객용 문자">
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">고객님, 주문 감사합니다. 더 큰 혜택을 드리기 위한 다음 안내사항을 꼭 봐주세요~</textarea>
+                          <div class="ams-txt">
+                            <p>★ 출출하실 땐 배달 빨리 해 드리는게 제일이겠죠? 지금 주문해 주시면 총알 배달 보장!! ▶ 직거래 주문 → 01015156666.colaservice.com ▷ 매장 전화 : 050704800034</p>
+                            <p>◆ 직거래로 주문하실 때마다 1,000원씩 팍팍 적립해 드립니다~ (다음 주문하실 때 즉시 할인 가능!)</p>
+                            <p>◆ 직거래로 주문하시면 무조건 콜라 하나 더 공짜로 드려요~</p>
+                            <p>◆ 배달앱으로 주문하기<br>☆ 배달의민족 : https://baemin.me/D_GK2MWb<br>☆ 요기요 : https://yogiyo.me/A_BCIER9Ec<br>※ 온라인 주문 시 위 경로로 편리하게 주문하세요.</p>
+                          </div>
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">혹시 출출하시다면 다시 한번 불러주세요. 정성껏 준비해 쏜살 같이 달려가겠습니다~</textarea>
+                        </el-tab-pane>
+                        <el-tab-pane label="직주문 고객용 문자">  
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">고객님, 주문 감사합니다. 더 큰 혜택을 드리기 위한 다음 안내사항을 꼭 봐주세요~</textarea>
+                          <div class="ams-txt">
+                            <p>★ 출출하실 땐 배달 빨리 해 드리는게 제일이겠죠? 지금 주문해 주시면 총알 배달 보장!! ▶ 직거래 주문 → 01015156666.colaservice.com ▷ 매장 전화 : 050704800034</p>
+                            <p>◆ 직거래로 주문하실 때마다 1,000원씩 팍팍 적립해 드립니다~ (다음 주문하실 때 즉시 할인 가능!)</p>
+                            <p>◆ 직거래로 주문하시면 무조건 콜라 하나 더 공짜로 드려요~</p>
+                          </div>
+                          <textarea class="inp-txt short" placeholder="문자 내용을 입력하세요.">혹시 출출하시다면 다시 한번 불러주세요. 정성껏 준비해 쏜살 같이 달려가겠습니다~</textarea>
+                        </el-tab-pane>
+                      </el-tabs>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <section class="wrap-formbox">
+              <div class="bx-tit">
+                <h3 class="tit">특정 기간 자동문자</h3>
+                <div class="wrap-tooltip">
+                  <a title="더 알아보기" class="ico-link-q">?</a>
+                  <span class="tooltip-link">각종 프로모션, 신제품 홍보 등 특정 기간에만 발송되는 이벤트용 문자입니다.<br>설정한 기간이 종료되면 기본문자 내용으로 발송됩니다.</span>
+                </div>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-6">
+                  <dl class="ams-area">
+                    <dt>
+                      <label for="normalPrintCall">프린트 콜</label>
+                      <span class="label-rd"><i class="el-icon-loading"></i>진행중</span>
+                      <!--
+                      <span class="label-grn"><i class="el-icon-check"></i>예약완료</span>
+                      <span class="label-gy">종료</span>-->
+                      <button class="btn"><i class="el-icon-refresh-left"></i>초기화</button>
+                    </dt>
+                    <dd>
+                      <textarea class="inp-txt" placeholder="문자 내용을 입력하세요.">
+[쏘다두마리치킨으로 여름나기!]
+3복 3일간 치킨 전메뉴 할인 이벤트 진행중
+초복(7/11~13), 중복(7/21~23), 말복(8/10~12) 3일간 전메뉴 30% 할인
+※ 치킨 메뉴만 해당됩니다.
+※ 매장 사정에 따라 조기 소진될 수 있습니다.</textarea>
+                    </dd>
+                  </dl>
+                  <dl class="datetime">
+                    <dt>기간 시작-종료 설정</dt>
+                    <dd>
+                       <el-date-picker
+                        :default-time="['00:00:00']"
+                        end-placeholder="종료일"
+                        start-placeholder="시작일"
+                        type="datetimerange"
+                        v-model="printStartEndDate">
+                      </el-date-picker>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <dl class="ams-area">
+                    <dt>
+                      <label for="normalRemindCall">리마인드 콜</label>
+                      <span class="label-gy">종료</span>
+                      <!--
+                      <span class="label-grn"><i class="el-icon-check"></i>예약완료</span>
+                      <span class="label-rd"><i class="el-icon-loading"></i>진행중</span>-->
+                      <button class="btn"><i class="el-icon-refresh-left"></i>초기화</button>
+                    </dt>
+                    <dd>
+                      <textarea class="inp-txt" placeholder="문자 내용을 입력하세요."></textarea>
+                    </dd>
+                  </dl>
+                  <dl class="datetime">
+                    <dt>기간 시작-종료 설정</dt>
+                    <dd>
+                       <el-date-picker
+                        :default-time="['00:00:00']"
+                        end-placeholder="종료일"
+                        start-placeholder="시작일"
+                        type="datetimerange"
+                        v-model="remindStartEndDate">
+                      </el-date-picker>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <button @click="testSendModal = true" class="btn">문자발송 테스트</button>
+              <button class="btn btn-primary">저장하기</button>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+
+      <!--modal-->
+      <el-dialog :visible.sync="infoModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-txt">
+        <div class="pop-title" slot="title">배달앱 바로주문 페이지 등록 안내</div>
+        <div class="contents">
+          <div class="txt-info">
+            <h3>배달앱 홍보효과를 더욱 높여 드립니다!</h3>
+            <p>배달앱에서 우리 상점을 검색하거나 바로 찾기가 점점 더 어려워지는 걸 알고 계신가요?<br>여기 좋은 방법이 있습니다! 현재 이용 중인 배달앱의 우리 상점 바로가기 URL 정보를 등록해보세요.<br>홍보문자에 배달앱별 우리상점 페이지 바로가기가 자동으로 안내됩니다.</p>
+          </div>
+          <div class="txt-info">
+            <h3>노출도/접근성 개선으로 매출이 쑥쑥 Up!</h3>
+            <p>고객들이 이 주소를 누르면 바로 배달앱에서 우리 상점의 주문페이지로 넘어올 수 있어서 주문과 매출이 더욱 늘어납니다.</p>
+          </div>
+          <div class="txt-info">
+            <h3>선호하는 배달앱 몰아주기로 비용이 팍팍 Down!</h3>
+            <p>배달앱별 광고비 차이 등의 이유 때문에 특정 배달앱으로 주문을 몰고 싶으시면 그 배달앱의 URL만 등록하세요. 다른 배달앱에서 들어온 주문에 대해서도 몰아주기 하고 싶은 배달앱의 바로주문 URL이 홍보돼 주문경로를 바꾸는 효과가 크답니다~</p>
+          </div>
+        </div>
+        <div slot="footer">
+            <button @click="infoModal = false" class="btn">확인</button>
+        </div>
+      </el-dialog>
+
+      <el-dialog :visible.sync="smsTypeModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-txt">
+        <div class="pop-title" slot="title">주문경로별 문자유형 안내</div>
+        <div class="contents">
+          <p>콜라서비스의 자동 홍보문자는 설정된 혜택내용과 고객의 주문경로에 따라 상황에 맞게 자동으로 조합됩니다.</p>
+          <p>고객이 주문한 경로에 따라 구분되는 문자의 유형은 다음과 같습니다.</p>
+          <div class="bx-gry">
+            <ul class="list-type">
+              <li><b class="d-block">배달앱 050 고객용</b>배달앱을 통해 050 안심번호로 주문한 고객에게 발송 (해당 050 번호는 주문 3시간 후 자동 소멸)</li>
+              <li><b class="d-block">배달앱 01X 고객용</b>배달앱에서 바로결제가 아닌 현장결제/만나서결제를 선택해 주문한 고객에게 발송 (배달앱에서 주문했으나, 01X 실번호가 확인되는 고객)</li>
+              <li><b class="d-block">배달앱 고객용</b>050 안심번호는 물론, 배달앱 현장결제를 선택한 01X 번호까지 – 배달앱을 통해 주문한 모든 고객에게 발송</li>
+              <li><b class="d-block">직주문 고객용</b>배달앱이 아닌, 매장전화 등으로 직접 주문한 전체 고객에게 발송</li>
+            </ul>
+          </div>
+        </div>
+        <div slot="footer">
+            <button @click="smsTypeModal = false" class="btn">확인</button>
+        </div>
+      </el-dialog>
+
+      <el-dialog :visible.sync="testSendModal" :close-on-click-modal="false" @close="cancel" class="pop-layer pop-test">
+        <div class="pop-title" slot="title">문자발송 테스트하기</div>
+        <div class="contents">
+          <dl>
+            <dt class="txt-s">기본 자동문자</dt>
+            <dd>
+              <ul class="list-radio">
+                <li>
+                  <el-radio v-model="testSend" label="normalPrint050">프린트 콜 (배달앱 050 고객용)</el-radio>
+                </li>
+                <li>
+                  <el-radio v-model="testSend" label="normalPrint010">프린트 콜 (배달앱 01X 고객용)</el-radio>
+                </li>
+                <li>
+                  <el-radio v-model="testSend" label="normalPrintDirect">프린트 콜 (직주문 고객용)</el-radio>
+                </li>
+                <li>
+                  <el-radio v-model="testSend" label="normalRemind010">리마인드 콜 (배달앱 01X 고객용)</el-radio>
+                </li>
+                <li>
+                  <el-radio v-model="testSend" label="normalRemindDirect">리마인드 콜 (직주문 고객용)</el-radio>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="txt-s">특정 기간 자동문자</dt>
+            <dd class="list-radio">
+              <li>
+                <el-radio v-model="testSend" label="eventPrint">프린트 콜</el-radio>
+              </li>
+              <li>
+                <el-radio v-model="testSend" label="eventRemind">리마인드 콜</el-radio>
+              </li>
+            </dd>
+          </dl>
+          <!--<el-collapse accordion>
+            <el-collapse-item title="주문경로별 문자유형 안내" name="1">
+              <div class="bx-gry">
+                <ul class="list-type">
+                  <li><b class="d-block">배달앱 050 고객용</b>배달앱을 통해 050 안심번호로 주문한 고객에게 발송 (해당 050 번호는 주문 3시간 후 자동 소멸)</li>
+                  <li><b class="d-block">배달앱 01X 고객용</b>배달앱에서 바로결제가 아닌 현장결제/만나서결제를 선택해 주문한 고객에게 발송 (배달앱에서 주문했으나, 01X 실번호가 확인되는 고객)</li>
+                  <li><b class="d-block">배달앱 고객용</b>050 안심번호는 물론, 배달앱 현장결제를 선택한 01X 번호까지 – 배달앱을 통해 주문한 모든 고객에게 발송</li>
+                  <li><b class="d-block">직주문 고객용</b>배달앱이 아닌, 매장전화 등으로 직접 주문한 전체 고객에게 발송</li>
+                </ul>
+              </div>
+            </el-collapse-item>
+          </el-collapse>-->
+        </div>
+        <div slot="footer">
+            <button @click="testSendModal = false" class="btn">취소</button>
+            <button class="btn btn-primary">발송하기</button>
+        </div>
+      </el-dialog>
+    </div>
+    <!--//template-->
+  </div>
+  <div id="footer"></div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script src="/ud/common/js/element/ko.js"></script>
+<script>
+ELEMENT.locale(ELEMENT.lang.ko)
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 모바일메뉴
+         */
+        mbMenu: ['mAms'],
+
+        /**
+         * switch
+         */
+        colaBenefit: false,
+        phoneBenefit: true,
+        reorderBenefit: true,
+
+        /**
+         * 이벤트문자 timepicker
+         */
+        printStartEndDate: '',
+        remindStartEndDate: '',
+
+        /**
+         * radio
+         */
+        testSend: 'normalPrint050',
+
+        /**
+         * modal
+         */
+        infoModal: false,
+        smsTypeModal: false,
+        testSendModal: false,
+      }
+    },
+    methods: {
+      /**
+       * 모달 닫기(취소)
+       */
+      cancel() {
+        this.modal = false
+      },
+    }
+  })
+</script>
+</html>

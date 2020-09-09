@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Pay&Api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <!--template-->    
+    <div class="wrap-login join vue-find">
+      <div class="bx-basic">
+        <h1 class="tit"><div class="logo">Pay&Api</div> 아이디/비밀번호 찾기</h1>
+        <div class="con">
+          <el-tabs v-model="tabMd" class="tab-md">
+            <!--1.아이디 찾기-->
+            <el-tab-pane label="아이디 찾기" name="id">
+              <p class="txt-top">아래 아이디 찾기 방법 중 하나를 선택해서 진행해주세요.</p>
+              <div class="certi-radio">
+                <div class="active">
+                  <img src="../assets/img/ico_certi_phone.svg" width="44" height="52">
+                  <p>휴대폰 인증</p>
+                </div>
+                <div>
+                  <img src="../assets/img/ico_certi_mail.svg" width="44" height="52">
+                  <p>이메일 인증</p>
+                </div>
+              </div>
+              <div class="wrap-form">
+                <dl>
+                  <dt>이름/상호</dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="이름/상호를 입력하세요." value="하이젠버그" disabled="disabled">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>휴대폰번호</dt>
+                  <dd>
+                    <input type="tel" class="inp-txt" placeholder="휴대폰번호를 입력하세요." value="01034345151" disabled="disabled">
+                    <button class="btn btn-line-b">재전송</button>
+                  </dd>
+                </dl>
+              </div>
+              <p class="txt-top">받은 인증 번호를 3분 이내에 입력해주시고, 못 받으신 경우 재전송 버튼을 눌러주세요~</p>
+              <div class="wrap-form">
+                <dl>
+                  <dt>인증번호</dt>
+                  <dd>
+                    <div class="wrap-inp-time">
+                      <input type="tel" class="inp-txt" placeholder="숫자만 입력하세요.">
+                      <span class="txt-time">3:00</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="bottom-btn">
+                <button class="btn" onClick="history.back();">취소</button>
+                <button class="btn btn-primary" onClick="location.href='findIdResult.html'">인증 확인</button>
+              </div>
+            </el-tab-pane>
+            <!--2.비밀번호 찾기-->
+            <el-tab-pane label="비밀번호 찾기" name="pw">
+              <p class="txt-top">회원가입 시 입력하신 휴대전화, 이메일 인증을 통해 신규 비밀번호를 발급 받으실 수 있습니다.</p>
+              <div class="certi-radio">
+                <div class="active">
+                  <img src="../assets/img/ico_certi_phone.svg" width="44" height="52">
+                  <p>휴대폰 인증</p>
+                </div>
+                <div>
+                  <img src="../assets/img/ico_certi_mail.svg" width="44" height="52">
+                  <p>이메일 인증</p>
+                </div>
+              </div>
+              <div class="wrap-form">
+                <dl>
+                  <dt>아이디</dt>
+                  <dd>
+                    <input type="text" class="inp-txt" placeholder="아이디를 입력하세요." value="walterwhite80" disabled="disabled">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>휴대폰번호</dt>
+                  <dd>
+                    <input type="tel" class="inp-txt" placeholder="휴대폰번호를 입력하세요." value="01034345151" disabled="disabled">
+                    <button class="btn btn-line-b">재전송</button>
+                  </dd>
+                </dl>
+              </div>
+              <p class="txt-top">받은 인증 번호를 3분 이내에 입력해주시고, 못 받으신 경우 재전송 버튼을 눌러주세요~</p>
+              <div class="wrap-form">
+                <dl>
+                  <dt>인증번호</dt>
+                  <dd>
+                    <div class="wrap-inp-time">
+                      <input type="tel" class="inp-txt" placeholder="숫자만 입력하세요.">
+                      <span class="txt-time">3:00</span>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="bottom-btn">
+                <button class="btn" onClick="history.back();">취소</button>
+                <button class="btn btn-primary" onClick="location.href='findIdResult.html'">인증 확인</button>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+          <p class="txt-s">회원님의 안전한 서비스이용을 위하여 본인인증을 실시하고 있습니다. <br>인증을 받을 수 없는 경우 고객센터(<b class="txt-point">1670-7479</b>)로 문의 바랍니다.</p>
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 탭 */
+        tabMd: 'id',
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script src="/ud/common/js/countUp.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj3-1 detail"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents vue-rsdetail">
+        <!--리셀러 정보-->
+        <section class="bx-basic detail-info">
+          <div class="info">
+            <dl class="info-name store">
+              <dt>
+                <i class="i-store"></i>
+                <span>하이젠버그 (walterwhite)</span>
+              </dt>
+              <dd class="txt-s">법인사업자</dd>
+            </dl>
+            <button class="btn btn-xs btn-point">판매자 로그인</button>
+          </div>
+          <div class="list-info">
+            <dl>
+              <dt>결제연동</dt>
+              <dd>대표가맹코드 결제<button class="btn btn-xs btn-line-b btn-xs-info d-right">직가맹 신청안내</button></dd>
+            </dl>
+            <dl>
+              <dt>결제 정산정보</dt>
+              <dd>
+                <span class="txt-state fail">정산불가</span>
+                <button class="btn btn-xs btn-line-b btn-xs-info d-right">정산안내</button>
+              </dd>
+            </dl>
+            <dl>
+              <dt>유료 API 지불방식</dt>
+              <dd>
+                선불 충전
+                <div class="txt-s">사용가능금액 : <span class="txt-rd"><b>2,300</b>원</span></div>
+                <button class="btn btn-xs btn-line-b btn-xs-info d-right">후불계약 신청안내</button></dd>
+            </dl>
+            <dl>
+              <dt>연동토큰</dt>
+              <dd>
+                <span class="txt-wrap">a439ace025c90c0da2c0da21r61075da6ddd3492</span>
+                <button class="btn btn-xs btn-gy d-right">복사</button>
+              </dd>
+            </dl>
+          </div>
+          <div class="wrap-memo">
+            <h3 class="tit"><i class="la la-file-alt"></i> 메모</h3>
+            <textarea placeholder="메모 입력"></textarea>
+            <button class="btn btn-xs btn-yl">저장하기</button>
+            <!-- <button class="btn btn-xs btn-yl"><i class="la la-pen"></i> 수정하기</button> -->            
+          </div>
+        </section>
+        <!--탭-->
+        <el-tabs type="card" v-model="tabLg" class="tab-lg">
+          <!--1.실적 통계-->
+          <el-tab-pane name="stat">
+            <span slot="label">실적 통계</span>
+            <section class="wrap-bx-search filter">
+              <el-date-picker
+                v-model="datepicker"
+                type="daterange"
+                align="right"
+                start-placeholder="시작일 선택"
+                end-placeholder="종료일 선택"
+                default-value="2019-11-15">
+              </el-date-picker>
+              <div class="group-radio">
+                <el-radio v-model="searchDate" label="month">
+                  <span>당월</span>
+                  <div class="wrap-btn-arr">
+                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
+                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
+                  </div>
+                </el-radio>
+                <el-radio v-model="searchDate" label="today">
+                  <span>오늘</span>
+                  <div class="wrap-btn-arr">
+                    <button class="btn btn-line"><i class="la la-angle-left"></i></button>
+                    <button class="btn btn-line"><i class="la la-angle-right"></i></button>
+                  </div>
+                </el-radio>
+                <el-radio v-model="searchDate" label="all">
+                  <span>전체</span>
+                </el-radio>
+              </div>
+            </section>
+            <section class="row wrap-widget">
+              <div class="col-xs-12 col-sm-4">
+                <div class="widget-rd horizon">
+                  <dl class="main-stat">
+                    <dt>총 결제 건수</dt>
+                    <dd class="txt-count"><span id="paySub1">0</span><small>건</small></dd>
+                  </dl>
+                  <div class="sub-stat">
+                    <dl>
+                      <dt>결제 총액</dt>
+                      <dd class="txt-count"><span id="payAll">0</span><small>원</small></dd>
+                    </dl>
+                    <dl>
+                      <dt>결제수수료 마진</dt>
+                      <dd class="txt-count"><span id="paySub2">0</span><small>원</small></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="widget-pt horizon">
+                  <dl class="main-stat">
+                    <dt>총 연동 건수</dt>
+                    <dd class="txt-count"><span id="apiSub1">0</span><small>건</small></dd>
+                  </dl>
+                  <div class="sub-stat">
+                    <dl>
+                      <dt>요금총액</dt>
+                      <dd class="txt-count"><span id="apiSub2">0</span><small>원</small></dd>
+                    </dl>
+                    <dl>
+                      <dt>유료 API 마진</dt>
+                      <dd class="txt-count"><span id="apiAll">0</span><small>원</small></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="widget-yl horizon">
+                  <dl class="main-stat">
+                    <dt>총 마진</dt>
+                    <dd class="txt-count"><span id="marginAll">5,128,157</span><small>원</small></dd>
+                  </dl>
+                  <div class="sub-stat">
+                    <dl>
+                      <dt>정산완료</dt>
+                      <dd class="txt-count"><span id="marginSub1">4,386,102</span><small>원</small></dd>
+                    </dl>
+                    <dl>
+                      <dt>정산예정</dt>
+                      <dd class="txt-count"><span id="marginSub2">742,055</span><small>원</small></dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <el-tabs v-model="tabMd1" class="tab-md">
+              <!--1-1.결제통계-->
+              <el-tab-pane label="결제 통계" name="paystat">
+                <section class="board-list">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>결제 정보</th>
+                        <th>결제 일시</th>
+                        <th>결제자</th>
+                        <th>결제 금액</th>
+                        <th>결제 수단</th>
+                        <th>처리 결과</th>
+                        <th>결제 마진</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="ta-left">
+                          <p>R201911040000008327</p>
+                          <p>사이다페이</p>
+                        </td>
+                        <td>2019-11-04 09:53:07</td>
+                        <td>01065656544</td>
+                        <td>846,000원</td>
+                        <td>카드</td>
+                        <td><span class="txt-rd">결제취소</span></td>
+                        <td>
+                          <b>1,057원</b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="ta-left">
+                          <p>R201911040000008327</p>
+                          <p>사이다페이</p>
+                        </td>
+                        <td>2019-11-04 09:53:07</td>
+                        <td>01065656544</td>
+                        <td>846,000원</td>
+                        <td>카드</td>
+                        <td><span>결제완료</span></td>
+                        <td>
+                          <b>1,057원</b>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <div class="tbl-filter">
+                  <div class="d-left">
+                    <el-select v-model="viewList" placeholder="보기 설정" class="view-pc">
+                      <el-option 
+                        v-for="list in options"
+                        :key="list.value"
+                        :label="list.label"
+                        :value="list.value">
+                      </el-option>
+                    </el-select>
+                  </div>
+                  <div class="d-right">
+                    <div role="pagination" class="pager">
+                      <div class="txt-pg">
+                        <span class="current">1</span>
+                        <span>3</span>
+                      </div>
+                      <button class="btn btn-line-b btn-prev"><i class="la la-angle-left"></i></button>
+                      <button class="btn btn-line-b btn-next"><i class="la la-angle-right"></i></button>
+                      <label for="goto">이동</label>
+                      <input type="tel" id="goto" placeholder="0" value="1" class="inp-txt">
+                    </div>
+                  </div>
+                </div>
+              </el-tab-pane>
+              <!--1-2.유료 API 연동 통계-->
+              <el-tab-pane label="유료 API 연동 통계" name="apistat">
+                <div class="f-right">
+                  <button class="btn btn-xs btn-gy btn-down"><i class="la la-download"></i> 엑셀 다운로드</button>
+                </div>
+                <section class="board-list">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>구분</th>
+                        <th>건당 요금</th>
+                        <th>전체 연동건수</th>
+                        <th>성공</th>
+                        <th>실패</th>
+                        <th>연동마진</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="ta-left">
+                          <b>SMS 발송</b>
+                        </td>
+                        <td>8원</td>
+                        <td>1,545건</td>
+                        <td>1,544건</td>
+                        <td><span class="txt-rd">1건</span></td>
+                        <td>12,360원</td>
+                      </tr>
+                      <tr>
+                        <td class="ta-left">
+                          <b>LMS 발송</b>
+                        </td>
+                        <td>30원</td>
+                        <td>939건</td>
+                        <td>932건</td>
+                        <td><span class="txt-rd">7건</span></td>
+                        <td>28,170원</td>
+                      </tr>
+                      <tr>
+                        <td class="ta-left">
+                          <b>MMS 발송</b>
+                        </td>
+                        <td>100원</td>
+                        <td>1,545건</td>
+                        <td>1,544건</td>
+                        <td><span class="txt-rd">1건</span></td>
+                        <td>12,360원</td>
+                      </tr>
+                      <tr>
+                        <td class="ta-left">
+                          <b>알림톡</b>
+                        </td>
+                        <td>7원</td>
+                        <td>1,545건</td>
+                        <td>1,544건</td>
+                        <td><span class="txt-rd">1건</span></td>
+                        <td>12,360원</td>
+                      </tr>
+                      <tr>
+                        <td class="ta-left">
+                          <b>본인인증</b>
+                        </td>
+                        <td>100원</td>
+                        <td>1,545건</td>
+                        <td>1,544건</td>
+                        <td><span class="txt-rd">1건</span></td>
+                        <td>12,360원</td>
+                      </tr>
+                      <tr class="total">
+                        <td class="ta-left">
+                          <b>합계</b>
+                        </td>
+                        <td>-</td>
+                        <td>5,301건</td>
+                        <td>5,196건</td>
+                        <td><span class="txt-rd">105건</span></td>
+                        <td>125,040원</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </el-tab-pane>
+            </el-tabs>
+          </el-tab-pane>
+          <!--2.마진 설정-->
+          <el-tab-pane name="margin">
+            <span slot="label">마진 설정</span>
+            <el-tabs v-model="tabMd2" class="tab-md">
+              <!--2-1.결제 API 설정-->
+              <el-tab-pane label="결제 API 설정" name="paymargin">
+                <div class="f-right">
+                  <span class="txt-s">* 부가세 별도</span>
+                  <button class="btn btn-xs btn-line-b btn-xs-info">API별 마진 및 연동 설정 안내</button>
+                </div>
+                <section class="wrap-bx-search filter margin">
+                  <h3 class="tit"><i class="la la-sliders-h"></i> 마진 간편설정</h3>
+                  <div class="controller">
+                    <div class="form-btn">
+                      <label>마진율</label>
+                      <input type="tel" class="inp-txt" placeholder="0.00">
+                      <span>&percnt;</span>
+                      <button class="btn btn-point">일괄 적용</button>
+                    </div>
+                    <button class="btn btn-rd"><i class="la la-redo-alt"></i> 표준조건으로 초기화</button>
+                    <button class="btn btn-point"><i class="la la-redo-alt"></i> 대표조건 적용</button>
+                  </div>
+                </section>
+                <section class="board-list noscroll">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col width="60px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>API구분</th>
+                        <th>결제수수료 원가</th>
+                        <th>리셀러 마진</th>
+                        <th>판매점 결제수수료</th>
+                        <th>사용 설정</th>
+                        <th>매뉴얼</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>신용카드</th>
+                        <td>2.6%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>2.7%</td>
+                        <td>
+                          <el-switch v-model="value1"></el-switch>
+                        </td>
+                        <td rowspan="9" class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>실시간 계좌이체</th>
+                        <td>1.4%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>1.8%</td>
+                        <td>
+                          <el-switch v-model="value2"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>가상계좌</th>
+                        <td class="txt-gn">260원</td>
+                        <td class="bg-yl txt-gn">40원</td>
+                        <td class="txt-gn">건당 300원</td>
+                        <td>
+                          <el-switch v-model="value3"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>휴대폰결제 (실물)</th>
+                        <td>3.5%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.9%</td>
+                        <td>
+                          <el-switch v-model="value4"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>휴대폰결제 (디지털)</th>
+                        <td>6.5%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>6.9%</td>
+                        <td>
+                          <el-switch v-model="value5"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>삼성페이 <img src="/ud/pna/common/img/api_sspay.png" alt="SAMSUNG PAY"></th>
+                        <td>2.6%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.0%</td>
+                        <td>
+                          <el-switch v-model="value6"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>네이버페이 <img src="/ud/pna/common/img/api_npay.png" alt="N Pay"></th>
+                        <td>3.2%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.4%</td>
+                        <td>
+                          <el-switch v-model="value7"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>카카오페이 / 카카오머니 <img src="/ud/pna/common/img/api_kakao.png" alt="Kakao Pay"></th>
+                        <td>2.8%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.2%</td>
+                        <td>
+                          <el-switch v-model="value8"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>페이코 <img src="/ud/pna/common/img/api_payco.png" alt="PAYCO"></th>
+                        <td>2.8%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.2%</td>
+                        <td>
+                          <el-switch v-model="value9"></el-switch>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>알리페이 <img src="/ud/pna/common/img/api_alipay.png" alt="ALIPAY"></th>
+                        <td>2.3%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>2.7%</td>
+                        <td>
+                          <el-switch v-model="value10"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>텐페이 <img src="/ud/pna/common/img/api_tenpay.png" alt="TENPAY"></th>
+                        <td>1.7%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>2.1%</td>
+                        <td>
+                          <el-switch v-model="value11"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>페이팔 <img src="/ud/pna/common/img/api_paypal.png" alt="PAYPAL"></th>
+                        <td>4.9%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>5.3%</td>
+                        <td>
+                          <el-switch v-model="value12"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>정기결제 (카드/빌링결제)</th>
+                        <td>2.6%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.0%</td>
+                        <td>
+                          <el-switch v-model="value13"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>OCR 카드 결제 (앱2앱 연동)</th>
+                        <td>2.6%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.0%</td>
+                        <td>
+                          <el-switch v-model="value14"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>NFC 카드 결제 (앱2앱 연동)</th>
+                        <td>2.6%</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="0.4">
+                          <span>%</span>
+                        </td>
+                        <td>3.0%</td>
+                        <td>
+                          <el-switch v-model="value15"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>링크결제</th>
+                        <td colspan="3">결제창출을 위한 보조수단 (원가/마진은 각 결제수단을 따름)</td>
+                        <td>
+                          <el-switch v-model="value16"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>현금영수증</th>
+                        <td colspan="3">무료 솔루션</td>
+                        <td>
+                          <el-switch v-model="value17"></el-switch>
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <div class="bottom-btn">
+                  <button class="btn btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+              <!--2-2.유료 API 설정-->
+              <el-tab-pane label="유료 API 설정" name="msgmargin">
+                <div class="f-right">
+                  <span class="txt-s">* 부가세 별도</span>
+                  <button class="btn btn-xs btn-line-b btn-xs-info">API별 마진 및 연동 설정 안내</button>
+                </div>
+                <section class="wrap-bx-search filter margin">
+                  <h3 class="tit"><i class="la la-sliders-h"></i> 마진 간편설정</h3>
+                  <div class="controller">
+                    <div class="form-btn">
+                      <label>마진율</label>
+                      <input type="tel" class="inp-txt" placeholder="0.00">
+                      <span>&percnt;</span>
+                      <button class="btn btn-point">일괄 적용</button>
+                    </div>
+                    <button class="btn btn-rd"><i class="la la-redo-alt"></i> 표준조건으로 초기화</button>
+                    <button class="btn btn-point"><i class="la la-redo-alt"></i> 대표조건 적용</button>
+                  </div>
+                </section>
+                <!--대리점 접속시 보여지는 테이블-->
+                <!--<section class="board-list margin msgmargin">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col width="60px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th rowspan="2">구분</th>
+                        <th colspan="4" class="area-yl">대리점 마진 현황 (내 마진 설정)</th>
+                        <th colspan="3" class="area-sk">리셀러 마진 현황</th>
+                        <th rowspan="2">사용설정</th>
+                        <th rowspan="2">매뉴얼</th>
+                      </tr>
+                      <tr>
+                        <th>내 원가</th>
+                        <th>리셀러 공급가</th>
+                        <th>내 마진</th>
+                        <th>내 마진율</th>
+                        <th>판매점 요금</th>
+                        <th>마진</th>
+                        <th>마진율</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>SMS 발송</th>
+                        <td>8원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="8.4">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>0.4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>-%</td>
+                        <td>-원</td>
+                        <td>-%</td>
+                        <td rowspan="3">
+                          <el-switch v-model="value1">
+                        </td>
+                        <td rowspan="3" class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>LMS 발송</th>
+                        <td>28원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="29.4">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>1.4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>-%</td>
+                        <td>-원</td>
+                        <td>-%</td>
+                      </tr>
+                      <tr>
+                        <th>MMS 발송</th>
+                        <td>80원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="84">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>-%</td>
+                        <td>-원</td>
+                        <td>-%</td>
+                      </tr>
+                      <tr>
+                        <th>알림톡</th>
+                        <td>6원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="6.3">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>0.3원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>-%</td>
+                        <td>-원</td>
+                        <td>-%</td>
+                        <td>
+                          <el-switch v-model="value2">
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>본인인증</th>
+                        <td>80원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="84">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>-%</td>
+                        <td>-원</td>
+                        <td>-%</td>
+                        <td>
+                          <el-switch v-model="value3">
+                        </td>
+                        <td class="td-btns">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>-->
+                <!--판매점 접속시 보여지는 테이블-->
+                <section class="board-list">
+                  <table>
+                    <colgroup>
+                      <col>
+                      <col width="10%">
+                      <col width="10%">
+                      <col width="10%">
+                      <col width="10%">
+                      <col>
+                      <col width="60px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>구분</th>
+                        <th>원가</th>
+                        <th>서비스 요금</th>
+                        <th>마진</th>
+                        <th>마진율</th>
+                        <th>사용설정</th>
+                        <th>매뉴얼</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>SMS 발송</th>
+                        <td>8원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="8.4">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>0.4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td rowspan="3">
+                          <el-switch v-model="value1"></el-switch>
+                        </td>
+                        <td rowspan="3">
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>LMS 발송</th>
+                        <td>28원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="29.4">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>1.4원</b>
+                        </td>
+                        <td>5%</td>
+                      </tr>
+                      <tr>
+                        <th>MMS 발송</th>
+                        <td>80원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="84">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>4원</b>
+                        </td>
+                        <td>5%</td>
+                      </tr>
+                      <tr>
+                        <th>알림톡</th>
+                        <td>6원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="6.3">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>0.3원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>
+                          <el-switch v-model="value2"></el-switch>
+                        </td>
+                        <td>
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>본인인증</th>
+                        <td>80원</td>
+                        <td class="bg-yl">
+                          <input type="tel" class="inp-txt" placeholder="0" value="84">
+                          <span>원</span>
+                        </td>
+                        <td class="bg-rd">
+                          <b>4원</b>
+                        </td>
+                        <td>5%</td>
+                        <td>
+                          <el-switch v-model="value3"></el-switch>
+                        </td>
+                        <td>
+                          <button class="btn btn-xs btn-line-b"><i class="la la-external-link-alt"></i> 보기</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+                <div class="bottom-btn">
+                  <button class="btn btn-primary">저장</button>
+                </div>
+              </el-tab-pane>
+            </el-tabs>
+          </el-tab-pane>
+          <!--3.정보 수정-->
+          <el-tab-pane name="edit">
+            <span slot="label">정보 수정</span>
+            <form class="wrap-form">
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <dl>
+                    <dt>
+                      <label>계정 명</label>
+                    </dt>
+                    <dd class="no-inp">하이젠버그</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label>계정 ID</label>
+                    </dt>
+                    <dd class="no-inp">walterwhite</dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>비밀번호</label>
+                    </dt>
+                    <dd>
+                      <input type="password" class="inp-txt" placeholder="비밀번호를 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>비밀번호 확인</label>
+                    </dt>
+                    <dd>
+                      <input type="password" class="inp-txt" placeholder="비밀번호를 한번 더 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>이메일</label>
+                    </dt>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="이메일을 입력해 주세요.">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <dl>
+                    <dt class="must">
+                      <label>상호명 (법인명)</label>
+                    </dt>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="상호명 (법인명)을 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>발신번호</label>
+                    </dt>
+                    <dd>
+                      <input type="tel" class="inp-txt" placeholder="발신번호로 사용될 대표전화번호를 입력해주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>서비스 구분</label>
+                    </dt>
+                    <dd>
+                      <el-select v-model="serviceType" placeholder="서비스 구분">
+                        <el-option 
+                          v-for="type in types"
+                          :label="type.label"
+                          :value="type.value">
+                        </el-option>
+                      </el-select>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>대표자 명</label>
+                    </dt>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="대표자 명을 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt class="must">
+                      <label>휴대폰 번호</label>
+                    </dt>
+                    <dd>
+                      <input type="tel" class="inp-txt" placeholder="휴대폰 번호를 입력해 주세요.">
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label>주소</label>
+                    </dt>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="주소를 입력해 주세요.">
+                      <button class="btn btn-line-b">주소검색</button>
+                    </dd>
+                    <dd>
+                      <input type="text" class="inp-txt" placeholder="상세주소를 입력해 주세요.">
+                    </dd>
+                  </dl>
+                </div>                
+              </div>
+              <div class="bottom-btn">
+                <button class="btn btn-primary">저장</button>
+              </div>
+            </form>
+          </el-tab-pane>
+        </el-tabs>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /* 날짜 선택 */
+        searchDetail: '1',
+        searchDate: 'month',
+        datepicker: '',
+        
+        /**
+         * 리스트 개수 select
+         */
+        options: [{
+          value: 'Option1',
+          label: '10개씩 보기'
+        }, {
+          value: 'Option2',
+          label: '50개씩 보기'
+        }, {
+          value: 'Option3',
+          label: '100개씩 보기'
+        }],
+        viewList: '',
+
+        /**
+         * 서비스구분 select
+         */
+        types: [{
+          value: 'Option1',
+          label: '방문판매'
+        }, {
+          value: 'Option2',
+          label: '음식점(배달)'
+        }, {
+          value: 'Option3',
+          label: 'A/S긴급출동'
+        }, {
+          value: 'Option4',
+          label: '운수업'
+        }, {
+          value: 'Option5',
+          label: '컨텐츠'
+        }, {
+          value: 'Option6',
+          label: '도소매'
+        }, {
+          value: 'Option7',
+          label: '유통'
+        }, {
+          value: 'Option8',
+          label: 'Blog 사업자'
+        }, {
+          value: 'Option9',
+          label: '쇼핑몰사업자'
+        }, {
+          value: 'Option10',
+          label: '병원'
+        }],
+        serviceType: '',
+
+        /* 탭 */
+        tabLg: 'stat',
+        tabMd1: 'paystat',
+        tabMd2: 'paymargin',
+
+        /* 사용설정 */
+        value1: true,
+        value2: true,
+        value3: true,
+        value4: true,
+        value5: true,
+        value6: true,
+        value7: true,
+        value8: true,
+        value9: true,
+        value10: true,
+        value11: true,
+        value12: true,
+        value13: true,
+        value14: true,
+        value15: true,
+        value16: true,
+        value17: true,
+      }
+    },
+    methods: {
+      /* collapse */
+      handleChange(val) {
+        console.log(val);
+      }
+    }
+  })
+</script>
+<script type="text/javascript">
+  //금액 카운트
+  var options = {
+    useEasing : true, 
+    useGrouping : true, 
+    separator : ',', 
+    decimal : '.', 
+    prefix : '', 
+    suffix : '' 
+  };
+
+  /**
+  [0] 카운트를 보여줄 ID
+  [1] 시작 카운트
+  [2] 종료 카운트
+  [3] 소수점
+  [4] 시작 ~ 종료 까지 실행 시간
+  [5] 옵션
+  */
+  let payAll = new CountUp("payAll", 0, 250000000, 0, 1.5, options);
+  payAll.start(); 
+  let paySub1 = new CountUp("paySub1", 0, 512, 0, 1.5, options);
+  paySub1.start();
+  let paySub2 = new CountUp("paySub2", 0, 1000000, 0, 1.5, options);
+  paySub2.start();
+
+  let apiAll = new CountUp("apiAll", 0, 1000000, 0, 1.5, options);
+  apiAll.start(); 
+  let apiSub1 = new CountUp("apiSub1", 0, 8613, 0, 1.5, options);
+  apiSub1.start();
+  let apiSub2 = new CountUp("apiSub2", 0, 250000000, 0, 1.5, options);
+  apiSub2.start();
+
+  let marginAll = new CountUp("marginAll", 0, 5128157, 0, 1.5, options);
+  marginAll.start();
+  let marginSub1 = new CountUp("marginSub1", 0, 4386102, 0, 1.5, options);
+  marginSub1.start();
+  let marginSub2 = new CountUp("marginSub2", 0, 742055, 0, 1.5, options);
+  marginSub2.start();
+
+</script>
+</html>

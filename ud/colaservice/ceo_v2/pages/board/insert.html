@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>콜라서비스 : 사장님</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/colaservice/common/img/favicon.ico">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/colaservice/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="header" class="h-qna"></div>
+  <div id="app">
+    <!--template-->
+    <div class="wrap-content">
+      <div class="container">
+        <div class="row">
+        <!--breadcrumb-->
+          <section class="page-info">
+            <h2 class="tit">1:1문의</h2>
+            <div class="breadcrumb">
+              <ul>
+                <li>홈</li>
+                <li>이용안내</li>
+                <li>1:1문의</li>
+              </ul>
+            </div>
+          </section><!--//breadcrumb-->
+          <!--페이지내용-->
+          <div class="contents vue-insert">
+            <section class="wrap-formbox board-insert">
+              <div class="bx-tit">
+                <h3 class="tit">작성하기</h3>
+              </div>
+              <div class="bx-con">
+                <div class="col-xs-12 col-sm-3">
+                  <dl>
+                    <dt>문의유형</dt>
+                    <dd>
+                      <el-select v-model="qnaType" placeholder="문의유형 선택">
+                        <el-option
+                          v-for="item in qnaTypeValue"
+                          :key="item.key"
+                          :label="item.label"
+                          :value="item.value">
+                        </el-option>
+                      </el-select>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                  <dl>
+                    <dt><label for="title">제목</label></dt>
+                    <dd>
+                      <input type="text" id="title" placeholder="제목을 입력해 주세요.">
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12">
+                  <dl>
+                    <dt><label for="content">내용</label></dt>
+                    <dd>
+                      <textarea rows="12" class="inp-txt" id="content" placeholder="내용을 입력해 주세요."></textarea>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-xs-12">
+                  <dl>
+                    <dt>이미지 첨부</dt>
+                    <dd class="wrap-list-thumb">
+                      <div class="list-thumb no-flex">
+                        <label for="upfile2">
+                          <span class="plus"></span>
+                          <input type="file" id="upfile2" accept="image/*" multiple="multiple" class="upload-img">
+                          <span class="txt">이미지 등록</span>
+                        </label>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+            <div class="bottom-btn">
+              <a href="javascript:history.back()" class="btn">취소</a>
+              <a href="qna.html" class="btn btn-primary">등록하기</a>
+            </div>
+          </div><!--//페이지내용-->
+        </div>
+      </div>
+    </div>
+    <!--//template-->
+  </div>
+  <div id="footer"></div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * header 모바일메뉴
+         */
+        mbMenu: ['mBoard'],
+
+        /**
+         * 문의유형 선택
+         */
+        qnaTypeValue: [{
+          value: 'account',
+          label: '계정'
+        }, {
+          value: 'normal',
+          label: '일반'
+        }, {
+          value: 'tutorial',
+          label: '사용법'
+        }, {
+          value: 'customer',
+          label: '고객관리'
+        }],
+        qnaType: '',
+      }
+    },
+    methods: {
+    }
+  })
+</script>
+</html>

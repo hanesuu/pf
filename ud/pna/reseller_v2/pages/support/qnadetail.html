@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>pay&api : 리셀러</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/ud/pna/common/img/favicon.ico">
+  <link rel="icon" href="/ud/pna/common/img/favicon_32.png" sizes="32x32">
+  <link rel="icon" href="/ud/pna/common/img/favicon_64.png" sizes="64x64">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="../../assets/js/page.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function() {
+    $("#header").load("../inc/header.html");
+    $("#footer").load("../inc/footer.html");
+  });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../../assets/scss/basic.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header" class="mj6-3"></div>
+    <!--template-->
+    <div class="wrap-content">
+      <!--페이지내용-->
+      <div class="contents v-board-detail">
+        <section class="bx-basic">
+          <div class="bx-tit">
+            <p class="label-default label-lg">이용 문의</p>
+            <h3>하루 호출 가능 갯수 제한 있는 API를 쓰는데, postman으로 테스트해도 똑같나요?</h3>
+            <div class="d-right">
+              <dl class="d-right">
+                <dt>등록일</dt>
+                <dd>2020-06-29 13:41:51</dd>
+              </dl>
+              <button class="btn btn-xs btn-line-rd"><i class="las la-trash"></i> 삭제</button>
+            </div>
+          </div>
+          <div class="bx-con">
+            <p>안녕하세요. 문의 사항이 있습니다.<br><br>submit 이벤트가 두번 있습니다.<br>처음 submit 이벤트에서 로직에 문제가 없으면 다음 submit 이벤트에게 특정 값을 넘겨주려고 해요.<br><br>이런 방식인데, 두번째 submit 이벤트에서는 앞에 먼저 실행된 submit 이벤트의 결과에 따라 로직이 다릅니다.<br>이 방법이 유효하고 괜찮은지 아시는 분 계실까요? 만약 괜찮지 않다면 대안이 뭐가 있을까요?</p>
+          </div>
+        </section>
+        <!--QNA 답변-->
+        <section class="bx-basic answer">
+          <div class="bx-tit">
+            <p class="label-default label-lg">답변</p>
+            <h3>관리자 답변입니다.</h3>
+            <dl class="d-right">
+              <dt>등록일</dt>
+              <dd>2020-06-29 13:41:51</dd>
+            </dl>
+          </div>
+          <div class="bx-con">
+            <p>안녕하세요. pay&api입니다.<br><br>pay&api 서비스를 이용해주시는 회원분들께 감사드리며, 새롭게 변경될 이용약관을 안내드리오니 서비스 이용에 참고하시기 바랍니다.<br><br>1. 변경사항<br>3. 전자문서 유통정보의 보관 및 전담기관 전달 서비스 -> 삭제</p>
+          </div>
+        </section><!--//QNA 답변-->
+        <div class="bottom-btn">
+          <button class="btn btn-lg" onclick="history.back()">목록</button>
+        </div>
+      </div><!--//페이지내용-->
+    </div>
+    <!--//template-->
+    <div id="footer"></div>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/ud/common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {}
+    },
+    methods: {}
+  })
+</script>
+</html>
