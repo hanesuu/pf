@@ -109,7 +109,7 @@ input[disabled] {
     @include flexbox;
 
     & > *:not(button) {
-      @include flex(1);
+      @include flex(1 1 0);
       @include justify-content(space-between)
     }
 
