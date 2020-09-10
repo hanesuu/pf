@@ -111,7 +111,8 @@ input[disabled] {
     & > *:not(button) {
       @include flex(1);
       @include flex-basis(0);
-      @include justify-content(space-between)
+      @include justify-content(space-between);
+      min-width: 0;
     }
 
     button:not(:first-child) {
