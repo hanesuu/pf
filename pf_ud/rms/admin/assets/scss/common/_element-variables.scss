@@ -22,14 +22,45 @@
 
 // datepicker
 .el-date-editor {
+	.el-input__icon {
+	  font-size: 20px;
+	  line-height: 34px;
+	  color: $color-light-b;
+	}
+	
 	.el-range-input {
 		background: transparent;
 	}
+
 	// dark mode
-  .theme-dark .el-range-separator {
-		color: $color-dark-6;
+  .theme-dark {
+  	.el-range-separator {
+			color: $color-dark-6;
+		}
+  }
+}
+// dark mode
+.theme-dark .el-picker-panel {
+	background: $color-dark-1;
+	border-color: $color-dark-1;
+	color: $color-light-b;
+
+	.el-date-range-picker__content.is-left,
+	.el-date-table th {
+		border-color: $color-dark-3;
+	}
+
+	.el-date-table {
+		td.next-month, td.prev-month {
+			color: $color-dark-6;
+		}
+	}
+
+	&__icon-btn {
+		color: $color-dark-9;
 	}
 }
+
 
 // select
 .el-select-dropdown {
