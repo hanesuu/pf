@@ -5,3 +5,4 @@
  - https://hanesuu.github.io/pf/pf_ud/rms/admin/pages/
  - Vue.js, HTML5, SASS(SCSS)
  - Chrome, Firefox, Safari
+ - Light mode(default), Dark mode 스타일 지원

@@ -38,5 +38,196 @@
 	}
 }
 
+
+
+// 홈 대시보드
+.pg-dashboard {
+	.grid {
+		margin-top: 0;
+		margin-bottom: 20px;
+
+		&--start {
+			@include align-items(flex-start);
+		}
+	}
+}
+
+.main-bx {
+	@extend %bxBase;
+	height: 100%;
+
+	&__head {
+		@include flexbox;
+		@include align-items(center);
+		margin-bottom: 20px;
+
+		&--right {
+			@include font-size(12px);
+			font-weight: 400;
+			color: $color-dark-9;
+			margin-left: auto;
+		}
+	}
+	&__tit {
+		@include font-size(15px);
+		font-weight: 700;
+		color: $color-dark-6;
+	}
+
+	&__body {
+		position: relative;
+
+		// 고객사 리스트
+		table tbody td {
+			padding-top: 16px;
+			padding-bottom: 16px;
+		}
+		table td .xi-profile {
+			font-size: 30px;
+			color: $color-light-b;
+			vertical-align: middle;
+		}
+
+		// 회원 수
+		.txt-row {
+			@include flexbox;
+			@include align-items(center);
+			padding: 6px 20px;
+			background: $color-light-f;
+			border-radius: 12px;
+
+			&:not(:first-child) {
+				margin-top: 20px;
+			}
+
+			dt {
+				color: $color-dark-6;
+			}
+
+			dd {
+				margin-left: auto;
+			}
+
+			.count {
+				@include flexbox;
+				@include align-items(center);				
+			}
+
+			.count__sm {
+				margin-right: 12px;
+			}
+		}
+	}
+
+	&:not(:first-child) {
+		margin-top: 20px;
+	}
+	&:not(:only-child) {
+		height: calc(50% - 10px);
+	}
+
+	// 숫자 스타일
+	%countNum {
+		padding: 12px 0;
+		font-style: inherit;
+		font-weight: 700;
+		color: $color-dark-3;
+	}
+	.count {
+		&__num--md {
+			@include font-size(24px);
+			@extend %countNum;
+		} 
+		&__num--lg {
+			@include font-size(30px);
+			@extend %countNum;
+		}
+
+		&__sm {
+			@include font-size(12px);
+			color: $color-dark-9;
+		}
+
+		.txt-success {
+			color: $color-positive;
+		}
+		.txt-danger {
+			color: $color-danger;
+		}
+	}
+
+	// 총 결제 건수
+	span.count {
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	// 아이콘
+	%mainIco {
+		@include flexbox;
+		@include align-items(center);
+		@include justify-content(center);
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 50px;
+		height: 50px;
+		border-radius: 6px;
+		overflow: hidden;
+
+		&:before {
+			content: '';
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: 100% auto;
+		}
+	}
+
+	.ico-success {
+		@extend %mainIco;
+		background-color: #DBF5EE;
+
+		&:before {
+			width: 28px;
+			height: 32px;
+			background-image: url('../img/ico_main_success.svg');
+		}
+	}
+
+	.ico-cancel {
+		@extend %mainIco;
+		background-color: #FFE5E5;
+
+		&:before {
+			width: 28px;
+			height: 32px;
+			background-image: url('../img/ico_main_cancel.svg');
+		}
+	}
+
+	.ico-per {
+		@extend %mainIco;
+		background-color: #EBF0FF;
+
+		&:before {
+			width: 30px;
+			height: 34px;
+			background-image: url('../img/ico_main_per.svg');
+		}
+	}
+
+	.ico-noti {
+		@extend %mainIco;
+		background-color: #FFF5D9;
+
+		&:before {
+			width: 28px;
+			height: 34px;
+			background-image: url('../img/ico_main_noti.svg');
+		}
+	}
+}
+
+
 // 회원관리 > 회원리스트
 .pg-member {}
