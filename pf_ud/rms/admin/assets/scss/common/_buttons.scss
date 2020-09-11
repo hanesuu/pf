@@ -120,7 +120,7 @@ button[disabled], button[disabled]:hover {
 }
 
 .btn-light-primary {
-  background-color: $color-light-primary;
+  background-color: rgba($color-primary, .15);
   color: $color-primary;
 
   &:hover, &:focus {
@@ -135,7 +135,7 @@ button[disabled], button[disabled]:hover {
 }
 
 .btn-light-secondary {
-  background-color: $color-light-secondary;
+  background-color: rgba($color-secondary, .15);
   color: $color-secondary;
 
   &:hover, &:focus {
@@ -145,7 +145,7 @@ button[disabled], button[disabled]:hover {
 }
 
 .btn-light-warn {
-  background-color: $color-light-warning;
+  background-color: rgba($color-warning, .15);
   color: $color-warning;
 
   &:hover, &:focus {
@@ -160,7 +160,7 @@ button[disabled], button[disabled]:hover {
 }
 
 .btn-light-danger {
-  background-color: $color-light-danger;
+  background-color: rgba($color-danger, .15);
   color: $color-danger;
 
   &:hover, &:focus {
