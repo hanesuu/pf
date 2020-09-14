@@ -507,37 +507,10 @@ $(document).ready(function() {
     </div>
 
     <!-- dialog -->
-    <el-dialog :visible.sync="addMemberModal" :close-on-click-modal="false" @close="cancel" class="pop--add-member">
-      <div class="el-dialog__header--tit" slot="title">회원 등록</div>
+    <el-dialog :visible.sync="addMemberModal" :close-on-click-modal="false" @close="cancel" class="pop--add-payment">
+      <div class="el-dialog__header--tit" slot="title">결제 등록</div>
       <div class="contents">
         <div class="grid">
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="customerInfo">고객사 정보</label>
-              </dt>
-              <dd>
-                <el-select v-model="customerInfo" placeholder="선택">
-                  <el-option
-                    v-for="item in customerInfoList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </dd>
-            </dl>
-          </div>
-          <div class="col-desk-6">
-            <dl class="form-dl--row">
-              <dt>
-                <label for="parentId">상위 아이디</label>
-              </dt>
-              <dd>
-                <input type="text" id="parentId" class="inp-txt" placeholder="상위 아이디 입력">
-              </dd>
-            </dl>
-          </div>
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
@@ -552,22 +525,32 @@ $(document).ready(function() {
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="userName">회원 이름</label>
+                <label for="productName">상품명</label>
               </dt>
               <dd>
-                <input type="text" id="userName" class="inp-txt" placeholder="홍길동">
+                <input type="text" id="productName" class="inp-txt" placeholder="상품명 입력">
               </dd>
             </dl>
           </div>
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="memberType">회원 타입</label>
+                <label for="price">결제 금액</label>
               </dt>
               <dd>
-                <el-select v-model="memberType" placeholder="선택">
+                <input type="text" id="price" class="inp-txt" placeholder="결제 금액 입력">
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="pgType">PG 선택</label>
+              </dt>
+              <dd>
+                <el-select v-model="pgType" placeholder="선택">
                   <el-option
-                    v-for="item in memberTypeList"
+                    v-for="item in pgTypeList"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value">
@@ -579,13 +562,34 @@ $(document).ready(function() {
           <div class="col-desk-6">
             <dl class="form-dl--row">
               <dt>
-                <label for="businessType">사업자 타입</label>
+                <label for="requestType">결제 요청 선택</label>
               </dt>
-              <dd class="dd-bg">
-                <el-radio-group v-model="popBusinessType">
-                  <el-radio label="company">사업자</el-radio>
-                  <el-radio label="personal">개인</el-radio>
-                </el-radio-group>
+              <dd>
+                <el-select v-model="requestType" placeholder="선택">
+                  <el-option
+                    v-for="item in requestTypeList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-desk-6">
+            <dl class="form-dl--row">
+              <dt>
+                <label for="payMethod">결제 수단</label>
+              </dt>
+              <dd>
+                <el-select v-model="payMethod" placeholder="선택">
+                  <el-option
+                    v-for="item in payMethodList"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
               </dd>
             </dl>
           </div>
