@@ -26,7 +26,8 @@ button[disabled], button[disabled]:hover {
 
   // dark mode
   .theme-dark & {
-    background: rgba($color-dark-6, .3); 
+    background: rgba($color-dark-6, .2); 
+    color: $color-dark-9;
   }
 }
 

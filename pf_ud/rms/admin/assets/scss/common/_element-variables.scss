@@ -42,12 +42,12 @@
 // dark mode
 .theme-dark .el-picker-panel {
 	background: $color-dark-1;
-	border-color: $color-dark-1;
+	border-color: darken($color-dark-1, 5%);
 	color: $color-light-b;
 
 	.el-date-range-picker__content.is-left,
 	.el-date-table th {
-		border-color: $color-dark-3;
+		border-color: $color-dark-3; 
 	}
 
 	.el-date-table {
@@ -67,7 +67,7 @@
 	// dark mode
 	.theme-dark & {
 		background-color: $color-dark-1;
-		border-color: $color-dark-1;
+		border-color: darken($color-dark-1, 5%);
 	}
 
 	&__item {
@@ -206,6 +206,20 @@
 
 		&:not(:disabled):hover {
 			background: $color-light-primary;
+		}
+
+		// dark mode
+		.theme-dark & {
+			color: $color-light-d;
+
+			&:disabled {
+				background: transparent;
+				color: $color-dark-6;
+			}
+
+			&:not(:disabled):hover {
+				background: $color-light-primary;
+			}
 		}
 	}
 }

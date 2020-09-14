@@ -51,6 +51,12 @@ input[disabled] {
   @extend %inpBox;  
   background: rgba($color-light-d,.7);
   color: $color-dark-9;
+  cursor: default;
+
+  // dark mode
+  .theme-dark & {
+    opacity: .4;
+  }
 }
 
 // input basic
