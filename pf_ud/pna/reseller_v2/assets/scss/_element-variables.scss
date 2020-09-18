@@ -11,7 +11,7 @@ body .el-select {
     .el-select__caret {color:$dark-9}
     &__icon {line-height:30px}
     &__inner {background:$white}
-    &.is-focus .el-input__inner {
+    &.is-focus .el-input__inner, &__inner:focus {
       border-color: $point;
     }
   }
@@ -100,6 +100,7 @@ body .el-radio-group {
       color:$white; 
       background:$point;
       border-color: $point;
+      box-shadow: -1px 0 0 0 $point;
     }
 
     //그레이 버튼
@@ -227,7 +228,7 @@ body .el-radio {
     }
     &.is-checked + .el-radio__label {
       @include fw-md;
-      color: $dark-3;
+      color: $point;
     }
   }
   & + input {margin-left:5px}
