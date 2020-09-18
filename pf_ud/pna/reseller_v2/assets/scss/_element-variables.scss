@@ -11,9 +11,18 @@ body .el-select {
     .el-select__caret {color:$dark-9}
     &__icon {line-height:30px}
     &__inner {background:$white}
+    &.is-focus .el-input__inner {
+      border-color: $point;
+    }
   }
 }
-body .el-select-dropdown__item {font-size:1.3rem}
+body .el-select-dropdown__item {
+  font-size:1.3rem;
+
+  &.selected {
+    color: $point;
+  }
+}
 
 /* datepicker */
 body .wrap-date {
@@ -21,6 +30,10 @@ body .wrap-date {
   @include media-mb {@include flexbox; @include justify-content(center);}
 }
 .el-date-editor {
+  &.is-active, &.is-active:hover {
+    border-color: $point;
+  }
+
   &.el-input {
     width:auto; vertical-align:top;
     @include media-mb {@include flex(1);}
@@ -37,16 +50,34 @@ body .wrap-date {
     &:active {color:$white}
   }
 }
+.el-date-range-picker {
+  .el-picker-panel__icon-btn:hover {
+    color: $point;
+  }
+  .el-date-table {
+    td.available:hover {
+      color: $point;
+    }
+    td.end-date span, td.start-date span {
+      background: $point;
+    }
+  }
+}
 // .timepicker .el-date-editor.el-input, .el-date-editor.el-input__inner {width:100%}
 
 /* switch */
-body {
-  .el-switch .el-switch__label {
+body .el-switch {
+  .el-switch__label {
     padding:0; vertical-align:top; color:$dark-9; @include fw-dl;
     & * {font-size:1.2rem; @include fw-rg;}
     &.is-active * {@include fw-bd; color:$point}
     &--left {margin-right:3px}
     &--right {margin-left:3px}
+  }
+
+  &.is-checked .el-switch__core {
+    border-color: $point;
+    background-color: $point;
   }
 }
 
@@ -59,8 +90,17 @@ body .el-radio-group {
     &__inner {
       height:34px; line-height:34px; padding:0 10px; font-size:1.2rem; @include fw-rg; @include bg-gradient($white,$light-f,'vertical'); overflow:hidden;
       @include media-mb {width:100%}
+
+      &:hover {
+        color: $point;
+      }
     }
-    &__orig-radio:checked + span {@include fw-md; color:$white; background:$point}
+    &__orig-radio:checked + span {
+      @include fw-md; 
+      color:$white; 
+      background:$point;
+      border-color: $point;
+    }
 
     //그레이 버튼
     &.btn-line-b {
@@ -180,10 +220,15 @@ body .el-radio {
   }
   &__input {
     &.is-checked .el-radio__inner {
-      background:$white; box-shadow:0 0 3px $point;
+      background:$white; 
+      box-shadow:0 0 3px $point;
+      border-color: $point;
       &:after {width:8px; height:8px; background-color:$point}
     }
-    &.is-checked + .el-radio__label {@include fw-md;}
+    &.is-checked + .el-radio__label {
+      @include fw-md;
+      color: $dark-3;
+    }
   }
   & + input {margin-left:5px}
   &:hover {
