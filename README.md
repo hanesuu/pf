@@ -30,7 +30,7 @@
  - Chrome, Firefox, Safari, IE11+
 
 ### 서비스 소개 페이지
- - https://hanesuu.github.io/pf/pf_ud/colaservice/homepage_v2/pages/
+ - https://hanesuu.github.io/pf/pf_ud/colaservice/homepage_v2/
  - HTML5, jQuery, CSS3
  - Responsive Web
  - Chrome, Firefox, Safari, IE11+
