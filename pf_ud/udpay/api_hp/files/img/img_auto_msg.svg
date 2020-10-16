@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="105" height="105" viewBox="0 0 105 105">
+  <defs>
+    <filter id="img_auto_msg-a">
+      <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.074510 0 0 0 0 0.411765 0 0 0 0 0.980392 0 0 0 1.000000 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="105" height="105" fill="#EBF0F7" rx="15"/>
+    <g stroke-linecap="round" stroke-linejoin="round" filter="url(#img_auto_msg-a)" transform="translate(37 23)">
+      <g stroke="#FFF" stroke-width="2">
+        <path d="M.820512821 4.10264615L7.17866667 4.10264615C11.5076923 4.10264615 16 7.40192821 16 14.3590564 16 21.3161846 19.0769231 24.6154667 24.8213333 24.6154667L31.1794872 24.6154667M13.8466464 21.9760221C12.3589935 23.7514204 10.1181656 24.6153026 7.17866667 24.6153026L.820512821 24.6153026M31.1794872 4.10264615L24.8213333 4.10264615C22.4249838 4.10264615 19.9786079 5.11354357 18.2718198 7.19636121"/>
+        <polyline points="27.897 20.513 32 24.615 27.897 28.718"/>
+        <polyline points="27.897 0 32 4.103 27.897 8.205"/>
+        <polyline points="0 0 4.103 4.103 0 8.205" transform="matrix(-1 0 0 1 4.103 0)"/>
+        <polyline points="0 20.513 4.103 24.615 0 28.718" transform="matrix(-1 0 0 1 4.103 0)"/>
+      </g>
+    </g>
+    <text fill="#6B7684" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR" font-size="17" letter-spacing="-.567">
+      <tspan x="22.353" y="78">자동분배</tspan>
+    </text>
+  </g>
+</svg>

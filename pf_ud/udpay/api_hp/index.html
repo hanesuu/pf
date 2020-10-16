@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>UDPAY 유료 API</title>
+<meta name="keyword" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+<link rel="shortcut icon" type="image/x-icon" href="../common/img/favicon.ico">
+<link rel="icon" href="../common/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="../common/img/favicon-16x16.png" sizes="16x16">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="./files/js/common.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="./files/css/basic.css" rel="stylesheet">
+</head>
+<body data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-once="true">
+<!-- header -->
+<header id="header" class="header transparent flexible">
+  <div class="inner">
+    <h1><a href="./index.html" class="logo">UDPAY 유료 API</a></h1>
+    <div class="header__utils">
+      <a href="" target="_blank" title="새 탭으로 이동">
+        <i class="ri-login-circle-line"></i>
+        <span>로그인</span>
+      </a>
+      <a href="" target="_blank" title="새 탭으로 이동">
+        <i class="ri-user-add-line"></i>
+        <span>회원가입</span>
+      </a>
+    </div>
+  </div>
+</header>
+<!--// header -->
+<!-- content -->
+<div class="page pg-main">
+  <section class="sect-main">
+    <div class="inner">
+      <div class="sect__txt" data-aos="fade-right" data-aos-delay="100">
+        <h2 class="tit-h1">부가서비스 API 연동도 <br>하나로 통합 관리</h2>
+        <p class="tit-h5">온라인 서비스에 필수인 부가 API들을 <br>파격적인 조건으로 통합 제공합니다.</p>
+        <p class="tit-h5">
+          <b>일일이 계약하지 마시고, <br>유디페이 하나로 연동해 통합관리하세요~</b>
+        </p>
+      </div>
+      <div class="sect__img" data-aos="fade" data-aos-delay="300">
+        <span class="shape-left1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <img src="./files/img/shape_line.svg">
+        </span>
+        <span class="shape-left2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+          <img src="./files/img/shape_circle.svg">
+        </span>
+        <span class="shape-right1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <img src="./files/img/shape_dot_sky@2x.png">
+        </span>
+        <span class="shape-right2 shape-half" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800"></span>
+        <div class="img" data-aos="fade-up" data-aos-duration="500">
+          <img src="./files/img/img_main_screen.png" alt="UDPAY 유료 API 관리자 화면 이미지">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect-link">
+    <div class="inner">
+      <div class="sect__txt" data-aos="fade-up">
+        <h2 class="tit-h2">이용 가능 API</h2>
+      </div>
+      <ul class="list-link" data-aos="fade-up" data-aos-delay="300">
+        <li class="li__sms">
+          <a href="./msg.html">
+            <p class="tit-h4">문자</p>
+            <div class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14">
+                <polygon fill="#1369FA" points="14.491 8.1 9.574 3.273 10.87 2 18 9 10.87 16 9.574 14.727 14.491 9.9 0 9.9 0 8.1" transform="translate(0 -2)"/>
+              </svg>
+            </div>
+          </a>
+        </li>
+        <li class="li__kakao">
+          <a href="./kakao.html">
+            <p class="tit-h4">카카오톡<br>알림톡/친구톡</p>
+            <div class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14">
+                <polygon fill="#1369FA" points="14.491 8.1 9.574 3.273 10.87 2 18 9 10.87 16 9.574 14.727 14.491 9.9 0 9.9 0 8.1" transform="translate(0 -2)"/>
+              </svg>
+            </div>
+          </a>
+        </li>
+        <li class="li__auth">
+          <a href="./auth.html">
+            <p class="tit-h4">휴대폰<br>본인확인</p>
+            <div class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14">
+                <polygon fill="#1369FA" points="14.491 8.1 9.574 3.273 10.87 2 18 9 10.87 16 9.574 14.727 14.491 9.9 0 9.9 0 8.1" transform="translate(0 -2)"/>
+              </svg>
+            </div>
+          </a>
+        </li>
+        <li class="li__bank">
+          <a href="./bank.html">
+            <p class="tit-h4">계좌<br>성명조회</p>
+            <div class="arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14">
+                <polygon fill="#1369FA" points="14.491 8.1 9.574 3.273 10.87 2 18 9 10.87 16 9.574 14.727 14.491 9.9 0 9.9 0 8.1" transform="translate(0 -2)"/>
+              </svg>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sect-benefit">
+    <div class="inner">
+      <div class="sect__txt" data-aos="fade-up">
+        <h2 class="tit-h2">유디페이 API 연동의 특장점</h2>
+      </div>
+      <ul class="list-ico" data-aos="fade-up" data-aos-delay="300">
+        <li>
+          <i class="bg-point ri-user-add-line"></i>
+          <p class="tit-h4">간편<br>무료 가입</p>
+        </li>
+        <li>
+          <i class="bg-sub ri-chat-check-line"></i>
+          <p class="tit-h4">원샷 통합<br>이용 계약</p>
+        </li>
+        <li>
+          <i class="bg-darken ri-links-line"></i>
+          <p class="tit-h4">누구나 쉽게<br>연동 가능</p>
+        </li>
+        <li>
+          <i class="bg-warn ri-code-box-line"></i>
+          <p class="tit-h4">모든 개발환경<br>(OS/DB) 연동</p>
+        </li>
+        <li>
+          <i class="bg-danger ri-braces-fill"></i>
+          <p class="tit-h4">REST API<br>방식</p>
+        </li>
+        <li>
+          <i class="bg-point ri-arrow-up-down-line"></i>
+          <p class="tit-h4">웹훅<br>지원</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sect-info">
+    <div class="inner">
+      <div class="sect__txt" data-aos="fade-up">
+        <h2 class="tit-h2">서비스 이용 안내</h2>
+      </div>
+      <ul class="list-step">
+        <li class="step1" data-aos="fade-right">
+          <div class="ico-img"></div>
+          <p class="tit-h4">무료&nbsp;<br>회원 가입</p>
+          <span class="txt-step">STEP 1</span>
+        </li>
+        <li class="step2" data-aos="fade-right" data-aos-delay="100">
+          <div class="ico-img"></div>
+          <p class="tit-h4">로그인 > 웹 관리자에서&nbsp;<br>연동토큰 확인</p>
+          <span class="txt-step">STEP 2</span>
+        </li>
+        <li class="step3" data-aos="fade-right" data-aos-delay="200">
+          <div class="ico-img"></div>
+          <p class="tit-h4">연동 매뉴얼로&nbsp;<br>간편연동</p>
+          <span class="txt-step">STEP 3</span>
+        </li>
+        <li class="step4" data-aos="fade-right" data-aos-delay="300">
+          <div class="ico-img"></div>
+          <p class="tit-h4">선불&nbsp;<br>충전</p>
+          <span class="txt-step">STEP 4</span>
+        </li>
+        <li class="step5" data-aos="fade-right" data-aos-delay="400">
+          <div class="ico-img"></div>
+          <p class="tit-h4">테스트 및&nbsp;<br>서비스 오픈</p>
+          <span class="txt-step">STEP 5</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+<footer id="footer" class="footer">
+  <div class="inner">
+    <div class="area-link">
+      <ul class="foot-link">
+        <li>
+          <a href="#">
+            <b>개인정보 처리방침</b>
+          </a>
+        </li>
+        <li>
+          <a href="#">서비스 이용약관</a>
+        </li>
+        <li>
+          <a href="http://www.ftc.go.kr/www/bizCommList.do?key=232&searchCnd=wrkr_no&searchKrwd=1138656537" target="_blank">사업자 정보확인</a>
+        </li>
+      </ul>
+      <div class="foot-select">
+        <button class="btn-site">
+          <span>Family Site</span>
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+        <ul class="list-site">
+          <li>
+            <a href="" target="_blank">유디페이</a>
+          </li>
+          <li>
+            <a href="http://blogpay.co.kr" target="_blank">블로그페이</a>
+          </li>
+          <li>
+            <a href="https://www.payapp.com" target="_blank">페이앱</a>
+          </li>
+          <li>
+            <a href="https://www.payapplite.com" target="_blank">페이앱라이트</a>
+          </li>
+          <li>
+            <a href="http://snssell.com/shop/index.html" target="_blank">B2B market</a>
+          </li>
+          <li>
+            <a href="http://snssell.com" target="_blank">SNSsell</a>
+          </li>
+          <li>
+            <a href="http://ezposting.co.kr" target="_blank">이지포스팅</a>
+          </li>
+          <li>
+            <a href="https://zipsa.net" target="_blank">집사</a>
+          </li>
+          <li>
+            <a href="http://bizfree.kr" target="_blank">비즈프리</a>
+          </li>
+          <li>
+            <a href="http://www.hicomas.com" target="_blank">하이컴</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <address class="address">
+      <h5>(주)유디아이디</h5>
+      <p>[08389] 서울특별시 구로구 디지털로26길 61 에이스하이엔드타워2차 1202호</p>
+      <dl>
+        <dt>대표</dt>
+        <dd>김재인</dd>
+        <dt>사업자 등록번호</dt>
+        <dd>113-86-56537</dd>
+        <dt>통신판매업 신고번호</dt>
+        <dd>제 2012-서울구로-0239호</dd>
+        <dt>고객센터</dt>
+        <dd>
+          <a href="tel:1800-3772">1800-3772</a>
+        </dd>
+        <dt>팩스</dt>
+        <dd>02-6008-9760</dd>
+        <dt>이메일</dt>
+        <dd>
+          <a href="mailto:udidsales@udid.co.kr">udidsales@udid.co.kr</a>
+        </dd>
+      </dl>
+      <dl>
+        <dt>PG</dt>
+        <dd>전자지급결제대행업 등록번호 02-004-00096</dd>
+        <dt>ESCROW</dt>
+        <dd>결제대금예치업 등록번호 02-006-00035</dd>
+        <dt>통신과금서비스제공업</dt>
+        <dd>등록번호 058</dd>
+        <dt>ISMS</dt>
+        <dd>정보보호 관리체계 인증 19-016</dd>
+      </dl>
+      <small>Copyright &copy; 2020 UDID Inc. All rights reserved.</small>
+    </address>
+  </div>
+  <a href="#" class="top">
+    <i class="ri-arrow-up-line"></i>
+  </a>
+</footer>
+<script type="text/javascript">
+AOS.init({
+  once: true
+});
+var lastSt = 0, delta = 20;
+$(window).scroll(function() {
+  // main header scroll
+  var scroll = $(window).scrollTop();
+  if (scroll <= 80) {
+    $(".header").addClass("transparent");
+  } else {
+    $(".header").removeClass("transparent");
+  }
+  // scroll header hide
+  var st = $(this).scrollTop()
+  if(Math.abs(lastSt - st) <= delta) // 스크롤 값을 받아서 ~
+  return; // ~ 리턴
+
+  if ((st > lastSt) && (lastSt>0)) {
+    /* 화면에 나오지 않을 때, top값은 요소가 보이지 않을 정도로 사용해야함 */
+      $(".header").css("top","-100px");
+  } else {
+      $(".header").css("top","0px");
+  }
+  lastSt = st;
+})
+</script>
+</body>
+</html>

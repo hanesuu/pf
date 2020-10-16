@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 90 70">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="90" height="70"/>
+    <g transform="translate(3 3)">
+      <circle cx="51" cy="21" r="12" fill="#FF6161" opacity=".7"/>
+      <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" points="56 18 49.671 25 46 21.318"/>
+      <path stroke="#1369FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.5" d="M36,25 L36,29 C36,33.9705627 31.9705627,38 27,38 L9,38 C4.02943725,38 2.38507522e-15,33.9705627 0,29 L0,25 L0,25" transform="matrix(1 0 0 -1 0 63)"/>
+      <circle cx="18" cy="9" r="9" stroke="#1369FA" stroke-width="4.5"/>
+    </g>
+  </g>
+</svg>

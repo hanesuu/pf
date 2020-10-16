@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="70" viewBox="0 0 90 70">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="90" height="70"/>
+    <polyline stroke="#1369FA" stroke-linejoin="round" stroke-width="4.5" points="11.75 9 3 9 3 57 45 57 45 9 36.25 9"/>
+    <polygon stroke="#1369FA" stroke-linejoin="round" stroke-width="4.5" points="12 5 36 5 36 13 12 13"/>
+    <g opacity=".7" transform="translate(51 23)">
+      <circle cx="12" cy="12" r="12" fill="#FF6161"/>
+      <line x1="18.586" x2="26.586" y1="22.586" y2="22.586" fill="#D8D8D8" stroke="#FF6161" stroke-linecap="round" stroke-width="4.5" transform="rotate(45 22.586 22.586)"/>
+    </g>
+    <line x1="58" x2="68" y1="35" y2="35" stroke="#FFF" stroke-linecap="round" stroke-width="3"/>
+    <line x1="58" x2="68" y1="35" y2="35" stroke="#FFF" stroke-linecap="round" stroke-width="3" transform="rotate(90 63 35)"/>
+    <line x1="12" x2="36" y1="26" y2="26" stroke="#1369FA" stroke-linecap="round" stroke-width="4.5"/>
+    <line x1="12" x2="36" y1="35" y2="35" stroke="#1369FA" stroke-linecap="round" stroke-width="4.5"/>
+    <line x1="12" x2="26" y1="44" y2="44" stroke="#1369FA" stroke-linecap="round" stroke-width="4.5"/>
+  </g>
+</svg>
