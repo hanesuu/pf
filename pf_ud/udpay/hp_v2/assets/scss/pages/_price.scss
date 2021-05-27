@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/* _price.scss */
+//## API공급단가 페이지 내 스타일을 지정합니다
+
+.section-price {
+  padding: 3.5rem 0 1.5rem;
+  
+  @include res(sm) {
+    padding: 8rem 0 3rem;
+  }
+  
+  // 리스트 공통
+  .list-api {
+    text-align: center;
+    font-size: 0;
+  
+    &__wrapper{
+      @include clearfix;
+      margin:0 -1rem;
+    
+      @include res(md) {
+        margin:0 -1.25rem;
+      }
+    }
+    
+    &__item {
+      display: inline-block;
+      width: calc(50% - .6rem);
+      margin: .3rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      
+      @include res(md) {
+        width: calc(25% - 2rem);
+        margin: 1rem;
+      }
+      
+      .ico {
+        margin:0 auto .5rem;
+        
+        img {
+          width: 39px;
+          height: 39px;
+          
+          @include res(sm) {
+            width: 65px;
+            height: 65px;
+          }
+        }
+      }
+      
+      .tit {
+        margin-bottom: 1rem;
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        color: $text-dark;
+      }
+      
+      .txt-detail {
+        display: table;
+        margin: 0 auto;
+        text-align:left;
+        font-size: $font-size-xxs;
+  
+        @include res(sm) {
+          font-size: $font-size-xsmall;
+        }
+      }
+      
+      dl {
+        @include clearfix;
+      }
+      
+      dt {
+        display: inline-block;
+        vertical-align: top;
+        color: $text-base;
+      }
+      
+      dd {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: .3rem;
+        font-weight: $font-weight-bold;
+        color: $lighter-black
+      }
+  
+      // 결제 API 아이콘
+      &:nth-child(1) .ico-sprites {
+        background-position-x: -12px;
+  
+        @include res(sm) {
+          background-position-x: -20px
+        }
+      }
+  
+      &:nth-child(2) .ico-sprites {
+        background-position-x: -114px;
+    
+        @include res(sm) {
+          background-position-x: -190px
+        }
+      }
+  
+      &:nth-child(3) .ico-sprites {
+        background-position-x: -63px;
+    
+        @include res(sm) {
+          background-position-x: -105px
+        }
+      }
+  
+      &:nth-child(4) .ico-sprites {
+        background-position: -114px -372px;
+    
+        @include res(sm) {
+          background-position: -190px -620px
+        }
+      }
+    }
+  }
+  
+  // 유료 API
+  &--addition  .list-api__item {
+    &:nth-child(1) .ico-sprites {
+      background-position-x: -165px;
+  
+      @include res(sm) {
+        background-position-x: -275px
+      }
+    }
+  
+    &:nth-child(2) .ico-sprites {
+      background-position-x: -216px;
+    
+      @include res(sm) {
+        background-position-x: -360px
+      }
+    }
+  
+    &:nth-child(3) .ico-sprites {
+      background-position-x: -267px;
+    
+      @include res(sm) {
+        background-position-x: -445px
+      }
+    }
+  
+    &:nth-child(4) .ico-sprites {
+      background-position: -318px -72px;
+    
+      @include res(sm) {
+        background-position: -530px -120px
+      }
+    }
+    
+    .txt-detail {
+      @include res(md) {
+        min-height: 5.2rem
+      }
+    }
+  }
+}

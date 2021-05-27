@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* _info.scss */
+//## 이용안내 페이지 내 스타일을 지정합니다
+
+// 그래프 이미지
+.section-graph-flow {
+  img {
+    width: auto;
+    max-width: 924px
+  }
+  
+  .desktop-hidden-sm {
+    max-width: 274px
+  }
+}
+
+// 회원가입 및 판매자 등록방법 안내, 뱅크알람, 이용안내
+//
+.section-tutorial {
+  @include res(sm) {
+    padding: 100px 0;
+  }
+  
+  .subPage-section__header {
+    margin-bottom: 0
+  }
+  
+  .subPage__tabMenu {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  .item img {
+    width: calc(100% - 5rem);
+    max-width: 1044px;
+  }
+  
+  // 슬라이드 상세 텍스트
+  .flow {
+    padding: 0 0 2rem;
+    
+    &__num {
+      @include res(sm) {
+        display:inline-block;
+        margin: .2rem .4rem 0 0;
+        vertical-align: top;
+      }
+      
+      .circle {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.75rem;
+      }
+    }
+    &__desc {
+      font-size: $font-size-small;
+      color: $lighter-black;
+      
+      @include res(sm) {
+        display:inline-block;
+        margin-top:0;
+        vertical-align: top;
+        text-align: left;
+      }
+    }
+  }
+  
+  // 정산 안내
+  .tutorial-info {
+    &:not(:last-child) {
+      margin-bottom: 1rem
+    }
+    
+    dt {
+      font-weight: $font-weight-bold;
+    }
+  }
+}

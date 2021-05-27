@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* layout/_tab.scss */
+
+//
+//  tab menu
+// --------------------------------------------------
+
+.tab {
+  overflow: hidden;
+
+  &-links{
+    padding:.625rem 8px;
+    color:$text-base;
+
+    font-size:$font-size-xsmall;
+    font-weight:$font-weight-bold;
+    border-bottom:3px solid $bg;
+    @include prefix(transition-property, (border-color, color), webkit o);
+    @include prefix(transition-duration, 250ms, webkit o);
+
+    &:focus,
+    &.active{
+      outline:none;
+      color:$primary;
+      border-color: $primary;
+    }
+
+    @include res(md) {
+      padding:.625rem 8px;
+      margin:0 1.625rem;
+      font-size:$font-size-medium;
+    }
+  }
+  &-content {
+    @include prefix(animation, fadeEffect 1s, webkit);
+    display: none;
+
+    &.active{
+      display: block;
+    }
+    &__wrap{
+      margin-top:2.5rem;
+    }
+
+    @include res(md) {
+      &__wrap{
+        margin-top:4.375rem;
+      }
+    }
+  }
+}
+
+
+
+
+

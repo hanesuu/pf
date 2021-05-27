@@ -1,0 +1,350 @@
+@charset "UTF-8";
+/* layout/_section.scss */
+
+
+//
+//  Common Section Style
+// --------------------------------------------------
+
+// 공통 섹션 스타일
+.section{
+  overflow:hidden !important;
+  width: 100%;
+
+  // 상하 여백 구분 클래스
+  &--py-xs,
+  &--py-sm,
+  &--py-md,
+  &--py-lg{
+    padding: 50px 0;
+
+    // 서브페이지 섹션 클래스
+    &.subPage-section{
+      &:first-child{
+        padding-top: 0;
+      }
+      &.first{
+        padding-top: 0;
+        padding-bottom:1.5rem;
+      }
+    }
+  }
+
+
+  // RWD
+  @include res(xs) {
+    &--py-xs {
+      padding: 29px 0;
+    }
+    &--py-sm {
+      padding: 43px 0;
+    }
+    &--py-md {
+      padding: 50px 0;
+    }
+    &--py-lg {
+      padding: 58px 0;
+    }
+  }
+
+
+  // RWD
+  @include res(sm) {
+    &--py-xs{
+      padding:38px 0;
+    }
+    &--py-sm{
+      padding:62px 0;
+    }
+    &--py-md{
+      padding:74px 0;
+    }
+    &--py-lg{
+      padding:86px 0;
+    }
+
+    &--py-xs,
+    &--py-sm,
+    &--py-md,
+    &--py-lg {
+      &.subPage-section {
+        &.first {
+          padding-bottom:2.25rem;
+        }
+      }
+    }
+  }
+  @include res(md) {// -40%
+    &--py-xs{
+      padding:48px 0;
+    }
+    &--py-sm{
+      padding:72px 0;
+    }
+    &--py-md{
+      padding:84px 0;
+    }
+    &--py-lg{
+      padding:96px 0;
+    }
+
+    &--py-xs,
+    &--py-sm,
+    &--py-md,
+    &--py-lg {
+      &.subPage-section {
+        &.first {
+          padding-bottom:4.375rem;
+        }
+      }
+    }
+  }
+
+  @include res(lg) {
+    &--py-xs{
+      padding:80px 0;
+    }
+    &--py-sm{
+      padding:120px 0;
+    }
+    &--py-md{
+      padding:140px 0;
+    }
+    &--py-lg{
+      padding:160px 0;
+    }
+  }
+  
+  // 로그인 같은 가운데 정렬
+  &--center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+
+.section {
+  // section__container
+  &__container {
+    @include boxSizing;
+    width: 100%;
+    padding: 0 20px;
+
+    // RWD
+    @include res(md) {
+      max-width: 1280px !important;
+      margin: 0 auto;
+    }
+  }
+
+  // section__body (구조상 필요한 경우만 추가해서 쓸 것)
+  &__body{
+    padding-top: 3.5rem;
+
+    // RWD
+    @include res(md) {
+      padding-top:4.375rem;
+    }
+  }
+
+  // section-title
+  &__title {
+    letter-spacing: -.17rem;
+    word-break: keep-all;
+    color: $text-dark;
+    font-size: $font-size-most-medium;
+    font-weight: $font-weight-bold;
+    line-height: 1.43;
+
+    // RWD
+    @include res(sm) {
+      font-size: $font-size-large;
+    }
+    @include res(md) {
+      font-size: $font-size-xlg;
+    }
+  }
+
+  // section__desc
+  &__desc {
+    margin-top: 20px;
+    word-break: keep-all;
+    color: $text-base;
+    font-size: $font-size-more-xsmall;
+
+    //br{
+    //  display: none;
+    //}
+
+
+    // RWD
+    @include res(md) {
+      margin-top: 30px;
+      font-size: $font-size-small;
+
+      //br{
+      //  display: block;
+      //}
+    }
+  }
+
+  // section-btn
+  &__btn {
+    margin-top: 5vh;
+    text-align: center;
+
+    .btn {
+      @include prefix(transition-property, box-shadow, webkit o);
+      @include prefix(transition-duration, 250ms, webkit o);
+      font-size: $font-size-more-xsmall;
+      border-radius: $border-radius-small;
+      line-height: 2.933rem;
+
+      &:not(:first-child) {
+        margin-left: 3%;
+      }
+      span {
+        vertical-align: middle;
+      }
+    }
+
+    // RWD
+    @include res(lg) {
+      margin-top: 4.6rem;
+
+      .btn {
+        width: 210px;
+
+        &:not(:first-child) {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+
+
+
+  // aos.js 스크롤 생기는 문제 때문에 추가
+  .desc{
+    //overflow:hidden;
+    //overflow-x: hidden;
+  }
+
+  // 섹션 이미지 크기
+  .img-wrapper{
+    width: 100%;
+    padding-top:2.5rem;
+
+    img{
+      width:100%;
+    }
+
+
+
+
+    @include res(md){
+      padding-top:0;
+    }
+  }
+
+  .section__container{
+    .txtBox{
+      //display: table-header-group;
+      text-align: center;
+
+      @include res(md) {
+        display: block;
+      }
+    }
+
+    .imgBox{
+      //display: table-footer-group;
+
+      .cont{
+        padding-top: 3rem;
+        text-align: center;
+        float:inherit;
+      }
+
+      @include res(md) {
+        display: block;
+
+        .cont{
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+
+
+
+
+  // 좌우 레이아웃
+  .cell-container {
+    width: 100%;
+    display: table;
+
+    .txtBox {
+      text-align: center;
+    }
+
+
+    @include res(xs) {
+      .img-wrapper {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+    @include res(md) {
+      .txtBox,
+      .imgBox {
+        display: table-cell;
+        width: 50%;
+        vertical-align: middle;
+      }
+
+      //.cell-container .txtBox
+      .txtBox {
+        text-align: left;
+      }
+
+      //.cell-container .imgBox
+      .imgBox {
+        &.right {
+          padding-right: 0;
+          text-align: right;
+
+          .img-wrapper {
+            text-align: right;
+            margin-left: auto;
+          }
+        }
+
+        &.left {
+          padding-left: 0;
+          text-align: left;
+
+          .img-wrapper {
+            text-align: left;
+          }
+        }
+      }
+
+      .img-wrapper {
+        margin: 0;
+      }
+
+      .section__btn {
+        text-align: left;
+      }
+    }
+  }
+}

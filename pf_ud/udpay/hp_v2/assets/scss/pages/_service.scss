@@ -1,0 +1,1554 @@
+@charset "UTF-8";
+/* _service.scss */
+//## 결제서비스 페이지 내 스타일을 지정합니다
+
+
+// 주요기능 레이아웃
+.card{
+  &-container{
+    @include clearfix;
+  }
+  &-txtbox{
+    #sync2{
+      .owl-stage{
+        width: 100% !important;
+        @include res(md) {
+          width: inherit !important;
+        }
+      }
+    }
+
+    @include res(md) {
+      float:left;
+      width: 60%;
+    }
+
+
+    .desc{
+      h2,
+      .card-txt__key-tit{
+        font-weight: $font-weight-bold;
+        font-size: $font-size-md;
+        letter-spacing: -.13rem;
+        word-spacing: -.15rem;
+        line-height: 1.5;
+        color:$black;
+
+        @include res(md) {
+          font-size: $font-size-lg;
+        }
+        span{
+          font-family: $font-family-godo;
+          font-weight: $font-weight-bold;
+          letter-spacing: 0;
+        }
+      }
+
+
+      h3,
+      .card-txt__key-exp{
+        font-size: $font-size-base;
+        color:$text-base;
+        margin-top: 1rem;
+
+        @include res(md) {
+          font-style: $font-size-xs;
+        }
+
+      }
+
+      .dlBox{
+        margin-top: 2rem;
+
+        dl{
+          display: table;
+          width: 100%;
+          font-size: $font-size-xxs;
+
+          dt, dd{
+            display: table-cell;
+          }
+
+          dt{
+            width: 60px;
+            font-weight: $font-weight-bold;
+            color:$text-dark;
+          }
+        }
+      }
+
+
+      .tagBox{
+        margin-top: 2.3rem;
+        span{
+          padding: .5rem 1rem;
+          background: rgba($primary, .1);
+          color:$primary;
+          text-align: center;
+          margin-right: .1rem;
+          border-radius: 50em;
+          display: inline-block;
+          &:last-child{
+            margin-right: 0;
+          }
+          @include res(md) {
+            padding: .5rem 1.3rem;
+            margin-right: .5rem;
+          }
+        }
+      }
+    }
+    .owl-carousel{
+      margin-top: 1.5rem;
+      @include res(md) {
+        margin-top: 3rem;
+      }
+      .owl-item{
+        float:inherit;
+        width: 100% !important;
+        &:last-child{
+
+          .stepbox{
+            &:before{
+              display: none;
+            }
+          }
+        }
+        &:nth-child(2){
+          .stepbox-tit{
+            &:before{
+              content:'2';
+            }
+          }
+        }
+        &:nth-child(3){
+          .stepbox-tit{
+            &:before{
+              content:'3';
+            }
+          }
+        }
+        &:nth-child(4){
+          .stepbox-tit{
+            &:before{
+              content:'4';
+            }
+          }
+        }
+        &:nth-child(5){
+          .stepbox-tit{
+            &:before{
+              content:'5';
+            }
+          }
+        }
+
+        &.active.current{
+          .stepbox{
+            &:before{
+              background:rgba($primary,.7);
+            }
+            &-tit{
+              &:before{
+                background:$primary;
+                color:$white;
+              }
+            }
+            &-desc{
+              display: block;
+            }
+          }
+        }
+      }
+
+
+      // 결제서비스 상단 각 결제 이용 순서
+      .stepbox{
+        padding: .65rem 0;
+        padding-left: 50px;
+        cursor: pointer;
+        position: relative;
+
+        &:before{
+          height:100%;
+          display: block;
+          width: 1px;
+          background:$bg;
+          content:'';
+          position: absolute;
+          left: 15px;
+          top: 15px;
+        }
+        &-tit{
+          position: relative;
+          font-size: $font-size-xs;
+          font-weight: $font-weight-bold;
+          color:$black;
+
+          &:before{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: $font-size-xxs;
+            background: $bg;
+            color:$text-base;
+            font-weight: $font-weight-bold;
+            border-radius: 50em;
+            content:'1';
+            position: absolute;
+            left: -50px;
+            top: 0;
+          }
+        }
+        &-desc{
+          display: none;
+          margin-top: 10px;
+          font-size: $font-size-base;
+          color: $text-base;
+
+          br{
+            display: none;
+          }
+          @include res(md) {
+            br{
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-imgbox{
+    text-align: center;
+    margin-top: 2rem;
+    @include res(md) {
+      float:right;
+      width: 40%;
+      margin-top: 0;
+    }
+    img{
+      width:100%;
+    }
+  }
+
+  // .card-infobox
+  &-infobox{
+    padding: 10px;
+    background: rgba($bg-sky, .7);
+
+    @include res(md) {
+      padding: 40px 0;
+      margin-top: 3rem;
+    }
+    ul,dl{
+      display: table;
+      width: 100%;
+
+      &.col-2{
+        @include res(md) {
+          li {
+            width: 50%;
+          }
+        }
+      }
+      &.col-4-row {
+        @include res(md) {
+          li {
+            width: 25%;
+            vertical-align: top;
+          }
+          dl, dt, dd {
+            display: block;
+          }
+          dd {
+            padding-left: 40px;
+          }
+        }
+      }
+      li,dt,dd{
+        @include res(md){
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      dt{
+        width: 210px;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+        position: relative;
+        padding: 13px;
+        &:before{
+          display: block;
+          color: $primary;
+          content:'POINT';
+          letter-spacing: 0;
+          font-size: $font-size-xxs;
+        }
+        @include res(md){
+          padding-right: 20px;
+          padding-left: 40px;
+        }
+      }
+      dd{
+        color: $text-base;
+        padding: 13px;
+        padding-top: 0;
+
+        @include res(md){
+          padding: 0;
+          padding-right: 40px;
+        }
+      }
+    }
+    ol{
+      li{
+        display: block;
+        margin-bottom: 5px;
+
+        &::before {
+          content: "\2022";
+          color: $text-base;
+          font-weight: $font-weight-bold;
+          display: inline-block;
+          padding-right: .5em;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+    dl.numbering{
+      dd{
+        display: block;
+        position: relative;
+        padding: 0 0 0 1.5rem;
+        @include res(md) {
+          margin-bottom: 7px;
+        }
+        &:before{
+          position: absolute;
+          left: 0;
+          top: 0;
+          content:'1';
+          color: $primary;
+          font-weight: $font-weight-bold;
+          font-family: GmarketSansMedium;
+        }
+        &:nth-child(2){
+          &:before{
+            content:'2';
+          }
+        }
+        &:nth-child(3){
+          &:before{
+            content:'3';
+          }
+        }
+        &:nth-child(4){
+          &:before{
+            content:'4';
+          }
+        }
+        &:nth-child(5){
+          &:before{
+            content:'5';
+          }
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+    a.under-primary {
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+// 결제서비스 > 각 결제 상단 > 기능정리 슬라이더
+
+.owl-theme {
+  position: relative;
+  .owl-nav{
+    margin-top: 3.5rem;
+    
+    i {
+      vertical-align: baseline;
+    }
+  }
+  .owl-nav [class*='owl-'] {
+    transition: all .3s ease;
+  }
+  .owl-next, .owl-prev{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 50%;
+    transform: translateY(-120%);
+    position: absolute;
+    padding: 0 !important;
+    border-radius: 50em !important;
+    margin: 0 !important;
+    background: $white !important;
+    border: 1px solid rgba($black, .2);
+    color:rgba($black, .7) !important;
+    font-size: 2rem !important;
+    font-weight: $font-weight-bold;
+    
+    @include res(sm) {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+  .owl-prev{
+    left:0;
+  }
+  .owl-next{
+    right: 0;
+  }
+  .owl-item{
+    img{
+      margin: 0 auto;
+      width: auto;
+      max-width: 220px;
+      @include res(md) {
+        max-width: 100%
+      }
+
+    }
+  }
+  .owl-dots{
+    position: relative;
+    bottom: 2rem;
+    .owl-dot{
+      &.active{
+        span{
+          background:$primary;
+        }
+      }
+      span{
+        @include hover-focus() {
+          background:$primary;
+        }
+      }
+    }
+  }
+}
+
+
+// 결제서비스 > 각 결제 하단 > 사용가이드
+.guide{
+  &-img{
+    text-align: center;
+  }
+
+  &-img-location{
+    margin-top:3rem;
+    text-align: center;
+
+    p{
+      &:first-child{
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-xs;
+        @include res(md) {
+          font-size: $font-size-sm;
+        }
+
+        span{
+          display:inline-block;
+          color: $text-dark;
+
+          &:before{
+            content: '1';
+            display: inline-block;
+            margin-right: 10px;
+            color: $primary;
+            font-family: $font-family-gmarket;
+            font-size: $font-size-xs;
+            @include res(md) {
+              font-size: $font-size-md;
+            }
+          }
+
+          &:nth-child(2){
+            &:before{
+              content: '2';
+            }
+          }
+          &:nth-child(3){
+            &:before{
+              content: '3';
+            }
+          }
+          &:nth-child(4){
+            &:before{
+              content: '4';
+            }
+          }
+
+          &:after{
+            content:"\ea6e";
+            display: inline-block;
+            font-size:80%;
+            font-family: $font-family-icon;
+            vertical-align: middle;
+            padding:0 .6rem;
+            color:$text-base;
+          }
+
+          &:last-child{
+            &:after{
+              display: none;
+            }
+          }
+        }
+      }
+      &:last-child{
+        margin-top: 1.633rem;
+        font-size: $font-size-xs;
+        color:$text-base;
+      }
+    }
+
+  }
+  &.user{
+    @include clearfix;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @include res(md) {
+      margin-top: -6rem;
+      display: inherit;
+      flex-direction: inherit;
+      flex-wrap: inherit;
+    }
+    li{
+      &:nth-child(1){
+        order:1;
+      }
+      &:nth-child(2){
+        order:2;
+      }
+      &:nth-child(3){
+        order:4;
+        padding-bottom: 0;
+        
+        &:after{
+          display: none;
+        }
+      }
+      &:nth-child(4){
+        order:3;
+      }
+      text-align: center;
+      position: relative;
+      padding-bottom: 6rem;
+      &:after{
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        bottom: 2rem;
+        right:inherit;
+        left:50%;
+        transform: translateX(-50%);
+        content:'\EA4E' !important;
+        text-align: center;
+        background: rgba($black, .05);
+        display: block;
+        border-radius: 50em;
+        position: absolute;
+        font-family: $font-family-icon;
+        font-size:$font-size-md;
+        color:$text-base;
+        @include res(md) {
+          display: none;
+        }
+      }
+      &:last-child{
+      }
+      @include res(md) {
+        padding-bottom: 0;
+        float:left;
+        display: inline-block;
+        width: 50%;
+        margin: 6rem 0;
+
+        &:nth-child(2), &:nth-child(4){
+          .imgBox{
+            &:after{
+              display: none;
+            }
+          }
+        }
+        &:nth-child(2){
+          &:after{
+            content:'\EA4E';
+            width: 65px;
+            height: 65px;
+            text-align: center;
+            line-height: 65px;
+            background: rgba($black, .05);
+            display: block;
+            border-radius: 50em;
+            bottom: -8rem;
+            left:50%;
+            transform: translateX(-50%);
+            top: inherit;
+            right:inherit;
+            position: absolute;
+            font-family: $font-family-icon;
+            font-size:$font-size-md;
+            color:$text-base;
+          }
+        }
+
+      }
+
+
+      .imgBox{
+        position: relative;
+        margin-bottom: 2rem;
+        &:after{
+          @include res(md) {
+            width: 65px;
+            height: 65px;
+            line-height: 65px;
+            top: 50%;
+            right:-30px;
+            transform: translateY(-50%);
+            content:'\EA6E';
+            text-align: center;
+            background: rgba($black, .05);
+            display: block;
+            border-radius: 50em;
+            position: absolute;
+            font-family: $font-family-icon;
+            font-size:$font-size-md;
+            color:$text-base;
+          }
+        }
+        img{
+          max-width: 200px;
+          @include res(md) {
+            max-width: 100%;
+          }
+        }
+      }
+
+      &:nth-child(3){
+        .imgBox{
+          &:after{
+            @include res(md) {
+              content:'\EA64';
+              font-family: $font-family-icon;
+            }
+          }
+        }
+      }
+
+      dl{
+        dt{
+          font-weight: $font-weight-bold;
+          font-size: $font-size-xs;
+          margin-bottom: 1rem;
+          position: relative;
+          &:before{
+            content:'STEP1';
+            letter-spacing: .1rem;
+            color: $primary;
+            margin-right: .5rem;
+          }
+        }
+        dd{
+          color:$text-base;
+          word-break: keep-all;
+          br{
+            display: none;
+            @include res(md) {
+              display: block;
+            }
+          }
+        }
+      }
+      &:nth-child(2){
+        dt{
+          &:before{
+            content: 'STEP2';
+          }
+        }
+      }
+      &:nth-child(3){
+        dt{
+          &:before{
+            content: 'STEP4';
+          }
+        }
+      }
+      &:nth-child(4){
+        dt{
+          &:before{
+            content: 'STEP3';
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+//
+// 전자 결제
+.feature{
+  &__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+    @include res(md) {
+      @include clearfix;
+      margin:0 -20px;
+      display: block;
+    }
+  }
+
+  // feature__item
+  &__item{
+    padding: 1rem 1.25rem 2rem;
+
+    @include res(md) {
+      float:left;
+      display: inline-block;
+      padding: 30px 20px;
+    }
+  }
+
+  // feature__inner
+  &__inner{
+    &:before{
+      content:'';
+      display: block;
+      text-align: left;
+      margin-bottom: 1rem;
+      background: url(../img/ico_sprites.svg) no-repeat 0 0 / 438px;
+      background-position-y: -192px;
+      width: 46px;
+      height: 39px;
+    }
+
+    @include res(md) {
+      margin: 0;
+      min-height: 150px;
+
+      &:before{
+        width:68px;
+        height:65px;
+        background-size: 730px auto;
+        background-position-y: -320px;
+      }
+    }
+  }
+
+  // feature__exp
+  &__exp{
+    font-size: $font-size-xsmall;
+    color:$black;
+    letter-spacing: -.05rem;
+    line-height: 1.4;
+
+    @include res(md) {
+      //display: block;
+      //padding-left:0;
+    }
+  }
+
+  // feature--col2
+  &--col2{
+    .feature__item{
+      flex-basis: 50%;
+
+      &:last-child{
+        padding-bottom:0;
+      }
+
+      @include res(md) {
+        width: 50%;
+
+        &:nth-last-child(-n+2){
+          padding-bottom:0;
+        }
+      }
+    }
+  }
+
+  // feature--col3
+  &--col3{
+    .feature__item{
+      flex-basis: 50%;
+
+      &:last-child{
+        padding-bottom:0;
+      }
+
+      @include res(md) {
+        width: 33%;
+
+        &:nth-last-child(-n+3){
+          padding-bottom:0;
+        }
+      }
+    }
+  }
+}
+
+.feature__item {
+
+  // 전자결제
+  &.feature--epay1 .feature__inner:before{
+    background-position-x: -12px;
+
+    @include res(sm) {
+      background-position-x: -20px;
+    }
+  }
+  &.feature--epay2 .feature__inner:before {
+    background-position-x: -63px;
+
+    @include res(md) {
+      background-position-x: -105px;
+    }
+  }
+  &.feature--epay3 .feature__inner:before {
+      background-position-x: -114px;
+
+    @include res(md) {
+      background-position-x: -190px;
+    }
+  }
+  &.feature--epay4 .feature__inner:before {
+    background-position: -276px -12px;
+
+    @include res(md) {
+      background-position: -460px -20px;
+    }
+  }
+  &.feature--epay5 .feature__inner:before {
+    background-position-x: -168px;
+
+    @include res(md) {
+      background-position-x: -280px;
+    }
+  }
+  &.feature--epay6 .feature__inner:before {
+    background-position-x: -216px;
+
+    @include res(md) {
+      background-position-x: -360px;
+    }
+  }
+
+  // 익일정산 서비스
+  &.feature--adjust1 .feature__inner:before {
+    background-position: -12px -252px;
+
+  @include res(md) {
+      background-position: -20px -420px;
+    }
+  }
+  &.feature--adjust2 .feature__inner:before {
+    background-position: -63px -252px;
+  
+    @include res(md) {
+      background-position: -105px -420px;
+    }
+  }
+  &.feature--adjust3 .feature__inner:before {
+    background-position: -63px -12px;
+
+    @include res(md) {
+      background-position: -105px -20px;
+    }
+  }
+  &.feature--adjust4 .feature__inner:before {
+    background-position: -114px -252px;
+  
+    @include res(md) {
+      background-position: -190px -420px;
+    }
+  }
+}
+
+
+
+
+
+//## 부가서비스 페이지 내 스타일을 지정합니다
+// 문자, 카카오톡, 본인확인, 계좌성명조회, 계좌점유인증, 뱅크알람
+// msg, kakaotalk, auth, accountHolder, accountOccupy, bankalarm
+
+// STEP text
+.section .txt-step {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: $font-family-gmarket;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xs;
+  color: $primary;
+  line-height: 1;
+  letter-spacing: .1rem;
+  
+  @include res(sm) {
+    margin-top: 2rem;
+  }
+}
+
+
+// 하단 공통 -서비스 신청 및 이용절차 스텝
+.sect-info {
+  .list-step {
+    @include clearfix;
+    position: relative;
+    
+    @include res(sm) {
+      // 라인
+      &:before {
+        content: '';
+        position: absolute;
+        top: 65px;
+        left: 5%;
+        width: 90%;
+        height: 1px;
+        background: $white;
+      }
+    }
+    
+    li {
+      position: relative;
+      text-align: center;
+      
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+        
+        @include res(sm) {
+          margin-bottom: 0;
+        }
+      }
+      
+      @include res(sm) {
+        float: left;
+        width: 20%;
+      }
+      
+      .ico-img {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        border-radius: $border-radius-circle;
+        background: $white;
+        
+        @include res(sm) {
+          width: 130px;
+          height: 130px;
+        }
+        
+        &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 39px;
+          height: 39px;
+          background: $white url("/files/img/ico_sprites.svg") no-repeat 0 0 / 438px;
+          
+          @include res(sm) {
+            width: 65px;
+            height: 65px;
+            background-size: 730px auto;
+          }
+        }
+      }
+      
+      p {
+        margin: 1rem 0;
+        color: $text-dark;
+        line-height: 1.4;
+        text-align: center;
+        font-size:$font-size-small;
+        font-weight: $font-weight-normal;
+      }
+    }
+    
+    .step1 .ico-img:after {
+      width: 36px;
+      height: 25px;
+      background-position: -12px -312px;
+      
+      @include res(sm) {
+        width: 60px;
+        height: 42px;
+        background-position: -20px -520px;
+      }
+    }
+    
+    .step2 .ico-img:after {
+      width: 37px;
+      height: 33px;
+      background-position: -63px -312px;
+      
+      @include res(sm) {
+        width: 62px;
+        height: 55px;
+        background-position: -105px -520px;
+      }
+    }
+    
+    .step3 .ico-img:after {
+      width: 50px;
+      background-position: -12px -12px;
+      
+      @include res(sm) {
+        width: 84px;
+        background-position: -20px -20px;
+      }
+    }
+    
+    .step4 .ico-img:after {
+      background-position: -114px -12px;
+      
+      @include res(sm) {
+        background-position: -190px -20px;
+      }
+    }
+    
+    .step5 .ico-img:after {
+      background-position: -168px -12px;
+      
+      @include res(sm) {
+        background-position: -280px -20px;
+      }
+    }
+  }
+}
+
+
+// 휴대폰 이미지 공통 -카카오톡,본인확인
+.sect__screen{
+  @include clearfix;
+  text-align: center;
+  font-size: 0;
+  
+  img {
+    max-width: 100%;
+  }
+  
+  .wrap-screen {
+    position: relative;
+    display: inline-block;
+  }
+  
+  li {
+    display: inline-block;
+    float: left;
+    width: calc(50% - 2rem);
+    margin: 0 1rem;
+    
+    @include res(sm) {
+      float: none;
+      width: auto;
+    }
+    
+    .img-screen {
+      position: relative;
+      width: 100%;
+      max-width: 306px;
+    }
+    
+    [class^="shape-"] {
+      display: none;
+      
+      @include res(sm) {
+        display: block;
+        position: absolute;
+        bottom: 24px;
+      }
+    }
+    
+    .shape-left {
+      left: -74px;
+    }
+    
+    .shape-right {
+      right: -74px;
+    }
+  }
+  
+  dl {
+    margin-top: 1rem;
+    line-height: 1.4;
+  }
+  
+  dt {
+    margin-bottom: .7rem;
+    font-size: $font-size-medium;
+  }
+  
+  // 계좌성명조회 이미지
+  &.screen4 li {
+    float: none;
+    margin-bottom: 4rem;
+    
+    @include res(sm) {
+      float: left;
+      width: 25%;
+      margin: 0;
+    }
+  }
+}
+
+
+// 문자
+.section {
+  .point {
+    display: inline-block;
+    margin-bottom: .6rem;
+    font-family: $font-family-gmarket;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xsmall;
+    color: $primary;
+  }
+  
+  // POINT
+  .bx-point {
+    @include clearfix;
+    background: rgba($bg-sky, .7);
+    
+    li {
+      padding: 1.85rem 2rem;
+      
+      @include res(md) {
+        float: left;
+        width: 33.3334%;
+        padding: 2.85rem 3rem;
+      }
+      
+      .txt-lg {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        color: $text-dark;
+      }
+      
+      .txt-md {
+        font-size: $font-size-xsmall;
+        color: $text-dark;
+      }
+    }
+    
+    // 4등분
+    &.col-3 li {
+      @include res(md) {
+        float: left;
+        width: 25%;
+        padding: 2.85rem 2rem;
+      }
+    }
+  }
+  
+  // 8가지 설명
+  .list-point {
+    @include clearfix;
+    margin: 3rem 0 4rem;
+    
+    @include res(md) {
+      margin: 3.75rem 0 4.375rem;
+    }
+    
+    li {
+      display: table;
+      width: 100%;
+      margin-bottom: 1.85rem;
+      
+      @include res(md) {
+        float: left;
+        width: 25%;
+        margin-bottom: 2.14rem;
+      }
+      
+      * {
+        display: table-cell;
+        vertical-align: top;
+        line-height: 1.4;
+      }
+      
+      p {
+        padding: 0 1rem;
+        font-size: $font-size-xsmall;
+      }
+    }
+  }
+  
+  // 메시지 자동분배 시스템
+  .bx-light {
+    display: table;
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid $bg;
+    
+    @include res(sm) {
+      &:before {
+        content: '';
+        display: table-cell;
+        width: 6.5rem;
+        height: 6.5rem;
+        background: url('/files/img/addition/img_auto_msg@2x.png') no-repeat 0 0 / 100%;
+      }
+    }
+    
+    dl {
+      display: table-cell;
+      padding-left: 1.4rem;
+      text-align: left;
+      line-height: 1.4;
+    }
+    
+    dt {
+      margin-bottom: 1rem;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      color: $text-dark;
+    }
+  }
+  
+  
+  // 문자 > 특수한 유형의 부가통신사업자
+  .bx-light ~ .help-box__danger {
+    dl {
+      dt {
+        margin-bottom: 1rem;
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+      }
+      
+      a:hover {
+        color: $red
+      }
+      
+      @include res(xs) {
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+
+// 카카오톡 -kakao
+// table
+.section .sect__tbl {
+  table {
+    width: 100%;
+    text-align: left;
+    
+    thead {
+      th {
+        color: $white;
+      }
+      
+      .bg-point {
+        background: $primary;
+        border-color: $primary;
+      }
+      
+      .bg-sub {
+        background: $green;
+        border-color: $green;
+      }
+      
+      .bg-lighten {
+        border-color: $border-dark;
+      }
+    }
+    
+    .bg-lighten, tbody th {
+      background:$white-gray;
+      border-left-color: $border-dark;
+      border-right-color: $border-dark;
+      color: $text-base;
+    }
+    
+    th, td {
+      padding: 1rem;
+      font-size: $font-size-small;
+      line-height: 1.4;
+      border: 1px solid $border-light;
+      text-align: center;
+      vertical-align: middle;
+      
+      @include res(sm) {
+        padding: 1.8rem;
+      }
+    }
+    
+    tbody tr:last-child * {
+      border-bottom-color: $border-dark;
+    }
+    
+    td:last-child {
+      border-right-color: $border-dark;
+    }
+    
+    .tit-h5 {
+      color: $text-dark;
+      font-size: $font-size-small;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  .txt-md{
+    font-size: $font-size-xsmall;
+    color: $text-base;
+  }
+  
+  dl:first-child {
+    margin-bottom: 1rem;
+  }
+  
+  // 카카오톡 step
+  &-step {
+    position: relative;
+    margin-left: -1.4rem;
+    margin-right: -1.4rem;
+    
+    & > div {
+      position: relative;
+      z-index: 2
+    }
+    
+    [class^="bx-"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem 1.4rem 0;
+      padding: 2rem 1rem 2.4rem;
+      background: $white;
+      font-size: $font-size-small;
+      line-height: 1.5;
+      border-radius: $border-radius-large;
+    }
+    
+    .d-flex {
+      display: flex;
+    }
+    
+    .tit-h4 {
+      margin: 1rem 0 .5rem;
+      color: $text-dark;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+    }
+    
+    .tbl-head .tit-h4 {
+      position: relative;
+      width: calc(50% - 2.8rem);
+      margin: 0 1.25rem;
+      padding: 1.5rem 0;
+      color: $white;
+      border-radius: $border-radius-round;
+    }
+    
+    .bg-point {
+      background: $primary;
+    }
+    
+    .bg-sub {
+      background: $green;
+    }
+    
+    [class^="line-"]{
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      z-index: 1
+    }
+    
+    .line-point {
+      left: 25%;
+      background: $primary;
+    }
+    
+    .line-sub {
+      right: 25%;
+      background: $green;
+    }
+    
+    .bx-half {
+      flex: 1 1 50%;
+      
+      .txt-point {
+        margin: .5rem 0;
+        color: $primary;
+      }
+    }
+  }
+}
+// only safari mobile
+.safari .sect__tbl table {
+  word-break: break-word;
+}
+
+
+// 휴대폰 본인확인
+.section {
+  .tit-h4 {
+    color: $text-dark;
+    line-height: 1.4;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xsmall;
+    
+    @include res(sm) {
+      font-size: $font-size-small;
+    }
+  }
+  
+  // 이용범위
+  .list-ico {
+    @include clearfix;
+    max-width: 1240px;
+    margin: 0 auto;
+    text-align: center;
+    
+    li {
+      float: left;
+      width: 33.3334%;
+      margin-bottom: 1rem;
+      
+      @include res(sm) {
+        width: 16.6667%;
+        margin-bottom:0;
+      }
+    }
+    
+    i {
+      display: block;
+      width: 5.714rem;
+      height: 5.714rem;
+      margin: 0 auto 1.4rem;
+      padding: 1.5rem 0;
+      font-size: $font-size-large;
+      color: $white;
+      border-radius: 2.14rem;
+      vertical-align: top;
+      line-height: initial;
+    }
+    
+    .bg-point {
+      background: $primary;
+    }
+    
+    .bg-sub {
+      background: $green;
+    }
+    
+    .bg-darken {
+      background: $black;
+    }
+    
+    .bg-warn {
+      background: $yellow;
+    }
+    
+    .bg-danger {
+      background: $red;
+    }
+  }
+  
+  .list-ico ~ .bx-item {
+    margin-top: 3.5rem;
+    font-size: $font-size-small;
+    
+    .tit-h4 {
+      margin-bottom: .5rem;
+    }
+    
+    .txt-point {
+      color: $primary
+    }
+  }
+}
+
+// 뱅크알람
+// 은행 리스트
+.bank-apply {
+  @include clearfix;
+  margin-bottom: 3rem;
+  border-width: 1px 0 0 1px;
+  border-color: $border-light;
+  border-style: solid;
+  
+  li {
+    float: left;
+    width: 50%;
+    padding: 22px 0;
+    border-width: 0 1px 1px 0;
+    border-color: $border-light;
+    border-style: solid;
+    text-align: center;
+  
+    @include res(sm) {
+      width: 20%;
+    }
+    
+    // 은행 로고 이미지
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 150px;
+      height: 25px;
+      vertical-align: middle;
+      background: url("/files/img/bank_logo.png") no-repeat;
+    }
+    
+    &:nth-child(1):before {
+      background-position: 0 0;
+    }
+    &:nth-child(2):before {
+      background-position: -150px 0;
+    }
+    &:nth-child(3):before {
+      background-position: -300px 0;
+    }
+    &:nth-child(4):before {
+      background-position: -450px 0;
+    }
+    &:nth-child(5):before {
+      background-position: -600px 0;
+    }
+    &:nth-child(6):before {
+      background-position: -750px 0;
+    }
+    &:nth-child(7):before {
+      background-position: -900px 0;
+    }
+    &:nth-child(8):before {
+      background-position: -1050px 0;
+    }
+    &:nth-child(9):before {
+      background-position: -1200px 0;
+    }
+    &:nth-child(10):before {
+      background-position: -1950px 0;
+    }
+    &:nth-child(11):before {
+      background-position: -1500px 0;
+    }
+    &:nth-child(12):before {
+      background-position: -1650px 0;
+    }
+    &:nth-child(13):before {
+      background-position: -1800px 0;
+    }
+  }
+}

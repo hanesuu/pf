@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+// utils
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/fonts";
+
+// base (베이스 스타일) 
+@import "base/reset";
+@import "base/common";
+@import "base/resetBoard"; // 게시판 상세내용 태그 리셋
+
+// layout (전체 공통 레이아웃)
+@import "layout/header";
+@import "layout/footer";
+@import "layout/section";
+@import "layout/tab";
+@import "layout/topBanner";
+
+// modules (모듈 컴포넌트)
+@import "components/forms";
+@import "components/button";
+@import "components/table";
+@import "components/modal";
+
+// pages (페이지별 한정된 스타일)
+@import "pages/main";
+@import "pages/sub-ui";
+@import "pages/about";
+@import "pages/service";
+@import "pages/info";
+@import "pages/support";
+@import "pages/terms";
+@import "pages/price";
+@import "pages/login";

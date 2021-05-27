@@ -1,0 +1,908 @@
+@charset "UTF-8";
+/* _support.scss */
+//## 고객센터 페이지 내 스타일을 지정합니다
+
+
+// 게시판 글 리스트
+.notice-list{
+  width:100%;
+  border-top: 2px solid $light-black;
+  
+  &__item {
+    border-bottom: 1px solid $border-light;
+    
+    a {
+      display: table;
+      width: 100%;
+      cursor: pointer;
+    
+      &:hover .notice-list__subject--tit p{
+        text-decoration: underline;
+      }
+    }
+    
+    &.is-important{
+      background:$bg-sky;
+    }
+  }
+  
+  &__num {
+    display: table-cell;
+    width: 14%;
+    vertical-align: middle;
+    text-align: center;
+    
+    @include res(sm) {
+      width: 8%;
+    }
+  }
+  
+  &__subject{
+    display: table-cell;
+    width: 86%;
+    padding: 1rem 0;
+    vertical-align: middle;
+    font-size: 0;
+    
+    @include res(sm) {
+      width: 92%;
+      padding: 1.25rem 0;
+    }
+    
+    &--tit {
+      p {
+        display: inline-block;
+        color: $text-dark;
+        font-size: $font-size-small;
+      }
+  
+      // 댓글수
+      .count {
+        color: $red;
+      }
+  
+      // 첨부파일 아이콘
+      i {
+        vertical-align: bottom;
+      }
+      
+      @include res(sm) {
+        display: inline-block;
+        width: 70%;
+      }
+    }
+  
+    &--writer {
+      display: inline-block;
+      padding-right: .8rem;
+      font-size: $font-size-xsmall;
+      color: $text-base;
+  
+      @include res(sm) {
+        width: 10%;
+        text-align: center;
+      }
+    }
+  }
+
+  &__date{
+    display: inline-block;
+    padding-right: .8rem;
+    font-size: $font-size-xsmall;
+    color: lighten($base,30%);
+  
+    @include res(sm) {
+      width: 10%;
+      text-align: center;
+    }
+  }
+  
+  &__state {
+    display: inline-block;
+    font-size: $font-size-xsmall;
+  
+    @include res(sm) {
+      width: 10%;
+      text-align: center;
+    }
+  }
+}
+
+
+// 게시판 페이징
+.pagination {
+  display: table;
+  margin: 2rem auto 0;
+  
+  li {
+    padding: 0 .8rem;
+    display: table-cell;
+    vertical-align: middle;
+    
+    a {
+      width: auto;
+      height: auto;
+      line-height: inherit;
+      display: block;
+      text-align: center;
+      color:$text-base;
+    }
+  }
+  
+  .current {
+    background-color: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    
+    a{
+      color:$text-dark;
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  .prev-btn, .next-btn {
+    a {
+      border: 1px solid $border-light;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      vertical-align: middle;
+      
+      i {
+        font-size: $font-size-sm;
+        line-height: 30px;
+      }
+    }
+  }
+  
+  @include res(md) {
+    li {
+      padding: 0 1rem;
+    }
+    a {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      
+      i {
+        line-height: 40px;
+      }
+    }
+    .prev-btn, .next-btn {
+      a {
+        width: 40px;
+        height: 40px;
+        
+        i {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}
+
+
+// 게시판 글 상세
+.board-view{
+  &__top {
+    @include res(sm) {
+      display: table;
+      width: 100%;
+    }
+  }
+  
+  &__subject{
+    padding: 1rem;
+    text-align:left;
+    vertical-align: top;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    
+    @include res(sm) {
+      display: table-cell;
+      width: 75%;
+      vertical-align: middle;
+    }
+  }
+  
+  &__info {
+    padding: 0 1rem 1rem;
+    font-size: .95rem;
+    
+    @include res(sm) {
+      display: table-cell;
+      width: 25%;
+      padding-top: 1rem;
+      vertical-align: middle;
+      text-align: right;
+      font-size: $font-size-xsmall;
+    }
+    
+    * {
+      vertical-align: middle;
+    }
+    
+    .date {
+      display: inline-block;
+      margin-left: .5rem;
+      color: lighten($base,30%);
+    }
+  }
+  
+  // 첨부파일
+  &__option{
+    padding: 1rem;
+    text-align:left;
+    background-color: $white-gray;
+    
+    dl{
+      display:inline-block;
+      font-size: $font-size-xsmall;
+    }
+    dl:not(:first-child){
+      margin-left:2rem;
+    }
+    dt{
+      display: inline-block;
+      margin-right: .5rem;
+      color:$base;
+      vertical-align: top;
+    }
+    dd{
+      display: inline-block;
+      color:$black;
+      vertical-align: top;
+    }
+    dd a{
+      display: block;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__content{
+    min-height: 200px;
+    padding: 1rem;
+    border-bottom: 1px solid $border-light;
+    text-align:left;
+  }
+}
+
+//게시글 댓글
+.answer{
+  &__info {
+    padding: 1rem;
+    border-bottom: 1px solid rgba($base, .15);
+  
+    @include res(sm) {
+      padding: 1.2rem 1.875rem;
+    }
+    
+    .text-black {
+      font-weight: $font-weight-bold;
+      color: $black
+    }
+  }
+  
+  //댓글 내용
+  &__name {
+    margin-right: .5rem;
+    font-weight: $font-weight-bold;
+    color: $black;
+  }
+  &__date {
+    color: lighten($base,30%);
+  }
+  &__item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba($base, .15);
+    
+    @include res(sm) {
+      padding: 1.2rem 1.875rem;
+    }
+    
+    &.master .answer__name {
+      color: $primary
+    }
+    
+    dt {
+      position: relative;
+      margin-bottom: .25rem;
+    }
+  }
+  &__option {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    a {
+      margin-left: .5rem
+    }
+  }
+  
+  // 댓글 첨부파일
+  &__file {
+    margin-bottom: .75rem;
+    font-size: $font-size-xxs;
+    
+    dt {
+      display: inline-block;
+      margin: 0 .5rem 0 0;
+      font-weight: $font-weight-bold;
+      color: rgba($base,.5);
+    }
+    
+    dd {
+      display: inline-block;
+      
+      a {
+        margin-right: .5rem;
+      }
+    }
+  }
+}
+
+// 게시글 댓글 입력란
+.answer-form {
+  max-width: 100%;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba($base, .15);
+  
+  @include res(sm) {
+    padding: 1.2rem 1.875rem;
+  }
+  
+  .form {
+    &-container {
+      @include prefix(align-items, flex-start, webkit moz ms o);
+    }
+  
+    &-item {
+      @include prefix(flex, inherit, webkit moz ms o);
+      
+      dt {
+        margin: 0 .5rem 0 0;
+        font-size: 1rem
+      }
+      
+      input {
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        background: $white;
+      }
+    }
+    
+    &-textarea {
+      margin-top:1rem;
+      
+      textarea {
+        min-height: 100px;
+        background: $white
+      }
+  
+      .btn-default {
+          align-self: stretch;
+        width: 100%;
+        margin-top: .5rem
+      }
+    }
+  
+    @include res(md) {
+      &-item {
+        @include prefix(display, flex, webkit moz ms o);
+        @include prefix(align-items, center, webkit moz ms o);
+      }
+      
+      &-item:not(:first-child) {
+        margin:0 0 0 1.5rem
+      }
+      
+      &-textarea .btn-default {
+        width: auto;
+        min-width: 8rem;
+        margin:0 0 0 .8rem;
+        white-space: nowrap;
+      }
+  
+      // 파일 첨부
+      &-item__file {
+        max-width: 50%
+      }
+    }
+  }
+}
+
+// 게시판 상세 하단 버튼
+.board-bottom {
+  position: relative;
+  @include clearfix;
+  margin-top: 1.875rem;
+  
+  .pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+  
+  .btn{
+    min-width:0;
+    padding:1rem 1.667rem;
+    line-height: 1;
+    
+    &-light {
+      opacity: .6
+    }
+    
+    &:not(:last-child) {
+      margin:0 .5rem 0 0
+    }
+  }
+  
+  &__left {
+    float: left;
+  }
+  
+  &__right {
+    float: right;
+  }
+}
+
+
+// 고객센터 게시물 검색
+.support-search{
+  &__form{
+    @include clearfix;
+    width:100%;
+    //max-width:490px;
+    margin:1rem 0;
+    
+    .select-wrapper{
+      display: inline-block;
+      padding: 0 0 0 1rem;
+      border: 1px solid $border-light;
+      border-radius: .533rem;
+      -webkit-appearance: none;
+      height:3rem;
+      vertical-align: top;
+      
+      @include res(sm) {
+        padding: 0 1.267rem;
+      }
+      
+      select{
+        outline: 0;
+        line-height: 3rem;
+        padding: 0 2rem 0 0;
+        font-size: $font-size-xs;
+      }
+      
+      &:after {
+        right: 4px;
+        
+        @include res(sm) {
+          right: 1.267rem;
+        }
+      }
+    }
+  }
+  &__input[type=search]{
+    @include boxSizing;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid $border-light;
+    border-radius: .533rem;
+    color: #202124;
+    font-size: $font-size-xs;
+    padding: 0 1.267rem;
+    //width: calc(100% - 4.75rem);
+    -webkit-appearance: none;
+    height:3rem;
+    line-height: 3rem;
+    display: inline-block;
+    vertical-align: top;
+    margin:0 .3125rem;
+
+    &::placeholder{
+      color:$gray;
+    }
+
+    &:focus{
+      box-shadow: 0 0 0 0.2rem rgba($primary,.25);
+    }
+  }
+  &__button{
+    @include boxSizing;
+    display: inline-block;
+    width:3rem;
+    height:3rem;
+    background-color: $primary;
+    box-shadow: 9px 9px 25px rgba(163, 177, 198, .25), inset -9px 0 10px rgba(224, 229, 236, .1);
+    border-radius: $border-radius-small;
+    color:$white;
+    transition-duration: 250ms;
+    transition-property: background-color;
+    vertical-align: top;
+
+    i{
+      font-size: 1.5rem;
+    }
+
+    @include hover-focus-active(){
+      background-color: desaturate($primary, 13%);
+    }
+  }
+}
+
+.no-data{
+  &-item{
+    padding: 6.667rem 0;
+    text-align: center;
+    border-bottom: 1px solid $border-light;
+    
+    &__p{
+      font-size:$font-size-base;
+
+      i{
+        vertical-align: middle;
+        font-size: 160%;
+          line-height: 1;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.latest-notice__content{
+  .no-data-item{
+    padding: 0;
+    text-align: left;
+  }
+}
+
+
+// 자주묻는질문 리스트
+.faq-wrapper{
+
+  .transfomer-tabs{
+    position: relative;
+    min-height: 45px;
+  }
+
+  .tab {
+    @include boxSizing;
+    margin-bottom: 1rem;
+    border-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    border:1px solid $border-base;
+    border-top:1px solid $border-base;
+    min-height:45px;
+
+    @include res(md){
+      margin-bottom: 0;
+    }
+
+    &:after {
+      content: "\EA4E";
+      font-family: $font-family-icon;
+      position: absolute;
+      right: 15px;
+      z-index: 2;
+      pointer-events: none;
+      font-size:150%;
+      color:$border-base;
+      top:7px;
+    }
+    &.open {
+      position: absolute;
+      width: 100%;
+      background: $white;
+      top:0;
+      z-index: 10;
+
+      a {
+        position: relative;
+        display: block;
+      }
+    }
+
+    li {
+      display: block;
+      padding: 0;
+      vertical-align: bottom;
+      font-size: 1.2rem;
+      border-bottom:1px solid $border-light;
+    }
+  }
+  //a {
+  //  position: absolute;
+  //  width: 100%;
+  //  height: 43px;
+  //  display: block;
+  //  padding:10px 15px;
+  //  background-color: $white;
+  //
+  //  &:after{
+  //    content:"";
+  //    display: block;
+  //    width:100%;
+  //    height: 2px;
+  //    background-color: transparent;
+  //    position: absolute;
+  //    left:0;
+  //    bottom:-1px;
+  //    transition-property: background-color;
+  //    transition-duration: 250ms;
+  //  }
+  //
+  //  &.active {
+  //    border: 0;
+  //    z-index: 1;
+  //    background-color: $white;
+  //    font-weight: $font-weight-bold;
+  //  }
+  //}
+
+
+  @include res(xs){
+    &{
+      .transfomer-tabs{
+        position: relative;
+        min-height: 45px;
+      }
+      .tab{
+        width:100%;
+        max-width: 1320px;
+        margin: 0 auto;
+        border:0;
+
+        &:after{
+          display: none;
+        }
+
+        li{
+          display: inline-block;
+          text-align: center;
+          position: relative;
+          padding:0 18px;
+          //font-size:$font-size-sm;
+        }
+      }
+      //a{
+      //  position: initial;
+      //  position: static;
+      //  width:100%;
+      //  display: block;
+      //  height:auto;
+      //  padding: 1.333rem 0;
+      //  font-size: $font-size-sm;
+      //  background-color:$white;
+      //  color: rgba($text-dark, .7);
+      //  transition-property: color;
+      //  transition-duration: 250ms;
+      //
+      //  &:hover,
+      //  &:active,
+      //    //&:focus,
+      //  &.active{
+      //    color: $text-dark;
+      //    border-color: $text-dark;
+      //    font-weight: $font-weight-semibold;
+      //    background-color: $white;
+      //  }
+      //}
+    }
+  }
+
+}
+
+// 고객센터
+.faq-list{
+  border-top:2px solid $text-dark;
+
+  &-item{
+    position: relative;
+    border-bottom:1px solid $border-base;
+
+    &:first-child{
+      border-top:0;
+    }
+  }
+
+  &-item__question{
+    padding: 1rem .5rem;
+    font-size:1.2rem;
+    font-weight: $font-weight-semibold;
+    color:$text-dark;
+    cursor: pointer;
+    position: relative;
+
+    &:before{
+      content:"Q";
+      width:17px;
+      margin-right:20px;
+      color:$text-dark;
+      font-weight:$font-weight-bold;
+      text-align: left;
+      position: absolute;
+      left: 1rem;
+    }
+
+    > div{
+      padding-left: 2.467rem;
+    }
+
+    @include res(sm){
+      &{
+        font-size: $font-size-sm;
+        padding: 2rem 2.667rem;
+
+        &:before{
+          left:2.667rem;
+        }
+      }
+    }
+  }
+
+  &-item__answer{
+    font-size: $font-size-xs;
+    color:$text-base;
+    padding-right:2.667rem;
+    padding-left:2.967rem;
+    overflow: hidden;
+
+    .dd{
+      padding-bottom: 2rem;
+      margin-top: -136px;
+      margin-bottom: -624.9375rem;
+      transition: margin-bottom 0s .5s,margin-top .5s;
+    }
+
+    @include res(sm){
+      &{
+        padding-left: 5.067rem;
+      }
+    }
+  }
+}
+
+.faq-list-item.is-active {
+  background-color: $white-gray;
+
+  .faq-list-item__answer{
+    display: block;
+    height:auto;
+
+    .dd{
+      margin-top: 0;
+      margin-bottom: 0;
+      transition: margin-top .5s;
+    }
+  }
+}
+
+
+// 문의하기
+//.need-more-help{
+//  &-container{
+//    width:100%;
+//    background-color: $bg-sky;
+//    padding: 2rem;
+//    margin-top:4.667rem;
+//  }
+//
+//  &-greeting{
+//    font-size:1.2rem;
+//    color:$text-dark;
+//    line-height: 1.68;
+//  }
+//  &-options{
+//    margin-top:2rem;
+//
+//    .btn-quest{
+//      min-width:184px;
+//      padding: .4667rem 1.667rem;
+//      font-size: 1.2rem;
+//      background-color: $lighter-black;
+//      border-color: $lighter-black;
+//      color:$white;
+//      border-radius: $border-radius-small;
+//      box-shadow: 9px 9px 25px rgba($black, .25), inset -9px 0 10px rgba($black, .1);
+//
+//      i{
+//        font-size:140%;
+//      }
+//    }
+//  }
+//
+//  // RWD
+//  @include res(xs) {
+//    &-container{
+//      @include clearfix;
+//    }
+//    &-greeting{
+//      float:left;
+//    }
+//    &-options{
+//      float:right;
+//      margin-top: 0;
+//    }
+//  }
+//
+//  @include res(sm){
+//    &-greeting{
+//      font-size:$font-size-sm;
+//    }
+//    &-options{
+//      .btn-quest{
+//        font-size:$font-size-sm;
+//      }
+//    }
+//  }
+//
+//  @include res(md) {
+//    &-container{
+//      padding: 3.133rem 3.667rem 3.133rem 4.667rem;
+//    }
+//  }
+//
+//}
+
+// 비밀글 비밀번호 입력
+.board-pw{
+  text-align:center;
+  
+  &__ico{
+    display:table;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: 0 auto 1.875rem;
+    border-radius:50%;
+    background:lighten($base,20%);
+    
+    i{
+      display:table-cell;
+      color: $white;
+      font-size: 3rem;
+      vertical-align: middle;
+    }
+  }
+  
+  &__txt{
+    font-size:$font-size-small;
+    color: $black;
+  }
+  
+  &__form{
+    max-width: 420px;
+    margin: 1.875rem auto 0;
+    
+    input{
+      @include boxSizing;
+      display: block;
+      width: 100%;
+      -webkit-appearance: none;
+      margin:0 0 1rem;
+      border: 1px solid $border-light;
+      border-radius: .533rem;
+      outline: 0;
+      overflow: hidden;
+      padding: 1.067rem 1.267rem;
+      resize: none;
+      font-size: $font-size-xs;
+      color:$text-light;
+  
+      &:active,
+      &:focus{
+        box-shadow: 0 0 0 0.2rem rgba($primary,.25);
+      }
+    }
+    
+    .btn{
+      width: 100%
+    }
+  }
+}

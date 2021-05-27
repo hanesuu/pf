@@ -1,0 +1,506 @@
+@charset "UTF-8";
+/* layout/_header.scss */
+
+
+//
+//  HEADER
+// --------------------------------------------------
+
+#site {
+  &-header {
+    @include boxSizing;
+    position: relative;
+    width: 100%;
+    height:62px;
+
+    &__container {
+      @include clearfix;
+      @include prefix(display, flex, webkit moz ms o);
+      width: 100%;
+    }
+
+    // RWD
+    @include res(md) {
+      padding: 0 20px;
+      height:auto;
+
+      &__container {
+        @include clearfix;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+    }
+
+
+    // 모바일 메뉴 열렸을 경우
+    &.is-open-nav{
+      #site-logo{
+        position: fixed;
+      }
+      #site-nav{
+        display: block;
+
+        .nav-link{
+          color: $text-dark !important;
+        }
+        .nav-item-external .nav-link{
+          opacity: .5;
+        }
+      }
+      #site-nav-action{
+        .menu{
+          position: fixed;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+
+    // 메인페이지 헤더 스타일 분리 작업
+    &.main{
+      position: absolute;
+      background: transparent;
+      color:$white;
+
+      #site-logo a{
+        vertical-align: baseline;
+        background: url(../img/logo_full_w.svg) left center no-repeat;
+        background-size: 150px auto;
+  
+        // beta
+        .txt-beta {
+          color: $white;
+        }
+      }
+
+      .nav-item{
+        > .nav-link{
+          color:$white;
+
+          &:hover,
+          &:active,
+          &:focus,
+          &.active{
+            color:$white;
+          }
+        }
+      }
+
+      .nav-item-external{
+        > .nav-link{
+          opacity:.5;
+
+          &:hover,
+          &:active,
+          &:focus,
+          &.active{
+            opacity:.8;
+          }
+        }
+      }
+
+      .menu {
+        &__line {
+          background-color: $white;
+        }
+        &--close1.open .menu__line{
+          background-color:$black;
+        }
+      }
+
+
+      // 메인페이지(모바일) 메뉴 열렸을 경우
+      &.is-open-nav{
+        #site-logo a{
+          vertical-align: baseline;
+          background-image: url(../img/logo_full_w.svg);
+          background-position: left center;
+          background-repeat: no-repeat;
+          background-size: 150px auto;
+        }
+      }
+    }
+  }
+
+
+  // #site-logo
+  &-logo {
+    @include boxSizing;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    left: 20px;
+    float: left;
+    cursor: pointer;
+    line-height: 62px;
+    flex-grow: 0;
+
+    a {
+      display: block;
+      position: relative;
+      width: 172px;
+      height: 24px;
+      vertical-align: baseline;
+      background: url(../img/logo_full.svg) left center no-repeat;
+      background-size: 150px auto;
+      margin-top: 18px;
+  
+      // beta
+      .txt-beta {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: .5rem;
+        color: $text-light;
+        font-style: italic;
+        line-height: 1;
+      }
+    }
+    
+
+    // RWD
+    @include res(md) {
+      & {
+        position: relative;
+        top: 0;
+        float: left;
+        line-height: 84px;
+
+        a{
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+
+  // #site-nav
+  &-nav {
+    @include clearfix;
+    @include boxSizing;
+    position: fixed;
+    z-index: 400;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    background-color: $white;
+
+    // #site-nav-action
+    &-action {
+      margin-left: auto;
+      position: absolute;
+      right: 0;
+      top:0;
+      z-index: 500;
+    }
+
+
+    // RWD
+    @include res(md) {
+      & {
+        position: inherit;
+        position: relative;
+        display: block;
+        float: right;
+        width: auto;
+        padding: 0;
+        margin-left: auto;
+        border: 0;
+        background-color: transparent;
+
+        &-action {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+//
+//  Header Style
+// --------------------------------------------------
+
+// nav list
+.nav{
+
+  // nav-item
+  &-item {
+
+    // 내부 & 외부 링크 메뉴
+    &-internal,
+    &-external{
+      .nav-link {
+        position: relative;
+      }
+    }
+
+    // 서브메뉴 가지고 있는 대메뉴일 경우
+    &.has-submenu{
+      > .nav-link{
+        position: relative;
+
+        &:after{
+          content:"\EA4E";
+          font-family: $font-family-icon;
+          display: inline-block;
+          font-size:130%;
+          color:rgba($black,.7);
+          position: absolute;
+          right: 20px;
+          top:50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  // nav-link
+  &-link{
+    @include boxSizing;
+    display: block;
+    width:100%;
+    padding:10px 20px;
+    font-size: $font-size-sm;
+    font-weight:$font-weight-bold;
+    @include prefix(transition-property, color, webkit o);
+    @include prefix(transition-duration, 250ms, webkit o);
+  }
+
+  //
+  &-sub-group{
+    overflow: hidden;
+    background-color: $white-gray;
+    height: 0;
+    max-height: 0;
+    @include prefix(transition-property, max-height, webkit o);
+    @include prefix(transition-duration, 300ms, webkit o);
+
+    // 하위메뉴 여는 클래스
+    &.is-show{
+      height: auto;
+      max-height: 500px; //트랜지션 효과를 위한 임의의 값
+    }
+
+    .nav-item{
+      &:first-child{
+        margin-top:10px;
+      }
+      &:last-child{
+        margin-bottom: 10px;
+      }
+    }
+    .nav-link{
+      font-size: $font-size-xs;
+      font-weight: $font-weight-normal;
+      padding:7px 20px 7px 35px;
+
+      &:hover{
+        background-color: rgba($primary,.1);
+        color:rgba($primary,.95);
+        font-weight: $font-weight-bold;
+      }
+    }
+  
+    .nav-sub-item{
+      &:first-child{
+        margin-top: 15px;
+      }
+      &:last-child{
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+
+
+  // RWD
+  @include res(md) {
+    &{
+      @include clearfix;
+      float:left;
+
+      &-item{
+        position: relative;
+        float:left;
+        font-weight: $font-weight-normal;
+
+        &:not(:first-child){
+          border-top:0;
+        }
+
+        &-internal{
+          color: $light-black;
+          font-size:$font-size-xs;
+          padding: 0 20px;
+
+          &:first-child{
+            padding-left:0;
+          }
+          &:last-child{
+            padding-right:0;
+          }
+
+          > .nav-link{
+            position: relative;
+            @include prefix(transition-property, text-decoration, webkit o);
+            @include prefix(transition-duration, 250ms, webkit o);
+            opacity: .7;
+
+            &:hover,
+            &:active,
+            &:focus,
+            &.active{
+              text-decoration: underline;
+              opacity: 1;
+            }
+          }
+        }
+
+        &-external{
+          position: relative;
+          padding:0 12px;
+          font-size:$font-size-base;
+
+          &:first-child{
+            margin-left: 70px;
+            border:0;
+
+            &:before{
+              display: none;
+            }
+          }
+
+          > .nav-link{
+            color:$text-dark;
+            opacity:.5;
+
+            @include hover-focus-active{
+              opacity:.7;
+            }
+          }
+
+          i{
+            vertical-align: middle;
+            margin-right:3px;
+            opacity:.5;
+          }
+        }
+
+
+        &.has-submenu{
+          position: relative;
+
+          > .nav-link{
+            &:after{
+              display: none;
+            }
+          }
+        }
+
+        .nav-link{
+          color: $text-dark;
+        }
+      }
+
+      &-link{
+        display: inline-block;
+        padding: 29.5px 0;
+        color:inherit;
+        font-size: $font-size-base;
+      }
+
+      &-sub-group{
+        position: absolute;
+        min-width:200px;
+        //padding:15px 0;
+        background-color: $white;
+        border-radius: $border-radius-small;
+        box-shadow: 9px 9px 25px rgba($black, .25);
+        transform: translateY(30px);
+        transition-property: opacity, transform;
+        transition-duration: 300ms;
+        opacity: 0;
+
+        // 하위메뉴 여는 클래스
+        &.is-show{
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .nav-link{
+          font-size: $font-size-base;
+          padding:7px 20px 7px 35px;
+        }
+      }
+    }
+  }
+
+}
+
+
+// 모바일에서 메뉴열기 버튼
+.menu {
+  position: relative;
+  z-index:500;
+  top: 0;
+  right:0;
+  overflow: hidden;
+  width: $menu-size;
+  height: $menu-size;
+  padding: 31px;
+  cursor: pointer;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $menu-width - 2px;
+    height: $menu-height;
+    @include prefix(transform, translate(-50%, -50%), webkit ms);
+  }
+  &__line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: $menu-line-size;
+    pointer-events: none;
+    border-radius: $menu-line-radius;
+    background-color: $light-black;
+
+    &--1 {
+      top: 0;
+      @include prefix(transition, transform .2s ease-in-out, webkit o);
+    }
+    &--2 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      @include prefix(transition, (right .2s ease-in-out, opacity .35s ease-in-out, transform 0s ease-in-out), webkit o);
+    }
+    &--3 {
+      bottom: 0;
+      @include prefix(transition, transform .2s ease-in-out, webkit o);
+    }
+  }
+
+
+  // Open
+  &--close1.open &__line--1 {
+    @include prefix(transform, translate3d(0, $menu-to-translate, 0) rotate(135deg), webkit ms);
+  }
+  &--close1.open &__line--2 {
+    right: -$menu-width*4;
+    opacity: 0;
+    @include prefix(transform, translate3d(-$menu-width, 0, 0), webkit ms);
+    @include prefix(transition, (opacity .2s ease-in-out, transform .2s ease-in-out, right .0s ease-in-out .2s), webkit o);
+  }
+  &--close1.open &__line--3 {
+    @include prefix(transform, translate3d(0, -$menu-to-translate, 0) rotate(-135deg), webkit ms);
+  }
+}
