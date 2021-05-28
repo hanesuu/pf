@@ -1,49 +1,4 @@
-$(document).ready(function() {
-    // show lnb depend on the page parameter
-    var now = $(location).attr("href");
-
-    if (now.split("localhost:9005")[1] ==="/" || now.split("udpay.co.kr")[1] === "/" ) {
-        $("#top-banner").stop().show();
-        $(".quick-menu").stop().hide();
-    } else{
-        $("#top-banner").stop().hide();
-        $(".quick-menu").stop().show();
-    }
-});
-
-
-
-
-
 $(document).ready(function(){
-
-    // 탭 메뉴 상단에 고정
-    $(".subPage-tabMenu").removeClass('fixed-tab');
-    var offset = ($(".subPage-tabMenu").offset() || { "top": NaN }).top;
-
-    $(window).scroll(function(){
-        if($(this).scrollTop() > offset) {
-            $(".subPage-tabMenu").addClass('fixed-tab');
-        } else {
-            $(".subPage-tabMenu").removeClass('fixed-tab');
-        }
-    });
-
-    // 상단 이벤트배너 하나 이상일 때, 슬라이더 실행
-    // if( $('.banner-slider .banner-item').length > 1 ){
-    //     $('.banner-slider').slick({
-    //         infinite: true,
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         autoplay: true,
-    //         autoplaySpeed: 6000,
-    //         speed: 300,
-    //         centerMode: true,
-    //         focusOnSelect: true,
-    //         prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>',
-    //         nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>'
-    //     });
-    // }
 
     // 모바일 디바이스에서 햄버거 메뉴 보이기
     if ( $(window).width() < 992 ) {
@@ -62,14 +17,6 @@ $(document).ready(function(){
 
 
     } else{
-        // $('.nav-item.has-submenu').mouseenter(function(){
-        //     $(' > .nav-sub-group', this).addClass('is-show');
-        // });
-        //
-        // $('.nav-item.has-submenu').mouseleave(function(){
-        //     $(' > .nav-sub-group', this).removeClass('is-show');
-        // });
-
         $('.nav-item.has-submenu').on("mouseenter", function(){
             $(' > .nav-sub-group', this).addClass('is-show');
         });
@@ -78,13 +25,7 @@ $(document).ready(function(){
             $(' > .nav-sub-group', this).removeClass('is-show');
         });
     }
-
-
 });
-
-
-
-
 
 
 // 화면 리사이즈 이벤트
@@ -100,32 +41,6 @@ $(window).resize(function () {
         }
     }
 });
-
-// show dialog
-// function fnShowPop(sGetName){
-//     $("#"+ sGetName).addClass("on");
-//     if($(window).width() < 768) {
-//         $("html, body").css("overflow","hidden").css("height","100%");
-//     }
-// }
-// // hide dialog
-// function fnHidePop(sGetName){
-//     $("#"+ sGetName).removeClass("on");
-//     if($(window).width() < 768) {
-//         $("html, body").css("overflow","auto").css("height","auto");
-//     }
-// }
-
-// window popup for dual monitor
-function popOpen() {
-    var nWidth = "400";
-    var nHeight = "689";
-    var xPos = (document.body.clientWidth / 2) - (nWidth / 2);
-    xPos += window.screenLeft;	 //듀얼 모니터
-    var yPos = (screen.availHeight / 2) - (nHeight / 2);
-
-    window.open("cardInfo","popOpen","width="+nWidth+",height="+nHeight+", left="+xPos+", top="+yPos+", toolbars=no, resizable=no, scrollbars=no");
-}
 
 
 // faq accodion list

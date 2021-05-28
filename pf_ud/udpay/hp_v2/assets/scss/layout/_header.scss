@@ -67,11 +67,6 @@
         vertical-align: baseline;
         background: url('/pf/pf_ud/udpay/common/img/logo_full_w.svg') left center no-repeat;
         background-size: 150px auto;
-  
-        // beta
-        .txt-beta {
-          color: $white;
-        }
       }
 
       .nav-item{
@@ -139,23 +134,12 @@
     a {
       display: block;
       position: relative;
-      width: 172px;
+      width: 150px;
       height: 24px;
       vertical-align: baseline;
       background: url('/pf/pf_ud/udpay/common/img/logo_full.svg') left center no-repeat;
       background-size: 150px auto;
       margin-top: 18px;
-  
-      // beta
-      .txt-beta {
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: .5rem;
-        color: $text-light;
-        font-style: italic;
-        line-height: 1;
-      }
     }
     
 
