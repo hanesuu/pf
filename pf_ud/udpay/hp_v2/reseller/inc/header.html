@@ -3,91 +3,89 @@
 <head>
 </head>
 <body>
-    <header id="site-header">
-        <div id="site-header__container">
-            <h1 id="site-logo">
-                <a href="/">
-                    <span class="screen-reader">유디페이 리셀러</span>
-                    <span class="txt-beta">BETA</span>
-                </a>
-            </h1>
-            <nav id="site-nav" aria-labelledby="global-nav">
-                <h2 id="global-nav" class="screen-reader">주메뉴</h2>
-                <ul class="nav">
-                    <li class="nav-item nav-item-internal has-submenu">
-                        <a href="/pay/api" class="nav-link" id="nav-link-select1">결제서비스</a>
-                        <ul class="nav-sub-group">
-                            <li class="nav-sub-item"><a href="/pay/api" class="nav-link">전자결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/camera" class="nav-link">카메라결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/touch" class="nav-link">터치결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/handwrite" class="nav-link">수기결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/remote" class="nav-link">원격결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/link" class="nav-link">링크결제</a></li>
-                            <li class="nav-sub-item"><a href="/pay/enroll" class="nav-link">정기/등록결제</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-item-internal has-submenu">
-                        <a href="/api/adjustNextDay" class="nav-link" id="nav-link-select2">부가서비스</a>
-                        <ul class="nav-sub-group">
-                            <li class="nav-sub-item"><a href="/api/adjustNextDay" class="nav-link">익일정산</a></li>
-                            <li class="nav-sub-item"><a href="/api/msg" class="nav-link">문자</a></li>
-                            <li class="nav-sub-item"><a href="/api/kakaotalk" class="nav-link">카카오톡</a></li>
-                            <li class="nav-sub-item"><a href="/api/auth" class="nav-link">본인확인</a></li>
-                            <li class="nav-sub-item"><a href="/api/accountHolder" class="nav-link">계좌 성명 조회</a></li>
-                            <li class="nav-sub-item"><a href="/api/accountOccupy" class="nav-link">계좌 점유 인증</a></li>
-                            <li class="nav-sub-item"><a href="/api/bankalarm" class="nav-link">뱅크알람</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-item-internal">
-                        <a href="/price/price" class="nav-link" id="nav-link-select3"><span>API</span> 공급단가</a>
-                    </li>
-                    <li class="nav-item nav-item-internal">
-                        <a href="/guide/guide" class="nav-link" id="nav-link-select4"><span>API</span> 매뉴얼</a>
-                    </li>
-                    <li class="nav-item nav-item-internal">
-                        <a href="/info/info" class="nav-link" id="nav-link-select5">이용안내</a>
-                    </li>
-                    <li class="nav-item nav-item-internal has-submenu">
-                        <a href="/support/list/notice" class="nav-link" id="nav-link-select6">고객센터</a>
-                        <ul class="nav-sub-group">
-                            <li class="nav-sub-item"><a href="/support/list/notice" class="nav-link">공지사항</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/faq" class="nav-link">FAQ</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/qna?qnaType=API" class="nav-link">API연동 게시판</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/qna?qnaType=DEVELOPER" class="nav-link">업그레이드 요청</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/qna?qnaType=API_QUEST" class="nav-link">결제/API 추가 요청</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/qna?qnaType=MANAGE" class="nav-link">대리점/리셀러 문의</a></li>
-                            <li class="nav-sub-item"><a href="/support/list/qna?qnaType=ETC" class="nav-link">일반 문의</a></li>
-                            <li class="nav-sub-item"><a href="https://udpay.co.kr/up/support" class="nav-link" target="_blank">유디페이 고객센터</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav">
-                    <li class="nav-item nav-item-external">
-                        <a href="/login" class="nav-link"><i class="ri-login-circle-line"></i> 로그인</a>
-                    </li>
-                    <li class="nav-item nav-item-external">
-                        <a href="https://re.udpay.co.kr/joinAgree/RESELLER" class="nav-link nav-link-join" target="_blank"><i class="ri-user-add-line"></i> 회원가입</a>
-                    </li>
+    <div id="site-header__container">
+        <h1 id="site-logo">
+            <a href="/">
+                <span class="screen-reader">유디페이 리셀러</span>
+                <span class="txt-beta">BETA</span>
+            </a>
+        </h1>
+        <nav id="site-nav" aria-labelledby="global-nav">
+            <h2 id="global-nav" class="screen-reader">주메뉴</h2>
+            <ul class="nav">
+                <li class="nav-item nav-item-internal has-submenu">
+                    <a href="/pay/api" class="nav-link" id="nav-link-select1">결제서비스</a>
+                    <ul class="nav-sub-group">
+                        <li class="nav-sub-item"><a href="/pay/api" class="nav-link">전자결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/camera" class="nav-link">카메라결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/touch" class="nav-link">터치결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/handwrite" class="nav-link">수기결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/remote" class="nav-link">원격결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/link" class="nav-link">링크결제</a></li>
+                        <li class="nav-sub-item"><a href="/pay/enroll" class="nav-link">정기/등록결제</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-internal has-submenu">
+                    <a href="/api/adjustNextDay" class="nav-link" id="nav-link-select2">부가서비스</a>
+                    <ul class="nav-sub-group">
+                        <li class="nav-sub-item"><a href="/api/adjustNextDay" class="nav-link">익일정산</a></li>
+                        <li class="nav-sub-item"><a href="/api/msg" class="nav-link">문자</a></li>
+                        <li class="nav-sub-item"><a href="/api/kakaotalk" class="nav-link">카카오톡</a></li>
+                        <li class="nav-sub-item"><a href="/api/auth" class="nav-link">본인확인</a></li>
+                        <li class="nav-sub-item"><a href="/api/accountHolder" class="nav-link">계좌 성명 조회</a></li>
+                        <li class="nav-sub-item"><a href="/api/accountOccupy" class="nav-link">계좌 점유 인증</a></li>
+                        <li class="nav-sub-item"><a href="/api/bankalarm" class="nav-link">뱅크알람</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-internal">
+                    <a href="/price/price" class="nav-link" id="nav-link-select3"><span>API</span> 공급단가</a>
+                </li>
+                <li class="nav-item nav-item-internal">
+                    <a href="/guide/guide" class="nav-link" id="nav-link-select4"><span>API</span> 매뉴얼</a>
+                </li>
+                <li class="nav-item nav-item-internal">
+                    <a href="/info/info" class="nav-link" id="nav-link-select5">이용안내</a>
+                </li>
+                <li class="nav-item nav-item-internal has-submenu">
+                    <a href="/support/list/notice" class="nav-link" id="nav-link-select6">고객센터</a>
+                    <ul class="nav-sub-group">
+                        <li class="nav-sub-item"><a href="/support/list/notice" class="nav-link">공지사항</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/faq" class="nav-link">FAQ</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/qna?qnaType=API" class="nav-link">API연동 게시판</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/qna?qnaType=DEVELOPER" class="nav-link">업그레이드 요청</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/qna?qnaType=API_QUEST" class="nav-link">결제/API 추가 요청</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/qna?qnaType=MANAGE" class="nav-link">대리점/리셀러 문의</a></li>
+                        <li class="nav-sub-item"><a href="/support/list/qna?qnaType=ETC" class="nav-link">일반 문의</a></li>
+                        <li class="nav-sub-item"><a href="https://udpay.co.kr/up/support" class="nav-link" target="_blank">유디페이 고객센터</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item nav-item-external">
+                    <a href="/login" class="nav-link"><i class="ri-login-circle-line"></i> 로그인</a>
+                </li>
+                <li class="nav-item nav-item-external">
+                    <a href="https://re.udpay.co.kr/joinAgree/RESELLER" class="nav-link nav-link-join" target="_blank"><i class="ri-user-add-line"></i> 회원가입</a>
+                </li>
 
-                    <!--로그인 후-->
-                   <!--  <li class="nav-item nav-item-external">
-                        <a href="https://re.udpay.co.kr/rm/main" class="nav-link" target="_blank"><i class="ri-settings-2-line"></i> 관리페이지 이동</a>
-                    </li>
-                    <li class="nav-item nav-item-external">
-                        <a href="" class="nav-link"><i class="ri-logout-circle-line"></i> 로그아웃</a>
-                    </li> -->
-                </ul>
-            </nav>
-            <div id="site-nav-action">
-                <div class="menu menu--close1">
-                    <div class="menu__icon">
-                        <div class="menu__line menu__line--1"></div>
-                        <div class="menu__line menu__line--2"></div>
-                        <div class="menu__line menu__line--3"></div>
-                    </div>
+                <!--로그인 후-->
+               <!--  <li class="nav-item nav-item-external">
+                    <a href="https://re.udpay.co.kr/rm/main" class="nav-link" target="_blank"><i class="ri-settings-2-line"></i> 관리페이지 이동</a>
+                </li>
+                <li class="nav-item nav-item-external">
+                    <a href="" class="nav-link"><i class="ri-logout-circle-line"></i> 로그아웃</a>
+                </li> -->
+            </ul>
+        </nav>
+        <div id="site-nav-action">
+            <div class="menu menu--close1">
+                <div class="menu__icon">
+                    <div class="menu__line menu__line--1"></div>
+                    <div class="menu__line menu__line--2"></div>
+                    <div class="menu__line menu__line--3"></div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 </body>
 </html>
