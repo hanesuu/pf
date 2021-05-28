@@ -58,14 +58,14 @@
     }
 
     // 메인페이지 헤더 스타일 분리 작업
-    &.main{
+    &.main #site-header{
       position: absolute;
       background: transparent;
       color:$white;
 
       #site-logo a{
         vertical-align: baseline;
-        background: url(../img/logo_full_w.svg) left center no-repeat;
+        background: url('/pf/pf_ud/udpay/common/img/logo_full_w.svg') left center no-repeat;
         background-size: 150px auto;
   
         // beta
@@ -114,7 +114,7 @@
       &.is-open-nav{
         #site-logo a{
           vertical-align: baseline;
-          background-image: url(../img/logo_full_w.svg);
+          background-image: url('/pf/pf_ud/udpay/common/img/logo_full_w.svg');
           background-position: left center;
           background-repeat: no-repeat;
           background-size: 150px auto;
@@ -142,7 +142,7 @@
       width: 172px;
       height: 24px;
       vertical-align: baseline;
-      background: url(../img/logo_full.svg) left center no-repeat;
+      background: url('/pf/pf_ud/udpay/common/img/logo_full.svg') left center no-repeat;
       background-size: 150px auto;
       margin-top: 18px;
   

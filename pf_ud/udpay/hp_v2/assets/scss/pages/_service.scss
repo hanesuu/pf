@@ -731,7 +731,7 @@
       display: block;
       text-align: left;
       margin-bottom: 1rem;
-      background: url(../img/ico_sprites.svg) no-repeat 0 0 / 438px;
+      background: url('../img/common/ico_sprites.svg') no-repeat 0 0 / 438px;
       background-position-y: -192px;
       width: 46px;
       height: 39px;
@@ -961,7 +961,7 @@
           transform: translate(-50%, -50%);
           width: 39px;
           height: 39px;
-          background: $white url("/files/img/ico_sprites.svg") no-repeat 0 0 / 438px;
+          background: $white url("../img/common/ico_sprites.svg") no-repeat 0 0 / 438px;
           
           @include res(sm) {
             width: 65px;
@@ -1202,7 +1202,7 @@
         display: table-cell;
         width: 6.5rem;
         height: 6.5rem;
-        background: url('/files/img/addition/img_auto_msg@2x.png') no-repeat 0 0 / 100%;
+        background: url('../img/addition/img_auto_msg@2x.png') no-repeat 0 0 / 100%;
       }
     }
     
@@ -1508,7 +1508,7 @@
       width: 150px;
       height: 25px;
       vertical-align: middle;
-      background: url("/files/img/bank_logo.png") no-repeat;
+      background: url("../img/addition/bank_logo.png") no-repeat;
     }
     
     &:nth-child(1):before {

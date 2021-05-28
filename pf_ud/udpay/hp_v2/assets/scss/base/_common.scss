@@ -206,8 +206,8 @@ a.under, button.under{
 // scroll top button
 .scroll-top {
   position: fixed;
-  right: 20px;
-  bottom: 90px;
+  right: 30px;
+  bottom: 30px;
   width: 3rem;
   height: 3rem;
   text-align: center;
@@ -224,7 +224,7 @@ a.under, button.under{
   }
   
   &:hover {
-    bottom: 100px;
+    bottom: 40px;
     background: $primary;
     
     i {
@@ -233,17 +233,12 @@ a.under, button.under{
   }
   
   @include res(sm) {
-    bottom: 106px;
     width: 4rem;
     height: 4rem;
     
     i {
       font-size: 2rem;
       line-height: 4rem;
-    }
-    
-    &:hover {
-      bottom: 116px;
     }
   }
 }
@@ -450,7 +445,7 @@ a.under, button.under{
 .ico-sprites {
   width: 39px;
   height: 39px;
-  background: url('../img/ico_sprites.svg') no-repeat 0 0 / 438px;
+  background: url('../img/common/ico_sprites.svg') no-repeat 0 0 / 438px;
   
   @include res(sm) {
     width: 65px;
