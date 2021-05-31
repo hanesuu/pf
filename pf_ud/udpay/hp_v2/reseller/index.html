@@ -26,273 +26,343 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="/pf/pf_ud/common/js/aos.js"></script>
     <script type="text/javascript">
-        $(document).ready( function() {
-          $("#site-header").load("./inc/header.html");
+        $(document).ready(function() {
           $("#site-footer").load("./inc/footer.html");
-        });
-    </script>
+      });
+  </script>
 </head>
 <body>
-<dl id="skip-nav">
-    <dt>바로가기 메뉴</dt>
-    <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
-    <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
-    <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
-</dl>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
 
-<div id="site-container">
-    <header id="site-header"></header>
-    <main id="site-main" role="main">
-        <section class="section-wrapper" id="main-sections">
-            <h2 class="screen-reader">본문</h2>
-
-            <!-- 신개념 결제대행 PG -->
-            <section class="section section--py-sm section-intro" id="intro">
-                <div class="section__container cell-container">
-                    <div class="txtBox">
-                        <div class="desc">
-                            <h3 class="section__title" data-aos="fade-right">
-                                개발수익 창출의 새로운 패러다임.<br>API 연동으로 연금성 고수익 벌기.
-                                <img src="/pf/pf_ud/udpay/common/img/logo_full_w.svg" alt="유디페이 리셀러">
-
-                            </h3>
-                            <p class="section__desc" data-aos="fade-right" data-aos-delay="200">
-                                <a href="https://udpay.co.kr/" target="_blank" class="under">유디페이</a> 결제/부가 API를 저렴한 원가에 공급받아 연동해보세요.<br>
-                                빵빵한 연금성 고수익이 기다립니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="imgBox right" data-aos="fade-left">
-                        <div class="cont_mb">
-                            <img src="../assets/img/main/img_main1@2x.png" alt="유디페이 리셀러 이미지" class="light">
-                        </div>
-                        <!-- //cont -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- API 연동으로 수익 올리기 -->
-            <section class="section section--py-lg section-figure">
-                <div class="section__container">
-                    <div class="txtBox">
-                        <div class="desc" data-aos="fade-down">
-                            <h2 class="section__desc">쇼핑몰이나 각종 사이트, 솔루션 개발할 때 꼭 필요한</h2>
-                            <h3 class="section__title">
-                                API 연동으로 손쉽게 수익 올리기,
-                                <img src="/pf/pf_ud/udpay/common/img/logo_full.svg" alt="유디페이 리셀러">
-                            </h3>
-                            <p class="section__desc">
-                                유디페이 리셀러에 가입하시면 <a href="https://udpay.co.kr/" target="_blank" class="under">유디페이</a>판매가 대비 저렴한 공급가로&nbsp;<br>
-                                결제 및 부가 API를 제공해 드립니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="section__body">
-                        <div class="merits">
-                            <ul class="merits__wrapper">
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">각종 API를 <br>업계 최저 원가로 공급</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">쉬운 연동은 기본, <br>연동만 하면 끝</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">파격적인 <br>연금성 수익구조</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">개발비 절감 및 <br>납기 단축 효과</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="500">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">충분한 마진을 더해도<br>고객사 비용절감 가능</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="600">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">홈페이지 회원가입만으로 <br>리셀러 활동 가능</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="700">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">사업자등록증 없는 개인도 <br>리셀러 활동 가능</p>
-                                </li>
-                                <li class="merits__item" data-aos="fade-up" data-aos-delay="800">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">가맹비, 리셀러 등록비용 <br>모두 무료</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- //merits -->
+    <div id="site-container">
+        <!-- 헤더 -->
+        <div id="site-header__container">
+            <h1 id="site-logo">
+                <a href="./">
+                    <span class="screen-reader">유디페이 리셀러</span>
+                </a>
+            </h1>
+            <nav id="site-nav" aria-labelledby="global-nav">
+                <h2 id="global-nav" class="screen-reader">주메뉴</h2>
+                <ul class="nav">
+                    <li class="nav-item nav-item-internal has-submenu">
+                        <a href="./pay/api.html" class="nav-link" id="nav-link-select1">결제서비스</a>
+                        <ul class="nav-sub-group">
+                            <li class="nav-sub-item"><a href="./pay/api.html" class="nav-link">전자결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/camera.html" class="nav-link">카메라결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/touch.html" class="nav-link">터치결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/handwrite.html" class="nav-link">수기결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/remote.html" class="nav-link">원격결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/link.html" class="nav-link">링크결제</a></li>
+                            <li class="nav-sub-item"><a href="./pay/enroll.html" class="nav-link">정기/등록결제</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item nav-item-internal has-submenu">
+                        <a href="./api/adjustNextDay.html" class="nav-link" id="nav-link-select2">부가서비스</a>
+                        <ul class="nav-sub-group">
+                            <li class="nav-sub-item"><a href="./api/adjustNextDay.html" class="nav-link">익일정산</a></li>
+                            <li class="nav-sub-item"><a href="./api/msg.html" class="nav-link">문자</a></li>
+                            <li class="nav-sub-item"><a href="./api/kakaotalk.html" class="nav-link">카카오톡</a></li>
+                            <li class="nav-sub-item"><a href="./api/auth.html" class="nav-link">본인확인</a></li>
+                            <li class="nav-sub-item"><a href="./api/accountHolder.html" class="nav-link">계좌 성명 조회</a></li>
+                            <li class="nav-sub-item"><a href="./api/accountOccupy.html" class="nav-link">계좌 점유 인증</a></li>
+                            <li class="nav-sub-item"><a href="./api/bankalarm.html" class="nav-link">뱅크알람</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item nav-item-internal">
+                        <a href="./price/" class="nav-link" id="nav-link-select3"><span>API</span> 공급단가</a>
+                    </li>
+                    <li class="nav-item nav-item-internal">
+                        <a href="./guide/" class="nav-link" id="nav-link-select4"><span>API</span> 매뉴얼</a>
+                    </li>
+                    <li class="nav-item nav-item-internal">
+                        <a href="./info/" class="nav-link" id="nav-link-select5">이용안내</a>
+                    </li>
+                    <li class="nav-item nav-item-internal has-submenu">
+                        <a href="./support/faq.html" class="nav-link" id="nav-link-select6">고객센터</a>
+                        <ul class="nav-sub-group">
+                            <li class="nav-sub-item"><a href="./support/faq.html" class="nav-link">FAQ</a></li>
+                            <li class="nav-sub-item"><a href="./support/list.html" class="nav-link">Q&A</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="nav-item nav-item-external">
+                        <a href="#" class="nav-link"><i class="ri-login-circle-line"></i> 로그인</a>
+                    </li>
+                    <li class="nav-item nav-item-external">
+                        <a href="#" class="nav-link nav-link-join" target="_blank"><i class="ri-user-add-line"></i> 회원가입</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="site-nav-action">
+                <div class="menu menu--close1">
+                    <div class="menu__icon">
+                        <div class="menu__line menu__line--1"></div>
+                        <div class="menu__line menu__line--2"></div>
+                        <div class="menu__line menu__line--3"></div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+        <!--// 헤더 -->
+        
+        <main id="site-main" role="main">
+            <section class="section-wrapper" id="main-sections">
+                <h2 class="screen-reader">본문</h2>
 
-            <!-- 연동 가능 API -->
-            <section class="section section--py-lg section-api bg-white-gray">
-                <div class="section__container">
-                    <div class="txtBox">
-                        <div class="desc">
-                            <h3 class="section__title" data-aos="fade-down">
-                                이런 API들이 연동 가능합니다.
-                            </h3>
+                <!-- 신개념 결제대행 PG -->
+                <section class="section section--py-sm section-intro" id="intro">
+                    <div class="section__container cell-container">
+                        <div class="txtBox">
+                            <div class="desc">
+                                <h3 class="section__title" data-aos="fade-right">
+                                    개발수익 창출의 새로운 패러다임.<br>API 연동으로 연금성 고수익 벌기.
+                                    <img src="/pf/pf_ud/udpay/common/img/logo_full_w.svg" alt="유디페이 리셀러">
+
+                                </h3>
+                                <p class="section__desc" data-aos="fade-right" data-aos-delay="200">
+                                    <a href="https://udpay.co.kr/" target="_blank" class="under">유디페이</a> 결제/부가 API를 저렴한 원가에 공급받아 연동해보세요.<br>
+                                    빵빵한 연금성 고수익이 기다립니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="imgBox right" data-aos="fade-left">
+                            <div class="cont_mb">
+                                <img src="../assets/img/main/img_main1@2x.png" alt="유디페이 리셀러 이미지" class="light">
+                            </div>
+                            <!-- //cont -->
                         </div>
                     </div>
-                    <div class="section__body">
-                        <div class="list-api">
-                            <ul class="list-api__wrapper">
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">카드결제</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">휴대폰<br>소액결제</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">카카오페이</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">네이버페이</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="500">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">문자발송</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="600">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">카카오톡<br>메시지</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="700">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">본인인증</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="800">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">계좌 성명 조회</p>
-                                </li>
-                                <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="900">
-                                    <div class="ico-sprites"></div>
-                                    <p class="txt">계좌 점유 인증</p>
-                                </li>
-                            </ul>
+                </section>
+
+                <!-- API 연동으로 수익 올리기 -->
+                <section class="section section--py-lg section-figure">
+                    <div class="section__container">
+                        <div class="txtBox">
+                            <div class="desc" data-aos="fade-down">
+                                <h2 class="section__desc">쇼핑몰이나 각종 사이트, 솔루션 개발할 때 꼭 필요한</h2>
+                                <h3 class="section__title">
+                                    API 연동으로 손쉽게 수익 올리기,
+                                    <img src="/pf/pf_ud/udpay/common/img/logo_full.svg" alt="유디페이 리셀러">
+                                </h3>
+                                <p class="section__desc">
+                                    유디페이 리셀러에 가입하시면 <a href="https://udpay.co.kr/" target="_blank" class="under">유디페이</a>판매가 대비 저렴한 공급가로&nbsp;<br>
+                                    결제 및 부가 API를 제공해 드립니다.
+                                </p>
+                            </div>
                         </div>
-                        <p class="section__btn" data-aos="fade-down">
-                            <a href="./pay/api.html" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
-                                <span>결제 서비스 보기</span>
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
-
-                            <a href="./api/msg.html" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
-                                <span>부가서비스 보기</span>
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
-                        </p>
+                        <div class="section__body">
+                            <div class="merits">
+                                <ul class="merits__wrapper">
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">각종 API를 <br>업계 최저 원가로 공급</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">쉬운 연동은 기본, <br>연동만 하면 끝</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="300">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">파격적인 <br>연금성 수익구조</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="400">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">개발비 절감 및 <br>납기 단축 효과</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="500">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">충분한 마진을 더해도<br>고객사 비용절감 가능</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="600">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">홈페이지 회원가입만으로 <br>리셀러 활동 가능</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="700">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">사업자등록증 없는 개인도 <br>리셀러 활동 가능</p>
+                                    </li>
+                                    <li class="merits__item" data-aos="fade-up" data-aos-delay="800">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">가맹비, 리셀러 등록비용 <br>모두 무료</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //merits -->
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- 수익 계산 -->
-            <section class="section section--py-lg section-benefit">
-                <div class="section__container cell-container">
-                    <div class="txtBox">
-                        <div class="desc">
-                            <h3 class="section__title" data-aos="fade-down">
-                                매달 1,000만원의 마진수익 벌기,<br>
-                                어렵지 않아요.
-                            </h3>
-                            <p class="section__desc" data-aos="fade-down">
-                                연동 쫌 하는 개발자, 에이전시, 프리랜서라면 이제 매달<br>
-                                꾸준히 이정도 벌 수 있습니다.<br>
-                                유디페이 리셀러가 되어 짜릿한 수익을 맛보세요.
-                            </p>
+                <!-- 연동 가능 API -->
+                <section class="section section--py-lg section-api bg-white-gray">
+                    <div class="section__container">
+                        <div class="txtBox">
+                            <div class="desc">
+                                <h3 class="section__title" data-aos="fade-down">
+                                    이런 API들이 연동 가능합니다.
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="section__body">
+                            <div class="list-api">
+                                <ul class="list-api__wrapper">
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">카드결제</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">휴대폰<br>소액결제</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="300">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">카카오페이</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="400">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">네이버페이</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="500">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">문자발송</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="600">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">카카오톡<br>메시지</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="700">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">본인인증</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="800">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">계좌 성명 조회</p>
+                                    </li>
+                                    <li class="list-api__item bx-item" data-aos="fade-up" data-aos-delay="900">
+                                        <div class="ico-sprites"></div>
+                                        <p class="txt">계좌 점유 인증</p>
+                                    </li>
+                                </ul>
+                            </div>
                             <p class="section__btn" data-aos="fade-down">
-                                <a href="./info/" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
-                                    <span>자세히 보기</span>
+                                <a href="./pay/api.html" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
+                                    <span>결제 서비스 보기</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+
+                                <a href="./api/msg.html" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
+                                    <span>부가서비스 보기</span>
                                     <i class="ri-arrow-right-line"></i>
                                 </a>
                             </p>
                         </div>
                     </div>
-                    <div class="imgBox right" data-aos="fade-left">
-                        <div class="img-wrapper">
-                            <img src="../assets/img/main/img_main_calc@2x.png" alt="유디페이 리셀러 마진수익 벌기 이미지" class="light">
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- 유디페이 리셀러 -->
-            <section class="section section--py-lg section-target bg-primary-light">
-                <div class="section__container">
-                    <div class="txtBox">
-                        <div class="desc">
-                            <h3 class="section__title" data-aos="fade-down">
-                                이런 분들이 유디페이 리셀러로 딱!
-                            </h3>
-                            <p class="section__desc">
-                                유디페이 리셀러 전용 관리 페이지가 무료!<br>
-                                가맹비, 유디페이 리셀러 등록비용이 없으며, 유디페이 리셀러 영업 관련 교육도 진행해 드립니다.
-                            </p>
+                <!-- 수익 계산 -->
+                <section class="section section--py-lg section-benefit">
+                    <div class="section__container cell-container">
+                        <div class="txtBox">
+                            <div class="desc">
+                                <h3 class="section__title" data-aos="fade-down">
+                                    매달 1,000만원의 마진수익 벌기,<br>
+                                    어렵지 않아요.
+                                </h3>
+                                <p class="section__desc" data-aos="fade-down">
+                                    연동 쫌 하는 개발자, 에이전시, 프리랜서라면 이제 매달<br>
+                                    꾸준히 이정도 벌 수 있습니다.<br>
+                                    유디페이 리셀러가 되어 짜릿한 수익을 맛보세요.
+                                </p>
+                                <p class="section__btn" data-aos="fade-down">
+                                    <a href="./info/" class="btn btn-primary btn-shadow-primary btn-ani-arrow">
+                                        <span>자세히 보기</span>
+                                        <i class="ri-arrow-right-line"></i>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="imgBox right" data-aos="fade-left">
+                            <div class="img-wrapper">
+                                <img src="../assets/img/main/img_main_calc@2x.png" alt="유디페이 리셀러 마진수익 벌기 이미지" class="light">
+                            </div>
                         </div>
                     </div>
-                    <div class="section__body">
-                        <div class="list-target">
-                            <ul class="list-target__wrapper">
-                                <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="ico-sprites"></div>
-                                    <dl>
-                                        <dt>외주 개발자/프리랜서 박OO</dt>
-                                        <dd>
-                                            사업자 등록증이 없어도 부업으로 수익을 낼 수 있어 좋아요.
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="ico-sprites"></div>
-                                    <dl>
-                                        <dt>쇼핑몰 제작 에이전시 김OO</dt>
-                                        <dd>
-                                            쇼핑몰 제작과 동시에 간편하게 연동하여 쏠쏠하게 돈벌 수 있어요.
-                                        </dd>
-                                    </dl>
-                                </li>
-                                <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="ico-sprites"></div>
-                                    <dl>
-                                        <dt>결제 관련 솔루션 제작업체 이OO</dt>
-                                        <dd>
-                                            별도로 PG 가입 없이 통합 연동으로 업무 시간이 절약돼요.
-                                        </dd>
-                                    </dl>
-                                </li>
-                            </ul>
+                </section>
+
+                <!-- 유디페이 리셀러 -->
+                <section class="section section--py-lg section-target bg-primary-light">
+                    <div class="section__container">
+                        <div class="txtBox">
+                            <div class="desc">
+                                <h3 class="section__title" data-aos="fade-down">
+                                    이런 분들이 유디페이 리셀러로 딱!
+                                </h3>
+                                <p class="section__desc">
+                                    유디페이 리셀러 전용 관리 페이지가 무료!<br>
+                                    가맹비, 유디페이 리셀러 등록비용이 없으며, 유디페이 리셀러 영업 관련 교육도 진행해 드립니다.
+                                </p>
+                            </div>
                         </div>
-                        <!-- 대리점 모집 배너 -->
-                        <div class="target--more" data-aos="fade-up" data-aos-delay="400">
-                            <dl>
-                                <dt>
-                                    개발자 회원이 많은
-                                    <b class="under-color">카페, 포럼, 커뮤니티 운영업체, 플랫폼 서비스</b>
-                                    업체분들은 대리점이 되어 보세요.
-                                </dt>
-                                <dd>대리점이 되시면 하부에 리셀러를 유치하여 영업진행이 가능합니다.</dd>
-                            </dl>
-                            <a href="./support/qna.html" class="btn btn-primary btn-sm btn-shadow-primary">대리점 문의하기</a>
+                        <div class="section__body">
+                            <div class="list-target">
+                                <ul class="list-target__wrapper">
+                                    <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="ico-sprites"></div>
+                                        <dl>
+                                            <dt>외주 개발자/프리랜서 박OO</dt>
+                                            <dd>
+                                                사업자 등록증이 없어도 부업으로 수익을 낼 수 있어 좋아요.
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                    <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="ico-sprites"></div>
+                                        <dl>
+                                            <dt>쇼핑몰 제작 에이전시 김OO</dt>
+                                            <dd>
+                                                쇼핑몰 제작과 동시에 간편하게 연동하여 쏠쏠하게 돈벌 수 있어요.
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                    <li class="list-target__item bx-item" data-aos="fade-up" data-aos-delay="300">
+                                        <div class="ico-sprites"></div>
+                                        <dl>
+                                            <dt>결제 관련 솔루션 제작업체 이OO</dt>
+                                            <dd>
+                                                별도로 PG 가입 없이 통합 연동으로 업무 시간이 절약돼요.
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 대리점 모집 배너 -->
+                            <div class="target--more" data-aos="fade-up" data-aos-delay="400">
+                                <dl>
+                                    <dt>
+                                        개발자 회원이 많은
+                                        <b class="under-color">카페, 포럼, 커뮤니티 운영업체, 플랫폼 서비스</b>
+                                        업체분들은 대리점이 되어 보세요.
+                                    </dt>
+                                    <dd>대리점이 되시면 하부에 리셀러를 유치하여 영업진행이 가능합니다.</dd>
+                                </dl>
+                                <a href="./support/qna.html" class="btn btn-primary btn-sm btn-shadow-primary">대리점 문의하기</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </section>
-        </section>
-        <!-- //section-wrapper -->
-    </main>
-    <div id="site-footer"></div>
-</div>
-<script>
-    $('#site-header').addClass('main');
-</script>
+            <!-- //section-wrapper -->
+        </main>
+        <div id="site-footer"></div>
+    </div>
+    <script>
+        $('#site-header').addClass('main');
+    </script>
 </body>
 </html>
