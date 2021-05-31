@@ -30,9 +30,11 @@
     <script src="/pf/pf_ud/common/js/owl.carousel.min.js"></script>
     <script defer src="/pf/pf_ud/udpay/hp_v2/assets/js/guide.js" charset="utf-8"></script>
     <script type="text/javascript">
-        $(document).ready( function() {
+        $(document).ready(function() {
             $("#site-header").load("../inc/header.html");
-            $("#apitabs").load("../inc/apitabs.html");
+            $("#paytabs").load("../inc/paytabs.html", function(){
+                $('.api-tabs').find('li:nth-child(5)').addClass('active');
+            });
             $("#apibuttons").load("../inc/apibuttons.html");
             $("#site-footer").load("../inc/footer.html");
         });
@@ -51,7 +53,7 @@
         <main id="site-main" role="main">
             <section class="section-wrapper" id="sub-sections">
                 <h2 class="screen-reader">본문</h2>
-                <div id="apitabs"></div>
+                <div id="paytabs"></div>
                 <section class="subPage__wrapper">
                     <div class="subPage__header" data-aos="fade-down" data-aos-duration="600">
                         <div class="subPage__inner">
@@ -284,8 +286,5 @@
     <!-- //site-main -->
     <div id="site-footer"></div>
 </div>
-<script>
-    $('#apitabs').find('li:nth-child(5)').addClass('active');
-</script>
 </body>
 </html>

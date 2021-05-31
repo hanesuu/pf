@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>유디페이 리셀러 홈페이지</title>
+    <meta name="description" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:description" content="판매점을 유치하고, 저렴한 공급가로 제공되는 API에 마진을 설정하여 부가수익을 얻을 수 있습니다.">
+    <meta property="og:site_name" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:image" content="/pf/pf_ud/udpay/common/img/link_thumb_rs.png">
+    <meta property="og:url" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="유디페이 리셀러,리셀러,결제API,부가API,API,API연동,쇼핑몰개발,솔루션개발,부가수익">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+    <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/common/js/owl.carousel.min.js"></script>
+    <script defer src="/pf/pf_ud/udpay/hp_v2/assets/js/guide.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#site-header").load("../inc/header.html");
+            $("#apitabs").load("../inc/apitabs.html", function(){
+                $('.api-tabs').find('li:nth-child(7)').addClass('active');
+            });
+            $("#apibuttons").load("../inc/apibuttons.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
+
+    <div id="site-container">
+        <header id="site-header"></header>
+        <main id="site-main" role="main">
+            <section class="section-wrapper" id="sub-sections">
+                <h2 class="screen-reader">본문</h2>
+                <div id="apitabs"></div>
+                <section class="subPage__wrapper">
+                    <div class="subPage__header" data-aos="fade-down" data-aos-duration="600">
+                        <div class="subPage__inner">
+                            <h3 class="subPage__title with-supports">
+                                계좌 점유 인증 서비스
+                            </h3>
+                            <p class="supports">
+                                <span class="support-device support-api">api <span class="screen-reader">지원</span></span>
+                            </p>
+                            <p class="subPage__desc">
+                                은행명, 계좌번호, 예금주 입력 시 해당 계좌에 1원을 이체 후 인증번호 입력을 통해 계좌의 점유여부를<br class="mobile-hidden-xs" />
+                                거래전 확인하여 입출금 사고를 방지하는 서비스입니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="subPage__body">
+                        <!-- 예금주 실명조회 서비스 설명 -->
+                        <div class="section section--py-sm subPage-section first" data-aos="fade-up" data-aos-duration="600">
+                            <div class="subPage__inner">
+                                <ul class="bx-point">
+                                    <li>
+                                        <em class="point">POINT</em>
+                                        <p class="txt-md">고객 계좌의 자동이체 등록, 환불 등 <br>현금 거래 시 주요하게 필요한 서비스</p>
+                                    </li>
+                                    <li>
+                                        <em class="point">POINT</em>
+                                        <p class="txt-md">보험사, 카드사, 캐피탈사, 도시가스업체, <br>케이블 방송사, 여행사, 온라인쇼핑몰 등 <br>다양한 업체에 유용</p>
+                                    </li>
+                                    <li>
+                                        <em class="point">POINT</em>
+                                        <p class="txt-md">정기적으로 고객 계좌의 자동이체와 집금, <br>비용 지급이 이루어지는 기관에 필수인 서비스</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //subPage-section -->
+
+                        <!-- 계좌인증 적용 예시 -->
+                        <div class="section section--py-sm subPage-section">
+                            <div class="subPage__inner">
+                                <div class="subPage-section__header center" data-aos="fade-down" data-aos-duration="600">
+                                    <h4 class="subPage-section__title">
+                                        <strong>계좌 점유 인증 적용 예시</strong>
+                                    </h4>
+                                </div>
+                                <div class="subPage-section__body center" data-aos="fade-up" data-aos-duration="600">
+                                    <div class="sect__screen screen4">
+                                        <ul>
+                                            <li>
+                                                <img src="../../assets/img/addition/img_bank_screen1.png" alt="계좌 인증 클릭 화면">
+                                                <dl>
+                                                    <dt>
+                                                        <span class="txt-step">STEP1</span>
+                                                    </dt>
+                                                    <dd class="tit-h4">
+                                                        은행선택, 계좌번호, 예금주<br>
+                                                        입력 후 [계좌인증] 클릭
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <img src="../../assets/img/addition/img_occ_screen2.png" alt="계좌 점유 인증 입력 화면">
+                                                <dl>
+                                                    <dt>
+                                                        <span class="txt-step">STEP2</span>
+                                                    </dt>
+                                                    <dd class="tit-h4">
+                                                        유효계좌 시<br>
+                                                        인증번호 입력
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <img src="../../assets/img/addition/img_occ_screen3.png" alt="유효하지 않은 계좌 안내 메시지 화면">
+                                                <dl>
+                                                    <dt>
+                                                        <span class="txt-step">STEP2-1</span>
+                                                    </dt>
+                                                    <dd class="tit-h4">
+                                                        유효하지 않은<br>
+                                                        계좌일 경우 재시도 안내
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <img src="../../assets/img/addition/img_occ_screen4.png" alt="인증번호 오류 안내 메시지 화면">
+                                                <dl>
+                                                    <dt>
+                                                        <span class="txt-step">STEP2-2</span>
+                                                    </dt>
+                                                    <dd class="tit-h4">
+                                                        인증번호가 일치하지 않을<br>
+                                                        경우 재시도 안내
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- //sect__screen -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //subPage-section -->
+
+                        <!-- 서비스 신청 및 이용 절차 -->
+                        <section class="section section--py-sm subPage-section bg-base-gray">
+                            <div class="subPage__inner">
+                                <div class="subPage-section__header center" data-aos="fade-down" data-aos-duration="600">
+                                    <h4 class="subPage-section__title">
+                                        <strong>서비스 신청 및 이용 절차</strong>
+                                    </h4>
+                                </div>
+                                <div class="subPage-section__body">
+                                    <div class="sect-info">
+                                        <ul class="list-step">
+                                            <li class="step1 aos-init aos-animate" data-aos="fade-right">
+                                                <div class="ico-img"></div>
+                                                <span class="txt-step">STEP1</span>
+                                                <p>무료 회원가입</p>
+                                            </li>
+                                            <li class="step2 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+                                                <div class="ico-img"></div>
+                                                <span class="txt-step">STEP2</span>
+                                                <p>로그인 &gt; 웹 관리자 [API관리]<br class="mobile-hidden-sm">모드에서 연동 토큰 확인</p>
+                                            </li>
+                                            <li class="step3 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                                                <div class="ico-img"></div>
+                                                <span class="txt-step">STEP3</span>
+                                                <p>연동 매뉴얼로<br class="mobile-hidden-sm">간편연동</p>
+                                            </li>
+                                            <li class="step4 aos-init" data-aos="fade-right" data-aos-delay="300">
+                                                <div class="ico-img"></div>
+                                                <span class="txt-step">STEP4</span>
+                                                <p>선불 충전</p>
+                                            </li>
+                                            <li class="step5 aos-init" data-aos="fade-right" data-aos-delay="400">
+                                                <div class="ico-img"></div>
+                                                <span class="txt-step">STEP5</span>
+                                                <p>테스트 및<br class="mobile-hidden-sm">서비스 오픈</p>
+                                            </li>
+                                        </ul>
+                                        <!-- //list-step -->
+                                    </div>
+                                    <!-- //sect-info -->
+
+                                    <!-- 하단 공통 버튼 -->
+                                    <div id="apibuttons"></div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- //subPage-section -->
+                    </div>
+                </section>
+            </section>
+            <!-- //section-wrapper -->
+        </main>
+        <!-- //site-main -->
+        <div id="site-footer"></div>
+    </div>
+</body>
+</html>

@@ -28,7 +28,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#site-header").load("../inc/header.html");
-            $("#apitabs").load("../inc/apitabs.html", function(){
+            $("#paytabs").load("../inc/paytabs.html", function(){
                 $('.api-tabs').find('li:nth-child(1)').addClass('active');
             });
             $("#apibuttons").load("../inc/apibuttons.html");
@@ -49,7 +49,7 @@
         <main id="site-main" role="main">
             <section class="section-wrapper" id="sub-sections">
                 <h2 class="screen-reader">본문</h2>
-                <div id="apitabs"></div>
+                <div id="paytabs"></div>
                 <section class="subPage__wrapper">
                     <div class="subPage__header" data-aos="fade-down" data-aos-duration="600">
                         <div class="subPage__inner">

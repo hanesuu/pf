@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>유디페이 리셀러 홈페이지</title>
+    <meta name="description" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:description" content="판매점을 유치하고, 저렴한 공급가로 제공되는 API에 마진을 설정하여 부가수익을 얻을 수 있습니다.">
+    <meta property="og:site_name" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:image" content="/pf/pf_ud/udpay/common/img/link_thumb_rs.png">
+    <meta property="og:url" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="유디페이 리셀러,리셀러,결제API,부가API,API,API연동,쇼핑몰개발,솔루션개발,부가수익">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+    <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/common/js/owl.carousel.min.js"></script>
+    <script defer src="/pf/pf_ud/udpay/hp_v2/assets/js/guide.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#site-header").load("../inc/header.html");
+            $("#apitabs").load("../inc/apitabs.html", function(){
+                $('.api-tabs').find('li:nth-child(3)').addClass('active');
+            });
+            $("#apibuttons").load("../inc/apibuttons.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
+
+    <div id="site-container">
+        <header id="site-header"></header>
+        <main id="site-main" role="main">
+            <section class="section-wrapper" id="sub-sections">
+                <h2 class="screen-reader">본문</h2>
+                <div id="apitabs"></div>
+                <section class="subPage__wrapper">
+                    <div class="subPage__header" data-aos="fade-down" data-aos-duration="600">
+                        <div class="subPage__inner">
+                            <h3 class="subPage__title with-supports">
+                                카카오 메시지 서비스
+                            </h3>
+                            <p class="supports">
+                                <span class="support-device support-api">api <span class="screen-reader">지원</span></span>
+                            </p>
+                            <p class="subPage__desc">
+                                카카오톡에 정보형 메시지를 전송하는 알림톡과, 메시지 내용에 제한없이 전송하는 친구톡을 제공하며<br class="mobile-hidden-sm" />
+                                전송 실패시 대체문자 자동 발송을 지원하는 API 입니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="subPage__body area-wrapper">
+                        <!-- 카카오 메시지 서비스 설명 -->
+                        <div class="section section--py-sm subPage-section first" data-aos="fade-up" data-aos-duration="600">
+                            <div class="subPage__inner">
+                                <div class="sect__screen">
+                                    <ul>
+                                        <li>
+                                            <div class="wrap-screen">
+                                                <img src="../../assets/img/addition/img_kakao_screen1@2x.png" alt="카카오 알림톡 예시 이미지" class="img-screen aos-init aos-animate" data-aos="fade" data-aos-delay="100">
+                                                <img src="../../assets/img/addition/img_kakao_3.png" alt="" data-aos="fade-right" data-aos-delay="300" class="shape-left aos-init aos-animate">
+                                            </div>
+                                            <dl>
+                                                <dt class="tit-h4 txt-point">알림톡</dt>
+                                                <dd class="txt-md">친구 추가가 필요 없는 정보성 메세지</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <div class="wrap-screen">
+                                                <img src="../../assets/img/addition/img_kakao_screen2@2x.png" alt="카카오 친구톡 예시 이미지" class="img-screen aos-init aos-animate" data-aos="fade" data-aos-delay="100">
+                                                <img src="../../assets/img/addition/img_kakao_4.png" alt="" data-aos="fade-left" data-aos-delay="300" class="shape-right aos-init aos-animate">
+                                            </div>
+                                            <dl>
+                                                <dt class="tit-h4 txt-sub">친구톡</dt>
+                                                <dd class="txt-md">카카오톡 채널 고객에게 타켓팅 메세지</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- //sect__screen -->
+                            </div>
+                        </div>
+                        <!-- //subPage-section -->
+
+                        <!-- 알림톡/친구톡 서비스 비교 -->
+                        <section class="section section--py-sm subPage-section">
+                            <div class="subPage__inner">
+                                <div class="subPage-section__header center" data-aos="fade-down" data-aos-duration="600">
+                                    <h3 class="subPage-section__title">
+                                        <strong>알림톡/친구톡 서비스 비교</strong>
+                                    </h3>
+                                </div>
+                                <div class="subPage-section__body center" data-aos="fade-up" data-aos-duration="600">
+                                    <div class="sect__tbl" >
+                                        <table>
+                                            <caption>알림톡과 친구톡 서비스 비교 안내 - 이용대상, 전송대상, 전송내용, 제한사항, 메시지 지원, 부가서비스 순으로 내용을 제공하고 있습니다.</caption>
+                                            <colgroup>
+                                                <col width="*">
+                                                <col width="40%">
+                                                <col width="40%">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="bg-lighten">구분</th>
+                                                    <th scope="col" class="bg-point">알림톡</th>
+                                                    <th scope="col" class="bg-sub">친구톡</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">이용대상</th>
+                                                    <td colspan="2">
+                                                        <p class="tit-h5">법인사업자,개인사업자(사업자등록증소지 사업자)</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">전송대상</th>
+                                                    <td>
+                                                        <p class="tit-h5">모든 번호에 전송 가능</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="tit-h5">카카오톡 채널 친구인 번호에만 전송 가능
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">전송내용</th>
+                                                    <td>
+                                                        <p class="tit-h5">정보성 메세지</p>
+                                                        <small class="txt-md">주문/예약/결제/배송/포인트적립</small>
+                                                    </td>
+                                                    <td>
+                                                        <p class="tit-h5">광고성 메시지</p>
+                                                        <small class="txt-md">광고, 이벤트, 프로모션 안내 등 마케팅 메시지</small>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">제한사항</th>
+                                                    <td>
+                                                        <p class="tit-h5">사전에 승인받은 템플릿을 통해 전송</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="tit-h5">야간발송 제한</p>
+                                                        <small class="txt-md">20:00 ~ 익일 08:00</small>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">메시지 지원</th>
+                                                    <td>
+                                                        <p class="tit-h5">한/영 구분없이 1,000자 + 메시지 버튼</p>
+                                                        <small class="txt-md">최대 5개</small>
+                                                    </td>
+                                                    <td>
+                                                        <dl>
+                                                            <dt class="tit-h5">[친구톡 텍스트]</dt>
+                                                            <dd class="tit-h5">한/영 구분없이 1,000자 + 메시지 버튼</dd>
+                                                            <dd class="txt-md">최대 5개</dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt class="tit-h5">[친구톡 이미지]</dt>
+                                                            <dd class="tit-h5">한/영 구분없이 400자 + 이미지 1장 + 메시지 버튼</dd>
+                                                            <dd class="txt-md">최대 5개</dd>
+                                                        </dl>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">부가서비스</th>
+                                                    <td colspan="2">
+                                                        <p class="tit-h5">카카오톡 전송 실패 시 자동 발송 지원</p>
+                                                        <p class="tit-h5">080 수신거부 자동필터링 지원</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- //sect__tbl -->
+                                </div>
+                            </div>
+                        </section>
+                        <!-- //subPage-section -->
+
+                        <!-- 서비스 신청 및 이용 절차 -->
+                        <section class="section section--py-sm subPage-section bg-base-gray">
+                            <div class="subPage__inner">
+                                <div class="subPage-section__header center aos-init aos-animate" data-aos="fade-down" data-aos-duration="600">
+                                    <h3 class="subPage-section__title">
+                                        <strong>서비스 신청 및 이용 절차</strong>
+                                    </h3>
+                                </div>
+                                <div class="subPage-section__body center">
+                                    <div class="sect__tbl-step">
+                                        <span class="line-point aos-init aos-animate" data-aos="fade" data-aos-delay="200"></span>
+                                        <span class="line-sub aos-init aos-animate" data-aos="fade" data-aos-delay="200"></span>
+                                        <div class="tbl-head d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <h4 class="tit-h4 bg-point">알림톡</h4>
+                                            <h4 class="tit-h4 bg-sub">친구톡</h4>
+                                        </div>
+                                        <div class="bx-wide aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <span class="txt-step">STEP1</span>
+                                            <p class="tit-h4">무료 회원 가입</p>
+                                        </div>
+                                        <div class="bx-wide aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <span class="txt-step">STEP2</span>
+                                            <p class="tit-h4">사전 준비</p>
+                                            <p class="tit-h5">카카오톡 채널 관리자 가입 &gt; 채널 개설하기 &gt; 채널 비즈니스 인증 &gt; 채널 공개설정</p>
+                                        </div>
+                                        <div class="bx-wide aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <span class="txt-step">STEP3</span>
+                                            <p class="tit-h4">발신 프로필 등록</p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                                <span class="txt-step">STEP4</span>
+                                                <p class="tit-h4">템플릿 설정 필수</p>
+                                                <p class="tit-h5 txt-point">유디페이에서 사전 승인받은 템플릿 바로 이용 가능</p>
+                                                <small class="txt-md">본인이 직접 템플릿을 작성할 경우 <br>템플릿 등록 후 카카오 검수 진행 필요</small>
+                                            </div>
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                                <span class="txt-step">STEP4</span>
+                                                <p class="tit-h4">템플릿 설정 불필요</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                                <span class="txt-step">STEP5</span>
+                                                <p class="tit-h4">알림톡 연동작업</p>
+                                                <p class="tit-h5">연동 매뉴얼에 맞게 <a href="http://uddocs.net/v/paynapi?groupId=5e2a53380ecfea12a25f523b" target="_blank" title="새 탭으로 이동" class="under">API 연동 작업</a>을 해주세요.</p>
+                                            </div>
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                                <span class="txt-step">STEP5</span>
+                                                <p class="tit-h4">친구톡 연동작업</p>
+                                                <p class="tit-h5">연동 매뉴얼에 맞게 서비스에 <a href="http://uddocs.net/v/paynapi?groupId=5e2a53380ecfea12a25f523b" target="_blank" title="새 탭으로 이동" class="under">API 연동 작업</a>을 해주세요.</p>
+                                            </div>
+                                        </div>
+                                        <div class="bx-wide aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                            <span class="txt-step">STEP6</span>
+                                            <p class="tit-h4">연동 테스트 및 사용</p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                                <span class="txt-step">STEP7</span>
+                                                <p class="tit-h4">카카오 검수완료된 템플릿으로 고객에게 알림톡 발송</p>
+                                            </div>
+                                            <div class="bx-half aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                                <span class="txt-step">STEP7</span>
+                                                <p class="tit-h4">메시지 작성, 수신대상설정</p>
+                                                <p class="tit-h5">야간 발송제한 20시~08시</p>
+                                                <small class="txt-md txt-point">* 카카오 검수 없이 메시지 발송 친구에게 즉시 발송</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- //sect__tbl-step -->
+
+                                    <<!-- 하단 공통 버튼 -->
+                                    <div id="apibuttons"></div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- //subPage-section -->
+                    </div>
+                </section>
+            </section>
+            <!-- //section-wrapper -->
+        </main>
+        <!-- //site-main -->
+        <div id="site-footer"></div>
+    </div>
+</body>
+</html>
