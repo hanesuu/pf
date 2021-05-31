@@ -26,10 +26,10 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="/pf/pf_ud/common/js/aos.js"></script>
     <script type="text/javascript">
-        $(document).ready( function() {
+        $(document).ready(function() {
             $("#site-header").load("../inc/header.html");
             $("#apitabs").load("../inc/apitabs.html", function(){
-                $('api-tabs').find('li:nth-child(1)').addClass('active');
+                $('.api-tabs').find('li:nth-child(1)').addClass('active');
             });
             $("#apibuttons").load("../inc/apibuttons.html");
             $("#site-footer").load("../inc/footer.html");
@@ -182,8 +182,5 @@
         <!-- //site-main -->
         <div id="site-footer"></div>
     </div>
-    <script>
-        $('#apitabs').find('li:nth-child(1)').addClass('active');
-    </script>
 </body>
 </html>
