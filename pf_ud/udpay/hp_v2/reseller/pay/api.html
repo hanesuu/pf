@@ -20,7 +20,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
     <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
 
-    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.ccss"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.css"/>
     <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
     
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -28,7 +28,9 @@
     <script type="text/javascript">
         $(document).ready( function() {
             $("#site-header").load("../inc/header.html");
-            $("#apitabs").load("../inc/apitabs.html");
+            $("#apitabs").load("../inc/apitabs.html", function(){
+                $('api-tabs').find('li:nth-child(1)').addClass('active');
+            });
             $("#apibuttons").load("../inc/apibuttons.html");
             $("#site-footer").load("../inc/footer.html");
         });
