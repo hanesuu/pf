@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>유디페이 리셀러 홈페이지</title>
+    <meta name="description" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:description" content="판매점을 유치하고, 저렴한 공급가로 제공되는 API에 마진을 설정하여 부가수익을 얻을 수 있습니다.">
+    <meta property="og:site_name" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:image" content="/pf/pf_ud/udpay/common/img/link_thumb_rs.png">
+    <meta property="og:url" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="유디페이 리셀러,리셀러,결제API,부가API,API,API연동,쇼핑몰개발,솔루션개발,부가수익">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+    <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.ccss"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/common/js/owl.carousel.min.js"></script>
+    <script defer src="/pf/pf_ud/udpay/hp_v2/assets/js/guide.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#site-header").load("../inc/header.html");
+            $("#apitabs").load("../inc/apitabs.html");
+            $("#apibuttons").load("../inc/apibuttons.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
+
+    <div id="site-container">
+        <header id="site-header"></header>
+        <main id="site-main" role="main">
+            <section class="section-wrapper" id="sub-sections">
+                <h2 class="screen-reader">본문</h2>
+                <div id="apitabs"></div>
+                <section class="subPage__wrapper">
+                    <div class="subPage__header" data-aos="fade-down" data-aos-duration="600">
+                        <div class="subPage__inner">
+                            <h3 class="subPage__title with-supports">
+                                터치 결제
+                            </h3>
+                            <p class="supports">
+                                <span class="support-device support-app">app <span class="screen-reader">지원</span></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="subPage__body area-wrapper">
+                        <!-- 터치 결제 이용순서 -->
+                        <section class="section section--py-xs subPage-section" data-aos="fade-up" data-aos-duration="600">
+                            <div class="subPage__inner">
+                                <h4 class="screen-reader">터치 결제 이용순서</h4>
+                                <div class="card-container">
+                                    <div class="card-txtbox left">
+                                        <div class="desc">
+                                            <p class="card-txt__key-tit">
+                                               삼성페이 &amp; <span>NFC</span> 터치결제 지원!
+                                           </p>
+                                           <p class="card-txt__key-exp">
+                                            구매자의 삼성페이폰 또는 신용카드를 <br>
+                                            판매자 휴대폰 뒤에 터치해 즉시 결제 받을 수 있습니다.
+                                        </p>
+                                        <p class="text-success mt-1">
+                                            * 판매자 폰이 NFC 지원 단말기여야 함
+                                        </p>
+                                        <div class="tagBox">
+                                            <span>#NFC터치단말기</span>
+                                            <span>#실물카드가없을때</span>
+                                        </div>
+                                    </div>
+                                    <div id="sync2" class="owl-carousel">
+                                        <div class="stepbox">
+                                            <h5 class="stepbox-tit">결제받기</h5>
+                                            <p class="stepbox-desc">
+                                                &#39;결제받기&#39; 버튼을 터치하면 계산기 모드 화면이 나타납니다.<br/>
+                                                결제하고자 하는 금액을 입력 후 하단의 &#39;결제하기&#39; 버튼을 터치합니다.
+                                            </p>
+                                        </div>
+                                        <div class="stepbox">
+                                            <h5 class="stepbox-tit">카메라 결제 모드</h5>
+                                            <p class="stepbox-desc">
+                                                계산기 모드에서 결제 금액을 입력하거나<br/>
+                                                상품을 선택하여 카메라 결제 화면으로 먼저 진입합니다.
+                                            </p>
+                                        </div>
+                                        <div class="stepbox">
+                                            <h5 class="stepbox-tit">NFC 결제</h5>
+                                            <p class="stepbox-desc">
+                                                &#39;NFC&#39; 버튼을 터치하여 NFC 결제 화면이 나타날 때<br/>
+                                                휴대폰 뒷면에 카드를 터치 합니다.<br/>
+                                                단, 휴대폰의 NFC 모드가 활성화 되어 있어야 합니다.
+                                            </p>
+                                        </div>
+                                        <div class="stepbox">
+                                            <h5 class="stepbox-tit">삼성페이 결제</h5>
+                                            <p class="stepbox-desc">
+                                                &#39;삼성페이&#39; 버튼을 터치하여 삼성페이 결제 화면이 나타날 때,<br/>
+                                                휴대폰 뒷면에 구매자의 스마트폰의 삼성페이를 활성화하여 터치합니다.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //card-txtbox -->
+
+                                <div class="card-imgbox right">
+                                    <div id="sync1" class="owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="imgBox">
+                                                <img src="../../assets/img/guide/img_touch_mobile1.png" alt="결제받기">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="imgBox">
+                                                <img src="../../assets/img/guide/img_camera_mobile3.png" alt="카메라 계산기 모드">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="imgBox">
+                                                <img src="../../assets/img/guide/img_touch_mobile2.png" alt="NFC 결제">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="imgBox">
+                                                <img src="../../assets/img/guide/img_touch_mobile3.png" alt="삼성페이 결제">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //card-imgbox -->
+                            </div>
+
+                            <div class="card-infobox">
+                                <ul>
+                                    <li>
+                                        <dl>
+                                            <dt>
+                                                결제 방법
+                                            </dt>
+                                            <dd>
+                                               <ol>
+                                                   <li>
+                                                       스마트폰을 NFC터치 단말기로 사용하고 싶을 때!
+                                                   </li>
+                                                   <li>
+                                                       구매자가 실물 카드가 없지만 삼성페이 결제지원 휴대폰을 사용할 때!
+                                                   </li>
+                                               </ol>
+                                           </dd>
+                                       </dl>
+                                   </li>
+                               </ul>
+                           </div>
+                           <!-- //card-infobox -->
+                       </div>
+                       <!-- 하단 공통 버튼 -->
+                       <div id="apibuttons"></div>
+                   </section>
+                   <!--//subPage-section-->
+               </div>
+           </section>
+       </section>
+       <!-- //section-wrapper -->
+   </main>
+   <!-- //site-main -->
+   <div id="site-footer"></div>
+</div>
+<script>
+    $('#apitabs').find('li:nth-child(3)').addClass('active');
+</script>
+</body>
+</html>

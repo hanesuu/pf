@@ -27,10 +27,11 @@
     <script src="/pf/pf_ud/common/js/aos.js"></script>
     <script type="text/javascript">
         $(document).ready( function() {
-          $("#site-header").load("./inc/header.html");
-          $("#apitabs").load("./inc/apitabs.html");
-          $("#site-footer").load("./inc/footer.html");
-      });
+            $("#site-header").load("../inc/header.html");
+            $("#apitabs").load("../inc/apitabs.html");
+            $("#apibuttons").load("../inc/apibuttons.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
   </script>
 </head>
 <body>
@@ -134,7 +135,7 @@
                                 <div class="subPage-section__body" data-aos="fade-up" data-aos-duration="600">
                                     <div class="guide desktop">
                                         <div class="guide-img">
-                                            <img src="/files/img/img_epay1.png" alt="전자 결제 화면">
+                                            <img src="../../assets/img/guide/img_epay1.png" alt="전자 결제 화면">
                                         </div>
                                     </div>
                                 </div>
@@ -166,19 +167,9 @@
                                 </div>
                                 <!-- //card-infobox -->
                             </div>
-
+                            
                             <!-- 하단 공통 버튼 -->
-                            <div class="btn-group btn-group-bottom center">
-                                <a href="../price/" target="_blank" class="btn btn-sm btn-primary btn-shadow-primary btn-ani-arrow">
-                                    <span>공급단가 보기</span>
-                                    <i class="ri-arrow-right-line"></i>
-                                </a>
-                                <a href="../guide/" target="_blank" class="btn btn-sm btn-white-primary btn-shadow-primary btn-ani-arrow">
-                                    <span>API 매뉴얼 보기</span>
-                                    <i class="ri-arrow-right-line"></i>
-                                </a>
-                            </div>
-                            <!-- //하단 공통 버튼 -->
+                            <div id="apibuttons"></div>
                         </section>
                         <!-- //subPage-section -->
                     </div>
@@ -187,12 +178,10 @@
             <!-- //section-wrapper -->
         </main>
         <!-- //site-main -->
-        <script>
-        </script>
         <div id="site-footer"></div>
     </div>
     <script>
-        $('#api-tabs').find('li:nth-child(1)').addClass('active');
+        $('#apitabs').find('li:nth-child(1)').addClass('active');
     </script>
 </body>
 </html>
