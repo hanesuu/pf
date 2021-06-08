@@ -157,4 +157,14 @@
         <div id="site-footer"></div>
     </div>
 </body>
+<script type="text/javascript">
+// faq accodion list
+$(document).ready(function() {
+    $(".faq-list-item__answer").hide();
+    $(".faq-list-item__question").click(function(){
+        $(this).parent().toggleClass("is-active").children(".faq-list-item__answer").slideToggle(200);
+        $(this).parent().siblings().removeClass("is-active").children(".faq-list-item__answer").slideUp(200);
+    });
+});
+</script>
 </html>

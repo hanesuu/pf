@@ -43,27 +43,6 @@ $(window).resize(function () {
 });
 
 
-// show dialog
-function fnShowPop(sGetName){
-    $("#"+ sGetName).addClass("on");
-}
-// hide dialog
-function fnHidePop(sGetName){
-    $("#"+ sGetName).removeClass("on");
-}
-
-
-// faq accodion list
-$(document).ready(function() {
-    $(".faq-list-item__answer").hide();
-    $(".faq-list-item__question").click(function(){
-        $(this).parent().siblings().removeClass("is-active").children(".faq-list-item__answer").slideUp(200);
-        $(this).parent().toggleClass("is-active").children(".faq-list-item__answer").slideToggle(200);
-    });
-});
-
-
-
 // scroll top button
 $(window).scroll(function(){
     if($(this).scrollTop() > 200){
@@ -76,3 +55,13 @@ $(".scroll-top").click(function(){
     $('html, body').animate({scrollTop:0},400);
     return false;
 });
+
+
+// show dialog
+function fnShowPop(sGetName){
+    $("#"+ sGetName).addClass("on");
+}
+// hide dialog
+function fnHidePop(sGetName){
+    $("#"+ sGetName).removeClass("on");
+}
