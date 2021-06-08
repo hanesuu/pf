@@ -43,7 +43,7 @@
     font-size: $font-size-xs;
   }
   &-sm{
-    padding: 1.333rem;
+    padding: 1rem 1.333rem;
     font-size: $font-size-xsmall;
   }
   &-xs {
@@ -147,10 +147,10 @@
 
 // 백그라운드버튼 기본 스타일
 .btn-default{
-  padding: 1.667rem 1.667rem;
+  padding: 1.25rem 1.667rem;
   border-color: $text-dark;
   background-color: $text-dark;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
   color: $white;
 

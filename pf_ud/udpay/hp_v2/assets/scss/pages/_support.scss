@@ -209,6 +209,7 @@
       display: table-cell;
       width: 75%;
       vertical-align: middle;
+      padding-left: 1.875rem;
     }
   }
   
@@ -220,6 +221,7 @@
       display: table-cell;
       width: 25%;
       padding-top: 1rem;
+      padding-right: 1.875rem;
       vertical-align: middle;
       text-align: right;
       font-size: $font-size-xsmall;
@@ -241,6 +243,10 @@
     padding: 1rem;
     text-align:left;
     background-color: $white-gray;
+
+    @include res(sm) {
+      padding: 1rem 1.875rem;
+    }
     
     dl{
       display:inline-block;
@@ -272,6 +278,10 @@
     padding: 1rem;
     border-bottom: 1px solid $border-light;
     text-align:left;
+
+    @include res(sm) {
+      padding: 1rem 1.875rem
+    }
   }
 }
 
