@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>유디페이 리셀러 홈페이지</title>
+    <meta name="description" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:description" content="판매점을 유치하고, 저렴한 공급가로 제공되는 API에 마진을 설정하여 부가수익을 얻을 수 있습니다.">
+    <meta property="og:site_name" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:image" content="/pf/pf_ud/udpay/common/img/link_thumb_rs.png">
+    <meta property="og:url" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="유디페이 리셀러,리셀러,결제API,부가API,API,API연동,쇼핑몰개발,솔루션개발,부가수익">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+    <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/udpay/hp_v2/assets/js/style.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#site-header").load("../inc/header.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
+
+    <div id="site-container">
+        <header id="site-header"></header>
+        <main id="site-main" role="main">
+            <h2 class="screen-reader">본문</h2>
+            <section class="subPage__wrapper">
+                <div class="subPage__header header-support">
+                    <div class="subPage__inner">
+                        <h3 class="subPage__title" data-aos="fade-down" data-aos-duration="600">고객센터</h3>
+                    </div>
+                </div>
+                <div class="subPage__body">
+                    <div class="section section--py-sm subPage-section" data-aos="fade-up" data-aos-duration="600">
+                        <div class="subPage__inner">
+                            <div class="form-wrapper" data-aos="fade-up" data-aos-duration="600">
+                                <form id="inputForm">
+                                    <div class="form-container">
+                                        <dl class="form-item">
+                                            <dt>
+                                                <label for="name">
+                                                    <span class="form-label">업체명(이름)</span>
+                                                    <span class="required-data">필수</span>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <input type="text" id="name" name="name" class="inputBox" placeholder="업체명 또는 이름을 입력하세요." required>
+                                            </dd>
+                                        </dl>
+                                        <dl class="form-item">
+                                            <dt>
+                                                <label for="phone">
+                                                    <span class="form-label">휴대폰 번호</span>
+                                                    <span class="required-data">필수</span>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <input type="tel" id="phone" name="phone" class="inputBox" maxlength="11" placeholder="휴대폰 번호를 숫자만 입력하세요." required>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="form-item">
+                                            <dt>
+                                                <label for="email">
+                                                    <span class="form-label">이메일(ID)</span>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <input type="email" id="email" name="email" class="inputBox" placeholder="이메일 주소를 입력하세요.">
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="form-container">
+                                        <dl class="form-item">
+                                            <dt>
+                                                <label for="title">
+                                                    <span class="form-label">문의 제목</span>
+                                                    <span class="required-data">필수</span>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <input type="text" id="title" name="title" class="inputBox" placeholder="문의 제목을 입력하세요." required>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="form-container">
+                                        <dl class="form-item">
+                                            <dt>
+                                                <label for="contents">
+                                                    <span class="form-label">문의내용</span>
+                                                    <span class="required-data">필수</span>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <textarea class="inputBox" id="contents" name="contents" placeholder="문의내용을 입력하세요." required></textarea>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="form-container">
+                                        <dl class="form-item">
+                                            <dt>
+                                                <span class="form-label">파일첨부</span>
+                                            </dt>
+                                            <dd class="files">
+                                                <label for="tempFiles" class="btn btn-sm btn-outline-primary btn-round-sm btn-files">
+                                                    <input type="file" id="tempFiles" name="tempFiles" multiple>파일첨부하기
+                                                </label>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                        <div class="form-container">
+                                            <dl class="form-item">
+                                                <dt>
+                                                    <span class="form-label">비밀글</span>
+                                                </dt>
+                                                <dd>
+                                                    <label class="radio" for="public">
+                                                        <input type="radio" id="public" name="secretYn" value="false">
+                                                        <span></span>
+                                                        공개
+                                                    </label>
+                                                    <label class="radio" for="private">
+                                                        <input type="radio" id="private" name="secretYn" value="true" checked>
+                                                        <span></span>
+                                                        비공개
+                                                    </label>
+                                                </dd>
+                                            </dl>
+                                            <dl class="form-item">
+                                                <dt>
+                                                    <label for="passwd">
+                                                        <span class="form-label">비밀번호</span>
+                                                        <span class="required-data">필수</span>
+                                                    </label>
+                                                </dt>
+                                                <dd>
+                                                    <input type="password" id="passwd" name="passwd" class="inputBox" maxlength="11" placeholder="게시글 수정 또는 비공개글 조회를 위해 비밀번호를 입력하세요." required>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="form-container">
+                                            <dl class="form-item divider">
+                                                <dt>
+                                                    <span class="form-label">개인정보 수집 및 이용동의</span>
+                                                    <span class="required-data">필수</span>
+                                                </dt>
+                                                <dd>
+                                                    <div class="scrollTextWrap">
+                                                        <div id="privacy"></div>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="form-agree-check">
+                                            <div class="checkbox-wrapper">
+                                                <label class="checkbox" for="contractCb">
+                                                    <input type="checkbox" id="contractCb" name="contractCb" required>
+                                                    <span></span>
+                                                    개인정보 수집 및 이용에 동의합니다.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <div class="btn-group btn-group-bottom center">
+                                        <a href="javascript:history.back()" type="button" class="btn btn-lg btn-base btn-round-sm">취소</a>
+                                        <button onclick="fnShowPop('msg-complete')" class="btn btn-lg btn-primary btn-round-sm">문의하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- //site-main -->
+        <div id="site-footer"></div>
+    </div>
+    <div id="msg-complete" class="popup-layer">
+        <div class="bg-dim"></div>
+        <div class="popup-wrapper">
+            <div class="popup-header">
+                <button type="button" class="b-close" onclick="fnHidePop('msg-complete')">
+                    <span>닫기</span>
+                </button>
+            </div>
+            <div class="popup-body">
+                <p class="text-center">게시글이 등록되었습니다.</p>
+            </div>
+            <div class="popup-foot">
+                <a href="./qna.html" class="btn btn-outline-default">확인</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>

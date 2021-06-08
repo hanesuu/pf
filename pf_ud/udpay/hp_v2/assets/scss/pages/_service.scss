@@ -29,18 +29,11 @@
       .card-txt__key-tit{
         font-weight: $font-weight-bold;
         font-size: $font-size-md;
-        letter-spacing: -.13rem;
-        word-spacing: -.15rem;
         line-height: 1.5;
         color:$black;
 
         @include res(md) {
           font-size: $font-size-lg;
-        }
-        span{
-          font-family: $font-family-godo;
-          font-weight: $font-weight-bold;
-          letter-spacing: 0;
         }
       }
 
@@ -52,7 +45,7 @@
         margin-top: 1rem;
 
         @include res(md) {
-          font-style: $font-size-xs;
+          font-size: $font-size-xs;
         }
 
       }

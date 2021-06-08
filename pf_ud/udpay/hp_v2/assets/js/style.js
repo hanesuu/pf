@@ -57,8 +57,8 @@ function fnHidePop(sGetName){
 $(document).ready(function() {
     $(".faq-list-item__answer").hide();
     $(".faq-list-item__question").click(function(){
-        $(this).parent().toggleClass("is-active").children(".faq-list-item__answer").slideToggle(200);
         $(this).parent().siblings().removeClass("is-active").children(".faq-list-item__answer").slideUp(200);
+        $(this).parent().toggleClass("is-active").children(".faq-list-item__answer").slideToggle(200);
     });
 });
 

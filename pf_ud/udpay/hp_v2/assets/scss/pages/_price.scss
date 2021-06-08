@@ -35,17 +35,12 @@
         margin: 1rem;
       }
       
-      .ico {
+      .ico-sprites {
         margin:0 auto .5rem;
-        
-        img {
-          width: 39px;
-          height: 39px;
-          
-          @include res(sm) {
-            width: 65px;
-            height: 65px;
-          }
+        background-position-y: -72px;
+
+        @include res(sm) {
+          background-position-y: -120px;
         }
       }
       
@@ -95,18 +90,18 @@
       }
   
       &:nth-child(2) .ico-sprites {
-        background-position-x: -114px;
-    
-        @include res(sm) {
-          background-position-x: -190px
-        }
-      }
-  
-      &:nth-child(3) .ico-sprites {
         background-position-x: -63px;
     
         @include res(sm) {
           background-position-x: -105px
+        }
+      }
+  
+      &:nth-child(3) .ico-sprites {
+        background-position-x: -114px;
+    
+        @include res(sm) {
+          background-position-x: -190px
         }
       }
   

@@ -58,12 +58,17 @@
   
       // 댓글수
       .count {
+        margin-left: .5rem;
         color: $red;
+        font-size: $font-size-small;
       }
-  
+      
       // 첨부파일 아이콘
       i {
+        margin-left: .5rem;
         vertical-align: bottom;
+        color: $text-base;
+        font-size: $font-size-small;
       }
       
       @include res(sm) {

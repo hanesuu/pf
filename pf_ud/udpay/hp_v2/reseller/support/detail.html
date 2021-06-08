@@ -91,6 +91,19 @@
                                         <span>댓글</span>
                                         <b class="text-black">1</b>
                                     </div>
+                                    <div class="answer__item">
+                                        <dl>
+                                            <dt>
+                                                <b class="answer__name">나그네</b>
+                                                <span class="answer__date">2021-06-08 13:11</span>
+                                                <div class="answer__option">
+                                                    <a class="text-base under">수정</a>
+                                                    <a class="text-danger under">삭제</a>
+                                                </div>
+                                            </dt>
+                                            <dd>저도 핸드폰으로 촬영해서 등록했어요. 가능합니다.</dd>
+                                        </dl>
+                                    </dl>
                                 </section><!--//문의글 댓글 영역-->
                                 <!-- 댓글 작성란 -->
                                 <section class="form-wrapper answer-form bg-white-gray">
@@ -131,7 +144,7 @@
                                     </div>
                                     <div class="form-container form-textarea">
                                         <textarea id="commentContents" name="contents" cols="10" rows="4" placeholder="내용을 입력하세요."></textarea>
-                                        <button type="button" onclick="javascript:fnShowPop('msg-complete')" class="btn btn-md btn-default">등록</button>
+                                        <button type="button" class="btn btn-md btn-default">등록</button>
                                     </div>
                                 </section>
                                 <!--// 댓글 작성란 -->
@@ -139,7 +152,7 @@
                             <div class="btn-group btn-group-bottom board-bottom">
 
                                 <div class="board-bottom__right">
-                                    <a href="/up/support?boardType=ETC&amp;qnaType=API" class="btn btn-sm btn-light btn-round-sm">목록</a>
+                                    <a href="javascript:history.back();" class="btn btn-sm btn-light btn-round-sm">목록</a>
                                 </div>
                             </div>
                         </div>
@@ -149,22 +162,6 @@
         </main>
         <!-- //site-main -->
         <div id="site-footer"></div>
-    </div>
-    <div id="msg-complete" class="popup-layer">
-        <div class="bg-dim"></div>
-        <div class="popup-wrapper">
-            <div class="popup-header">
-                <button type="button" class="b-close" onclick="fnHidePop('msg-complete')">
-                    <span>닫기</span>
-                </button>
-            </div>
-            <div class="popup-body">
-                <p class="text-center">게시글이 등록되었습니다.</p>
-            </div>
-            <div class="popup-foot">
-                <button class="btn btn-outline-default" onclick="location.href('./qna.html')">확인</button>
-            </div>
-        </div>
     </div>
 </body>
 </html>
