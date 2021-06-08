@@ -465,8 +465,8 @@
             display: inline-block;
             margin-right: 10px;
             color: $primary;
-            font-family: $font-family-gmarket;
             font-size: $font-size-xs;
+            font-weight: $font-weight-bold;
             @include res(md) {
               font-size: $font-size-md;
             }
@@ -891,7 +891,6 @@
 .section .txt-step {
   display: inline-block;
   margin-top: 1rem;
-  font-family: $font-family-gmarket;
   font-weight: $font-weight-bold;
   font-size: $font-size-xs;
   color: $primary;
@@ -1111,10 +1110,19 @@
 
 // 문자
 .section {
+  // 이미지
+  &-msg-flow .img-sub-wrap {
+    .mobile-hidden-sm {
+      max-width: 1178px
+    }
+    .desktop-hidden-sm {
+      max-width: 194px
+    }
+  }
+
   .point {
     display: inline-block;
     margin-bottom: .6rem;
-    font-family: $font-family-gmarket;
     font-weight: $font-weight-bold;
     font-size: $font-size-xsmall;
     color: $primary;

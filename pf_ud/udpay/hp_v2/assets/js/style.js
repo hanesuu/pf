@@ -43,23 +43,23 @@ $(window).resize(function () {
 });
 
 
+// show dialog
+function fnShowPop(sGetName){
+    $("#"+ sGetName).addClass("on");
+}
+// hide dialog
+function fnHidePop(sGetName){
+    $("#"+ sGetName).removeClass("on");
+}
+
+
 // faq accodion list
 $(document).ready(function() {
-    var accItem = document.getElementsByClassName('faq-list-item');
-    var accHD = document.getElementsByClassName('faq-list-item__question');
-    for (i = 0; i < accHD.length; i++) {
-        accHD[i].addEventListener('click', toggleItem, false);
-    }
-
-    function toggleItem() {
-        var itemClass = this.parentNode.className;
-        for (i = 0; i < accItem.length; i++) {
-            accItem[i].className = 'faq-list-item is-inactive';
-        }
-        if (itemClass == 'faq-list-item is-inactive') {
-            this.parentNode.className = 'faq-list-item is-active';
-        }
-    }
+    $(".faq-list-item__answer").hide();
+    $(".faq-list-item__question").click(function(){
+        $(this).parent().toggleClass("is-active").children(".faq-list-item__answer").slideToggle(200);
+        $(this).parent().siblings().removeClass("is-active").children(".faq-list-item__answer").slideUp(200);
+    });
 });
 
 

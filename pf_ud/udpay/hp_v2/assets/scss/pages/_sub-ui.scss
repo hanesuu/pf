@@ -4,8 +4,6 @@
 //== 서브페이지 공통 레이아웃
 .subPage {
   &__wrapper{
-    //padding-bottom: 8rem;
-
     &.last{
       padding-bottom: 0;
     }

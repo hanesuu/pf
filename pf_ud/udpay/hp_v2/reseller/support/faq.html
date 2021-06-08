@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>유디페이 리셀러 홈페이지</title>
+    <meta name="description" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:description" content="판매점을 유치하고, 저렴한 공급가로 제공되는 API에 마진을 설정하여 부가수익을 얻을 수 있습니다.">
+    <meta property="og:site_name" content="외주 개발의 새로운 패러다임, 유디페이 리셀러">
+    <meta property="og:image" content="/pf/pf_ud/udpay/common/img/link_thumb_rs.png">
+    <meta property="og:url" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="유디페이 리셀러,리셀러,결제API,부가API,API,API연동,쇼핑몰개발,솔루션개발,부가수익">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE최신버전으로 보기 -->
+
+    <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+    <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/common/css/aos.css"/>
+    <link rel="stylesheet" type="text/css" href="/pf/pf_ud/udpay/hp_v2/assets/css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/udpay/hp_v2/assets/js/style.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#site-header").load("../inc/header.html");
+            $("#site-footer").load("../inc/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <dl id="skip-nav">
+        <dt>바로가기 메뉴</dt>
+        <dd><a href="#site-nav" class="skip-item">네비게이션 바로가기</a></dd>
+        <dd><a href="#site-main" class="skip-item">본문 바로가기</a></dd>
+        <dd><a href="#site-footer" class="skip-item">푸터 바로가기</a></dd>
+    </dl>
+
+    <div id="site-container">
+        <header id="site-header"></header>
+        <main id="site-main" role="main">
+            <h2 class="screen-reader">본문</h2>
+            <section class="subPage__wrapper">
+                <div class="subPage__header header-support">
+                    <div class="subPage__inner">
+                        <h3 class="subPage__title" data-aos="fade-down" data-aos-duration="600">고객센터</h3>
+                    </div>
+                </div>
+
+                <div class="subPage__body">
+                    <section class="section section--py-sm subPage-section" data-aos="fade-up" data-aos-duration="600">
+                        <h4 class="screen-reader-text">FAQ</h4>
+                        <div class="subPage-section__body no-margin">
+                            <form class="support-search__form" action="/support/faq" id="search-form" role="search">
+                                <label for="keyword" class="screen-reader">FAQ 키워드 검색</label>
+                                <div class="select-wrapper">
+                                    <select id="searchType" name="searchType">
+                                        <option value="ALL">전체</option>
+                                        <option value="TITLE">제목</option>
+                                        <option value="CONTENT">내용</option>
+                                    </select>
+                                </div>
+                                <input class="support-search__input" type="search" placeholder="검색어를 입력해 주세요."
+                                id="keyword" name="keyword" maxlength="50"
+                                autocomplete="off" aria-haspopup="false"  aria-autocomplete="both">
+                                <button class="support-search__button" aria-label="검색">
+                                    <i class="ri-search-line"></i>
+                                </button>
+                            </form>
+                            <div class="faq-wrapper">
+                                <div class="faq-list">
+                                    <div class="faq-list-item">
+                                        <div class="faq-list-item__question">
+                                            <div>
+                                                <span class="faq-list-item__category">[가입]</span>
+                                                <span>누구나 가입할 수 있나요?</span>
+                                            </div>
+                                        </div>
+                                        <div class="faq-list-item__answer">
+                                            <div class="dd">
+                                                개발자, 에이전시, 프리랜서 등 개발 관련 업체 또는 종사자분들만 가입 가능합니다.<br>
+                                                일반 영업자분들은 가입이 제한됩니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="faq-list-item">
+                                        <div class="faq-list-item__question">
+                                            <div>
+                                                <span class="faq-list-item__category">[정산]</span>
+                                                <span>정산일은 언제인가요?</span>
+                                            </div>
+                                        </div>
+                                        <div class="faq-list-item__answer">
+                                            <div class="dd">
+                                                결제 수수료 마진 : 당월 결제분에 대한 결제수수료 마진에 대해 익월말 지급<br>
+                                                유료 API 이용 마진 : 당월분 이용 마진 금액이 익익월말에 지급
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="faq-list-item">
+                                        <div class="faq-list-item__question">
+                                            <div>
+                                                <span class="faq-list-item__category">[마진]</span>
+                                                <span>마진설정은 어떻게 하나요?</span>
+                                            </div>
+                                        </div>
+                                        <div class="faq-list-item__answer">
+                                            <div class="dd">
+                                                관리자 접속 후 '설정 > 기본 마진 설정' 메뉴에서 신규판매점이 등록될 때 적용할 기본결제마진과 기본API마진을 설정할 수 있습니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="faq-list-item">
+                                        <div class="faq-list-item__question">
+                                            <div>
+                                                <span class="faq-list-item__category">[API 연동]</span>
+                                                <span>본인인증 에러 발생 시 창이 종료됩니다.</span>
+                                            </div>
+                                        </div>
+                                        <div class="faq-list-item__answer">
+                                            <div class="dd">
+                                                본인인증 연동 시 '인증에러/실패 시 리턴 URL'을 작성하지 않은 경우 에러 발생 시 창이 그대로 종료되는 현상이 발생합니다.<br>'본인인증 API > 연동설정' 메뉴에서 '인증에러/실패 시 리턴 URL'을 작성하시기 바랍니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="faq-list-item">
+                                        <div class="faq-list-item__question">
+                                            <div>
+                                                <span class="faq-list-item__category">[API 연동]</span>
+                                                <span>문자 API 사용 시 서류인증 방식으로 발신번호 등록 시 어떤 서류를 등록해야 하나요?</span>
+                                            </div>
+                                        </div>
+                                        <div class="faq-list-item__answer">
+                                            <div class="dd">
+                                                제출 서류는 아래와 같습니다.<br><br>
+                                                <제출서류><br>
+                                                공통 : 통신서비스 가입증명서<br>
+                                                추가서류 : <br>
+                                                - 개인 : 명의자신분증사본<br>
+                                                - 법인 : 사업자등록증사본, 명의자신분증사본<br><br>
+                                                ※ 첨부파일 등록 시 파일은 최대 5개, 건당 2MB로 제한되며 파일 확장자는 jpg, gif, png, hwp, pdf, tiff만 등록 가능합니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+        <!-- //site-main -->
+        <div id="site-footer"></div>
+    </div>
+</body>
+</html>

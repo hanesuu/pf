@@ -27,10 +27,13 @@
     
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="/pf/pf_ud/common/js/aos.js"></script>
+    <script src="/pf/pf_ud/common/js/owl.carousel.min.js"></script>
     <script src="/pf/pf_ud/udpay/hp_v2/assets/js/tabmenu.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#site-header").load("../inc/header.html");
+            $("#site-header").load("../inc/header.html", function(){
+                $(this).addClass("main");
+            });
             $("#site-footer").load("../inc/footer.html");
         });
     </script>
@@ -50,17 +53,17 @@
             <section class="subPage__wrapper">
                 <div class="subPage__header colored" data-aos="fade" data-aos-duration="600">
                     <span class="shape-left1 shape-dot" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                        <img src="../../assets/img/shape_dot_sky@2x.png">
+                        <img src="../../assets/img/common/shape_dot_sky@2x.png">
                     </span>
                     <span class="shape-left2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
-                        <img src="../../assets/img/shape_circle.svg">
+                        <img src="../../assets/img/common/shape_circle.svg">
                     </span>
                     <span class="shape-right1 shape-circle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800"></span>
                     <span class="shape-right2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
                         <span class="shape-half"></span>
                     </span>
                     <span class="shape-right3 shape-dot" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        <img src="../../assets/img/shape_dot_sky@2x.png">
+                        <img src="../../assets/img/common/shape_dot_sky@2x.png">
                     </span>
                     <div class="subPage__inner">
                         <h3 class="subPage__title">

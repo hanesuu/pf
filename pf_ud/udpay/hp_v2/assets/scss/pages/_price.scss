@@ -3,11 +3,11 @@
 //## API공급단가 페이지 내 스타일을 지정합니다
 
 .section-price {
-  padding: 3.5rem 0 1.5rem;
+  // padding: 3.5rem 0 1.5rem;
   
-  @include res(sm) {
-    padding: 8rem 0 3rem;
-  }
+  // @include res(sm) {
+  //   padding: 8rem 0 3rem;
+  // }
   
   // 리스트 공통
   .list-api {
