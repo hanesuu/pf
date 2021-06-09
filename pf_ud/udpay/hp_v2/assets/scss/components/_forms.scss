@@ -98,6 +98,37 @@
   }
 }
 
+// input
+.inputBox,
+textarea {
+    @include boxSizing;
+    -webkit-appearance: none;
+    width: 100%;
+    margin:0;
+    padding: 1rem 1.267rem;
+    background-color: transparent;
+    border: 1px solid $border-light;
+    border-radius: .533rem;
+    outline: 0;
+    overflow: hidden;
+    resize: none;
+    font-size: $font-size-xsmall;
+    color:$text-light;
+    transition: box-shadow .2s ease;
+    
+    &:active,
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgba($primary,.25);
+        border-color: $primary;
+    }
+    
+    &[disabled] {
+        background: rgba($base,.1);
+        color: $gray;
+        box-shadow: none;
+    }
+}
+
 
 // 게시글 작성 폼
 .form{
@@ -106,33 +137,6 @@
   &-wrapper{
     width:100%;
     margin:0 auto;
-
-    input,
-    select,
-    textarea{
-      @include boxSizing;
-      -webkit-appearance: none;
-      margin:0;
-      background-color: transparent;
-      border: 1px solid $border-light;
-      border-radius: .533rem;
-      bottom: 0;
-      left: 0;
-      outline: 0;
-      overflow: hidden;
-      padding: 1rem 1.267rem;
-      resize: none;
-      top: 0;
-      width: 100%;
-      font-size: $font-size-xs;
-      color:$text-light;
-
-      &:active,
-      &:focus{
-        box-shadow: 0 0 0 0.2rem rgba($primary,.25);
-        border-color: $primary;
-      }
-    }
 
     textarea{
       min-height: 222px;
@@ -155,7 +159,7 @@
 
     dt{
       margin-bottom:.533rem;
-      font-size: $font-size-xs;
+      font-size: $font-size-xsmall;
       color:$text-light;
     }
   

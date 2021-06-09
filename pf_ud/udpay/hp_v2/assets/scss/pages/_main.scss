@@ -19,7 +19,7 @@
   .cell-container .txtBox {
     padding-top: 2rem;
     text-align: center !important;
-  
+
     .under {
       color: $white;
     }
@@ -28,12 +28,12 @@
       width: 55%;
       text-align: left !important;
     }
-  
+
     img {
       width: 11rem;
       height: 1.83rem;
       vertical-align: middle;
-  
+
       @include res(md) {
         width: 15.375rem;
         height: 2.5rem;
@@ -56,7 +56,7 @@
   }
 
   .section__title{
-    font-size: $font-size-most-medium;
+    font-size: $font-size-more-medium;
 
     // RWD
     @include res(sm) {
@@ -75,12 +75,12 @@
   .txtBox {
     h2 {
       margin-top:0;
-      font-size: 1.35rem;
+      font-size: $font-size-small;
       font-weight: $font-weight-bold;
       color: $black;
       
       @include res(sm) {
-        font-size: 1.75rem;
+        font-size: $font-size-medium;
       }
     }
     
@@ -98,42 +98,41 @@
     
     br {
       display: none;
-  
+
       @include res(sm) {
        display: inline;
-      }
-    }
+     }
+   }
+ }
+
+ .merits{
+  &__wrapper{
+    @include clearfix;
+    margin:0 -20px;
   }
 
-  .merits{
-    &__wrapper{
-      @include clearfix;
-      margin:0 -20px;
+  &__item{
+    float:left;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-size: $font-size-xsmall;
+    color: $black;
+
+    @include res(sm) {
+      width: 33.3334%;
     }
 
-    &__item{
-      float:left;
-      display: inline-block;
-      width: 50%;
-      margin-bottom: 2.5rem;
-      text-align: center;
-      font-size: $font-size-xsmall;
-      color: $black;
+    @include res(lg) {
+      width: 25%;
+    }
 
-      @include res(sm) {
-        width: 33.3334%;
-      }
-
-      @include res(lg) {
-        width: 25%;
-        font-size: $font-size-small;
-      }
-  
       // 아이콘
       .ico-sprites {
         margin: 0 auto 0.625rem;
         background-position-y: -12px;
-  
+
         @include res(sm) {
           background-position-y: -20px;
         }
@@ -141,67 +140,67 @@
       
       &:nth-child(1) .ico-sprites {
         background-position-x: -114px;
-  
+
         @include res(sm) {
           background-position-x: -190px;
         }
       }
-  
+
       &:nth-child(2) .ico-sprites {
         width: 51px;
         background-position-x: -12px;
-  
+
         @include res(sm) {
           width: 85px;
           background-position-x: -20px;
         }
       }
-  
+
       &:nth-child(3) .ico-sprites {
         background-position-x: -63px;
-  
+
         @include res(sm) {
           background-position-x: -105px;
         }
       }
-  
+
       &:nth-child(4) .ico-sprites {
         background-position-x: -168px;
-  
+
         @include res(sm) {
           background-position-x: -280px;
         }
       }
-  
+
       &:nth-child(5) .ico-sprites {
         width: 48px;
         background-position-x: -222px;
-  
+
         @include res(sm) {
           width: 80px;
           background-position-x: -370px;
         }
       }
-  
+
       &:nth-child(6) .ico-sprites {
         background-position-x: -276px;
-  
+
         @include res(sm) {
           background-position-x: -460px;
         }
       }
-  
+
       &:nth-child(7) .ico-sprites {
         background-position-x: -324px;
-  
+
         @include res(sm) {
           background-position-x: -540px;
         }
       }
-  
+
       &:nth-child(8) .ico-sprites {
         background-position-x: -372px;
-  
+
         @include res(sm) {
           background-position-x: -620px;
         }
@@ -215,7 +214,7 @@
   .list-api {
     &__wrapper{
       @include clearfix;
-  
+
       @include res(md) {
         margin:0 -2rem;
       }
@@ -228,7 +227,7 @@
       margin: 0 .5rem 1.5rem;
       text-align: left;
       color: $black;
-  
+
       @include res(md) {
         width: calc(33.3334% - 2.5rem);
         margin: 0 1.25rem 2.5rem;
@@ -239,14 +238,13 @@
         vertical-align: middle;
         padding-left: .75rem;
         line-height: 1.3;
-        font-size: $font-size-xsmall;
-  
+        font-size: $font-size-more-xsmall;
+
         @include res(md) {
           padding-left: 1.25rem;
-          font-size: $font-size-small;
         }
       }
-  
+
       // 아이콘
       .ico-sprites {
         display: table-cell;
@@ -257,74 +255,74 @@
           background-position-y: -120px;
         }
       }
-  
+
       &:nth-child(1) .ico-sprites {
         background-position-x: -12px;
-  
+
         @include res(sm) {
           background-position-x: -20px;
         }
       }
-  
+
       &:nth-child(2) .ico-sprites {
         background-position-x: -63px;
-  
+
         @include res(sm) {
           background-position-x: -105px;
         }
       }
-  
+
       &:nth-child(3) .ico-sprites {
         background-position-x: -114px;
-  
+
         @include res(sm) {
           background-position-x: -190px;
         }
       }
-  
+
       &:nth-child(4) .ico-sprites {
         background-position: -114px -372px;
-    
+
         @include res(sm) {
           background-position: -190px -620px;
         }
       }
-  
+
       &:nth-child(5) .ico-sprites {
         background-position-x: -165px;
-  
+
         @include res(sm) {
           background-position-x: -275px;
         }
       }
-  
+
       &:nth-child(6) .ico-sprites {
         background-position-x: -216px;
-  
+
         @include res(sm) {
           background-position-x: -360px;
         }
       }
-  
+
       &:nth-child(7) .ico-sprites {
         background-position-x: -267px;
-  
+
         @include res(sm) {
           background-position-x: -445px;
         }
       }
-  
+
       &:nth-child(8) .ico-sprites {
         background-position-x: -318px;
-  
+
         @include res(sm) {
           background-position-x: -530px;
         }
       }
-  
+
       &:nth-child(9) .ico-sprites {
         background-position: -318px -132px;
-    
+
         @include res(sm) {
           background-position: -530px -220px;
         }
@@ -334,7 +332,7 @@
 }
 
 
-// 메인 네번째 섹션 -500만원 마진수익 벌기
+// 메인 네번째 섹션 -수익 벌기
 .section-benefit {
   .imgBox {
     img {
@@ -344,7 +342,7 @@
 }
 
 
-// 메인 다섯번째 섹션 -페이셀러
+// 메인 다섯번째 섹션 -리셀러로 딱
 .section-target {
   .list-target {
     &__wrapper{
@@ -397,30 +395,36 @@
           background-position-y: -220px;
         }
       }
-  
+
       &:nth-child(1) .ico-sprites {
         background-position-x: -12px;
-  
+
         @include res(sm) {
           background-position-x: -20px;
         }
       }
-  
+
       &:nth-child(2) .ico-sprites {
         background-position-x: -63px;
-  
+
         @include res(sm) {
           background-position-x: -105px;
         }
       }
-  
+
       &:nth-child(3) .ico-sprites {
         background-position-x: -114px;
-  
+
         @include res(sm) {
           background-position-x: -190px;
         }
       }
     }
   }
+}
+
+
+// 무료 가입
+.section--join{
+  background: url('../img/main/sec7_bg.svg') no-repeat center top / cover;
 }

@@ -310,7 +310,7 @@ a.under, button.under{
 // list item with count number
 .ol-list{
   counter-reset: section;
-  font-size: $font-size-xs;
+  font-size: $font-size-xsmall;
 
   > li{
     line-height: 1.6;
@@ -350,7 +350,7 @@ a.under, button.under{
       color:darken($text-base,1%);
       border-radius: 50rem;
       color:inherit;
-      font-size:$font-size-xxs;
+      font-size:$font-size-xxsmall;
     }
   }
   &__desc{
@@ -473,6 +473,7 @@ a.under, button.under{
   }
   
   dt {
+    margin-bottom: .5rem;
     font-size: $font-size-small;
     color: $black;
     line-height: 1.4;

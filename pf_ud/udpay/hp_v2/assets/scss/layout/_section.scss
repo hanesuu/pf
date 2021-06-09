@@ -157,7 +157,7 @@
     letter-spacing: -.17rem;
     word-break: keep-all;
     color: $text-dark;
-    font-size: $font-size-most-medium;
+    font-size: $font-size-more-medium;
     font-weight: $font-weight-bold;
     line-height: 1.43;
 
@@ -166,7 +166,7 @@
       font-size: $font-size-large;
     }
     @include res(md) {
-      font-size: $font-size-xlg;
+      font-size: $font-size-xlarge;
     }
   }
 

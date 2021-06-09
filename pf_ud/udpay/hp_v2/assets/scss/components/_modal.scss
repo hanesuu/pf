@@ -100,14 +100,14 @@
   // popup-title
   &-title {
     color: $black;
-    font-size: 1.267rem;
+    font-size: $font-size-small;
     font-weight: $font-weight-bold;
   }
 
   // popup-exp
   &-exp {
     margin-top: 5px;
-    font-size: $font-size-xxs;
+    font-size: $font-size-xxsmall;
   }
 
   // popup-body

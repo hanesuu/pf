@@ -9,7 +9,7 @@
   border-top: 2px solid $light-black;
   
   &__item {
-    border-bottom: 1px solid $border-light;
+    border-bottom: 1px solid rgba($light-black,.1);
     
     a {
       display: table;
@@ -155,7 +155,7 @@
       vertical-align: middle;
       
       i {
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
         line-height: 30px;
       }
     }
@@ -215,7 +215,7 @@
   
   &__info {
     padding: 0 1rem 1rem;
-    font-size: .95rem;
+    font-size: $font-size-xxsmall;
     
     @include res(sm) {
       display: table-cell;
@@ -340,7 +340,7 @@
   // 댓글 첨부파일
   &__file {
     margin-bottom: .75rem;
-    font-size: $font-size-xxs;
+    font-size: $font-size-xxsmall;
     
     dt {
       display: inline-block;
@@ -379,12 +379,12 @@
       
       dt {
         margin: 0 .5rem 0 0;
-        font-size: 1rem
+        font-size: $font-size-base
       }
       
       input {
         padding: .5rem 1rem;
-        font-size: 1rem;
+        font-size: $font-size-base;
         background: $white;
       }
     }
@@ -491,7 +491,7 @@
         outline: 0;
         line-height: 3rem;
         padding: 0 2rem 0 0;
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
       }
       
       &:after {
@@ -504,28 +504,21 @@
     }
   }
   &__input[type=search]{
-    @include boxSizing;
-    outline: none;
-    background-color: transparent;
-    border: 1px solid $border-light;
-    border-radius: .533rem;
-    color: #202124;
-    font-size: $font-size-xs;
-    padding: 0 1.267rem;
-    //width: calc(100% - 4.75rem);
-    -webkit-appearance: none;
+    width: auto;
+    max-width: calc(100% - 160px);
     height:3rem;
     line-height: 3rem;
-    display: inline-block;
-    vertical-align: top;
     margin:0 .3125rem;
+    padding: 0 1.267rem;
+    vertical-align: top;
+    border: 1px solid $border-light;
 
     &::placeholder{
       color:$gray;
     }
 
     &:focus{
-      box-shadow: 0 0 0 0.2rem rgba($primary,.25);
+      border-color: $primary;
     }
   }
   &__button{
@@ -578,143 +571,8 @@
 }
 
 
-// 자주묻는질문 리스트
-.faq-wrapper{
-
-  .transfomer-tabs{
-    position: relative;
-    min-height: 45px;
-  }
-
-  .tab {
-    @include boxSizing;
-    margin-bottom: 1rem;
-    border-bottom: 0;
-    overflow: hidden;
-    position: relative;
-    border:1px solid $border-base;
-    border-top:1px solid $border-base;
-    min-height:45px;
-
-    @include res(md){
-      margin-bottom: 0;
-    }
-
-    &:after {
-      content: "\EA4E";
-      font-family: $font-family-icon;
-      position: absolute;
-      right: 15px;
-      z-index: 2;
-      pointer-events: none;
-      font-size:150%;
-      color:$border-base;
-      top:7px;
-    }
-    &.open {
-      position: absolute;
-      width: 100%;
-      background: $white;
-      top:0;
-      z-index: 10;
-
-      a {
-        position: relative;
-        display: block;
-      }
-    }
-
-    li {
-      display: block;
-      padding: 0;
-      vertical-align: bottom;
-      font-size: 1.2rem;
-      border-bottom:1px solid $border-light;
-    }
-  }
-  //a {
-  //  position: absolute;
-  //  width: 100%;
-  //  height: 43px;
-  //  display: block;
-  //  padding:10px 15px;
-  //  background-color: $white;
-  //
-  //  &:after{
-  //    content:"";
-  //    display: block;
-  //    width:100%;
-  //    height: 2px;
-  //    background-color: transparent;
-  //    position: absolute;
-  //    left:0;
-  //    bottom:-1px;
-  //    transition-property: background-color;
-  //    transition-duration: 250ms;
-  //  }
-  //
-  //  &.active {
-  //    border: 0;
-  //    z-index: 1;
-  //    background-color: $white;
-  //    font-weight: $font-weight-bold;
-  //  }
-  //}
-
-
-  @include res(xs){
-    &{
-      .transfomer-tabs{
-        position: relative;
-        min-height: 45px;
-      }
-      .tab{
-        width:100%;
-        max-width: 1320px;
-        margin: 0 auto;
-        border:0;
-
-        &:after{
-          display: none;
-        }
-
-        li{
-          display: inline-block;
-          text-align: center;
-          position: relative;
-          padding:0 18px;
-          //font-size:$font-size-sm;
-        }
-      }
-      //a{
-      //  position: initial;
-      //  position: static;
-      //  width:100%;
-      //  display: block;
-      //  height:auto;
-      //  padding: 1.333rem 0;
-      //  font-size: $font-size-sm;
-      //  background-color:$white;
-      //  color: rgba($text-dark, .7);
-      //  transition-property: color;
-      //  transition-duration: 250ms;
-      //
-      //  &:hover,
-      //  &:active,
-      //    //&:focus,
-      //  &.active{
-      //    color: $text-dark;
-      //    border-color: $text-dark;
-      //    font-weight: $font-weight-semibold;
-      //    background-color: $white;
-      //  }
-      //}
-    }
-  }
-
-}
-
 // 고객센터
+// FAQ
 .faq-list{
   border-top:2px solid $text-dark;
 
@@ -729,7 +587,7 @@
 
   &-item__question{
     padding: 1rem .5rem;
-    font-size:1.2rem;
+    font-size: $font-size-more-xsmall;
     font-weight: $font-weight-semibold;
     color:$text-dark;
     cursor: pointer;
@@ -752,7 +610,7 @@
 
     @include res(sm){
       &{
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
         padding: 2rem 2.667rem;
 
         &:before{
@@ -763,7 +621,7 @@
   }
 
   &-item__answer{
-    font-size: $font-size-xs;
+    font-size: $font-size-xsmall;
     color:$text-base;
     padding-right:2.667rem;
     padding-left:2.967rem;
@@ -798,73 +656,6 @@
     }
   }
 }
-
-
-// 문의하기
-//.need-more-help{
-//  &-container{
-//    width:100%;
-//    background-color: $bg-sky;
-//    padding: 2rem;
-//    margin-top:4.667rem;
-//  }
-//
-//  &-greeting{
-//    font-size:1.2rem;
-//    color:$text-dark;
-//    line-height: 1.68;
-//  }
-//  &-options{
-//    margin-top:2rem;
-//
-//    .btn-quest{
-//      min-width:184px;
-//      padding: .4667rem 1.667rem;
-//      font-size: 1.2rem;
-//      background-color: $lighter-black;
-//      border-color: $lighter-black;
-//      color:$white;
-//      border-radius: $border-radius-small;
-//      box-shadow: 9px 9px 25px rgba($black, .25), inset -9px 0 10px rgba($black, .1);
-//
-//      i{
-//        font-size:140%;
-//      }
-//    }
-//  }
-//
-//  // RWD
-//  @include res(xs) {
-//    &-container{
-//      @include clearfix;
-//    }
-//    &-greeting{
-//      float:left;
-//    }
-//    &-options{
-//      float:right;
-//      margin-top: 0;
-//    }
-//  }
-//
-//  @include res(sm){
-//    &-greeting{
-//      font-size:$font-size-sm;
-//    }
-//    &-options{
-//      .btn-quest{
-//        font-size:$font-size-sm;
-//      }
-//    }
-//  }
-//
-//  @include res(md) {
-//    &-container{
-//      padding: 3.133rem 3.667rem 3.133rem 4.667rem;
-//    }
-//  }
-//
-//}
 
 // 비밀글 비밀번호 입력
 .board-pw{
@@ -907,7 +698,7 @@
       overflow: hidden;
       padding: 1.067rem 1.267rem;
       resize: none;
-      font-size: $font-size-xs;
+      font-size: $font-size-xsmall;
       color:$text-light;
   
       &:active,

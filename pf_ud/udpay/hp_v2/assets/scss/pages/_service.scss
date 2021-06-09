@@ -28,12 +28,12 @@
       h2,
       .card-txt__key-tit{
         font-weight: $font-weight-bold;
-        font-size: $font-size-md;
+        font-size: $font-size-medium;
         line-height: 1.5;
         color:$black;
 
         @include res(md) {
-          font-size: $font-size-lg;
+          font-size: $font-size-large;
         }
       }
 
@@ -45,7 +45,7 @@
         margin-top: 1rem;
 
         @include res(md) {
-          font-size: $font-size-xs;
+          font-size: $font-size-xsmall;
         }
 
       }
@@ -56,7 +56,7 @@
         dl{
           display: table;
           width: 100%;
-          font-size: $font-size-xxs;
+          font-size: $font-size-xxsmall;
 
           dt, dd{
             display: table-cell;
@@ -174,7 +174,7 @@
         }
         &-tit{
           position: relative;
-          font-size: $font-size-xs;
+          font-size: $font-size-xsmall;
           font-weight: $font-weight-bold;
           color:$black;
 
@@ -183,7 +183,7 @@
             height: 30px;
             line-height: 30px;
             text-align: center;
-            font-size: $font-size-xxs;
+            font-size: $font-size-xxsmall;
             background: $bg;
             color:$text-base;
             font-weight: $font-weight-bold;
@@ -268,7 +268,7 @@
       dt{
         width: 210px;
         font-weight: $font-weight-bold;
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
         position: relative;
         padding: 13px;
         &:before{
@@ -276,7 +276,7 @@
           color: $primary;
           content:'POINT';
           letter-spacing: 0;
-          font-size: $font-size-xxs;
+          font-size: $font-size-xxsmall;
         }
         @include res(md){
           padding-right: 20px;
@@ -444,9 +444,9 @@
     p{
       &:first-child{
         font-weight: $font-weight-semibold;
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
         @include res(md) {
-          font-size: $font-size-sm;
+          font-size: $font-size-small;
         }
 
         span{
@@ -458,10 +458,10 @@
             display: inline-block;
             margin-right: 10px;
             color: $primary;
-            font-size: $font-size-xs;
+            font-size: $font-size-xsmall;
             font-weight: $font-weight-bold;
             @include res(md) {
-              font-size: $font-size-md;
+              font-size: $font-size-medium;
             }
           }
 
@@ -500,7 +500,7 @@
       }
       &:last-child{
         margin-top: 1.633rem;
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
         color:$text-base;
       }
     }
@@ -553,7 +553,7 @@
         border-radius: 50em;
         position: absolute;
         font-family: $font-family-icon;
-        font-size:$font-size-md;
+        font-size:$font-size-medium;
         color:$text-base;
         @include res(md) {
           display: none;
@@ -592,7 +592,7 @@
             right:inherit;
             position: absolute;
             font-family: $font-family-icon;
-            font-size:$font-size-md;
+            font-size:$font-size-medium;
             color:$text-base;
           }
         }
@@ -618,7 +618,7 @@
             border-radius: 50em;
             position: absolute;
             font-family: $font-family-icon;
-            font-size:$font-size-md;
+            font-size:$font-size-medium;
             color:$text-base;
           }
         }
@@ -644,7 +644,7 @@
       dl{
         dt{
           font-weight: $font-weight-bold;
-          font-size: $font-size-xs;
+          font-size: $font-size-xsmall;
           margin-bottom: 1rem;
           position: relative;
           &:before{
@@ -885,7 +885,7 @@
   display: inline-block;
   margin-top: 1rem;
   font-weight: $font-weight-bold;
-  font-size: $font-size-xs;
+  font-size: $font-size-xsmall;
   color: $primary;
   line-height: 1;
   letter-spacing: .1rem;

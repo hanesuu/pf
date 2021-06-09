@@ -46,7 +46,7 @@
 
       .subPage-title{
         margin-bottom:0;
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
       }
       .subPage-subTitle{
         font-size: 1.8rem;
@@ -230,31 +230,13 @@
       // 배경 있는 헤더
       &.colored {
         .subPage__title {
-          font-size: $font-size-xlg;
+          font-size: $font-size-xlarge;
           line-height: 1.4;
         }
         
         .subPage__desc {
           font-size: $font-size-medium;
         }
-      }
-
-      &.with-bg{
-        min-height:430px;
-        padding:8rem 0;
-
-        .subPage-title{
-          font-size: 2rem;
-        }
-        .subPage-subTitle {
-          font-size: 2.8rem;
-          margin-bottom: 1rem;
-        }
-      }
-
-      &.api,
-      &.chSales{
-        background-position: center center;
       }
     }
   }
@@ -270,7 +252,7 @@
     }
 
     @include res(sm){
-      font-size: $font-size-most-medium;
+      font-size: $font-size-more-medium;
     }
     @include res(md){
       font-size: $font-size-large;
@@ -279,11 +261,11 @@
 
   // subPage__subTitle
   &__subTitle{
-    font-size: 2.2rem;
+    font-size: $font-size-large;
     color: $text-dark;
     
     @include res(md) {
-      font-size: 2.8rem;
+      font-size: $font-size-xlarge;
     }
 
     strong{
@@ -367,7 +349,7 @@
       display: block;
       padding: 0;
       vertical-align: bottom;
-      font-size: 1.2rem;
+      font-size: $font-size-more-xsmall;
       background-color:$bg;
 
       &:last-child a{
@@ -441,7 +423,7 @@
         height: 67px;
         line-height: 67px;
         padding: 0;
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
         color: rgba($text-dark, .7);
         transition-property: color;
         transition-duration: 250ms;
@@ -509,11 +491,11 @@
       }
 
       &.sm{
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
       }
 
       @include res(sm){
-        font-size: $font-size-most-medium;
+        font-size: $font-size-more-medium;
       }
       @include res(md){
         font-size: $font-size-large;
@@ -522,18 +504,18 @@
 
     // subPage-section__desc
     &__desc{
-      font-size:$font-size-xs;
+      font-size:$font-size-xsmall;
       margin-top:1.067rem;
       color: $text-base;
 
       &.sm{
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
         margin-top: .6667rem;
         padding-bottom: .933rem;
       }
 
       @include res(md){
-        font-size:$font-size-sm;
+        font-size:$font-size-small;
       }
     }
 
@@ -582,14 +564,14 @@
 
     // subPage__lower-title
     &-title{
-      font-size: $font-size-sm;
+      font-size: $font-size-small;
       font-weight: $font-weight-semibold;
       color:$text-dark;
     }
 
     // subPage__lower-desc
     &-desc{
-      font-size: $font-size-xs;
+      font-size: $font-size-xsmall;
       color:$text-base;
       margin-top: .6667rem;
       padding-bottom: .933rem;
@@ -612,7 +594,7 @@
     > li{
         line-height: 1.4;
         margin-bottom: 10px;
-        font-size: $font-size-xs;
+        font-size: $font-size-xsmall;
       small{
         margin-top: 10px;
         display: block;
@@ -636,7 +618,7 @@
         display:inline-block;
         width: 3.333rem;
         height: 3.333rem;
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
         font-weight: $font-weight-bold;
         background-color: $primary;
         border-radius: 50%;
@@ -646,13 +628,13 @@
       }
     }
     &-title{
-      font-size: $font-size-sm;
+      font-size: $font-size-small;
       font-weight: $font-weight-semibold;
       color:$text-dark;
       margin-bottom: .8rem;
     }
     &-desc{
-      font-size: $font-size-xs;
+      font-size: $font-size-xsmall;
       color:$text-base;
       line-height: 1.6;
 
@@ -725,7 +707,7 @@
         height: 3.75rem;
         line-height: 3.75rem;
         font-weight: $font-weight-bold;
-        font-size: $font-size-sm;
+        font-size: $font-size-small;
         background-color: $primary;
         border-radius: $border-radius-circle;
         color: $white;
@@ -735,13 +717,13 @@
   }
   &__title{
     color: $text-dark;
-    font-size: $font-size-sm;
+    font-size: $font-size-small;
 
     strong{
       font-weight: $font-weight-bold;
     }
     &.sm{
-      font-size:$font-size-sm;
+      font-size:$font-size-small;
     }
 
     @include res(sm){
@@ -752,7 +734,7 @@
   }
   &__desc{
     color: $text-base;
-    font-size: $font-size-xs;
+    font-size: $font-size-xsmall;
     margin-top: 1rem;
 
     p{

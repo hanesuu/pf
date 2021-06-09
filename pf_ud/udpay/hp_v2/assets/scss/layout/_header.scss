@@ -249,7 +249,7 @@
     display: block;
     width:100%;
     padding:10px 20px;
-    font-size: $font-size-sm;
+    font-size: $font-size-small;
     font-weight:$font-weight-bold;
     @include prefix(transition-property, color, webkit o);
     @include prefix(transition-duration, 250ms, webkit o);
@@ -279,7 +279,7 @@
       }
     }
     .nav-link{
-      font-size: $font-size-xs;
+      font-size: $font-size-xsmall;
       font-weight: $font-weight-normal;
       padding:7px 20px 7px 35px;
 
@@ -319,7 +319,7 @@
 
         &-internal{
           color: $light-black;
-          font-size:$font-size-xs;
+          font-size:$font-size-xsmall;
           padding: 0 20px;
 
           &:first-child{

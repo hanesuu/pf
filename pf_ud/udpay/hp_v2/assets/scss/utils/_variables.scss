@@ -67,27 +67,16 @@ $font-family-base:      $font-family-sans-serif !default;
 $font-family-icon:      'remixicon' !default;
 
 
-$font-size-base:        1rem !default;  // 16px
-$font-size-xxs:         $font-size-base * 0.9333 !default;  //15px
-$font-size-xs:          $font-size-base * 1.17 !default;    //17px
-$font-size-sm:          $font-size-base * 1.4 !default;     //22px
-$font-size-md:          $font-size-base * 1.6 !default;     //25px
-$font-size-xmd:         $font-size-base * 2 !default;       //32px
-$font-size-lg:          $font-size-base * 2.533 !default;   //40px
-$font-size-xlg:         $font-size-base * 3 !default;       //48px
-$font-size-xxlg:        $font-size-base * 3.333 !default;   //53px
-
-
-// font-size 재정의
+// font-size
+$font-size-base:        1rem !default;                      //16px
+$font-size-xxsmall:     $font-size-base * 0.9333 !default;  //15px
 $font-size-xsmall:      $font-size-base * 1.063 !default;   //17px
 $font-size-more-xsmall: $font-size-base * 1.188 !default;   //19px
 $font-size-small:       $font-size-base * 1.313 !default;   //21px
 $font-size-medium:      $font-size-base * 1.5 !default;     //24px
 $font-size-more-medium: $font-size-base * 2 !default;       //32px
-$font-size-most-medium: $font-size-base * 2.2 !default;     //32px
-$font-size-extra-medium:$font-size-base * 2.2 !default;     //32px
 $font-size-large:       $font-size-base * 2.5 !default;     //40px
-$font-size-xlarge:      $font-size-base * 3.125 !default;   //50px
+$font-size-xlarge:      $font-size-base * 2.875 !default;   //50px
 
 
 $font-weight-normal:    400 !default;
