@@ -282,24 +282,23 @@ body{
   padding:0 !important;
 }
 .logo-box {
+  float: left;
+  position: absolute;
+  top: 0;
   width: 189px;
   height: 60px;
   line-height: 60px;
   text-align: center;
-  background: url("../img/logo.png") center center no-repeat;
-  background-size: 130px 24px;
+  background: url("../img/logo_api.svg") no-repeat center center / 130px auto;
   text-indent: -9999px;
   overflow: hidden;
   cursor: pointer;
-  float:left;
-  position: absolute;
-  top: 0;
   z-index: 50;
 
   @include res(md) {
     &{
-      width:250px;
-      background-size: 146px 27px;
+      width: 250px;
+      background-size: 146px auto;
     }
   }
 }
