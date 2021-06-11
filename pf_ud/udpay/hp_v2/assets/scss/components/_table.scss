@@ -176,20 +176,23 @@ table {
 
 
 .scrollTextWrap{
-  overflow-x:hidden;
+  padding: 1rem 1.267rem;
+  background-color: transparent;
+  border: 1px solid $border-light;
+  border-radius: .533rem;
+  overflow-x: hidden;
+
   .terms_wrapper{
-    .tab{
-      li{
-        display: block;
-        .tab-link{
-          font-size: $font-size-xsmall;
-          padding: 1rem 0;
-        }
+    .tab li{
+      display: block;
+      .tab-link{
+        font-size: $font-size-xsmall;
+        padding: 1rem 0;
       }
     }
     th,td, *, a{
-      font-size: .9rem !important;
-      padding: 0 !important;
+      font-size: .9rem;
+      padding: 0;
       color: rgba($text-dark, .7);
     }
   }

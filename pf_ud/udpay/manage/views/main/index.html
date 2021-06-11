@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>유디페이 API 관리</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+  <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $("#header").load("../inc/header.html");
+    });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../assets/css/udapi.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header"></div>
+    <!--template-->
+    <section id="content-inner">
+      <div class="title_box clearfix">
+        <div class="ttBox">
+          <h1 class="tt">대시보드</h1>
+        </div>
+        <div class="location">
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: './index.html' }">
+              <i class="xi-home-o"></i>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>대시보드</el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
+      </div>
+      <div class="CardWrap">
+        <el-row :gutter="24">
+          <!-- 계정 정보 -->
+          <el-col :xs="24" :sm="24" :lg="12">
+            <el-card shadow="always" class="no_padding">
+              <article class="cardBox xmd user-info-box active">
+                <div class="top">
+                  <h1 class="invisible">내 정보</h1>
+                  <div class="status-user">
+                    <div class="user-img">
+                      <i class="xi-user-o"></i>
+                    </div>
+                    <div class="user-info">
+                      <p class="user-info-name">한모래</p>
+                      <p class="user-info-id">
+                        <span>ID</span>
+                        <span>my_catmorae</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="status-token">
+                    <dl class="dl_info">
+                      <dt>연동토큰</dt>
+                      <dd class="pre_wrap">ujkkk8000uuv3pQPJP0C1OC3T8LJN34DQD</dd>
+                      <dd class="dd_inBtn">
+                        <el-button>
+                          <i class="la la-copy"></i>
+                          복사
+                        </el-button>
+                      </dd>
+                    </dl>
+                    <dl class="dl_info">
+                      <dt class="dt_fir">연동상태</dt>
+                      <dd class="dd_fir">
+                        <i class="xi-check"></i>
+                        사용 가능
+                      </dd>
+                      <dt class="dt_sec">사용방식</dt>
+                      <dd class="dd_sec left">선불충전</dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <dl class="dl_info">
+                    <dt>이용가능금액</dt>
+                    <dd class="right num-txt">
+                      <strong>17,949</strong>
+                      <small>원</small>
+                    </dd>
+                    <dd class="dd_inBtn">
+                      <el-button>결제하기</el-button>
+                    </dd>
+                  </dl>
+                </div>
+              </article>
+            </el-card>
+          </el-col>
+
+          <!--연동 후 > 연동 api 현황 -->
+          <el-col :xs="24" :sm="24" :lg="12">
+            <el-card shadow="always" class="no_padding">
+              <article class="cardBox xmd wmd np">
+                <h1 class="tit invisible">연동된 API 현황</h1>
+                <div class="date-head">
+                  <div class="datePeriod_selected">
+                    <el-date-picker
+                    class="pickerDay"
+                    size="mini"
+                    v-model="datePicker"
+                    type="daterange"
+                    align="left"
+                    start-placeholder="시작일"
+                    end-placeholder="종료일">
+                  </el-date-picker>
+                  <el-radio-group class="pickerTerm" size="mini" v-model="dateType">
+                    <el-radio-button label="day">당일</el-radio-button>
+                    <el-radio-button label="week">이번주</el-radio-button>
+                    <el-radio-button label="month">이번달</el-radio-button>
+                  </el-radio-group>
+                </div>
+              </div>
+
+              <div class="date-body">
+                <div class="expBox">
+                  <carousel class="api-list" :navigation-enabled="true" :per-page-custom=[[768,2],[992,3],[1200,2],[1660,3]]
+                  navigationPrevLabel="<i class='xi-angle-left'><span class='invisible'>이전</span></i>"
+                  navigationNextLabel="<i class='xi-angle-right'><span class='invisible'>다음</span></i>">
+                  <slide>
+                    <div class="api-item msg">
+                      <div class="linked">
+                        <div class="titBox">
+                          <div class="roundbox-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                              <path class="roundbox-shape"
+                              d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                            </svg>
+                            <span class="ico"><i class="xi-mail-o"></i></span>
+                          </div>
+                          <p class="tit">문자발송</p>
+                        </div>
+                        <div class="numberInfo_box">
+                          <dl class="dl_info case">
+                            <dt>총 건수</dt>
+                            <dd class="num-txt">
+                              <strong>34</strong>
+                              <small>건</small>
+                            </dd>
+                          </dl>
+                          <div class="price">
+                            <p class="num-txt">
+                              <strong>421.60</strong>
+                              <small>원</small>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="api-item kakao">
+                      <div class="linked">
+                        <div class="titBox">
+                          <div class="roundbox-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                              <path class="roundbox-shape"
+                              d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                            </svg>
+                            <span class="ico"><i class="xi-message-o"></i></span>
+                          </div>
+                          <p class="tit">카카오톡</p>
+                        </div>
+                        <div class="numberInfo_box">
+                          <dl class="dl_info case">
+                            <dt>총 건수</dt>
+                            <dd class="num-txt">
+                              <strong>67</strong>
+                              <small>건</small>
+                            </dd>
+                          </dl>
+                          <div class="price">
+                            <p class="num-txt">
+                              <strong>806.68</strong>
+                              <small>원</small>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="api-item auth">
+                      <div class="linked">
+                        <div class="titBox">
+                          <div class="roundbox-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                              <path class="roundbox-shape"
+                              d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                            </svg>
+                            <span class="ico"><i class="xi-shield-checked-o"></i></span>
+                          </div>
+                          <p class="tit">본인인증</p>
+                        </div>
+                        <div class="numberInfo_box">
+                          <dl class="dl_info case">
+                            <dt>총 건수</dt>
+                            <dd class="num-txt">
+                              <strong>25</strong>
+                              <small>건</small>
+                            </dd>
+                          </dl>
+                          <div class="price">
+                            <p class="num-txt">
+                              <strong>1230.05</strong>
+                              <small>원</small>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="api-item account">
+                      <div class="linked">
+                        <div class="titBox">
+                          <div class="roundbox-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                              <path class="roundbox-shape"
+                              d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                            </svg>
+                            <span class="ico"><i class="la la-paste"></i></span>
+                          </div>
+                          <p class="tit">계좌성명조회</p>
+                        </div>
+                        <div class="numberInfo_box">
+                          <dl class="dl_info case">
+                            <dt>총 건수</dt>
+                            <dd class="num-txt">
+                              <strong>13</strong>
+                              <small>건</small>
+                            </dd>
+                          </dl>
+                          <div class="price">
+                            <p class="num-txt">
+                              <strong>394.03</strong>
+                              <small>원</small>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </slide>
+                </carousel>
+              </div>
+            </div>
+          </article>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <!-- 연동전 > api 카드들 -->
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :lg="6" class="mainApiCard">
+        <el-card>
+          <section class="cardBox md align-center">
+            <div class="titBox">
+              <div class="roundbox-wrap roundbox-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                  <path class="roundbox-shape"
+                  d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                </svg>
+                <span class="ico"><i class="xi-mail-o"></i></span>
+              </div>
+              <h1 class="tit">문자발송</h1>
+              <p class="subtit">문자를 안정적으로 전송할 수 있으며, 전송 실패 시 자동 환불되는 API입니다.</p>
+            </div>
+            <div class="expBox">
+              <div class="priceInfo">
+                <dl>
+                  <dt>SMS</dt>
+                  <dd class="num-txt">
+                    <strong>12.00</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>LMS</dt>
+                  <dd class="num-txt">
+                    <strong>27.80</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>MMS</dt>
+                  <dd class="num-txt">
+                    <strong>57.00</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+              </div>
+              <a class="btn-connect">
+                <i class="xi-cog"></i>
+                API 연동하기
+              </a>
+            </div>
+          </section>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="6" class="mainApiCard">
+        <el-card>
+          <section class="cardBox md align-center">
+            <div class="titBox">
+              <div class="roundbox-wrap roundbox-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                  <path class="roundbox-shape"
+                  d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                </svg>
+                <span class="ico"><i class="xi-message-o"></i></span>
+              </div>
+              <h1 class="tit">카카오톡</h1>
+              <p class="subtit">카카오톡에 알림톡, 친구톡, 전송 실패 시 문자 자동 발송을 지원하는 API입니다.</p>
+            </div>
+            <div class="expBox">
+              <div class="priceInfo">
+                <dl>
+                  <dt>알림톡</dt>
+                  <dd class="num-txt">
+                    <strong>9.30</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>친구톡</dt>
+                  <dd class="num-txt">
+                    <strong>14.50</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>친구톡 이미지</dt>
+                  <dd class="num-txt">
+                    <strong>20.50</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+              </div>
+              <a class="btn-connect">
+                <i class="xi-cog"></i>
+                API 연동하기
+              </a>
+            </div>
+          </section>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="6" class="mainApiCard">
+        <el-card>
+          <section class="cardBox md align-center">
+            <div class="titBox">
+              <div class="roundbox-wrap roundbox-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                  <path class="roundbox-shape"
+                  d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                </svg>
+                <span class="ico"><i class="xi-shield-checked-o"></i></span>
+              </div>
+              <h1 class="tit">본인인증</h1>
+              <p class="subtit">안심하고 사용할 수 있는 빠르고 간편한 본인인증을 지원하는 API입니다.</p>
+            </div>
+            <div class="expBox">
+              <div class="priceInfo">
+                <dl>
+                  <dt>본인인증</dt>
+                  <dd class="num-txt">
+                    <strong>43.00</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+              </div>
+              <a class="btn-connect">
+                <i class="xi-cog"></i>
+                API 연동하기
+              </a>
+            </div>
+          </section>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" :lg="6" class="mainApiCard">
+        <el-card>
+          <section class="cardBox md align-center">
+            <div class="titBox">
+              <div class="roundbox-wrap roundbox-info">
+                <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                  <path class="roundbox-shape"
+                  d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                </svg>
+                <span class="ico"><i class="la la-paste"></i></span>
+              </div>
+              <h1 class="tit">계좌성명조회</h1>
+              <p class="subtit">계좌정보와 해당 계좌의 소유자 정보의 일치 여부를 확인 가능한 API입니다.</p>
+            </div>
+            <div class="expBox">
+              <div class="priceInfo">
+                <dl>
+                  <dt>계좌성명조회</dt>
+                  <dd class="num-txt">
+                    <strong>23.00</strong>
+                    <small>원</small>
+                  </dd>
+                </dl>
+              </div>
+              <a class="btn-connect">
+                <i class="xi-cog"></i>
+                API 연동하기
+              </a>
+            </div>
+          </section>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <!-- 게시판 최신글 불러오기 -->
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="24" :lg="12">
+        <el-card>
+          <article class="cardBox board sm">
+            <div class="titBox">
+              <h1 class="tit">공지사항</h1>
+              <a class="btn-more">
+                <span>더보기 <i class="xi-angle-right"></i></span></a>
+              </div>
+              <div class="contBox">
+                <ul class="bbs-latest-list">
+                  <li>
+                    <p class="bbs-subject">
+                      <span class="bbs-cate">전체공지</span>
+                      <span>새로운 결제수단 '네이버페이' 오픈</span>
+                    </p>
+                    <p class="bbs-date">2021-03-31</p>
+                  </li>
+                  <li>
+                    <p class="bbs-subject">
+                      <span class="bbs-cate">전체공지</span>
+                      <span>2021년 4월 카드사 무이자 할부 안내</span>
+                    </p>
+                    <p class="bbs-date">2021-03-31</p>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </el-card>
+        </el-col>
+
+        <el-col :xs="24" :sm="24" :lg="12">
+          <el-card>
+            <article class="cardBox board sm">
+              <div class="titBox">
+                <h1 class="tit">자주묻는질문</h1>
+                <a class="btn-more">
+                  <span>더보기 <i class="xi-angle-right"></i></span></a>
+                </div>
+                <div class="contBox">
+                  <ul class="bbs-latest-list">
+                    <li>
+                      <p class="bbs-subject">세금계산서를 받을 수 있나요?</p>
+                    </li>
+                    <li>
+                      <p class="bbs-subject">개인으로 가입한 경우 사업자로 바로 전환이 가능한가요?</p>
+                    </li>
+                    <li>
+                      <p class="bbs-subject">정산을 받으려면 별도로 신청서나 계약을 진행해야 하나요?</p>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
+
+      <!--하단 버튼-->
+      <el-button circle class="btn-payment" title="API 이용을 위한 결제하기">&#65510;</el-button>
+    </section>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="../../../common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="../../../common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * API datepicker
+         */
+         datePicker: '',
+
+         /**
+          * API 탭
+          */
+          dateType: 'day',
+        }
+      }
+    })
+  </script>
+  </html>

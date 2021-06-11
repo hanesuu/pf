@@ -1,0 +1,407 @@
+@charset "UTF-8";
+
+.joinForm {
+  display: table;
+  width: 100vw;
+  height: 100vh;
+  background: $bg-lighten;
+  
+  .inn {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  
+    .joinBox {
+      padding: 30px 0 40px;
+      position: relative;
+      width: 600px;
+      margin: 0 auto;
+      
+      .con {
+        border: 1px solid $border-color-light;
+        background: $color-white;
+        margin-top: 15px;
+      }
+    }
+  }
+  
+  // 상단헤더
+  .ttBox {
+    padding: 20px 13px;
+    border-bottom: 1px solid $border-color-lighter;
+    
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    h3 {
+      font-size: 1rem;
+      color: $color-text-secondary
+    }
+  }
+  
+  // 바디
+  .scCon {
+    padding: 40px 60px;
+  }
+  
+  // 가입완료
+  .finBox {
+    padding: 60px 13px;
+    
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    h3 {
+      color: $color-text-secondary
+    }
+  }
+  
+  // 하단 버튼
+  .bot {
+    margin-top: 1rem;
+    
+    .el-button {
+      width: 100%;
+      height: 60px;
+      font-size: 1.2rem;
+    
+      &:disabled {
+        border: 1px solid $border-color-light !important;
+        border-top: 0 !important;
+      }
+    }
+  }
+  
+  // checkbox with text label
+  .el-checkbox {
+    &__label {
+      padding-left: .5rem;
+      font-size: 1.05rem
+    }
+  }
+}
+
+// 약관 체크 영역
+.joinAgree {
+  text-align: left;
+}
+.agreeTT {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  position: relative;
+  @extend %group;
+  
+  h2 {
+    float: left;
+    font-size: $font-size-medium;
+  }
+  
+  .checkArea {
+    float: right;
+  }
+}
+
+
+// 사업자, 개인 체크 영역
+.joinSecBox {
+  margin: 30px 0;
+  
+  ul {
+    margin: 0 -13px;
+    
+    li {
+      position: relative;
+      
+      input[type="radio"] {
+        position: absolute;
+        left: 13px;
+        top: 0;
+        right: 13px;
+        bottom: 0;
+        width: calc(100% - 26px);
+        margin: 0;
+        outline: none;
+  
+        &:checked + label dl {
+          background: $color-primary;
+          color:  $color-white;
+          border-color: $color-primary;
+          transform: translateY(8px);
+          box-shadow: 0 10px 36px -13px rgba($color-primary,.8);
+  
+          dd, p {
+            color: $color-white;
+          }
+  
+          span {
+            background: $color-white;
+            color: $color-primary;
+          }
+        }
+      }
+      
+      dl {
+        margin: 0 13px;
+        padding: 25px 13px;
+        background: $color-white;
+        cursor: pointer;
+        transition: transform .3s;
+        border-radius: 1.5em;
+        border: 1px solid $border-color-light;
+      }
+      
+      &:hover dl {
+        border-color: $color-primary;
+      }
+    }
+  }
+  
+  dt {
+    margin-bottom: 13px;
+  }
+  dd {
+    line-height: 1.3em;
+    font-size: 1.07rem;
+    font-weight: 400;
+    color: $color-text-primary;
+    
+    small {
+      color: $color-text-placeholder;
+      font-size: .85rem;
+    }
+  }
+  
+  span {
+    position: relative;
+    display: table;
+    width: 60px;
+    height: 60px;
+    background: $bg-lighten;
+    border-radius: 1.5em / 1.5em;
+    color: $color-text-base;
+    text-align: center;
+    margin: 0 auto;
+    
+    i {
+      display: table-cell;
+      vertical-align: middle;
+      position: relative;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.garoCell {
+  @extend %group;
+  
+  &.col_2 li, &.col_2 .li {
+    width: 50%;
+  }
+  
+  li, .li {
+    float: left;
+    text-align: center;
+  }
+}
+
+
+// 입력폼
+.joinInput {
+  text-align: left;
+  
+  & + & {
+    margin-top: 15px;
+  }
+  em {
+    margin-left: 4px;
+    font-size: 1.07rem;
+    color: $color-primary;
+  }
+  li {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  dt {
+    margin-bottom: 5px;
+  }
+  dd {
+    .el-input input {
+      height: 44px;
+      line-height: 44px;
+    }
+    .el-button {
+      min-width: 110px;
+      height: 44px;
+    }
+  }
+  
+  .textWarning {
+    font-size: .85rem;
+    margin-top: 4px;
+    color: $color-danger;
+  }
+}
+
+
+
+
+// 약관
+// terms, privacy
+.terms_wrapper{
+  width:100%;
+  height:100%;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color-lighter;
+  scroll-behavior: smooth;
+  
+  *{
+    font-size: $font-size-small;
+    line-height: 1.5;
+  }
+  strong{
+    font-weight: $font-weight-light;
+  }
+  .paragraph_rule{
+    margin-bottom:0.6667rem;
+  }
+  .tit_h2{
+    margin-top: 1.333rem;
+    color: $color-text-regular;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+  }
+  .tit_rule{
+    margin-top: 1.333rem;
+    margin-bottom:5px;
+    font-size: $font-size-extra-small;
+    font-weight: $font-weight-light;
+    color: $color-text-placeholder;
+    
+    &.first{
+      margin-top:0;
+    }
+    &.st{
+      font-size: 1.067rem;
+      color: $color-text-regular;
+      margin-bottom:0;
+      
+      + .tit_rule{
+        margin-top:0;
+      }
+    }
+  }
+  
+  
+  
+  .terms_link{
+    display: none;
+  }
+  .list_rule {
+    &.first{
+      margin-top:0.6667rem;
+      a{
+        font-size: $font-size-small;
+        text-decoration: underline;
+        em{
+          font-family: GmarketSansMedium;
+          font-weight: $font-weight-bold;
+          color: $color-primary;
+          font-size: $font-size-small;
+        }
+      }
+    }
+    &.last{
+      margin-bottom:0.6667rem;
+    }
+  }
+  
+  .list_case{
+    padding-left:18px;
+  }
+  
+  .table{
+    width: 100%;
+    margin: 0.6667rem 0;
+    text-align: left;
+    line-height: 1.5;
+    color: $color-text-secondary;
+    font-size: 0.8667rem;
+    
+    th, td{
+      padding: 5px 10px;
+      border:1px solid $border-color-light;
+      text-align: center;
+      vertical-align: middle;
+  
+      &:first-child{
+        border-left:0;
+      }
+      &:last-child{
+        border-right:0;
+      }
+    }
+    thead{
+      th {
+        padding:1rem 0;
+        background-color: rgba($border-color-light, .2);
+      }
+    }
+  }
+  
+  @include res(sm){
+    &{
+      *{
+        font-size: .95rem;
+      }
+      .table {
+        font-size: $font-size-extra-small;
+      }
+    }
+  }
+}
+
+// 문의하기 스크롤 영역 안 약관
+.scrollTextWrap{
+  width: 100%;
+  height: 300px;
+  padding: 1.067rem 1.267rem;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid $border-color-light;
+  border-radius: .533rem;
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  overflow-y: auto;
+  
+  .terms_link{
+    display: block;
+  }
+  .transformer-tabs{
+    display: none;
+  }
+  .tab-content{
+    display: block !important;
+  }
+  .terms_wrapper{
+    padding-top:0;
+    border-top:0;
+  }
+}
+
+@media (max-width: 600px) {
+  .terms_wrapper{
+    .terms_link{
+      display: block !important;
+    }
+    .transformer-tabs{
+      display: none;
+    }
+    .tab-content{
+      display: block !important;
+    }
+  }
+}

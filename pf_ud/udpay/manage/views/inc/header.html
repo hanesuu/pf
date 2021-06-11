@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div id="layout">
+    <el-header id="header">
+      <div class="top-nav-bar">
+        <div class="logo-box">
+          <h1>유디페이 API관리</h1>
+        </div>
+        <div class="top-nav-menu">
+          <div class="top-nav-menu-item left">
+
+            <div class="widget-item widget-item__btn">
+              <button type="button" class="btn-menu-opener">
+                <span class="btn-menu-opener__inn">
+                  <span class="bar top"></span>
+                  <span class="bar mid"></span>
+                  <span class="bar bottom"></span>
+                </span>
+              </button>
+            </div>
+            <div class="widget-item widget-item__greeting">
+              <p>
+                <i class="xi-profile"></i>
+                <strong class="greeting-username">한모래(my_catmorae)</strong>님, 안녕하세요.
+              </p>
+            </div>
+          </div>
+
+          <div class="top-nav-menu-item right">
+            <ul class="widget-item widget-item__usage">
+              <li class="use true">
+                <span>연동토큰 사용가능</span>
+              </li>
+            </ul>
+            <ul class="widget-item widget-item__menu">
+              <li class="mypage" title="마이페이지">
+                <i class="la la-cog"></i>
+              </li>
+              <li class="logout">
+                <button type="button" title="로그아웃" onclick="location.href='../index.html'">
+                  <i class="la la-sign-out"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </el-header>
+    <el-aside id="lnb" class="sidebar" v-show="leftView">
+      <div class="sidebar-content">
+        <el-menu class="sidebar-nav" :default-openeds="openMenus" :default-active="activeMenu" :unique-opened="true" @open="handleOpen" @close="handleClose">
+          <el-menu-item class="dep1">
+            <div class="el-menu-item-text">
+              <i class="ico xi-dashboard-o"></i>
+              <span>대시보드</span>
+            </div>
+          </el-menu-item>
+          <el-submenu>
+            <template slot="title" class="dep1">
+              <i class="ico xi-mail-o"></i> 
+              <span>문자 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item>연동설정</el-menu-item>
+              <el-menu-item>발송내역</el-menu-item>
+              <el-menu-item>사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu>
+            <template slot="title" class="dep1">
+              <i class="ico xi-message-o"></i> 
+              <span>카카오톡 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item>사전준비</el-menu-item>
+              <el-menu-item>연동설정</el-menu-item>
+              <el-menu-item>발송내역</el-menu-item>
+              <el-menu-item>사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu>
+            <template slot="title" class="dep1">
+              <i class="ico xi-shield-checked-o"></i> 
+              <span>본인인증 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item>연동설정</el-menu-item>
+              <el-menu-item>발송내역</el-menu-item>
+              <el-menu-item>사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu>
+            <template slot="title" class="dep1">
+              <i class="ico la la-paste"></i> 
+              <span>계좌성명조회 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item>연동설정</el-menu-item>
+              <el-menu-item>발송내역</el-menu-item>
+              <el-menu-item>사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu>
+            <template slot="title" class="dep1">
+              <i class="ico xi-won"></i> 
+              <span>충전/입금관리</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item>결제하기</el-menu-item>
+              <el-menu-item>충전내역</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </div>
+      <div class="cs-info">
+        <p class="cs-tit"><i class="xi-emoticon-happy-o"></i> 고객상담문의</p>
+        <p class="cs-tel">1800-3925</p>
+        <div class="cs-time">
+          <p><span>평일</span><span>9:00 ~ 18:00</span></p>
+          <p><span>휴무</span><span>주말, 공휴일 휴무</span></p>
+        </div>
+      </div>
+    </el-aside>
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="../../../common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="../../../common/js/element/index.js"></script>
+<script>
+  new Vue({
+    el: '#layout',
+    data: function() {
+      return {
+        }
+      },
+      methods: {
+        handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+          console.log(key, keyPath);
+        }
+      }
+    })
+  </script>
+</html>

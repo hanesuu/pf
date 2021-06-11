@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/* _mixins.scss */
+// Color
+//--------------------------
+$color-primary:            #1a6bfa !default;  //$mainColor, mainDarkenColor,mainDarkenLightColor
+//mainLightColor:          lighten($mainColor, 6%);
+$color-white:              #ffffff !default;
+$color-black:              #000000 !default;
+
+$color-success:            #00B591 !default;  //$mainGreen
+$color-warning:            #ffa443 !default;
+$color-danger:             #f13d4a !default;  //$mainRed
+$color-info:               #688aa3 !default;  //$subLightColor
+
+$color-text-primary:       #11384e !default;  //$mainDarkColor
+$color-text-dark:          #263b54 !default;  //basicBlack, mainMuddyColor
+$color-text-regular:       #537a96 !default;  //gray-6, subColor, 
+//subMuddyColor:           darken($color-text-regular, 10%);
+$color-text-secondary:     #8E9dac !default;
+$color-text-placeholder:   #96a5b3 !default;  //gray-9, baseMuddyColor
+$color-text-base:          #aeb9c4 !default;  //baseColor
+
+$border-color-base:        #d1d4d6 !default;
+$border-color-light:       #d6dce1 !default;
+$border-color-lighter:     #e9eef5 !default;  //baseLightColor
+
+$bg-lighten:               #f2f6fc !default;  //border-color-extra-light
+
+// 연동상태 컬러값
+$mainDarkenColor:          #0850d0 !default;
+
+
+// Color array
+$round-box-colors:() !default;
+$round-box-colors: map-merge(
+    (
+      "primary":    $color-primary,
+      "secondary":  $color-text-primary,
+      "success":    $color-success,
+      "info":       $color-info,
+      "warning":    $color-warning,
+      "danger":     $color-danger,
+      "regular":    darken($border-color-lighter, 2%)
+    ),
+    $round-box-colors
+);
+
+
+//fontstyle
+$font-family: 'NanumSquareRound', Malgun Gothic, Dotum, 'Apple SD Gothic Neo', sans-serif !default;
+$font-icon: LineAwesome;
+
+
+
+$font-size-extra-small: 12px !default;
+$font-size-small:       13px !default;
+$font-size-base:        14px !default;
+$font-size-medium:      16px !default;
+$font-size-large:       18px !default;
+$font-size-extra-large: 20px !default;
+
+$font-weight-light:     100 !default;
+$font-weight-base:      400 !default;
+$font-weight-medium:    500 !default;
+$font-weight-bold:      700 !default;
+$font-weight-black:     800 !default;
+
+//vertical
+%top50 {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+%left50 {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+%group{
+  zoom: 1;
+
+  &:before, &:after{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+
+// button active
+@mixin btnActive($shadowColor){
+  &:active,
+  &:focus,
+  &:hover,
+  &.active{
+    @include prefix(box-shadow, 0px 0px 4px 0px rgba($shadowColor, 0.3), webkit ms moz o);
+  }
+}
+
+// Break-points
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+
+$--breakpoints: (
+  'xs' : (max-width: $--sm - 1),
+  'sm' : (min-width: $--sm),
+  'md' : (min-width: $--md),
+  'lg' : (min-width: $--lg),
+  'xl' : (min-width: $--xl)
+);
+
+$--breakpoints-spec: (
+  'xs-only' : (max-width: $--sm - 1),
+  'sm-and-up' : (min-width: $--sm),
+  'sm-only': "(min-width: #{$--sm}) and (max-width: #{$--md - 1})",
+  'sm-and-down': (max-width: $--md - 1),
+  'md-and-up' : (min-width: $--md),
+  'md-only': "(min-width: #{$--md}) and (max-width: #{$--lg - 1})",
+  'md-and-down': (max-width: $--lg - 1),
+  'lg-and-up' : (min-width: $--lg),
+  'lg-only': "(min-width: #{$--lg}) and (max-width: #{$--xl - 1})",
+  'lg-and-down': (max-width: $--xl - 1),
+  'xl-only' : (min-width: $--xl),
+);
+
+@mixin res($key, $map: $--breakpoints) {
+  @if map-has-key($map, $key) {
+    @media only screen and #{inspect(map-get($map, $key))} {
+      @content;
+    }
+  } @else {
+    @warn "Undefeined points: `#{$map}`";
+  }
+}
+
+
+
+/// Mixin to prefix a property
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+// font-family
+@mixin font-family($fontFam) {
+  font-family: $fontFam;
+}
+
+// content value init
+@mixin content-val($content) {
+  display:inline-block;
+  content: $content;
+}
+
+// float clear both
+@mixin clearfix {
+  &:after{
+    display: block;
+    content:"";
+    clear:both;
+  }
+}
+
+
+// animation keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+// placeholder
+@mixin placeholder(){
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder{
+    @content
+  }
+  input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    @content
+  }
+  input::-moz-placeholder,
+  textarea::-moz-placeholder{
+    @content
+  }
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder{
+    @content
+  }
+  input::placeholder,
+  textarea::placeholder{
+    @content
+  }
+}
+
+// for placeholder
+@mixin placeholder(){
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder{
+    @content
+  }
+  input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    @content
+  }
+  input::-moz-placeholder,
+  textarea::-moz-placeholder{
+    @content
+  }
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder{
+    @content
+  }
+  input::placeholder,
+  textarea::placeholder{
+    @content
+  }
+}
+
+
+// roundbox shape
+@mixin roundBox(){
+  width:2.867rem; //43px
+  height: 3.467rem; //52px
+  margin: 0 auto;
+  background: $color-text-secondary;
+  border-radius: 50% / 15%;
+  color: darken($color-text-secondary, 35%);
+  text-align: center;
+  text-indent: .1em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 7%;
+    bottom: 8%;
+    right: -11%;
+    left: -12%;
+    background: inherit;
+    border-radius: 18% / 50%;
+  }
+  i{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-55%, -50%);
+    font-size:1.8rem;
+    color: darken($color-text-secondary, 35%);
+    z-index: 5;
+  }
+  .num{
+    font-size:1.6rem;
+    font-weight: 600;
+    position: absolute;
+    top:50%;
+    left:50%;
+    color:$color-text-primary;
+    transform: translate(-55%, -50%);
+  }
+  .txt{
+    font-size:1rem;
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    color: darken($color-text-secondary, 35%);
+    transform: translate(-55%, -50%);
+    line-height: 1.2;
+  }
+}
+
+
+// roundBox prime color
+@mixin roundBoxPrime($bgColor1) {
+  .roundbox-shape{
+    fill: $bgColor1;
+    transition: all 0.2s ease-in-out;
+  }
+  i, .ico, .txt {
+    color: $color-white;
+    transition: all 0.2s ease-in-out;
+  }
+  .num{
+    color: darken($bgColor1, 70%);
+
+  }
+}
+
+// roundbox lighen color
+@mixin roundBoxLight($bgColor1){
+  .roundbox-shape{
+    fill: mix($bgColor1, $color-white, 12%);
+  }
+  .ico, .txt, .num{
+    color: $bgColor1;
+  }
+}
+
+
+// 티비박스 믹스인 사용해서 각 색상별로 만들기
+@each $color, $value in $round-box-colors {
+  .roundbox-#{$color} {
+    @include roundBoxPrime($value);
+  }
+}
+
+@each $color, $value in $round-box-colors {
+  .roundbox-#{$color}-light {
+    @include roundBoxLight($value);
+  }
+}
+
+
+// api-item
+@mixin apiItem($color1, $color2) {
+  &{
+    .price{
+      background: rgba($color1, 0.13);
+      .num-txt{
+        color: $color1;
+      }
+    }
+
+    .not-link{
+      &:hover,
+      &:focus,
+      &:active{
+        background-color: $color1;
+        border-style: solid;
+        border-color: $color1;
+        box-shadow: 4px 4px 7px 0 rgba($color1, 0.47);
+
+        .roundbox-wrap{
+          .roundbox-shape{
+            fill: $color2;
+          }
+          i{
+            color: $color1;
+          }
+        }
+        .tit,
+        .btn-more{
+          color: $color2 !important;
+        }
+      }
+    }
+
+    .linked{
+      .roundbox-wrap{
+        .roundbox-shape{
+          fill: $color1;
+        }
+        i{
+          color: $color2;
+        }
+      }
+    }
+  }
+}
+
+
+@each $type in (msg, kakao, auth, account) {
+  .api-item.#{$type} {
+    @if $type == msg {
+      @include apiItem($color-primary, $color-white);
+    } @else if $type == kakao {
+      @include apiItem($color-success, $color-white);
+    } @else if $type == auth {
+      @include apiItem($color-text-primary, $color-white);
+    } @else if $type == account {
+      @include apiItem($color-info, $color-white);
+    } @else {
+
+    }
+  }
+}
+
+
+// 연동 & 미연동 상태 컬러구분
+@mixin userInfoBox($bgcolor1, $bgcolor2) {
+  & {
+    .top {
+      background: $bgcolor1;
+    }
+    .bottom {
+      background: $bgcolor2;
+      .dd_inBtn {
+        .el-button {
+          background: lighten($bgcolor1, 8%) !important;
+          border-color: lighten($bgcolor1, 8%) !important;
+        }
+      }
+    }
+  }
+}
