@@ -1020,3 +1020,14 @@
     word-break: keep-all;
   }
 }
+
+
+// date calendar
+.el-date-table {
+  td.today span, td:hover span {
+    color: $color-primary
+  }
+}
+.el-picker-panel__icon-btn:hover {
+  color: $color-primary
+}

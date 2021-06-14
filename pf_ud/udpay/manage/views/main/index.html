@@ -487,7 +487,9 @@
 <script src="/pf/pf_ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
 <script src="/pf/pf_ud/common/js/element/index.js"></script>
+<script src="/pf/pf_ud/common/js/element/ko.js"></script>
 <script>
+ELEMENT.locale(ELEMENT.lang.ko)
   new Vue({
     el: '#app',
     data: function() {
@@ -510,6 +512,7 @@
       },
       components: {
         'carousel': VueCarousel.Carousel,
+        'slide': VueCarousel.Slide
       }
     })
   </script>
