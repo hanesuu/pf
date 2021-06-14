@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>유디페이 API 관리</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+  <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $("#incheader").load("../inc/header.html");
+    });
+  </script>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="/pf/pf_ud/udpay/manage/assets/css/udapi.css">
+</head>
+<body>
+  <div id="app">
+    <div id="incheader"></div>
+    <!--nav-->    
+    <el-aside id="lnb" class="sidebar" v-show="leftView">
+      <div class="sidebar-content">
+        <el-menu class="sidebar-nav" :default-active="leftmenu" @open="handleOpen" @close="handleClose">
+          <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
+            <div class="el-menu-item-text">
+              <i class="ico xi-dashboard-o"></i>
+              <span>대시보드</span>
+            </div>
+          </el-menu-item>
+          <el-submenu index="mmsg">
+            <template slot="title" class="dep1">
+              <i class="ico xi-mail-o"></i> 
+              <span>문자 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mmsg1" onclick="location.href='../msg/'">연동설정</el-menu-item>
+              <el-menu-item index="mmsg2" onclick="location.href='../msg/list.html'">발송내역</el-menu-item>
+              <el-menu-item index="mmsg3" onclick="location.href='../msg/use.html'">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="mkakao">
+            <template slot="title" class="dep1">
+              <i class="ico xi-message-o"></i> 
+              <span>카카오톡 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mkakao1">사전준비</el-menu-item>
+              <el-menu-item index="mkakao2">연동설정</el-menu-item>
+              <el-menu-item index="mkakao3">발송내역</el-menu-item>
+              <el-menu-item index="mkakao4">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="maccount">
+            <template slot="title" class="dep1">
+              <i class="ico la la-paste"></i> 
+              <span>계좌성명조회 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="maccount1">연동설정</el-menu-item>
+              <el-menu-item index="maccount2">발송내역</el-menu-item>
+              <el-menu-item index="maccount3">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="mpayment">
+            <template slot="title" class="dep1">
+              <i class="ico xi-won"></i> 
+              <span>충전/입금관리</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">결제하기</el-menu-item>
+              <el-menu-item index="mpayment2" onclick="location.href='../payment/list.html'">충전내역</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </div>
+      <div class="cs-info">
+        <p class="cs-tit"><i class="xi-emoticon-happy-o"></i> 고객상담문의</p>
+        <p class="cs-tel">1800-3925</p>
+        <div class="cs-time">
+          <p><span>평일</span><span>9:00 ~ 18:00</span></p>
+          <p><span>휴무</span><span>주말, 공휴일 휴무</span></p>
+        </div>
+      </div>
+    </el-aside>
+    <!--//nav-->
+
+    <!--template-->
+    <section id="content">
+      <section id="content-inner">
+        <div class="title_box clearfix">
+          <div class="ttBox">
+            <h1 class="tt">문자 연동설정</h1>
+          </div>
+          <div class="location">
+            <el-breadcrumb separator-class="el-icon-arrow-right">
+              <el-breadcrumb-item :to="{ path: '../main/' }">
+                <i class="xi-home-o"></i>
+              </el-breadcrumb-item>
+              <el-breadcrumb-item>문자 연동설정</el-breadcrumb-item>
+            </el-breadcrumb>
+          </div>
+        </div>
+        <el-row>
+          <el-col :span="24">
+            <div class="grid-content">
+              <div role="alert" class="el-alert is-light list_head">
+                <div class="el-alert__content">
+                  <span class="el-alert__title is-bold">문자발송 연동사용</span>
+                  <div class="el-alert__description" v-if="content">
+                    문자를 안정적으로 전송할 수 있으며, 전송 실패 시 자동환불되는 API입니다.
+                    <div class="text-danger">
+                      * 이용 제한 문구가 포함된 경우 문제메시지가 발송되지 않습니다.
+                    </div>
+                  </div>
+                </div>
+                <el-switch v-model="apiUseYn" active-text="사용함" inactive-text="사용 안 함"></el-switch>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+
+        <el-row>
+          <el-col :span="24">
+            <el-card shadow="always" class="no_padding">
+              <div class="cardBox contains">
+                <div class="table_head">
+                  <div class="list_total">
+                    총 1건의 등록 내역이 있습니다.
+                  </div>
+                  <div class="list_ct_btn">
+                    <el-button size="medium" type="primary" icon="xi-plus" plain>발신번호 등록
+                    </el-button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition">
+                    <div class="el-table__header-wrapper">
+                      <table class="el-table__header">
+                        <thead class="has-gutter">
+                          <tr>
+                            <th>
+                              <div class="cell">발송번호</div>
+                            </th>
+                            <th>
+                              <div class="cell">인증수단</div>
+                            </th>
+                            <th>
+                              <div class="cell">인증상태</div>
+                            </th>
+                            <th>
+                              <div class="cell">등록일</div>
+                            </th>
+                            <th class="in-btn">
+                              <div class="cell">관리</div>
+                            </th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+
+                    <div class="el-table__body-wrapper is-scrolling-none">
+                      <table class="el-table__body">
+                        <tbody>
+                          <tr class="el-table__row">
+                            <td>
+                              <div class="cell">1010-3212-4567</div>
+                            </td>
+                            <td>
+                              <div class="cell">휴대폰인증</div>
+                            </td>
+                            <td>
+                              <div class="cell">
+                                <span class="text-primary">완료</span>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="cell">2021-01-22 15:22:53</div>
+                            </td>
+                            <td class="in-btn">
+                              <div class="cell">
+                                <el-button size="small" type="danger" icon="xi-trash-o" plain>삭제</el-button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="table_foot">
+                  <el-pagination
+                  layout="prev, pager, next"
+                  :total="1"
+                  :page-size="1"
+                  class="list_pager"></el-pagination>
+
+                  <div class="list_sort">
+                    <el-select placeholder="보기 구분" v-model="pageSize" size="medium">
+                      <el-option v-for="list in options"
+                      :key="list.value"
+                      :label="list.label"
+                      :value="list.value"></el-option>
+                    </el-select>
+                  </div>
+                </div><!--//table_foot-->
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
+      </section>      
+    </section>
+    <!--//template-->
+  </div>
+</body>
+
+<!-- import Vue before Element -->
+<script src="/pf/pf_ud/common/js/element/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/pf/pf_ud/common/js/element/index.js"></script>
+<script src="/pf/pf_ud/common/js/element/ko.js"></script>
+<script>
+  ELEMENT.locale(ELEMENT.lang.ko)
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        /**
+         * menu
+         */
+         leftView: true,
+         leftmenu: 'mmsg1',
+
+        /**
+         * 사용여부
+         */
+         apiUseYn: true,
+
+         /**
+          * 페이지 보기
+          */
+          options: [{
+            value: '10개씩 보기',
+            label: '10개씩 보기'
+          }, {
+            value: '50개씩 보기',
+            label: '50개씩 보기'
+          }, {
+            value: '100개씩 보기',
+            label: '100개씩 보기'
+          }],
+          pageSize: ''
+
+        }
+      },
+      methods: {
+        handleOpen(key, keyPath) {},
+        handleClose(key, keyPath) {},
+      },
+      components: {
+        'carousel': VueCarousel.Carousel,
+        'slide': VueCarousel.Slide
+      }
+    })
+  </script>
+  </html>

@@ -25,7 +25,7 @@
     <el-aside id="lnb" class="sidebar" v-show="leftView">
       <div class="sidebar-content">
         <el-menu class="sidebar-nav" :default-active="leftmenu" @open="handleOpen" @close="handleClose">
-          <el-menu-item class="dep1" index="mmain">
+          <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
             <div class="el-menu-item-text">
               <i class="ico xi-dashboard-o"></i>
               <span>대시보드</span>
@@ -37,9 +37,9 @@
               <span>문자 API</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="mmsg1">연동설정</el-menu-item>
-              <el-menu-item index="mmsg2">발송내역</el-menu-item>
-              <el-menu-item index="mmsg3">사용현황</el-menu-item>
+              <el-menu-item index="mmsg1" onclick="location.href='../msg/'">연동설정</el-menu-item>
+              <el-menu-item index="mmsg2" onclick="location.href='../msg/list.html'">발송내역</el-menu-item>
+              <el-menu-item index="mmsg3" onclick="location.href='../msg/use.html'">사용현황</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="mkakao">
@@ -52,17 +52,6 @@
               <el-menu-item index="mkakao2">연동설정</el-menu-item>
               <el-menu-item index="mkakao3">발송내역</el-menu-item>
               <el-menu-item index="mkakao4">사용현황</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="mauth">
-            <template slot="title" class="dep1">
-              <i class="ico xi-shield-checked-o"></i> 
-              <span>본인인증 API</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="mauth1">연동설정</el-menu-item>
-              <el-menu-item index="mauth2">발송내역</el-menu-item>
-              <el-menu-item index="mauth3">사용현황</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="maccount">
@@ -82,8 +71,8 @@
               <span>충전/입금관리</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="mpayment1">결제하기</el-menu-item>
-              <el-menu-item index="mpayment2">충전내역</el-menu-item>
+              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">결제하기</el-menu-item>
+              <el-menu-item index="mpayment2" onclick="location.href='../payment/list.html'">충전내역</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
@@ -108,7 +97,7 @@
           </div>
           <div class="location">
             <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: './index.html' }">
+              <el-breadcrumb-item :to="{ path: '../main/' }">
                 <i class="xi-home-o"></i>
               </el-breadcrumb-item>
               <el-breadcrumb-item>대시보드</el-breadcrumb-item>
@@ -595,22 +584,7 @@ ELEMENT.locale(ELEMENT.lang.ko)
           dateType: 'day',
         }
       },
-      methods: {        
-        jqueryEvent() {
-          let self = this
-          $(document).ready(function () {
-            if ($(window).width() < 1440) {
-              self.leftView = false
-            } else self.leftView = true
-          });
-
-          $(window).resize(function () {
-            if ($(window).width() < 1440) {
-              self.leftView = false
-            } else self.leftView = true
-          });
-        },
-
+      methods: {
         handleOpen(key, keyPath) {},
         handleClose(key, keyPath) {},
       },
