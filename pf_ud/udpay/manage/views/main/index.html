@@ -452,13 +452,19 @@
                   <div class="contBox">
                     <ul class="bbs-latest-list">
                       <li>
-                        <p class="bbs-subject">세금계산서를 받을 수 있나요?</p>
+                        <p class="bbs-subject">
+                          <span>세금계산서를 받을 수 있나요?</span>
+                        </p>
                       </li>
                       <li>
-                        <p class="bbs-subject">개인으로 가입한 경우 사업자로 바로 전환이 가능한가요?</p>
+                        <p class="bbs-subject">
+                          <span>개인으로 가입한 경우 사업자로 바로 전환이 가능한가요?</span>
+                        </p>
                       </li>
                       <li>
-                        <p class="bbs-subject">정산을 받으려면 별도로 신청서나 계약을 진행해야 하나요?</p>
+                        <p class="bbs-subject">
+                          <span>정산을 받으려면 별도로 신청서나 계약을 진행해야 하나요?</span>
+                        </p>
                       </li>
                     </ul>
                   </div>
@@ -477,15 +483,20 @@
 </body>
 
 <!-- import Vue before Element -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
 <script src="/pf/pf_ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
 <script src="/pf/pf_ud/common/js/element/index.js"></script>
-<script src="//cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
 <script>
   new Vue({
     el: '#app',
     data: function() {
       return {
+        /**
+         * menu
+         */
+         activeMenu: '1',
+
         /**
          * API datepicker
          */
