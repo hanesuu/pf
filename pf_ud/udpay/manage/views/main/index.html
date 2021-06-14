@@ -121,7 +121,7 @@
 
                   <div class="date-body">
                     <div class="expBox">
-                      <carousel class="api-list">
+                      <carousel class="api-list" :navigationEnabled="true">
                         <slide>
                           <div class="api-item msg">
                             <div class="linked">
@@ -515,8 +515,7 @@ ELEMENT.locale(ELEMENT.lang.ko)
       components: {
         'carousel': VueCarousel.Carousel,
         'slide': VueCarousel.Slide
-      },
-      template: '<carousel :navigationEnabled="true">' + buildSlideMarkup(4) + '</carousel>'
+      }
     })
   </script>
   </html>
