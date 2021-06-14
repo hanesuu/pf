@@ -1027,6 +1027,11 @@
   td.today span, td:hover span {
     color: $color-primary
   }
+
+  td.end-date span, td.start-date span {
+    background-color: $color-primary;
+    color: $color-white
+  }
 }
 .el-picker-panel__icon-btn:hover {
   color: $color-primary

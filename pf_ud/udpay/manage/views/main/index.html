@@ -121,7 +121,7 @@
 
                   <div class="date-body">
                     <div class="expBox">
-                      <carousel class="api-list" :navigation-enabled="true" :per-page-custom=[[768,2],[992,3],[1200,2],[1660,3]] navigationPrevLabel="<i class='xi-angle-left'><span class='invisible'>이전</span></i>" navigationNextLabel="<i class='xi-angle-right'><span class='invisible'>다음</span></i>">
+                      <carousel class="api-list">
                         <slide>
                           <div class="api-item msg">
                             <div class="linked">
@@ -181,6 +181,8 @@
                               </div>
                             </div>
                           </div>
+                        </slide>
+                        <slide>
                           <div class="api-item auth">
                             <div class="linked">
                               <div class="titBox">
@@ -513,7 +515,8 @@ ELEMENT.locale(ELEMENT.lang.ko)
       components: {
         'carousel': VueCarousel.Carousel,
         'slide': VueCarousel.Slide
-      }
+      },
+      template: '<carousel :navigationEnabled="true" navigationPrevLabel="<i class='xi-angle-left'><span class='invisible'>이전</span></i>" navigationNextLabel="<i class='xi-angle-right'><span class='invisible'>다음</span></i>">' + buildSlideMarkup(4) + '</carousel>'
     })
   </script>
   </html>
