@@ -108,7 +108,6 @@
 // 내 정보
 .user-info-box{
   overflow: hidden;
-  background: $color-primary;
 
   .top{
     padding:20px 30px;
@@ -263,12 +262,7 @@
 }
 
 // 연동 카드
-.mainApiCard {
-  // 5개 레이아웃
-  &.el-col-lg-6 {
-    width: 20%
-  }
-  
+.mainApiCard {  
   .cardBox {
     margin:0 -15px
   }
