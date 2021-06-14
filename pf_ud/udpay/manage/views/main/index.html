@@ -121,7 +121,7 @@
 
                   <div class="date-body">
                     <div class="expBox">
-                      <carousel class="api-list" :navigationEnabled="true">
+                      <carousel class="api-list" :navigationEnabled="true" :per-page-custom=[[768,2],[992,3],[1200,2],[1660,3]] navigationPrevLabel="<i class='xi-angle-left'><span class='invisible'>이전</span></i>" navigationNextLabel="<i class='xi-angle-right'><span class='invisible'>다음</span></i>">
                         <slide>
                           <div class="api-item msg">
                             <div class="linked">
@@ -152,6 +152,8 @@
                               </div>
                             </div>
                           </div>
+                        </slide>
+                        <slide>
                           <div class="api-item kakao">
                             <div class="linked">
                               <div class="titBox">
@@ -212,6 +214,8 @@
                               </div>
                             </div>
                           </div>
+                        </slide>
+                        <slide>
                           <div class="api-item account">
                             <div class="linked">
                               <div class="titBox">
