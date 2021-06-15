@@ -500,7 +500,7 @@
     vertical-align: middle;
   }
   &-subject{
-    font-size: 1.067rem;
+    font-size: $font-size-base;
     color: $color-text-dark;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -519,18 +519,18 @@
     line-height: 1.867rem;  // 28px
     margin-right:10px;
     text-align: center;
-    font-size: 0.9333rem;
+    font-size: $font-size-base;
     font-weight: 600;
     background: $border-color-lighter;
     border-radius: 8px;
   }
   &-date{
     display: table-cell;
-    width:95px;
-    padding-left:15px;
-    font-size: 1rem;
-    color:$color-text-base;
-    text-align:right;
+    width: 95px;
+    padding-left: 15px;
+    font-size: $font-size-base;
+    color: $color-text-base;
+    text-align: right;
     vertical-align: middle;
   }
 }

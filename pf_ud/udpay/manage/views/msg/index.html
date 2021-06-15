@@ -230,11 +230,11 @@
                     v-model="sendPhoneNum"
                     maxlength="11" ref="phone"></el-input>
               <div class="el-button_wrap">
-                <el-button size="medium" type="primary" plain @click="sendPhoneCheck = true">인증번호 요청</el-button>
+                <el-button size="medium" type="primary" plain>인증번호 요청</el-button>
               </div>
             </div>
           </div>
-          <div class="el-input__wrap mgt15" v-if="sendPhoneInfo.authType === 'PHONE'" v-model="sendPhoneCheck">
+          <div class="el-input__wrap mgt15" v-if="sendPhoneInfo.authType === 'PHONE'">
             <div class="el-input__label">인증번호</div>
             <div class="inline_row_flex">
               <div class="count-input">
@@ -332,7 +332,6 @@
           authType: 'PHONE',
         },
         sendPhoneNum: '',
-        sendPhoneCheck: false,
         sendPhoneAuth: '',
         sendPhoneMore: '',
       }

@@ -760,23 +760,26 @@ body{
 
   // 제목
   .tit{
-    font-size: 1.133rem;
+    font-size: $font-size-large;
     font-weight: $font-weight-black;
-    color:$color-text-primary;
-    margin-bottom:1rem;
+    color: $color-text-primary;
+    margin-bottom: 1rem;
+
     .en{
-      font-size:1.4rem;
+      font-size: 1.4rem;
     }
   }
   .subtit{
-    font-size: .9rem;
-    line-height:1.6;
-    color:$color-text-placeholder;
+    font-size: $font-size-small;
+    line-height: 1.6;
+    color: $color-text-placeholder;
+    word-break: keep-all;
   }
   .cardTit{
     font-size: 1.4rem;
     font-weight: $font-weight-black;
-    color:$color-text-primary;
+    color: $color-text-primary;
+
     &.kakao{
       &:before{
         content:'';
@@ -813,7 +816,6 @@ body{
       }
     }
     &.with_bg2{
-      background: $color-text-primary;
       background: $color-text-primary url("../img/tit_bg.png") no-repeat;
     }
     // 타이틀 위에 아이콘 쓰는 경우
@@ -823,16 +825,15 @@ body{
           font-family: inherit;
           content: inherit;
           display: block;
-          width:6.667rem;
-          height:6.667rem;
+          width: 6.667rem;
+          height: 6.667rem;
           line-height: 6.667rem;
           margin: 0 auto 25px auto;
           background: $bg-lighten;
           border-radius: 50%;
-
           font-size: 2.2rem;
           font-weight: 400;
-          color:$color-text-placeholder;
+          color: $color-text-placeholder;
         }
       }
     }
@@ -846,6 +847,7 @@ body{
   // 안의 여백 없는 cardBox
   &.np{
     padding:0;
+    
     .expBox{
       margin-top:0;
       padding: 20px 15px;
