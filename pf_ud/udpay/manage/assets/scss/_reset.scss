@@ -289,11 +289,12 @@ small{font-size:88%;font-weight:400;color:inherit;}
     margin-left: 8px;
     background: $color-danger;
     animation: clickme2 1s infinite;
+    border-radius: 50%;
     vertical-align: text-top;
   }
 }
 @include keyframes(clickme2) {
-  0% {opacity:.5}
+  0% {opacity:.3}
   50% {opacity:1}
-  100% {opacity:.5}
+  100% {opacity:.3}
 }
