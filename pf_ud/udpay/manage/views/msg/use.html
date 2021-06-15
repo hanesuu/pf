@@ -24,7 +24,7 @@
     <!--nav-->    
     <el-aside id="lnb" class="sidebar" v-show="leftView">
       <div class="sidebar-content">
-        <el-menu class="sidebar-nav" :default-active="leftmenu" @open="handleOpen" @close="handleClose">
+        <el-menu class="sidebar-nav" :default-active="leftmenu" :unique-opened="true" @open="handleOpen" @close="handleClose">
           <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
             <div class="el-menu-item-text">
               <i class="ico xi-dashboard-o"></i>
@@ -71,7 +71,7 @@
               <span>충전/입금관리</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">결제하기</el-menu-item>
+              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">충전하기</el-menu-item>
               <el-menu-item index="mpayment2" onclick="location.href='../payment/list.html'">충전내역</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -314,9 +314,7 @@
 <script src="/pf/pf_ud/common/js/element/vue.js"></script>
 <!-- import JavaScript -->
 <script src="/pf/pf_ud/common/js/element/index.js"></script>
-<script src="/pf/pf_ud/common/js/element/ko.js"></script>
 <script>
-  ELEMENT.locale(ELEMENT.lang.ko)
   new Vue({
     el: '#app',
     data: function() {
@@ -355,27 +353,11 @@
             label: '일별 조회'
           }],
           searchType: '',
-
-          /**
-           * 팝업
-           */
-           msgDetailModal: false,
          }
        },
        methods: {
         handleOpen(key, keyPath) {},
         handleClose(key, keyPath) {},
-
-        /**
-         * 모달 닫기(취소)
-         */
-         cancel() {
-          this.modal = false
-        },
-      },
-      components: {
-        'carousel': VueCarousel.Carousel,
-        'slide': VueCarousel.Slide
       }
     })
   </script>

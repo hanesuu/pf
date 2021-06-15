@@ -5,140 +5,262 @@
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-  <title>pay&api : 리셀러</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/pna/common/img/favicon.ico">
-  <link rel="icon" href="/pf/pf_ud/pna/common/img/favicon_32.png" sizes="32x32">
-  <link rel="icon" href="/pf/pf_ud/pna/common/img/favicon_64.png" sizes="64x64">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <title>유디페이 API 관리</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/pf/pf_ud/udpay/common/img/favicon.ico">
+  <link rel="icon" href="/pf/pf_ud/udpay/common/img/favicon-32x32.png" sizes="32x32">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
   <script type="text/javascript">
-  $(document).ready( function() {
-    $("#header").load("../inc/header.html");
-    $("#footer").load("../inc/footer.html");
-  });
+    $(document).ready( function() {
+      $("#incheader").load("../inc/header.html");
+    });
   </script>
   <!-- import CSS -->
-  <link rel="stylesheet" href="../../assets/scss/basic.css">
+  <link rel="stylesheet" href="/pf/pf_ud/udpay/manage/assets/css/udapi.css">
 </head>
 <body>
   <div id="app">
-    <div id="header" class="mj7-1"></div>
+    <div id="incheader"></div>
+    <!--nav-->    
+    <el-aside id="lnb" class="sidebar" v-show="leftView">
+      <div class="sidebar-content">
+        <el-menu class="sidebar-nav" :default-active="leftmenu" :unique-opened="true" @open="handleOpen" @close="handleClose">
+          <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
+            <div class="el-menu-item-text">
+              <i class="ico xi-dashboard-o"></i>
+              <span>대시보드</span>
+            </div>
+          </el-menu-item>
+          <el-submenu index="mmsg">
+            <template slot="title" class="dep1">
+              <i class="ico xi-mail-o"></i> 
+              <span>문자 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mmsg1" onclick="location.href='../msg/'">연동설정</el-menu-item>
+              <el-menu-item index="mmsg2" onclick="location.href='../msg/list.html'">발송내역</el-menu-item>
+              <el-menu-item index="mmsg3" onclick="location.href='../msg/use.html'">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="mkakao">
+            <template slot="title" class="dep1">
+              <i class="ico xi-message-o"></i> 
+              <span>카카오톡 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mkakao1">사전준비</el-menu-item>
+              <el-menu-item index="mkakao2">연동설정</el-menu-item>
+              <el-menu-item index="mkakao3">발송내역</el-menu-item>
+              <el-menu-item index="mkakao4">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="maccount">
+            <template slot="title" class="dep1">
+              <i class="ico la la-paste"></i> 
+              <span>계좌성명조회 API</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="maccount1">연동설정</el-menu-item>
+              <el-menu-item index="maccount2">발송내역</el-menu-item>
+              <el-menu-item index="maccount3">사용현황</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="mpayment">
+            <template slot="title" class="dep1">
+              <i class="ico xi-won"></i> 
+              <span>충전/입금관리</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">충전하기</el-menu-item>
+              <el-menu-item index="mpayment2" onclick="location.href='../payment/list.html'">충전내역</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </div>
+      <div class="cs-info">
+        <p class="cs-tit"><i class="xi-emoticon-happy-o"></i> 고객상담문의</p>
+        <p class="cs-tel">1800-3925</p>
+        <div class="cs-time">
+          <p><span>평일</span><span>9:00 ~ 18:00</span></p>
+          <p><span>휴무</span><span>주말, 공휴일 휴무</span></p>
+        </div>
+      </div>
+    </el-aside>
+    <!--//nav-->
+
     <!--template-->
-    <div class="wrap-content">
-      <!--페이지내용-->
-      <div class="contents v-setting">
-        <section class="bx-basic">
-          <form class="wrap-form">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <dl>
-                  <dt>
-                    <label>계정 명</label>
-                  </dt>
-                  <dd class="no-inp">하이젠버그</dd>
-                </dl>
-                <dl>
-                  <dt>
-                    <label>계정 ID</label>
-                  </dt>
-                  <dd class="no-inp">walterwhite</dd>
-                </dl>
-                <dl>
-                  <dt class="must">
-                    <label>비밀번호</label>
-                  </dt>
-                  <dd>
-                    <input type="password" class="inp-txt" placeholder="비밀번호를 입력해 주세요.">
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="must">
-                    <label>비밀번호 확인</label>
-                  </dt>
-                  <dd>
-                    <input type="password" class="inp-txt" placeholder="비밀번호를 한번 더 입력해 주세요.">
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="must">
-                    <label>이메일</label>
-                  </dt>
-                  <dd>
-                    <input type="text" class="inp-txt" placeholder="이메일을 입력해 주세요.">
-                  </dd>
-                </dl>
-              </div>
-              <div class="col-xs-12 col-md-6">
-                <dl>
-                  <dt class="must">
-                    <label>상호명 (법인명)</label>
-                  </dt>
-                  <dd>
-                    <input type="text" class="inp-txt" placeholder="상호명 (법인명)을 입력해 주세요.">
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="must">
-                    <label>사업자 번호</label>
-                  </dt>
-                  <dd>
-                    <input type="tel" class="inp-txt" placeholder="사업자 번호를 입력해 주세요.">
-                  </dd>
-                </dl>
-                <!--
-                <dl>
-                  <dt class="must">
-                    <label>서비스 구분</label>
-                  </dt>
-                  <dd>
-                    <el-select v-model="serviceType" placeholder="서비스 구분">
-                      <el-option 
-                        v-for="type in types"
-                        :label="type.label"
-                        :value="type.value">
-                      </el-option>
-                    </el-select>
-                  </dd>
-                </dl>-->
-                <dl>
-                  <dt class="must">
-                    <label>대표자 명</label>
-                  </dt>
-                  <dd>
-                    <input type="text" class="inp-txt" placeholder="대표자 명을 입력해 주세요.">
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="must">
-                    <label>휴대폰 번호</label>
-                  </dt>
-                  <dd>
-                    <input type="tel" class="inp-txt" placeholder="휴대폰 번호를 입력해 주세요.">
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>
-                    <label>주소</label>
-                  </dt>
-                  <dd>
-                    <input type="text" class="inp-txt" placeholder="주소를 입력해 주세요.">
-                    <button class="btn btn-line-b">주소검색</button>
-                  </dd>
-                  <dd>
-                    <input type="text" class="inp-txt" placeholder="상세주소를 입력해 주세요.">
-                  </dd>
-                </dl>
-              </div>                
-            </div>
-            <div class="bottom-btn">
-              <!-- <button class="btn">취소</button> -->
-              <button class="btn btn-primary">저장</button>
-            </div>
-          </form>
-        </section>
-      </div><!--//페이지내용-->
-    </div>
+    <section id="content">
+      <section id="content-inner">
+        <div class="title_box clearfix">
+          <div class="ttBox">
+            <h1 class="tt">충전하기</h1>
+          </div>
+          <div class="location">
+            <el-breadcrumb separator-class="el-icon-arrow-right">
+              <el-breadcrumb-item :to="{ path: '../main/' }">
+                <i class="xi-home-o"></i>
+              </el-breadcrumb-item>
+              <el-breadcrumb-item>충전하기</el-breadcrumb-item>
+            </el-breadcrumb>
+          </div>
+        </div>
+
+        <el-row>
+          <el-col :sm="24" :lg="18" class="el-col-sm-offset-0 el-col-lg-offset-3">
+            <el-row :gutter="23">
+              <!--사용안내-->
+              <el-col :sm="24" :md="12">
+                <el-card class="no_padding">
+                  <div class="cardBox np">
+                    <div class="titBox with_bg">
+                      <div class="wave wave1"></div>
+                      <div class="wave wave2"></div>
+                      <h1 class="tit">
+                        선불충전 사용안내
+                      </h1>
+                      <p class="subtit">
+                        사용할 금액을 먼저 충전 후, 충전된 금액 내에서 사용
+                      </p>
+                    </div>
+                    <div class="expBox">
+                      <ul class="chargeInfo align-block">
+                        <li>
+                          <div class="edgeBox">
+                            <div class="roundbox-wrap">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                                <path class="roundbox-shape" d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                              </svg>
+                              <span class="num">1</span>
+                            </div>
+                          </div>
+                          <div class="charge_text">
+                            <p class="tit">사용금액 충전 방식</p>
+                            <p class="subtit">
+                              원하는 금액만큼 선불로 충전하여 사용합니다.<br/>
+                              신용카드 및 무통장 입금을 통해 충전이 가능합니다.
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="edgeBox">
+                            <div class="roundbox-wrap">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="roundbox" viewBox="0 0 55 55">
+                                <path class="roundbox-shape" d="M49.093,49.094C44.584,53.819,36.041,54.888,27.5,55c-8.542-.112-17.085-1.181-21.594-5.907C1.179,44.585.11,36.042,0,27.5,0.11,18.957,1.179,10.415,5.9,5.906,10.414,1.18,18.956.111,27.5,0,36.041,0.111,44.584,1.18,49.093,5.906,53.819,10.415,54.887,18.957,55,27.5,54.887,36.042,53.819,44.585,49.093,49.094Z"/>
+                              </svg>
+                              <span class="num">2</span>
+                            </div>
+                          </div>
+                          <div class="charge_text">
+                            <p class="tit">충전금액 확인 및 서비스 사용</p>
+                            <p class="subtit">
+                              충전된 금액을 확인 후, 서비스를 사용합니다.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- //chargeInfo -->
+                    </div>
+                    <!-- //expBox -->
+                  </div>
+                  <!-- //cardBox.np -->
+                </el-card>
+              </el-col>
+              <!--//사용안내-->
+              <el-col :sm="24" :md="12">
+                <el-card>
+                  <div class="cardBox">
+                    <div class="el-form top-block">
+                      <div class="el-input__wrap first">
+                        <div class="el-input__label">결제수단</div>
+                        <el-radio-group class="radio_tab duo" v-model="payType">
+                          <el-radio-button label="CARD">신용카드</el-radio-button>
+                          <el-radio-button label="DEPOSIT">무통장입금</el-radio-button>
+                        </el-radio-group>
+                      </div>
+                      <!--신용카드-->
+                      <div class="el-input__wrap">
+                        <div class="el-input__label">충전금액</div>
+                        <div class="inline_row_flex">
+                          <el-input label="충전금액" type="number" v-model="paymentData.price" size="medium" placeholder="충전할 금액을 입력해주세요."></el-input>
+                          <span class="el-input__units">원</span>
+                        </div>
+                      </div>
+
+                      <div class="el-input__wrap" v-if="payType == 'CARD'">
+                        <p class="text-info">
+                          <a href="#">
+                            <i class="xi-help-o"></i>
+                            <span class="under">무이자 할부 안내</span>
+                          </a>
+                        </p>
+                      </div><!--//신용카드-->
+
+                      <!--무통장입금-->
+                      <div class="wrap" v-else>
+                        <div class="el-input__wrap">
+                          <div class="el-input__label">입금자명</div>
+                          <el-input size="medium" v-model="paymentData.bankInfoName" placeholder="입금자명을 입력해주세요."></el-input>
+                          <div class="el-input__helpText primary">
+                            입금자명과 실제 입금자명이 일치하도록 해주세요.
+                          </div>
+                        </div>
+                        <div class="el-input__wrap">
+                          <div class="el-input__label">환불 받을 계좌번호</div>
+                          <div class="inline_row_flex">
+                            <el-autocomplete
+                            v-model="state1"
+                            :fetch-suggestions="querySearch"
+                            placeholder="은행명"
+                            @select="handleSelect"
+                            size="medium"
+                            class="w30"
+                            style="padding-right: 5px"></el-autocomplete>
+                            <el-input size="medium" v-model="paymentData.bankInfoNum" placeholder="-없이 숫자만 입력해주세요."></el-input>
+                          </div>
+                        </div>
+                        <div class="el-form-item__tip">
+                          <p class="tip-tit">
+                            <strong class="text-primary"><i class="xi-bookmark"></i> 무통장 입금 계좌정보</strong>
+                          </p>
+                          <dl class="flex-line indiv">
+                            <dt>
+                              <strong class="text-deep-primary">은행</strong>
+                            </dt>
+                            <dd>
+                              신한은행
+                            </dd>
+                            <dt>
+                              <strong class="text-deep-primary">예금주</strong>
+                            </dt>
+                            <dd>
+                              (주)유디아이디
+                            </dd>
+                          </dl>
+                          <dl class="flex-line indiv">
+                            <dt>
+                              <strong class="text-deep-primary">계좌번호</strong>
+                            </dt>
+                            <dd>
+                              140-011-731338
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </el-card>
+
+                <div class="bottom-btn-area text-center">
+                  <el-button type="primary" class="el-button--bigger" v-if="payType == 'CARD'">결제하기</el-button>
+                  <el-button type="primary" class="el-button--bigger" v-else>입금신청</el-button>
+                </div>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+      </section>
+    </section>
     <!--//template-->
-    <div id="footer"></div>
   </div>
 </body>
 
@@ -152,43 +274,63 @@
     data: function() {
       return {
         /**
-         * 서비스구분 select
-         
-        types: [{
-          value: 'Option1',
-          label: '방문판매'
-        }, {
-          value: 'Option2',
-          label: '음식점(배달)'
-        }, {
-          value: 'Option3',
-          label: 'A/S긴급출동'
-        }, {
-          value: 'Option4',
-          label: '운수업'
-        }, {
-          value: 'Option5',
-          label: '컨텐츠'
-        }, {
-          value: 'Option6',
-          label: '도소매'
-        }, {
-          value: 'Option7',
-          label: '유통'
-        }, {
-          value: 'Option8',
-          label: 'Blog 사업자'
-        }, {
-          value: 'Option9',
-          label: '쇼핑몰사업자'
-        }, {
-          value: 'Option10',
-          label: '병원'
-        }],
-        serviceType: '',*/
+         * menu
+         */
+        leftView: true,
+        leftmenu: 'mpayment1',
+
+        /**
+         * tab
+         */
+        payType: 'CARD',
+
+        /**
+         * inputs
+         */
+        paymentData: {
+          price: '',
+          bankInfoName: '',
+          bankInfoNum: '',
+        },
+
+        state1: '',
       }
     },
     methods: {
+      handleOpen(key, keyPath) {},
+      handleClose(key, keyPath) {},
+
+      /**
+       * 은행명
+       */
+      querySearch(queryString, cb) {
+        var links = this.links;
+        var results = queryString ? links.filter(this.createFilter(queryString)) : links;
+        // call callback function to return suggestions
+        cb(results);
+      },
+      createFilter(queryString) {
+        return (link) => {
+          return (link.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+        };
+      },
+      loadAll() {
+        return [
+          { "value": "국민은행" },
+          { "value": "신한은행" },
+          { "value": "기업은행" },
+          { "value": "하나은행" },
+          { "value": "카카오뱅크" },
+          { "value": "제일은행" },
+          { "value": "케이뱅크" }
+         ];
+      },
+      handleSelect(item) {
+        console.log(item);
+      }
+    },
+    mounted() {
+      this.links = this.loadAll();
     }
   })
 </script>

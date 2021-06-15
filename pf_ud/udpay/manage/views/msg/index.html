@@ -24,7 +24,7 @@
     <!--nav-->    
     <el-aside id="lnb" class="sidebar" v-show="leftView">
       <div class="sidebar-content">
-        <el-menu class="sidebar-nav" :default-active="leftmenu" @open="handleOpen" @close="handleClose">
+        <el-menu class="sidebar-nav" :default-active="leftmenu" :unique-opened="true" @open="handleOpen" @close="handleClose">
           <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
             <div class="el-menu-item-text">
               <i class="ico xi-dashboard-o"></i>
@@ -71,7 +71,7 @@
               <span>충전/입금관리</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">결제하기</el-menu-item>
+              <el-menu-item index="mpayment1" onclick="location.href='../payment/'">충전하기</el-menu-item>
               <el-menu-item index="mpayment2" onclick="location.href='../payment/list.html'">충전내역</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -110,7 +110,7 @@
               <div role="alert" class="el-alert is-light list_head">
                 <div class="el-alert__content">
                   <span class="el-alert__title is-bold">문자발송 연동사용</span>
-                  <div class="el-alert__description" v-if="content">
+                  <div class="el-alert__description">
                     문자를 안정적으로 전송할 수 있으며, 전송 실패 시 자동환불되는 API입니다.
                     <div class="text-danger">
                       * 이용 제한 문구가 포함된 경우 문제메시지가 발송되지 않습니다.
@@ -212,7 +212,76 @@
             </el-card>
           </el-col>
         </el-row>
-      </section>      
+      </section>
+
+      <!--modal-->
+      <el-dialog title="발신번호 등록" :visible.sync="numbAddModal" :before-close="close" :close-on-click-modal="false" class="md">
+        <el-radio-group v-model="sendPhoneInfo.authType" class="radio_tab two">
+          <el-radio-button label="PHONE">휴대폰인증</el-radio-button>
+          <el-radio-button label="DOCS">서류인증</el-radio-button>
+        </el-radio-group>
+
+        <div class="el-form">
+          <!-- 휴대폰/ARS 인증의 경우 -->
+          <div class="el-input__wrap" v-if="sendPhoneInfo.authType === 'PHONE'">
+            <div class="el-input__label">발신번호 등록번호</div>
+            <div class="inline_row_flex">
+              <el-input type="tel" name="phone" size="medium" placeholder="-없이 숫자만 입력"
+                    v-model="sendPhoneNum"
+                    maxlength="11" ref="phone"></el-input>
+              <div class="el-button_wrap">
+                <el-button size="medium" type="primary" plain @click="sendPhoneCheck = true">인증번호 요청</el-button>
+              </div>
+            </div>
+          </div>
+          <div class="el-input__wrap mgt15" v-if="sendPhoneCheck = true">
+            <div class="el-input__label">인증번호</div>
+            <div class="inline_row_flex">
+              <div class="count-input">
+                <el-input size="medium" placeholder="인증번호를 입력해주세요." v-model="sendPhoneAuth"></el-input>
+                <span class="el-input__count">
+                  <span class="el-input__count-inner text-danger">2:59</span>
+                </span>
+              </div>
+              <div class="el-button_wrap va-top">
+                <el-button size="medium" type="primary" plain>확인</el-button>
+              </div>
+            </div>
+          </div>
+
+          <div class="el-input__wrap" v-if="sendPhoneInfo.authType === 'DOCS'">
+            <div class="el-input__label">첨부파일 등록</div>
+            <el-upload
+              class="upload-demo"
+              ref="upload"
+              action=""
+              :auto-upload="false"
+              accept=".jpg, .jpeg, .gif, .png, .hwp, .pdf, .tiff"
+              multiple
+              :show-file-list="false">
+              <el-button size="medium" type="primary" icon="xi-folder-add-o" plain class="el-button--block">첨부파일 선택</el-button>
+              <div slot="tip" class="el-upload__tip">
+                - 최대 5건까지 첨부 가능합니다. (건당 2MB)<br/>
+                - jpg, gif, png, hwp, pdf, tiff 파일만 가능합니다.
+              </div>
+            </el-upload>
+          </div>
+
+          <div class="el-input__wrap mgt15" v-if="sendPhoneInfo.authType === 'DOCS'">
+            <div class="el-input__label">발신번호 추가</div>
+            <el-input type="tel" name="phoneStr" size="medium" placeholder="-없이 숫자만 입력"
+                  v-model="sendPhoneMore"
+                  maxlength="11" ref="phoneStr"></el-input>
+            <div class="el-form-item__tip">
+              - 발신번호를 추가할 수 있습니다.<br/>
+              - 번호는 엔터로 구분합니다.
+            </div>
+          </div>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary">등록 신청하기</el-button>
+        </span>
+      </el-dialog>
     </section>
     <!--//template-->
   </div>
@@ -232,39 +301,53 @@
         /**
          * menu
          */
-         leftView: true,
-         leftmenu: 'mmsg1',
+        leftView: true,
+        leftmenu: 'mmsg1',
 
         /**
          * 사용여부
          */
-         apiUseYn: true,
+        apiUseYn: true,
 
-         /**
-          * 페이지 보기
-          */
-          options: [{
-            value: '10개씩 보기',
-            label: '10개씩 보기'
-          }, {
-            value: '50개씩 보기',
-            label: '50개씩 보기'
-          }, {
-            value: '100개씩 보기',
-            label: '100개씩 보기'
-          }],
-          pageSize: ''
+        /**
+         * 페이지 보기
+         */
+        options: [{
+          value: '10개씩 보기',
+          label: '10개씩 보기'
+        }, {
+          value: '50개씩 보기',
+          label: '50개씩 보기'
+        }, {
+          value: '100개씩 보기',
+          label: '100개씩 보기'
+        }],
+        pageSize: '',
 
-        }
-      },
-      methods: {
-        handleOpen(key, keyPath) {},
-        handleClose(key, keyPath) {},
-      },
-      components: {
-        'carousel': VueCarousel.Carousel,
-        'slide': VueCarousel.Slide
+        /**
+         * 팝업 - 번호인증
+         */
+        numbAddModal: false,
+        sendPhoneInfo: {
+          authType: 'PHONE',
+        },
+        sendPhoneNum: '',
+        sendPhoneCheck: false,
+        sendPhoneAuth: '',
+        sendPhoneMore: '',
       }
-    })
-  </script>
-  </html>
+    },
+    methods: {
+      handleOpen(key, keyPath) {},
+      handleClose(key, keyPath) {},
+
+      /**
+       * 모달 닫기(취소)
+       */
+       cancel() {
+        this.modal = false
+      },
+    }
+  })
+</script>
+</html>
