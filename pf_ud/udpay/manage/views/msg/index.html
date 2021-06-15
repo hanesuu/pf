@@ -215,7 +215,7 @@
       </section>
 
       <!--modal-->
-      <el-dialog title="발신번호 등록" :visible.sync="numbAddModal" :before-close="close" :close-on-click-modal="false" class="md">
+      <el-dialog title="발신번호 등록" :visible.sync="numbAddModal" :close-on-click-modal="false" class="md">
         <el-radio-group v-model="sendPhoneInfo.authType" class="radio_tab two">
           <el-radio-button label="PHONE">휴대폰인증</el-radio-button>
           <el-radio-button label="DOCS">서류인증</el-radio-button>
@@ -234,14 +234,14 @@
               </div>
             </div>
           </div>
-          <div class="el-input__wrap mgt15" v-if="sendPhoneCheck = true">
+          <div class="el-input__wrap mgt15" v-if="sendPhoneInfo.authType === 'PHONE'" v-model="sendPhoneCheck">
             <div class="el-input__label">인증번호</div>
             <div class="inline_row_flex">
               <div class="count-input">
                 <el-input size="medium" placeholder="인증번호를 입력해주세요." v-model="sendPhoneAuth"></el-input>
-                <span class="el-input__count">
+                <div class="el-input__count mgt5">
                   <span class="el-input__count-inner text-danger">2:59</span>
-                </span>
+                </div>
               </div>
               <div class="el-button_wrap va-top">
                 <el-button size="medium" type="primary" plain>확인</el-button>

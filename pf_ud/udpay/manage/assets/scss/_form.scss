@@ -17,26 +17,31 @@
   }
 }
 
-// el-input__label
-.el-input__label {
-  @include clearfix;
-  @include prefix(box-sizing, border-box, webkit ms moz o);
-  font-size: 0.9333rem;
-  font-weight: $font-weight-black;
-  color: $color-text-regular;
-  line-height: 0.9333rem;
-  padding: 0 12px 10px 0;
-  text-align: left;
-  vertical-align: middle;
-
-  // 필수값 표시
-  .req{
-    color:$color-primary;
-  }
-}
-
-// el-input__wrap
+// el-input
 .el-input{
+  &__inner{
+    &:focus{
+      border-color: $color-primary
+    }
+  }
+
+  &__label {
+    @include clearfix;
+    @include prefix(box-sizing, border-box, webkit ms moz o);
+    font-size: 0.9333rem;
+    font-weight: $font-weight-base;
+    color: $color-text-dark;
+    line-height: 0.9333rem;
+    padding: 0 12px 10px 0;
+    text-align: left;
+    vertical-align: middle;
+
+    // 필수값 표시
+    .req{
+      color:$color-primary;
+    }
+  }
+
   &__wrap{
     // input count text
     .count-input{
@@ -88,7 +93,15 @@
       margin-top:0;
     }
   }
+  .el-input.is-focus .el-input__inner {
+    border-color: $color-primary
+  }
+
+  &-dropdown__item.selected {
+    color: $color-primary
+  }  
 }
+
 
 
 //
