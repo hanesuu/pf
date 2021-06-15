@@ -28,13 +28,13 @@
           <el-menu-item class="dep1" index="mmain" onclick="location.href='../main/'">
             <div class="el-menu-item-text">
               <i class="ico xi-dashboard-o"></i>
-              <span>대시보드</span>
+              <span class="clickme2">대시보드</span>
             </div>
           </el-menu-item>
           <el-submenu index="mmsg">
             <template slot="title" class="dep1">
               <i class="ico xi-mail-o"></i> 
-              <span>문자 API</span>
+              <span class="clickme2">문자 API</span>
             </template>
             <el-menu-item-group>
               <el-menu-item index="mmsg1" onclick="location.href='../msg/'">연동설정</el-menu-item>
@@ -68,7 +68,7 @@
           <el-submenu index="mpayment">
             <template slot="title" class="dep1">
               <i class="ico xi-won"></i> 
-              <span>충전/입금관리</span>
+              <span class="clickme2">충전/입금관리</span>
             </template>
             <el-menu-item-group>
               <el-menu-item index="mpayment1" onclick="location.href='../payment/'">충전하기</el-menu-item>
@@ -191,7 +191,7 @@
                                 </div>
                               </td>
                               <td>
-                                <div class="cell text-primary under" @click="msgDetailModal = true">2건</div>
+                                <div class="cell text-primary under clickme" @click="msgDetailModal = true">2건</div>
                               </td>
                               <td>
                                 <div class="cell">실제</div>
