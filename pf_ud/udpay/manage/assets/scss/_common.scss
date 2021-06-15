@@ -715,9 +715,6 @@ body{
 // --------------------------------------------------
 
 // el-card와 같이 사용하기 편하게 추가
-.CardWrap{
-
-}
 .align-center{
   align-content: center;
   text-align: center;
@@ -844,13 +841,6 @@ body{
   // 연동 api 상세
   .expBox{
     margin-top: 1.333rem;
-  }
-  // 그래프 상세 박스
-  .graphBox{
-    position: relative;
-    height: 278px;
-    margin-top:26px;
-    text-align: center;
   }
 
   // 안의 여백 없는 cardBox
@@ -1113,10 +1103,6 @@ body{
     }
   }
 }
-
-// 1200px
-@media (max-width: $--lg){}
-
 // 992px
 @media (max-width: $--md){
   .summary_to_used {
@@ -1139,41 +1125,6 @@ body{
   }
 }
 
-// 발송내역
-.summary_to_sent{
-  background: $bg-lighten;
-  display: table;
-  width: 100%;
-  li {
-    display: table-cell;
-    width: 25%;
-    padding: 13px 5px;
-    text-align: center;
-    transition: background .2s ease;
-  }
-  .hand.active, .hand:hover {
-    background: lighten($color-text-dark,11%);
-    
-    dd {
-      color: $color-white;
-    }
-  }
-  dt, dd{
-    display: block;
-    margin:0;
-    padding:0;
-  }
-  dt{
-    font-size:0.8667rem;
-    color: $color-text-placeholder;
-    margin-bottom:5px;
-  }
-  dd{
-    small{
-      margin-right:0;
-    }
-  }
-}
 
 // 상단 검색바
 .list_sch{
@@ -1185,7 +1136,7 @@ body{
   border-bottom:1px solid $bg-lighten;
 }
 
-/* list top & bottom */
+// list top & bottom
 .table_head{
   display: flex;
   flex: 1;
@@ -1230,7 +1181,7 @@ body{
 }
 
 
-/* table res */
+// table res
 .table-responsive{
   min-height: 0.01%;
   overflow-x: hidden;
@@ -1371,7 +1322,6 @@ body{
     border-bottom: none !important;
   }
 
-  //
   tbody{
     &.thr-row{
       tr{
@@ -1406,8 +1356,6 @@ body{
     }
   }
 }
-
-
 
 
 
