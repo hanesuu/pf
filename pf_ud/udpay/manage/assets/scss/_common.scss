@@ -66,7 +66,7 @@ body{
     color:$color-primary;
   }
   &-secondary{
-    color:$color-text-primary;  // text-deep-primary
+    color:$color-text-primary;
   }
   &-success{
     color:$color-success;
@@ -1125,6 +1125,41 @@ body{
   }
 }
 
+// 발송내역
+.summary_to_sent{
+  background: $bg-lighten;
+  display: table;
+  width: 100%;
+  li {
+    display: table-cell;
+    width: 25%;
+    padding: 13px 5px;
+    text-align: center;
+    transition: background .2s ease;
+  }
+  .hand.active, .hand:hover {
+    background: lighten($color-text-dark,11%);
+    
+    dd {
+      color: $color-white;
+    }
+  }
+  dt, dd{
+    display: block;
+    margin:0;
+    padding:0;
+  }
+  dt{
+    font-size:0.8667rem;
+    color: $color-text-placeholder;
+    margin-bottom:5px;
+  }
+  dd{
+    small{
+      margin-right:0;
+    }
+  }
+}
 
 // 상단 검색바
 .list_sch{

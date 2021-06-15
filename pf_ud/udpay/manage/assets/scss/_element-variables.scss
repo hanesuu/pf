@@ -360,7 +360,7 @@
     background-color: $color-primary;
     border-color: $color-primary;
 
-    &.is-plain {
+    &:hover, &.is-plain {
       color: $color-primary;
       border-color: lighten($color-primary, 20%);
     }
@@ -370,7 +370,7 @@
     background-color: $color-success;
     border-color: $color-success;
 
-    &.is-plain {
+    &:hover, &.is-plain {
       color: $color-success;
       border-color: lighten($color-success, 20%);
     }
@@ -673,6 +673,22 @@
   }
 }
 
+
+// input
+.el-input {
+  &__inner{
+    &:focus{
+      border-color: $color-primary
+    }
+  }
+
+  &__label {
+    color: $color-text-regular;
+    font-weight: $font-weight-base;
+  }
+}
+
+
 // select
 .el-select {
   .el-input.is-focus .el-input__inner {
@@ -710,9 +726,20 @@
       }
     }
   }
+  
+  &-button__orig-radio:checked+.el-radio-button__inner {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+
   &-button__inner{
     width: 100%;
     font-size: 1rem;
+
+    &:hover, &:focus {
+      color: $color-primary;
+    }
   }
 }
 
