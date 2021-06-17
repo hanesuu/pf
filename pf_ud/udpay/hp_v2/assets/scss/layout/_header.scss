@@ -21,8 +21,8 @@
 
     // RWD
     @include res(md) {
-      padding: 0 20px;
-      height:auto;
+      padding: 0;
+      height: auto;
 
       &__container {
         @include clearfix;
@@ -306,11 +306,11 @@
   @include res(md) {
     &{
       @include clearfix;
-      float:left;
+      float: left;
 
       &-item{
         position: relative;
-        float:left;
+        float: left;
         font-weight: $font-weight-normal;
 
         &:not(:first-child){
@@ -319,14 +319,14 @@
 
         &-internal{
           color: $light-black;
-          font-size:$font-size-xsmall;
-          padding: 0 20px;
+          font-size: $font-size-xsmall;
+          padding: 0 1.25rem;
 
           &:first-child{
-            padding-left:0;
+            padding-left: 0
           }
           &:last-child{
-            padding-right:0;
+            padding-right: 0
           }
 
           > .nav-link{
@@ -347,31 +347,35 @@
 
         &-external{
           position: relative;
-          padding:0 12px;
-          font-size:$font-size-base;
+          padding: 0 12px;
+          font-size: $font-size-base;
 
           &:first-child{
-            margin-left: 70px;
+            margin-left: 4rem;
             border:0;
 
             &:before{
               display: none;
             }
           }
+  
+          &:last-child{
+            padding-right: 20px
+          }
 
           > .nav-link{
-            color:$text-dark;
-            opacity:.5;
+            color: $text-dark;
+            opacity: .5;
 
             @include hover-focus-active{
-              opacity:.7;
+              opacity: .7;
             }
           }
 
           i{
             vertical-align: middle;
-            margin-right:3px;
-            opacity:.5;
+            margin-right: 3px;
+            opacity: .5;
           }
         }
 
@@ -394,14 +398,13 @@
       &-link{
         display: inline-block;
         padding: 29.5px 0;
-        color:inherit;
+        color: inherit;
         font-size: $font-size-base;
       }
 
       &-sub-group{
         position: absolute;
-        min-width:200px;
-        //padding:15px 0;
+        min-width: 200px;
         background-color: $white;
         border-radius: $border-radius-small;
         box-shadow: 9px 9px 25px rgba($black, .25);
@@ -418,7 +421,7 @@
         
         .nav-link{
           font-size: $font-size-base;
-          padding:7px 20px 7px 35px;
+          padding: 7px 20px 7px 35px;
         }
       }
     }
@@ -430,9 +433,9 @@
 // 모바일에서 메뉴열기 버튼
 .menu {
   position: relative;
-  z-index:500;
+  z-index: 500;
   top: 0;
-  right:0;
+  right: 0;
   overflow: hidden;
   width: $menu-size;
   height: $menu-size;

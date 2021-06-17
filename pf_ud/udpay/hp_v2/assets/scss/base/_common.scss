@@ -195,6 +195,7 @@ a.under, button.under{
 //
 // scroll top button
 .scroll-top {
+  display: none;
   position: fixed;
   right: 30px;
   bottom: 30px;
@@ -230,6 +231,79 @@ a.under, button.under{
       font-size: 2rem;
       line-height: 4rem;
     }
+  }
+}
+
+    
+// 도형 효과 추가
+[class^="shape-"] {
+  position: absolute;
+  
+  img {
+    width: 100%;
+  }
+}
+.shape{
+  &-dot {
+    width: 13rem;
+    height: 13rem;
+  
+    @include res(sm) {
+      width: 18rem;
+      height: 18rem;
+    }
+    img {
+      transform: rotate(-18deg);
+      opacity: .2;
+    }
+  }
+  &-left1 {
+    top: 76px;
+    left: -84px;
+  }
+  &-left2 {
+    top: 22%;
+    left: 8%;
+    width: 4rem;
+    height: 4rem;
+  
+    @include res(sm) {
+      top: 48%;
+      left: 14%;
+      width: 5.85rem;
+      height: 5.85rem;
+    }
+  }
+  &-circle {
+    width: 6.64rem;
+    height: 6.64rem;
+    background-color: $primary;
+    border-radius: 50%;
+  
+    @include res(sm) {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  &-right1 {
+    top: 6%;
+    right: 17%;
+  }
+  &-right2 {
+    bottom: 22%;
+    right: 24%;
+  }
+  &-half {
+    width: 4.8rem;
+    height: 2.4rem;
+    background-color:$red;
+    border-top-left-radius: 3.2rem;
+    border-top-right-radius: 3.2rem;
+    transform: rotate(-15deg);
+  }
+  &-right3 {
+    bottom: 0;
+    right: -44px;
   }
 }
 
