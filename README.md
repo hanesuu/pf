@@ -1,5 +1,19 @@
-# Web Portfolio 2018-2020
+# Web Portfolio 2018-2021
 서비스 디자인 퍼블리싱 / 최신순
+
+## UDPAY 리셀러 - 간편결제 API 연동 서비스
+
+### API 관리자
+ - https://hanesuu.github.io/pf/pf_ud/udpay/manage/views/
+ - Vue.js, HTML5, SASS(SCSS)
+ - Responsive Web
+ - Chrome, Firefox, Safari, IE11+
+
+### 리셀러 소개 페이지
+ - https://hanesuu.github.io/pf/pf_ud/udpay/hp_v2/reseller/
+ - HTML5, jQuery, SASS(SCSS)
+ - Responsive Web
+ - Chrome, Firefox, Safari, IE11+
 
 
 ## UDRMS - 서비스 종합 관리
@@ -12,6 +26,7 @@
 
 
 ## Pay&API - API 연동 마진 관리
+
 ### 리셀러 관리자
  - https://hanesuu.github.io/pf/pf_ud/pna/reseller_v2/pages/
  - Vue.js, HTML5, SASS(SCSS)
