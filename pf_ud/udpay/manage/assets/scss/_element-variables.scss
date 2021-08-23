@@ -377,7 +377,7 @@
 
     &:hover, &.is-plain {
       color: $color-success;
-      border-color: lighten($color-success, 20%);
+      border-color: rgba($color-success, .5);
       background: $color-white;
     }
   }
